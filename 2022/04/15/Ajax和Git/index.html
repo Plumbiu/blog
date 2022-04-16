@@ -5,19 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 6.1.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/blog/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"plumbiu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"plumbiu.github.io","root":"/blog/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="一：服务器基本概念与初识Ajax  1.客户端与服务器1.1上网的目的 上网的本质目的：通过互联网的形式来获取和消费资源。 1.2服务器上网过程中，负责存放和对外提供资源的电脑，叫做服务器。  1.3客户端上网过程中，负责获取和消费资源的电脑，叫做客户端。  2.URL地址2.1URL地址的概念URL (全称是UniformResourceLocator)中文叫统一资源定位符，用于标识互联网上每个">
@@ -221,7 +221,7 @@
 
   <div class="site-meta">
 
-    <a href="/" class="brand" rel="start">
+    <a href="/blog/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <h1 class="site-title">Brickleの博客</h1>
       <span class="logo-line-after"><i></i></span>
@@ -242,22 +242,22 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+    <a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+    <a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+    <a href="/blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -318,7 +318,7 @@
     <link itemprop="mainEntityOfPage" href="https://plumbiu.github.io/blog/2022/04/15/Ajax%E5%92%8CGit/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/region.jpg">
+      <meta itemprop="image" content="/blog/images/region.jpg">
       <meta itemprop="name" content="Plumbiu">
       <meta itemprop="description" content="这家伙很勤奋，啥都没留">
     </span>
@@ -353,7 +353,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                  <a href="/blog/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
                 </span>
             </span>
 
@@ -1215,7 +1215,7 @@
 <p> ① id_rsa (私钥文件，存放于客户端的电脑中间即可)</p>
 <p> ② id_rsa.pub (公钥文件，需要配置到 Github 中)</p>
 <h5 id="4-2-4-生成-SSH-key"><a href="#4-2-4-生成-SSH-key" class="headerlink" title="4.2.4 生成 SSH key"></a>4.2.4 生成 SSH key</h5><p>① 打开 Git Bash</p>
-<p>② 填写如下的命令，并将 <a href="mailto:&#121;&#111;&#117;&#114;&#x5f;&#x65;&#109;&#97;&#105;&#x6c;&#x40;&#x65;&#120;&#97;&#109;&#x70;&#x6c;&#x65;&#46;&#x63;&#111;&#x6d;">&#121;&#111;&#117;&#114;&#x5f;&#x65;&#109;&#97;&#105;&#x6c;&#x40;&#x65;&#120;&#97;&#109;&#x70;&#x6c;&#x65;&#46;&#x63;&#111;&#x6d;</a> 替换为账号时填写的邮箱：</p>
+<p>② 填写如下的命令，并将 <a href="mailto:&#121;&#x6f;&#x75;&#114;&#95;&#101;&#x6d;&#x61;&#x69;&#x6c;&#x40;&#x65;&#120;&#97;&#x6d;&#112;&#x6c;&#101;&#46;&#x63;&#x6f;&#x6d;">&#121;&#x6f;&#x75;&#114;&#95;&#101;&#x6d;&#x61;&#x69;&#x6c;&#x40;&#x65;&#120;&#97;&#x6d;&#112;&#x6c;&#101;&#46;&#x63;&#x6f;&#x6d;</a> 替换为账号时填写的邮箱：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;3434909403@qq.com&quot;</span><br></pre></td></tr></table></figure>
 
 <p>③ 连续敲击 3 次回车，即可在：C:\User\用户名文件夹.ssh 目录中生成 id_rsa 和 id_rsa_pub 两个文件</p>
@@ -1337,12 +1337,12 @@
   <div id="qr" style="display: none;">
       
       <div style="display: inline-block;">
-        <img src="/images/wechatpay.png" alt="Plumbiu 微信支付">
+        <img src="/blog/images/wechatpay.png" alt="Plumbiu 微信支付">
         <p>微信支付</p>
       </div>
       
       <div style="display: inline-block;">
-        <img src="/images/paypal.png" alt="Plumbiu 贝宝">
+        <img src="/blog/images/paypal.png" alt="Plumbiu 贝宝">
         <p>贝宝</p>
       </div>
 
@@ -1353,8 +1353,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fa-telegram"></i> 笔记</a>
-              <a href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag"><i class="fa-telegram"></i> 网络</a>
+              <a href="/blog/tags/%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fa-telegram"></i> 笔记</a>
+              <a href="/blog/tags/%E7%BD%91%E7%BB%9C/" rel="tag"><i class="fa-telegram"></i> 网络</a>
           </div>
 
         
@@ -1363,12 +1363,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/04/15/H5C3/" rel="prev" title="我的第一个博客文章.ms">
-      <i class="fa fa-chevron-left"></i> 我的第一个博客文章.ms
+    <a href="/blog/2022/04/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-1/" rel="prev" title="计算机网络">
+      <i class="fa fa-chevron-left"></i> 计算机网络
     </a></div>
       <div class="post-nav-item">
-    <a href="/2022/04/15/CSSHTML%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" rel="next" title="代码规范">
-      代码规范 <i class="fa fa-chevron-right"></i>
+    <a href="/blog/2022/04/15/H5C3/" rel="next" title="我的第一个博客文章.ms">
+      我的第一个博客文章.ms <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -1435,27 +1435,27 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Plumbiu"
-      src="/images/region.jpg">
+      src="/blog/images/region.jpg">
   <p class="site-author-name" itemprop="name">Plumbiu</p>
   <div class="site-description" itemprop="description">这家伙很勤奋，啥都没留</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+          <a href="/blog/archives/">
         
           <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
+            <a href="/blog/categories/">
           
         <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
+            <a href="/blog/tags/">
           
         <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
@@ -1467,7 +1467,7 @@
         <a href="https://github.com/Plumbiu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Plumbiu" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="/3434909403@qq.com" title="E-Mail → 3434909403@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+        <a href="/blog/3434909403@qq.com" title="E-Mail → 3434909403@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
   </div>
 
@@ -1533,31 +1533,31 @@
   </div>
 
   
-  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  <script size="300" alpha="0.6" zIndex="-1" src="/blog/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/utils.js"></script>
+<script src="/blog/js/utils.js"></script>
 
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
+<script src="/blog/js/motion.js"></script>
 
 
-<script src="/js/next-boot.js"></script>
+<script src="/blog/js/schemes/pisces.js"></script>
 
 
-
-
-  
+<script src="/blog/js/next-boot.js"></script>
 
 
 
 
   
-<script src="/js/local-search.js"></script>
+
+
+
+
+  
+<script src="/blog/js/local-search.js"></script>
 
 
 
