@@ -5,9 +5,9 @@
     <url>/blog/2022/04/15/Ajax%E5%92%8CGit/</url>
     <content><![CDATA[<h1 id="一：服务器基本概念与初识Ajax"><a href="#一：服务器基本概念与初识Ajax" class="headerlink" title="一：服务器基本概念与初识Ajax"></a>一：服务器基本概念与初识Ajax</h1><span id="more"></span>
 
+
 <h2 id="1-客户端与服务器"><a href="#1-客户端与服务器" class="headerlink" title="1.客户端与服务器"></a>1.客户端与服务器</h2><h3 id="1-1上网的目的"><a href="#1-1上网的目的" class="headerlink" title="1.1上网的目的"></a>1.1上网的目的</h3><p>上网的本质目的：通过互联网的形式来获取和消费资源。</p>
 <h3 id="1-2服务器"><a href="#1-2服务器" class="headerlink" title="1.2服务器"></a>1.2服务器</h3><p>上网过程中，负责存放和对外提供资源的电脑，叫做服务器。</p>
-<hr>
 <p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220304232124.png"></p>
 <h3 id="1-3客户端"><a href="#1-3客户端" class="headerlink" title="1.3客户端"></a>1.3客户端</h3><p>上网过程中，负责获取和消费资源的电脑，叫做客户端。</p>
 <p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220304232204.png"></p>
@@ -843,7 +843,7 @@
 <p> ① id_rsa (私钥文件，存放于客户端的电脑中间即可)</p>
 <p> ② id_rsa.pub (公钥文件，需要配置到 Github 中)</p>
 <h5 id="4-2-4-生成-SSH-key"><a href="#4-2-4-生成-SSH-key" class="headerlink" title="4.2.4 生成 SSH key"></a>4.2.4 生成 SSH key</h5><p>① 打开 Git Bash</p>
-<p>② 填写如下的命令，并将 <a href="mailto:&#x79;&#x6f;&#x75;&#x72;&#x5f;&#101;&#x6d;&#97;&#x69;&#108;&#x40;&#101;&#120;&#97;&#109;&#112;&#x6c;&#101;&#x2e;&#x63;&#x6f;&#109;">&#x79;&#x6f;&#x75;&#x72;&#x5f;&#101;&#x6d;&#97;&#x69;&#108;&#x40;&#101;&#120;&#97;&#109;&#112;&#x6c;&#101;&#x2e;&#x63;&#x6f;&#109;</a> 替换为账号时填写的邮箱：</p>
+<p>② 填写如下的命令，并将 <a href="mailto:&#x79;&#111;&#x75;&#114;&#x5f;&#101;&#109;&#x61;&#105;&#x6c;&#64;&#101;&#120;&#x61;&#109;&#x70;&#108;&#101;&#46;&#x63;&#x6f;&#x6d;">&#x79;&#111;&#x75;&#114;&#x5f;&#101;&#109;&#x61;&#105;&#x6c;&#64;&#101;&#120;&#x61;&#109;&#x70;&#108;&#101;&#46;&#x63;&#x6f;&#x6d;</a> 替换为账号时填写的邮箱：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;3434909403@qq.com&quot;</span><br></pre></td></tr></table></figure>
 
 <p>③ 连续敲击 3 次回车，即可在：C:\User\用户名文件夹.ssh 目录中生成 id_rsa 和 id_rsa_pub 两个文件</p>
@@ -951,161 +951,6 @@
 <p>  git push -u origin 新分支名称</p>
 <p>  git checkout 分支名称</p>
 <p>  git branch</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>HTML、CSS</title>
-    <url>/blog/2022/04/15/H5C3/</url>
-    <content><![CDATA[<h1 id="1-HTML5的新特性"><a href="#1-HTML5的新特性" class="headerlink" title="1.HTML5的新特性"></a>1.HTML5的新特性</h1><span id="more"></span>
-
-<img src="https://plumbiu.github.io/images/QQ截图20220130132717.png" style="zoom:80%;" />
-
-<img src="https://plumbiu.github.io/images/QQ截图20220130132756.png" style="zoom:80%;" />
-
-<p>HTML5的新增特性主要是针对于以前的不足，增加了一些新的标签、新的表单和新的表单属性等。</p>
-<p>这些新特性都有兼容性的问题，基本是IE9+以上版本的浏览器才支持，如果不考虑兼容性问题，可以大量使用这些新特性。</p>
-<h3 id="1-1HTML5-新增的语义化标签"><a href="#1-1HTML5-新增的语义化标签" class="headerlink" title="1.1HTML5 新增的语义化标签"></a>1.1HTML5 新增的语义化标签</h3><p>以前布局，我们基本用div来做。div对于搜索引擎来说，是没有语义的。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/* 以前布局写法 */</span><br><span class="line">&lt;div class=&quot;header&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;nav&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;footer&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;header&gt;:头部标签</span><br><span class="line">&lt;nav&gt;:导航标签</span><br><span class="line">&lt;article&gt;:内容标签</span><br><span class="line">&lt;section&gt;:定义文档某个区域</span><br><span class="line">&lt;aside&gt;:侧边栏标签</span><br><span class="line">&lt;footer&gt;:尾部标签</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220130134236.png"></p>
-<p>注意:<br>这种语义化标准主要是针对搜索引擎的<br>这些新标签页面中可以使用多次<br>在IE9中，需要把这些元素转换为块级元素<br>其实，我们移动端更喜欢使用这些标签<br>HTML5还增加了很多其他标签，我们后面再慢慢学</p>
-<h3 id="1-2HTML5新增的多媒体标签"><a href="#1-2HTML5新增的多媒体标签" class="headerlink" title="1.2HTML5新增的多媒体标签"></a>1.2HTML5新增的多媒体标签</h3><p>新增的多媒体标签主要包含两个：1.音频： <audio> 2.视频: <video></p>
-<p>使用它们可以很方便的在页面中嵌入音频和视频，而不用去使用flash和其他浏览器插件。</p>
-<h5 id="1-2-1视频"><a href="#1-2-1视频" class="headerlink" title="1.2.1视频"></a>1.2.1视频<video></h5><p>当前<video>元素支持三种视频格式：尽量使用mp4格式</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220130135330.png"></p>
-<p>语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;video src=&quot;文件地址&quot; controls=&quot;controls&quot;&gt;&lt;/video&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;video controls=&quot;controls&quot; width=&quot;300&quot;&gt;</span><br><span class="line">	&lt;source src=&quot;move.ogg&quot; type=&quot;video/ogg&quot;&gt;</span><br><span class="line">	&lt;sourse src=&quot;move.mp4&quot; type=&quot;video/mp4&quot;&gt;</span><br><span class="line">	您的浏览器暂不支持&lt;video&gt;标签播放视频</span><br><span class="line">&lt;/video&gt;</span><br></pre></td></tr></table></figure>
-
-<p>常见属性：</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220130140140.png"></p>
-<h5 id="1-2-2音频"><a href="#1-2-2音频" class="headerlink" title="1.2.2音频"></a>1.2.2音频<audio></h5><p>当前<audio>元素仅支持三种音频格式：</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220130140854.png"></p>
-<p>语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;audio src=&quot;文件地址&quot; controls=&quot;controls&quot;&gt;&lt;/audio&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;audio controls=&quot; controls&quot;&gt;</span><br><span class="line">	&lt;source src=&quot;happy.mp3&quot; type=&quot;audio/ mpeg&quot; &gt;</span><br><span class="line">	&lt;source src=&quot;happy.ogg&quot; type=&quot;audiol ogg&quot; &gt;</span><br><span class="line">	您的浏览器暂不支持&lt;audio&gt;标签。</span><br><span class="line">&lt;/ audio&gt;</span><br></pre></td></tr></table></figure>
-
-<p>常见属性:</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220130141251.png"></p>
-<p>谷歌浏览器把音频和视频自动播放禁止了</p>
-<h5 id="1-2-3多媒体标签总结"><a href="#1-2-3多媒体标签总结" class="headerlink" title="1.2.3多媒体标签总结"></a>1.2.3多媒体标签总结</h5><p>音频标签和视频标签使用方式基本一致</p>
-<p>浏览器支持情况不同</p>
-<p>谷歌浏览器把音频和视频自动播放禁止了</p>
-<p>我们可以给视频标签添加 muted 属性来静音播放视频，音频不可以（可以通过JavaScript解决）</p>
-<p>视频标签是重点，我们经常设置自动播放，不是用controls控件，循环和设置大小属性</p>
-<h3 id="1-3HTML5新增的-input-类型"><a href="#1-3HTML5新增的-input-类型" class="headerlink" title="1.3HTML5新增的 input 类型"></a>1.3HTML5新增的 input 类型</h3><p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220130141831.png"></p>
-<h3 id="1-4HTML5新增的表单属性"><a href="#1-4HTML5新增的表单属性" class="headerlink" title="1.4HTML5新增的表单属性"></a>1.4HTML5新增的表单属性</h3><p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220130142759.png"></p>
-<p>可以通过以下设置方式修改placeholder里面的字体颜色：</p>
-<p>input::placeholder {	color: purple;	}</p>
-<h1 id="2-CSS3的新特性"><a href="#2-CSS3的新特性" class="headerlink" title="2.CSS3的新特性"></a>2.CSS3的新特性</h1><p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220130160800.png"></p>
-<h3 id="2-1CSS3新增选择器"><a href="#2-1CSS3新增选择器" class="headerlink" title="2.1CSS3新增选择器"></a>2.1CSS3新增选择器</h3><h5 id="2-1-1属性选择器"><a href="#2-1-1属性选择器" class="headerlink" title="2.1.1属性选择器"></a>2.1.1属性选择器</h5><p>属性选择器可以根据元素特定属性来选择元素。这样就可以不用借助于类或者id选择器</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220130161037.png"></p>
-<p>注意：类选择器、属性选择器、伪类选择器 权重为10。</p>
-<h5 id="2-1-2结构伪类选择器"><a href="#2-1-2结构伪类选择器" class="headerlink" title="2.1.2结构伪类选择器"></a>2.1.2结构伪类选择器</h5><p>结构伪类选择器主要根据文档结构来选择元素，常用于根据父级选择器里面的子元素</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220130162925.png"></p>
-<p>nth-child(n) 选择某个父元素的一个或多个特定的子元素（n可以使数字、关键字和公式）</p>
-<p>​	如果n是数字，就是选择第n个元素</p>
-<p>​	nth-child(n)中的n可以使关键字：even(偶数)、odd(奇数)</p>
-<p>​	n可以是公式：常见的公式如下（如果n是公式，则从0开始计算，但是第0个元素或者超出了元素的个数被忽略）</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220130164400.png"></p>
-<p>区别：</p>
-<p>1.nth-child 对父元素所有孩子排序选择（序号是固定的），先找到第n个孩子，然后看看是否和E匹配</p>
-<p>2.nth-of-type 对父元素里面指定子元素进行排序选择。 先去匹配E，然后再根据E 找第n个元素</p>
-<h5 id="2-1-3伪元素选择器"><a href="#2-1-3伪元素选择器" class="headerlink" title="2.1.3伪元素选择器"></a>2.1.3伪元素选择器</h5><p>伪元素选择器可以帮我们利用CSS创建新标签元素，而不需要HTML标签，从而简化HTML结构。</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220130170904.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/* CSS3语法 */</span><br><span class="line">element::before &#123; 样式 &#125;</span><br><span class="line"></span><br><span class="line">/* （单冒号）CSS2 过时语法（仅用来支持IE8） */</span><br><span class="line">element:before &#123; 样式 &#125;</span><br><span class="line"></span><br><span class="line">/* 在每一个p元素前插入内容 */</span><br><span class="line">p::before &#123; content:&quot;Hello world!&quot; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意∶<br>before和after创建一个元素，但是属于行内元素</p>
-<p>新创建的这个元素在文档树中是找不到的，所以我们称为伪元素</p>
-<p>语法: element::before (</p>
-<p>before和after必须有content属性</p>
-<p>before在父元素内容的前面创建元素，after在父元素内容的后面插入元素</p>
-<p>伪元素选择器和标签选择器一样，权重为1</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        div &#123;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            background-color: skyblue;</span><br><span class="line">        &#125;</span><br><span class="line">        /* 默认是行内元素，不能设置大小，要转化或者定位或者浮动 */</span><br><span class="line">        div::before &#123;</span><br><span class="line">            /* 这个content必须要写 */</span><br><span class="line">            content:&quot;我&quot;;</span><br><span class="line">            width: 30px;</span><br><span class="line">            height: 40px;</span><br><span class="line">            background-color: purple;</span><br><span class="line">            display: inline-block;</span><br><span class="line">        &#125;</span><br><span class="line">        div::after &#123;</span><br><span class="line">            content: &quot;吴彦祖&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;div&quot;&gt;</span><br><span class="line">        是</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-2伪元素清除浮动"><a href="#2-2伪元素清除浮动" class="headerlink" title="2.2伪元素清除浮动"></a>2.2伪元素清除浮动</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.clearfix::after &#123;</span><br><span class="line">	content: &quot;&quot;;</span><br><span class="line">	display:  block;</span><br><span class="line">	height: 0;</span><br><span class="line">	clear: both;</span><br><span class="line">	visibility: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.clearfix::before,.clearfix::after &#123;</span><br><span class="line">	content: &quot;&quot;;</span><br><span class="line">	display: table;</span><br><span class="line">&#125;</span><br><span class="line">.clearfix::after &#123;</span><br><span class="line">	clear:both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-3CSS3盒子模型"><a href="#2-3CSS3盒子模型" class="headerlink" title="2.3CSS3盒子模型"></a>2.3CSS3盒子模型</h3><p>CSS3 中可以通过 box-sizing 来指定盒模型， 有两个值：即可指定为content-box、border-box，这样我们计算盒子大小的方式就发生了改变。</p>
-<p>可以分成两种情况：</p>
-<p>1.box-sizing:content-box 盒子大小为 width + padding + border （以前默认的）</p>
-<p>2.box-sizing:border-box 盒子大小为width</p>
-<p>如果盒子模型我们改为了box-sizing:border-box，那么padding和border就不会成大盒子了（前提是padding和border不会超过width宽度）</p>
-<h3 id="2-4CSS3其他特性"><a href="#2-4CSS3其他特性" class="headerlink" title="2.4CSS3其他特性"></a>2.4CSS3其他特性</h3><p>1.图片变模糊</p>
-<p>CSS3滤镜filter：filter CSS属性将模糊或颜色偏移等图形效果应用于元素。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">filter: 函数();/* 例如:filter:blur(5px); blur模糊处理 数值越大越模糊 */</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220205115336.png"></p>
-<p>2.计算盒子宽度 calc函数：</p>
-<p>calc()此CSS函数让你在声明CSS属性值时执行一些计算。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">width:calc(100% - 80px);</span><br></pre></td></tr></table></figure>
-
-<p>括号里面可以使用+ - * &#x2F;运算（两边都要有空格）</p>
-<h3 id="2-5CSS3过渡"><a href="#2-5CSS3过渡" class="headerlink" title="2.5CSS3过渡"></a>2.5CSS3过渡</h3><p>​	过渡（transition）是CSS3具有颠覆性的特征之一，我们可以在不使用Flash动画或JavaScript的情况下，当元素从一种样式变换为另一种样式时为元素添加效果。</p>
-<p>​	过度动画：是从一个状态 渐渐地过渡到另一个状态</p>
-<p>​	可以让我们页面更好看，动感十足，不支持低版本浏览器</p>
-<p>​	通常和:hover一起搭配使用</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">transition:要过度的属性 花费时间 运动曲线 何时开始;</span><br></pre></td></tr></table></figure>
-
-<p>1.属性︰想要变化的css属性，宽度高度背景颜色内外边距都可以。如果想要所有的属性都变化过渡，写一个all 就可以。</p>
-<p>⒉.花费时间:单位是秒(必须写单位)比如0.5s</p>
-<p>3.运动曲线:默认是ease(可以省略)</p>
-<p>4.何时开始︰单位是秒(必须写单位)可以设置延迟触发时间默认是0s（可以省略)</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220205121239.png"></p>
-<p>注意想要写多个属性，要用,进行分割</p>
-<h3 id="2-6CSS3-2D转换"><a href="#2-6CSS3-2D转换" class="headerlink" title="2.6CSS3 2D转换"></a>2.6CSS3 2D转换</h3><p>转换(transform)是CSS3中最具有颠覆性的特征值之一，可以实现元素的位移、旋转、缩放等效果</p>
-<p>转换(transform)可以简单理解为变形</p>
-<p>​    移动：translate</p>
-<p>​	旋转：rotate</p>
-<p>​	缩放：scale</p>
-<p>​	2D转换是改变标签在二维平面上的位置和形状的一种技术，网页二维坐标和数学中的有所区别</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220220200212.png"></p>
-<p> 移动 translate</p>
-<p>2D移动是2D转换里面的一种功能，可以改变元素在页面中的位置，类似定位。</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220220200337.png"></p>
-<p>​	语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">transform: translate(x,y); /* 或者分开写 */</span><br><span class="line">transform: translate(n);</span><br><span class="line">transform: translate(n);</span><br></pre></td></tr></table></figure>
-
-<p>​	重点：</p>
-<p>​		定义2D转换中的移动，沿着X和Y轴移动元素</p>
-<p>​		translate最大的优点：不会影响到其他元素的位置</p>
-<p>​		translate中的百分比单位是相对于自身元素的translate(50%,50%);</p>
-<p>​		对行内标签没有效果</p>
-<h3 id="2-7-2D转换之旋转rotate"><a href="#2-7-2D转换之旋转rotate" class="headerlink" title="2.7 2D转换之旋转	rotate"></a>2.7 2D转换之旋转	rotate</h3><p>2D旋转指的是让元素在2维平面内顺时针或者顺时针旋转。</p>
-<p>​	语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">transform:rotate(度数)</span><br></pre></td></tr></table></figure>
-
-<p>​	注意：</p>
-<p>​	rotate里面跟度数，单位是deg，比如 rotate(45deg)。</p>
-<p>​	角度为正时，顺时针旋转，负数逆时针。</p>
-<p>​	默认旋转中心点是元素的中心点。</p>
-<h3 id="2-8转换中心点transform-origin"><a href="#2-8转换中心点transform-origin" class="headerlink" title="2.8转换中心点transform-origin"></a>2.8转换中心点transform-origin</h3><p>我们可以设置元素转换的中心店</p>
-<p>​	语法</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">transform-origin: x y;</span><br></pre></td></tr></table></figure>
-
-<p>​	注意</p>
-<p>​	后面的参数x y用空格隔开</p>
-<p>​	x y默认转换的中心点是元素的中心点(50% 50%)</p>
-<p>​	还可以给x y设置 像素 或者 方位名词(top bottom left right center )</p>
-<h3 id="2-9缩放scale"><a href="#2-9缩放scale" class="headerlink" title="2.9缩放scale"></a>2.9缩放scale</h3><p>​	语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">transform: scale(x,y);</span><br><span class="line">/* x宽度，y高度 */</span><br></pre></td></tr></table></figure>
-
-<p>​	2.注意<br>​		其中的x和y用逗号分隔<br>​		transform:scale(1,1):宽和高都放大一倍，相对于没有放大		</p>
-<p>​		transform:scale(2,2):宽和高都放大了2倍</p>
-<p>​		transform:scale(2):只写一个参数，第二个参数则和第一个参数一样，相当于scale(2,2)</p>
-<p>​		transform:scale(0.5,0.5)∶缩小</p>
-<p>​		sacle缩放最大的优势:可以设置转换中心点缩放，默认以中心点缩放的，而且不影响其他盒子</p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -1909,22 +1754,166 @@
       </tags>
   </entry>
   <entry>
-    <title>Vue</title>
-    <url>/blog/2022/04/15/Vue/</url>
-    <content><![CDATA[<p>敬请期待</p>
-<span id="more"></span>]]></content>
+    <title>HTML、CSS</title>
+    <url>/blog/2022/04/15/H5C3/</url>
+    <content><![CDATA[<h1 id="1-HTML5的新特性"><a href="#1-HTML5的新特性" class="headerlink" title="1.HTML5的新特性"></a>1.HTML5的新特性</h1><span id="more"></span>
+
+
+<img src="https://plumbiu.github.io/images/QQ截图20220130132717.png" style="zoom:80%;" />
+
+<img src="https://plumbiu.github.io/images/QQ截图20220130132756.png" style="zoom:80%;" />
+
+<p>HTML5的新增特性主要是针对于以前的不足，增加了一些新的标签、新的表单和新的表单属性等。</p>
+<p>这些新特性都有兼容性的问题，基本是IE9+以上版本的浏览器才支持，如果不考虑兼容性问题，可以大量使用这些新特性。</p>
+<h3 id="1-1HTML5-新增的语义化标签"><a href="#1-1HTML5-新增的语义化标签" class="headerlink" title="1.1HTML5 新增的语义化标签"></a>1.1HTML5 新增的语义化标签</h3><p>以前布局，我们基本用div来做。div对于搜索引擎来说，是没有语义的。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/* 以前布局写法 */</span><br><span class="line">&lt;div class=&quot;header&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;nav&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;footer&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;header&gt;:头部标签</span><br><span class="line">&lt;nav&gt;:导航标签</span><br><span class="line">&lt;article&gt;:内容标签</span><br><span class="line">&lt;section&gt;:定义文档某个区域</span><br><span class="line">&lt;aside&gt;:侧边栏标签</span><br><span class="line">&lt;footer&gt;:尾部标签</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220130134236.png"></p>
+<p>注意:<br>这种语义化标准主要是针对搜索引擎的<br>这些新标签页面中可以使用多次<br>在IE9中，需要把这些元素转换为块级元素<br>其实，我们移动端更喜欢使用这些标签<br>HTML5还增加了很多其他标签，我们后面再慢慢学</p>
+<h3 id="1-2HTML5新增的多媒体标签"><a href="#1-2HTML5新增的多媒体标签" class="headerlink" title="1.2HTML5新增的多媒体标签"></a>1.2HTML5新增的多媒体标签</h3><p>新增的多媒体标签主要包含两个：1.音频： <audio> 2.视频: <video></p>
+<p>使用它们可以很方便的在页面中嵌入音频和视频，而不用去使用flash和其他浏览器插件。</p>
+<h5 id="1-2-1视频"><a href="#1-2-1视频" class="headerlink" title="1.2.1视频"></a>1.2.1视频<video></h5><p>当前<video>元素支持三种视频格式：尽量使用mp4格式</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220130135330.png"></p>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;video src=&quot;文件地址&quot; controls=&quot;controls&quot;&gt;&lt;/video&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;video controls=&quot;controls&quot; width=&quot;300&quot;&gt;</span><br><span class="line">	&lt;source src=&quot;move.ogg&quot; type=&quot;video/ogg&quot;&gt;</span><br><span class="line">	&lt;sourse src=&quot;move.mp4&quot; type=&quot;video/mp4&quot;&gt;</span><br><span class="line">	您的浏览器暂不支持&lt;video&gt;标签播放视频</span><br><span class="line">&lt;/video&gt;</span><br></pre></td></tr></table></figure>
+
+<p>常见属性：</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220130140140.png"></p>
+<h5 id="1-2-2音频"><a href="#1-2-2音频" class="headerlink" title="1.2.2音频"></a>1.2.2音频<audio></h5><p>当前<audio>元素仅支持三种音频格式：</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220130140854.png"></p>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;audio src=&quot;文件地址&quot; controls=&quot;controls&quot;&gt;&lt;/audio&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;audio controls=&quot; controls&quot;&gt;</span><br><span class="line">	&lt;source src=&quot;happy.mp3&quot; type=&quot;audio/ mpeg&quot; &gt;</span><br><span class="line">	&lt;source src=&quot;happy.ogg&quot; type=&quot;audiol ogg&quot; &gt;</span><br><span class="line">	您的浏览器暂不支持&lt;audio&gt;标签。</span><br><span class="line">&lt;/ audio&gt;</span><br></pre></td></tr></table></figure>
+
+<p>常见属性:</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220130141251.png"></p>
+<p>谷歌浏览器把音频和视频自动播放禁止了</p>
+<h5 id="1-2-3多媒体标签总结"><a href="#1-2-3多媒体标签总结" class="headerlink" title="1.2.3多媒体标签总结"></a>1.2.3多媒体标签总结</h5><p>音频标签和视频标签使用方式基本一致</p>
+<p>浏览器支持情况不同</p>
+<p>谷歌浏览器把音频和视频自动播放禁止了</p>
+<p>我们可以给视频标签添加 muted 属性来静音播放视频，音频不可以（可以通过JavaScript解决）</p>
+<p>视频标签是重点，我们经常设置自动播放，不是用controls控件，循环和设置大小属性</p>
+<h3 id="1-3HTML5新增的-input-类型"><a href="#1-3HTML5新增的-input-类型" class="headerlink" title="1.3HTML5新增的 input 类型"></a>1.3HTML5新增的 input 类型</h3><p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220130141831.png"></p>
+<h3 id="1-4HTML5新增的表单属性"><a href="#1-4HTML5新增的表单属性" class="headerlink" title="1.4HTML5新增的表单属性"></a>1.4HTML5新增的表单属性</h3><p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220130142759.png"></p>
+<p>可以通过以下设置方式修改placeholder里面的字体颜色：</p>
+<p>input::placeholder {	color: purple;	}</p>
+<h1 id="2-CSS3的新特性"><a href="#2-CSS3的新特性" class="headerlink" title="2.CSS3的新特性"></a>2.CSS3的新特性</h1><p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220130160800.png"></p>
+<h3 id="2-1CSS3新增选择器"><a href="#2-1CSS3新增选择器" class="headerlink" title="2.1CSS3新增选择器"></a>2.1CSS3新增选择器</h3><h5 id="2-1-1属性选择器"><a href="#2-1-1属性选择器" class="headerlink" title="2.1.1属性选择器"></a>2.1.1属性选择器</h5><p>属性选择器可以根据元素特定属性来选择元素。这样就可以不用借助于类或者id选择器</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220130161037.png"></p>
+<p>注意：类选择器、属性选择器、伪类选择器 权重为10。</p>
+<h5 id="2-1-2结构伪类选择器"><a href="#2-1-2结构伪类选择器" class="headerlink" title="2.1.2结构伪类选择器"></a>2.1.2结构伪类选择器</h5><p>结构伪类选择器主要根据文档结构来选择元素，常用于根据父级选择器里面的子元素</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220130162925.png"></p>
+<p>nth-child(n) 选择某个父元素的一个或多个特定的子元素（n可以使数字、关键字和公式）</p>
+<p>​	如果n是数字，就是选择第n个元素</p>
+<p>​	nth-child(n)中的n可以使关键字：even(偶数)、odd(奇数)</p>
+<p>​	n可以是公式：常见的公式如下（如果n是公式，则从0开始计算，但是第0个元素或者超出了元素的个数被忽略）</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220130164400.png"></p>
+<p>区别：</p>
+<p>1.nth-child 对父元素所有孩子排序选择（序号是固定的），先找到第n个孩子，然后看看是否和E匹配</p>
+<p>2.nth-of-type 对父元素里面指定子元素进行排序选择。 先去匹配E，然后再根据E 找第n个元素</p>
+<h5 id="2-1-3伪元素选择器"><a href="#2-1-3伪元素选择器" class="headerlink" title="2.1.3伪元素选择器"></a>2.1.3伪元素选择器</h5><p>伪元素选择器可以帮我们利用CSS创建新标签元素，而不需要HTML标签，从而简化HTML结构。</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220130170904.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/* CSS3语法 */</span><br><span class="line">element::before &#123; 样式 &#125;</span><br><span class="line"></span><br><span class="line">/* （单冒号）CSS2 过时语法（仅用来支持IE8） */</span><br><span class="line">element:before &#123; 样式 &#125;</span><br><span class="line"></span><br><span class="line">/* 在每一个p元素前插入内容 */</span><br><span class="line">p::before &#123; content:&quot;Hello world!&quot; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意∶<br>before和after创建一个元素，但是属于行内元素</p>
+<p>新创建的这个元素在文档树中是找不到的，所以我们称为伪元素</p>
+<p>语法: element::before (</p>
+<p>before和after必须有content属性</p>
+<p>before在父元素内容的前面创建元素，after在父元素内容的后面插入元素</p>
+<p>伪元素选择器和标签选择器一样，权重为1</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        div &#123;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            background-color: skyblue;</span><br><span class="line">        &#125;</span><br><span class="line">        /* 默认是行内元素，不能设置大小，要转化或者定位或者浮动 */</span><br><span class="line">        div::before &#123;</span><br><span class="line">            /* 这个content必须要写 */</span><br><span class="line">            content:&quot;我&quot;;</span><br><span class="line">            width: 30px;</span><br><span class="line">            height: 40px;</span><br><span class="line">            background-color: purple;</span><br><span class="line">            display: inline-block;</span><br><span class="line">        &#125;</span><br><span class="line">        div::after &#123;</span><br><span class="line">            content: &quot;吴彦祖&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;div&quot;&gt;</span><br><span class="line">        是</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2伪元素清除浮动"><a href="#2-2伪元素清除浮动" class="headerlink" title="2.2伪元素清除浮动"></a>2.2伪元素清除浮动</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.clearfix::after &#123;</span><br><span class="line">	content: &quot;&quot;;</span><br><span class="line">	display:  block;</span><br><span class="line">	height: 0;</span><br><span class="line">	clear: both;</span><br><span class="line">	visibility: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.clearfix::before,.clearfix::after &#123;</span><br><span class="line">	content: &quot;&quot;;</span><br><span class="line">	display: table;</span><br><span class="line">&#125;</span><br><span class="line">.clearfix::after &#123;</span><br><span class="line">	clear:both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3CSS3盒子模型"><a href="#2-3CSS3盒子模型" class="headerlink" title="2.3CSS3盒子模型"></a>2.3CSS3盒子模型</h3><p>CSS3 中可以通过 box-sizing 来指定盒模型， 有两个值：即可指定为content-box、border-box，这样我们计算盒子大小的方式就发生了改变。</p>
+<p>可以分成两种情况：</p>
+<p>1.box-sizing:content-box 盒子大小为 width + padding + border （以前默认的）</p>
+<p>2.box-sizing:border-box 盒子大小为width</p>
+<p>如果盒子模型我们改为了box-sizing:border-box，那么padding和border就不会成大盒子了（前提是padding和border不会超过width宽度）</p>
+<h3 id="2-4CSS3其他特性"><a href="#2-4CSS3其他特性" class="headerlink" title="2.4CSS3其他特性"></a>2.4CSS3其他特性</h3><p>1.图片变模糊</p>
+<p>CSS3滤镜filter：filter CSS属性将模糊或颜色偏移等图形效果应用于元素。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">filter: 函数();/* 例如:filter:blur(5px); blur模糊处理 数值越大越模糊 */</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220205115336.png"></p>
+<p>2.计算盒子宽度 calc函数：</p>
+<p>calc()此CSS函数让你在声明CSS属性值时执行一些计算。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">width:calc(100% - 80px);</span><br></pre></td></tr></table></figure>
+
+<p>括号里面可以使用+ - * &#x2F;运算（两边都要有空格）</p>
+<h3 id="2-5CSS3过渡"><a href="#2-5CSS3过渡" class="headerlink" title="2.5CSS3过渡"></a>2.5CSS3过渡</h3><p>​	过渡（transition）是CSS3具有颠覆性的特征之一，我们可以在不使用Flash动画或JavaScript的情况下，当元素从一种样式变换为另一种样式时为元素添加效果。</p>
+<p>​	过度动画：是从一个状态 渐渐地过渡到另一个状态</p>
+<p>​	可以让我们页面更好看，动感十足，不支持低版本浏览器</p>
+<p>​	通常和:hover一起搭配使用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">transition:要过度的属性 花费时间 运动曲线 何时开始;</span><br></pre></td></tr></table></figure>
+
+<p>1.属性︰想要变化的css属性，宽度高度背景颜色内外边距都可以。如果想要所有的属性都变化过渡，写一个all 就可以。</p>
+<p>⒉.花费时间:单位是秒(必须写单位)比如0.5s</p>
+<p>3.运动曲线:默认是ease(可以省略)</p>
+<p>4.何时开始︰单位是秒(必须写单位)可以设置延迟触发时间默认是0s（可以省略)</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220205121239.png"></p>
+<p>注意想要写多个属性，要用,进行分割</p>
+<h3 id="2-6CSS3-2D转换"><a href="#2-6CSS3-2D转换" class="headerlink" title="2.6CSS3 2D转换"></a>2.6CSS3 2D转换</h3><p>转换(transform)是CSS3中最具有颠覆性的特征值之一，可以实现元素的位移、旋转、缩放等效果</p>
+<p>转换(transform)可以简单理解为变形</p>
+<p>​    移动：translate</p>
+<p>​	旋转：rotate</p>
+<p>​	缩放：scale</p>
+<p>​	2D转换是改变标签在二维平面上的位置和形状的一种技术，网页二维坐标和数学中的有所区别</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220220200212.png"></p>
+<p> 移动 translate</p>
+<p>2D移动是2D转换里面的一种功能，可以改变元素在页面中的位置，类似定位。</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220220200337.png"></p>
+<p>​	语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">transform: translate(x,y); /* 或者分开写 */</span><br><span class="line">transform: translate(n);</span><br><span class="line">transform: translate(n);</span><br></pre></td></tr></table></figure>
+
+<p>​	重点：</p>
+<p>​		定义2D转换中的移动，沿着X和Y轴移动元素</p>
+<p>​		translate最大的优点：不会影响到其他元素的位置</p>
+<p>​		translate中的百分比单位是相对于自身元素的translate(50%,50%);</p>
+<p>​		对行内标签没有效果</p>
+<h3 id="2-7-2D转换之旋转rotate"><a href="#2-7-2D转换之旋转rotate" class="headerlink" title="2.7 2D转换之旋转	rotate"></a>2.7 2D转换之旋转	rotate</h3><p>2D旋转指的是让元素在2维平面内顺时针或者顺时针旋转。</p>
+<p>​	语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">transform:rotate(度数)</span><br></pre></td></tr></table></figure>
+
+<p>​	注意：</p>
+<p>​	rotate里面跟度数，单位是deg，比如 rotate(45deg)。</p>
+<p>​	角度为正时，顺时针旋转，负数逆时针。</p>
+<p>​	默认旋转中心点是元素的中心点。</p>
+<h3 id="2-8转换中心点transform-origin"><a href="#2-8转换中心点transform-origin" class="headerlink" title="2.8转换中心点transform-origin"></a>2.8转换中心点transform-origin</h3><p>我们可以设置元素转换的中心店</p>
+<p>​	语法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">transform-origin: x y;</span><br></pre></td></tr></table></figure>
+
+<p>​	注意</p>
+<p>​	后面的参数x y用空格隔开</p>
+<p>​	x y默认转换的中心点是元素的中心点(50% 50%)</p>
+<p>​	还可以给x y设置 像素 或者 方位名词(top bottom left right center )</p>
+<h3 id="2-9缩放scale"><a href="#2-9缩放scale" class="headerlink" title="2.9缩放scale"></a>2.9缩放scale</h3><p>​	语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">transform: scale(x,y);</span><br><span class="line">/* x宽度，y高度 */</span><br></pre></td></tr></table></figure>
+
+<p>​	2.注意<br>​		其中的x和y用逗号分隔<br>​		transform:scale(1,1):宽和高都放大一倍，相对于没有放大		</p>
+<p>​		transform:scale(2,2):宽和高都放大了2倍</p>
+<p>​		transform:scale(2):只写一个参数，第二个参数则和第一个参数一样，相当于scale(2,2)</p>
+<p>​		transform:scale(0.5,0.5)∶缩小</p>
+<p>​		sacle缩放最大的优势:可以设置转换中心点缩放，默认以中心点缩放的，而且不影响其他盒子</p>
+]]></content>
       <categories>
-        <category>书本</category>
+        <category>前端</category>
       </categories>
       <tags>
         <tag>笔记</tag>
-        <tag>网络</tag>
       </tags>
   </entry>
   <entry>
     <title>HTML</title>
     <url>/blog/2022/04/15/HTML/</url>
     <content><![CDATA[<h1 id="1-网页"><a href="#1-网页" class="headerlink" title="1.网页"></a>1.网页</h1><span id="more"></span>
+
 
 <h3 id="1-1什么是网页"><a href="#1-1什么是网页" class="headerlink" title="1.1什么是网页"></a>1.1什么是网页</h3><p>​	网站是指在因特网上根据一定的规则，使用HTML等制作的用于展示特定内容相关的网页集合。</p>
 <p>​	网页时网站中的一“页”，通常是HTML格式的文件，他要通过浏览器来阅读。</p>
@@ -2164,9 +2153,25 @@
       </tags>
   </entry>
   <entry>
+    <title>Vue</title>
+    <url>/blog/2022/04/15/Vue/</url>
+    <content><![CDATA[<p>敬请期待</p>
+<span id="more"></span>
+
+]]></content>
+      <categories>
+        <category>书本</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>网络</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL</title>
     <url>/blog/2022/04/15/MySQL/</url>
     <content><![CDATA[<h1 id="1-数据库的基本概念"><a href="#1-数据库的基本概念" class="headerlink" title="1.数据库的基本概念"></a>1.数据库的基本概念</h1><span id="more"></span>
+
 
 <h3 id="1-1-什么是数据库"><a href="#1-1-什么是数据库" class="headerlink" title="1.1 什么是数据库"></a>1.1 什么是数据库</h3><p>数据库(database) 是用来组织、存储和管理数据的仓库。</p>
 <p>当今世界是一个充满着数据的互联网世界，充斥着大量的数据。数据的来源有很多，比如出行记录、消费记录、浏览的网页、发送的消息等等。除了文本类型的数据，图像、音乐、声音都是数据。</p>
@@ -2496,9 +2501,330 @@
       </tags>
   </entry>
   <entry>
+    <title>Express</title>
+    <url>/blog/2022/04/15/express/</url>
+    <content><![CDATA[<h1 id="1-初识-Express"><a href="#1-初识-Express" class="headerlink" title="1.初识 Express"></a>1.初识 Express</h1><span id="more"></span>
+
+
+<h3 id="1-1-Express-简介"><a href="#1-1-Express-简介" class="headerlink" title="1.1 Express 简介"></a>1.1 Express 简介</h3><h5 id="1-1-1-什么是-Express"><a href="#1-1-1-什么是-Express" class="headerlink" title="1.1.1 什么是 Express"></a>1.1.1 什么是 Express</h5><p>官方给出的概念：Express 是基于 Node.js 平台，快速、开方、极简的 Web 开发框架。</p>
+<p>通俗的理解：Express 的作用和 Node.js 内置的 http 模块类似，是专门用来创建 Web 服务器的。</p>
+<p>Express 的本质：就是一个 npm 上的第三方包，提供了快速创建 Web 服务器的便捷方法。</p>
+<p>Express 的中文官网: 	<a href="http://www.expressjs.com.cn/">http://www.expressjs.com.cn/</a></p>
+<h5 id="1-1-2-进一步理解-Express"><a href="#1-1-2-进一步理解-Express" class="headerlink" title="1.1.2 进一步理解 Express"></a>1.1.2 进一步理解 Express</h5><p>不是用 Express 可以创建服务器，使用 Node.js 原生的 http 模块。</p>
+<p>http 内置模块用起来很复杂，开发效率低。Express 是基于内置的 http 模块进一步封装的，能够极大的提高开发效率。</p>
+<h5 id="1-1-3-Express-能做什么"><a href="#1-1-3-Express-能做什么" class="headerlink" title="1.1.3 Express 能做什么"></a>1.1.3 Express 能做什么</h5><p>对于前端程序员来说，最常见的两种服务器，分别是：</p>
+<p>  Web 网站服务器：专门对外提供 Web 网页资源的服务器。</p>
+<p>  API 接口服务器：专门对外提供 API 接口的服务器。</p>
+<p>使用 Express，我们可以方便、快速的创建 Web 网站的服务器或 API 接口的服务器。</p>
+<h3 id="1-2-Express的基本使用"><a href="#1-2-Express的基本使用" class="headerlink" title="1.2 Express的基本使用"></a>1.2 Express的基本使用</h3><h5 id="1-2-1-安装"><a href="#1-2-1-安装" class="headerlink" title="1.2.1 安装"></a>1.2.1 安装</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm intall express</span><br></pre></td></tr></table></figure>
+
+<h5 id="1-2-2-创建基本的-Web-服务器"><a href="#1-2-2-创建基本的-Web-服务器" class="headerlink" title="1.2.2 创建基本的 Web 服务器"></a>1.2.2 创建基本的 Web 服务器</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1.导入 express</span></span><br><span class="line"><span class="keyword">const</span> express=<span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="comment">// 2.创建 web 服务器</span></span><br><span class="line"><span class="keyword">const</span> app=<span class="title function_">express</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.调用 app.listen(端口号,启动成功后的回调函数)，启动服务器</span></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">80</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;express server running at http://127.0.0.1&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="1-2-3-监听-GET-请求"><a href="#1-2-3-监听-GET-请求" class="headerlink" title="1.2.3 监听 GET 请求"></a>1.2.3 监听 GET 请求</h5><p>req：request 请求</p>
+<p>res：response 响应</p>
+<p>使用 app.get() 方法，可以监听客户端的 GET 请求，具体的语法格式如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="variable constant_">URL</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="comment">/* 处理函数 */</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 参数1: 客户端请求的 URL 地址</span></span><br><span class="line"><span class="comment">// 参数2: 请求对应的处理函数</span></span><br><span class="line"><span class="comment">//		req:请求对象 (包含了与请求相关的属性与方法)</span></span><br><span class="line"><span class="comment">//		res:响应对象 (包含了与响应相关的属性与方法)</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="1-2-4-监听-POST-请求"><a href="#1-2-4-监听-POST-请求" class="headerlink" title="1.2.4 监听 POST 请求"></a>1.2.4 监听 POST 请求</h5><p>通过 app.post() 方法，可以监听客户端的 POST 请求，具体的语法格式如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">POST</span>(<span class="variable constant_">URL</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="comment">/* 处理函数 */</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 参数1: 客户端请求的 URL 地址</span></span><br><span class="line"><span class="comment">// 参数2: 请求对应的处理函数</span></span><br><span class="line"><span class="comment">//		req:请求对象 (包含了与请求相关的属性与方法)</span></span><br><span class="line"><span class="comment">//		res:响应对象 (包含了与响应相关的属性与方法)</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="1-2-5-把相应内容响应给客户端"><a href="#1-2-5-把相应内容响应给客户端" class="headerlink" title="1.2.5 把相应内容响应给客户端"></a>1.2.5 把相应内容响应给客户端</h5><p>通过 res.send() 方法，可以把处理好的内容，发送给客户端:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/user&#x27;</span>,<span class="function">(<span class="params">res,req</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="comment">// 向客户端发送 JSON 对象</span></span><br><span class="line">	res.<span class="title function_">send</span>(&#123;<span class="attr">name</span>:<span class="string">&#x27;zs&#x27;</span>,<span class="attr">age</span>:<span class="number">20</span>,<span class="attr">gender</span>:<span class="string">&#x27;男&#x27;</span>&#125;)</span><br><span class="line">&#125;)</span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/user&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="comment">// 想客户端发送文本内容</span></span><br><span class="line">	res.<span class="title function_">send</span>(<span class="string">&#x27;请求成功&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="1-2-6-获取-URL-中携带的查询参数"><a href="#1-2-6-获取-URL-中携带的查询参数" class="headerlink" title="1.2.6 获取 URL 中携带的查询参数"></a>1.2.6 获取 URL 中携带的查询参数</h5><p>通过 req.query 对象，可以访问到客户端通过查询字符串的形式，发送到服务器的参数：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="comment">// req.query 默认是一个空对象</span></span><br><span class="line">	<span class="comment">// 客户端使用 ?name=zs&amp;age=20 这种查询字符串形式，发送到服务器的参数</span></span><br><span class="line">	<span class="comment">// 可以通过 req.query 对象访问到，例如:</span></span><br><span class="line">	<span class="comment">// req.query.name req.query.age</span></span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">query</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="1-2-7-获取-URL-中的动态参数"><a href="#1-2-7-获取-URL-中的动态参数" class="headerlink" title="1.2.7 获取 URL 中的动态参数"></a>1.2.7 获取 URL 中的动态参数</h5><p>通过 req.params 对象，可以访问到 URL 中，通过:匹配到的参数:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// URL 地址中,可以通过 :参数名 的形式，匹配动态参数值</span><br><span class="line">app.get(&#x27;/user/:id&#x27;,(req,res)=&gt;&#123;</span><br><span class="line">	// req.params 默认是一个空对象</span><br><span class="line">	// 里面存放着通过 : 动态匹配的参数值</span><br><span class="line">	console.log(req.params)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-托管静态资源"><a href="#1-3-托管静态资源" class="headerlink" title="1.3 托管静态资源"></a>1.3 托管静态资源</h3><h5 id="1-3-1-express-static"><a href="#1-3-1-express-static" class="headerlink" title="1.3.1 express.static()"></a>1.3.1 express.static()</h5><p>通过 express.static() 可以非常方便地创建一个静态资源服务器，例如，通过以下代码就可以将 public 目录下的图片、CSS文件、JavaScript 文件对外开放访问了：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">app.user(express,static(&#x27;public&#x27;))</span><br></pre></td></tr></table></figure>
+
+<p>现在，你就可以访问 public 目录中的所有文件了:</p>
+<p><a href="http://localhost:3000/images/bg.jpg">http://localhost:3000/images/bg.jpg</a></p>
+<p><a href="http://localhost:3000/css/style.css">http://localhost:3000/css/style.css</a></p>
+<p><a href="http://localhost:3000/js/login.js">http://localhost:3000/js/login.js</a></p>
+<p><strong>注意：</strong>Express 在指定的静态目录中查找文件，并对外提供资源的访问路径。因此，存放静态文件的目录名不会出现在 URL 中。</p>
+<h5 id="1-3-2-托管多个静态资源目录"><a href="#1-3-2-托管多个静态资源目录" class="headerlink" title="1.3.2 托管多个静态资源目录"></a>1.3.2 托管多个静态资源目录</h5><p>如果要托管多个静态资源目录，多次调用 express.static() 函数:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">app.use(express.static(&#x27;public&#x27;))</span><br><span class="line">app.use(express.static(&#x27;files&#x27;))</span><br></pre></td></tr></table></figure>
+
+<p>访问资源文件时，express.static() 函数会根据目录的添加顺序查找所需的文件。</p>
+<h5 id="1-3-3-挂载路径前缀"><a href="#1-3-3-挂载路径前缀" class="headerlink" title="1.3.3 挂载路径前缀"></a>1.3.3 挂载路径前缀</h5><p>如果希望在托管的静态资源访问路径之前，挂载路径前缀，则可以使用如下的方式：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">app.use(&#x27;/public&#x27;,express.static(&#x27;public&#x27;))</span><br></pre></td></tr></table></figure>
+
+<p>现在，你就可以通过带有 &#x2F;public 前缀地址来访问 public 目录中的文件了：</p>
+<p><a href="http://localhost:3000/public/images/kitten.jpg">http://localhost:3000/public/images/kitten.jpg</a></p>
+<p><a href="http://localhost:3000/public/css/style.css">http://localhost:3000/public/css/style.css</a></p>
+<p><a href="http://localhost3000/publicljs/app.js">http://localhost3000/publicljs/app.js</a></p>
+<h3 id="1-4-nodemon"><a href="#1-4-nodemon" class="headerlink" title="1.4 nodemon"></a>1.4 nodemon</h3><h5 id="1-4-1-为什么要使用-nodemon"><a href="#1-4-1-为什么要使用-nodemon" class="headerlink" title="1.4.1 为什么要使用 nodemon"></a>1.4.1 为什么要使用 nodemon</h5><p>在编写调用 Node.js 项目的时候，如果修改了项目的代码，则需要频繁的手动 close  掉，然后再重新启动，非常繁琐。</p>
+<p>可以使用 nodemon(<a href="http://www.npmjs.com/package/nodemon">http://www.npmjs.com/package/nodemon</a>) 这个工具，它能够监听项目文件的变动，当代码被修改后，nodemon 会自动帮我们重启项目，极大方便了开发和调试。</p>
+<h5 id="1-4-2-安装-nodemon"><a href="#1-4-2-安装-nodemon" class="headerlink" title="1.4.2 安装 nodemon"></a>1.4.2 安装 nodemon</h5><p>在终端中，运行如下命令，即可将 nodemon 安装为全局可用的工具：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm i -g nodemon</span><br></pre></td></tr></table></figure>
+
+<h5 id="1-4-3-使用-nodemon"><a href="#1-4-3-使用-nodemon" class="headerlink" title="1.4.3 使用 nodemon"></a>1.4.3 使用 nodemon</h5><p>当基于 Node.js 编写了一个网站应用的时候，传统的方式，是运行 node app.js 命令，来启动项目。这样做的坏处是：代码被修改之后，需要手动重启项目。</p>
+<p> 现在，我们可以将 node 命令替换为 nodemon 命令，使用 nodemon app.js 来启动项目。这样做的好处是：代码被修改之后，会被 nodemon 坚挺到，从而实现自动重启项目的效果。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">node app.<span class="property">js</span></span><br><span class="line"># 将上面的终端命令，替换为上面的终端命令，即可实现自动重启项目的效果</span><br><span class="line">nodemon app.<span class="property">js</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="2-Express-路由"><a href="#2-Express-路由" class="headerlink" title="2.Express 路由"></a>2.Express 路由</h1><h3 id="2-1-路由的概念"><a href="#2-1-路由的概念" class="headerlink" title="2.1 路由的概念"></a>2.1 路由的概念</h3><h5 id="2-1-1-什么是路由"><a href="#2-1-1-什么是路由" class="headerlink" title="2.1.1 什么是路由"></a>2.1.1 什么是路由</h5><p>广义上来讲，路由就是映射关系。</p>
+<h5 id="2-1-2-现实生活中的路由"><a href="#2-1-2-现实生活中的路由" class="headerlink" title="2.1.2 现实生活中的路由"></a>2.1.2 现实生活中的路由</h5><p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220321201403.png"></p>
+<p>在这里，路由是按键与服务之间的映射关系</p>
+<h5 id="2-1-3-Express-中的路由"><a href="#2-1-3-Express-中的路由" class="headerlink" title="2.1.3 Express 中的路由"></a>2.1.3 Express 中的路由</h5><p>在 Express 中，路由指的是客户端的请求与服务器处理函数之间的映射关系。</p>
+<p>Express 中的路由分 3 部分组成，分别是请求的类型、请求的 URL 地址、处理函数，格式如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">METHOD</span>(<span class="variable constant_">PATH</span>,<span class="variable constant_">HEADLER</span>)</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-1-4-Express-中路由的例子"><a href="#2-1-4-Express-中路由的例子" class="headerlink" title="2.1.4 Express 中路由的例子"></a>2.1.4 Express 中路由的例子</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 匹配 GET 请求，且请求 URL 为 /</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	res.<span class="title function_">send</span>(<span class="string">&#x27;Hello World!&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配 POST 请求，且请求 URL 为 /</span></span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	res.<span class="title function_">send</span>(<span class="string">&#x27;Got a POST request&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-1-5-路由的匹配过程"><a href="#2-1-5-路由的匹配过程" class="headerlink" title="2.1.5 路由的匹配过程"></a>2.1.5 路由的匹配过程</h5><p>每当一个请求到达服务器之后，需要先经过路由的匹配，只有匹配成功之后，才会调用对应的处理函数。</p>
+<p>在匹配时，会按照路由的顺序进行匹配，如果请求类型和请求的 URL 同时匹配成功，则 Express 会将这次请求，转交给对应的 function 函数进行处理。</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220321202324.png"></p>
+<p>路由匹配的注意点：</p>
+<p>① 按照定义的先后顺序进行匹配</p>
+<p>② 请求类型和请求的URL同时匹配成功，才会调用对应的处理函数</p>
+<h3 id="2-2-路由的使用"><a href="#2-2-路由的使用" class="headerlink" title="2.2 路由的使用"></a>2.2 路由的使用</h3><h5 id="2-2-1-最简单的用法"><a href="#2-2-1-最简单的用法" class="headerlink" title="2.2.1 最简单的用法"></a>2.2.1 最简单的用法</h5><p>在 Express 中使用路由的最简单方式，就是把路由挂载到 app 上，示例代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> express=<span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>)</span><br><span class="line"><span class="comment">// 创建 Web 服务器，命名为 app</span></span><br><span class="line"><span class="keyword">const</span> app=<span class="title function_">express</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 挂载路由</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;res.<span class="title function_">send</span>(<span class="string">&#x27;Hello World.&#x27;</span>)&#125;)</span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;res.<span class="title function_">send</span>(<span class="string">&#x27;Post Request.&#x27;</span>)&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 启动 Web 服务器</span></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">80</span>,<span class="function">()=&gt;</span>&#123;<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;server running at http://127.0.0.1&#x27;</span>)&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-2-2-模块化路由"><a href="#2-2-2-模块化路由" class="headerlink" title="2.2.2 模块化路由"></a>2.2.2 模块化路由</h5><p>为了方便对路由进行模块化的管理，Express 不建议将路由直接挂载到 app 上，而是推荐将路由抽离为单独的模块。</p>
+<p>将路由抽离为单独模块的步骤如下：<br>① 创建路由模块对应的 .js 文件</p>
+<p>② 调用 express.Router() 函数创建路由对象</p>
+<p>③ 向路由对象上挂载具体的路由</p>
+<p>④ 使用 module.exports 向外共享路由对象</p>
+<p>⑤ 使用 app.use() 函数注册路由模块</p>
+<h5 id="2-2-3-创建路由模块"><a href="#2-2-3-创建路由模块" class="headerlink" title="2.2.3 创建路由模块"></a>2.2.3 创建路由模块</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> express=<span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>)			<span class="comment">// 1.导入 express</span></span><br><span class="line"><span class="keyword">const</span> router=express.<span class="title class_">Router</span>()				<span class="comment">// 2.创建路由对象</span></span><br><span class="line"></span><br><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;/user/list&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;		<span class="comment">// 3.挂载获取用户列表的路由</span></span><br><span class="line">	res.<span class="title function_">send</span>(<span class="string">&#x27;Get user list.&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">router.<span class="title function_">post</span>(<span class="string">&#x27;/user/add&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;		<span class="comment">// 4.挂载添加用户的路由</span></span><br><span class="line">	res.<span class="title function_">send</span>(<span class="string">&#x27;Add new user&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>=router						<span class="comment">// 5.向外导出路由对象</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="2-2-4-注册路由模块"><a href="#2-2-4-注册路由模块" class="headerlink" title="2.2.4 注册路由模块"></a>2.2.4 注册路由模块</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 1.导入路由模块</span><br><span class="line">const userRouter=require(&#x27;./router/user.js&#x27;)</span><br><span class="line"></span><br><span class="line">// 2.使用 app.use() 注册路由模块</span><br><span class="line">app.use(userRouter)</span><br></pre></td></tr></table></figure>
+
+<p>注意： app.use() 函数的作用，就是来注册全局中间件</p>
+<h5 id="2-2-5-为路由模块添加前缀"><a href="#2-2-5-为路由模块添加前缀" class="headerlink" title="2.2.5 为路由模块添加前缀"></a>2.2.5 为路由模块添加前缀</h5><p>类似于托管静态资源，为静态资源挂载访问前缀一样，路由模块添加前缀的方式也非常简单：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1.导入路由模块</span></span><br><span class="line"><span class="keyword">const</span> userRouter=<span class="built_in">require</span>(<span class="string">&#x27;./router/user.js&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.使用 app.use() 注册路由模块，并添加统一的访问前缀 /api</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="string">&#x27;/api&#x27;</span>,useR)</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-Expres-中间件"><a href="#3-Expres-中间件" class="headerlink" title="3.Expres 中间件"></a>3.Expres 中间件</h1><h3 id="3-1-中间件的概念"><a href="#3-1-中间件的概念" class="headerlink" title="3.1 中间件的概念"></a>3.1 中间件的概念</h3><h5 id="3-1-1-什么是中间件"><a href="#3-1-1-什么是中间件" class="headerlink" title="3.1.1 什么是中间件"></a>3.1.1 什么是中间件</h5><p>中间件 (Middleware)，特指业务流程的中间处理环节。</p>
+<h5 id="3-1-2-生活中的例子"><a href="#3-1-2-生活中的例子" class="headerlink" title="3.1.2 生活中的例子"></a>3.1.2 生活中的例子</h5><p>处理污水的时候，一般要经过三个处理环节，从而保证处理过后的废水，达到排放标准。</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220322141124.png"></p>
+<p>处理污水的这三个中间处理环节，就可以叫做中间件。</p>
+<h5 id="3-1-3-Express-中间件的调用流程"><a href="#3-1-3-Express-中间件的调用流程" class="headerlink" title="3.1.3 Express 中间件的调用流程"></a>3.1.3 Express 中间件的调用流程</h5><p>当一个请求到达 Express 的服务器之后，可以连续调用多个中间件，从而对这次请求进行预处理。</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220322141237.png"></p>
+<h5 id="3-1-4-Express-中间件的格式"><a href="#3-1-4-Express-中间件的格式" class="headerlink" title="3.1.4 Express 中间件的格式"></a>3.1.4 Express 中间件的格式</h5><p>Expess 的中间件，本质上就是一个 function 处理函数，Express 中渐渐地格式如下：</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220322141553.png"></p>
+<p>注意：中间件函数的形参列表中，必须包含 next 函数。而路由处理函数中质保函 req 和 res。</p>
+<h5 id="3-1-5-next-函数的作用"><a href="#3-1-5-next-函数的作用" class="headerlink" title="3.1.5 next 函数的作用"></a>3.1.5 next 函数的作用</h5><p>next 函数是实现多个中间件连续调用的关键，它表示把流转关系转交给下一个中间件或路由。</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220322141807.png"></p>
+<h3 id="3-2-Express-中间件的初体验"><a href="#3-2-Express-中间件的初体验" class="headerlink" title="3.2 Express 中间件的初体验"></a>3.2 Express 中间件的初体验</h3><h5 id="3-2-1-定义中间件函数"><a href="#3-2-1-定义中间件函数" class="headerlink" title="3.2.1 定义中间件函数"></a>3.2.1 定义中间件函数</h5><p>可以通过如下的方式，定义一个最简单的中间件函数：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 常量 mw 所指向的，就是一个中间件函数</span></span><br><span class="line"><span class="keyword">const</span> mw=<span class="keyword">function</span>(<span class="params">req,res,next</span>) &#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;这是一个最简单的中间件处理函数&#x27;</span>)</span><br><span class="line">    <span class="comment">// 注意：在当前中间件的业务处理完毕后，必须调用 next() 函数</span></span><br><span class="line">    <span class="comment">// 表示把流转关系转交给下一个中间件或路由</span></span><br><span class="line">    <span class="title function_">next</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-2-2-全局生效的中间件"><a href="#3-2-2-全局生效的中间件" class="headerlink" title="3.2.2 全局生效的中间件"></a>3.2.2 全局生效的中间件</h5><p>客户单发起的任何请求，到达服务器之后，都会触发的中间件，叫做全局生效的中间件。</p>
+<p>通过调用 app.use(中间件函数)，即可定义一个全局生效的中间件，示例代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 常量 mw 所指向的，就是一个中间件函数</span></span><br><span class="line"><span class="keyword">const</span> mw=<span class="keyword">function</span>(<span class="params">req,res,next</span>) &#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;这是一个最简单的中间件函数&#x27;</span>)</span><br><span class="line">	<span class="title function_">next</span>()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 全局生效的中间件</span></span><br><span class="line">app.<span class="title function_">use</span>(mw)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-2-3-定义全局中间件的简化形式"><a href="#3-2-3-定义全局中间件的简化形式" class="headerlink" title="3.2.3 定义全局中间件的简化形式"></a>3.2.3 定义全局中间件的简化形式</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 全局生效的中间件</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="keyword">function</span> (<span class="params">req,res,next</span>)=&gt;&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;这是一个最简单的中间件函数&#x27;</span>)</span><br><span class="line">	<span class="title function_">next</span>()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-2-4-中间件的作用"><a href="#3-2-4-中间件的作用" class="headerlink" title="3.2.4 中间件的作用"></a>3.2.4 中间件的作用</h5><p>多个中间件之间，共享同一份 req 和 res。基于这样的特性，我们可以在上游的中间件中，统一为  req 或 res 对象添加自定义的属性或方法，供下游的中间件或路由进行使用。</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220322144206.png"></p>
+<h5 id="3-2-5-定义多个全局中间件"><a href="#3-2-5-定义多个全局中间件" class="headerlink" title="3.2.5 定义多个全局中间件"></a>3.2.5 定义多个全局中间件</h5><p>我们可以使用 app.use() 连续定义多个全局中间件。客户端请求到达服务器之后，会按照中间件定义的先后顺序依次进行调用，示例代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">req,res,next</span>)=&gt;</span>&#123;		<span class="comment">// 第1个全局中间件</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;调用了第1个全局中间件&#x27;</span>)</span><br><span class="line">    <span class="title function_">next</span>()</span><br><span class="line">&#125;)</span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">req,res,next</span>)=&gt;</span>&#123;		<span class="comment">// 第2个全局中间件</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;调用了第2个全局中间件&#x27;</span>)</span><br><span class="line">    <span class="title function_">next</span>()</span><br><span class="line">&#125;)</span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/user&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;	<span class="comment">// 请求这个路由，会依次触发上述两个全局中间件</span></span><br><span class="line">    res.<span class="title function_">send</span>(<span class="string">&#x27;Home page&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-2-6-局部生效的中间件"><a href="#3-2-6-局部生效的中间件" class="headerlink" title="3.2.6 局部生效的中间件"></a>3.2.6 局部生效的中间件</h5><p>不是用 app.use() 定义的中间件，叫做局部生效的的中间件，示例代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义中间件函数 mw1</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">mw1</span>=(<span class="params">req,res,next</span>)=&gt;&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;这是中间函数&#x27;</span>)</span><br><span class="line">    <span class="title function_">next</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// mw1 这个中间件只在“当前路由中生效”，这种用法属于“局部生效的中间件”</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>,<span class="function">(<span class="params">req,mw1,res</span>)=&gt;</span>&#123;</span><br><span class="line">	res.<span class="title function_">send</span>(<span class="string">&#x27;Home page.&#x27;</span>)        </span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// mw1 这个中间件不会影响下面这个路由</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/user&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">    res.<span class="title function_">send</span>(<span class="string">&#x27;User page.&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-2-7-定义多个局部中间件"><a href="#3-2-7-定义多个局部中间件" class="headerlink" title="3.2.7 定义多个局部中间件"></a>3.2.7 定义多个局部中间件</h5><p>可以在路由中，通过如下的两种等价的方式，使用多个局部中间件：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以下两种写法是“完全等价的”，可根据自己的喜好，选择任意一种方式进行使用</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>,mw1,mw2,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;res.<span class="title function_">send</span>(<span class="string">&#x27;Home page.&#x27;</span>)&#125;)</span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>,[mw1,mw2],<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;res.<span class="title function_">send</span>(<span class="string">&#x27;Home page.&#x27;</span>)&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-2-8-中间件的5个使用注意事项"><a href="#3-2-8-中间件的5个使用注意事项" class="headerlink" title="3.2.8 中间件的5个使用注意事项"></a>3.2.8 中间件的5个使用注意事项</h5><p>① 一定要在路由之前注册事件</p>
+<p>② 客户端发送过来的请求，可以连续调用多个中间件进行处理</p>
+<p>③ 执行完中间件的业务代码之后，不要忘记调用 next() 函数</p>
+<p>④ 为了防止代码逻辑混乱，调用完 next() 函数后不要再编写其他额外的代码</p>
+<p>⑤ 连续调用多个中间件时，多个中间件之间，共享 req 和 res 对象</p>
+<h3 id="3-3-中间件的分类"><a href="#3-3-中间件的分类" class="headerlink" title="3.3 中间件的分类"></a>3.3 中间件的分类</h3><p>为了方便大家理解和记忆中间件的使用，Express 官方把常见的中间件写法，分成了 5 大雷，分别是：</p>
+<p>① <strong>应用级别的中间件</strong></p>
+<p>​	通过 app.use() 或 app.get() 或 app.post()，绑定到 app实例上的中间件，叫做应用级别的中间件，代码示例如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 应用级别的中间件(全局中间件)</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">req,res,next</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="title function_">next</span>()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 应用级别的中间件(局部中间件)</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>,mw1,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	res.<span class="title function_">send</span>(<span class="string">&#x27;Home page&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>② <strong>路由级别的中间件</strong></p>
+<p>​	绑定到 express.Router() 实例上的中间件，叫做路由级别的中间件。它的用法和应用级别中间件没有任何区别。只不过，应用级别的中间件是绑定到 app 实例上，路由级别中间件绑定到 router 示例上，代码示例如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> app=<span class="title function_">express</span>()</span><br><span class="line"><span class="keyword">var</span> router=express.<span class="title class_">Router</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 路由级别的中间件</span></span><br><span class="line">router.<span class="title function_">use</span>(<span class="function">(<span class="params">req,res,next</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Time&#x27;</span>,<span class="title class_">Date</span> <span class="title function_">now</span>())</span><br><span class="line">    <span class="title function_">next</span>()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(<span class="string">&#x27;/&#x27;</span>,router)</span><br></pre></td></tr></table></figure>
+
+<p>③ <strong>错误级别的中间件</strong></p>
+<p>错误级别中间件的作用：专门用来捕获整个项目中发生的异常错误，从而防止项目异常崩溃的问题。</p>
+<p>格式：错误级别的中间件的 function 处理函数中，必须有 4 个形参，形参顺序从前到后，分别是(err,req,res,next)。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;					<span class="comment">// 1.路由</span></span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;服务器内部发生了错误！&#x27;</span>)	 <span class="comment">// 1.1 抛出来一个自定义的错误</span></span><br><span class="line">    res.<span class="title function_">send</span>(<span class="string">&#x27;Home Page.&#x27;</span>)<span class="comment">/* 客户端拿不到数据 */</span></span><br><span class="line">&#125;)</span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">err,req,res,next</span>)=&gt;</span>&#123;				<span class="comment">// 2.错误级别的中间件</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;发生了错误&#x27;</span>+err.<span class="property">message</span>)	<span class="comment">// 2.1 在服务器打印错误消息</span></span><br><span class="line">    res.<span class="title function_">send</span>(<span class="string">&#x27;Error!&#x27;</span>+err.<span class="property">message</span>)			<span class="comment">// 2.2 向客户端响应错误相关的内容</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>注意：错误级别的中间件一定要放在路由级别的中间件之后！</p>
+<p>④ <strong>Express 内置的中间件</strong></p>
+<p>Express 内置了 3 个常用的中间件，极大地提高了 Express 项目的开发效率和体验：</p>
+<ol>
+<li><p>express.static 快速托管静态资源的内置中间件，例如：HTML 文件、图片、CSS样式等(无兼容性)</p>
+</li>
+<li><p>express.json 解析 JSON 格式的请求体数据(有兼容性)</p>
+</li>
+<li><p>express.urlencoded 解析 URL-encoded 格式的请求体数据(有兼容性)</p>
+</li>
+</ol>
+<pre><code><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 配置解析 application/json 格式数据的内置中间件</span></span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">json</span>())</span><br><span class="line"><span class="comment">// 配置解析 application/x-www-form-urlencoded 格式数据的内置中间件</span></span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">urlencoded</span>(&#123; <span class="attr">extended</span>:<span class="literal">false</span> &#125;))</span><br></pre></td></tr></table></figure>
+</code></pre>
+<p>⑤ <strong>第三方的中间件</strong></p>
+<p>非 Express 官方内置的，而是由第三方开发出来的中间件，叫做第三方中间件。在项目中，可以按需下载并配置第三方中间件，使用步骤如下：</p>
+<ol>
+<li><p><strong>安装中间件 npm i 名称</strong></p>
+</li>
+<li><p><strong>使用 require 导入中间件</strong></p>
+</li>
+<li><p><strong>调用 app.use() 注册并使用中间件</strong></p>
+</li>
+</ol>
+<h3 id="3-4-自定义中间件"><a href="#3-4-自定义中间件" class="headerlink" title="3.4 自定义中间件"></a>3.4 自定义中间件</h3><h5 id="3-4-1-需求描述与实现步骤"><a href="#3-4-1-需求描述与实现步骤" class="headerlink" title="3.4.1 需求描述与实现步骤"></a>3.4.1 需求描述与实现步骤</h5><p>自己手动模拟一个类似于 express.urlencoded 这样的中间件，来解析 POST 提交到服务器的表单数据。</p>
+<p>实现步骤：</p>
+<ol>
+<li><p>定义中间件</p>
+</li>
+<li><p>监听 req 的 data 事件</p>
+</li>
+<li><p>监听 req 的 end 事件</p>
+</li>
+<li><p>使用 querystring 模块解析请求体数据</p>
+</li>
+<li><p>简介洗出来的对象挂载为 req.body</p>
+</li>
+<li><p>将自定义中间件风转微模块</p>
+<p><strong>理论知识：</strong>req.data 当服务器接收到数据时触发；req.end 数据接受完时触发</p>
+</li>
+</ol>
+<h5 id="3-4-2-定义中间件"><a href="#3-4-2-定义中间件" class="headerlink" title="3.4.2 定义中间件"></a>3.4.2 定义中间件</h5><p>使用 app.use() 来定义全局生效的中间件，代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">req,res,next</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="comment">// 中间件业务逻辑</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-4-3-监听-req-的-data-事件"><a href="#3-4-3-监听-req-的-data-事件" class="headerlink" title="3.4.3 监听 req 的 data 事件"></a>3.4.3 监听 req 的 data 事件</h5><p>在中间件中，需要监听 req 对象的 data 事件，来获取客户端发送到服务器的数据。</p>
+<p>如果数据量比较大，无法一次性发送完毕，则客户端会把数据切割后，分批发送到服务器。所以 data 事件可能会触发多次，每一次触发 data 事件时，获取到数据只是完整数据的一部分，需要手动对接收到的数据进行拼接。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义变量，用来存储客户端发送过来的请求体数据</span></span><br><span class="line"><span class="keyword">let</span> str=<span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="comment">// 监听 req 对象的 data 事件(客户端发送过来的新的请求体数据)</span></span><br><span class="line">req.<span class="title function_">on</span>(<span class="string">&#x27;data&#x27;</span>,<span class="function">(<span class="params">chunk</span>)=&gt;</span>&#123;</span><br><span class="line">	str+=chunk</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-4-4-监听-req-的-end-事件"><a href="#3-4-4-监听-req-的-end-事件" class="headerlink" title="3.4.4 监听 req 的 end 事件"></a>3.4.4 监听 req 的 end 事件</h5><p>当请求体数据接收完毕之后，会自动 req 的 end 事件。</p>
+<p>因此，我们可以在 req 的 end 事件中，拿到并处理完整的请求体数据。示例代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 监听 req 对象的 end 事件（请求体发送完毕后会自动触发）</span></span><br><span class="line">req.<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">// 打印完整的请求体数据</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(str)</span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span>把字符串格式的请求体数据，解析成对象格式</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-4-5-使用-querystring-模块解析请求体数据"><a href="#3-4-5-使用-querystring-模块解析请求体数据" class="headerlink" title="3.4.5 使用 querystring 模块解析请求体数据"></a>3.4.5 使用 querystring 模块解析请求体数据</h5><p>Node.js 内置了 querystring 模块，专门用来处理查询字符串。通过这个模块提供的 parse() 函数，可以轻松把查询字符串解析成对象的格式。示例代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 导入处理 querystring 的 Node.js 内置模块</span></span><br><span class="line"><span class="keyword">const</span> qs=<span class="built_in">require</span>(<span class="string">&#x27;querystring&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用 qs.parse() 方法，把查询字符串解析为对象</span></span><br><span class="line"><span class="keyword">const</span> body=qs.<span class="title function_">parse</span>(str)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-4-6-将解析出来的数据对象挂载为-req-body"><a href="#3-4-6-将解析出来的数据对象挂载为-req-body" class="headerlink" title="3.4.6 将解析出来的数据对象挂载为 req.body"></a>3.4.6 将解析出来的数据对象挂载为 req.body</h5><p>上游的中间件和下游的中间件及路由之间，共享同一份 req 和 res。因此，我们可以将解析出来的数据，挂载为 req 的自定义属性，命名为 req.body，供下游使用。示例代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">req.on(&#x27;end&#x27;,()=&gt;&#123;</span><br><span class="line">	const body=qs.parse(str)  // 调用 qs.parse() 方法，把查询字符串解析为对象</span><br><span class="line">	req.body=body			  // 将解析出来的请求体对象，挂载为 req.body 属性</span><br><span class="line">	next()					  // 最后，一定要调用 next() 函数，执行后续的业务逻辑</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-4-7-将自定义中间件封装为模块"><a href="#3-4-7-将自定义中间件封装为模块" class="headerlink" title="3.4.7 将自定义中间件封装为模块"></a>3.4.7 将自定义中间件封装为模块</h5><p>为了优化代码结构，我们可以吧自定义的中间件函数，封装为独立的模块，示例代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// custom-body-parser.js 模块中的代码</span></span><br><span class="line"><span class="keyword">const</span> qs=<span class="built_in">require</span>(<span class="string">&#x27;querystring&#x27;</span>)</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">bodyParser</span>(<span class="params">req,res,next</span>) &#123;</span><br><span class="line">	<span class="keyword">let</span> str=<span class="string">&#x27;&#x27;</span></span><br><span class="line">    req.<span class="title function_">on</span>(<span class="string">&#x27;data&#x27;</span>,<span class="function">(<span class="params">chunk</span>)=&gt;</span>&#123;</span><br><span class="line">        str+=chunk</span><br><span class="line">    &#125;)</span><br><span class="line">    req.<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">const</span> body=qs.<span class="title function_">parse</span>(str)</span><br><span class="line">        req.<span class="property">body</span>=body</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(body)</span><br><span class="line">        <span class="title function_">next</span>()</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>= bodyParser <span class="comment">// 向外暴露bodyParser作为中间件函数</span></span><br><span class="line"><span class="comment">/* -------------------------分割线------------------------- */</span></span><br><span class="line"><span class="comment">// 1.导入自定义的中间件模块</span></span><br><span class="line"><span class="keyword">const</span> myBodyParser=<span class="built_in">require</span>(<span class="string">&#x27;custom-body-parser&#x27;</span>)</span><br><span class="line"><span class="comment">// 2.注册自定义的中间件模块</span></span><br><span class="line">app.<span class="title function_">use</span>(myBodyParser)</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-使用-Express-写接口"><a href="#4-使用-Express-写接口" class="headerlink" title="4.使用 Express 写接口"></a>4.使用 Express 写接口</h1><h3 id="4-1-创建基本的服务器"><a href="#4-1-创建基本的服务器" class="headerlink" title="4.1 创建基本的服务器"></a>4.1 创建基本的服务器</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 导入 express 模块</span><br><span class="line">const express=quire(&#x27;express&#x27;)</span><br><span class="line">// 创建 express 的服务器实例</span><br><span class="line">const app=express()</span><br><span class="line"></span><br><span class="line">//调用 app.listen 方法，指定端口号启动服务器</span><br><span class="line">app.listen(80,()=&gt;&#123;</span><br><span class="line">	console.log(&#x27;Express server running at http://127.0.0.1&#x27;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-创建-API-路由模块"><a href="#4-2-创建-API-路由模块" class="headerlink" title="4.2 创建 API 路由模块"></a>4.2 创建 API 路由模块</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// apiRouter.js [路由模块]</span></span><br><span class="line"><span class="keyword">const</span> express=<span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> apiRouter=express.<span class="title class_">Router</span>()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>=apiRouter</span><br><span class="line"></span><br><span class="line"><span class="comment">/*-----------------------------------*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// app.js [导入并注册路由模块]</span></span><br><span class="line"><span class="keyword">const</span> apiRouter=<span class="built_in">require</span>(<span class="string">&#x27;./apiRouter.js&#x27;</span>)</span><br><span class="line">app.<span class="title function_">use</span>(<span class="string">&#x27;/api&#x27;</span>,apiRouter)</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-编写-GET-接口"><a href="#4-3-编写-GET-接口" class="headerlink" title="4.3 编写 GET 接口"></a>4.3 编写 GET 接口</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">apiRouter.<span class="title function_">get</span>(<span class="string">&#x27;/get&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="comment">// 1.获取客户端通过查询字符串，发送到服务器的数据</span></span><br><span class="line">    <span class="keyword">const</span> query=req.<span class="property">query</span></span><br><span class="line">    <span class="comment">// 2.调用 res.send() 方法，把数据响应给客户单</span></span><br><span class="line">    res.<span class="title function_">send</span>(&#123;</span><br><span class="line">        <span class="attr">status</span>:<span class="number">0</span>,			<span class="comment">// 状态：0表示成功，1表示失败</span></span><br><span class="line">        <span class="attr">msg</span>:<span class="string">&#x27;GET请求成功&#x27;</span>,	 <span class="comment">// 状态描述</span></span><br><span class="line">        <span class="attr">data</span>:query			<span class="comment">// 需要响应给客户端的具体数据</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-4-编写-POST-接口"><a href="#4-4-编写-POST-接口" class="headerlink" title="4.4 编写 POST 接口"></a>4.4 编写 POST 接口</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">apiRouter.<span class="title function_">post</span>(<span class="string">&#x27;/post&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="comment">// 1.获取客户端通过请求体，发送到服务器的 URL-encoded 数据</span></span><br><span class="line">    <span class="keyword">const</span> body=req.<span class="property">body</span></span><br><span class="line">    <span class="comment">// 2.调用 res.send() 方法，把数据响应给客户端</span></span><br><span class="line">    res.<span class="title function_">send</span>(&#123;</span><br><span class="line">        <span class="attr">status</span>:<span class="number">0</span>,			<span class="comment">// 状态：0表示成功，1表示失败</span></span><br><span class="line">        <span class="attr">msg</span>:<span class="string">&#x27;POST请求成功&#x27;</span>,	 <span class="comment">// 状态描述消息</span></span><br><span class="line">        <span class="attr">data</span>:body		   <span class="comment">//  需要响应给客户端的具体数据</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>注意:如果要获取URL-encoded格式的请求体数据，必须配置中间件app.use(express.urlencoded({ extended: false })</p>
+<h3 id="4-5-CORS-跨域资源共享"><a href="#4-5-CORS-跨域资源共享" class="headerlink" title="4.5 CORS 跨域资源共享"></a>4.5 CORS 跨域资源共享</h3><h5 id="4-5-1-接口的跨域问题"><a href="#4-5-1-接口的跨域问题" class="headerlink" title="4.5.1 接口的跨域问题"></a>4.5.1 接口的跨域问题</h5><p>刚才编写的 GET 和 POST 接口，存在一个很严重问题，不支持跨域访问</p>
+<p>解决接口跨域问题的方案主要有两种：</p>
+<p>① CORS(主流的解决方案)</p>
+<p>② JSONP(有缺陷的解决方案：只支持 GET 请求)</p>
+<h5 id="4-5-2-使用-cors-中间件解决跨域问题"><a href="#4-5-2-使用-cors-中间件解决跨域问题" class="headerlink" title="4.5.2 使用 cors 中间件解决跨域问题"></a>4.5.2 使用 cors 中间件解决跨域问题</h5><p>cors 是 Express 的一个第三方中间件。通过安装和配置 cors 中间件，可以很方便地解决跨域问题。</p>
+<p>使用步骤：<br>① 使用 npm i cors 安装中间件</p>
+<p>② 使用 const cors&#x3D;require(‘cors’) 导入中间件</p>
+<p>③ 在路由之前调用 app.use(cors()) 配置中间件</p>
+<h5 id="4-5-3-什么是-CORS"><a href="#4-5-3-什么是-CORS" class="headerlink" title="4.5.3 什么是 CORS"></a>4.5.3 什么是 CORS</h5><p>CORS (Cross-Origin Resourve Sharing，跨域资源共享) 有一系列 HTTP 响应头组成，这些 HTTP 响应头决定浏览器是否阻止前端 JS 代码跨域获取资源。</p>
+<p>浏览器的同源安全策略默认会组织网页”跨域”获取资源。但如果接口服务器配置了  CORS 相关的 HTTP 响应头，就可以解除浏览器的跨域访问限制。</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220324095431.png"></p>
+<h5 id="4-5-4-CORS-的注意事项"><a href="#4-5-4-CORS-的注意事项" class="headerlink" title="4.5.4 CORS 的注意事项"></a>4.5.4 CORS 的注意事项</h5><p>① CORS 主要在服务器进行配置。客户端浏览器无须作任何额外的配置，即可请求开启了 CORS 的接口。</p>
+<p>② CORS 在浏览器中有兼容性。只支持 XMLHttpRequest Level2 的浏览器，才能正常访问开启了 CORS 的服务器端口(例如：IE 10+、Chrome4+、FireFox3.5+)</p>
+<h5 id="4-5-5-CORS-响应头部-Access-Control-Allow-Origin"><a href="#4-5-5-CORS-响应头部-Access-Control-Allow-Origin" class="headerlink" title="4.5.5 CORS 响应头部 - Access-Control-Allow-Origin"></a>4.5.5 CORS 响应头部 - Access-Control-Allow-Origin</h5><p>响应头部可以携带一个 Access-Control-Allow-Origin 字段，其语法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Access-Control-Allow-Origin:&lt;origin&gt; | *</span><br></pre></td></tr></table></figure>
+
+<p>其中，origin 参数的值制定了允许访问该资源的的外域 URL。</p>
+<p>例如，下面的字段福将只允许来自 <a href="http://itcast.cn/">http://itcast.cn</a> 的请求：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">res.setHeader(&#x27;Access-Control-Allow-Origin&#x27;,&#x27;http://itcase.cn&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>如果指定了 Access-Control-Allow-Origin 字段的值为通配符 *，表示允许来自任何域的请求，示例代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">res.setHeader(&#x27;Access-Control-Allow-Origin&#x27;,&#x27;*&#x27;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-5-6-Access-Control-Allow-Headers"><a href="#4-5-6-Access-Control-Allow-Headers" class="headerlink" title="4.5.6 Access-Control-Allow-Headers"></a>4.5.6 Access-Control-Allow-Headers</h5><p>默认情况下，CORS 仅支持客户端向服务器发送如下的 9 个请求头：</p>
+<p>Accept、Accept-Language、Content-Language、DPR、Downlink、Save-Data、Viewport-Width、Width ,Content-Type (值仅限于text&#x2F;plain、multipart&#x2F;form-data、application&#x2F;x-www-form-urlencoded 三者之一)</p>
+<p>如果客户端向服务器发送了额外的请求头信息，则需要在服务器端，通过 Access-Control-Allow-Headers 对额外的请求头进行声明，否则这次请求会失败！</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 允许客户端额外向服务器发送 Content-Type 请求头和 X-Custom-Header 请求头</span><br><span class="line">// 注意：多个请求头之间用英文的逗号进行分割</span><br><span class="line">res.setHeader(&#x27;Access-Control-Allow-Headers&#x27;,&#x27;Content-Type&#x27;,&#x27;X-Custom-Header&#x27;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-5-7-Access-Control-Allow-Methods"><a href="#4-5-7-Access-Control-Allow-Methods" class="headerlink" title="4.5.7 Access-Control-Allow-Methods"></a>4.5.7 Access-Control-Allow-Methods</h5><p>默认情况下，CORS 仅支持客户端发起 GET、POST、HEAD 请求。</p>
+<p>如果客户端希望通过 PUT、DELETE 等方式请求服务器的资源，则需要在服务器端，通过 Access-Control-Allow-Methods 指明请求所允许使用的 HTTP 方法。</p>
+<p>示例代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 只允许 POST、GET、DELETE、HEAD 请求方法</span><br><span class="line">res.setHeader(&#x27;Access-Control-Allow-Methods&#x27;,&#x27;POST,GET,DELETE,HEAD&#x27;)</span><br><span class="line">// 允许所有的 HTTP 请求方法</span><br><span class="line">res.setHeader(&#x27;Access-Control-Allow-&#x27;,&#x27;*&#x27;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-5-8-CORS-请求的分类"><a href="#4-5-8-CORS-请求的分类" class="headerlink" title="4.5.8 CORS 请求的分类"></a>4.5.8 CORS 请求的分类</h5><p>客户端在请求 CORS 接口时，根据请求方式和请求头的不同，可以将 CORS 的请求分为两大类，分别是：简单请求、预检请求</p>
+<p><strong>简单请求</strong>：满足两大请求</p>
+<p>​	① 请求方式：GET、POST、HEAD 三者之一</p>
+<p>​	② HTTP 头部信息不超过以下几种字段：无自定义头部字段、HTTP头部信息不超过以下几种字段g无自定义头部字段、Accept、Accept-Language、Content-Language、DPR,Downlink、Save-Data、Viewport-Width、width 、Content-Type(只有三个值application&#x2F;x-www-form-urlencoded、multipart&#x2F;form-data、text&#x2F;plain)</p>
+<p><strong>预检请求</strong>：只要符合以下任何一个条件的请求，都需要进行预检请求</p>
+<p>​	① 请求方式为 GET、POST、HEAD 之外的请求 Method 类型</p>
+<p>​	② 请求头中包含自定义头部字段</p>
+<p>​	③ 向服务器发送了 application&#x2F;json 格式的数据</p>
+<p>在浏览器与服务器正式通信之前，浏览器会先发送 OPTION 请求进行预检，以获知服务器是否允许该实际请求，所以这一次的 OPTION 请求称为”预检请求”。服务器成功响应预检请求后，才会发送真正的请求，并且携带真实数据。</p>
+<h5 id="4-5-9-简单请求和预检请求的区别"><a href="#4-5-9-简单请求和预检请求的区别" class="headerlink" title="4.5.9 简单请求和预检请求的区别"></a>4.5.9 简单请求和预检请求的区别</h5><p>简单请求的特点：客户端与服务器之间只会发生一次请求。</p>
+<p>预检请求的特点：客户端与服务器之间会发生两次请求，OPTION 预检请求成功之后，才会发起真正的请求。</p>
+<h3 id="4-6-JSONP接口"><a href="#4-6-JSONP接口" class="headerlink" title="4.6 JSONP接口"></a>4.6 JSONP接口</h3><h5 id="4-6-1-回顾-JSONP-的概念与特点"><a href="#4-6-1-回顾-JSONP-的概念与特点" class="headerlink" title="4.6.1 回顾 JSONP 的概念与特点"></a>4.6.1 回顾 JSONP 的概念与特点</h5><p>概念：浏览器通过 <script> 标签的 src 属性，请求服务器上的数据，同时，服务器返回一个函数的调用。这种请求数据的方式叫做 JSONP。</p>
+<p>特点：</p>
+<p>① JSONP 不属于真正的 Ajax 请求，因为他没有使用 XMLHttpRequest 这个对象。</p>
+<p>② JSONP 仅支持 GET 请求，不支持 POST、PUT、DELETE 等请求。</p>
+<h5 id="4-6-2-创建-JSONP-接口的注意事项"><a href="#4-6-2-创建-JSONP-接口的注意事项" class="headerlink" title="4.6.2 创建 JSONP 接口的注意事项"></a>4.6.2 创建 JSONP 接口的注意事项</h5><p>如果项目中已经配置了 CORS 跨域资源共享，为了防止冲突，必须在配置 CORS 中间件之前声明 JSONP 的解耦。否则 JSONP 接口会被处理成开启了 CORS 的接口。示例代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 优先创建 JSONP 接口(这个接口不会被处理成 CORS 接口)</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/api/jsonp&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 在配置 CORS 中间件(后续的所有借口，都会被处理成 CORS 接口)</span></span><br><span class="line">app.<span class="title function_">use</span>(cors)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这是一个开启了 CORS 的接口</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/api/get&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-6-3-实现-JSONP-接口的步骤"><a href="#4-6-3-实现-JSONP-接口的步骤" class="headerlink" title="4.6.3 实现 JSONP 接口的步骤"></a>4.6.3 实现 JSONP 接口的步骤</h5><p>① 获取客户端发送过来的回调函数的名字</p>
+<p>② 得到要通过 JSONP 形式发送给客户端的数据</p>
+<p>③ 根据前两步得到的数据，拼接出一个函数调用的字符串</p>
+<p>④ 把上一步拼接得到的字符串，响应给客户端的 <script> 标签进行解析执行</p>
+<h5 id="4-6-4-实现-JSONP-接口的具体代码"><a href="#4-6-4-实现-JSONP-接口的具体代码" class="headerlink" title="4.6.4 实现 JSONP 接口的具体代码"></a>4.6.4 实现 JSONP 接口的具体代码</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/api/jsonp&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="comment">// 1.获取客户端发送过来的回调函数的名字</span></span><br><span class="line">	<span class="keyword">const</span> funcName=req.<span class="property">query</span>.<span class="property">callback</span></span><br><span class="line">	<span class="comment">// 2.得到通过 JSONP 形式发送给客户端的数据</span></span><br><span class="line">	<span class="keyword">const</span> data=&#123;<span class="attr">name</span>:<span class="string">&#x27;zs&#x27;</span>,<span class="attr">age</span>:<span class="number">22</span>&#125;</span><br><span class="line">	<span class="comment">// 3.根据前两步得到的数据，拼接出一个函数调用的字符串</span></span><br><span class="line">	<span class="keyword">const</span> scriptStr=<span class="string">&#x27;$&#123;funcName&#125;($&#123;JSON.stringfy(data)&#125;)&#x27;</span></span><br><span class="line">	<span class="comment">// 4.把上一步拼接得到的字符串，响应给客户端 &lt;scirpt&gt; 标签进行解析执行</span></span><br><span class="line">	res.<span class="title function_">send</span>(scriptStr)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-6-5-在网页中使用-jQuery-发起-JSONP-请求"><a href="#4-6-5-在网页中使用-jQuery-发起-JSONP-请求" class="headerlink" title="4.6.5 在网页中使用 jQuery 发起 JSONP 请求"></a>4.6.5 在网页中使用 jQuery 发起 JSONP 请求</h5><p>调用 $.ajax() 函数，提供 JSONP 的配置选项，从而发起 JSONP 请求，示例代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;#btnJSONP&#x27;</span>).<span class="title function_">on</span>(<span class="string">&#x27;click&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">	$.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">		<span class="attr">type</span>:<span class="string">&#x27;GET&#x27;</span>,</span><br><span class="line">		<span class="attr">url</span>:<span class="string">&#x27;http://127.0.0.1/api/jsonp&#x27;</span>,</span><br><span class="line">		<span class="attr">dataType</span>:<span class="string">&#x27;jsonp&#x27;</span>,	<span class="comment">//表示要发起 JSONP 请求</span></span><br><span class="line">		<span class="attr">success</span>:<span class="keyword">function</span>(<span class="params">res</span>) &#123;</span><br><span class="line">			<span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+<h1 id="5-总结"><a href="#5-总结" class="headerlink" title="5 总结"></a>5 总结</h1><h3 id="5-1-补充"><a href="#5-1-补充" class="headerlink" title="5.1 补充"></a>5.1 补充</h3><p>​	node.js取参的四种方法</p>
+<ol>
+<li><p>req.body</p>
+<p>解析body不是nodejs默认提供的，你需要载入body-parser中间件才能使用req.body，</p>
+<p>此方法通常用来解析POST请求的数据,默认是undefined</p>
+</li>
+<li><p>req.query</p>
+<p>nodejs默认提供，无需载入中间件，</p>
+<p>此方法多适用于GET请求，解析GET里的参数，默认为{ }</p>
+</li>
+<li><p>req.params</p>
+<p>nodejs默认提供，无须载入中间件</p>
+<p>多用于restful风格url中的参数的解析</p>
+</li>
+<li><p>req.param()</p>
+<p>已经弃用</p>
+</li>
+</ol>
+<h3 id="5-2-注意点"><a href="#5-2-注意点" class="headerlink" title="5.2 注意点"></a>5.2 注意点</h3><p><strong>1</strong>. 使用JSON或urlencoded来进行POST请求，此时req.body获取发送数据</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/post&#x27;</span>,(req,res) &#123;</span><br><span class="line">	<span class="keyword">const</span> body=req.<span class="property">body</span></span><br><span class="line">    <span class="comment">// 注意res是响应，即响应给客户端的数据</span></span><br><span class="line">    res.<span class="title function_">send</span>(&#123;</span><br><span class="line">    	<span class="attr">status</span>:<span class="number">0</span>,</span><br><span class="line">        <span class="attr">msg</span>:<span class="string">&#x27;POST 请求成功&#x27;</span>,</span><br><span class="line">        <span class="attr">data</span>:body</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><strong>2</strong>. 使用键值对形式进行GET请求，此时req.query获取服务器数据</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">app.get(&#x27;/get&#x27;,(req,res)=&gt;&#123;</span><br><span class="line">	const query=req.query</span><br><span class="line">	res.send(&#123;</span><br><span class="line">		data:0,</span><br><span class="line">		msg:&#x27;GET 请求成功&#x27;,</span><br><span class="line">		data:q</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$(function()&#123;</span><br><span class="line">    // 上传数据</span><br><span class="line">    function postData()&#123;</span><br><span class="line">        $(&#x27;#tpl_sumbit&#x27;).on(&#x27;submit&#x27;,function(e)&#123;</span><br><span class="line">            e.preventDefault();</span><br><span class="line">            var data=$(this).serialize();</span><br><span class="line">            // console.log(data);</span><br><span class="line">            $.ajax(&#123;</span><br><span class="line">                type:&#x27;POST&#x27;,</span><br><span class="line">                url:&#x27;http;//&#x27;+&#x27;?&#x27;+data,</span><br><span class="line">                success:function(res)&#123;</span><br><span class="line">                    console.log(res);</span><br><span class="line">                    storageData[storageData.length]=res;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    // 获取数据</span><br><span class="line">    function getData()&#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            type:&#x27;GET&#x27;,</span><br><span class="line">            url:&#x27;http://&#x27;,</span><br><span class="line">            success:function(res) &#123;</span><br><span class="line">                var data=&#123;</span><br><span class="line">                    water:300,deg:250,time:1,humidity:30,light:50,temperature:20</span><br><span class="line">                &#125;//测试数据</span><br><span class="line">                // console.log(data[0]);</span><br><span class="line">                var htmlStr=template(&#x27;tpl_data&#x27;,data)</span><br><span class="line">                // console.log(htmlStr);</span><br><span class="line">                $(&#x27;#show_box&#x27;).html(htmlStr)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    getData();</span><br><span class="line">    var timer=setInterval(getData,1000);</span><br><span class="line">    $(&#x27;#btn_submit&#x27;).on(&#x27;click&#x27;,()=&gt;&#123;</span><br><span class="line">        postData();</span><br><span class="line">    &#125;)</span><br><span class="line">    var data=&#123;</span><br><span class="line">        water:300,deg:250,time:1,humidity:30,light:50,temperature:20</span><br><span class="line">    &#125;//测试数据</span><br><span class="line">    // console.log(data[0]);</span><br><span class="line">    var htmlStr=template(&#x27;tpl_data&#x27;,data)</span><br><span class="line">    // console.log(htmlStr);</span><br><span class="line">    $(&#x27;#show_box&#x27;).html(htmlStr)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Node.js</title>
     <url>/blog/2022/04/15/Node.js/</url>
     <content><![CDATA[<h1 id="一-初识Node-js与内置模块"><a href="#一-初识Node-js与内置模块" class="headerlink" title="一.初识Node.js与内置模块"></a>一.初识Node.js与内置模块</h1><span id="more"></span>
+
 
 <p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220312150746.png"></p>
 <p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220312150945.png"></p>
@@ -2965,328 +3291,10 @@
       </tags>
   </entry>
   <entry>
-    <title>Express</title>
-    <url>/blog/2022/04/15/express/</url>
-    <content><![CDATA[<h1 id="1-初识-Express"><a href="#1-初识-Express" class="headerlink" title="1.初识 Express"></a>1.初识 Express</h1><span id="more"></span>
-
-<h3 id="1-1-Express-简介"><a href="#1-1-Express-简介" class="headerlink" title="1.1 Express 简介"></a>1.1 Express 简介</h3><h5 id="1-1-1-什么是-Express"><a href="#1-1-1-什么是-Express" class="headerlink" title="1.1.1 什么是 Express"></a>1.1.1 什么是 Express</h5><p>官方给出的概念：Express 是基于 Node.js 平台，快速、开方、极简的 Web 开发框架。</p>
-<p>通俗的理解：Express 的作用和 Node.js 内置的 http 模块类似，是专门用来创建 Web 服务器的。</p>
-<p>Express 的本质：就是一个 npm 上的第三方包，提供了快速创建 Web 服务器的便捷方法。</p>
-<p>Express 的中文官网: 	<a href="http://www.expressjs.com.cn/">http://www.expressjs.com.cn/</a></p>
-<h5 id="1-1-2-进一步理解-Express"><a href="#1-1-2-进一步理解-Express" class="headerlink" title="1.1.2 进一步理解 Express"></a>1.1.2 进一步理解 Express</h5><p>不是用 Express 可以创建服务器，使用 Node.js 原生的 http 模块。</p>
-<p>http 内置模块用起来很复杂，开发效率低。Express 是基于内置的 http 模块进一步封装的，能够极大的提高开发效率。</p>
-<h5 id="1-1-3-Express-能做什么"><a href="#1-1-3-Express-能做什么" class="headerlink" title="1.1.3 Express 能做什么"></a>1.1.3 Express 能做什么</h5><p>对于前端程序员来说，最常见的两种服务器，分别是：</p>
-<p>  Web 网站服务器：专门对外提供 Web 网页资源的服务器。</p>
-<p>  API 接口服务器：专门对外提供 API 接口的服务器。</p>
-<p>使用 Express，我们可以方便、快速的创建 Web 网站的服务器或 API 接口的服务器。</p>
-<h3 id="1-2-Express的基本使用"><a href="#1-2-Express的基本使用" class="headerlink" title="1.2 Express的基本使用"></a>1.2 Express的基本使用</h3><h5 id="1-2-1-安装"><a href="#1-2-1-安装" class="headerlink" title="1.2.1 安装"></a>1.2.1 安装</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm intall express</span><br></pre></td></tr></table></figure>
-
-<h5 id="1-2-2-创建基本的-Web-服务器"><a href="#1-2-2-创建基本的-Web-服务器" class="headerlink" title="1.2.2 创建基本的 Web 服务器"></a>1.2.2 创建基本的 Web 服务器</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1.导入 express</span></span><br><span class="line"><span class="keyword">const</span> express=<span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="comment">// 2.创建 web 服务器</span></span><br><span class="line"><span class="keyword">const</span> app=<span class="title function_">express</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.调用 app.listen(端口号,启动成功后的回调函数)，启动服务器</span></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">80</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;express server running at http://127.0.0.1&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="1-2-3-监听-GET-请求"><a href="#1-2-3-监听-GET-请求" class="headerlink" title="1.2.3 监听 GET 请求"></a>1.2.3 监听 GET 请求</h5><p>req：request 请求</p>
-<p>res：response 响应</p>
-<p>使用 app.get() 方法，可以监听客户端的 GET 请求，具体的语法格式如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="variable constant_">URL</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="comment">/* 处理函数 */</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 参数1: 客户端请求的 URL 地址</span></span><br><span class="line"><span class="comment">// 参数2: 请求对应的处理函数</span></span><br><span class="line"><span class="comment">//		req:请求对象 (包含了与请求相关的属性与方法)</span></span><br><span class="line"><span class="comment">//		res:响应对象 (包含了与响应相关的属性与方法)</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="1-2-4-监听-POST-请求"><a href="#1-2-4-监听-POST-请求" class="headerlink" title="1.2.4 监听 POST 请求"></a>1.2.4 监听 POST 请求</h5><p>通过 app.post() 方法，可以监听客户端的 POST 请求，具体的语法格式如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">POST</span>(<span class="variable constant_">URL</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="comment">/* 处理函数 */</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 参数1: 客户端请求的 URL 地址</span></span><br><span class="line"><span class="comment">// 参数2: 请求对应的处理函数</span></span><br><span class="line"><span class="comment">//		req:请求对象 (包含了与请求相关的属性与方法)</span></span><br><span class="line"><span class="comment">//		res:响应对象 (包含了与响应相关的属性与方法)</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="1-2-5-把相应内容响应给客户端"><a href="#1-2-5-把相应内容响应给客户端" class="headerlink" title="1.2.5 把相应内容响应给客户端"></a>1.2.5 把相应内容响应给客户端</h5><p>通过 res.send() 方法，可以把处理好的内容，发送给客户端:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/user&#x27;</span>,<span class="function">(<span class="params">res,req</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="comment">// 向客户端发送 JSON 对象</span></span><br><span class="line">	res.<span class="title function_">send</span>(&#123;<span class="attr">name</span>:<span class="string">&#x27;zs&#x27;</span>,<span class="attr">age</span>:<span class="number">20</span>,<span class="attr">gender</span>:<span class="string">&#x27;男&#x27;</span>&#125;)</span><br><span class="line">&#125;)</span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/user&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="comment">// 想客户端发送文本内容</span></span><br><span class="line">	res.<span class="title function_">send</span>(<span class="string">&#x27;请求成功&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="1-2-6-获取-URL-中携带的查询参数"><a href="#1-2-6-获取-URL-中携带的查询参数" class="headerlink" title="1.2.6 获取 URL 中携带的查询参数"></a>1.2.6 获取 URL 中携带的查询参数</h5><p>通过 req.query 对象，可以访问到客户端通过查询字符串的形式，发送到服务器的参数：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="comment">// req.query 默认是一个空对象</span></span><br><span class="line">	<span class="comment">// 客户端使用 ?name=zs&amp;age=20 这种查询字符串形式，发送到服务器的参数</span></span><br><span class="line">	<span class="comment">// 可以通过 req.query 对象访问到，例如:</span></span><br><span class="line">	<span class="comment">// req.query.name req.query.age</span></span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">query</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="1-2-7-获取-URL-中的动态参数"><a href="#1-2-7-获取-URL-中的动态参数" class="headerlink" title="1.2.7 获取 URL 中的动态参数"></a>1.2.7 获取 URL 中的动态参数</h5><p>通过 req.params 对象，可以访问到 URL 中，通过:匹配到的参数:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// URL 地址中,可以通过 :参数名 的形式，匹配动态参数值</span><br><span class="line">app.get(&#x27;/user/:id&#x27;,(req,res)=&gt;&#123;</span><br><span class="line">	// req.params 默认是一个空对象</span><br><span class="line">	// 里面存放着通过 : 动态匹配的参数值</span><br><span class="line">	console.log(req.params)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="1-3-托管静态资源"><a href="#1-3-托管静态资源" class="headerlink" title="1.3 托管静态资源"></a>1.3 托管静态资源</h3><h5 id="1-3-1-express-static"><a href="#1-3-1-express-static" class="headerlink" title="1.3.1 express.static()"></a>1.3.1 express.static()</h5><p>通过 express.static() 可以非常方便地创建一个静态资源服务器，例如，通过以下代码就可以将 public 目录下的图片、CSS文件、JavaScript 文件对外开放访问了：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">app.user(express,static(&#x27;public&#x27;))</span><br></pre></td></tr></table></figure>
-
-<p>现在，你就可以访问 public 目录中的所有文件了:</p>
-<p><a href="http://localhost:3000/images/bg.jpg">http://localhost:3000/images/bg.jpg</a></p>
-<p><a href="http://localhost:3000/css/style.css">http://localhost:3000/css/style.css</a></p>
-<p><a href="http://localhost:3000/js/login.js">http://localhost:3000/js/login.js</a></p>
-<p><strong>注意：</strong>Express 在指定的静态目录中查找文件，并对外提供资源的访问路径。因此，存放静态文件的目录名不会出现在 URL 中。</p>
-<h5 id="1-3-2-托管多个静态资源目录"><a href="#1-3-2-托管多个静态资源目录" class="headerlink" title="1.3.2 托管多个静态资源目录"></a>1.3.2 托管多个静态资源目录</h5><p>如果要托管多个静态资源目录，多次调用 express.static() 函数:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">app.use(express.static(&#x27;public&#x27;))</span><br><span class="line">app.use(express.static(&#x27;files&#x27;))</span><br></pre></td></tr></table></figure>
-
-<p>访问资源文件时，express.static() 函数会根据目录的添加顺序查找所需的文件。</p>
-<h5 id="1-3-3-挂载路径前缀"><a href="#1-3-3-挂载路径前缀" class="headerlink" title="1.3.3 挂载路径前缀"></a>1.3.3 挂载路径前缀</h5><p>如果希望在托管的静态资源访问路径之前，挂载路径前缀，则可以使用如下的方式：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">app.use(&#x27;/public&#x27;,express.static(&#x27;public&#x27;))</span><br></pre></td></tr></table></figure>
-
-<p>现在，你就可以通过带有 &#x2F;public 前缀地址来访问 public 目录中的文件了：</p>
-<p><a href="http://localhost:3000/public/images/kitten.jpg">http://localhost:3000/public/images/kitten.jpg</a></p>
-<p><a href="http://localhost:3000/public/css/style.css">http://localhost:3000/public/css/style.css</a></p>
-<p><a href="http://localhost3000/publicljs/app.js">http://localhost3000/publicljs/app.js</a></p>
-<h3 id="1-4-nodemon"><a href="#1-4-nodemon" class="headerlink" title="1.4 nodemon"></a>1.4 nodemon</h3><h5 id="1-4-1-为什么要使用-nodemon"><a href="#1-4-1-为什么要使用-nodemon" class="headerlink" title="1.4.1 为什么要使用 nodemon"></a>1.4.1 为什么要使用 nodemon</h5><p>在编写调用 Node.js 项目的时候，如果修改了项目的代码，则需要频繁的手动 close  掉，然后再重新启动，非常繁琐。</p>
-<p>可以使用 nodemon(<a href="http://www.npmjs.com/package/nodemon">http://www.npmjs.com/package/nodemon</a>) 这个工具，它能够监听项目文件的变动，当代码被修改后，nodemon 会自动帮我们重启项目，极大方便了开发和调试。</p>
-<h5 id="1-4-2-安装-nodemon"><a href="#1-4-2-安装-nodemon" class="headerlink" title="1.4.2 安装 nodemon"></a>1.4.2 安装 nodemon</h5><p>在终端中，运行如下命令，即可将 nodemon 安装为全局可用的工具：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm i -g nodemon</span><br></pre></td></tr></table></figure>
-
-<h5 id="1-4-3-使用-nodemon"><a href="#1-4-3-使用-nodemon" class="headerlink" title="1.4.3 使用 nodemon"></a>1.4.3 使用 nodemon</h5><p>当基于 Node.js 编写了一个网站应用的时候，传统的方式，是运行 node app.js 命令，来启动项目。这样做的坏处是：代码被修改之后，需要手动重启项目。</p>
-<p> 现在，我们可以将 node 命令替换为 nodemon 命令，使用 nodemon app.js 来启动项目。这样做的好处是：代码被修改之后，会被 nodemon 坚挺到，从而实现自动重启项目的效果。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">node app.<span class="property">js</span></span><br><span class="line"># 将上面的终端命令，替换为上面的终端命令，即可实现自动重启项目的效果</span><br><span class="line">nodemon app.<span class="property">js</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="2-Express-路由"><a href="#2-Express-路由" class="headerlink" title="2.Express 路由"></a>2.Express 路由</h1><h3 id="2-1-路由的概念"><a href="#2-1-路由的概念" class="headerlink" title="2.1 路由的概念"></a>2.1 路由的概念</h3><h5 id="2-1-1-什么是路由"><a href="#2-1-1-什么是路由" class="headerlink" title="2.1.1 什么是路由"></a>2.1.1 什么是路由</h5><p>广义上来讲，路由就是映射关系。</p>
-<h5 id="2-1-2-现实生活中的路由"><a href="#2-1-2-现实生活中的路由" class="headerlink" title="2.1.2 现实生活中的路由"></a>2.1.2 现实生活中的路由</h5><p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220321201403.png"></p>
-<p>在这里，路由是按键与服务之间的映射关系</p>
-<h5 id="2-1-3-Express-中的路由"><a href="#2-1-3-Express-中的路由" class="headerlink" title="2.1.3 Express 中的路由"></a>2.1.3 Express 中的路由</h5><p>在 Express 中，路由指的是客户端的请求与服务器处理函数之间的映射关系。</p>
-<p>Express 中的路由分 3 部分组成，分别是请求的类型、请求的 URL 地址、处理函数，格式如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">METHOD</span>(<span class="variable constant_">PATH</span>,<span class="variable constant_">HEADLER</span>)</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-1-4-Express-中路由的例子"><a href="#2-1-4-Express-中路由的例子" class="headerlink" title="2.1.4 Express 中路由的例子"></a>2.1.4 Express 中路由的例子</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 匹配 GET 请求，且请求 URL 为 /</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	res.<span class="title function_">send</span>(<span class="string">&#x27;Hello World!&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配 POST 请求，且请求 URL 为 /</span></span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	res.<span class="title function_">send</span>(<span class="string">&#x27;Got a POST request&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-1-5-路由的匹配过程"><a href="#2-1-5-路由的匹配过程" class="headerlink" title="2.1.5 路由的匹配过程"></a>2.1.5 路由的匹配过程</h5><p>每当一个请求到达服务器之后，需要先经过路由的匹配，只有匹配成功之后，才会调用对应的处理函数。</p>
-<p>在匹配时，会按照路由的顺序进行匹配，如果请求类型和请求的 URL 同时匹配成功，则 Express 会将这次请求，转交给对应的 function 函数进行处理。</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220321202324.png"></p>
-<p>路由匹配的注意点：</p>
-<p>① 按照定义的先后顺序进行匹配</p>
-<p>② 请求类型和请求的URL同时匹配成功，才会调用对应的处理函数</p>
-<h3 id="2-2-路由的使用"><a href="#2-2-路由的使用" class="headerlink" title="2.2 路由的使用"></a>2.2 路由的使用</h3><h5 id="2-2-1-最简单的用法"><a href="#2-2-1-最简单的用法" class="headerlink" title="2.2.1 最简单的用法"></a>2.2.1 最简单的用法</h5><p>在 Express 中使用路由的最简单方式，就是把路由挂载到 app 上，示例代码如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> express=<span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>)</span><br><span class="line"><span class="comment">// 创建 Web 服务器，命名为 app</span></span><br><span class="line"><span class="keyword">const</span> app=<span class="title function_">express</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 挂载路由</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;res.<span class="title function_">send</span>(<span class="string">&#x27;Hello World.&#x27;</span>)&#125;)</span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;res.<span class="title function_">send</span>(<span class="string">&#x27;Post Request.&#x27;</span>)&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 启动 Web 服务器</span></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">80</span>,<span class="function">()=&gt;</span>&#123;<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;server running at http://127.0.0.1&#x27;</span>)&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-2-2-模块化路由"><a href="#2-2-2-模块化路由" class="headerlink" title="2.2.2 模块化路由"></a>2.2.2 模块化路由</h5><p>为了方便对路由进行模块化的管理，Express 不建议将路由直接挂载到 app 上，而是推荐将路由抽离为单独的模块。</p>
-<p>将路由抽离为单独模块的步骤如下：<br>① 创建路由模块对应的 .js 文件</p>
-<p>② 调用 express.Router() 函数创建路由对象</p>
-<p>③ 向路由对象上挂载具体的路由</p>
-<p>④ 使用 module.exports 向外共享路由对象</p>
-<p>⑤ 使用 app.use() 函数注册路由模块</p>
-<h5 id="2-2-3-创建路由模块"><a href="#2-2-3-创建路由模块" class="headerlink" title="2.2.3 创建路由模块"></a>2.2.3 创建路由模块</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> express=<span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>)			<span class="comment">// 1.导入 express</span></span><br><span class="line"><span class="keyword">const</span> router=express.<span class="title class_">Router</span>()				<span class="comment">// 2.创建路由对象</span></span><br><span class="line"></span><br><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;/user/list&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;		<span class="comment">// 3.挂载获取用户列表的路由</span></span><br><span class="line">	res.<span class="title function_">send</span>(<span class="string">&#x27;Get user list.&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">router.<span class="title function_">post</span>(<span class="string">&#x27;/user/add&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;		<span class="comment">// 4.挂载添加用户的路由</span></span><br><span class="line">	res.<span class="title function_">send</span>(<span class="string">&#x27;Add new user&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>=router						<span class="comment">// 5.向外导出路由对象</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="2-2-4-注册路由模块"><a href="#2-2-4-注册路由模块" class="headerlink" title="2.2.4 注册路由模块"></a>2.2.4 注册路由模块</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 1.导入路由模块</span><br><span class="line">const userRouter=require(&#x27;./router/user.js&#x27;)</span><br><span class="line"></span><br><span class="line">// 2.使用 app.use() 注册路由模块</span><br><span class="line">app.use(userRouter)</span><br></pre></td></tr></table></figure>
-
-<p>注意： app.use() 函数的作用，就是来注册全局中间件</p>
-<h5 id="2-2-5-为路由模块添加前缀"><a href="#2-2-5-为路由模块添加前缀" class="headerlink" title="2.2.5 为路由模块添加前缀"></a>2.2.5 为路由模块添加前缀</h5><p>类似于托管静态资源，为静态资源挂载访问前缀一样，路由模块添加前缀的方式也非常简单：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1.导入路由模块</span></span><br><span class="line"><span class="keyword">const</span> userRouter=<span class="built_in">require</span>(<span class="string">&#x27;./router/user.js&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.使用 app.use() 注册路由模块，并添加统一的访问前缀 /api</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="string">&#x27;/api&#x27;</span>,useR)</span><br></pre></td></tr></table></figure>
-
-<h1 id="3-Expres-中间件"><a href="#3-Expres-中间件" class="headerlink" title="3.Expres 中间件"></a>3.Expres 中间件</h1><h3 id="3-1-中间件的概念"><a href="#3-1-中间件的概念" class="headerlink" title="3.1 中间件的概念"></a>3.1 中间件的概念</h3><h5 id="3-1-1-什么是中间件"><a href="#3-1-1-什么是中间件" class="headerlink" title="3.1.1 什么是中间件"></a>3.1.1 什么是中间件</h5><p>中间件 (Middleware)，特指业务流程的中间处理环节。</p>
-<h5 id="3-1-2-生活中的例子"><a href="#3-1-2-生活中的例子" class="headerlink" title="3.1.2 生活中的例子"></a>3.1.2 生活中的例子</h5><p>处理污水的时候，一般要经过三个处理环节，从而保证处理过后的废水，达到排放标准。</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220322141124.png"></p>
-<p>处理污水的这三个中间处理环节，就可以叫做中间件。</p>
-<h5 id="3-1-3-Express-中间件的调用流程"><a href="#3-1-3-Express-中间件的调用流程" class="headerlink" title="3.1.3 Express 中间件的调用流程"></a>3.1.3 Express 中间件的调用流程</h5><p>当一个请求到达 Express 的服务器之后，可以连续调用多个中间件，从而对这次请求进行预处理。</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220322141237.png"></p>
-<h5 id="3-1-4-Express-中间件的格式"><a href="#3-1-4-Express-中间件的格式" class="headerlink" title="3.1.4 Express 中间件的格式"></a>3.1.4 Express 中间件的格式</h5><p>Expess 的中间件，本质上就是一个 function 处理函数，Express 中渐渐地格式如下：</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220322141553.png"></p>
-<p>注意：中间件函数的形参列表中，必须包含 next 函数。而路由处理函数中质保函 req 和 res。</p>
-<h5 id="3-1-5-next-函数的作用"><a href="#3-1-5-next-函数的作用" class="headerlink" title="3.1.5 next 函数的作用"></a>3.1.5 next 函数的作用</h5><p>next 函数是实现多个中间件连续调用的关键，它表示把流转关系转交给下一个中间件或路由。</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220322141807.png"></p>
-<h3 id="3-2-Express-中间件的初体验"><a href="#3-2-Express-中间件的初体验" class="headerlink" title="3.2 Express 中间件的初体验"></a>3.2 Express 中间件的初体验</h3><h5 id="3-2-1-定义中间件函数"><a href="#3-2-1-定义中间件函数" class="headerlink" title="3.2.1 定义中间件函数"></a>3.2.1 定义中间件函数</h5><p>可以通过如下的方式，定义一个最简单的中间件函数：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 常量 mw 所指向的，就是一个中间件函数</span></span><br><span class="line"><span class="keyword">const</span> mw=<span class="keyword">function</span>(<span class="params">req,res,next</span>) &#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;这是一个最简单的中间件处理函数&#x27;</span>)</span><br><span class="line">    <span class="comment">// 注意：在当前中间件的业务处理完毕后，必须调用 next() 函数</span></span><br><span class="line">    <span class="comment">// 表示把流转关系转交给下一个中间件或路由</span></span><br><span class="line">    <span class="title function_">next</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-2-2-全局生效的中间件"><a href="#3-2-2-全局生效的中间件" class="headerlink" title="3.2.2 全局生效的中间件"></a>3.2.2 全局生效的中间件</h5><p>客户单发起的任何请求，到达服务器之后，都会触发的中间件，叫做全局生效的中间件。</p>
-<p>通过调用 app.use(中间件函数)，即可定义一个全局生效的中间件，示例代码如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 常量 mw 所指向的，就是一个中间件函数</span></span><br><span class="line"><span class="keyword">const</span> mw=<span class="keyword">function</span>(<span class="params">req,res,next</span>) &#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;这是一个最简单的中间件函数&#x27;</span>)</span><br><span class="line">	<span class="title function_">next</span>()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 全局生效的中间件</span></span><br><span class="line">app.<span class="title function_">use</span>(mw)</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-2-3-定义全局中间件的简化形式"><a href="#3-2-3-定义全局中间件的简化形式" class="headerlink" title="3.2.3 定义全局中间件的简化形式"></a>3.2.3 定义全局中间件的简化形式</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 全局生效的中间件</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="keyword">function</span> (<span class="params">req,res,next</span>)=&gt;&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;这是一个最简单的中间件函数&#x27;</span>)</span><br><span class="line">	<span class="title function_">next</span>()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-2-4-中间件的作用"><a href="#3-2-4-中间件的作用" class="headerlink" title="3.2.4 中间件的作用"></a>3.2.4 中间件的作用</h5><p>多个中间件之间，共享同一份 req 和 res。基于这样的特性，我们可以在上游的中间件中，统一为  req 或 res 对象添加自定义的属性或方法，供下游的中间件或路由进行使用。</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220322144206.png"></p>
-<h5 id="3-2-5-定义多个全局中间件"><a href="#3-2-5-定义多个全局中间件" class="headerlink" title="3.2.5 定义多个全局中间件"></a>3.2.5 定义多个全局中间件</h5><p>我们可以使用 app.use() 连续定义多个全局中间件。客户端请求到达服务器之后，会按照中间件定义的先后顺序依次进行调用，示例代码如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">req,res,next</span>)=&gt;</span>&#123;		<span class="comment">// 第1个全局中间件</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;调用了第1个全局中间件&#x27;</span>)</span><br><span class="line">    <span class="title function_">next</span>()</span><br><span class="line">&#125;)</span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">req,res,next</span>)=&gt;</span>&#123;		<span class="comment">// 第2个全局中间件</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;调用了第2个全局中间件&#x27;</span>)</span><br><span class="line">    <span class="title function_">next</span>()</span><br><span class="line">&#125;)</span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/user&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;	<span class="comment">// 请求这个路由，会依次触发上述两个全局中间件</span></span><br><span class="line">    res.<span class="title function_">send</span>(<span class="string">&#x27;Home page&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-2-6-局部生效的中间件"><a href="#3-2-6-局部生效的中间件" class="headerlink" title="3.2.6 局部生效的中间件"></a>3.2.6 局部生效的中间件</h5><p>不是用 app.use() 定义的中间件，叫做局部生效的的中间件，示例代码如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义中间件函数 mw1</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">mw1</span>=(<span class="params">req,res,next</span>)=&gt;&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;这是中间函数&#x27;</span>)</span><br><span class="line">    <span class="title function_">next</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// mw1 这个中间件只在“当前路由中生效”，这种用法属于“局部生效的中间件”</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>,<span class="function">(<span class="params">req,mw1,res</span>)=&gt;</span>&#123;</span><br><span class="line">	res.<span class="title function_">send</span>(<span class="string">&#x27;Home page.&#x27;</span>)        </span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// mw1 这个中间件不会影响下面这个路由</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/user&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">    res.<span class="title function_">send</span>(<span class="string">&#x27;User page.&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-2-7-定义多个局部中间件"><a href="#3-2-7-定义多个局部中间件" class="headerlink" title="3.2.7 定义多个局部中间件"></a>3.2.7 定义多个局部中间件</h5><p>可以在路由中，通过如下的两种等价的方式，使用多个局部中间件：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以下两种写法是“完全等价的”，可根据自己的喜好，选择任意一种方式进行使用</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>,mw1,mw2,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;res.<span class="title function_">send</span>(<span class="string">&#x27;Home page.&#x27;</span>)&#125;)</span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>,[mw1,mw2],<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;res.<span class="title function_">send</span>(<span class="string">&#x27;Home page.&#x27;</span>)&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-2-8-中间件的5个使用注意事项"><a href="#3-2-8-中间件的5个使用注意事项" class="headerlink" title="3.2.8 中间件的5个使用注意事项"></a>3.2.8 中间件的5个使用注意事项</h5><p>① 一定要在路由之前注册事件</p>
-<p>② 客户端发送过来的请求，可以连续调用多个中间件进行处理</p>
-<p>③ 执行完中间件的业务代码之后，不要忘记调用 next() 函数</p>
-<p>④ 为了防止代码逻辑混乱，调用完 next() 函数后不要再编写其他额外的代码</p>
-<p>⑤ 连续调用多个中间件时，多个中间件之间，共享 req 和 res 对象</p>
-<h3 id="3-3-中间件的分类"><a href="#3-3-中间件的分类" class="headerlink" title="3.3 中间件的分类"></a>3.3 中间件的分类</h3><p>为了方便大家理解和记忆中间件的使用，Express 官方把常见的中间件写法，分成了 5 大雷，分别是：</p>
-<p>① <strong>应用级别的中间件</strong></p>
-<p>​	通过 app.use() 或 app.get() 或 app.post()，绑定到 app实例上的中间件，叫做应用级别的中间件，代码示例如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 应用级别的中间件(全局中间件)</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">req,res,next</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="title function_">next</span>()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 应用级别的中间件(局部中间件)</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>,mw1,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	res.<span class="title function_">send</span>(<span class="string">&#x27;Home page&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>② <strong>路由级别的中间件</strong></p>
-<p>​	绑定到 express.Router() 实例上的中间件，叫做路由级别的中间件。它的用法和应用级别中间件没有任何区别。只不过，应用级别的中间件是绑定到 app 实例上，路由级别中间件绑定到 router 示例上，代码示例如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> app=<span class="title function_">express</span>()</span><br><span class="line"><span class="keyword">var</span> router=express.<span class="title class_">Router</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 路由级别的中间件</span></span><br><span class="line">router.<span class="title function_">use</span>(<span class="function">(<span class="params">req,res,next</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Time&#x27;</span>,<span class="title class_">Date</span> <span class="title function_">now</span>())</span><br><span class="line">    <span class="title function_">next</span>()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(<span class="string">&#x27;/&#x27;</span>,router)</span><br></pre></td></tr></table></figure>
-
-<p>③ <strong>错误级别的中间件</strong></p>
-<p>错误级别中间件的作用：专门用来捕获整个项目中发生的异常错误，从而防止项目异常崩溃的问题。</p>
-<p>格式：错误级别的中间件的 function 处理函数中，必须有 4 个形参，形参顺序从前到后，分别是(err,req,res,next)。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;					<span class="comment">// 1.路由</span></span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;服务器内部发生了错误！&#x27;</span>)	 <span class="comment">// 1.1 抛出来一个自定义的错误</span></span><br><span class="line">    res.<span class="title function_">send</span>(<span class="string">&#x27;Home Page.&#x27;</span>)<span class="comment">/* 客户端拿不到数据 */</span></span><br><span class="line">&#125;)</span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">err,req,res,next</span>)=&gt;</span>&#123;				<span class="comment">// 2.错误级别的中间件</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;发生了错误&#x27;</span>+err.<span class="property">message</span>)	<span class="comment">// 2.1 在服务器打印错误消息</span></span><br><span class="line">    res.<span class="title function_">send</span>(<span class="string">&#x27;Error!&#x27;</span>+err.<span class="property">message</span>)			<span class="comment">// 2.2 向客户端响应错误相关的内容</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>注意：错误级别的中间件一定要放在路由级别的中间件之后！</p>
-<p>④ <strong>Express 内置的中间件</strong></p>
-<p>Express 内置了 3 个常用的中间件，极大地提高了 Express 项目的开发效率和体验：</p>
-<ol>
-<li><p>express.static 快速托管静态资源的内置中间件，例如：HTML 文件、图片、CSS样式等(无兼容性)</p>
-</li>
-<li><p>express.json 解析 JSON 格式的请求体数据(有兼容性)</p>
-</li>
-<li><p>express.urlencoded 解析 URL-encoded 格式的请求体数据(有兼容性)</p>
-</li>
-</ol>
-<pre><code><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 配置解析 application/json 格式数据的内置中间件</span></span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">json</span>())</span><br><span class="line"><span class="comment">// 配置解析 application/x-www-form-urlencoded 格式数据的内置中间件</span></span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">urlencoded</span>(&#123; <span class="attr">extended</span>:<span class="literal">false</span> &#125;))</span><br></pre></td></tr></table></figure>
-</code></pre>
-<p>⑤ <strong>第三方的中间件</strong></p>
-<p>非 Express 官方内置的，而是由第三方开发出来的中间件，叫做第三方中间件。在项目中，可以按需下载并配置第三方中间件，使用步骤如下：</p>
-<ol>
-<li><p><strong>安装中间件 npm i 名称</strong></p>
-</li>
-<li><p><strong>使用 require 导入中间件</strong></p>
-</li>
-<li><p><strong>调用 app.use() 注册并使用中间件</strong></p>
-</li>
-</ol>
-<h3 id="3-4-自定义中间件"><a href="#3-4-自定义中间件" class="headerlink" title="3.4 自定义中间件"></a>3.4 自定义中间件</h3><h5 id="3-4-1-需求描述与实现步骤"><a href="#3-4-1-需求描述与实现步骤" class="headerlink" title="3.4.1 需求描述与实现步骤"></a>3.4.1 需求描述与实现步骤</h5><p>自己手动模拟一个类似于 express.urlencoded 这样的中间件，来解析 POST 提交到服务器的表单数据。</p>
-<p>实现步骤：</p>
-<ol>
-<li><p>定义中间件</p>
-</li>
-<li><p>监听 req 的 data 事件</p>
-</li>
-<li><p>监听 req 的 end 事件</p>
-</li>
-<li><p>使用 querystring 模块解析请求体数据</p>
-</li>
-<li><p>简介洗出来的对象挂载为 req.body</p>
-</li>
-<li><p>将自定义中间件风转微模块</p>
-<p><strong>理论知识：</strong>req.data 当服务器接收到数据时触发；req.end 数据接受完时触发</p>
-</li>
-</ol>
-<h5 id="3-4-2-定义中间件"><a href="#3-4-2-定义中间件" class="headerlink" title="3.4.2 定义中间件"></a>3.4.2 定义中间件</h5><p>使用 app.use() 来定义全局生效的中间件，代码如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">req,res,next</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="comment">// 中间件业务逻辑</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-4-3-监听-req-的-data-事件"><a href="#3-4-3-监听-req-的-data-事件" class="headerlink" title="3.4.3 监听 req 的 data 事件"></a>3.4.3 监听 req 的 data 事件</h5><p>在中间件中，需要监听 req 对象的 data 事件，来获取客户端发送到服务器的数据。</p>
-<p>如果数据量比较大，无法一次性发送完毕，则客户端会把数据切割后，分批发送到服务器。所以 data 事件可能会触发多次，每一次触发 data 事件时，获取到数据只是完整数据的一部分，需要手动对接收到的数据进行拼接。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义变量，用来存储客户端发送过来的请求体数据</span></span><br><span class="line"><span class="keyword">let</span> str=<span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="comment">// 监听 req 对象的 data 事件(客户端发送过来的新的请求体数据)</span></span><br><span class="line">req.<span class="title function_">on</span>(<span class="string">&#x27;data&#x27;</span>,<span class="function">(<span class="params">chunk</span>)=&gt;</span>&#123;</span><br><span class="line">	str+=chunk</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-4-4-监听-req-的-end-事件"><a href="#3-4-4-监听-req-的-end-事件" class="headerlink" title="3.4.4 监听 req 的 end 事件"></a>3.4.4 监听 req 的 end 事件</h5><p>当请求体数据接收完毕之后，会自动 req 的 end 事件。</p>
-<p>因此，我们可以在 req 的 end 事件中，拿到并处理完整的请求体数据。示例代码如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 监听 req 对象的 end 事件（请求体发送完毕后会自动触发）</span></span><br><span class="line">req.<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">// 打印完整的请求体数据</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(str)</span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span>把字符串格式的请求体数据，解析成对象格式</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-4-5-使用-querystring-模块解析请求体数据"><a href="#3-4-5-使用-querystring-模块解析请求体数据" class="headerlink" title="3.4.5 使用 querystring 模块解析请求体数据"></a>3.4.5 使用 querystring 模块解析请求体数据</h5><p>Node.js 内置了 querystring 模块，专门用来处理查询字符串。通过这个模块提供的 parse() 函数，可以轻松把查询字符串解析成对象的格式。示例代码如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 导入处理 querystring 的 Node.js 内置模块</span></span><br><span class="line"><span class="keyword">const</span> qs=<span class="built_in">require</span>(<span class="string">&#x27;querystring&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用 qs.parse() 方法，把查询字符串解析为对象</span></span><br><span class="line"><span class="keyword">const</span> body=qs.<span class="title function_">parse</span>(str)</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-4-6-将解析出来的数据对象挂载为-req-body"><a href="#3-4-6-将解析出来的数据对象挂载为-req-body" class="headerlink" title="3.4.6 将解析出来的数据对象挂载为 req.body"></a>3.4.6 将解析出来的数据对象挂载为 req.body</h5><p>上游的中间件和下游的中间件及路由之间，共享同一份 req 和 res。因此，我们可以将解析出来的数据，挂载为 req 的自定义属性，命名为 req.body，供下游使用。示例代码如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">req.on(&#x27;end&#x27;,()=&gt;&#123;</span><br><span class="line">	const body=qs.parse(str)  // 调用 qs.parse() 方法，把查询字符串解析为对象</span><br><span class="line">	req.body=body			  // 将解析出来的请求体对象，挂载为 req.body 属性</span><br><span class="line">	next()					  // 最后，一定要调用 next() 函数，执行后续的业务逻辑</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-4-7-将自定义中间件封装为模块"><a href="#3-4-7-将自定义中间件封装为模块" class="headerlink" title="3.4.7 将自定义中间件封装为模块"></a>3.4.7 将自定义中间件封装为模块</h5><p>为了优化代码结构，我们可以吧自定义的中间件函数，封装为独立的模块，示例代码如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// custom-body-parser.js 模块中的代码</span></span><br><span class="line"><span class="keyword">const</span> qs=<span class="built_in">require</span>(<span class="string">&#x27;querystring&#x27;</span>)</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">bodyParser</span>(<span class="params">req,res,next</span>) &#123;</span><br><span class="line">	<span class="keyword">let</span> str=<span class="string">&#x27;&#x27;</span></span><br><span class="line">    req.<span class="title function_">on</span>(<span class="string">&#x27;data&#x27;</span>,<span class="function">(<span class="params">chunk</span>)=&gt;</span>&#123;</span><br><span class="line">        str+=chunk</span><br><span class="line">    &#125;)</span><br><span class="line">    req.<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">const</span> body=qs.<span class="title function_">parse</span>(str)</span><br><span class="line">        req.<span class="property">body</span>=body</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(body)</span><br><span class="line">        <span class="title function_">next</span>()</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>= bodyParser <span class="comment">// 向外暴露bodyParser作为中间件函数</span></span><br><span class="line"><span class="comment">/* -------------------------分割线------------------------- */</span></span><br><span class="line"><span class="comment">// 1.导入自定义的中间件模块</span></span><br><span class="line"><span class="keyword">const</span> myBodyParser=<span class="built_in">require</span>(<span class="string">&#x27;custom-body-parser&#x27;</span>)</span><br><span class="line"><span class="comment">// 2.注册自定义的中间件模块</span></span><br><span class="line">app.<span class="title function_">use</span>(myBodyParser)</span><br></pre></td></tr></table></figure>
-
-<h1 id="4-使用-Express-写接口"><a href="#4-使用-Express-写接口" class="headerlink" title="4.使用 Express 写接口"></a>4.使用 Express 写接口</h1><h3 id="4-1-创建基本的服务器"><a href="#4-1-创建基本的服务器" class="headerlink" title="4.1 创建基本的服务器"></a>4.1 创建基本的服务器</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 导入 express 模块</span><br><span class="line">const express=quire(&#x27;express&#x27;)</span><br><span class="line">// 创建 express 的服务器实例</span><br><span class="line">const app=express()</span><br><span class="line"></span><br><span class="line">//调用 app.listen 方法，指定端口号启动服务器</span><br><span class="line">app.listen(80,()=&gt;&#123;</span><br><span class="line">	console.log(&#x27;Express server running at http://127.0.0.1&#x27;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-2-创建-API-路由模块"><a href="#4-2-创建-API-路由模块" class="headerlink" title="4.2 创建 API 路由模块"></a>4.2 创建 API 路由模块</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// apiRouter.js [路由模块]</span></span><br><span class="line"><span class="keyword">const</span> express=<span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> apiRouter=express.<span class="title class_">Router</span>()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>=apiRouter</span><br><span class="line"></span><br><span class="line"><span class="comment">/*-----------------------------------*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// app.js [导入并注册路由模块]</span></span><br><span class="line"><span class="keyword">const</span> apiRouter=<span class="built_in">require</span>(<span class="string">&#x27;./apiRouter.js&#x27;</span>)</span><br><span class="line">app.<span class="title function_">use</span>(<span class="string">&#x27;/api&#x27;</span>,apiRouter)</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-3-编写-GET-接口"><a href="#4-3-编写-GET-接口" class="headerlink" title="4.3 编写 GET 接口"></a>4.3 编写 GET 接口</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">apiRouter.<span class="title function_">get</span>(<span class="string">&#x27;/get&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="comment">// 1.获取客户端通过查询字符串，发送到服务器的数据</span></span><br><span class="line">    <span class="keyword">const</span> query=req.<span class="property">query</span></span><br><span class="line">    <span class="comment">// 2.调用 res.send() 方法，把数据响应给客户单</span></span><br><span class="line">    res.<span class="title function_">send</span>(&#123;</span><br><span class="line">        <span class="attr">status</span>:<span class="number">0</span>,			<span class="comment">// 状态：0表示成功，1表示失败</span></span><br><span class="line">        <span class="attr">msg</span>:<span class="string">&#x27;GET请求成功&#x27;</span>,	 <span class="comment">// 状态描述</span></span><br><span class="line">        <span class="attr">data</span>:query			<span class="comment">// 需要响应给客户端的具体数据</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-4-编写-POST-接口"><a href="#4-4-编写-POST-接口" class="headerlink" title="4.4 编写 POST 接口"></a>4.4 编写 POST 接口</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">apiRouter.<span class="title function_">post</span>(<span class="string">&#x27;/post&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="comment">// 1.获取客户端通过请求体，发送到服务器的 URL-encoded 数据</span></span><br><span class="line">    <span class="keyword">const</span> body=req.<span class="property">body</span></span><br><span class="line">    <span class="comment">// 2.调用 res.send() 方法，把数据响应给客户端</span></span><br><span class="line">    res.<span class="title function_">send</span>(&#123;</span><br><span class="line">        <span class="attr">status</span>:<span class="number">0</span>,			<span class="comment">// 状态：0表示成功，1表示失败</span></span><br><span class="line">        <span class="attr">msg</span>:<span class="string">&#x27;POST请求成功&#x27;</span>,	 <span class="comment">// 状态描述消息</span></span><br><span class="line">        <span class="attr">data</span>:body		   <span class="comment">//  需要响应给客户端的具体数据</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>注意:如果要获取URL-encoded格式的请求体数据，必须配置中间件app.use(express.urlencoded({ extended: false })</p>
-<h3 id="4-5-CORS-跨域资源共享"><a href="#4-5-CORS-跨域资源共享" class="headerlink" title="4.5 CORS 跨域资源共享"></a>4.5 CORS 跨域资源共享</h3><h5 id="4-5-1-接口的跨域问题"><a href="#4-5-1-接口的跨域问题" class="headerlink" title="4.5.1 接口的跨域问题"></a>4.5.1 接口的跨域问题</h5><p>刚才编写的 GET 和 POST 接口，存在一个很严重问题，不支持跨域访问</p>
-<p>解决接口跨域问题的方案主要有两种：</p>
-<p>① CORS(主流的解决方案)</p>
-<p>② JSONP(有缺陷的解决方案：只支持 GET 请求)</p>
-<h5 id="4-5-2-使用-cors-中间件解决跨域问题"><a href="#4-5-2-使用-cors-中间件解决跨域问题" class="headerlink" title="4.5.2 使用 cors 中间件解决跨域问题"></a>4.5.2 使用 cors 中间件解决跨域问题</h5><p>cors 是 Express 的一个第三方中间件。通过安装和配置 cors 中间件，可以很方便地解决跨域问题。</p>
-<p>使用步骤：<br>① 使用 npm i cors 安装中间件</p>
-<p>② 使用 const cors&#x3D;require(‘cors’) 导入中间件</p>
-<p>③ 在路由之前调用 app.use(cors()) 配置中间件</p>
-<h5 id="4-5-3-什么是-CORS"><a href="#4-5-3-什么是-CORS" class="headerlink" title="4.5.3 什么是 CORS"></a>4.5.3 什么是 CORS</h5><p>CORS (Cross-Origin Resourve Sharing，跨域资源共享) 有一系列 HTTP 响应头组成，这些 HTTP 响应头决定浏览器是否阻止前端 JS 代码跨域获取资源。</p>
-<p>浏览器的同源安全策略默认会组织网页”跨域”获取资源。但如果接口服务器配置了  CORS 相关的 HTTP 响应头，就可以解除浏览器的跨域访问限制。</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220324095431.png"></p>
-<h5 id="4-5-4-CORS-的注意事项"><a href="#4-5-4-CORS-的注意事项" class="headerlink" title="4.5.4 CORS 的注意事项"></a>4.5.4 CORS 的注意事项</h5><p>① CORS 主要在服务器进行配置。客户端浏览器无须作任何额外的配置，即可请求开启了 CORS 的接口。</p>
-<p>② CORS 在浏览器中有兼容性。只支持 XMLHttpRequest Level2 的浏览器，才能正常访问开启了 CORS 的服务器端口(例如：IE 10+、Chrome4+、FireFox3.5+)</p>
-<h5 id="4-5-5-CORS-响应头部-Access-Control-Allow-Origin"><a href="#4-5-5-CORS-响应头部-Access-Control-Allow-Origin" class="headerlink" title="4.5.5 CORS 响应头部 - Access-Control-Allow-Origin"></a>4.5.5 CORS 响应头部 - Access-Control-Allow-Origin</h5><p>响应头部可以携带一个 Access-Control-Allow-Origin 字段，其语法如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Access-Control-Allow-Origin:&lt;origin&gt; | *</span><br></pre></td></tr></table></figure>
-
-<p>其中，origin 参数的值制定了允许访问该资源的的外域 URL。</p>
-<p>例如，下面的字段福将只允许来自 <a href="http://itcast.cn/">http://itcast.cn</a> 的请求：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">res.setHeader(&#x27;Access-Control-Allow-Origin&#x27;,&#x27;http://itcase.cn&#x27;)</span><br></pre></td></tr></table></figure>
-
-<p>如果指定了 Access-Control-Allow-Origin 字段的值为通配符 *，表示允许来自任何域的请求，示例代码如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">res.setHeader(&#x27;Access-Control-Allow-Origin&#x27;,&#x27;*&#x27;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="4-5-6-Access-Control-Allow-Headers"><a href="#4-5-6-Access-Control-Allow-Headers" class="headerlink" title="4.5.6 Access-Control-Allow-Headers"></a>4.5.6 Access-Control-Allow-Headers</h5><p>默认情况下，CORS 仅支持客户端向服务器发送如下的 9 个请求头：</p>
-<p>Accept、Accept-Language、Content-Language、DPR、Downlink、Save-Data、Viewport-Width、Width ,Content-Type (值仅限于text&#x2F;plain、multipart&#x2F;form-data、application&#x2F;x-www-form-urlencoded 三者之一)</p>
-<p>如果客户端向服务器发送了额外的请求头信息，则需要在服务器端，通过 Access-Control-Allow-Headers 对额外的请求头进行声明，否则这次请求会失败！</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 允许客户端额外向服务器发送 Content-Type 请求头和 X-Custom-Header 请求头</span><br><span class="line">// 注意：多个请求头之间用英文的逗号进行分割</span><br><span class="line">res.setHeader(&#x27;Access-Control-Allow-Headers&#x27;,&#x27;Content-Type&#x27;,&#x27;X-Custom-Header&#x27;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="4-5-7-Access-Control-Allow-Methods"><a href="#4-5-7-Access-Control-Allow-Methods" class="headerlink" title="4.5.7 Access-Control-Allow-Methods"></a>4.5.7 Access-Control-Allow-Methods</h5><p>默认情况下，CORS 仅支持客户端发起 GET、POST、HEAD 请求。</p>
-<p>如果客户端希望通过 PUT、DELETE 等方式请求服务器的资源，则需要在服务器端，通过 Access-Control-Allow-Methods 指明请求所允许使用的 HTTP 方法。</p>
-<p>示例代码如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 只允许 POST、GET、DELETE、HEAD 请求方法</span><br><span class="line">res.setHeader(&#x27;Access-Control-Allow-Methods&#x27;,&#x27;POST,GET,DELETE,HEAD&#x27;)</span><br><span class="line">// 允许所有的 HTTP 请求方法</span><br><span class="line">res.setHeader(&#x27;Access-Control-Allow-&#x27;,&#x27;*&#x27;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="4-5-8-CORS-请求的分类"><a href="#4-5-8-CORS-请求的分类" class="headerlink" title="4.5.8 CORS 请求的分类"></a>4.5.8 CORS 请求的分类</h5><p>客户端在请求 CORS 接口时，根据请求方式和请求头的不同，可以将 CORS 的请求分为两大类，分别是：简单请求、预检请求</p>
-<p><strong>简单请求</strong>：满足两大请求</p>
-<p>​	① 请求方式：GET、POST、HEAD 三者之一</p>
-<p>​	② HTTP 头部信息不超过以下几种字段：无自定义头部字段、HTTP头部信息不超过以下几种字段g无自定义头部字段、Accept、Accept-Language、Content-Language、DPR,Downlink、Save-Data、Viewport-Width、width 、Content-Type(只有三个值application&#x2F;x-www-form-urlencoded、multipart&#x2F;form-data、text&#x2F;plain)</p>
-<p><strong>预检请求</strong>：只要符合以下任何一个条件的请求，都需要进行预检请求</p>
-<p>​	① 请求方式为 GET、POST、HEAD 之外的请求 Method 类型</p>
-<p>​	② 请求头中包含自定义头部字段</p>
-<p>​	③ 向服务器发送了 application&#x2F;json 格式的数据</p>
-<p>在浏览器与服务器正式通信之前，浏览器会先发送 OPTION 请求进行预检，以获知服务器是否允许该实际请求，所以这一次的 OPTION 请求称为”预检请求”。服务器成功响应预检请求后，才会发送真正的请求，并且携带真实数据。</p>
-<h5 id="4-5-9-简单请求和预检请求的区别"><a href="#4-5-9-简单请求和预检请求的区别" class="headerlink" title="4.5.9 简单请求和预检请求的区别"></a>4.5.9 简单请求和预检请求的区别</h5><p>简单请求的特点：客户端与服务器之间只会发生一次请求。</p>
-<p>预检请求的特点：客户端与服务器之间会发生两次请求，OPTION 预检请求成功之后，才会发起真正的请求。</p>
-<h3 id="4-6-JSONP接口"><a href="#4-6-JSONP接口" class="headerlink" title="4.6 JSONP接口"></a>4.6 JSONP接口</h3><h5 id="4-6-1-回顾-JSONP-的概念与特点"><a href="#4-6-1-回顾-JSONP-的概念与特点" class="headerlink" title="4.6.1 回顾 JSONP 的概念与特点"></a>4.6.1 回顾 JSONP 的概念与特点</h5><p>概念：浏览器通过 <script> 标签的 src 属性，请求服务器上的数据，同时，服务器返回一个函数的调用。这种请求数据的方式叫做 JSONP。</p>
-<p>特点：</p>
-<p>① JSONP 不属于真正的 Ajax 请求，因为他没有使用 XMLHttpRequest 这个对象。</p>
-<p>② JSONP 仅支持 GET 请求，不支持 POST、PUT、DELETE 等请求。</p>
-<h5 id="4-6-2-创建-JSONP-接口的注意事项"><a href="#4-6-2-创建-JSONP-接口的注意事项" class="headerlink" title="4.6.2 创建 JSONP 接口的注意事项"></a>4.6.2 创建 JSONP 接口的注意事项</h5><p>如果项目中已经配置了 CORS 跨域资源共享，为了防止冲突，必须在配置 CORS 中间件之前声明 JSONP 的解耦。否则 JSONP 接口会被处理成开启了 CORS 的接口。示例代码如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 优先创建 JSONP 接口(这个接口不会被处理成 CORS 接口)</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/api/jsonp&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 在配置 CORS 中间件(后续的所有借口，都会被处理成 CORS 接口)</span></span><br><span class="line">app.<span class="title function_">use</span>(cors)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这是一个开启了 CORS 的接口</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/api/get&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="4-6-3-实现-JSONP-接口的步骤"><a href="#4-6-3-实现-JSONP-接口的步骤" class="headerlink" title="4.6.3 实现 JSONP 接口的步骤"></a>4.6.3 实现 JSONP 接口的步骤</h5><p>① 获取客户端发送过来的回调函数的名字</p>
-<p>② 得到要通过 JSONP 形式发送给客户端的数据</p>
-<p>③ 根据前两步得到的数据，拼接出一个函数调用的字符串</p>
-<p>④ 把上一步拼接得到的字符串，响应给客户端的 <script> 标签进行解析执行</p>
-<h5 id="4-6-4-实现-JSONP-接口的具体代码"><a href="#4-6-4-实现-JSONP-接口的具体代码" class="headerlink" title="4.6.4 实现 JSONP 接口的具体代码"></a>4.6.4 实现 JSONP 接口的具体代码</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/api/jsonp&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="comment">// 1.获取客户端发送过来的回调函数的名字</span></span><br><span class="line">	<span class="keyword">const</span> funcName=req.<span class="property">query</span>.<span class="property">callback</span></span><br><span class="line">	<span class="comment">// 2.得到通过 JSONP 形式发送给客户端的数据</span></span><br><span class="line">	<span class="keyword">const</span> data=&#123;<span class="attr">name</span>:<span class="string">&#x27;zs&#x27;</span>,<span class="attr">age</span>:<span class="number">22</span>&#125;</span><br><span class="line">	<span class="comment">// 3.根据前两步得到的数据，拼接出一个函数调用的字符串</span></span><br><span class="line">	<span class="keyword">const</span> scriptStr=<span class="string">&#x27;$&#123;funcName&#125;($&#123;JSON.stringfy(data)&#125;)&#x27;</span></span><br><span class="line">	<span class="comment">// 4.把上一步拼接得到的字符串，响应给客户端 &lt;scirpt&gt; 标签进行解析执行</span></span><br><span class="line">	res.<span class="title function_">send</span>(scriptStr)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="4-6-5-在网页中使用-jQuery-发起-JSONP-请求"><a href="#4-6-5-在网页中使用-jQuery-发起-JSONP-请求" class="headerlink" title="4.6.5 在网页中使用 jQuery 发起 JSONP 请求"></a>4.6.5 在网页中使用 jQuery 发起 JSONP 请求</h5><p>调用 $.ajax() 函数，提供 JSONP 的配置选项，从而发起 JSONP 请求，示例代码如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;#btnJSONP&#x27;</span>).<span class="title function_">on</span>(<span class="string">&#x27;click&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">	$.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">		<span class="attr">type</span>:<span class="string">&#x27;GET&#x27;</span>,</span><br><span class="line">		<span class="attr">url</span>:<span class="string">&#x27;http://127.0.0.1/api/jsonp&#x27;</span>,</span><br><span class="line">		<span class="attr">dataType</span>:<span class="string">&#x27;jsonp&#x27;</span>,	<span class="comment">//表示要发起 JSONP 请求</span></span><br><span class="line">		<span class="attr">success</span>:<span class="keyword">function</span>(<span class="params">res</span>) &#123;</span><br><span class="line">			<span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-<h1 id="5-总结"><a href="#5-总结" class="headerlink" title="5 总结"></a>5 总结</h1><h3 id="5-1-补充"><a href="#5-1-补充" class="headerlink" title="5.1 补充"></a>5.1 补充</h3><p>​	node.js取参的四种方法</p>
-<ol>
-<li><p>req.body</p>
-<p>解析body不是nodejs默认提供的，你需要载入body-parser中间件才能使用req.body，</p>
-<p>此方法通常用来解析POST请求的数据,默认是undefined</p>
-</li>
-<li><p>req.query</p>
-<p>nodejs默认提供，无需载入中间件，</p>
-<p>此方法多适用于GET请求，解析GET里的参数，默认为{ }</p>
-</li>
-<li><p>req.params</p>
-<p>nodejs默认提供，无须载入中间件</p>
-<p>多用于restful风格url中的参数的解析</p>
-</li>
-<li><p>req.param()</p>
-<p>已经弃用</p>
-</li>
-</ol>
-<h3 id="5-2-注意点"><a href="#5-2-注意点" class="headerlink" title="5.2 注意点"></a>5.2 注意点</h3><p><strong>1</strong>. 使用JSON或urlencoded来进行POST请求，此时req.body获取发送数据</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/post&#x27;</span>,(req,res) &#123;</span><br><span class="line">	<span class="keyword">const</span> body=req.<span class="property">body</span></span><br><span class="line">    <span class="comment">// 注意res是响应，即响应给客户端的数据</span></span><br><span class="line">    res.<span class="title function_">send</span>(&#123;</span><br><span class="line">    	<span class="attr">status</span>:<span class="number">0</span>,</span><br><span class="line">        <span class="attr">msg</span>:<span class="string">&#x27;POST 请求成功&#x27;</span>,</span><br><span class="line">        <span class="attr">data</span>:body</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p><strong>2</strong>. 使用键值对形式进行GET请求，此时req.query获取服务器数据</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">app.get(&#x27;/get&#x27;,(req,res)=&gt;&#123;</span><br><span class="line">	const query=req.query</span><br><span class="line">	res.send(&#123;</span><br><span class="line">		data:0,</span><br><span class="line">		msg:&#x27;GET 请求成功&#x27;,</span><br><span class="line">		data:q</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$(function()&#123;</span><br><span class="line">    // 上传数据</span><br><span class="line">    function postData()&#123;</span><br><span class="line">        $(&#x27;#tpl_sumbit&#x27;).on(&#x27;submit&#x27;,function(e)&#123;</span><br><span class="line">            e.preventDefault();</span><br><span class="line">            var data=$(this).serialize();</span><br><span class="line">            // console.log(data);</span><br><span class="line">            $.ajax(&#123;</span><br><span class="line">                type:&#x27;POST&#x27;,</span><br><span class="line">                url:&#x27;http;//&#x27;+&#x27;?&#x27;+data,</span><br><span class="line">                success:function(res)&#123;</span><br><span class="line">                    console.log(res);</span><br><span class="line">                    storageData[storageData.length]=res;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    // 获取数据</span><br><span class="line">    function getData()&#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            type:&#x27;GET&#x27;,</span><br><span class="line">            url:&#x27;http://&#x27;,</span><br><span class="line">            success:function(res) &#123;</span><br><span class="line">                var data=&#123;</span><br><span class="line">                    water:300,deg:250,time:1,humidity:30,light:50,temperature:20</span><br><span class="line">                &#125;//测试数据</span><br><span class="line">                // console.log(data[0]);</span><br><span class="line">                var htmlStr=template(&#x27;tpl_data&#x27;,data)</span><br><span class="line">                // console.log(htmlStr);</span><br><span class="line">                $(&#x27;#show_box&#x27;).html(htmlStr)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    getData();</span><br><span class="line">    var timer=setInterval(getData,1000);</span><br><span class="line">    $(&#x27;#btn_submit&#x27;).on(&#x27;click&#x27;,()=&gt;&#123;</span><br><span class="line">        postData();</span><br><span class="line">    &#125;)</span><br><span class="line">    var data=&#123;</span><br><span class="line">        water:300,deg:250,time:1,humidity:30,light:50,temperature:20</span><br><span class="line">    &#125;//测试数据</span><br><span class="line">    // console.log(data[0]);</span><br><span class="line">    var htmlStr=template(&#x27;tpl_data&#x27;,data)</span><br><span class="line">    // console.log(htmlStr);</span><br><span class="line">    $(&#x27;#show_box&#x27;).html(htmlStr)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>计算机网络</title>
     <url>/blog/2022/04/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</url>
     <content><![CDATA[<h1 id="一：图解HTTP"><a href="#一：图解HTTP" class="headerlink" title="一：图解HTTP"></a>一：图解HTTP</h1><span id="more"></span>
+
 
 <h2 id="1-Web及网络基础"><a href="#1-Web及网络基础" class="headerlink" title="1.Web及网络基础"></a>1.Web及网络基础</h2><h3 id="1-1使用HTTP协议访问Web"><a href="#1-1使用HTTP协议访问Web" class="headerlink" title="1.1使用HTTP协议访问Web"></a>1.1使用HTTP协议访问Web</h3><p>​	Web 页面不能凭空显示出来。根据Web浏览地址栏中指定的 URL,Web浏览器从Web服务器端获取文件资源（resource）等信息，从而显示出Web页面。</p>
 <p>​	像这种通过发送请求获取服务器资源的 Web浏览器等，都可称为客户端（client）</p>
@@ -4707,7 +4715,7 @@
 <p>​	为解决这个问题，在技术上改变了以往直接在发送端与接收端主机之间建立TCP连接的机制，而引进了一种一直会连接电源的邮件服务器。发送和接收端通过邮件服务器进行收发邮件。接收端从邮件服务器接收邮件时使用<strong>POP3(Post Office Protocol)协议</strong>。</p>
 <p>​	电子邮件的机制由3部分组成，他们分别是<strong>邮件地址</strong>、<strong>数据格式</strong>以及<strong>发送协议</strong>。</p>
 <h5 id="8-4-2邮件地址"><a href="#8-4-2邮件地址" class="headerlink" title="8.4.2邮件地址"></a>8.4.2邮件地址</h5><p>​	使用电子邮件时需要拥有的地址叫做<strong>邮件地址</strong>，它就相当于通信地址和姓名。互联网中电子邮件地址格式如下：</p>
-<p>​	名称@通信地址（<a href="mailto:&#x33;&#x34;&#x33;&#x34;&#x39;&#48;&#x39;&#x34;&#48;&#x33;&#x40;&#x71;&#113;&#46;&#x63;&#111;&#x6d;">&#x33;&#x34;&#x33;&#x34;&#x39;&#48;&#x39;&#x34;&#48;&#x33;&#x40;&#x71;&#113;&#46;&#x63;&#111;&#x6d;</a>）</p>
+<p>​	名称@通信地址（<a href="mailto:&#x33;&#x34;&#51;&#52;&#57;&#48;&#x39;&#x34;&#x30;&#x33;&#64;&#x71;&#113;&#46;&#99;&#111;&#x6d;">&#x33;&#x34;&#51;&#52;&#57;&#48;&#x39;&#x34;&#x30;&#x33;&#64;&#x71;&#113;&#46;&#99;&#111;&#x6d;</a>）</p>
 <h5 id="8-4-3MIME"><a href="#8-4-3MIME" class="headerlink" title="8.4.3MIME"></a>8.4.3MIME</h5><p>​	电子邮件所能发送的数据类型已经被扩展到MIME，邮箱可以<strong>发送静态图像、动画、声音、程序等各种形式的数据</strong>。</p>
 <p>​	<strong>MIME基本上由首部和正文（数据）两部分组成</strong>。</p>
 <p>​	具体示例可看图解HTTP笔记。</p>
