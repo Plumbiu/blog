@@ -157,249 +157,6 @@
       </tags>
   </entry>
   <entry>
-    <title>HTML</title>
-    <url>/blog/2022/04/15/HTML/</url>
-    <content><![CDATA[<h1 id="1-网页"><a href="#1-网页" class="headerlink" title="1.网页"></a>1.网页</h1><span id="more"></span>
-
-
-<h3 id="1-1什么是网页"><a href="#1-1什么是网页" class="headerlink" title="1.1什么是网页"></a>1.1什么是网页</h3><p>​	网站是指在因特网上根据一定的规则，使用HTML等制作的用于展示特定内容相关的网页集合。</p>
-<p>​	网页时网站中的一“页”，通常是HTML格式的文件，他要通过浏览器来阅读。</p>
-<p>​	网页是构成网站的基本元素，它通过由图片、链接、文字、声音、视频等元素组成。通常我们看到的网页，常见以.html或.htm后缀结尾的文件，因此将其俗称为HTML文件。</p>
-<h3 id="1-2什么是HTML"><a href="#1-2什么是HTML" class="headerlink" title="1.2什么是HTML"></a>1.2什么是HTML</h3><p>​	HTML指的是超文本标记语言（Hyper Text Markup Language）,它是用来描述网页的一种语言。</p>
-<p>​	HTML不是一种编程语言，而是一种标记语言（markup language）</p>
-<p>​	标记语言是一套标记标签（markup tag）</p>
-<p><u><strong>超文本</strong></u>：</p>
-<p>​	1.它可以加入图片、声音、动画、多媒体等内容（超越了文本限制）。</p>
-<p>​	2.它还可以从一个文件跳转到另一个文件，与世界各地主机的文件链接（超级链接文本）。</p>
-<h3 id="1-3网页的形成"><a href="#1-3网页的形成" class="headerlink" title="1.3网页的形成"></a>1.3网页的形成</h3><p>网页是有网页元素组成的，这些元素是利用html标签描述出来，然后通过浏览器解析来显示给用户的</p>
-<p>前端人员开发代码——————&gt;浏览器显示代码(解析。渲染)——————————&gt;生成最后的web页面</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h3><p>​	1.网页是图片、链接、文字、声音、视频等元素组成，其实就是一个html文件（后缀名为html）</p>
-<p>​	2.网页生成制作：有前端人员书写HTML文件，然后浏览器打开，就能考到了网页。</p>
-<p>​	3.HTML：超文本标记语言，用来制作网页的一门语言，由标签组成的。比如 图片标签、链接标签、视频标签等。。。</p>
-<h1 id="2-常用浏览器"><a href="#2-常用浏览器" class="headerlink" title="2.常用浏览器"></a>2.常用浏览器</h1><p>2.1浏览器:</p>
-<p>​	浏览器是网页显示、运行的平台。常用的浏览器有IE,火狐（Firefox）、谷歌（Chrome）、Safari和Opera等。平时称为五大浏览器。</p>
-<p>2.2浏览器内核：</p>
-<p>​	浏览器内核（渲染引擎）：负责读取网页内容，整理讯息，计算网页的显示方式并显示页面</p>
-<img src="https://plumbiu.github.io/images/QQ截图20211215093909.png" style="zoom:67%;" />
-
-<p>​	目前国内一般浏览器都会采用Webkit&#x2F;Blink内核，如360、UC、QQ、搜狗等</p>
-<h1 id="3-Web标准"><a href="#3-Web标准" class="headerlink" title="3.Web标准"></a>3.Web标准</h1><p>​	Web标准石油W3C组织和其他标准化组织指定的一系列标准的集合。W3C（万维网联盟）是国际最著名的标准化组织。</p>
-<p>3.1为什么需要Web标准</p>
-<p>​	浏览器不同，他们显示的页面或者排版就有些许差异</p>
-<p>​	由于不同浏览器解析出来的效果可能不一致，开发者常常需要为多版本的开发而艰苦工作</p>
-<p>​	1.让Web的反展前景更广阔</p>
-<p>​	2.内容能被更广泛的设备访问</p>
-<p>​	3.更容易被搜索引擎搜索</p>
-<p>​	4.降低网站流量费用</p>
-<p>​	5.使网站更易于维护</p>
-<p>​	6.提高页面浏览速度</p>
-<p>3.2Web标准的构成</p>
-<p>​	1.主要包括结构（Structure）、表现（Presentation）和行为(Behavior)三个方面。</p>
-<p>​	<img src="https://plumbiu.github.io/images/QQ截图20211215094634.png" style="zoom:67%;" /></p>
-<p>​	Web标准提出的最佳体验方案：<strong>结构</strong>（最重要）、样式、行为相分离</p>
-<p>​	简单理解：结构写道HTML文件中，表现写到CSS文件中，行为写到JavaScript文件中。</p>
-<img src="https://plumbiu.github.io/images/QQ截图20211215095003.png" style="zoom:80%;" />
-
-
-
-<img src="https://plumbiu.github.io/images/QQ截图20211215095301.png" style="zoom:80%;" />
-
-<h1 id="1-HTML语法规范"><a href="#1-HTML语法规范" class="headerlink" title="1.HTML语法规范"></a>1.HTML语法规范</h1><p>​	双标签</p>
-<p>​	<html> </html>&#x2F;&#x2F;标签都包括到&lt;&gt;中，且成对出现,<html>是开始标签,</html>是结束标签</p>
-<p>​	单标签(非常少)</p>
-<p>​	<br /></p>
-<p>1.1基本语法概述</p>
-<p>​	1.HTML标签是由尖括号包围的关键字，例如<html>.</p>
-<p>​	2.HTML标签通常是成对出现的,例如<html>和</html>,我们成为双标签。标签对中的第一个标签是开始标签，第二个标签是结束标签.</p>
-<p>​	3.有些特殊标签必须是单个标签（极少情况），例如<br />我们称为单标签.</p>
-<p>1.2标签关系</p>
-<p>​	双标签关系可以分为两类：<u>包含关系</u>和<u>并列关系</u></p>
-<p>​	<strong>包含关系</strong></p>
-<head>
-    <title> </title>
-</head>
-
-<p>​	<strong>并列关系</strong></p>
-<head> </head>>
-
-<body> </body>
-
-
-
-<h1 id="2-HTML基本结构标签"><a href="#2-HTML基本结构标签" class="headerlink" title="2.HTML基本结构标签"></a>2.HTML基本结构标签</h1><h3 id="2-1第一个HTML网页"><a href="#2-1第一个HTML网页" class="headerlink" title="2.1第一个HTML网页"></a>2.1第一个HTML网页</h3><p>每个网页都会有一个基本的结构标签（也称为骨架标签），页面内容也是在这些基本标签上书写。HTML页面也称为HTML文档。</p>
-<p>基本结构标签:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">	    &lt;title&gt;我的第一个页面&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line">​	&lt;body&gt;</span><br><span class="line">​		我是嫩叠</span><br><span class="line">​	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-<img src="https://plumbiu.github.io/images/QQ截图20211215101242.png"  />
-
-<h3 id="2-2基本结构标签总结"><a href="#2-2基本结构标签总结" class="headerlink" title="2.2基本结构标签总结"></a>2.2基本结构标签总结</h3><p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20211215101637.png"></p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20211215101727.png"></p>
-<h1 id="3-开发工具"><a href="#3-开发工具" class="headerlink" title="3.开发工具"></a>3.开发工具</h1><h3 id="vscode工具生成骨架标签新增代码"><a href="#vscode工具生成骨架标签新增代码" class="headerlink" title="vscode工具生成骨架标签新增代码"></a>vscode工具生成骨架标签新增代码</h3><p>1.&lt;!DOCTYPE&gt;标签</p>
-<p>2.lang语言</p>
-<p>3.charset字符集</p>
-<p>3.1文档类型声明标签</p>
-<p>​	文档类型名&lt;!DOCTYPE&gt;,作用就是告诉我们浏览器使用哪种HTML版本来显示页面</p>
-<p>​	&#x2F;&#x2F;<!DOCTYPE html></p>
-<p>​	这句话告诉我们，当前页面采取的是HTML5版本显示页面</p>
-<p>​	<strong>注意：</strong></p>
-<p>​	1.&#x2F;&#x2F;&lt;!DOCTYPE&gt;声明位于文档中的最前面的位置，处于&#x2F;&#x2F;<html>标签之前</p>
-<p>​	2.&#x2F;&#x2F;&lt;!DOCTYPE&gt;不是一个HTML标签，它就是文档类型声明标签</p>
-<p>3.2 lang语言种类</p>
-<pre><code> &lt;u&gt;用来定义当前文档显示的语言&lt;/u&gt;
-</code></pre>
-<p>1.en定义语言为英语</p>
-<p>2.zh-CN定义语言为中文</p>
-<p>​		简单来说，定义en就是英文网页，定义为zh-CN就是中文网页</p>
-<h1 id="4-HTML-常用标签"><a href="#4-HTML-常用标签" class="headerlink" title="4.HTML 常用标签"></a>4.HTML 常用标签</h1><p>4.1根据标签的语义，在合适的地方给一个最为合理的标签，可以让页面结构更清晰</p>
-<p>4.2标题标签<h1> - <h6> 为了是网页更具有语义化，我们经常会在页面中要到标题标签。HEML提供了6个等级	的网页标题</p>
-<p>​		（单词head缩写，以为头部标题、每个标题独占一行）</p>
-<p>4.3段落和换行标签</p>
-<p>​		在网页中，要把文字有条理的显示出来，就需要将这些文字分段显示，在HTML标签中，<p>标签用于定义段落，他可以将整个网页		分为若干个段落</p>
-<p>​			&#x2F;&#x2F;<p>我是一个段落标签</p>单词paragraph的缩写</p>
-<p>可以把HTML文档分割为若干段落</p>
-<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>1.文本在一个段落中会根据浏览器窗口的大小自动换行</p>
-<p>2.段落和段落之间保有空隙</p>
-<p>​		在HTML中，一个段落中的文字会从左到右依次排列，直到浏览器窗口的右端，然后才自动换行。如果希望某段文本强制换行显示，		就需要使用换行标签<br /></p>
-<p>​			单词break的缩写</p>
-<p>标签语义∶强制换行。</p>
-<h3 id="特点∶"><a href="#特点∶" class="headerlink" title="特点∶"></a>特点∶</h3><p>1.<br />是个单标签。<br>2<br />标签只是简单地开始新的一行，跟段落不一样，段落之间会插入一些垂直的间距。<br>心</p>
-<p>4.4文本格式化标签</p>
-<p>​		在网页中，有时需要为文字设置粗体、斜体或下划线等效果，这时就需要用到HTML中的文本格式化标签，使文字以特殊的方式显		示。</p>
-<p>标签语义:突出重要性,比普通文字更重要.</p>
-<p>​					加粗 <strong></strong>或者<b></b></p>
-<p>​					倾斜 <em></em>或者<i></i></p>
-<p>​					删除线 <del></del>或者<s></s></p>
-<p>​					下划线 <ins></ins>或者<u></u> </p>
-<p>4.5<div>和<span>标签</p>
-<p>​		&#x2F;&#x2F;<div>和<span>是没有语义的，他们就是一个盒子，用来装内容的<br>​    </p>
-<p>​		&#x2F;&#x2F;<div>这是头部</div></p>
-<p>​		&#x2F;&#x2F;span&gt;今日价格&lt;&#x2F;span</p>
-<p>​		div是division的缩写，表示分割、分区。span意为跨度、跨距。</p>
-<h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点:"></a>特点:</h3><p>​		1.<div>标签用来布局，但是现在一行只能放一个<div>。大盒子</p>
-<p>​		2.<span>标签用来布局，一行上可以多个<span>。小盒子</p>
-<p>4.6 图像标签和路径（重点）</p>
-<p>1.图像标签</p>
-<p>​		在HTML标签中，<img>标签用于定义HTML页面中的图像。<img src="图像URL /"></p>
-<p>​		单词image的缩写，意为图像，src是<img>标签的必须属性，它用于指定图像文件的路径和文件名。</p>
-<p>​		所谓属性，简单理解就是属于这个图像标签的特性</p>
-<p>​				属性						属性值					说明<br>​				src					     图片路径				必须属性<br>​				alt							文本			    替换文本。图像不能显示的文字<br>​				title						  文本			    提示文本。鼠标放到图像上，显示的文字<br>​				width					   像素				设置图像的宽度<br>​				height					  像素				设置图像的高度<br>​				border					  像素				设置图像的边框粗细</p>
-<p>4.6图像标签和路径(重点)</p>
-<p>1.图像标签<br>        图像标签属性注意点︰</p>
-<p>​			图像标签可以拥有多个属性，必须写在标签名的后面。</p>
-<p>​			属性之间不分先后顺序，标签名与属性、属性与属性之间均以空格分开。</p>
-<p>​			属性采取键值对的格式，即 key&#x3D; “value”的格式，属性&#x3D;“属性值”。</p>
-<p>⒉路径(前期铺垫知识)<br>        (1)目录文件夹和根目录:<br>        实际工作中，我们的文件不能随徳乱放，否则用起来很难快速的找到他们，因此我们需要一个文件夹来管理他们。</p>
-<p>​				目录文件夹∶就是普通文件夹，里面只不过存放了我们做页面所需要的相关素材，比如html文件、图片等。</p>
-<p>​				根目录:打开目录文件夹的第一层就是根目录</p>
-<p>4.8图像标签和路径(重点)</p>
-<p>⒉路径</p>
-<p>​			页面中的图片会非常多，通常我们会新建一个文件夹来存放这些图像文件( images )，这时再查找图像，就需要采用“路径”的方式			来指定图像文件的位置。<br>路径可以分为∶</p>
-<p>1．相对路径：以引用文件所在位置为参考基础，而建立出的目录路径 简单来说，图片相对于HTML页面的位置</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220118094138.png"></p>
-<p>2．绝对路径：</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220118095234.png"></p>
-<p>4.9超链接标签</p>
-<p>在HTML标签中 <a>标签用于定义超链接，作用是从一个页面链接到另个一个页面</p>
-<p>1.链接的语法格式</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;a href=&quot;跳转目标&quot; target=&quot;目标窗口的弹出方式&quot;&gt;文本或图像&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-
-<p>​				单词anchor缩写，意为：锚</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220118095828.png"></p>
-<p>2.链接的分类</p>
-<p>​	外部链接，例如</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;a href=&quot;http://www.baidu.com&quot;&gt;百度&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-
-<p>​	内部链接</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220118103250.png"></p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220118103358.png"></p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220118135015.png"></p>
-<h2 id="1-表格标签"><a href="#1-表格标签" class="headerlink" title="1.表格标签"></a>1.表格标签</h2><p>1.1一般表头单元格位于表格的第一行或第一列，表头单元格里面的文本内容加粗居中显示。</p>
-<th>标签标示HTML表格的表头部分（table head 的缩写）
-
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">	&lt;tr&gt;</span><br><span class="line">		&lt;th&gt;姓名&lt;/th&gt;//th是加粗</span><br><span class="line">		...</span><br><span class="line">	&lt;/tr&gt;</span><br><span class="line">	...</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
-
-<p>表头单元格也是单元格，常用于表格第一行，突出重要性，表头单元格里面的文字会加粗居中显示</p>
-<p>1.2</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220118140853.png"></p>
-<p>1.3</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220118170459.png"></p>
-<p>1.4合并单元格</p>
-<p>特殊情况下，可以把多个单元格合并为一个单元格。</p>
-<p>方式:</p>
-<p>​		跨行合并: rowspan&#x3D;”合并单元格个数”</p>
-<p>​		跨列合并:colspan&#x3D;”合并单元格个数”</p>
-<p>目标单元格：（写合并代码）</p>
-<p>​	跨行：最上册单元格为目标单元格，写合并代码<td rowspan="2"></td></p>
-<p>​	跨列：最左侧单元格为目标单元格，写合并代码<td cospan="2"></td></p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220118193133.png"></p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220118193201.png"></p>
-<h2 id="2-列表标签"><a href="#2-列表标签" class="headerlink" title="2.列表标签"></a>2.列表标签</h2><p>表格使用来显示数据的，列表是用来布局的</p>
-<p>列表最大的特点就是整齐、整洁、有序，它作为布局会更加自由和方便</p>
-<p>根据使用情境不同，列表可以分为三大类：无序列表，有序列表和自定义列表</p>
-<p>2.1无序列表</p>
-<p>标签标示HTML页面中项目的无序列表，一般会以项目符号呈现列表项，而列表项使用<li>标签定义。<br>无序列表的基本语法格式如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li&gt;列表项1&lt;/li&gt;    </span><br><span class="line">    &lt;li&gt;列表项2&lt;/li&gt;  </span><br><span class="line">    &lt;li&gt;列表项3&lt;/li&gt;  </span><br><span class="line">    &lt;li&gt;列表项4&lt;/li&gt;  </span><br><span class="line">    ...</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
-
-<p>1.无序列表的各个列表项之间没有顺序级别之分，是并列的。</p>
-<p>2.<ul></ul>中只能嵌套<li></li>,直接在<ul></ul>标签中输入其他标签或者文字的做法是不被允许的。</p>
-<p>3.<li>与</li>之间相当于一个容器，可以容纳所有元素。</p>
-<p>4.无序列表会带有自己的样式属性，但在实际使用时，我们会使用CSS来设置。</p>
-<h1 id="3-表单标签"><a href="#3-表单标签" class="headerlink" title="3.表单标签"></a>3.表单标签</h1><p>在HTML中，一个完整的表单通常由表单域、表单控件（也称为表单元素）、提示信息3个部分组成</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220119094040.png"></p>
-<p>3.1表单域</p>
-<p>表单域是一个包含单元素的区域</p>
-<p>在HTML标签中，<form>标签用于定义表单域，以实现用户信息的收集和传递。</p>
-<p><dorm>会把他范围内的表单元素信息交给服务器</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;form action=&quot;URL地址&quot; method=&quot;提交方式&quot; name=&quot;表单域名称&quot;&gt;</span><br><span class="line">	各种表达元素控件</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220119094639.png"></p>
-<p>3.2表单控件（表单元素）</p>
-<p>在表单域中可以定义各种表单元素，这些表单元素就是允许用户在表单中输入或者选择的内容控件</p>
-<p>​	</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220119095220.png"></p>
-<p>​	3.2.1<input>表单元素</p>
-<p>​	在英文单词中，input是输入的意思，而在表单元素中<input>标签用于收集用户信息</p>
-<p>​		type属性的属性值及其描述如下：</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220119095440.png"></p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220119100502.png"></p>
-<p>​		1.name和value是每个表单元素都有的属性值，主要给后台人员使用</p>
-<p>​		2.name表单元素的名字，要求 单选按钮和复选框要有相同的name值</p>
-<p>​		3.checked属性主要针对单选按钮和复选框，主要作用一打开页面，就要可以没默认选中某个表单元素</p>
-<p>​		4.maxlenth使用者可以在表单元素输入的最大字符数，较少使用</p>
-<p>​	3.2.2<label>标签</p>
-<p>​		<label>标签为input元素定义标注（标签）。</p>
-<p>​		<label>标签用于绑定一个表单元素，当点击<lable>标签内的文本时，浏览器就会自动将焦点（光标）转到或者选择对应的表单元素上用来增加用户体验</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;lable for=&quot;sex&quot;&gt; 男 &lt;/lable&gt;</span><br><span class="line">&lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;sex&quot; /&gt;</span><br></pre></td></tr></table></figure>
-
-<p>​		核心:<label>中的属性</p>
-<p>​	3.2.3<select>表单元素</p>
-<p>​		使用场景:在页面中，如果有多个选项让用户选择，并且想要节约页面空间，我们可以使用<select>标签控件定义下拉列表</p>
-<p>​		语法规范</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;select&gt;</span><br><span class="line">	&lt;option&gt;选项1&lt;/option&gt;</span><br><span class="line">	&lt;option&gt;选项2&lt;/option&gt;</span><br><span class="line">	&lt;option&gt;选项3&lt;/option&gt;</span><br><span class="line">	&lt;option&gt;选项4&lt;/option&gt;</span><br><span class="line">	...</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
-
-<p>​		1.<select>中至少包含已对<option></p>
-<p>​		2.在<option>中定义 selected&#x3D;”selected”时，当前项即为默认选中项</p>
-<p>​	3.2.4文本域元素</p>
-<p>​		使用场景：当用户输入内容较多的情况下，我们就不能使用文本框表单了，此时我们可以使用<textarea>标签。</p>
-<p>​				在表单元素中，<textarea>标签是用于定义多行文本输入的控件。</p>
-<p>​		使用多行文本输入控件，可以输入更多文字，常见于留言板等。</p>
-<p>​		语法</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;textarea rows=&quot;3&quot; cols=&quot;20&quot;&gt;</span><br><span class="line">	文本内容</span><br><span class="line">&lt;/textarea&gt;</span><br></pre></td></tr></table></figure>
-
-<p>​		1.通过<textarea>标签可以轻松地创建多行文本输入框</p>
-<p>​		2.cols&#x3D;“每行中的字符数”，rows&#x3D;“显示的行数”，我们在实际开发中不会使用，都是用CSS来改变大小。</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ajax、Git</title>
     <url>/blog/2022/04/15/Ajax%E5%92%8CGit/</url>
     <content><![CDATA[<h1 id="一：服务器基本概念与初识Ajax"><a href="#一：服务器基本概念与初识Ajax" class="headerlink" title="一：服务器基本概念与初识Ajax"></a>一：服务器基本概念与初识Ajax</h1><span id="more"></span>
@@ -1242,7 +999,7 @@
 <p> ① id_rsa (私钥文件，存放于客户端的电脑中间即可)</p>
 <p> ② id_rsa.pub (公钥文件，需要配置到 Github 中)</p>
 <h5 id="4-2-4-生成-SSH-key"><a href="#4-2-4-生成-SSH-key" class="headerlink" title="4.2.4 生成 SSH key"></a>4.2.4 生成 SSH key</h5><p>① 打开 Git Bash</p>
-<p>② 填写如下的命令，并将 <a href="mailto:&#121;&#x6f;&#x75;&#x72;&#95;&#101;&#x6d;&#x61;&#x69;&#x6c;&#x40;&#x65;&#x78;&#x61;&#109;&#112;&#x6c;&#x65;&#x2e;&#99;&#111;&#x6d;">&#121;&#x6f;&#x75;&#x72;&#95;&#101;&#x6d;&#x61;&#x69;&#x6c;&#x40;&#x65;&#x78;&#x61;&#109;&#112;&#x6c;&#x65;&#x2e;&#99;&#111;&#x6d;</a> 替换为账号时填写的邮箱：</p>
+<p>② 填写如下的命令，并将 <a href="mailto:&#x79;&#111;&#x75;&#x72;&#95;&#x65;&#x6d;&#x61;&#105;&#x6c;&#x40;&#x65;&#x78;&#x61;&#109;&#x70;&#x6c;&#x65;&#x2e;&#99;&#111;&#x6d;">&#x79;&#111;&#x75;&#x72;&#95;&#x65;&#x6d;&#x61;&#105;&#x6c;&#x40;&#x65;&#x78;&#x61;&#109;&#x70;&#x6c;&#x65;&#x2e;&#99;&#111;&#x6d;</a> 替换为账号时填写的邮箱：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;3434909403@qq.com&quot;</span><br></pre></td></tr></table></figure>
 
 <p>③ 连续敲击 3 次回车，即可在：C:\User\用户名文件夹.ssh 目录中生成 id_rsa 和 id_rsa_pub 两个文件</p>
@@ -1350,6 +1107,249 @@
 <p>  git push -u origin 新分支名称</p>
 <p>  git checkout 分支名称</p>
 <p>  git branch</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HTML</title>
+    <url>/blog/2022/04/15/HTML/</url>
+    <content><![CDATA[<h1 id="1-网页"><a href="#1-网页" class="headerlink" title="1.网页"></a>1.网页</h1><span id="more"></span>
+
+
+<h3 id="1-1什么是网页"><a href="#1-1什么是网页" class="headerlink" title="1.1什么是网页"></a>1.1什么是网页</h3><p>​	网站是指在因特网上根据一定的规则，使用HTML等制作的用于展示特定内容相关的网页集合。</p>
+<p>​	网页时网站中的一“页”，通常是HTML格式的文件，他要通过浏览器来阅读。</p>
+<p>​	网页是构成网站的基本元素，它通过由图片、链接、文字、声音、视频等元素组成。通常我们看到的网页，常见以.html或.htm后缀结尾的文件，因此将其俗称为HTML文件。</p>
+<h3 id="1-2什么是HTML"><a href="#1-2什么是HTML" class="headerlink" title="1.2什么是HTML"></a>1.2什么是HTML</h3><p>​	HTML指的是超文本标记语言（Hyper Text Markup Language）,它是用来描述网页的一种语言。</p>
+<p>​	HTML不是一种编程语言，而是一种标记语言（markup language）</p>
+<p>​	标记语言是一套标记标签（markup tag）</p>
+<p><u><strong>超文本</strong></u>：</p>
+<p>​	1.它可以加入图片、声音、动画、多媒体等内容（超越了文本限制）。</p>
+<p>​	2.它还可以从一个文件跳转到另一个文件，与世界各地主机的文件链接（超级链接文本）。</p>
+<h3 id="1-3网页的形成"><a href="#1-3网页的形成" class="headerlink" title="1.3网页的形成"></a>1.3网页的形成</h3><p>网页是有网页元素组成的，这些元素是利用html标签描述出来，然后通过浏览器解析来显示给用户的</p>
+<p>前端人员开发代码——————&gt;浏览器显示代码(解析。渲染)——————————&gt;生成最后的web页面</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h3><p>​	1.网页是图片、链接、文字、声音、视频等元素组成，其实就是一个html文件（后缀名为html）</p>
+<p>​	2.网页生成制作：有前端人员书写HTML文件，然后浏览器打开，就能考到了网页。</p>
+<p>​	3.HTML：超文本标记语言，用来制作网页的一门语言，由标签组成的。比如 图片标签、链接标签、视频标签等。。。</p>
+<h1 id="2-常用浏览器"><a href="#2-常用浏览器" class="headerlink" title="2.常用浏览器"></a>2.常用浏览器</h1><p>2.1浏览器:</p>
+<p>​	浏览器是网页显示、运行的平台。常用的浏览器有IE,火狐（Firefox）、谷歌（Chrome）、Safari和Opera等。平时称为五大浏览器。</p>
+<p>2.2浏览器内核：</p>
+<p>​	浏览器内核（渲染引擎）：负责读取网页内容，整理讯息，计算网页的显示方式并显示页面</p>
+<img src="https://plumbiu.github.io/images/QQ截图20211215093909.png" style="zoom:67%;" />
+
+<p>​	目前国内一般浏览器都会采用Webkit&#x2F;Blink内核，如360、UC、QQ、搜狗等</p>
+<h1 id="3-Web标准"><a href="#3-Web标准" class="headerlink" title="3.Web标准"></a>3.Web标准</h1><p>​	Web标准石油W3C组织和其他标准化组织指定的一系列标准的集合。W3C（万维网联盟）是国际最著名的标准化组织。</p>
+<p>3.1为什么需要Web标准</p>
+<p>​	浏览器不同，他们显示的页面或者排版就有些许差异</p>
+<p>​	由于不同浏览器解析出来的效果可能不一致，开发者常常需要为多版本的开发而艰苦工作</p>
+<p>​	1.让Web的反展前景更广阔</p>
+<p>​	2.内容能被更广泛的设备访问</p>
+<p>​	3.更容易被搜索引擎搜索</p>
+<p>​	4.降低网站流量费用</p>
+<p>​	5.使网站更易于维护</p>
+<p>​	6.提高页面浏览速度</p>
+<p>3.2Web标准的构成</p>
+<p>​	1.主要包括结构（Structure）、表现（Presentation）和行为(Behavior)三个方面。</p>
+<p>​	<img src="https://plumbiu.github.io/images/QQ截图20211215094634.png" style="zoom:67%;" /></p>
+<p>​	Web标准提出的最佳体验方案：<strong>结构</strong>（最重要）、样式、行为相分离</p>
+<p>​	简单理解：结构写道HTML文件中，表现写到CSS文件中，行为写到JavaScript文件中。</p>
+<img src="https://plumbiu.github.io/images/QQ截图20211215095003.png" style="zoom:80%;" />
+
+
+
+<img src="https://plumbiu.github.io/images/QQ截图20211215095301.png" style="zoom:80%;" />
+
+<h1 id="1-HTML语法规范"><a href="#1-HTML语法规范" class="headerlink" title="1.HTML语法规范"></a>1.HTML语法规范</h1><p>​	双标签</p>
+<p>​	<html> </html>&#x2F;&#x2F;标签都包括到&lt;&gt;中，且成对出现,<html>是开始标签,</html>是结束标签</p>
+<p>​	单标签(非常少)</p>
+<p>​	<br /></p>
+<p>1.1基本语法概述</p>
+<p>​	1.HTML标签是由尖括号包围的关键字，例如<html>.</p>
+<p>​	2.HTML标签通常是成对出现的,例如<html>和</html>,我们成为双标签。标签对中的第一个标签是开始标签，第二个标签是结束标签.</p>
+<p>​	3.有些特殊标签必须是单个标签（极少情况），例如<br />我们称为单标签.</p>
+<p>1.2标签关系</p>
+<p>​	双标签关系可以分为两类：<u>包含关系</u>和<u>并列关系</u></p>
+<p>​	<strong>包含关系</strong></p>
+<head>
+    <title> </title>
+</head>
+
+<p>​	<strong>并列关系</strong></p>
+<head> </head>>
+
+<body> </body>
+
+
+
+<h1 id="2-HTML基本结构标签"><a href="#2-HTML基本结构标签" class="headerlink" title="2.HTML基本结构标签"></a>2.HTML基本结构标签</h1><h3 id="2-1第一个HTML网页"><a href="#2-1第一个HTML网页" class="headerlink" title="2.1第一个HTML网页"></a>2.1第一个HTML网页</h3><p>每个网页都会有一个基本的结构标签（也称为骨架标签），页面内容也是在这些基本标签上书写。HTML页面也称为HTML文档。</p>
+<p>基本结构标签:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">	    &lt;title&gt;我的第一个页面&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line">​	&lt;body&gt;</span><br><span class="line">​		我是嫩叠</span><br><span class="line">​	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="https://plumbiu.github.io/images/QQ截图20211215101242.png"  />
+
+<h3 id="2-2基本结构标签总结"><a href="#2-2基本结构标签总结" class="headerlink" title="2.2基本结构标签总结"></a>2.2基本结构标签总结</h3><p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20211215101637.png"></p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20211215101727.png"></p>
+<h1 id="3-开发工具"><a href="#3-开发工具" class="headerlink" title="3.开发工具"></a>3.开发工具</h1><h3 id="vscode工具生成骨架标签新增代码"><a href="#vscode工具生成骨架标签新增代码" class="headerlink" title="vscode工具生成骨架标签新增代码"></a>vscode工具生成骨架标签新增代码</h3><p>1.&lt;!DOCTYPE&gt;标签</p>
+<p>2.lang语言</p>
+<p>3.charset字符集</p>
+<p>3.1文档类型声明标签</p>
+<p>​	文档类型名&lt;!DOCTYPE&gt;,作用就是告诉我们浏览器使用哪种HTML版本来显示页面</p>
+<p>​	&#x2F;&#x2F;<!DOCTYPE html></p>
+<p>​	这句话告诉我们，当前页面采取的是HTML5版本显示页面</p>
+<p>​	<strong>注意：</strong></p>
+<p>​	1.&#x2F;&#x2F;&lt;!DOCTYPE&gt;声明位于文档中的最前面的位置，处于&#x2F;&#x2F;<html>标签之前</p>
+<p>​	2.&#x2F;&#x2F;&lt;!DOCTYPE&gt;不是一个HTML标签，它就是文档类型声明标签</p>
+<p>3.2 lang语言种类</p>
+<pre><code> &lt;u&gt;用来定义当前文档显示的语言&lt;/u&gt;
+</code></pre>
+<p>1.en定义语言为英语</p>
+<p>2.zh-CN定义语言为中文</p>
+<p>​		简单来说，定义en就是英文网页，定义为zh-CN就是中文网页</p>
+<h1 id="4-HTML-常用标签"><a href="#4-HTML-常用标签" class="headerlink" title="4.HTML 常用标签"></a>4.HTML 常用标签</h1><p>4.1根据标签的语义，在合适的地方给一个最为合理的标签，可以让页面结构更清晰</p>
+<p>4.2标题标签<h1> - <h6> 为了是网页更具有语义化，我们经常会在页面中要到标题标签。HEML提供了6个等级	的网页标题</p>
+<p>​		（单词head缩写，以为头部标题、每个标题独占一行）</p>
+<p>4.3段落和换行标签</p>
+<p>​		在网页中，要把文字有条理的显示出来，就需要将这些文字分段显示，在HTML标签中，<p>标签用于定义段落，他可以将整个网页		分为若干个段落</p>
+<p>​			&#x2F;&#x2F;<p>我是一个段落标签</p>单词paragraph的缩写</p>
+<p>可以把HTML文档分割为若干段落</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>1.文本在一个段落中会根据浏览器窗口的大小自动换行</p>
+<p>2.段落和段落之间保有空隙</p>
+<p>​		在HTML中，一个段落中的文字会从左到右依次排列，直到浏览器窗口的右端，然后才自动换行。如果希望某段文本强制换行显示，		就需要使用换行标签<br /></p>
+<p>​			单词break的缩写</p>
+<p>标签语义∶强制换行。</p>
+<h3 id="特点∶"><a href="#特点∶" class="headerlink" title="特点∶"></a>特点∶</h3><p>1.<br />是个单标签。<br>2<br />标签只是简单地开始新的一行，跟段落不一样，段落之间会插入一些垂直的间距。<br>心</p>
+<p>4.4文本格式化标签</p>
+<p>​		在网页中，有时需要为文字设置粗体、斜体或下划线等效果，这时就需要用到HTML中的文本格式化标签，使文字以特殊的方式显		示。</p>
+<p>标签语义:突出重要性,比普通文字更重要.</p>
+<p>​					加粗 <strong></strong>或者<b></b></p>
+<p>​					倾斜 <em></em>或者<i></i></p>
+<p>​					删除线 <del></del>或者<s></s></p>
+<p>​					下划线 <ins></ins>或者<u></u> </p>
+<p>4.5<div>和<span>标签</p>
+<p>​		&#x2F;&#x2F;<div>和<span>是没有语义的，他们就是一个盒子，用来装内容的<br>​    </p>
+<p>​		&#x2F;&#x2F;<div>这是头部</div></p>
+<p>​		&#x2F;&#x2F;span&gt;今日价格&lt;&#x2F;span</p>
+<p>​		div是division的缩写，表示分割、分区。span意为跨度、跨距。</p>
+<h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点:"></a>特点:</h3><p>​		1.<div>标签用来布局，但是现在一行只能放一个<div>。大盒子</p>
+<p>​		2.<span>标签用来布局，一行上可以多个<span>。小盒子</p>
+<p>4.6 图像标签和路径（重点）</p>
+<p>1.图像标签</p>
+<p>​		在HTML标签中，<img>标签用于定义HTML页面中的图像。<img src="图像URL /"></p>
+<p>​		单词image的缩写，意为图像，src是<img>标签的必须属性，它用于指定图像文件的路径和文件名。</p>
+<p>​		所谓属性，简单理解就是属于这个图像标签的特性</p>
+<p>​				属性						属性值					说明<br>​				src					     图片路径				必须属性<br>​				alt							文本			    替换文本。图像不能显示的文字<br>​				title						  文本			    提示文本。鼠标放到图像上，显示的文字<br>​				width					   像素				设置图像的宽度<br>​				height					  像素				设置图像的高度<br>​				border					  像素				设置图像的边框粗细</p>
+<p>4.6图像标签和路径(重点)</p>
+<p>1.图像标签<br>        图像标签属性注意点︰</p>
+<p>​			图像标签可以拥有多个属性，必须写在标签名的后面。</p>
+<p>​			属性之间不分先后顺序，标签名与属性、属性与属性之间均以空格分开。</p>
+<p>​			属性采取键值对的格式，即 key&#x3D; “value”的格式，属性&#x3D;“属性值”。</p>
+<p>⒉路径(前期铺垫知识)<br>        (1)目录文件夹和根目录:<br>        实际工作中，我们的文件不能随徳乱放，否则用起来很难快速的找到他们，因此我们需要一个文件夹来管理他们。</p>
+<p>​				目录文件夹∶就是普通文件夹，里面只不过存放了我们做页面所需要的相关素材，比如html文件、图片等。</p>
+<p>​				根目录:打开目录文件夹的第一层就是根目录</p>
+<p>4.8图像标签和路径(重点)</p>
+<p>⒉路径</p>
+<p>​			页面中的图片会非常多，通常我们会新建一个文件夹来存放这些图像文件( images )，这时再查找图像，就需要采用“路径”的方式			来指定图像文件的位置。<br>路径可以分为∶</p>
+<p>1．相对路径：以引用文件所在位置为参考基础，而建立出的目录路径 简单来说，图片相对于HTML页面的位置</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220118094138.png"></p>
+<p>2．绝对路径：</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220118095234.png"></p>
+<p>4.9超链接标签</p>
+<p>在HTML标签中 <a>标签用于定义超链接，作用是从一个页面链接到另个一个页面</p>
+<p>1.链接的语法格式</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;a href=&quot;跳转目标&quot; target=&quot;目标窗口的弹出方式&quot;&gt;文本或图像&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<p>​				单词anchor缩写，意为：锚</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220118095828.png"></p>
+<p>2.链接的分类</p>
+<p>​	外部链接，例如</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;a href=&quot;http://www.baidu.com&quot;&gt;百度&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<p>​	内部链接</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220118103250.png"></p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220118103358.png"></p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220118135015.png"></p>
+<h2 id="1-表格标签"><a href="#1-表格标签" class="headerlink" title="1.表格标签"></a>1.表格标签</h2><p>1.1一般表头单元格位于表格的第一行或第一列，表头单元格里面的文本内容加粗居中显示。</p>
+<th>标签标示HTML表格的表头部分（table head 的缩写）
+
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">	&lt;tr&gt;</span><br><span class="line">		&lt;th&gt;姓名&lt;/th&gt;//th是加粗</span><br><span class="line">		...</span><br><span class="line">	&lt;/tr&gt;</span><br><span class="line">	...</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
+
+<p>表头单元格也是单元格，常用于表格第一行，突出重要性，表头单元格里面的文字会加粗居中显示</p>
+<p>1.2</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220118140853.png"></p>
+<p>1.3</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220118170459.png"></p>
+<p>1.4合并单元格</p>
+<p>特殊情况下，可以把多个单元格合并为一个单元格。</p>
+<p>方式:</p>
+<p>​		跨行合并: rowspan&#x3D;”合并单元格个数”</p>
+<p>​		跨列合并:colspan&#x3D;”合并单元格个数”</p>
+<p>目标单元格：（写合并代码）</p>
+<p>​	跨行：最上册单元格为目标单元格，写合并代码<td rowspan="2"></td></p>
+<p>​	跨列：最左侧单元格为目标单元格，写合并代码<td cospan="2"></td></p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220118193133.png"></p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220118193201.png"></p>
+<h2 id="2-列表标签"><a href="#2-列表标签" class="headerlink" title="2.列表标签"></a>2.列表标签</h2><p>表格使用来显示数据的，列表是用来布局的</p>
+<p>列表最大的特点就是整齐、整洁、有序，它作为布局会更加自由和方便</p>
+<p>根据使用情境不同，列表可以分为三大类：无序列表，有序列表和自定义列表</p>
+<p>2.1无序列表</p>
+<p>标签标示HTML页面中项目的无序列表，一般会以项目符号呈现列表项，而列表项使用<li>标签定义。<br>无序列表的基本语法格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li&gt;列表项1&lt;/li&gt;    </span><br><span class="line">    &lt;li&gt;列表项2&lt;/li&gt;  </span><br><span class="line">    &lt;li&gt;列表项3&lt;/li&gt;  </span><br><span class="line">    &lt;li&gt;列表项4&lt;/li&gt;  </span><br><span class="line">    ...</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+
+<p>1.无序列表的各个列表项之间没有顺序级别之分，是并列的。</p>
+<p>2.<ul></ul>中只能嵌套<li></li>,直接在<ul></ul>标签中输入其他标签或者文字的做法是不被允许的。</p>
+<p>3.<li>与</li>之间相当于一个容器，可以容纳所有元素。</p>
+<p>4.无序列表会带有自己的样式属性，但在实际使用时，我们会使用CSS来设置。</p>
+<h1 id="3-表单标签"><a href="#3-表单标签" class="headerlink" title="3.表单标签"></a>3.表单标签</h1><p>在HTML中，一个完整的表单通常由表单域、表单控件（也称为表单元素）、提示信息3个部分组成</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220119094040.png"></p>
+<p>3.1表单域</p>
+<p>表单域是一个包含单元素的区域</p>
+<p>在HTML标签中，<form>标签用于定义表单域，以实现用户信息的收集和传递。</p>
+<p><dorm>会把他范围内的表单元素信息交给服务器</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;form action=&quot;URL地址&quot; method=&quot;提交方式&quot; name=&quot;表单域名称&quot;&gt;</span><br><span class="line">	各种表达元素控件</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220119094639.png"></p>
+<p>3.2表单控件（表单元素）</p>
+<p>在表单域中可以定义各种表单元素，这些表单元素就是允许用户在表单中输入或者选择的内容控件</p>
+<p>​	</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220119095220.png"></p>
+<p>​	3.2.1<input>表单元素</p>
+<p>​	在英文单词中，input是输入的意思，而在表单元素中<input>标签用于收集用户信息</p>
+<p>​		type属性的属性值及其描述如下：</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220119095440.png"></p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220119100502.png"></p>
+<p>​		1.name和value是每个表单元素都有的属性值，主要给后台人员使用</p>
+<p>​		2.name表单元素的名字，要求 单选按钮和复选框要有相同的name值</p>
+<p>​		3.checked属性主要针对单选按钮和复选框，主要作用一打开页面，就要可以没默认选中某个表单元素</p>
+<p>​		4.maxlenth使用者可以在表单元素输入的最大字符数，较少使用</p>
+<p>​	3.2.2<label>标签</p>
+<p>​		<label>标签为input元素定义标注（标签）。</p>
+<p>​		<label>标签用于绑定一个表单元素，当点击<lable>标签内的文本时，浏览器就会自动将焦点（光标）转到或者选择对应的表单元素上用来增加用户体验</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;lable for=&quot;sex&quot;&gt; 男 &lt;/lable&gt;</span><br><span class="line">&lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;sex&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+<p>​		核心:<label>中的属性</p>
+<p>​	3.2.3<select>表单元素</p>
+<p>​		使用场景:在页面中，如果有多个选项让用户选择，并且想要节约页面空间，我们可以使用<select>标签控件定义下拉列表</p>
+<p>​		语法规范</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;select&gt;</span><br><span class="line">	&lt;option&gt;选项1&lt;/option&gt;</span><br><span class="line">	&lt;option&gt;选项2&lt;/option&gt;</span><br><span class="line">	&lt;option&gt;选项3&lt;/option&gt;</span><br><span class="line">	&lt;option&gt;选项4&lt;/option&gt;</span><br><span class="line">	...</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+
+<p>​		1.<select>中至少包含已对<option></p>
+<p>​		2.在<option>中定义 selected&#x3D;”selected”时，当前项即为默认选中项</p>
+<p>​	3.2.4文本域元素</p>
+<p>​		使用场景：当用户输入内容较多的情况下，我们就不能使用文本框表单了，此时我们可以使用<textarea>标签。</p>
+<p>​				在表单元素中，<textarea>标签是用于定义多行文本输入的控件。</p>
+<p>​		使用多行文本输入控件，可以输入更多文字，常见于留言板等。</p>
+<p>​		语法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;textarea rows=&quot;3&quot; cols=&quot;20&quot;&gt;</span><br><span class="line">	文本内容</span><br><span class="line">&lt;/textarea&gt;</span><br></pre></td></tr></table></figure>
+
+<p>​		1.通过<textarea>标签可以轻松地创建多行文本输入框</p>
+<p>​		2.cols&#x3D;“每行中的字符数”，rows&#x3D;“显示的行数”，我们在实际开发中不会使用，都是用CSS来改变大小。</p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -2025,204 +2025,6 @@
       <tags>
         <tag>笔记</tag>
       </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/blog/2022/04/17/webpack%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="1-前端工程化与-webpack"><a href="#1-前端工程化与-webpack" class="headerlink" title="1.前端工程化与 webpack"></a>1.前端工程化与 webpack</h1><p><img src="C:\Users\LX\Desktop\QQ截图\QQ截图20220403175427.png"></p>
-<h3 id="1-1前端工程化"><a href="#1-1前端工程化" class="headerlink" title="1.1前端工程化"></a>1.1前端工程化</h3><h4 id="1-1-1-小白的前端开发和实际的前端开发"><a href="#1-1-1-小白的前端开发和实际的前端开发" class="headerlink" title="1.1.1 小白的前端开发和实际的前端开发"></a>1.1.1 小白的前端开发和实际的前端开发</h4><p>小白眼中的前端开发:</p>
-<p>​	会写HTML +CSS + JavaScript就会前端开发需要美化页面样式，就拽一个bootstrap过来</p>
-<p>​	需要操作DOM或发起Ajax请求，再拽一个jQuery过来</p>
-<p>​	需要快速实现网页布局效果，就拽一个Layui过来</p>
-<p>实际的前端开发:</p>
-<p>​	模块化(js 的模块化、css的模块化、资源的模块化)</p>
-<p>​	组件化（复用现有的UI结构、样式、行为)</p>
-<p>​	规范化(目录结构的划分、编码规范化、接口规范化、文档规范化、Git分支管理)</p>
-<p>​	自动化（自动化构建、自动部署、自动化测试)</p>
-<h4 id="1-1-2-什么是前端工程化"><a href="#1-1-2-什么是前端工程化" class="headerlink" title="1.1.2 什么是前端工程化"></a>1.1.2 什么是前端工程化</h4><p>前端工程化指的是：在企业级的前端项目开发中，把前端开发所需的工具、技术、流程、经验等进行更规范化、标准化。</p>
-<p>切叶中的 Vue 项目和 React 项目，都是基于工程化的方式进行开发的。</p>
-<p>好处：前端开发自成体系，有一套标准的开发方案和流程。</p>
-<h4 id="1-1-3-前端工程化的解决方案"><a href="#1-1-3-前端工程化的解决方案" class="headerlink" title="1.1.3 前端工程化的解决方案"></a>1.1.3 前端工程化的解决方案</h4><p>早期的前端工程化解决方案：</p>
-<p>​	grunt ( <a href="https://www.gruntjs.net/">https://www.gruntjs.net/</a> )</p>
-<p>​	gulp ( <a href="https://www.gulpjs.com.cn/">https://www.gulpjs.com.cn/</a> )</p>
-<p>目前主流的前端工程化解决方案：</p>
-<p>​	webpack ( <a href="https://www.webpackjs.com/">https://www.webpackjs.com/</a> )</p>
-<p>​	parcel ( <a href="https://zh.parceljs.org/">https://zh.parceljs.org/</a> )</p>
-<h1 id="2-webpack的基本使用"><a href="#2-webpack的基本使用" class="headerlink" title="2. webpack的基本使用"></a>2. webpack的基本使用</h1><h3 id="2-1-什么是-webpack"><a href="#2-1-什么是-webpack" class="headerlink" title="2.1 什么是 webpack"></a>2.1 什么是 webpack</h3><p>概念：webpack 是前端项目工程化的具体解决方案。</p>
-<p>主要功能：它提供了有好的前端模块化开发支持，以及代码压缩混淆、处理浏览器端 JavaScript 的兼容性、性能优化等强大的功能。</p>
-<p>注意：目前 Vue、React 等前端项目，基本上都是基于 webpack 进行工程化开发的。</p>
-<h3 id="2-2-创建列表隔行变色项目"><a href="#2-2-创建列表隔行变色项目" class="headerlink" title="2.2 创建列表隔行变色项目"></a>2.2 创建列表隔行变色项目</h3><p>① 新建项目空白目录，并运行npm init -y命令，初始化包管理配置文件package.json</p>
-<p>② 新建src源代码目录</p>
-<p>③ 新建src -&gt; index.html首页和src -&gt; index.js 脚本文件</p>
-<p>④ 初始化首页基本的结构</p>
-<p>⑤ 运行npm install jquery -S命令，安装jQuery</p>
-<p>⑥ 通过ES6模块化的方式导入jQuery，实现列表隔行变色效果</p>
-<h4 id="2-2-1-在项目中安装-webpack"><a href="#2-2-1-在项目中安装-webpack" class="headerlink" title="2.2.1 在项目中安装 webpack"></a>2.2.1 在项目中安装 webpack</h4><p>在终端运行如下的命令，安装 webpack 相关的两个包：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install webpack@5.42.1 webpack-cli@4.7.2 -D</span><br></pre></td></tr></table></figure>
-
-<p><img src="C:\Users\LX\Desktop\QQ截图\QQ截图20220403184022.png"></p>
-<p>dependencies：记录在项目开发阶段和上线部署阶段用的包</p>
-<p>devDependencies：只在开发阶段会被用到的包</p>
-<p>-S 是 –save 的缩写</p>
-<p>-D 是 –save-dev 的缩写</p>
-<h4 id="2-2-2-在项目中配置-webpack"><a href="#2-2-2-在项目中配置-webpack" class="headerlink" title="2.2.2 在项目中配置 webpack"></a>2.2.2 在项目中配置 webpack</h4><p>① 在项目根目录中，创建名为 webpack.config.js 的 webpack 配置文件，并初始化如下的基本配置：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">	<span class="attr">mode</span>:<span class="string">&#x27;development&#x27;</span> <span class="comment">// mode 用来指定构建模式，可选值有 development 和 production</span></span><br><span class="line">    <span class="comment">// 开发模式 还是 生产(发布)模式</span></span><br><span class="line">    <span class="comment">// 结论：开发的时候一定要用 development，因为追求打爆的速度，而不是体积；</span></span><br><span class="line">    <span class="comment">//		反过来，发布上线的时候一定要用 production，因为上线追求的是提交小，而不是打包速度快</span></span><br><span class="line">    <span class="comment">// production 会把文件压缩(注释和换行消除)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>② 在 package.json 的 scripts 节点下，新增 dev 脚本如下：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;dev&quot;</span><span class="punctuation">:</span><span class="string">&quot;webpack&quot;</span> <span class="comment">// script 节点下的脚本，可以通过 npm run 执行，例如 npm run dev</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>③ 在终端运行 npm run dev 命令，启动 webpack 进行项目的打包构建</p>
-<p><strong>注意</strong>：</p>
-<p><img src="C:\Users\LX\Desktop\QQ截图\QQ截图20220403192319.png"></p>
-<p>npm run dev 时不会直接运行webpack，而是读取 webpack.config.js 里的代码，确定执行模式后执行 webpack 命令</p>
-<h3 id="2-3-webpack-中的默认约定"><a href="#2-3-webpack-中的默认约定" class="headerlink" title="2.3 webpack 中的默认约定"></a>2.3 webpack 中的默认约定</h3><p>在 webpack 4.x 和 5.x 的版本中，有如下的默认约定：</p>
-<p>​	① 默认的打包入口文件为 src-&gt;index.js</p>
-<p>​	② 默认的输出文件路径为 dist-&gt;main.js</p>
-<p>注意：可以在 webpack.config.js 中修改打包的默认约定</p>
-<p>在 webpack.config.js 配置文件中，通过 entry 节点指定打包的入口。通过 output 节点制定打包的出口。示例代码如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// This is webpack.config.js,You can use &quot;entry&quot; node to set the package&#x27;s attributes</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>) <span class="comment">// 导入 node.js 中专门操作路径的模块</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="comment">// entry：&#x27;指定要处理哪个文件&#x27;</span></span><br><span class="line">    <span class="attr">entry</span>: path.<span class="title function_">join</span>(__dirname,<span class="string">&#x27;./sec/index01.js&#x27;</span>), <span class="comment">// 打包入口的文件的路径</span></span><br><span class="line">    <span class="comment">// 指定生成的文件要存放到哪里</span></span><br><span class="line">    <span class="attr">output</span>:&#123;</span><br><span class="line">        <span class="comment">// 指定存放的目录，与上方 path 区分开</span></span><br><span class="line">        <span class="attr">path</span>: path.<span class="title function_">join</span>(__diranme,<span class="string">&#x27;./dist&#x27;</span>), <span class="comment">// 输出文件的存放路径</span></span><br><span class="line">        <span class="comment">// 指定生成的文件名</span></span><br><span class="line">        <span class="attr">filename</span>: <span class="string">&#x27;bundle.js&#x27;</span> <span class="comment">//输出文件的名称</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="3-webpack-中的插件"><a href="#3-webpack-中的插件" class="headerlink" title="3. webpack 中的插件"></a>3. webpack 中的插件</h1><h3 id="3-1-webpack-插件的作用"><a href="#3-1-webpack-插件的作用" class="headerlink" title="3.1 webpack 插件的作用"></a>3.1 webpack 插件的作用</h3><p>通过安装和配置第三方的插件，可以拓展 webpack 的能力，从而让 webpack 用起来更方便。最常用的 webpack 插件有两个：</p>
-<p>① <strong>webpack-dev-server</strong></p>
-<p>​	类似于 node.js 阶段用到的 nodemon 工具</p>
-<p>​	每当修改了源代码，webpack 会自动进行项目的打包和构建</p>
-<p>​		<strong>安装</strong>：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install webpack-dev-server@3.11.2 -D</span><br></pre></td></tr></table></figure>
-
-<p>​		配置：</p>
-<p>​	1） 修改 package.json-&gt;script 中的 dev 命令如下</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;script&quot;</span><span class="punctuation">:</span><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;dev&quot;</span><span class="punctuation">:</span><span class="string">&quot;webpack serve&quot;</span><span class="punctuation">,</span> <span class="comment">// script 节点下的脚本，可以通过 npm run 执行</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>​	2）再次运行 npm run dev 命令，重新进行项目的打包</p>
-<p>​	3） 在浏览器中访问 <a href="http://localhost:8080/">http://localhost:8080</a> 地址，查看自动打包效果</p>
-<p>​		<strong>注意</strong>：</p>
-<ol>
-<li><pre><code>webpack-dev-server 会启动一个实时打包的 http 服务器
-</code></pre>
-<ol start="2">
-<li><p>webpack-dev-server 会在项目根目录生成最新main.js 代码，只不过在内存中生成，所以html文件应该包含新的引入语句：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;../main.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<pre><code> 这样做的好处是减少硬盘的写入频率，增加硬盘寿命，而内存的存在就是为了处理大量写入，对内存造成的影响少而且写入速度更快。
-</code></pre>
-</li>
-</ol>
-</li>
-</ol>
-<p>② <strong>html-webpack-plugin</strong></p>
-<p>​	webpack 中的 HTML 插件(类似于一个模板引擎插件)，可以在上面插件的基础上，打开 <a href="http://localhost:8080/">http://localhost:8080</a> 即可访问 index.html，而不是根目录文件。</p>
-<p>​	可以通过此插件自定制 index.html 页面的内容</p>
-<p>​		<strong>安装</strong>：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install html-webpack-plugin -D</span><br></pre></td></tr></table></figure>
-
-<p>​		<strong>配置</strong>：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// This is webpack.config.js file</span></span><br><span class="line"><span class="comment">// 1.导入 HTML 插件，得到一个构造函数</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">HtmlPlugin</span> = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.创建 HTML 插件的实例对象</span></span><br><span class="line">csont htmlPlugin = <span class="keyword">new</span> <span class="title class_">HtmlPlugin</span>(&#123;</span><br><span class="line">    <span class="attr">template</span>:<span class="string">&#x27;./src/indexl.html&#x27;</span>,	<span class="comment">// 指定原文件的存放路径</span></span><br><span class="line">    <span class="attr">filename</span>:<span class="string">&#x27;./index.html&#x27;</span>			<span class="comment">// 指定生成文件的存放目录</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">mode</span>:<span class="string">&#x27;devplopment&#x27;</span>,</span><br><span class="line">    <span class="attr">plugins</span>:[htmlPlugin]			<span class="comment">// 通过 plguins 节点，使 htmlPlugin 插件生效</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>​	<strong>注意</strong>：生成在根目录的inedx.html，也是在内存中</p>
-<h3 id="3-2-devServer-节点"><a href="#3-2-devServer-节点" class="headerlink" title="3.2 devServer 节点"></a>3.2 devServer 节点</h3><p>在 webpack.config.js 配置文件中，可以通过 devServer 节点对 webpack-dev-server 插件进行更多地配置，示例代码如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">devServer</span>:&#123;</span><br><span class="line">    <span class="attr">open</span>: <span class="literal">true</span>, <span class="comment">// 初次打包完成后，自动打开浏览器</span></span><br><span class="line">    <span class="attr">host</span>: <span class="string">&#x27;127.0.0.1&#x27;</span>, <span class="comment">// 实时打包时用的主机地址</span></span><br><span class="line">    <span class="attr">port</span>: <span class="number">80</span>,  <span class="comment">// 实时打包使用的端口号</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="4-webpack-中的-loader"><a href="#4-webpack-中的-loader" class="headerlink" title="4.webpack 中的 loader"></a>4.webpack 中的 loader</h1><p>loader：加载器</p>
-<h3 id="4-1-loader-概述"><a href="#4-1-loader-概述" class="headerlink" title="4.1 loader 概述"></a>4.1 loader 概述</h3><p>在实际开发过程中，webpack 默认只能打包处理以.js 后缀名结尾的模块。其他非 .js 后缀名结尾的模块，webpack 默认处理不了，需要调用 loader 加载器才可以正常打包。</p>
-<p>loader 加载起的作用：协助 webpack 打包处理特定的文件模块。比如：</p>
-<p>​	css-loader 可以打包处理 .css 相关的文件</p>
-<p>​	less-loader 可以打包处理 .less 相关的文件</p>
-<p>​	babel-loader 可以打包处理 webpack 无法处理的高级 JS 语法</p>
-<h3 id="4-2-loader加载过程"><a href="#4-2-loader加载过程" class="headerlink" title="4.2 loader加载过程"></a>4.2 loader加载过程</h3><p><img src="C:\Users\LX\Desktop\QQ截图\QQ截图20220404105801.png"></p>
-<h3 id="4-3-处理过程"><a href="#4-3-处理过程" class="headerlink" title="4.3 处理过程"></a>4.3 处理过程</h3><h4 id="4-3-1-打包处理-css-文件"><a href="#4-3-1-打包处理-css-文件" class="headerlink" title="4.3.1 打包处理 css 文件"></a>4.3.1 打包处理 css 文件</h4><p>① 运行 npm i style-loader css-loader -D 命令，安装处理 css 文件的 loader</p>
-<p>② 在 webpack-config.js 的 module -&gt; rules 数组中，添加 loader 规则如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">module</span>: &#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="attr">rules</span>: &#123;</span><br><span class="line">        <span class="comment">// 注意 是test，不是text</span></span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="comment">// $表示以...结尾</span></span><br><span class="line">        <span class="comment">// 顺序不能换</span></span><br><span class="line">        <span class="attr">use</span>: [<span class="string">&#x27;style-loader&#x27;</span>,<span class="string">&#x27;css-loader&#x27;</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>其中，test 表示匹配的文件类型，use 表示对应要调用的 loader</p>
-<p>注意：</p>
-<p>​	use 数组中指定的 loader 顺序是固定的</p>
-<p>​	多个 loader 的调用顺序是：从后往前调用</p>
-<p><img src="C:\Users\LX\Desktop\QQ截图\QQ截图20220404122210.png"></p>
-<ol>
-<li><p>webpack 默认只能打包处理 .js 结尾的文件，处理不了其他后缀的文件。</p>
-</li>
-<li><p>由于代码中包含了 index.css 这个文件，因此 webpack 默认处理不了。</p>
-</li>
-<li><p>当 webpack 发现某个文件处理不了的时候，会查找 webpack.config.js 这个配置文件，看 module.rules 数组中，是否配置了对应的 loader 加载器。</p>
-<p>  <img src="C:\Users\LX\Desktop\QQ截图\QQ截图20220404122215.png"></p>
-</li>
-<li><p>webpack 把 index.css 这个文件，先转交给最后一个 loader 进行处理(先转交给 css-loader)，</p>
-</li>
-<li><p>当 css-loader 处理完毕之后，会把处理的结果，转交给下一个 loader（转交给 style-loader）。</p>
-</li>
-<li><p>当 style-loader 处理完毕之后，发现没有下一个 loader 了，于是就把处理的结果，转交给了 webpack。</p>
-</li>
-<li><p>webpack 把 style-loader 处理的结果，合并到 &#x2F;dist&#x2F;main.js，最终生成打包好的文件。</p>
-</li>
-</ol>
-<h4 id="4-3-2-打包处理-less-文件"><a href="#4-3-2-打包处理-less-文件" class="headerlink" title="4.3.2 打包处理 less 文件"></a>4.3.2 打包处理 less 文件</h4><p>① 运行 npm i less-loader less -D 命令</p>
-<p>② 在 webpack-config.js 的 module -&gt; rules 数组中，添加到 loader 规则如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">module</span>: &#123; <span class="comment">// 所以第三方文件模块的匹配规则</span></span><br><span class="line">    <span class="attr">rules</span>:[ / 文件后缀名的匹配规则</span><br><span class="line">        &#123;</span><br><span class="line">        	<span class="attr">test</span>:<span class="regexp">/\.less$/</span>,</span><br><span class="line">        	<span class="attr">use</span>:[<span class="string">&#x27;style-loader&#x27;</span>,<span class="string">&#x27;css-loader&#x27;</span>,<span class="string">&#x27;less-loader&#x27;</span>]        </span><br><span class="line">    	&#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-3-3-打包处理样式表中与-url-路径相关的文件"><a href="#4-3-3-打包处理样式表中与-url-路径相关的文件" class="headerlink" title="4.3.3 打包处理样式表中与 url 路径相关的文件"></a>4.3.3 打包处理样式表中与 url 路径相关的文件</h4><p>① 运行 npm i url-loader file-loader -D 命令</p>
-<p>② 在 webpack-config.js 的 module -&gt; rules 数组中，添加 loader 规则如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>:[</span><br><span class="line">        <span class="comment">// 如果需要调用的 loader 只有一个，则只传递一个字符串就行，如果有多个loader，则必须指定数组</span></span><br><span class="line">        &#123;<span class="attr">test</span>:<span class="regexp">/\.jpg|png|gifs$/</span>,<span class="attr">use</span>:[<span class="string">&#x27;url-loader?limit=22229&#x27;</span>]&#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>其中 ? 之后的是 loader 的参数项：</p>
-<p>​	limit 用来置顶图片的大小，单位是字节(byte)</p>
-<p>​	只有 ≤ limit 大小的图片，才会被转为 base64 格式的图片</p>
-<h4 id="4-3-4-打包处理-js-文件中的高级语法"><a href="#4-3-4-打包处理-js-文件中的高级语法" class="headerlink" title="4.3.4 打包处理 js 文件中的高级语法"></a>4.3.4 打包处理 js 文件中的高级语法</h4><p>webpack 只能打包处理一部分高级的 JavaScript 语法。对于那些 webpack 无法处理的高级 js 语法，需要借助于 babel-loader 进行打包处理。例如 webpack 无法处理下面的 JavaScript 代码。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1.定义了名为 info 的装饰器</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">info</span>(<span class="params">target</span>) &#123;</span><br><span class="line">    <span class="comment">// 2.为目标添加静态属性 info</span></span><br><span class="line">    target.<span class="property">info</span>=<span class="string">&#x27;Person info&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 3.为 Person 类应用 info 装饰器</span></span><br><span class="line">@info</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4.打印 Person 的静态属性 info</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Person</span>.<span class="property">info</span>)</span><br></pre></td></tr></table></figure>
-
-<p>1.<strong>安装 babel-loader 相关的包</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm i babel-loader /* @babel/cor @babel/plugin-proposal-decorators -D */</span><br></pre></td></tr></table></figure>
-
-<p>在 webpack.config.js 的 module -&gt; rules 数组中，添加 loader 规则如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 注意：必须使用 exclude 指定排除项，因为 node_modules 目录下的第三方包不需要被打包</span><br><span class="line">&#123;test:/\.js$/,use:&#x27;babel-loader&#x27;,exclude:/node_modules/&#125;</span><br></pre></td></tr></table></figure>
-
-<p>2.<strong>配置 babel-loader</strong></p>
-<p>在项目根目录下，创建名为 babel.config.js 的配置文件，定义 Babel 的配置项如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">	<span class="comment">// 声明 babel 可用的插件</span></span><br><span class="line">	<span class="attr">plugins</span>:[[<span class="string">&#x27;@babel/plugin-proposal-decorators&#x27;</span>,&#123;<span class="attr">legacy</span>:<span class="literal">true</span>&#125;]]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>详情请参考Babel 的官网 <a href="https://babeljs.io/docs/en/babel-plugin-proposal-decorators">https://babeljs.io/docs/en/babel-plugin-proposal-decorators</a></p>
-<h1 id="5-打包发布"><a href="#5-打包发布" class="headerlink" title="5. 打包发布"></a>5. 打包发布</h1><h3 id="5-1-为什么要打包发布"><a href="#5-1-为什么要打包发布" class="headerlink" title="5.1 为什么要打包发布"></a>5.1 为什么要打包发布</h3><p>项目开发完成后，需要使用 webpack 对项目进行打包发布，主要原因有以下两点：</p>
-<p>① 开发环境下，打包生成的文件存放于内存中，无法获取到最终打包生成的文件</p>
-<p>② 开发环境下，打包生成的文件不会进行代码压缩和性能优化</p>
-<p>为了让项目能够在生产环境中高性能的运行，因此需要对项目进行打包发布。</p>
-<h3 id="5-2-配置-webpack-的打包发布"><a href="#5-2-配置-webpack-的打包发布" class="headerlink" title="5.2 配置 webpack 的打包发布"></a>5.2 配置 webpack 的打包发布</h3><p>在 package.json 文件的 scripts 节点下，新建 bulid 命令如下：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;dev&quot;</span><span class="punctuation">:</span><span class="string">&quot;webpack serve&quot;</span><span class="punctuation">,</span><span class="comment">//开发环境中，运行 dev 命令</span></span><br><span class="line">	<span class="attr">&quot;bulid&quot;</span><span class="punctuation">:</span><span class="string">&quot;webpack --mode production&quot;</span> <span class="comment">//项目发布时，运行 bulid 命令</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>–model 是一个参数项，用来指定 webpack 的运行模式。production 代表生产环境，进行代码压缩和性能优化。</p>
-<p>注意：通过 –model 指定的参数项，会覆盖 webpack.config.js 中的 model 选项。</p>
-<h3 id="5-3-把-JavaScript-文件统一生成到-js-目录中"><a href="#5-3-把-JavaScript-文件统一生成到-js-目录中" class="headerlink" title="5.3 把 JavaScript 文件统一生成到 js 目录中"></a>5.3 把 JavaScript 文件统一生成到 js 目录中</h3><p>在 webpack.config.js 配置文件的 output 节点中，进行如下配置：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">output</span>:&#123;</span><br><span class="line">    <span class="attr">path</span>:path.<span class="title function_">join</span>(__dirname,<span class="string">&#x27;dist&#x27;</span>),</span><br><span class="line">    <span class="comment">// 明确告诉 webpack 把生成的 main.js 文件存放到 dist 目录下 js 子目录中</span></span><br><span class="line">    <span class="attr">filename</span>:<span class="string">&#x27;js/main.js&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="5-4-把图片文件统一声道-image-目录中"><a href="#5-4-把图片文件统一声道-image-目录中" class="headerlink" title="5.4 把图片文件统一声道 image 目录中"></a>5.4 把图片文件统一声道 image 目录中</h3><p>修改 webpack.config.js 中的 url-loader 配置项，通过新增 outputPath 选项即可置顶图片文件的输出路径：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="comment">// 在配置 url-loader 的时候，多个参数之间，使用 &amp; 符号进行分隔</span></span><br><span class="line">    &#123;<span class="attr">text</span>:<span class="regexp">/\.jpg|png|gif$/</span>,<span class="attr">use</span>:<span class="string">&#x27;url-loader?limit=29999&amp;&amp;outPath=images&#x27;</span>&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="5-5-自动清理-dist-目录下的旧文件"><a href="#5-5-自动清理-dist-目录下的旧文件" class="headerlink" title="5.5 自动清理 dist 目录下的旧文件"></a>5.5 自动清理 dist 目录下的旧文件</h3><p>为了每次打包发布时自动清理 dist 目录中的文件，可以安装并配置 clean-webpack-plugin 插件：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 1.安装清理 dist 目录的 webpack 插件</span><br><span class="line">npm i clean-webpack-plugin -D</span><br><span class="line"></span><br><span class="line">// 2.按需导入插件、得到插件的构造函数之后，创建插件的实例对象</span><br><span class="line">// &#123;CleanWebpackPlugin&#125; 解构赋值 相当于 const &#123;CleanWebPlugin&#125;=&#123;CleanWebpackPlugin:function() &#123;  &#125;&#125; </span><br><span class="line">const &#123;CleanWebpackPlugin&#125; = require(&#x27;clean-webpack-plugin&#x27;)</span><br><span class="line">const cleanPlugin = new CleanpackPlugin()</span><br><span class="line"></span><br><span class="line">// 3.把创建的 cleanPlugin 插件实例对象，挂载到 plugins 节点中</span><br><span class="line">plugins:[htmlPlugin,cleanPlugin], //挂载插件</span><br></pre></td></tr></table></figure>
-
-<h2 id="6-Source-Map"><a href="#6-Source-Map" class="headerlink" title="6. Source Map"></a>6. Source Map</h2><h3 id="6-1-什么是-Source-Map"><a href="#6-1-什么是-Source-Map" class="headerlink" title="6.1 什么是 Source Map"></a>6.1 什么是 Source Map</h3><p>Source Map 就是一个信息文件，里面储存这位置信息。也就是说，Source Map 文件中存储着压缩混淆后的代码，所对应的转换前的位置。</p>
-<p>有了它，出错的时候，出错工具将直接显示原始代码，而不是转换后的代码，能极大地方便后期的调试。</p>
-<h3 id="6-2-解决默认-Source-Map-的问题"><a href="#6-2-解决默认-Source-Map-的问题" class="headerlink" title="6.2 解决默认 Source Map 的问题"></a>6.2 解决默认 Source Map 的问题</h3><p>开发环境下，推荐在 webpack.config.js 中添加如下的配置，即可保证运行时报错的行数与源代码的行数保持一致：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">mode</span>:<span class="string">&#x27;development&#x27;</span>,</span><br><span class="line">    <span class="comment">// eval-sourve-map 仅限在&quot;开发模式&quot;下使用，不建议在&quot;生产模式&quot;下使用。</span></span><br><span class="line">    <span class="comment">// 此选项生成的 Source Map 能够保证&quot;&quot;运行时报错的行数与&quot;源代码的行数&quot;保持一致</span></span><br><span class="line">    <span class="attr">devtool</span>:<span class="string">&#x27;eval-sourve-map&#x27;</span>,</span><br><span class="line">    <span class="comment">// .....忽略</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-3-webpack-生产环境下的-Source-Map"><a href="#6-3-webpack-生产环境下的-Source-Map" class="headerlink" title="6.3 webpack 生产环境下的 Source Map"></a>6.3 webpack 生产环境下的 Source Map</h3><p>在生产环境下，如果省略了 devtool 选项，则最终生成的文件中不包含 Source Map。这样能够防止原始代码通过 Source Map 的形式暴露给坏人。</p>
-<p><img src="C:\Users\LX\Desktop\QQ截图\QQ截图20220405211423.png"></p>
-<h3 id="6-4-只定位行数不暴露源码"><a href="#6-4-只定位行数不暴露源码" class="headerlink" title="6.4 只定位行数不暴露源码"></a>6.4 只定位行数不暴露源码</h3><p>在生产环境下，如果只想定位报错的具体行数，且不想报路远马。此时可以将 devtool 的值设置为 nosources-source-map。实际效果如下：</p>
-<p><img src="C:\Users\LX\Desktop\QQ截图\QQ截图20220405211711.png"></p>
-<p>采用此选项后，您应该将你的服务期配置为，不允许普通用户访问 source-map 文件！</p>
-<h3 id="6-5-Srouce-Map-的最佳实践"><a href="#6-5-Srouce-Map-的最佳实践" class="headerlink" title="6.5 Srouce Map 的最佳实践"></a>6.5 Srouce Map 的最佳实践</h3><p>① 开发环境下：</p>
-<p>​	建议把 devtool 的值设置为 eval-source-map</p>
-<p>​	好处：可以精准定位到具体的错误行</p>
-<p>② 生产环境下：</p>
-<p>​	建议关闭 Source Map 或将 devtool 的值设置为 nosources-source-map</p>
-<p>​	好处：防止源码暴露，提高网站的安全性</p>
-]]></content>
   </entry>
   <entry>
     <title>CSS学习</title>
@@ -3486,6 +3288,204 @@
       <tags>
         <tag>笔记</tag>
       </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/blog/2022/04/17/webpack%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="1-前端工程化与-webpack"><a href="#1-前端工程化与-webpack" class="headerlink" title="1.前端工程化与 webpack"></a>1.前端工程化与 webpack</h1><p><img src="C:\Users\LX\Desktop\QQ截图\QQ截图20220403175427.png"></p>
+<h3 id="1-1前端工程化"><a href="#1-1前端工程化" class="headerlink" title="1.1前端工程化"></a>1.1前端工程化</h3><h4 id="1-1-1-小白的前端开发和实际的前端开发"><a href="#1-1-1-小白的前端开发和实际的前端开发" class="headerlink" title="1.1.1 小白的前端开发和实际的前端开发"></a>1.1.1 小白的前端开发和实际的前端开发</h4><p>小白眼中的前端开发:</p>
+<p>​	会写HTML +CSS + JavaScript就会前端开发需要美化页面样式，就拽一个bootstrap过来</p>
+<p>​	需要操作DOM或发起Ajax请求，再拽一个jQuery过来</p>
+<p>​	需要快速实现网页布局效果，就拽一个Layui过来</p>
+<p>实际的前端开发:</p>
+<p>​	模块化(js 的模块化、css的模块化、资源的模块化)</p>
+<p>​	组件化（复用现有的UI结构、样式、行为)</p>
+<p>​	规范化(目录结构的划分、编码规范化、接口规范化、文档规范化、Git分支管理)</p>
+<p>​	自动化（自动化构建、自动部署、自动化测试)</p>
+<h4 id="1-1-2-什么是前端工程化"><a href="#1-1-2-什么是前端工程化" class="headerlink" title="1.1.2 什么是前端工程化"></a>1.1.2 什么是前端工程化</h4><p>前端工程化指的是：在企业级的前端项目开发中，把前端开发所需的工具、技术、流程、经验等进行更规范化、标准化。</p>
+<p>切叶中的 Vue 项目和 React 项目，都是基于工程化的方式进行开发的。</p>
+<p>好处：前端开发自成体系，有一套标准的开发方案和流程。</p>
+<h4 id="1-1-3-前端工程化的解决方案"><a href="#1-1-3-前端工程化的解决方案" class="headerlink" title="1.1.3 前端工程化的解决方案"></a>1.1.3 前端工程化的解决方案</h4><p>早期的前端工程化解决方案：</p>
+<p>​	grunt ( <a href="https://www.gruntjs.net/">https://www.gruntjs.net/</a> )</p>
+<p>​	gulp ( <a href="https://www.gulpjs.com.cn/">https://www.gulpjs.com.cn/</a> )</p>
+<p>目前主流的前端工程化解决方案：</p>
+<p>​	webpack ( <a href="https://www.webpackjs.com/">https://www.webpackjs.com/</a> )</p>
+<p>​	parcel ( <a href="https://zh.parceljs.org/">https://zh.parceljs.org/</a> )</p>
+<h1 id="2-webpack的基本使用"><a href="#2-webpack的基本使用" class="headerlink" title="2. webpack的基本使用"></a>2. webpack的基本使用</h1><h3 id="2-1-什么是-webpack"><a href="#2-1-什么是-webpack" class="headerlink" title="2.1 什么是 webpack"></a>2.1 什么是 webpack</h3><p>概念：webpack 是前端项目工程化的具体解决方案。</p>
+<p>主要功能：它提供了有好的前端模块化开发支持，以及代码压缩混淆、处理浏览器端 JavaScript 的兼容性、性能优化等强大的功能。</p>
+<p>注意：目前 Vue、React 等前端项目，基本上都是基于 webpack 进行工程化开发的。</p>
+<h3 id="2-2-创建列表隔行变色项目"><a href="#2-2-创建列表隔行变色项目" class="headerlink" title="2.2 创建列表隔行变色项目"></a>2.2 创建列表隔行变色项目</h3><p>① 新建项目空白目录，并运行npm init -y命令，初始化包管理配置文件package.json</p>
+<p>② 新建src源代码目录</p>
+<p>③ 新建src -&gt; index.html首页和src -&gt; index.js 脚本文件</p>
+<p>④ 初始化首页基本的结构</p>
+<p>⑤ 运行npm install jquery -S命令，安装jQuery</p>
+<p>⑥ 通过ES6模块化的方式导入jQuery，实现列表隔行变色效果</p>
+<h4 id="2-2-1-在项目中安装-webpack"><a href="#2-2-1-在项目中安装-webpack" class="headerlink" title="2.2.1 在项目中安装 webpack"></a>2.2.1 在项目中安装 webpack</h4><p>在终端运行如下的命令，安装 webpack 相关的两个包：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install webpack@5.42.1 webpack-cli@4.7.2 -D</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\LX\Desktop\QQ截图\QQ截图20220403184022.png"></p>
+<p>dependencies：记录在项目开发阶段和上线部署阶段用的包</p>
+<p>devDependencies：只在开发阶段会被用到的包</p>
+<p>-S 是 –save 的缩写</p>
+<p>-D 是 –save-dev 的缩写</p>
+<h4 id="2-2-2-在项目中配置-webpack"><a href="#2-2-2-在项目中配置-webpack" class="headerlink" title="2.2.2 在项目中配置 webpack"></a>2.2.2 在项目中配置 webpack</h4><p>① 在项目根目录中，创建名为 webpack.config.js 的 webpack 配置文件，并初始化如下的基本配置：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">	<span class="attr">mode</span>:<span class="string">&#x27;development&#x27;</span> <span class="comment">// mode 用来指定构建模式，可选值有 development 和 production</span></span><br><span class="line">    <span class="comment">// 开发模式 还是 生产(发布)模式</span></span><br><span class="line">    <span class="comment">// 结论：开发的时候一定要用 development，因为追求打爆的速度，而不是体积；</span></span><br><span class="line">    <span class="comment">//		反过来，发布上线的时候一定要用 production，因为上线追求的是提交小，而不是打包速度快</span></span><br><span class="line">    <span class="comment">// production 会把文件压缩(注释和换行消除)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>② 在 package.json 的 scripts 节点下，新增 dev 脚本如下：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;dev&quot;</span><span class="punctuation">:</span><span class="string">&quot;webpack&quot;</span> <span class="comment">// script 节点下的脚本，可以通过 npm run 执行，例如 npm run dev</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>③ 在终端运行 npm run dev 命令，启动 webpack 进行项目的打包构建</p>
+<p><strong>注意</strong>：</p>
+<p><img src="C:\Users\LX\Desktop\QQ截图\QQ截图20220403192319.png"></p>
+<p>npm run dev 时不会直接运行webpack，而是读取 webpack.config.js 里的代码，确定执行模式后执行 webpack 命令</p>
+<h3 id="2-3-webpack-中的默认约定"><a href="#2-3-webpack-中的默认约定" class="headerlink" title="2.3 webpack 中的默认约定"></a>2.3 webpack 中的默认约定</h3><p>在 webpack 4.x 和 5.x 的版本中，有如下的默认约定：</p>
+<p>​	① 默认的打包入口文件为 src-&gt;index.js</p>
+<p>​	② 默认的输出文件路径为 dist-&gt;main.js</p>
+<p>注意：可以在 webpack.config.js 中修改打包的默认约定</p>
+<p>在 webpack.config.js 配置文件中，通过 entry 节点指定打包的入口。通过 output 节点制定打包的出口。示例代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// This is webpack.config.js,You can use &quot;entry&quot; node to set the package&#x27;s attributes</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>) <span class="comment">// 导入 node.js 中专门操作路径的模块</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="comment">// entry：&#x27;指定要处理哪个文件&#x27;</span></span><br><span class="line">    <span class="attr">entry</span>: path.<span class="title function_">join</span>(__dirname,<span class="string">&#x27;./sec/index01.js&#x27;</span>), <span class="comment">// 打包入口的文件的路径</span></span><br><span class="line">    <span class="comment">// 指定生成的文件要存放到哪里</span></span><br><span class="line">    <span class="attr">output</span>:&#123;</span><br><span class="line">        <span class="comment">// 指定存放的目录，与上方 path 区分开</span></span><br><span class="line">        <span class="attr">path</span>: path.<span class="title function_">join</span>(__diranme,<span class="string">&#x27;./dist&#x27;</span>), <span class="comment">// 输出文件的存放路径</span></span><br><span class="line">        <span class="comment">// 指定生成的文件名</span></span><br><span class="line">        <span class="attr">filename</span>: <span class="string">&#x27;bundle.js&#x27;</span> <span class="comment">//输出文件的名称</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="3-webpack-中的插件"><a href="#3-webpack-中的插件" class="headerlink" title="3. webpack 中的插件"></a>3. webpack 中的插件</h1><h3 id="3-1-webpack-插件的作用"><a href="#3-1-webpack-插件的作用" class="headerlink" title="3.1 webpack 插件的作用"></a>3.1 webpack 插件的作用</h3><p>通过安装和配置第三方的插件，可以拓展 webpack 的能力，从而让 webpack 用起来更方便。最常用的 webpack 插件有两个：</p>
+<p>① <strong>webpack-dev-server</strong></p>
+<p>​	类似于 node.js 阶段用到的 nodemon 工具</p>
+<p>​	每当修改了源代码，webpack 会自动进行项目的打包和构建</p>
+<p>​		<strong>安装</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install webpack-dev-server@3.11.2 -D</span><br></pre></td></tr></table></figure>
+
+<p>​		配置：</p>
+<p>​	1） 修改 package.json-&gt;script 中的 dev 命令如下</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;script&quot;</span><span class="punctuation">:</span><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;dev&quot;</span><span class="punctuation">:</span><span class="string">&quot;webpack serve&quot;</span><span class="punctuation">,</span> <span class="comment">// script 节点下的脚本，可以通过 npm run 执行</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>​	2）再次运行 npm run dev 命令，重新进行项目的打包</p>
+<p>​	3） 在浏览器中访问 <a href="http://localhost:8080/">http://localhost:8080</a> 地址，查看自动打包效果</p>
+<p>​		<strong>注意</strong>：</p>
+<ol>
+<li><pre><code>webpack-dev-server 会启动一个实时打包的 http 服务器
+</code></pre>
+<ol start="2">
+<li><p>webpack-dev-server 会在项目根目录生成最新main.js 代码，只不过在内存中生成，所以html文件应该包含新的引入语句：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;../main.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<pre><code> 这样做的好处是减少硬盘的写入频率，增加硬盘寿命，而内存的存在就是为了处理大量写入，对内存造成的影响少而且写入速度更快。
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<p>② <strong>html-webpack-plugin</strong></p>
+<p>​	webpack 中的 HTML 插件(类似于一个模板引擎插件)，可以在上面插件的基础上，打开 <a href="http://localhost:8080/">http://localhost:8080</a> 即可访问 index.html，而不是根目录文件。</p>
+<p>​	可以通过此插件自定制 index.html 页面的内容</p>
+<p>​		<strong>安装</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install html-webpack-plugin -D</span><br></pre></td></tr></table></figure>
+
+<p>​		<strong>配置</strong>：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// This is webpack.config.js file</span></span><br><span class="line"><span class="comment">// 1.导入 HTML 插件，得到一个构造函数</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">HtmlPlugin</span> = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.创建 HTML 插件的实例对象</span></span><br><span class="line">csont htmlPlugin = <span class="keyword">new</span> <span class="title class_">HtmlPlugin</span>(&#123;</span><br><span class="line">    <span class="attr">template</span>:<span class="string">&#x27;./src/indexl.html&#x27;</span>,	<span class="comment">// 指定原文件的存放路径</span></span><br><span class="line">    <span class="attr">filename</span>:<span class="string">&#x27;./index.html&#x27;</span>			<span class="comment">// 指定生成文件的存放目录</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">mode</span>:<span class="string">&#x27;devplopment&#x27;</span>,</span><br><span class="line">    <span class="attr">plugins</span>:[htmlPlugin]			<span class="comment">// 通过 plguins 节点，使 htmlPlugin 插件生效</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​	<strong>注意</strong>：生成在根目录的inedx.html，也是在内存中</p>
+<h3 id="3-2-devServer-节点"><a href="#3-2-devServer-节点" class="headerlink" title="3.2 devServer 节点"></a>3.2 devServer 节点</h3><p>在 webpack.config.js 配置文件中，可以通过 devServer 节点对 webpack-dev-server 插件进行更多地配置，示例代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">devServer</span>:&#123;</span><br><span class="line">    <span class="attr">open</span>: <span class="literal">true</span>, <span class="comment">// 初次打包完成后，自动打开浏览器</span></span><br><span class="line">    <span class="attr">host</span>: <span class="string">&#x27;127.0.0.1&#x27;</span>, <span class="comment">// 实时打包时用的主机地址</span></span><br><span class="line">    <span class="attr">port</span>: <span class="number">80</span>,  <span class="comment">// 实时打包使用的端口号</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="4-webpack-中的-loader"><a href="#4-webpack-中的-loader" class="headerlink" title="4.webpack 中的 loader"></a>4.webpack 中的 loader</h1><p>loader：加载器</p>
+<h3 id="4-1-loader-概述"><a href="#4-1-loader-概述" class="headerlink" title="4.1 loader 概述"></a>4.1 loader 概述</h3><p>在实际开发过程中，webpack 默认只能打包处理以.js 后缀名结尾的模块。其他非 .js 后缀名结尾的模块，webpack 默认处理不了，需要调用 loader 加载器才可以正常打包。</p>
+<p>loader 加载起的作用：协助 webpack 打包处理特定的文件模块。比如：</p>
+<p>​	css-loader 可以打包处理 .css 相关的文件</p>
+<p>​	less-loader 可以打包处理 .less 相关的文件</p>
+<p>​	babel-loader 可以打包处理 webpack 无法处理的高级 JS 语法</p>
+<h3 id="4-2-loader加载过程"><a href="#4-2-loader加载过程" class="headerlink" title="4.2 loader加载过程"></a>4.2 loader加载过程</h3><p><img src="C:\Users\LX\Desktop\QQ截图\QQ截图20220404105801.png"></p>
+<h3 id="4-3-处理过程"><a href="#4-3-处理过程" class="headerlink" title="4.3 处理过程"></a>4.3 处理过程</h3><h4 id="4-3-1-打包处理-css-文件"><a href="#4-3-1-打包处理-css-文件" class="headerlink" title="4.3.1 打包处理 css 文件"></a>4.3.1 打包处理 css 文件</h4><p>① 运行 npm i style-loader css-loader -D 命令，安装处理 css 文件的 loader</p>
+<p>② 在 webpack-config.js 的 module -&gt; rules 数组中，添加 loader 规则如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">module</span>: &#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="attr">rules</span>: &#123;</span><br><span class="line">        <span class="comment">// 注意 是test，不是text</span></span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="comment">// $表示以...结尾</span></span><br><span class="line">        <span class="comment">// 顺序不能换</span></span><br><span class="line">        <span class="attr">use</span>: [<span class="string">&#x27;style-loader&#x27;</span>,<span class="string">&#x27;css-loader&#x27;</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中，test 表示匹配的文件类型，use 表示对应要调用的 loader</p>
+<p>注意：</p>
+<p>​	use 数组中指定的 loader 顺序是固定的</p>
+<p>​	多个 loader 的调用顺序是：从后往前调用</p>
+<p><img src="C:\Users\LX\Desktop\QQ截图\QQ截图20220404122210.png"></p>
+<ol>
+<li><p>webpack 默认只能打包处理 .js 结尾的文件，处理不了其他后缀的文件。</p>
+</li>
+<li><p>由于代码中包含了 index.css 这个文件，因此 webpack 默认处理不了。</p>
+</li>
+<li><p>当 webpack 发现某个文件处理不了的时候，会查找 webpack.config.js 这个配置文件，看 module.rules 数组中，是否配置了对应的 loader 加载器。</p>
+<p>  <img src="C:\Users\LX\Desktop\QQ截图\QQ截图20220404122215.png"></p>
+</li>
+<li><p>webpack 把 index.css 这个文件，先转交给最后一个 loader 进行处理(先转交给 css-loader)，</p>
+</li>
+<li><p>当 css-loader 处理完毕之后，会把处理的结果，转交给下一个 loader（转交给 style-loader）。</p>
+</li>
+<li><p>当 style-loader 处理完毕之后，发现没有下一个 loader 了，于是就把处理的结果，转交给了 webpack。</p>
+</li>
+<li><p>webpack 把 style-loader 处理的结果，合并到 &#x2F;dist&#x2F;main.js，最终生成打包好的文件。</p>
+</li>
+</ol>
+<h4 id="4-3-2-打包处理-less-文件"><a href="#4-3-2-打包处理-less-文件" class="headerlink" title="4.3.2 打包处理 less 文件"></a>4.3.2 打包处理 less 文件</h4><p>① 运行 npm i less-loader less -D 命令</p>
+<p>② 在 webpack-config.js 的 module -&gt; rules 数组中，添加到 loader 规则如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">module</span>: &#123; <span class="comment">// 所以第三方文件模块的匹配规则</span></span><br><span class="line">    <span class="attr">rules</span>:[ / 文件后缀名的匹配规则</span><br><span class="line">        &#123;</span><br><span class="line">        	<span class="attr">test</span>:<span class="regexp">/\.less$/</span>,</span><br><span class="line">        	<span class="attr">use</span>:[<span class="string">&#x27;style-loader&#x27;</span>,<span class="string">&#x27;css-loader&#x27;</span>,<span class="string">&#x27;less-loader&#x27;</span>]        </span><br><span class="line">    	&#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-3-3-打包处理样式表中与-url-路径相关的文件"><a href="#4-3-3-打包处理样式表中与-url-路径相关的文件" class="headerlink" title="4.3.3 打包处理样式表中与 url 路径相关的文件"></a>4.3.3 打包处理样式表中与 url 路径相关的文件</h4><p>① 运行 npm i url-loader file-loader -D 命令</p>
+<p>② 在 webpack-config.js 的 module -&gt; rules 数组中，添加 loader 规则如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>:[</span><br><span class="line">        <span class="comment">// 如果需要调用的 loader 只有一个，则只传递一个字符串就行，如果有多个loader，则必须指定数组</span></span><br><span class="line">        &#123;<span class="attr">test</span>:<span class="regexp">/\.jpg|png|gifs$/</span>,<span class="attr">use</span>:[<span class="string">&#x27;url-loader?limit=22229&#x27;</span>]&#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中 ? 之后的是 loader 的参数项：</p>
+<p>​	limit 用来置顶图片的大小，单位是字节(byte)</p>
+<p>​	只有 ≤ limit 大小的图片，才会被转为 base64 格式的图片</p>
+<h4 id="4-3-4-打包处理-js-文件中的高级语法"><a href="#4-3-4-打包处理-js-文件中的高级语法" class="headerlink" title="4.3.4 打包处理 js 文件中的高级语法"></a>4.3.4 打包处理 js 文件中的高级语法</h4><p>webpack 只能打包处理一部分高级的 JavaScript 语法。对于那些 webpack 无法处理的高级 js 语法，需要借助于 babel-loader 进行打包处理。例如 webpack 无法处理下面的 JavaScript 代码。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1.定义了名为 info 的装饰器</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">info</span>(<span class="params">target</span>) &#123;</span><br><span class="line">    <span class="comment">// 2.为目标添加静态属性 info</span></span><br><span class="line">    target.<span class="property">info</span>=<span class="string">&#x27;Person info&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 3.为 Person 类应用 info 装饰器</span></span><br><span class="line">@info</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4.打印 Person 的静态属性 info</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Person</span>.<span class="property">info</span>)</span><br></pre></td></tr></table></figure>
+
+<p>1.<strong>安装 babel-loader 相关的包</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm i babel-loader /* @babel/cor @babel/plugin-proposal-decorators -D */</span><br></pre></td></tr></table></figure>
+
+<p>在 webpack.config.js 的 module -&gt; rules 数组中，添加 loader 规则如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 注意：必须使用 exclude 指定排除项，因为 node_modules 目录下的第三方包不需要被打包</span><br><span class="line">&#123;test:/\.js$/,use:&#x27;babel-loader&#x27;,exclude:/node_modules/&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.<strong>配置 babel-loader</strong></p>
+<p>在项目根目录下，创建名为 babel.config.js 的配置文件，定义 Babel 的配置项如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">	<span class="comment">// 声明 babel 可用的插件</span></span><br><span class="line">	<span class="attr">plugins</span>:[[<span class="string">&#x27;@babel/plugin-proposal-decorators&#x27;</span>,&#123;<span class="attr">legacy</span>:<span class="literal">true</span>&#125;]]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>详情请参考Babel 的官网 <a href="https://babeljs.io/docs/en/babel-plugin-proposal-decorators">https://babeljs.io/docs/en/babel-plugin-proposal-decorators</a></p>
+<h1 id="5-打包发布"><a href="#5-打包发布" class="headerlink" title="5. 打包发布"></a>5. 打包发布</h1><h3 id="5-1-为什么要打包发布"><a href="#5-1-为什么要打包发布" class="headerlink" title="5.1 为什么要打包发布"></a>5.1 为什么要打包发布</h3><p>项目开发完成后，需要使用 webpack 对项目进行打包发布，主要原因有以下两点：</p>
+<p>① 开发环境下，打包生成的文件存放于内存中，无法获取到最终打包生成的文件</p>
+<p>② 开发环境下，打包生成的文件不会进行代码压缩和性能优化</p>
+<p>为了让项目能够在生产环境中高性能的运行，因此需要对项目进行打包发布。</p>
+<h3 id="5-2-配置-webpack-的打包发布"><a href="#5-2-配置-webpack-的打包发布" class="headerlink" title="5.2 配置 webpack 的打包发布"></a>5.2 配置 webpack 的打包发布</h3><p>在 package.json 文件的 scripts 节点下，新建 bulid 命令如下：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;dev&quot;</span><span class="punctuation">:</span><span class="string">&quot;webpack serve&quot;</span><span class="punctuation">,</span><span class="comment">//开发环境中，运行 dev 命令</span></span><br><span class="line">	<span class="attr">&quot;bulid&quot;</span><span class="punctuation">:</span><span class="string">&quot;webpack --mode production&quot;</span> <span class="comment">//项目发布时，运行 bulid 命令</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>–model 是一个参数项，用来指定 webpack 的运行模式。production 代表生产环境，进行代码压缩和性能优化。</p>
+<p>注意：通过 –model 指定的参数项，会覆盖 webpack.config.js 中的 model 选项。</p>
+<h3 id="5-3-把-JavaScript-文件统一生成到-js-目录中"><a href="#5-3-把-JavaScript-文件统一生成到-js-目录中" class="headerlink" title="5.3 把 JavaScript 文件统一生成到 js 目录中"></a>5.3 把 JavaScript 文件统一生成到 js 目录中</h3><p>在 webpack.config.js 配置文件的 output 节点中，进行如下配置：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">output</span>:&#123;</span><br><span class="line">    <span class="attr">path</span>:path.<span class="title function_">join</span>(__dirname,<span class="string">&#x27;dist&#x27;</span>),</span><br><span class="line">    <span class="comment">// 明确告诉 webpack 把生成的 main.js 文件存放到 dist 目录下 js 子目录中</span></span><br><span class="line">    <span class="attr">filename</span>:<span class="string">&#x27;js/main.js&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="5-4-把图片文件统一声道-image-目录中"><a href="#5-4-把图片文件统一声道-image-目录中" class="headerlink" title="5.4 把图片文件统一声道 image 目录中"></a>5.4 把图片文件统一声道 image 目录中</h3><p>修改 webpack.config.js 中的 url-loader 配置项，通过新增 outputPath 选项即可置顶图片文件的输出路径：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="comment">// 在配置 url-loader 的时候，多个参数之间，使用 &amp; 符号进行分隔</span></span><br><span class="line">    &#123;<span class="attr">text</span>:<span class="regexp">/\.jpg|png|gif$/</span>,<span class="attr">use</span>:<span class="string">&#x27;url-loader?limit=29999&amp;&amp;outPath=images&#x27;</span>&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="5-5-自动清理-dist-目录下的旧文件"><a href="#5-5-自动清理-dist-目录下的旧文件" class="headerlink" title="5.5 自动清理 dist 目录下的旧文件"></a>5.5 自动清理 dist 目录下的旧文件</h3><p>为了每次打包发布时自动清理 dist 目录中的文件，可以安装并配置 clean-webpack-plugin 插件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 1.安装清理 dist 目录的 webpack 插件</span><br><span class="line">npm i clean-webpack-plugin -D</span><br><span class="line"></span><br><span class="line">// 2.按需导入插件、得到插件的构造函数之后，创建插件的实例对象</span><br><span class="line">// &#123;CleanWebpackPlugin&#125; 解构赋值 相当于 const &#123;CleanWebPlugin&#125;=&#123;CleanWebpackPlugin:function() &#123;  &#125;&#125; </span><br><span class="line">const &#123;CleanWebpackPlugin&#125; = require(&#x27;clean-webpack-plugin&#x27;)</span><br><span class="line">const cleanPlugin = new CleanpackPlugin()</span><br><span class="line"></span><br><span class="line">// 3.把创建的 cleanPlugin 插件实例对象，挂载到 plugins 节点中</span><br><span class="line">plugins:[htmlPlugin,cleanPlugin], //挂载插件</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-Source-Map"><a href="#6-Source-Map" class="headerlink" title="6. Source Map"></a>6. Source Map</h2><h3 id="6-1-什么是-Source-Map"><a href="#6-1-什么是-Source-Map" class="headerlink" title="6.1 什么是 Source Map"></a>6.1 什么是 Source Map</h3><p>Source Map 就是一个信息文件，里面储存这位置信息。也就是说，Source Map 文件中存储着压缩混淆后的代码，所对应的转换前的位置。</p>
+<p>有了它，出错的时候，出错工具将直接显示原始代码，而不是转换后的代码，能极大地方便后期的调试。</p>
+<h3 id="6-2-解决默认-Source-Map-的问题"><a href="#6-2-解决默认-Source-Map-的问题" class="headerlink" title="6.2 解决默认 Source Map 的问题"></a>6.2 解决默认 Source Map 的问题</h3><p>开发环境下，推荐在 webpack.config.js 中添加如下的配置，即可保证运行时报错的行数与源代码的行数保持一致：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">mode</span>:<span class="string">&#x27;development&#x27;</span>,</span><br><span class="line">    <span class="comment">// eval-sourve-map 仅限在&quot;开发模式&quot;下使用，不建议在&quot;生产模式&quot;下使用。</span></span><br><span class="line">    <span class="comment">// 此选项生成的 Source Map 能够保证&quot;&quot;运行时报错的行数与&quot;源代码的行数&quot;保持一致</span></span><br><span class="line">    <span class="attr">devtool</span>:<span class="string">&#x27;eval-sourve-map&#x27;</span>,</span><br><span class="line">    <span class="comment">// .....忽略</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-3-webpack-生产环境下的-Source-Map"><a href="#6-3-webpack-生产环境下的-Source-Map" class="headerlink" title="6.3 webpack 生产环境下的 Source Map"></a>6.3 webpack 生产环境下的 Source Map</h3><p>在生产环境下，如果省略了 devtool 选项，则最终生成的文件中不包含 Source Map。这样能够防止原始代码通过 Source Map 的形式暴露给坏人。</p>
+<p><img src="C:\Users\LX\Desktop\QQ截图\QQ截图20220405211423.png"></p>
+<h3 id="6-4-只定位行数不暴露源码"><a href="#6-4-只定位行数不暴露源码" class="headerlink" title="6.4 只定位行数不暴露源码"></a>6.4 只定位行数不暴露源码</h3><p>在生产环境下，如果只想定位报错的具体行数，且不想报路远马。此时可以将 devtool 的值设置为 nosources-source-map。实际效果如下：</p>
+<p><img src="C:\Users\LX\Desktop\QQ截图\QQ截图20220405211711.png"></p>
+<p>采用此选项后，您应该将你的服务期配置为，不允许普通用户访问 source-map 文件！</p>
+<h3 id="6-5-Srouce-Map-的最佳实践"><a href="#6-5-Srouce-Map-的最佳实践" class="headerlink" title="6.5 Srouce Map 的最佳实践"></a>6.5 Srouce Map 的最佳实践</h3><p>① 开发环境下：</p>
+<p>​	建议把 devtool 的值设置为 eval-source-map</p>
+<p>​	好处：可以精准定位到具体的错误行</p>
+<p>② 生产环境下：</p>
+<p>​	建议关闭 Source Map 或将 devtool 的值设置为 nosources-source-map</p>
+<p>​	好处：防止源码暴露，提高网站的安全性</p>
+]]></content>
   </entry>
   <entry>
     <title>计算机网络</title>
@@ -4912,7 +4912,7 @@
 <p>​	为解决这个问题，在技术上改变了以往直接在发送端与接收端主机之间建立TCP连接的机制，而引进了一种一直会连接电源的邮件服务器。发送和接收端通过邮件服务器进行收发邮件。接收端从邮件服务器接收邮件时使用<strong>POP3(Post Office Protocol)协议</strong>。</p>
 <p>​	电子邮件的机制由3部分组成，他们分别是<strong>邮件地址</strong>、<strong>数据格式</strong>以及<strong>发送协议</strong>。</p>
 <h5 id="8-4-2邮件地址"><a href="#8-4-2邮件地址" class="headerlink" title="8.4.2邮件地址"></a>8.4.2邮件地址</h5><p>​	使用电子邮件时需要拥有的地址叫做<strong>邮件地址</strong>，它就相当于通信地址和姓名。互联网中电子邮件地址格式如下：</p>
-<p>​	名称@通信地址（<a href="mailto:&#51;&#x34;&#x33;&#52;&#57;&#48;&#57;&#52;&#x30;&#x33;&#x40;&#x71;&#x71;&#x2e;&#x63;&#111;&#109;">&#51;&#x34;&#x33;&#52;&#57;&#48;&#57;&#52;&#x30;&#x33;&#x40;&#x71;&#x71;&#x2e;&#x63;&#111;&#109;</a>）</p>
+<p>​	名称@通信地址（<a href="mailto:&#51;&#52;&#51;&#52;&#x39;&#x30;&#x39;&#52;&#48;&#51;&#x40;&#113;&#113;&#x2e;&#99;&#111;&#x6d;">&#51;&#52;&#51;&#52;&#x39;&#x30;&#x39;&#52;&#48;&#51;&#x40;&#113;&#113;&#x2e;&#99;&#111;&#x6d;</a>）</p>
 <h5 id="8-4-3MIME"><a href="#8-4-3MIME" class="headerlink" title="8.4.3MIME"></a>8.4.3MIME</h5><p>​	电子邮件所能发送的数据类型已经被扩展到MIME，邮箱可以<strong>发送静态图像、动画、声音、程序等各种形式的数据</strong>。</p>
 <p>​	<strong>MIME基本上由首部和正文（数据）两部分组成</strong>。</p>
 <p>​	具体示例可看图解HTTP笔记。</p>
