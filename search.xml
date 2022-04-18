@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Vue</title>
-    <url>/blog/2022/04/15/Vue/</url>
-    <content><![CDATA[<p>敬请期待</p>
-<span id="more"></span>
-
-]]></content>
-      <categories>
-        <category>书本</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>网络</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>HTML、CSS</title>
     <url>/blog/2022/04/15/H5C3/</url>
     <content><![CDATA[<h1 id="1-HTML5的新特性"><a href="#1-HTML5的新特性" class="headerlink" title="1.HTML5的新特性"></a>1.HTML5的新特性</h1><span id="more"></span>
@@ -412,6 +397,21 @@
       </categories>
       <tags>
         <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue</title>
+    <url>/blog/2022/04/15/Vue/</url>
+    <content><![CDATA[<p>敬请期待</p>
+<span id="more"></span>
+
+]]></content>
+      <categories>
+        <category>书本</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>网络</tag>
       </tags>
   </entry>
   <entry>
@@ -1257,7 +1257,7 @@
 <p> ① id_rsa (私钥文件，存放于客户端的电脑中间即可)</p>
 <p> ② id_rsa.pub (公钥文件，需要配置到 Github 中)</p>
 <h5 id="4-2-4-生成-SSH-key"><a href="#4-2-4-生成-SSH-key" class="headerlink" title="4.2.4 生成 SSH key"></a>4.2.4 生成 SSH key</h5><p>① 打开 Git Bash</p>
-<p>② 填写如下的命令，并将 <a href="mailto:&#x79;&#111;&#117;&#x72;&#95;&#x65;&#109;&#x61;&#x69;&#x6c;&#64;&#101;&#120;&#97;&#109;&#x70;&#x6c;&#101;&#x2e;&#99;&#111;&#x6d;">&#x79;&#111;&#117;&#x72;&#95;&#x65;&#109;&#x61;&#x69;&#x6c;&#64;&#101;&#120;&#97;&#109;&#x70;&#x6c;&#101;&#x2e;&#99;&#111;&#x6d;</a> 替换为账号时填写的邮箱：</p>
+<p>② 填写如下的命令，并将 <a href="mailto:&#x79;&#x6f;&#117;&#x72;&#95;&#101;&#109;&#x61;&#105;&#x6c;&#64;&#101;&#x78;&#x61;&#x6d;&#x70;&#108;&#101;&#46;&#x63;&#x6f;&#109;">&#x79;&#x6f;&#117;&#x72;&#95;&#101;&#109;&#x61;&#105;&#x6c;&#64;&#101;&#x78;&#x61;&#x6d;&#x70;&#108;&#101;&#46;&#x63;&#x6f;&#109;</a> 替换为账号时填写的邮箱：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;3434909403@qq.com&quot;</span><br></pre></td></tr></table></figure>
 
 <p>③ 连续敲击 3 次回车，即可在：C:\User\用户名文件夹.ssh 目录中生成 id_rsa 和 id_rsa_pub 两个文件</p>
@@ -1365,6 +1365,339 @@
 <p>  git push -u origin 新分支名称</p>
 <p>  git checkout 分支名称</p>
 <p>  git branch</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL</title>
+    <url>/blog/2022/04/15/mysql/</url>
+    <content><![CDATA[<h1 id="1-数据库的基本概念"><a href="#1-数据库的基本概念" class="headerlink" title="1.数据库的基本概念"></a>1.数据库的基本概念</h1><span id="more"></span>
+
+
+<h3 id="1-1-什么是数据库"><a href="#1-1-什么是数据库" class="headerlink" title="1.1 什么是数据库"></a>1.1 什么是数据库</h3><p>数据库(database) 是用来组织、存储和管理数据的仓库。</p>
+<p>当今世界是一个充满着数据的互联网世界，充斥着大量的数据。数据的来源有很多，比如出行记录、消费记录、浏览的网页、发送的消息等等。除了文本类型的数据，图像、音乐、声音都是数据。</p>
+<p>为了方便管理互联网中的数据，就有了数据库管理系统的概念(简称：数据库)。用户可以对数据库中的数据进行新增、查询、更新、删除等操作。</p>
+<h3 id="1-2-常见的数据库及分类"><a href="#1-2-常见的数据库及分类" class="headerlink" title="1.2 常见的数据库及分类"></a>1.2 常见的数据库及分类</h3><p>市面上的数据库有很多种，最常见的数据库有如下几个：</p>
+<p>​	MySQL数据库（目前使用最广泛、流行度最高的开源免费数据库;Community + Enterprise)</p>
+<p>​	Oracle数据库（收费)</p>
+<p>​	SQL Server数据库〔收费)</p>
+<p>​	Mongodb 数据库(Community + Enterprise)</p>
+<p>其中，MySQL、Oracle、SQL Server 属于传统型数据库（又叫做：关系型数据库 或 SQL 数据库），这三者的设计理念相同，用法比较类似。</p>
+<p>而 Mongodb 属于新型数据库(又叫做：非关系型数据库 或 NoSQL 数据库)，它在一定程度上弥补了传统型数据库的缺陷。</p>
+<h3 id="1-3-传统型数据库的数据组成结构"><a href="#1-3-传统型数据库的数据组成结构" class="headerlink" title="1.3 传统型数据库的数据组成结构"></a>1.3 传统型数据库的数据组成结构</h3><p>数据的组织结构：指的是数据以什么样的结构进行存储。</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220324220139.png"></p>
+<p>传统型数据库的数据组织结构，与 Excel 中数据的组织结构比较类似。</p>
+<p>因此，我们可以对比着 Excel 来了解和学习传统型数据库的数据组织结构。</p>
+<h5 id="1-3-1-Excel-的数据组织结构"><a href="#1-3-1-Excel-的数据组织结构" class="headerlink" title="1.3.1 Excel 的数据组织结构"></a>1.3.1 Excel 的数据组织结构</h5><p>每个 Excel 中，数据的组织结构分别为 工作簿、工作表、数据航、列这4大部分组成。</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220324220511.png"></p>
+<p>① 整个 Excel 叫做工作簿</p>
+<p>② users 和 books 是工作表</p>
+<p>③ users 工作表中有3行数据</p>
+<p>④ 每行数据由6列信息组成</p>
+<p>⑤ 每列信息都有对应的数据类型</p>
+<h5 id="1-5-2-传统型数据的数据组织结构"><a href="#1-5-2-传统型数据的数据组织结构" class="headerlink" title="1.5.2 传统型数据的数据组织结构"></a>1.5.2 传统型数据的数据组织结构</h5><p>在传统数据库中，数据的组织结构分为数据库(database)、数据表(table)、数据行(row)、字段(field)这4个大部分组成。</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220324221535.png"></p>
+<p>① 数据库类似与 Excel 的工作簿</p>
+<p>② 数据库类似于 Excel 的工作表</p>
+<p>③ 数据行类似于 Excel 的每一行数据</p>
+<p>④ 字段类似于 Excel 的列</p>
+<p>⑤ 每个字段都有对应的数据类型</p>
+<h5 id="1-3-3-实际开发中库、表、行、字段的关系"><a href="#1-3-3-实际开发中库、表、行、字段的关系" class="headerlink" title="1.3.3 实际开发中库、表、行、字段的关系"></a>1.3.3 实际开发中库、表、行、字段的关系</h5><p>① 在实际项目开发中，一般情况下，每个项目都对应独立的数据库。</p>
+<p>② 不同的数据，要存储到数据库的不同表中，例如：用户数据存储到 user 表中，图书数据存储到 books 表中。</p>
+<p>③ 每个表中具体存储哪些信息，由字段来决定，例如：我们可以为 user 表设计 id、username、password 这3个字段。</p>
+<p>④ 表中的行、代表每一条数据</p>
+<h1 id="2-安装并配置-MySQL"><a href="#2-安装并配置-MySQL" class="headerlink" title="2.安装并配置 MySQL"></a>2.安装并配置 MySQL</h1><h3 id="2-1-了解需要安装哪些MySQL相关的软件"><a href="#2-1-了解需要安装哪些MySQL相关的软件" class="headerlink" title="2.1 了解需要安装哪些MySQL相关的软件"></a>2.1 了解需要安装哪些MySQL相关的软件</h3><p>对于开发人员来说，只需要安装 MySQL Server 和 MySQL Workbench 这两个软件，就能满足开发的需要了。</p>
+<p>​	MySQL Server：专门用来提供数据存储和服务的软件。</p>
+<p>​	MySQL Workbench：可视化的 MySQL 管理工具，通过它，可以方便的操作存储在 MySQL Server 中的数据。</p>
+<h1 id="3-MySQL的基本使用"><a href="#3-MySQL的基本使用" class="headerlink" title="3.MySQL的基本使用"></a>3.MySQL的基本使用</h1><h3 id="3-1-使用-MySQL-Workbench-管理数据库"><a href="#3-1-使用-MySQL-Workbench-管理数据库" class="headerlink" title="3.1 使用 MySQL Workbench 管理数据库"></a>3.1 使用 MySQL Workbench 管理数据库</h3><h5 id="3-1-1-连接数据库"><a href="#3-1-1-连接数据库" class="headerlink" title="3.1.1 连接数据库"></a>3.1.1 连接数据库</h5><p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220325110558.png"></p>
+<h5 id="3-1-2-了解主界面的组成部分"><a href="#3-1-2-了解主界面的组成部分" class="headerlink" title="3.1.2 了解主界面的组成部分"></a>3.1.2 了解主界面的组成部分</h5><p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220325111021.png"></p>
+<h5 id="3-1-3-创建数据库"><a href="#3-1-3-创建数据库" class="headerlink" title="3.1.3 创建数据库"></a>3.1.3 创建数据库</h5><p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220325114502.png"></p>
+<p>注意：数据库不能有空格和中文</p>
+<h5 id="3-1-4-创建数据表"><a href="#3-1-4-创建数据表" class="headerlink" title="3.1.4 创建数据表"></a>3.1.4 创建数据表</h5><p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220325114926.png"></p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220325115620.png"></p>
+<p>DataType 数据类型：</p>
+<p>① int 整数</p>
+<p>② varchar(len) 字符串</p>
+<p>③ tinyint(1) 布尔值</p>
+<p>字段的特殊表示：<br>① PK(Primary Key) 主键、唯一标识</p>
+<p>② NN(Not Null) 值不允许为空</p>
+<p>③ UQ(Unique) 值唯一</p>
+<p>④ AI(Auto Increment) 值自动增长</p>
+<h5 id="3-1-5-向表中写入数据"><a href="#3-1-5-向表中写入数据" class="headerlink" title="3.1.5 向表中写入数据"></a>3.1.5 向表中写入数据</h5><p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220325120748.png"></p>
+<h3 id="3-2-使用-SQL-管理数据库"><a href="#3-2-使用-SQL-管理数据库" class="headerlink" title="3.2 使用 SQL 管理数据库"></a>3.2 使用 SQL 管理数据库</h3><h5 id="3-2-1-什么是-SQL"><a href="#3-2-1-什么是-SQL" class="headerlink" title="3.2.1 什么是 SQL"></a>3.2.1 什么是 SQL</h5><p>SQL (Structured Query Language) 是结构化查询语言，专门用来访问和处理数据库的编程语言。能够让我们以编程的形式，操作数据库里面的数据。</p>
+<p>三个关键点：</p>
+<p>① SQL 是一门数据库编程语言</p>
+<p>② 使用 SQL 语言编写出来的代码，叫做 SQL 语句</p>
+<p>③ SQL 语言只能在关系型数据中使用(例如 MySQL、Oracle、SQL Server)。非关系型数据库(例如 Mongodlb) 不支持 SQL 语言</p>
+<h5 id="3-2-2-SQL-能够做什么"><a href="#3-2-2-SQL-能够做什么" class="headerlink" title="3.2.2 SQL 能够做什么"></a>3.2.2 SQL 能够做什么</h5><p>① 从数据库中查询数据</p>
+<p>② 向数据库中插入新的数据</p>
+<p>③ 更新数据库中的数据</p>
+<p>④ 从数据库删除数据</p>
+<p>⑤ 可以创建新数据库</p>
+<p>⑥ 可在数据库中创建新表</p>
+<p>⑦ 可在数据库中创建存储过程、视图</p>
+<p>⑧ etc….</p>
+<h5 id="3-2-3-SQL-的学习目标"><a href="#3-2-3-SQL-的学习目标" class="headerlink" title="3.2.3 SQL 的学习目标"></a>3.2.3 SQL 的学习目标</h5><p>重点掌握如何使用 SQL 从数据表中：</p>
+<p>​	查询数据(select)、插入数据(insert into)、更新数据(update)、删除数据(delete)</p>
+<p>额外需要掌握的 4 中 SQL 语法：</p>
+<p>​	where 条件、and 和 or 运算符、order by 排序、const(*) 函数</p>
+<h3 id="3-3-SQL-的-SELECT-语句"><a href="#3-3-SQL-的-SELECT-语句" class="headerlink" title="3.3 SQL 的 SELECT 语句"></a>3.3 SQL 的 SELECT 语句</h3><h5 id="3-3-1-语法"><a href="#3-3-1-语法" class="headerlink" title="3.3.1 语法"></a>3.3.1 语法</h5><p>SELECT 语句用于从表中查询数据。执行的结果被存储在一个结果表中(称为结果表)。语法格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 这是注释</span><br><span class="line">-- 从 FROM 指定的【表中】，查询出【所有的】数据。*表示【所有例】</span><br><span class="line">SELECT * FROM 表名称</span><br><span class="line"></span><br><span class="line">-- 从 FROM 指定的【表中】，查询出指定 列名称(字段) 的数据</span><br><span class="line">SELECT 列名称 FROM 表名称</span><br></pre></td></tr></table></figure>
+
+<p>注意：SQL 语句中的关键词对大小写不明感。SELECT 等效于 select ，FROM 等效于 from。</p>
+<h5 id="3-3-2-SELECT-示例"><a href="#3-3-2-SELECT-示例" class="headerlink" title="3.3.2 SELECT* 示例"></a>3.3.2 SELECT* 示例</h5><p>我们希望从 users 表中选取所有的列，可以使用符号 * 取代列的名称</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 注意：星号 * 是选取所有列的快捷方式</span><br><span class="line">SELECT * FROM users</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-3-3-SELECT-列名称-示例"><a href="#3-3-3-SELECT-列名称-示例" class="headerlink" title="3.3.3 SELECT 列名称 示例"></a>3.3.3 SELECT 列名称 示例</h5><p>如果获取名为”username”和”password”的列的内容(从名为”users”的数据库表)，请使用下面的 SELECT 语句</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 注意：多个列之间，使用英文逗号进行分隔</span><br><span class="line">SELECT username, password FROM users</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-SQL-的-INSERT-INTO-语句"><a href="#3-4-SQL-的-INSERT-INTO-语句" class="headerlink" title="3.4 SQL 的 INSERT INTO 语句"></a>3.4 SQL 的 INSERT INTO 语句</h3><h5 id="3-4-1-语法"><a href="#3-4-1-语法" class="headerlink" title="3.4.1 语法"></a>3.4.1 语法</h5><p>INSERT INTO 语句用于向数据表中插入新的数据行，语法格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 语法解读：向指定的表中，插入如下几列数据，列的值通过 values ——指定</span><br><span class="line">-- 注意：列和值要意义对应，多个列和多个值之间，使用英文的逗号分隔</span><br><span class="line">INSERT INTO table_name(列1,列2,...) VALUE(值1,值2,....)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-4-2-INSERT-INTO-示例"><a href="#3-4-2-INSERT-INTO-示例" class="headerlink" title="3.4.2 INSERT INTO 示例"></a>3.4.2 INSERT INTO 示例</h5><p>向 user 表中，插入一条 username 为 tony stark，password 为 098123 的用户数据，示例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">INSERT INTO users (username,password) values (&#x27;tonystark&#x27;,&#x27;098123&#x27;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-5-SQL-的-UPDATE-语句"><a href="#3-5-SQL-的-UPDATE-语句" class="headerlink" title="3.5 SQL 的 UPDATE 语句"></a>3.5 SQL 的 UPDATE 语句</h3><h5 id="3-5-1语法"><a href="#3-5-1语法" class="headerlink" title="3.5.1语法"></a>3.5.1语法</h5><p>Update 语句用于修改表中的数据。语法格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 语法解读</span><br><span class="line">-- 1.用 UPDATE 指定要更新哪个表中的数据</span><br><span class="line">-- 2.用 SET 指定列对应的新值</span><br><span class="line">-- 3.用 HWERE 制定更新的条件</span><br><span class="line">UPDATE 表名称 SET 列名称 = 新值 WHERE 列名称 = 某值</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-5-2-UPDATE-示例-更新某一行中的一个列"><a href="#3-5-2-UPDATE-示例-更新某一行中的一个列" class="headerlink" title="3.5.2 UPDATE 示例 - 更新某一行中的一个列"></a>3.5.2 UPDATE 示例 - 更新某一行中的一个列</h5><p>把 users 表中 id 为 7 的用户名吗，更新为 888888。示例代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">UPDATE users SET password=&#x27;888888&#x27; WHERE id=7</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-5-3-UPDATE-示例-更新某一行中的若干行"><a href="#3-5-3-UPDATE-示例-更新某一行中的若干行" class="headerlink" title="3.5.3 UPDATE 示例 - 更新某一行中的若干行"></a>3.5.3 UPDATE 示例 - 更新某一行中的若干行</h5><p>把 users 表中 id 为2 的用户密码和用户状态，分别更新为 admin123 和 1。示例代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 多个被更新的列之间，使用英文逗号进行分割</span><br><span class="line">-- WHERE 后面跟着的是更新的条件</span><br><span class="line">-- 注意：初学者经常忘记提供更新的 WHERE 条件。</span><br><span class="line">--			这样会导致整张表的数据都被更新，一定要慎重！</span><br><span class="line">UPDATE users SET password=&#x27;admin123&#x27;,status=1 WHERE id=2</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-6-SQL-的-DELETE-语句"><a href="#3-6-SQL-的-DELETE-语句" class="headerlink" title="3.6 SQL 的 DELETE 语句"></a>3.6 SQL 的 DELETE 语句</h3><h5 id="3-6-1-语法"><a href="#3-6-1-语法" class="headerlink" title="3.6.1 语法"></a>3.6.1 语法</h5><p>DELETE 语句用于删除表中的行。数据格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 数据解读：</span><br><span class="line">-- 从指定的表中，根据 WHERE 条件，删除对应的数据行</span><br><span class="line">DELETE FROM 表名称 WHERE 列名称=值</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-6-2-DELETE-示例"><a href="#3-6-2-DELETE-示例" class="headerlink" title="3.6.2 DELETE 示例"></a>3.6.2 DELETE 示例</h5><p>从 user 表中，删除 id 为 4 的用户，示例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 注意：对初学者来学，经常忘记提供 WHERE 条件，</span><br><span class="line">-- 		从而导致误删整张表的数据！一定要慎重！</span><br><span class="line">DELETE FROM users WHERE id=4</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-7-SQL-的-WHERE-子句"><a href="#3-7-SQL-的-WHERE-子句" class="headerlink" title="3.7 SQL 的 WHERE 子句"></a>3.7 SQL 的 WHERE 子句</h3><h5 id="3-7-1-语法"><a href="#3-7-1-语法" class="headerlink" title="3.7.1 语法"></a>3.7.1 语法</h5><p>WHERE 字句用于限定选择的标准。在 SELECT、UPDATE、DELETE 语句中，皆可使用 WHERE 字句来限定选择的标准。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 查询语句中的 WHERE 条件</span><br><span class="line">SELECT 列名称 FROM 表名称 WHERE 列 运算符 值</span><br><span class="line">-- 更新语句中的 WHERE 条件</span><br><span class="line">UPDATE 列名称 SET 列=新值 WHERE 列 运算符 值</span><br><span class="line">-- 删除语句中的 WHERE 条件</span><br><span class="line">DELETE FROM 表名称 WHERE 列 运算符 值</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-7-2-可在-WHERE-子句中使用的运算符"><a href="#3-7-2-可在-WHERE-子句中使用的运算符" class="headerlink" title="3.7.2 可在 WHERE 子句中使用的运算符"></a>3.7.2 可在 WHERE 子句中使用的运算符</h5><p>下面的运算符可在 WHERE 子句中使用，用来限定选择的标准：</p>
+<table>
+<thead>
+<tr>
+<th>操作符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x3D;</td>
+<td>等于</td>
+</tr>
+<tr>
+<td>&lt;&gt;</td>
+<td>不等于</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>大于</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于</td>
+</tr>
+<tr>
+<td>&gt;&#x3D;</td>
+<td>大于等于</td>
+</tr>
+<tr>
+<td>&lt;&#x3D;</td>
+<td>小于等于</td>
+</tr>
+<tr>
+<td>BETWEEN</td>
+<td>在某个范围内</td>
+</tr>
+<tr>
+<td>LIKE</td>
+<td>搜索某种模式</td>
+</tr>
+</tbody></table>
+<p>注意：某些版本的 SQL 中，操作符 &lt;&gt; 可以写成 !&#x3D;</p>
+<h5 id="3-7-3-WHERE-子句示例"><a href="#3-7-3-WHERE-子句示例" class="headerlink" title="3.7.3 WHERE 子句示例"></a>3.7.3 WHERE 子句示例</h5><p>可以通过 WHERE 子句来限定 SELECT 的查询条件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 查询 status 为 1 的所有用户</span><br><span class="line">SELECT * FROM users WHERE status=1</span><br><span class="line">-- 查询 id 大于 2 的所有用户</span><br><span class="line">SELECT * FROM users WHERE status&gt;2</span><br><span class="line">-- 查询 username 不等于 admin 的所有用户</span><br><span class="line">SELECT * FROM users WHERE username&lt;&gt;&#x27;admin&#x27;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-8-SQL-的-AND-和-OR-运算符"><a href="#3-8-SQL-的-AND-和-OR-运算符" class="headerlink" title="3.8 SQL 的 AND 和 OR 运算符"></a>3.8 SQL 的 AND 和 OR 运算符</h3><h5 id="3-8-1-语法"><a href="#3-8-1-语法" class="headerlink" title="3.8.1 语法"></a>3.8.1 语法</h5><p>AND 和 OR 可在 WHERE 子语句中把两个或多个条件结合起来</p>
+<p>AND 表示必须满足多个条件，相当于 JavaScript 中的 &amp;&amp; 运算符，例如 if(a!&#x3D;10 &amp;&amp; a!&#x3D;20)</p>
+<p>OR 表示只要满足任意一个条件即可，相当于 JavaScript 中的 || 运算符，例如 if(a!&#x3D;&#x3D;&#x3D;10 || a!&#x3D;20)</p>
+<h5 id="3-8-2-AND-运算符示例"><a href="#3-8-2-AND-运算符示例" class="headerlink" title="3.8.2 AND 运算符示例"></a>3.8.2 AND 运算符示例</h5><p>使用 AND 来显示所有 status 为 0，并且 id&lt;3 的用户：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT * FORM users WHERE status=0 AND id&lt;3</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-8-3-OR-运算符示例"><a href="#3-8-3-OR-运算符示例" class="headerlink" title="3.8.3 OR 运算符示例"></a>3.8.3 OR 运算符示例</h5><p>使用 OR 来显示所有的 status 为1.或者 username 为 zs 的用户：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT * FROM users WHERE status=1 OR username=&#x27;zs&#x27;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-9-SQL-的-ORDER-BY-子句"><a href="#3-9-SQL-的-ORDER-BY-子句" class="headerlink" title="3.9 SQL 的 ORDER BY 子句"></a>3.9 SQL 的 ORDER BY 子句</h3><h5 id="3-9-1-语法"><a href="#3-9-1-语法" class="headerlink" title="3.9.1 语法"></a>3.9.1 语法</h5><p>ORDER BY 语句用于根据指定的列对结果进行排序。</p>
+<p>ORDER BY 语句默认按照升序对记录进行排序。</p>
+<p>如果您希望展昭降序对记录进行排序，可以使用 DESC 关键字。</p>
+<h5 id="3-9-2-ORDER-BY-子句-升序排序"><a href="#3-9-2-ORDER-BY-子句-升序排序" class="headerlink" title="3.9.2 ORDER BY 子句 - 升序排序"></a>3.9.2 ORDER BY 子句 - 升序排序</h5><p>对 users 表中的数据，按照 status 字段进行升序排序，示例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 注意：如下两条 SQL 语句是等价的，</span><br><span class="line">--		因为 ORDER BY 默认进行升序排序：</span><br><span class="line">--		其中,ASC 关键字代表升序排序</span><br><span class="line">SELECT * FROM users ORDER BY status</span><br><span class="line">SELECT * FROM users ORDER By status ASC</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-9-3-ORDER-BY-子句-降序排序"><a href="#3-9-3-ORDER-BY-子句-降序排序" class="headerlink" title="3.9.3 ORDER BY 子句 - 降序排序"></a>3.9.3 ORDER BY 子句 - 降序排序</h5><p>对 users 表中的数据，按照 id 字段进行降序排序，示例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 注意：DESC 代表降序排序</span><br><span class="line">SELECT * FROM users ORDER BY id DESC</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-9-4-ORDER-BY-子句-多重排序"><a href="#3-9-4-ORDER-BY-子句-多重排序" class="headerlink" title="3.9.4 ORDER BY 子句 - 多重排序"></a>3.9.4 ORDER BY 子句 - 多重排序</h5><p>对 users 表中的数据，先按照 status 字段进行降序排序，再按照 username 的字母排序，进行升序排序，示例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT * FROM users ORDER BY status DESC,username ASC</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-10-SQL-的-COUNT-函数"><a href="#3-10-SQL-的-COUNT-函数" class="headerlink" title="3.10 SQL 的 COUNT(*) 函数"></a>3.10 SQL 的 COUNT(*) 函数</h3><h5 id="3-10-1-语法"><a href="#3-10-1-语法" class="headerlink" title="3.10.1 语法"></a>3.10.1 语法</h5><p>COUNT(*) 函数用于返回查询结果的总数据条数，语法格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT COUNT(*) FROM 表名称</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-10-2-COUNT-示例"><a href="#3-10-2-COUNT-示例" class="headerlink" title="3.10.2 COUNT(*) 示例"></a>3.10.2 COUNT(*) 示例</h5><p>查询 users 表中 status 为 0 的总数据条数：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT COUNT(*) FORM users WHERE status=0</span><br></pre></td></tr></table></figure>
+
+<p>使用 AS 为列设置别名</p>
+<p>如果希望给查询出来的列名称设置别名，可以使用 AS 关键字，示例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 将列名称从COUNT(*) 修改为 total</span><br><span class="line">SELECT COUNT(*) AS total FROM users WHERE status=0</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-在项目中操作-MySQL"><a href="#4-在项目中操作-MySQL" class="headerlink" title="4 在项目中操作 MySQL"></a>4 在项目中操作 MySQL</h3><h3 id="4-1-在项目中操作数据库的步骤"><a href="#4-1-在项目中操作数据库的步骤" class="headerlink" title="4.1 在项目中操作数据库的步骤"></a>4.1 在项目中操作数据库的步骤</h3><p>① 安装操作MySQL 数据库的第三方模块(mysql)</p>
+<p>② 通过mysql模块连接到MySQL 数据库</p>
+<p>③ 通过mysql模块执行SQL语句</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220326181439.png"></p>
+<h3 id="4-2-安装与配置-mysql-模块"><a href="#4-2-安装与配置-mysql-模块" class="headerlink" title="4.2 安装与配置 mysql 模块"></a>4.2 安装与配置 mysql 模块</h3><h5 id="4-2-1-安装-mysql-模块"><a href="#4-2-1-安装-mysql-模块" class="headerlink" title="4.2.1 安装 mysql 模块"></a>4.2.1 安装 mysql 模块</h5><p>mysql 模块是托管于 npm 上的第三方模块。它提供了在 Node.js 项目中连接和操作 MySQL 数据库的能力。</p>
+<p>想要在项目中使用它没需要先运行如下命令，将 mysql 安装为项目的依赖包：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm i mysql</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-2-2-配置-mysql-模块"><a href="#4-2-2-配置-mysql-模块" class="headerlink" title="4.2.2 配置 mysql 模块"></a>4.2.2 配置 mysql 模块</h5><p>在使用 mysql 模块操作 MySQL 数据库之前，必须先对 mysql 模块进行必要的配置，主要的配置步骤如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1.导入 mysql 模块</span></span><br><span class="line"><span class="keyword">const</span> mysql=<span class="built_in">require</span>(<span class="string">&#x27;mysql&#x27;</span>)</span><br><span class="line"><span class="comment">// 2.建立与 MySQL 数据库的连接</span></span><br><span class="line"><span class="keyword">const</span> db=mysql.<span class="title function_">createPool</span>(&#123;</span><br><span class="line">	<span class="attr">host</span>:<span class="string">&#x27;127.0.0.1&#x27;</span>,		<span class="comment">// 数据库的 IP 地址</span></span><br><span class="line">	<span class="attr">user</span>:<span class="string">&#x27;root&#x27;</span>,			<span class="comment">// 登录数据库的账号</span></span><br><span class="line">	<span class="attr">password</span>:<span class="string">&#x27;admin123&#x27;</span>,	<span class="comment">// 登录数据库的密码</span></span><br><span class="line">	<span class="attr">database</span>:<span class="string">&#x27;my_db_01&#x27;</span>		<span class="comment">// 指定要操作那个数据库</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-2-3-测试-mysql-模块能否正常工作"><a href="#4-2-3-测试-mysql-模块能否正常工作" class="headerlink" title="4.2.3 测试 mysql 模块能否正常工作"></a>4.2.3 测试 mysql 模块能否正常工作</h5><p>调用 db.query() 函数，指定要执行的 SQL 语句，通过回调函数拿到执行的结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 检测 mysql 模块能否正常工作</span><br><span class="line">db.query(&#x27;SELECT&#x27;,(err,results)=&gt;&#123;</span><br><span class="line">	if(err) return console.log(err.message)</span><br><span class="line">	// 只要能打印出 [RowDataPacket &#123; &#x27;1&#x27;:1 &#125; 的结果，就证明数据库连接正常]</span><br><span class="line">	console.log(results)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-使用-mysql-模块操作-MySQL-数据库"><a href="#4-3-使用-mysql-模块操作-MySQL-数据库" class="headerlink" title="4.3 使用 mysql 模块操作 MySQL 数据库"></a>4.3 使用 mysql 模块操作 MySQL 数据库</h3><h5 id="4-3-1-查询数据"><a href="#4-3-1-查询数据" class="headerlink" title="4.3.1 查询数据"></a>4.3.1 查询数据</h5><p>查询 users 表中所有的数据：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 查询 users 表中所有用户的数据</span></span><br><span class="line">db.<span class="title function_">query</span>(<span class="string">&#x27;SELECT * FROM users&#x27;</span>,<span class="function">(<span class="params">err,results</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">// 查询失败</span></span><br><span class="line">    <span class="keyword">if</span>(err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>)</span><br><span class="line">    <span class="comment">// 查询成功</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(results)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-3-2-插入数据"><a href="#4-3-2-插入数据" class="headerlink" title="4.3.2 插入数据"></a>4.3.2 插入数据</h5><p>向 users 表中新增数据，其中 username 为 Spider-Man、password 为 pcc321。示例代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1.要插入列 users 表中的数据对象</span></span><br><span class="line"><span class="keyword">const</span> user=&#123;<span class="attr">username</span>:<span class="string">&#x27;Spider-Man&#x27;</span>,<span class="attr">password</span>:<span class="string">&#x27;pcc321&#x27;</span>&#125;</span><br><span class="line"><span class="comment">// 2.待执行的 SQL 语句，其中英文的 ? 表示占位符</span></span><br><span class="line"><span class="comment">//		注意：要插入的属性是用()包起来的</span></span><br><span class="line"><span class="keyword">const</span> sqlStr=<span class="string">&#x27;INSERT INTO users (username,password) VALUES (?,?)&#x27;</span></span><br><span class="line"><span class="comment">// 3.使用数组的形式，依次为 ? 占位符指定具体的值</span></span><br><span class="line">db.<span class="title function_">query</span>(sqlStr,[user.<span class="property">username</span>,user.<span class="property">password</span>],<span class="function">(<span class="params">err,results</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>)	<span class="comment">// 失败</span></span><br><span class="line">    <span class="comment">// 注意：是 affectedRows，且插入后的结果为对象</span></span><br><span class="line">    <span class="keyword">if</span>(results.<span class="property">affectedRows</span>===<span class="number">1</span>) &#123;<span class="comment">//执行这条函数，影响的条数为1</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;插入数据成功&#x27;</span>)			<span class="comment">// 成功</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>注意：id被占用后，即使被删除后，新增id仍会+1</p>
+<h5 id="4-3-3-插入数据的便捷方式"><a href="#4-3-3-插入数据的便捷方式" class="headerlink" title="4.3.3 插入数据的便捷方式"></a>4.3.3 插入数据的便捷方式</h5><p>想表中新增数据时，如果数据对象的每个属性和数据表的字段一一对应，则可以通过如下方式快速插入数据：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1.要插入到 users 表中的数据对象</span></span><br><span class="line"><span class="keyword">const</span> user=&#123;<span class="attr">username</span>:<span class="string">&#x27;Spider-Man2&#x27;</span>,<span class="attr">password</span>:<span class="string">&#x27;pcc4321&#x27;</span>&#125;</span><br><span class="line"><span class="comment">// 2.待执行的 SQL 语句，其中英文的 ? 表示占位符</span></span><br><span class="line"><span class="keyword">const</span> sqlStr=<span class="string">&#x27;INSERT INTO users SET ?&#x27;</span></span><br><span class="line"><span class="comment">// 3.直接将数据对象当做占位符的值</span></span><br><span class="line">db.<span class="title function_">query</span>(sqlStr,user,<span class="function">(<span class="params">err,results</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="comment">// 失败</span></span><br><span class="line">	<span class="keyword">if</span>(err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>) </span><br><span class="line">	<span class="comment">// 成功</span></span><br><span class="line">	<span class="keyword">if</span>(results.<span class="property">affectedRows</span>===<span class="number">1</span>) &#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;插入数据成功&#x27;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-3-4-更新数据"><a href="#4-3-4-更新数据" class="headerlink" title="4.3.4 更新数据"></a>4.3.4 更新数据</h5><p>可以通过如下方式，更新表中的数据</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1.要更新的数据对象</span></span><br><span class="line"><span class="keyword">const</span> user=&#123;<span class="attr">id</span>:<span class="number">7</span>,<span class="attr">username</span>:<span class="string">&#x27;aaa&#x27;</span>,<span class="attr">password</span>:<span class="string">&#x27;000&#x27;</span>&#125;</span><br><span class="line"><span class="comment">// 2.要执行的 SQL 语句</span></span><br><span class="line"><span class="keyword">const</span> sqlStr=<span class="string">&#x27;UPDATE users SET username=?,password=? WHERE id=?&#x27;</span></span><br><span class="line"><span class="comment">// 3.调用 db.query() 执行 SQL 语句的同时，使用数据依次为占位符制定具体的值</span></span><br><span class="line">db.<span class="title function_">query</span>(sqlStr,[user.<span class="property">username</span>,user.<span class="property">password</span>,user.<span class="property">id</span>],<span class="function">(<span class="params">err,results</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>)</span><br><span class="line">    <span class="keyword">if</span>(results.<span class="property">affectedRows</span>===<span class="number">1</span>) &#123;	   <span class="comment">// 失败</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;更新成功&#x27;</span>)			<span class="comment">// 成功</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-3-5-更新数据的便捷方式"><a href="#4-3-5-更新数据的便捷方式" class="headerlink" title="4.3.5 更新数据的便捷方式"></a>4.3.5 更新数据的便捷方式</h5><p>更新表数据时，如果数据对象的每个属性和数据表的字段一一对应，则可以通过如下方式快速更新表数据：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1.要更新的数据对象</span></span><br><span class="line"><span class="keyword">const</span> user=&#123;<span class="attr">id</span>:<span class="number">7</span>,<span class="attr">username</span>:<span class="string">&#x27;aaaaa&#x27;</span>,<span class="attr">password</span>:<span class="string">&#x27;0000&#x27;</span>&#125;</span><br><span class="line"><span class="comment">// 2.要执行的 SQL 语句</span></span><br><span class="line"><span class="keyword">const</span> sqlStr=<span class="string">&#x27;UPDATE user SET ? WHERE id=?&#x27;</span></span><br><span class="line"><span class="comment">// 3.调用 db.query() 执行 SQL 语句的同时，使用数组依次为占位符指定具体的值</span></span><br><span class="line">db.<span class="title function_">query</span>(sqlStr,[u],<span class="function">(<span class="params">err,results</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>)</span><br><span class="line">    <span class="keyword">if</span>(results.<span class="property">affectedRows</span>===<span class="number">1</span>) &#123;	   <span class="comment">// 失败</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;更新成功&#x27;</span>)			<span class="comment">// 成功</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-3-6-删除数据"><a href="#4-3-6-删除数据" class="headerlink" title="4.3.6 删除数据"></a>4.3.6 删除数据</h5><p>在删除数据时，根据 id 这样的唯一标识(推荐)，来删除对应的数据。示例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 1.要执行的 SQL 语句</span><br><span class="line">const sqlStr=&#x27;DELETE FROM users WHERE id=?&#x27;</span><br><span class="line">// 2.调用 db.query() 执行 SQL 语句的同时，为占位符指定具体的值</span><br><span class="line">// 注意：如果 SQL 语句中有多个占位符，则必须使用数组为每个占位符指定具体的值</span><br><span class="line">//		如果 SQL 语句中只有一个占位符，则可以省略数组</span><br><span class="line">db.query(sqlStr,7,(err,results)=&gt;&#123;</span><br><span class="line">	if(err) return console.log(err.message)</span><br><span class="line">	if(results.affectRows === 1) &#123;</span><br><span class="line">		console.log(&#x27;删除数据成功&#x27;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-3-7-标记删除"><a href="#4-3-7-标记删除" class="headerlink" title="4.3.7 标记删除"></a>4.3.7 标记删除</h5><p>使用 DELETE 语句，会真正的把数据从表中删除掉。为了保险起见，推荐使用标记删除的形式，来模拟删除的动作。</p>
+<p>所谓的标记删除，就是在表中设置类似于 status 这样的状态字段，来标记当前这条数据是否被删除。</p>
+<p>当用户执行了删除的动作时，我们并没有执行 DELETE 语句把数据删除掉，而是执行了 UPDATE 语句，将这条数据对应的 status 字段标记为删除即可。</p>
+<h1 id="5-前后端的身份认证"><a href="#5-前后端的身份认证" class="headerlink" title="5.前后端的身份认证"></a>5.前后端的身份认证</h1><h3 id="5-1-Web-开发模式"><a href="#5-1-Web-开发模式" class="headerlink" title="5.1 Web 开发模式"></a>5.1 Web 开发模式</h3><p>目前主流的 Web 开发模式有两种，分别是：</p>
+<p><strong>①</strong> 基于服务器渲染的 Web 开发模式</p>
+<p>​	1.<strong>服务器渲染的概念</strong>：服务器发送给客户端的 HTML 页面，是在服务器通过字符串的拼接，动态生成的。因此，客户端不需要使用 Ajax 这样的技术额外请求页面的数据。示例代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/index.html&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="comment">// 1.要渲染的数据</span></span><br><span class="line">	<span class="keyword">const</span> user=&#123;<span class="attr">name</span>:<span class="string">&#x27;zs&#x27;</span>,<span class="attr">age</span>:<span class="number">20</span>&#125;</span><br><span class="line">	<span class="comment">// 2.服务器端通过字符串的拼接，动态生成 HTML 内容</span></span><br><span class="line">	<span class="keyword">const</span> html=<span class="string">&#x27;&lt;h1&gt;姓名:$&#123;user.name&#125;,年龄:$&#123;user.age&#125;&lt;/h1&gt;&#x27;</span></span><br><span class="line">	<span class="comment">// 3.把生成好的页面内容响应给客户端。因此，客户端拿到的是带有真实数据的 HTML 页面</span></span><br><span class="line">	res.<span class="title function_">send</span>(html)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>​	2.<strong>服务端渲染的优缺点</strong></p>
+<p>​	优点：1）前端耗时少。因为服务端负责动态生成 HTML 内容，浏览器只需要直接渲染页面即可。尤其是移动端，更省电。  2）有利于SEO。因为服务器相应的是完整的 HTML 页面内容，所以爬虫更容易爬取获得信息，更有利于 SEO。</p>
+<p>​	缺点：1）占用服务器资源。服务器端完成 HTML 页面内容的拼接，如果请求较多，会对服务器造成一定的访问压力。 2）不利于前后端分离，开发效率低。使用服务器端渲染，则无法进行分工合作，尤其对于前端复杂度搞得项目，不利于项目高效开发。</p>
+<p><strong>②</strong> 前后端分离的 Web 开发模式</p>
+<p>​	1.<strong>前后端分离的概念</strong>：前后端分离的开发模式，依赖于 Ajax 技术的广泛应用。简而言之，前后端分离的 Web 开发模式，就是后端只负责提供 API 接口，前端使用 Ajax 调用接口的开发模式。</p>
+<p>​	2.<strong>前后端分离的优缺点</strong>：</p>
+<p>​	优点：1） 开发体验好。前端专注于 UI 页面的开发，后端专注于 api 的开发，且前端有更多的选择性，2） 用户体验好。Ajax 技术的广泛应用，极高的提高了用户的体验，可以轻松实现页面的局部刷新。 3）减轻了服务器端的渲染压力。因为页面最终是在每个用户的浏览器中生成的</p>
+<p>​	缺点：不利于 SEO。因为完整的 HTML 页面需要在客户端动态拼接完成，所以爬虫对无法爬取页面的有效信息。（解决方案：利用 Vue、React 等前端框架的 SSR(server side render) 技术能够很好地解决 SEO 问题！）</p>
+<p>③ <strong>如何选择 Web 开发模式</strong></p>
+<p>不谈业务场景而盲目选择使用何种开发模式都是耍流氓。</p>
+<p>​	比如企业级网站，主要功能是展示而没有复杂的交互，并且需要良好的SEO，则这时我们就需要使用服务器端渲染；</p>
+<p>​	而类似后台管理项目，交互性比较强，不需要考虑SEQ，那么就可以使用前后端分离的开发模式。</p>
+<p>另外，具体使用何种开发模式并不是绝对的，为了同时兼顾了首页的渲染速度和前后端分离的开发效率，一些网站采用了首屏服务器端渲染＋其他页面前后端分离的开发模式。</p>
+<h3 id="5-2-身份认证"><a href="#5-2-身份认证" class="headerlink" title="5.2 身份认证"></a>5.2 身份认证</h3><h5 id="5-2-1-什么是身份认证"><a href="#5-2-1-什么是身份认证" class="headerlink" title="5.2.1 什么是身份认证"></a>5.2.1 什么是身份认证</h5><p>身份认证（Authentication）又称”身份验证”、”鉴权”，是指通过一定的手段，完成对用户身份的确认。</p>
+<p>​	日常生活中的身份认证随处可见，例如：高铁的验票乘车，手机的密码或指纹解锁，支付宝或微信的支付密码等。</p>
+<p>​	在 Web 开发中，也涉及到用户身份的认证，例如：各大网站的手机验证码登录、邮箱密码登录、二维码登录等。</p>
+<h5 id="5-2-2-为什么需要身份认证"><a href="#5-2-2-为什么需要身份认证" class="headerlink" title="5.2.2 为什么需要身份认证"></a>5.2.2 为什么需要身份认证</h5><p>身份认证的目的，是为了确认当前所声称为某种身份的用户，确实是所声称的用户。例如，你去找快递员取快递，你要怎么证明这份快递是你的。</p>
+<p>在互联网项目开发中，如何对用户的身份认证，是一个值得深入探讨的问题。例如，如何才能保证网站不会把”马云”的账户金额变成”马化腾”的账户金额。</p>
+<h5 id="5-2-3-不同开发模式下的身份认证"><a href="#5-2-3-不同开发模式下的身份认证" class="headerlink" title="5.2.3 不同开发模式下的身份认证"></a>5.2.3 不同开发模式下的身份认证</h5><p>对于服务端渲染和前后端分离这两种开发模式来说，分别有着不同的身份认证方案：</p>
+<p>① 服务端渲染推荐使用 Session 认证机制</p>
+<p>② 前后端分离推荐使用 JWT 认证机制</p>
+<h3 id="5-3-Session-认证脊椎"><a href="#5-3-Session-认证脊椎" class="headerlink" title="5.3 Session 认证脊椎"></a>5.3 Session 认证脊椎</h3><h5 id="5-3-1-HTTP-协议的无状态性"><a href="#5-3-1-HTTP-协议的无状态性" class="headerlink" title="5.3.1 HTTP 协议的无状态性"></a>5.3.1 HTTP 协议的无状态性</h5><p>HTTP 协议的无状态性，指的是客户端的每次 HTTP 请求都是独立的，连续多个请求之间没有直接的关系，服务器不会主动保留每次 HTTP 请求的状态。</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220328164443.png"></p>
+<h5 id="5-3-2-如何突破-HTTP-无状态的限制"><a href="#5-3-2-如何突破-HTTP-无状态的限制" class="headerlink" title="5.3.2 如何突破 HTTP 无状态的限制"></a>5.3.2 如何突破 HTTP 无状态的限制</h5><p>对于超市来说，为了方便在进行结算时给 VIP 客户打折，超时可以为每个 VIP 用户发放会员卡。</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220328164614.png"></p>
+<p>注意：现实生活中的会员卡身份认证方式，在 Web 开发中的专业术语叫做 Cookie。</p>
+<h5 id="5-3-3-什么是-Cookie"><a href="#5-3-3-什么是-Cookie" class="headerlink" title="5.3.3 什么是 Cookie"></a>5.3.3 什么是 Cookie</h5><p>Cookie 是存储在用户浏览器中的一端不超过 4KB 的字符串。它是有一个名称(Name)、一个值(Value) 和其他几个用于控制 Cookie 有效期、安全性、适用范围的可选属性组成。</p>
+<p>不同域名下的 Cookie 各自独立，每当客户端发起请求时，会自动把当前域名下所有未过期的 Cookie 一同发送到服务器。</p>
+<p>Cookie的几大特性：</p>
+<p>① 自动发送 ② 域名独立 ③ 过期时限 ④ 4KB 限制</p>
+<h5 id="5-3-4-Cookie-在身份认证中的作用"><a href="#5-3-4-Cookie-在身份认证中的作用" class="headerlink" title="5.3.4 Cookie 在身份认证中的作用"></a>5.3.4 Cookie 在身份认证中的作用</h5><p>客户端第一次请求服务器的时候，服务器通过响应头的形式，向客户端发送一个身份认证的 Cookie，客户端会自动将 Cookie 保存在浏览器中。</p>
+<p>随后，当客户端浏览器每次请求服务器的时候，浏览器会自动将身份认证相关的 Cookie，通过请求头的形式发送给服务器，服务器即可验明客户端的身份。</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220328171943.png"></p>
+<h5 id="5-3-5-Cookie-不具有安全性"><a href="#5-3-5-Cookie-不具有安全性" class="headerlink" title="5.3.5 Cookie 不具有安全性"></a>5.3.5 Cookie 不具有安全性</h5><p>由于 Cookie 是存储在浏览器中，而且浏览器也提供了读写 Cookie 的 API，因此 Cookie 很容易被伪造，不具有安全性。因此不建议服务器将重要的隐私数据，通过 Cookie 的形式发送给浏览器。</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220328172513.png"></p>
+<p>注意：千万不要使用 Cookie 存储重要且隐私的数据！比如说用户的身份信息、密码等。</p>
+<h5 id="5-3-6-提高身份认证的安全性"><a href="#5-3-6-提高身份认证的安全性" class="headerlink" title="5.3.6 提高身份认证的安全性"></a>5.3.6 提高身份认证的安全性</h5><p>为了防止客户伪造会员卡，收银员在拿到客户出示的会员卡之后，可以在收银机上进行刷卡认证。只有收银机确认存在的会员卡，才能被正常使用。</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220328172737.png"></p>
+<p>这种’会员卡 + 刷卡认证’的设计理念，就是 Session 认证机制的精髓。</p>
+<h5 id="5-3-7-Session-的工作原理"><a href="#5-3-7-Session-的工作原理" class="headerlink" title="5.3.7 Session 的工作原理"></a>5.3.7 Session 的工作原理</h5><p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220328172911.png"></p>
+<h3 id="5-4-在-Express-中使用-Session-认证"><a href="#5-4-在-Express-中使用-Session-认证" class="headerlink" title="5.4 在 Express 中使用 Session 认证"></a>5.4 在 Express 中使用 Session 认证</h3><h5 id="5-4-1-安装-express-session-中间件"><a href="#5-4-1-安装-express-session-中间件" class="headerlink" title="5.4.1 安装 express-session 中间件"></a>5.4.1 安装 express-session 中间件</h5><p>在 Express 项目中，只需要安装 express-session 中间件，即可在项目中使用 Session 认证：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install express-session</span><br></pre></td></tr></table></figure>
+
+<h5 id="5-4-2-配置-express-session-中间件"><a href="#5-4-2-配置-express-session-中间件" class="headerlink" title="5.4.2 配置 express-session 中间件"></a>5.4.2 配置 express-session 中间件</h5><p>express-session 中间件安装成功后，需要通过 app.use() 来注册 session 中间件，示例代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1.导入 session 中间件</span></span><br><span class="line"><span class="keyword">var</span> session=<span class="built_in">require</span>(<span class="string">&#x27;express-session&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.配置 Session 中间件</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="title function_">session</span>(&#123;</span><br><span class="line">	<span class="attr">secret</span>:<span class="string">&#x27;keyboard cat&#x27;</span>, <span class="comment">// secret 属性的值可以为任意字符串</span></span><br><span class="line">    <span class="attr">resave</span>:<span class="literal">false</span>,		   <span class="comment">// 固定写法</span></span><br><span class="line">    <span class="attr">saveUninitialized</span>:<span class="literal">true</span><span class="comment">// 固定写法</span></span><br><span class="line"></span><br><span class="line">&#125;))</span><br></pre></td></tr></table></figure>
+
+<h5 id="5-4-3-向-session-中存数据"><a href="#5-4-3-向-session-中存数据" class="headerlink" title="5.4.3 向 session 中存数据"></a>5.4.3 向 session 中存数据</h5><p>当 express-session 中间件配置成功后，即可通过 req.session 来访问和使用 session 对象，从而存储用户的关键信息：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/api/login&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="comment">// 判断用户的提交信息是否正确</span></span><br><span class="line">	<span class="keyword">if</span>(req.<span class="property">body</span>.<span class="property">username</span>!==<span class="string">&#x27;admin&#x27;</span>||req.<span class="property">body</span>.<span class="property">password</span>!==<span class="string">&#x27;000000&#x27;</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> res.<span class="title function_">send</span>(&#123;<span class="attr">status</span>:<span class="number">1</span>,<span class="attr">msg</span>:<span class="string">&#x27;登陆失败&#x27;</span>&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">    req.<span class="property">session</span>.<span class="property">user</span>=req.<span class="property">body</span>	<span class="comment">// 将用户的信息，存储到 Session 中</span></span><br><span class="line">    req.<span class="property">session</span>.<span class="property">islogin</span>=<span class="literal">true</span>	<span class="comment">// 将用户的登录状态，存储到 Session 中</span></span><br><span class="line">    </span><br><span class="line">    res.<span class="title function_">send</span>(&#123;<span class="attr">satus</span>:<span class="number">0</span>,<span class="attr">masa</span>:<span class="string">&#x27;登陆成功&#x27;</span>&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="5-4-4-从-session-中取数据"><a href="#5-4-4-从-session-中取数据" class="headerlink" title="5.4.4 从 session 中取数据"></a>5.4.4 从 session 中取数据</h5><p>可以直接从 req-session 对象上获取之前存储的数据，示例代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 获取用户姓名的借口</span><br><span class="line">app.get(&#x27;/api/username&#x27;,(req,res)=&gt;&#123;</span><br><span class="line">	// 判断用户是否登录</span><br><span class="line">	if(!req.session.islogin) &#123;</span><br><span class="line">		return res.send(&#123;status:0,msg:&#x27;fail&#x27;&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">	res.send(&#123;status:0,msg:&#x27;success&#x27;,username:req.session.username&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="5-4-5-清空-session"><a href="#5-4-5-清空-session" class="headerlink" title="5.4.5 清空 session"></a>5.4.5 清空 session</h5><p>调用 req.session.destory() 函数，即可清空服务器保存的 session 信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 退出登录的接口</span><br><span class="line">app.post(&#x27;/api/logout&#x27;,(req,res)=&gt;&#123;</span><br><span class="line">	// 清空当前客户端对应的 session 信息</span><br><span class="line">	req.session.destory()</span><br><span class="line">	res.send(&#123;</span><br><span class="line">		status:0,</span><br><span class="line">		msg:&#x27;退出登录成功&#x27;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-5-JWT-认证机制"><a href="#5-5-JWT-认证机制" class="headerlink" title="5.5 JWT 认证机制"></a>5.5 JWT 认证机制</h3><h5 id="5-5-1-Session-认证的局限性"><a href="#5-5-1-Session-认证的局限性" class="headerlink" title="5.5.1 Session 认证的局限性"></a>5.5.1 Session 认证的局限性</h5><p>Session 认证机制需要配合 Cookie 才能实现。由于 Cookie 默认不支持跨域访问，所以，当涉及到前端跨域请求后端接口的时候，需要做很多额外的配置，才能实现跨域 Session 认证。</p>
+<p>注意：</p>
+<p>​	当前端请求后端接口不存在跨域问题的时候，推荐使用 Seesion 身份认证机制。</p>
+<p>​	当前端需要跨域请求后端接口的时候，不推荐使用 Session 身份认证机制，推荐使用 JWT 认证机制。</p>
+<h5 id="5-5-2-什么是-JWT"><a href="#5-5-2-什么是-JWT" class="headerlink" title="5.5.2 什么是 JWT"></a>5.5.2 什么是 JWT</h5><p>JWT（英文全称：JSON Web Token）是目前最流行的跨域认证解决方案。</p>
+<h5 id="5-5-3-JWT-的工作原理"><a href="#5-5-3-JWT-的工作原理" class="headerlink" title="5.5.3 JWT 的工作原理"></a>5.5.3 JWT 的工作原理</h5><p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220329161927.png"></p>
+<p>总结：用户的信息通过 Token 字符串的形式，保存在客户端浏览器中，服务器通过还原 Token 字符串的形式来认证用户的身份。</p>
+<h5 id="5-5-4-JWT-的组成-部分"><a href="#5-5-4-JWT-的组成-部分" class="headerlink" title="5.5.4 JWT 的组成 部分"></a>5.5.4 JWT 的组成 部分</h5><p>JWT 通常由三部分组成，分别是 Header(头部)、Payload(有效荷载)、Signature(签名).</p>
+<p>三者之间使用英文的 “.” 分隔，格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Header.Payload.Signature</span><br></pre></td></tr></table></figure>
+
+<p>下面是 JWT 字符串的实例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">eyJhbGci0iJIUzI1NiISInR5cCI6Ikpxvc.lyJpZCI6MSwidXN1cmShbwUiOiJhZG1pbiIsInBhc3NBb3kIjoiiwibmlja25hbMUiOiLms6Xlt7Tlt7QiLCJlbwFpbCI6ImSpYmFiYUBpdGNhc3QuY24iLCJ1c2VyX3BpYyI6IiIsImlhdcCI6MTU3OOAZNjY4MiwizxhwIjoxNTc4MDcyNjgyf.wq7GqCxJPK-EA8LNrtMG0411Kdz33S9KBL3XeuBxuI</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="5-5-5-JWT-三部分各自代表的含义"><a href="#5-5-5-JWT-三部分各自代表的含义" class="headerlink" title="5.5.5 JWT 三部分各自代表的含义"></a>5.5.5 JWT 三部分各自代表的含义</h5><p>JWT 的三个组成部分，从前到后分别是 Header、Payload、Signature</p>
+<p>其中：</p>
+<p>​	Payload 部分才是真正的用户信息，它是用户信息经过加密之后生成的字符串。</p>
+<p>​	Header 和 Signature 是安全性相关的部分，只是为了保证 Token 的安全性。</p>
+<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220329162827.png"></p>
+<h5 id="5-5-6-JWT-的使用方式"><a href="#5-5-6-JWT-的使用方式" class="headerlink" title="5.5.6 JWT 的使用方式"></a>5.5.6 JWT 的使用方式</h5><p>客户端收到服务器返回的 JWT 之后，通常会将它存储在 localStorage 或 sessionStroage 中。</p>
+<p>此后，客户端每次与服务器通信，都要带上这个 JWT 的字符串，从而进行身份认证。推荐的做法是把 JWT 放在 HTTP 请求头的 Authoreizaiton 字段中，格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Authorization: Bearer &lt;token&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-6-在-Express-中使用-JWT"><a href="#5-6-在-Express-中使用-JWT" class="headerlink" title="5.6 在 Express 中使用 JWT"></a>5.6 在 Express 中使用 JWT</h3><h5 id="5-6-1-安装-JWT-相关的包"><a href="#5-6-1-安装-JWT-相关的包" class="headerlink" title="5.6.1 安装 JWT 相关的包"></a>5.6.1 安装 JWT 相关的包</h5><p>运行如下命令，安装如下两个 JWT 相关的包：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install jsonwebtoken express-jwt</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<p>​	jsonwebtoken 用于生成 JWT 字符串</p>
+<p>​	express-jwt 用于将 JWT 字符串解析还原成 JSON 对象</p>
+<h5 id="5-6-2-导入-JWT-相关的包"><a href="#5-6-2-导入-JWT-相关的包" class="headerlink" title="5.6.2 导入 JWT 相关的包"></a>5.6.2 导入 JWT 相关的包</h5><p>使用 require() 函数，分别导入 JWT 相关的两个包：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 1.导入用于生成 JWT 字符串的包</span><br><span class="line">const jwt=require(&#x27;jsonwebtoken&#x27;)</span><br><span class="line">// 2.导入用与将客户端发送过来的 JWT 字符串，解析还原成 JSON 对象的包</span><br><span class="line">const expressJWT=require(&#x27;express-jwt&#x27;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="5-6-3-定义-secret-秘钥"><a href="#5-6-3-定义-secret-秘钥" class="headerlink" title="5.6.3 定义 secret 秘钥"></a>5.6.3 定义 secret 秘钥</h5><p>为了保证 JWT 字符串的安全性，防止 JWT 字符串在网络传输过程中被别人破解，我们需要专门定义一个用于加密和解密的 secret 密钥：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 3.secret 密钥的本质：字符串</span><br><span class="line">const secretKey=&#x27;plumbiu&#x27;</span><br></pre></td></tr></table></figure>
+
+<h5 id="5-6-4-在登陆成功后生成-JWT-字符串"><a href="#5-6-4-在登陆成功后生成-JWT-字符串" class="headerlink" title="5.6.4 在登陆成功后生成 JWT 字符串"></a>5.6.4 在登陆成功后生成 JWT 字符串</h5><p>调用 jsonwebtoken 包提供的sign()，将用户的信息加密成 JWT 字符串，响应给客户端：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 登录接口</span><br><span class="line">app.post(&#x27;/api/login&#x27;,(req,res)=&gt;&#123;</span><br><span class="line">	// ...省略登陆失败情况下的代码</span><br><span class="line">	// 用户登录成功之后，生成 JWT 字符串，通过 token 属性响应给客户端</span><br><span class="line">	res.send(&#123;</span><br><span class="line">		status:200,</span><br><span class="line">		message:&#x27;登陆成功&#x27;,</span><br><span class="line">		// 调用 jwt.sign() 生成 JWT 字符串 4，三个参数分别是：用户信息对象、加密密钥、配置对象</span><br><span class="line">		token:jwt.sign(&#123;username:userinfo.usernmae&#125;,secretKey,&#123;expireIn:&#x27;30s&#x27;&#125;)//有效期为30s，过了30s，这个token作废</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="5-6-5-将-JWT-字符串还原为-JSON-对象"><a href="#5-6-5-将-JWT-字符串还原为-JSON-对象" class="headerlink" title="5.6.5 将 JWT 字符串还原为 JSON 对象"></a>5.6.5 将 JWT 字符串还原为 JSON 对象</h5><p>客户端每次在访问那些有权限接口的时候，都训要主动通过请求头中的 Authorization 字段，将 Token 字符串发送到服务器进行身份认证。</p>
+<p>此时，服务器可以通过 express-jwt 这个中间件，自动将客户端发送过来的 Token 解析还原成 JSON 对象:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// app.use() 来注册中间件</span></span><br><span class="line"><span class="comment">// expressJWT(&#123;secret:secretKey&#125;) 就是用来解析 Token 的中间件</span></span><br><span class="line"><span class="comment">// .unless(&#123;path:[/^\/api\//]&#125;&#125;) 永安里指定哪些接口不需要访问权限</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="title function_">expressJWT</span>( &#123;<span class="attr">secret</span>:secretKey&#125;).<span class="title function_">unless</span>(&#123;<span class="attr">path</span>:[<span class="regexp">/^\api\//</span>]&#125;) )</span><br></pre></td></tr></table></figure>
+
+<h5 id="5-6-6-使用-req-user-获取用户信息"><a href="#5-6-6-使用-req-user-获取用户信息" class="headerlink" title="5.6.6 使用 req.user 获取用户信息"></a>5.6.6 使用 req.user 获取用户信息</h5><p>当 express-jwt 这个中间件配置成功之后，即可在那些有权限的接口中，使用 req.user 对象，来访问从 JWT</p>
+<h5 id="5-6-7-捕获解析-JWT-失败后产生的错误"><a href="#5-6-7-捕获解析-JWT-失败后产生的错误" class="headerlink" title="5.6.7 捕获解析 JWT 失败后产生的错误"></a>5.6.7 捕获解析 JWT 失败后产生的错误</h5><p>当使用 express-jwt 解析 Token 字符串时，如果客户端发送过来的 Token 字符串过期或不合法，会产生一个解析失败的错误，影响项目的正常运行。我们可以通过 Express 的错误中间件，捕获这个错误并进行相关的处理，示例代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">err,req,res,next</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">// token 解析失败导致的错误</span></span><br><span class="line">    <span class="keyword">if</span>(err.<span class="property">name</span>===<span class="string">&#x27;UnauthorizedError&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> res.<span class="title function_">send</span>(&#123;<span class="attr">status</span>:<span class="number">401</span>,<span class="attr">message</span>:<span class="string">&#x27;无效的token&#x27;</span>&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 其它原因导致的错误</span></span><br><span class="line">    res.<span class="title function_">send</span>(&#123;<span class="attr">status</span>:<span class="number">500.</span><span class="attr">message</span>:<span class="string">&#x27;未知错误&#x27;</span>&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>前端</category>
@@ -2477,339 +2810,6 @@
 
 
 
-
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MySQL</title>
-    <url>/blog/2022/04/15/mysql/</url>
-    <content><![CDATA[<h1 id="1-数据库的基本概念"><a href="#1-数据库的基本概念" class="headerlink" title="1.数据库的基本概念"></a>1.数据库的基本概念</h1><span id="more"></span>
-
-
-<h3 id="1-1-什么是数据库"><a href="#1-1-什么是数据库" class="headerlink" title="1.1 什么是数据库"></a>1.1 什么是数据库</h3><p>数据库(database) 是用来组织、存储和管理数据的仓库。</p>
-<p>当今世界是一个充满着数据的互联网世界，充斥着大量的数据。数据的来源有很多，比如出行记录、消费记录、浏览的网页、发送的消息等等。除了文本类型的数据，图像、音乐、声音都是数据。</p>
-<p>为了方便管理互联网中的数据，就有了数据库管理系统的概念(简称：数据库)。用户可以对数据库中的数据进行新增、查询、更新、删除等操作。</p>
-<h3 id="1-2-常见的数据库及分类"><a href="#1-2-常见的数据库及分类" class="headerlink" title="1.2 常见的数据库及分类"></a>1.2 常见的数据库及分类</h3><p>市面上的数据库有很多种，最常见的数据库有如下几个：</p>
-<p>​	MySQL数据库（目前使用最广泛、流行度最高的开源免费数据库;Community + Enterprise)</p>
-<p>​	Oracle数据库（收费)</p>
-<p>​	SQL Server数据库〔收费)</p>
-<p>​	Mongodb 数据库(Community + Enterprise)</p>
-<p>其中，MySQL、Oracle、SQL Server 属于传统型数据库（又叫做：关系型数据库 或 SQL 数据库），这三者的设计理念相同，用法比较类似。</p>
-<p>而 Mongodb 属于新型数据库(又叫做：非关系型数据库 或 NoSQL 数据库)，它在一定程度上弥补了传统型数据库的缺陷。</p>
-<h3 id="1-3-传统型数据库的数据组成结构"><a href="#1-3-传统型数据库的数据组成结构" class="headerlink" title="1.3 传统型数据库的数据组成结构"></a>1.3 传统型数据库的数据组成结构</h3><p>数据的组织结构：指的是数据以什么样的结构进行存储。</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220324220139.png"></p>
-<p>传统型数据库的数据组织结构，与 Excel 中数据的组织结构比较类似。</p>
-<p>因此，我们可以对比着 Excel 来了解和学习传统型数据库的数据组织结构。</p>
-<h5 id="1-3-1-Excel-的数据组织结构"><a href="#1-3-1-Excel-的数据组织结构" class="headerlink" title="1.3.1 Excel 的数据组织结构"></a>1.3.1 Excel 的数据组织结构</h5><p>每个 Excel 中，数据的组织结构分别为 工作簿、工作表、数据航、列这4大部分组成。</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220324220511.png"></p>
-<p>① 整个 Excel 叫做工作簿</p>
-<p>② users 和 books 是工作表</p>
-<p>③ users 工作表中有3行数据</p>
-<p>④ 每行数据由6列信息组成</p>
-<p>⑤ 每列信息都有对应的数据类型</p>
-<h5 id="1-5-2-传统型数据的数据组织结构"><a href="#1-5-2-传统型数据的数据组织结构" class="headerlink" title="1.5.2 传统型数据的数据组织结构"></a>1.5.2 传统型数据的数据组织结构</h5><p>在传统数据库中，数据的组织结构分为数据库(database)、数据表(table)、数据行(row)、字段(field)这4个大部分组成。</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220324221535.png"></p>
-<p>① 数据库类似与 Excel 的工作簿</p>
-<p>② 数据库类似于 Excel 的工作表</p>
-<p>③ 数据行类似于 Excel 的每一行数据</p>
-<p>④ 字段类似于 Excel 的列</p>
-<p>⑤ 每个字段都有对应的数据类型</p>
-<h5 id="1-3-3-实际开发中库、表、行、字段的关系"><a href="#1-3-3-实际开发中库、表、行、字段的关系" class="headerlink" title="1.3.3 实际开发中库、表、行、字段的关系"></a>1.3.3 实际开发中库、表、行、字段的关系</h5><p>① 在实际项目开发中，一般情况下，每个项目都对应独立的数据库。</p>
-<p>② 不同的数据，要存储到数据库的不同表中，例如：用户数据存储到 user 表中，图书数据存储到 books 表中。</p>
-<p>③ 每个表中具体存储哪些信息，由字段来决定，例如：我们可以为 user 表设计 id、username、password 这3个字段。</p>
-<p>④ 表中的行、代表每一条数据</p>
-<h1 id="2-安装并配置-MySQL"><a href="#2-安装并配置-MySQL" class="headerlink" title="2.安装并配置 MySQL"></a>2.安装并配置 MySQL</h1><h3 id="2-1-了解需要安装哪些MySQL相关的软件"><a href="#2-1-了解需要安装哪些MySQL相关的软件" class="headerlink" title="2.1 了解需要安装哪些MySQL相关的软件"></a>2.1 了解需要安装哪些MySQL相关的软件</h3><p>对于开发人员来说，只需要安装 MySQL Server 和 MySQL Workbench 这两个软件，就能满足开发的需要了。</p>
-<p>​	MySQL Server：专门用来提供数据存储和服务的软件。</p>
-<p>​	MySQL Workbench：可视化的 MySQL 管理工具，通过它，可以方便的操作存储在 MySQL Server 中的数据。</p>
-<h1 id="3-MySQL的基本使用"><a href="#3-MySQL的基本使用" class="headerlink" title="3.MySQL的基本使用"></a>3.MySQL的基本使用</h1><h3 id="3-1-使用-MySQL-Workbench-管理数据库"><a href="#3-1-使用-MySQL-Workbench-管理数据库" class="headerlink" title="3.1 使用 MySQL Workbench 管理数据库"></a>3.1 使用 MySQL Workbench 管理数据库</h3><h5 id="3-1-1-连接数据库"><a href="#3-1-1-连接数据库" class="headerlink" title="3.1.1 连接数据库"></a>3.1.1 连接数据库</h5><p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220325110558.png"></p>
-<h5 id="3-1-2-了解主界面的组成部分"><a href="#3-1-2-了解主界面的组成部分" class="headerlink" title="3.1.2 了解主界面的组成部分"></a>3.1.2 了解主界面的组成部分</h5><p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220325111021.png"></p>
-<h5 id="3-1-3-创建数据库"><a href="#3-1-3-创建数据库" class="headerlink" title="3.1.3 创建数据库"></a>3.1.3 创建数据库</h5><p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220325114502.png"></p>
-<p>注意：数据库不能有空格和中文</p>
-<h5 id="3-1-4-创建数据表"><a href="#3-1-4-创建数据表" class="headerlink" title="3.1.4 创建数据表"></a>3.1.4 创建数据表</h5><p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220325114926.png"></p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220325115620.png"></p>
-<p>DataType 数据类型：</p>
-<p>① int 整数</p>
-<p>② varchar(len) 字符串</p>
-<p>③ tinyint(1) 布尔值</p>
-<p>字段的特殊表示：<br>① PK(Primary Key) 主键、唯一标识</p>
-<p>② NN(Not Null) 值不允许为空</p>
-<p>③ UQ(Unique) 值唯一</p>
-<p>④ AI(Auto Increment) 值自动增长</p>
-<h5 id="3-1-5-向表中写入数据"><a href="#3-1-5-向表中写入数据" class="headerlink" title="3.1.5 向表中写入数据"></a>3.1.5 向表中写入数据</h5><p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220325120748.png"></p>
-<h3 id="3-2-使用-SQL-管理数据库"><a href="#3-2-使用-SQL-管理数据库" class="headerlink" title="3.2 使用 SQL 管理数据库"></a>3.2 使用 SQL 管理数据库</h3><h5 id="3-2-1-什么是-SQL"><a href="#3-2-1-什么是-SQL" class="headerlink" title="3.2.1 什么是 SQL"></a>3.2.1 什么是 SQL</h5><p>SQL (Structured Query Language) 是结构化查询语言，专门用来访问和处理数据库的编程语言。能够让我们以编程的形式，操作数据库里面的数据。</p>
-<p>三个关键点：</p>
-<p>① SQL 是一门数据库编程语言</p>
-<p>② 使用 SQL 语言编写出来的代码，叫做 SQL 语句</p>
-<p>③ SQL 语言只能在关系型数据中使用(例如 MySQL、Oracle、SQL Server)。非关系型数据库(例如 Mongodlb) 不支持 SQL 语言</p>
-<h5 id="3-2-2-SQL-能够做什么"><a href="#3-2-2-SQL-能够做什么" class="headerlink" title="3.2.2 SQL 能够做什么"></a>3.2.2 SQL 能够做什么</h5><p>① 从数据库中查询数据</p>
-<p>② 向数据库中插入新的数据</p>
-<p>③ 更新数据库中的数据</p>
-<p>④ 从数据库删除数据</p>
-<p>⑤ 可以创建新数据库</p>
-<p>⑥ 可在数据库中创建新表</p>
-<p>⑦ 可在数据库中创建存储过程、视图</p>
-<p>⑧ etc….</p>
-<h5 id="3-2-3-SQL-的学习目标"><a href="#3-2-3-SQL-的学习目标" class="headerlink" title="3.2.3 SQL 的学习目标"></a>3.2.3 SQL 的学习目标</h5><p>重点掌握如何使用 SQL 从数据表中：</p>
-<p>​	查询数据(select)、插入数据(insert into)、更新数据(update)、删除数据(delete)</p>
-<p>额外需要掌握的 4 中 SQL 语法：</p>
-<p>​	where 条件、and 和 or 运算符、order by 排序、const(*) 函数</p>
-<h3 id="3-3-SQL-的-SELECT-语句"><a href="#3-3-SQL-的-SELECT-语句" class="headerlink" title="3.3 SQL 的 SELECT 语句"></a>3.3 SQL 的 SELECT 语句</h3><h5 id="3-3-1-语法"><a href="#3-3-1-语法" class="headerlink" title="3.3.1 语法"></a>3.3.1 语法</h5><p>SELECT 语句用于从表中查询数据。执行的结果被存储在一个结果表中(称为结果表)。语法格式如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 这是注释</span><br><span class="line">-- 从 FROM 指定的【表中】，查询出【所有的】数据。*表示【所有例】</span><br><span class="line">SELECT * FROM 表名称</span><br><span class="line"></span><br><span class="line">-- 从 FROM 指定的【表中】，查询出指定 列名称(字段) 的数据</span><br><span class="line">SELECT 列名称 FROM 表名称</span><br></pre></td></tr></table></figure>
-
-<p>注意：SQL 语句中的关键词对大小写不明感。SELECT 等效于 select ，FROM 等效于 from。</p>
-<h5 id="3-3-2-SELECT-示例"><a href="#3-3-2-SELECT-示例" class="headerlink" title="3.3.2 SELECT* 示例"></a>3.3.2 SELECT* 示例</h5><p>我们希望从 users 表中选取所有的列，可以使用符号 * 取代列的名称</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 注意：星号 * 是选取所有列的快捷方式</span><br><span class="line">SELECT * FROM users</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-3-3-SELECT-列名称-示例"><a href="#3-3-3-SELECT-列名称-示例" class="headerlink" title="3.3.3 SELECT 列名称 示例"></a>3.3.3 SELECT 列名称 示例</h5><p>如果获取名为”username”和”password”的列的内容(从名为”users”的数据库表)，请使用下面的 SELECT 语句</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 注意：多个列之间，使用英文逗号进行分隔</span><br><span class="line">SELECT username, password FROM users</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-4-SQL-的-INSERT-INTO-语句"><a href="#3-4-SQL-的-INSERT-INTO-语句" class="headerlink" title="3.4 SQL 的 INSERT INTO 语句"></a>3.4 SQL 的 INSERT INTO 语句</h3><h5 id="3-4-1-语法"><a href="#3-4-1-语法" class="headerlink" title="3.4.1 语法"></a>3.4.1 语法</h5><p>INSERT INTO 语句用于向数据表中插入新的数据行，语法格式如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 语法解读：向指定的表中，插入如下几列数据，列的值通过 values ——指定</span><br><span class="line">-- 注意：列和值要意义对应，多个列和多个值之间，使用英文的逗号分隔</span><br><span class="line">INSERT INTO table_name(列1,列2,...) VALUE(值1,值2,....)</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-4-2-INSERT-INTO-示例"><a href="#3-4-2-INSERT-INTO-示例" class="headerlink" title="3.4.2 INSERT INTO 示例"></a>3.4.2 INSERT INTO 示例</h5><p>向 user 表中，插入一条 username 为 tony stark，password 为 098123 的用户数据，示例如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">INSERT INTO users (username,password) values (&#x27;tonystark&#x27;,&#x27;098123&#x27;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-5-SQL-的-UPDATE-语句"><a href="#3-5-SQL-的-UPDATE-语句" class="headerlink" title="3.5 SQL 的 UPDATE 语句"></a>3.5 SQL 的 UPDATE 语句</h3><h5 id="3-5-1语法"><a href="#3-5-1语法" class="headerlink" title="3.5.1语法"></a>3.5.1语法</h5><p>Update 语句用于修改表中的数据。语法格式如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 语法解读</span><br><span class="line">-- 1.用 UPDATE 指定要更新哪个表中的数据</span><br><span class="line">-- 2.用 SET 指定列对应的新值</span><br><span class="line">-- 3.用 HWERE 制定更新的条件</span><br><span class="line">UPDATE 表名称 SET 列名称 = 新值 WHERE 列名称 = 某值</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-5-2-UPDATE-示例-更新某一行中的一个列"><a href="#3-5-2-UPDATE-示例-更新某一行中的一个列" class="headerlink" title="3.5.2 UPDATE 示例 - 更新某一行中的一个列"></a>3.5.2 UPDATE 示例 - 更新某一行中的一个列</h5><p>把 users 表中 id 为 7 的用户名吗，更新为 888888。示例代码如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">UPDATE users SET password=&#x27;888888&#x27; WHERE id=7</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-5-3-UPDATE-示例-更新某一行中的若干行"><a href="#3-5-3-UPDATE-示例-更新某一行中的若干行" class="headerlink" title="3.5.3 UPDATE 示例 - 更新某一行中的若干行"></a>3.5.3 UPDATE 示例 - 更新某一行中的若干行</h5><p>把 users 表中 id 为2 的用户密码和用户状态，分别更新为 admin123 和 1。示例代码如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 多个被更新的列之间，使用英文逗号进行分割</span><br><span class="line">-- WHERE 后面跟着的是更新的条件</span><br><span class="line">-- 注意：初学者经常忘记提供更新的 WHERE 条件。</span><br><span class="line">--			这样会导致整张表的数据都被更新，一定要慎重！</span><br><span class="line">UPDATE users SET password=&#x27;admin123&#x27;,status=1 WHERE id=2</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-6-SQL-的-DELETE-语句"><a href="#3-6-SQL-的-DELETE-语句" class="headerlink" title="3.6 SQL 的 DELETE 语句"></a>3.6 SQL 的 DELETE 语句</h3><h5 id="3-6-1-语法"><a href="#3-6-1-语法" class="headerlink" title="3.6.1 语法"></a>3.6.1 语法</h5><p>DELETE 语句用于删除表中的行。数据格式如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 数据解读：</span><br><span class="line">-- 从指定的表中，根据 WHERE 条件，删除对应的数据行</span><br><span class="line">DELETE FROM 表名称 WHERE 列名称=值</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-6-2-DELETE-示例"><a href="#3-6-2-DELETE-示例" class="headerlink" title="3.6.2 DELETE 示例"></a>3.6.2 DELETE 示例</h5><p>从 user 表中，删除 id 为 4 的用户，示例如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 注意：对初学者来学，经常忘记提供 WHERE 条件，</span><br><span class="line">-- 		从而导致误删整张表的数据！一定要慎重！</span><br><span class="line">DELETE FROM users WHERE id=4</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-7-SQL-的-WHERE-子句"><a href="#3-7-SQL-的-WHERE-子句" class="headerlink" title="3.7 SQL 的 WHERE 子句"></a>3.7 SQL 的 WHERE 子句</h3><h5 id="3-7-1-语法"><a href="#3-7-1-语法" class="headerlink" title="3.7.1 语法"></a>3.7.1 语法</h5><p>WHERE 字句用于限定选择的标准。在 SELECT、UPDATE、DELETE 语句中，皆可使用 WHERE 字句来限定选择的标准。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 查询语句中的 WHERE 条件</span><br><span class="line">SELECT 列名称 FROM 表名称 WHERE 列 运算符 值</span><br><span class="line">-- 更新语句中的 WHERE 条件</span><br><span class="line">UPDATE 列名称 SET 列=新值 WHERE 列 运算符 值</span><br><span class="line">-- 删除语句中的 WHERE 条件</span><br><span class="line">DELETE FROM 表名称 WHERE 列 运算符 值</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-7-2-可在-WHERE-子句中使用的运算符"><a href="#3-7-2-可在-WHERE-子句中使用的运算符" class="headerlink" title="3.7.2 可在 WHERE 子句中使用的运算符"></a>3.7.2 可在 WHERE 子句中使用的运算符</h5><p>下面的运算符可在 WHERE 子句中使用，用来限定选择的标准：</p>
-<table>
-<thead>
-<tr>
-<th>操作符</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>&#x3D;</td>
-<td>等于</td>
-</tr>
-<tr>
-<td>&lt;&gt;</td>
-<td>不等于</td>
-</tr>
-<tr>
-<td>&gt;</td>
-<td>大于</td>
-</tr>
-<tr>
-<td>&lt;</td>
-<td>小于</td>
-</tr>
-<tr>
-<td>&gt;&#x3D;</td>
-<td>大于等于</td>
-</tr>
-<tr>
-<td>&lt;&#x3D;</td>
-<td>小于等于</td>
-</tr>
-<tr>
-<td>BETWEEN</td>
-<td>在某个范围内</td>
-</tr>
-<tr>
-<td>LIKE</td>
-<td>搜索某种模式</td>
-</tr>
-</tbody></table>
-<p>注意：某些版本的 SQL 中，操作符 &lt;&gt; 可以写成 !&#x3D;</p>
-<h5 id="3-7-3-WHERE-子句示例"><a href="#3-7-3-WHERE-子句示例" class="headerlink" title="3.7.3 WHERE 子句示例"></a>3.7.3 WHERE 子句示例</h5><p>可以通过 WHERE 子句来限定 SELECT 的查询条件：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 查询 status 为 1 的所有用户</span><br><span class="line">SELECT * FROM users WHERE status=1</span><br><span class="line">-- 查询 id 大于 2 的所有用户</span><br><span class="line">SELECT * FROM users WHERE status&gt;2</span><br><span class="line">-- 查询 username 不等于 admin 的所有用户</span><br><span class="line">SELECT * FROM users WHERE username&lt;&gt;&#x27;admin&#x27;</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-8-SQL-的-AND-和-OR-运算符"><a href="#3-8-SQL-的-AND-和-OR-运算符" class="headerlink" title="3.8 SQL 的 AND 和 OR 运算符"></a>3.8 SQL 的 AND 和 OR 运算符</h3><h5 id="3-8-1-语法"><a href="#3-8-1-语法" class="headerlink" title="3.8.1 语法"></a>3.8.1 语法</h5><p>AND 和 OR 可在 WHERE 子语句中把两个或多个条件结合起来</p>
-<p>AND 表示必须满足多个条件，相当于 JavaScript 中的 &amp;&amp; 运算符，例如 if(a!&#x3D;10 &amp;&amp; a!&#x3D;20)</p>
-<p>OR 表示只要满足任意一个条件即可，相当于 JavaScript 中的 || 运算符，例如 if(a!&#x3D;&#x3D;&#x3D;10 || a!&#x3D;20)</p>
-<h5 id="3-8-2-AND-运算符示例"><a href="#3-8-2-AND-运算符示例" class="headerlink" title="3.8.2 AND 运算符示例"></a>3.8.2 AND 运算符示例</h5><p>使用 AND 来显示所有 status 为 0，并且 id&lt;3 的用户：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT * FORM users WHERE status=0 AND id&lt;3</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-8-3-OR-运算符示例"><a href="#3-8-3-OR-运算符示例" class="headerlink" title="3.8.3 OR 运算符示例"></a>3.8.3 OR 运算符示例</h5><p>使用 OR 来显示所有的 status 为1.或者 username 为 zs 的用户：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT * FROM users WHERE status=1 OR username=&#x27;zs&#x27;</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-9-SQL-的-ORDER-BY-子句"><a href="#3-9-SQL-的-ORDER-BY-子句" class="headerlink" title="3.9 SQL 的 ORDER BY 子句"></a>3.9 SQL 的 ORDER BY 子句</h3><h5 id="3-9-1-语法"><a href="#3-9-1-语法" class="headerlink" title="3.9.1 语法"></a>3.9.1 语法</h5><p>ORDER BY 语句用于根据指定的列对结果进行排序。</p>
-<p>ORDER BY 语句默认按照升序对记录进行排序。</p>
-<p>如果您希望展昭降序对记录进行排序，可以使用 DESC 关键字。</p>
-<h5 id="3-9-2-ORDER-BY-子句-升序排序"><a href="#3-9-2-ORDER-BY-子句-升序排序" class="headerlink" title="3.9.2 ORDER BY 子句 - 升序排序"></a>3.9.2 ORDER BY 子句 - 升序排序</h5><p>对 users 表中的数据，按照 status 字段进行升序排序，示例如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 注意：如下两条 SQL 语句是等价的，</span><br><span class="line">--		因为 ORDER BY 默认进行升序排序：</span><br><span class="line">--		其中,ASC 关键字代表升序排序</span><br><span class="line">SELECT * FROM users ORDER BY status</span><br><span class="line">SELECT * FROM users ORDER By status ASC</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-9-3-ORDER-BY-子句-降序排序"><a href="#3-9-3-ORDER-BY-子句-降序排序" class="headerlink" title="3.9.3 ORDER BY 子句 - 降序排序"></a>3.9.3 ORDER BY 子句 - 降序排序</h5><p>对 users 表中的数据，按照 id 字段进行降序排序，示例如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 注意：DESC 代表降序排序</span><br><span class="line">SELECT * FROM users ORDER BY id DESC</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-9-4-ORDER-BY-子句-多重排序"><a href="#3-9-4-ORDER-BY-子句-多重排序" class="headerlink" title="3.9.4 ORDER BY 子句 - 多重排序"></a>3.9.4 ORDER BY 子句 - 多重排序</h5><p>对 users 表中的数据，先按照 status 字段进行降序排序，再按照 username 的字母排序，进行升序排序，示例如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT * FROM users ORDER BY status DESC,username ASC</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-10-SQL-的-COUNT-函数"><a href="#3-10-SQL-的-COUNT-函数" class="headerlink" title="3.10 SQL 的 COUNT(*) 函数"></a>3.10 SQL 的 COUNT(*) 函数</h3><h5 id="3-10-1-语法"><a href="#3-10-1-语法" class="headerlink" title="3.10.1 语法"></a>3.10.1 语法</h5><p>COUNT(*) 函数用于返回查询结果的总数据条数，语法格式如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT COUNT(*) FROM 表名称</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-10-2-COUNT-示例"><a href="#3-10-2-COUNT-示例" class="headerlink" title="3.10.2 COUNT(*) 示例"></a>3.10.2 COUNT(*) 示例</h5><p>查询 users 表中 status 为 0 的总数据条数：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT COUNT(*) FORM users WHERE status=0</span><br></pre></td></tr></table></figure>
-
-<p>使用 AS 为列设置别名</p>
-<p>如果希望给查询出来的列名称设置别名，可以使用 AS 关键字，示例如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 将列名称从COUNT(*) 修改为 total</span><br><span class="line">SELECT COUNT(*) AS total FROM users WHERE status=0</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-在项目中操作-MySQL"><a href="#4-在项目中操作-MySQL" class="headerlink" title="4 在项目中操作 MySQL"></a>4 在项目中操作 MySQL</h3><h3 id="4-1-在项目中操作数据库的步骤"><a href="#4-1-在项目中操作数据库的步骤" class="headerlink" title="4.1 在项目中操作数据库的步骤"></a>4.1 在项目中操作数据库的步骤</h3><p>① 安装操作MySQL 数据库的第三方模块(mysql)</p>
-<p>② 通过mysql模块连接到MySQL 数据库</p>
-<p>③ 通过mysql模块执行SQL语句</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220326181439.png"></p>
-<h3 id="4-2-安装与配置-mysql-模块"><a href="#4-2-安装与配置-mysql-模块" class="headerlink" title="4.2 安装与配置 mysql 模块"></a>4.2 安装与配置 mysql 模块</h3><h5 id="4-2-1-安装-mysql-模块"><a href="#4-2-1-安装-mysql-模块" class="headerlink" title="4.2.1 安装 mysql 模块"></a>4.2.1 安装 mysql 模块</h5><p>mysql 模块是托管于 npm 上的第三方模块。它提供了在 Node.js 项目中连接和操作 MySQL 数据库的能力。</p>
-<p>想要在项目中使用它没需要先运行如下命令，将 mysql 安装为项目的依赖包：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm i mysql</span><br></pre></td></tr></table></figure>
-
-<h5 id="4-2-2-配置-mysql-模块"><a href="#4-2-2-配置-mysql-模块" class="headerlink" title="4.2.2 配置 mysql 模块"></a>4.2.2 配置 mysql 模块</h5><p>在使用 mysql 模块操作 MySQL 数据库之前，必须先对 mysql 模块进行必要的配置，主要的配置步骤如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1.导入 mysql 模块</span></span><br><span class="line"><span class="keyword">const</span> mysql=<span class="built_in">require</span>(<span class="string">&#x27;mysql&#x27;</span>)</span><br><span class="line"><span class="comment">// 2.建立与 MySQL 数据库的连接</span></span><br><span class="line"><span class="keyword">const</span> db=mysql.<span class="title function_">createPool</span>(&#123;</span><br><span class="line">	<span class="attr">host</span>:<span class="string">&#x27;127.0.0.1&#x27;</span>,		<span class="comment">// 数据库的 IP 地址</span></span><br><span class="line">	<span class="attr">user</span>:<span class="string">&#x27;root&#x27;</span>,			<span class="comment">// 登录数据库的账号</span></span><br><span class="line">	<span class="attr">password</span>:<span class="string">&#x27;admin123&#x27;</span>,	<span class="comment">// 登录数据库的密码</span></span><br><span class="line">	<span class="attr">database</span>:<span class="string">&#x27;my_db_01&#x27;</span>		<span class="comment">// 指定要操作那个数据库</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="4-2-3-测试-mysql-模块能否正常工作"><a href="#4-2-3-测试-mysql-模块能否正常工作" class="headerlink" title="4.2.3 测试 mysql 模块能否正常工作"></a>4.2.3 测试 mysql 模块能否正常工作</h5><p>调用 db.query() 函数，指定要执行的 SQL 语句，通过回调函数拿到执行的结果：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 检测 mysql 模块能否正常工作</span><br><span class="line">db.query(&#x27;SELECT&#x27;,(err,results)=&gt;&#123;</span><br><span class="line">	if(err) return console.log(err.message)</span><br><span class="line">	// 只要能打印出 [RowDataPacket &#123; &#x27;1&#x27;:1 &#125; 的结果，就证明数据库连接正常]</span><br><span class="line">	console.log(results)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-3-使用-mysql-模块操作-MySQL-数据库"><a href="#4-3-使用-mysql-模块操作-MySQL-数据库" class="headerlink" title="4.3 使用 mysql 模块操作 MySQL 数据库"></a>4.3 使用 mysql 模块操作 MySQL 数据库</h3><h5 id="4-3-1-查询数据"><a href="#4-3-1-查询数据" class="headerlink" title="4.3.1 查询数据"></a>4.3.1 查询数据</h5><p>查询 users 表中所有的数据：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 查询 users 表中所有用户的数据</span></span><br><span class="line">db.<span class="title function_">query</span>(<span class="string">&#x27;SELECT * FROM users&#x27;</span>,<span class="function">(<span class="params">err,results</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">// 查询失败</span></span><br><span class="line">    <span class="keyword">if</span>(err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>)</span><br><span class="line">    <span class="comment">// 查询成功</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(results)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="4-3-2-插入数据"><a href="#4-3-2-插入数据" class="headerlink" title="4.3.2 插入数据"></a>4.3.2 插入数据</h5><p>向 users 表中新增数据，其中 username 为 Spider-Man、password 为 pcc321。示例代码如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1.要插入列 users 表中的数据对象</span></span><br><span class="line"><span class="keyword">const</span> user=&#123;<span class="attr">username</span>:<span class="string">&#x27;Spider-Man&#x27;</span>,<span class="attr">password</span>:<span class="string">&#x27;pcc321&#x27;</span>&#125;</span><br><span class="line"><span class="comment">// 2.待执行的 SQL 语句，其中英文的 ? 表示占位符</span></span><br><span class="line"><span class="comment">//		注意：要插入的属性是用()包起来的</span></span><br><span class="line"><span class="keyword">const</span> sqlStr=<span class="string">&#x27;INSERT INTO users (username,password) VALUES (?,?)&#x27;</span></span><br><span class="line"><span class="comment">// 3.使用数组的形式，依次为 ? 占位符指定具体的值</span></span><br><span class="line">db.<span class="title function_">query</span>(sqlStr,[user.<span class="property">username</span>,user.<span class="property">password</span>],<span class="function">(<span class="params">err,results</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>)	<span class="comment">// 失败</span></span><br><span class="line">    <span class="comment">// 注意：是 affectedRows，且插入后的结果为对象</span></span><br><span class="line">    <span class="keyword">if</span>(results.<span class="property">affectedRows</span>===<span class="number">1</span>) &#123;<span class="comment">//执行这条函数，影响的条数为1</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;插入数据成功&#x27;</span>)			<span class="comment">// 成功</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>注意：id被占用后，即使被删除后，新增id仍会+1</p>
-<h5 id="4-3-3-插入数据的便捷方式"><a href="#4-3-3-插入数据的便捷方式" class="headerlink" title="4.3.3 插入数据的便捷方式"></a>4.3.3 插入数据的便捷方式</h5><p>想表中新增数据时，如果数据对象的每个属性和数据表的字段一一对应，则可以通过如下方式快速插入数据：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1.要插入到 users 表中的数据对象</span></span><br><span class="line"><span class="keyword">const</span> user=&#123;<span class="attr">username</span>:<span class="string">&#x27;Spider-Man2&#x27;</span>,<span class="attr">password</span>:<span class="string">&#x27;pcc4321&#x27;</span>&#125;</span><br><span class="line"><span class="comment">// 2.待执行的 SQL 语句，其中英文的 ? 表示占位符</span></span><br><span class="line"><span class="keyword">const</span> sqlStr=<span class="string">&#x27;INSERT INTO users SET ?&#x27;</span></span><br><span class="line"><span class="comment">// 3.直接将数据对象当做占位符的值</span></span><br><span class="line">db.<span class="title function_">query</span>(sqlStr,user,<span class="function">(<span class="params">err,results</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="comment">// 失败</span></span><br><span class="line">	<span class="keyword">if</span>(err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>) </span><br><span class="line">	<span class="comment">// 成功</span></span><br><span class="line">	<span class="keyword">if</span>(results.<span class="property">affectedRows</span>===<span class="number">1</span>) &#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;插入数据成功&#x27;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="4-3-4-更新数据"><a href="#4-3-4-更新数据" class="headerlink" title="4.3.4 更新数据"></a>4.3.4 更新数据</h5><p>可以通过如下方式，更新表中的数据</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1.要更新的数据对象</span></span><br><span class="line"><span class="keyword">const</span> user=&#123;<span class="attr">id</span>:<span class="number">7</span>,<span class="attr">username</span>:<span class="string">&#x27;aaa&#x27;</span>,<span class="attr">password</span>:<span class="string">&#x27;000&#x27;</span>&#125;</span><br><span class="line"><span class="comment">// 2.要执行的 SQL 语句</span></span><br><span class="line"><span class="keyword">const</span> sqlStr=<span class="string">&#x27;UPDATE users SET username=?,password=? WHERE id=?&#x27;</span></span><br><span class="line"><span class="comment">// 3.调用 db.query() 执行 SQL 语句的同时，使用数据依次为占位符制定具体的值</span></span><br><span class="line">db.<span class="title function_">query</span>(sqlStr,[user.<span class="property">username</span>,user.<span class="property">password</span>,user.<span class="property">id</span>],<span class="function">(<span class="params">err,results</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>)</span><br><span class="line">    <span class="keyword">if</span>(results.<span class="property">affectedRows</span>===<span class="number">1</span>) &#123;	   <span class="comment">// 失败</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;更新成功&#x27;</span>)			<span class="comment">// 成功</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="4-3-5-更新数据的便捷方式"><a href="#4-3-5-更新数据的便捷方式" class="headerlink" title="4.3.5 更新数据的便捷方式"></a>4.3.5 更新数据的便捷方式</h5><p>更新表数据时，如果数据对象的每个属性和数据表的字段一一对应，则可以通过如下方式快速更新表数据：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1.要更新的数据对象</span></span><br><span class="line"><span class="keyword">const</span> user=&#123;<span class="attr">id</span>:<span class="number">7</span>,<span class="attr">username</span>:<span class="string">&#x27;aaaaa&#x27;</span>,<span class="attr">password</span>:<span class="string">&#x27;0000&#x27;</span>&#125;</span><br><span class="line"><span class="comment">// 2.要执行的 SQL 语句</span></span><br><span class="line"><span class="keyword">const</span> sqlStr=<span class="string">&#x27;UPDATE user SET ? WHERE id=?&#x27;</span></span><br><span class="line"><span class="comment">// 3.调用 db.query() 执行 SQL 语句的同时，使用数组依次为占位符指定具体的值</span></span><br><span class="line">db.<span class="title function_">query</span>(sqlStr,[u],<span class="function">(<span class="params">err,results</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>)</span><br><span class="line">    <span class="keyword">if</span>(results.<span class="property">affectedRows</span>===<span class="number">1</span>) &#123;	   <span class="comment">// 失败</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;更新成功&#x27;</span>)			<span class="comment">// 成功</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="4-3-6-删除数据"><a href="#4-3-6-删除数据" class="headerlink" title="4.3.6 删除数据"></a>4.3.6 删除数据</h5><p>在删除数据时，根据 id 这样的唯一标识(推荐)，来删除对应的数据。示例如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 1.要执行的 SQL 语句</span><br><span class="line">const sqlStr=&#x27;DELETE FROM users WHERE id=?&#x27;</span><br><span class="line">// 2.调用 db.query() 执行 SQL 语句的同时，为占位符指定具体的值</span><br><span class="line">// 注意：如果 SQL 语句中有多个占位符，则必须使用数组为每个占位符指定具体的值</span><br><span class="line">//		如果 SQL 语句中只有一个占位符，则可以省略数组</span><br><span class="line">db.query(sqlStr,7,(err,results)=&gt;&#123;</span><br><span class="line">	if(err) return console.log(err.message)</span><br><span class="line">	if(results.affectRows === 1) &#123;</span><br><span class="line">		console.log(&#x27;删除数据成功&#x27;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="4-3-7-标记删除"><a href="#4-3-7-标记删除" class="headerlink" title="4.3.7 标记删除"></a>4.3.7 标记删除</h5><p>使用 DELETE 语句，会真正的把数据从表中删除掉。为了保险起见，推荐使用标记删除的形式，来模拟删除的动作。</p>
-<p>所谓的标记删除，就是在表中设置类似于 status 这样的状态字段，来标记当前这条数据是否被删除。</p>
-<p>当用户执行了删除的动作时，我们并没有执行 DELETE 语句把数据删除掉，而是执行了 UPDATE 语句，将这条数据对应的 status 字段标记为删除即可。</p>
-<h1 id="5-前后端的身份认证"><a href="#5-前后端的身份认证" class="headerlink" title="5.前后端的身份认证"></a>5.前后端的身份认证</h1><h3 id="5-1-Web-开发模式"><a href="#5-1-Web-开发模式" class="headerlink" title="5.1 Web 开发模式"></a>5.1 Web 开发模式</h3><p>目前主流的 Web 开发模式有两种，分别是：</p>
-<p><strong>①</strong> 基于服务器渲染的 Web 开发模式</p>
-<p>​	1.<strong>服务器渲染的概念</strong>：服务器发送给客户端的 HTML 页面，是在服务器通过字符串的拼接，动态生成的。因此，客户端不需要使用 Ajax 这样的技术额外请求页面的数据。示例代码如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/index.html&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="comment">// 1.要渲染的数据</span></span><br><span class="line">	<span class="keyword">const</span> user=&#123;<span class="attr">name</span>:<span class="string">&#x27;zs&#x27;</span>,<span class="attr">age</span>:<span class="number">20</span>&#125;</span><br><span class="line">	<span class="comment">// 2.服务器端通过字符串的拼接，动态生成 HTML 内容</span></span><br><span class="line">	<span class="keyword">const</span> html=<span class="string">&#x27;&lt;h1&gt;姓名:$&#123;user.name&#125;,年龄:$&#123;user.age&#125;&lt;/h1&gt;&#x27;</span></span><br><span class="line">	<span class="comment">// 3.把生成好的页面内容响应给客户端。因此，客户端拿到的是带有真实数据的 HTML 页面</span></span><br><span class="line">	res.<span class="title function_">send</span>(html)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>​	2.<strong>服务端渲染的优缺点</strong></p>
-<p>​	优点：1）前端耗时少。因为服务端负责动态生成 HTML 内容，浏览器只需要直接渲染页面即可。尤其是移动端，更省电。  2）有利于SEO。因为服务器相应的是完整的 HTML 页面内容，所以爬虫更容易爬取获得信息，更有利于 SEO。</p>
-<p>​	缺点：1）占用服务器资源。服务器端完成 HTML 页面内容的拼接，如果请求较多，会对服务器造成一定的访问压力。 2）不利于前后端分离，开发效率低。使用服务器端渲染，则无法进行分工合作，尤其对于前端复杂度搞得项目，不利于项目高效开发。</p>
-<p><strong>②</strong> 前后端分离的 Web 开发模式</p>
-<p>​	1.<strong>前后端分离的概念</strong>：前后端分离的开发模式，依赖于 Ajax 技术的广泛应用。简而言之，前后端分离的 Web 开发模式，就是后端只负责提供 API 接口，前端使用 Ajax 调用接口的开发模式。</p>
-<p>​	2.<strong>前后端分离的优缺点</strong>：</p>
-<p>​	优点：1） 开发体验好。前端专注于 UI 页面的开发，后端专注于 api 的开发，且前端有更多的选择性，2） 用户体验好。Ajax 技术的广泛应用，极高的提高了用户的体验，可以轻松实现页面的局部刷新。 3）减轻了服务器端的渲染压力。因为页面最终是在每个用户的浏览器中生成的</p>
-<p>​	缺点：不利于 SEO。因为完整的 HTML 页面需要在客户端动态拼接完成，所以爬虫对无法爬取页面的有效信息。（解决方案：利用 Vue、React 等前端框架的 SSR(server side render) 技术能够很好地解决 SEO 问题！）</p>
-<p>③ <strong>如何选择 Web 开发模式</strong></p>
-<p>不谈业务场景而盲目选择使用何种开发模式都是耍流氓。</p>
-<p>​	比如企业级网站，主要功能是展示而没有复杂的交互，并且需要良好的SEO，则这时我们就需要使用服务器端渲染；</p>
-<p>​	而类似后台管理项目，交互性比较强，不需要考虑SEQ，那么就可以使用前后端分离的开发模式。</p>
-<p>另外，具体使用何种开发模式并不是绝对的，为了同时兼顾了首页的渲染速度和前后端分离的开发效率，一些网站采用了首屏服务器端渲染＋其他页面前后端分离的开发模式。</p>
-<h3 id="5-2-身份认证"><a href="#5-2-身份认证" class="headerlink" title="5.2 身份认证"></a>5.2 身份认证</h3><h5 id="5-2-1-什么是身份认证"><a href="#5-2-1-什么是身份认证" class="headerlink" title="5.2.1 什么是身份认证"></a>5.2.1 什么是身份认证</h5><p>身份认证（Authentication）又称”身份验证”、”鉴权”，是指通过一定的手段，完成对用户身份的确认。</p>
-<p>​	日常生活中的身份认证随处可见，例如：高铁的验票乘车，手机的密码或指纹解锁，支付宝或微信的支付密码等。</p>
-<p>​	在 Web 开发中，也涉及到用户身份的认证，例如：各大网站的手机验证码登录、邮箱密码登录、二维码登录等。</p>
-<h5 id="5-2-2-为什么需要身份认证"><a href="#5-2-2-为什么需要身份认证" class="headerlink" title="5.2.2 为什么需要身份认证"></a>5.2.2 为什么需要身份认证</h5><p>身份认证的目的，是为了确认当前所声称为某种身份的用户，确实是所声称的用户。例如，你去找快递员取快递，你要怎么证明这份快递是你的。</p>
-<p>在互联网项目开发中，如何对用户的身份认证，是一个值得深入探讨的问题。例如，如何才能保证网站不会把”马云”的账户金额变成”马化腾”的账户金额。</p>
-<h5 id="5-2-3-不同开发模式下的身份认证"><a href="#5-2-3-不同开发模式下的身份认证" class="headerlink" title="5.2.3 不同开发模式下的身份认证"></a>5.2.3 不同开发模式下的身份认证</h5><p>对于服务端渲染和前后端分离这两种开发模式来说，分别有着不同的身份认证方案：</p>
-<p>① 服务端渲染推荐使用 Session 认证机制</p>
-<p>② 前后端分离推荐使用 JWT 认证机制</p>
-<h3 id="5-3-Session-认证脊椎"><a href="#5-3-Session-认证脊椎" class="headerlink" title="5.3 Session 认证脊椎"></a>5.3 Session 认证脊椎</h3><h5 id="5-3-1-HTTP-协议的无状态性"><a href="#5-3-1-HTTP-协议的无状态性" class="headerlink" title="5.3.1 HTTP 协议的无状态性"></a>5.3.1 HTTP 协议的无状态性</h5><p>HTTP 协议的无状态性，指的是客户端的每次 HTTP 请求都是独立的，连续多个请求之间没有直接的关系，服务器不会主动保留每次 HTTP 请求的状态。</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220328164443.png"></p>
-<h5 id="5-3-2-如何突破-HTTP-无状态的限制"><a href="#5-3-2-如何突破-HTTP-无状态的限制" class="headerlink" title="5.3.2 如何突破 HTTP 无状态的限制"></a>5.3.2 如何突破 HTTP 无状态的限制</h5><p>对于超市来说，为了方便在进行结算时给 VIP 客户打折，超时可以为每个 VIP 用户发放会员卡。</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220328164614.png"></p>
-<p>注意：现实生活中的会员卡身份认证方式，在 Web 开发中的专业术语叫做 Cookie。</p>
-<h5 id="5-3-3-什么是-Cookie"><a href="#5-3-3-什么是-Cookie" class="headerlink" title="5.3.3 什么是 Cookie"></a>5.3.3 什么是 Cookie</h5><p>Cookie 是存储在用户浏览器中的一端不超过 4KB 的字符串。它是有一个名称(Name)、一个值(Value) 和其他几个用于控制 Cookie 有效期、安全性、适用范围的可选属性组成。</p>
-<p>不同域名下的 Cookie 各自独立，每当客户端发起请求时，会自动把当前域名下所有未过期的 Cookie 一同发送到服务器。</p>
-<p>Cookie的几大特性：</p>
-<p>① 自动发送 ② 域名独立 ③ 过期时限 ④ 4KB 限制</p>
-<h5 id="5-3-4-Cookie-在身份认证中的作用"><a href="#5-3-4-Cookie-在身份认证中的作用" class="headerlink" title="5.3.4 Cookie 在身份认证中的作用"></a>5.3.4 Cookie 在身份认证中的作用</h5><p>客户端第一次请求服务器的时候，服务器通过响应头的形式，向客户端发送一个身份认证的 Cookie，客户端会自动将 Cookie 保存在浏览器中。</p>
-<p>随后，当客户端浏览器每次请求服务器的时候，浏览器会自动将身份认证相关的 Cookie，通过请求头的形式发送给服务器，服务器即可验明客户端的身份。</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220328171943.png"></p>
-<h5 id="5-3-5-Cookie-不具有安全性"><a href="#5-3-5-Cookie-不具有安全性" class="headerlink" title="5.3.5 Cookie 不具有安全性"></a>5.3.5 Cookie 不具有安全性</h5><p>由于 Cookie 是存储在浏览器中，而且浏览器也提供了读写 Cookie 的 API，因此 Cookie 很容易被伪造，不具有安全性。因此不建议服务器将重要的隐私数据，通过 Cookie 的形式发送给浏览器。</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220328172513.png"></p>
-<p>注意：千万不要使用 Cookie 存储重要且隐私的数据！比如说用户的身份信息、密码等。</p>
-<h5 id="5-3-6-提高身份认证的安全性"><a href="#5-3-6-提高身份认证的安全性" class="headerlink" title="5.3.6 提高身份认证的安全性"></a>5.3.6 提高身份认证的安全性</h5><p>为了防止客户伪造会员卡，收银员在拿到客户出示的会员卡之后，可以在收银机上进行刷卡认证。只有收银机确认存在的会员卡，才能被正常使用。</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220328172737.png"></p>
-<p>这种’会员卡 + 刷卡认证’的设计理念，就是 Session 认证机制的精髓。</p>
-<h5 id="5-3-7-Session-的工作原理"><a href="#5-3-7-Session-的工作原理" class="headerlink" title="5.3.7 Session 的工作原理"></a>5.3.7 Session 的工作原理</h5><p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220328172911.png"></p>
-<h3 id="5-4-在-Express-中使用-Session-认证"><a href="#5-4-在-Express-中使用-Session-认证" class="headerlink" title="5.4 在 Express 中使用 Session 认证"></a>5.4 在 Express 中使用 Session 认证</h3><h5 id="5-4-1-安装-express-session-中间件"><a href="#5-4-1-安装-express-session-中间件" class="headerlink" title="5.4.1 安装 express-session 中间件"></a>5.4.1 安装 express-session 中间件</h5><p>在 Express 项目中，只需要安装 express-session 中间件，即可在项目中使用 Session 认证：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install express-session</span><br></pre></td></tr></table></figure>
-
-<h5 id="5-4-2-配置-express-session-中间件"><a href="#5-4-2-配置-express-session-中间件" class="headerlink" title="5.4.2 配置 express-session 中间件"></a>5.4.2 配置 express-session 中间件</h5><p>express-session 中间件安装成功后，需要通过 app.use() 来注册 session 中间件，示例代码如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1.导入 session 中间件</span></span><br><span class="line"><span class="keyword">var</span> session=<span class="built_in">require</span>(<span class="string">&#x27;express-session&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.配置 Session 中间件</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="title function_">session</span>(&#123;</span><br><span class="line">	<span class="attr">secret</span>:<span class="string">&#x27;keyboard cat&#x27;</span>, <span class="comment">// secret 属性的值可以为任意字符串</span></span><br><span class="line">    <span class="attr">resave</span>:<span class="literal">false</span>,		   <span class="comment">// 固定写法</span></span><br><span class="line">    <span class="attr">saveUninitialized</span>:<span class="literal">true</span><span class="comment">// 固定写法</span></span><br><span class="line"></span><br><span class="line">&#125;))</span><br></pre></td></tr></table></figure>
-
-<h5 id="5-4-3-向-session-中存数据"><a href="#5-4-3-向-session-中存数据" class="headerlink" title="5.4.3 向 session 中存数据"></a>5.4.3 向 session 中存数据</h5><p>当 express-session 中间件配置成功后，即可通过 req.session 来访问和使用 session 对象，从而存储用户的关键信息：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/api/login&#x27;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="comment">// 判断用户的提交信息是否正确</span></span><br><span class="line">	<span class="keyword">if</span>(req.<span class="property">body</span>.<span class="property">username</span>!==<span class="string">&#x27;admin&#x27;</span>||req.<span class="property">body</span>.<span class="property">password</span>!==<span class="string">&#x27;000000&#x27;</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> res.<span class="title function_">send</span>(&#123;<span class="attr">status</span>:<span class="number">1</span>,<span class="attr">msg</span>:<span class="string">&#x27;登陆失败&#x27;</span>&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">    req.<span class="property">session</span>.<span class="property">user</span>=req.<span class="property">body</span>	<span class="comment">// 将用户的信息，存储到 Session 中</span></span><br><span class="line">    req.<span class="property">session</span>.<span class="property">islogin</span>=<span class="literal">true</span>	<span class="comment">// 将用户的登录状态，存储到 Session 中</span></span><br><span class="line">    </span><br><span class="line">    res.<span class="title function_">send</span>(&#123;<span class="attr">satus</span>:<span class="number">0</span>,<span class="attr">masa</span>:<span class="string">&#x27;登陆成功&#x27;</span>&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="5-4-4-从-session-中取数据"><a href="#5-4-4-从-session-中取数据" class="headerlink" title="5.4.4 从 session 中取数据"></a>5.4.4 从 session 中取数据</h5><p>可以直接从 req-session 对象上获取之前存储的数据，示例代码如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 获取用户姓名的借口</span><br><span class="line">app.get(&#x27;/api/username&#x27;,(req,res)=&gt;&#123;</span><br><span class="line">	// 判断用户是否登录</span><br><span class="line">	if(!req.session.islogin) &#123;</span><br><span class="line">		return res.send(&#123;status:0,msg:&#x27;fail&#x27;&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">	res.send(&#123;status:0,msg:&#x27;success&#x27;,username:req.session.username&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="5-4-5-清空-session"><a href="#5-4-5-清空-session" class="headerlink" title="5.4.5 清空 session"></a>5.4.5 清空 session</h5><p>调用 req.session.destory() 函数，即可清空服务器保存的 session 信息。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 退出登录的接口</span><br><span class="line">app.post(&#x27;/api/logout&#x27;,(req,res)=&gt;&#123;</span><br><span class="line">	// 清空当前客户端对应的 session 信息</span><br><span class="line">	req.session.destory()</span><br><span class="line">	res.send(&#123;</span><br><span class="line">		status:0,</span><br><span class="line">		msg:&#x27;退出登录成功&#x27;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="5-5-JWT-认证机制"><a href="#5-5-JWT-认证机制" class="headerlink" title="5.5 JWT 认证机制"></a>5.5 JWT 认证机制</h3><h5 id="5-5-1-Session-认证的局限性"><a href="#5-5-1-Session-认证的局限性" class="headerlink" title="5.5.1 Session 认证的局限性"></a>5.5.1 Session 认证的局限性</h5><p>Session 认证机制需要配合 Cookie 才能实现。由于 Cookie 默认不支持跨域访问，所以，当涉及到前端跨域请求后端接口的时候，需要做很多额外的配置，才能实现跨域 Session 认证。</p>
-<p>注意：</p>
-<p>​	当前端请求后端接口不存在跨域问题的时候，推荐使用 Seesion 身份认证机制。</p>
-<p>​	当前端需要跨域请求后端接口的时候，不推荐使用 Session 身份认证机制，推荐使用 JWT 认证机制。</p>
-<h5 id="5-5-2-什么是-JWT"><a href="#5-5-2-什么是-JWT" class="headerlink" title="5.5.2 什么是 JWT"></a>5.5.2 什么是 JWT</h5><p>JWT（英文全称：JSON Web Token）是目前最流行的跨域认证解决方案。</p>
-<h5 id="5-5-3-JWT-的工作原理"><a href="#5-5-3-JWT-的工作原理" class="headerlink" title="5.5.3 JWT 的工作原理"></a>5.5.3 JWT 的工作原理</h5><p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220329161927.png"></p>
-<p>总结：用户的信息通过 Token 字符串的形式，保存在客户端浏览器中，服务器通过还原 Token 字符串的形式来认证用户的身份。</p>
-<h5 id="5-5-4-JWT-的组成-部分"><a href="#5-5-4-JWT-的组成-部分" class="headerlink" title="5.5.4 JWT 的组成 部分"></a>5.5.4 JWT 的组成 部分</h5><p>JWT 通常由三部分组成，分别是 Header(头部)、Payload(有效荷载)、Signature(签名).</p>
-<p>三者之间使用英文的 “.” 分隔，格式如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Header.Payload.Signature</span><br></pre></td></tr></table></figure>
-
-<p>下面是 JWT 字符串的实例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">eyJhbGci0iJIUzI1NiISInR5cCI6Ikpxvc.lyJpZCI6MSwidXN1cmShbwUiOiJhZG1pbiIsInBhc3NBb3kIjoiiwibmlja25hbMUiOiLms6Xlt7Tlt7QiLCJlbwFpbCI6ImSpYmFiYUBpdGNhc3QuY24iLCJ1c2VyX3BpYyI6IiIsImlhdcCI6MTU3OOAZNjY4MiwizxhwIjoxNTc4MDcyNjgyf.wq7GqCxJPK-EA8LNrtMG0411Kdz33S9KBL3XeuBxuI</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h5 id="5-5-5-JWT-三部分各自代表的含义"><a href="#5-5-5-JWT-三部分各自代表的含义" class="headerlink" title="5.5.5 JWT 三部分各自代表的含义"></a>5.5.5 JWT 三部分各自代表的含义</h5><p>JWT 的三个组成部分，从前到后分别是 Header、Payload、Signature</p>
-<p>其中：</p>
-<p>​	Payload 部分才是真正的用户信息，它是用户信息经过加密之后生成的字符串。</p>
-<p>​	Header 和 Signature 是安全性相关的部分，只是为了保证 Token 的安全性。</p>
-<p><img src="https://plumbiu.github.io/images/QQ%E6%88%AA%E5%9B%BE20220329162827.png"></p>
-<h5 id="5-5-6-JWT-的使用方式"><a href="#5-5-6-JWT-的使用方式" class="headerlink" title="5.5.6 JWT 的使用方式"></a>5.5.6 JWT 的使用方式</h5><p>客户端收到服务器返回的 JWT 之后，通常会将它存储在 localStorage 或 sessionStroage 中。</p>
-<p>此后，客户端每次与服务器通信，都要带上这个 JWT 的字符串，从而进行身份认证。推荐的做法是把 JWT 放在 HTTP 请求头的 Authoreizaiton 字段中，格式如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Authorization: Bearer &lt;token&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="5-6-在-Express-中使用-JWT"><a href="#5-6-在-Express-中使用-JWT" class="headerlink" title="5.6 在 Express 中使用 JWT"></a>5.6 在 Express 中使用 JWT</h3><h5 id="5-6-1-安装-JWT-相关的包"><a href="#5-6-1-安装-JWT-相关的包" class="headerlink" title="5.6.1 安装 JWT 相关的包"></a>5.6.1 安装 JWT 相关的包</h5><p>运行如下命令，安装如下两个 JWT 相关的包：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install jsonwebtoken express-jwt</span><br></pre></td></tr></table></figure>
-
-<p>其中：</p>
-<p>​	jsonwebtoken 用于生成 JWT 字符串</p>
-<p>​	express-jwt 用于将 JWT 字符串解析还原成 JSON 对象</p>
-<h5 id="5-6-2-导入-JWT-相关的包"><a href="#5-6-2-导入-JWT-相关的包" class="headerlink" title="5.6.2 导入 JWT 相关的包"></a>5.6.2 导入 JWT 相关的包</h5><p>使用 require() 函数，分别导入 JWT 相关的两个包：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 1.导入用于生成 JWT 字符串的包</span><br><span class="line">const jwt=require(&#x27;jsonwebtoken&#x27;)</span><br><span class="line">// 2.导入用与将客户端发送过来的 JWT 字符串，解析还原成 JSON 对象的包</span><br><span class="line">const expressJWT=require(&#x27;express-jwt&#x27;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="5-6-3-定义-secret-秘钥"><a href="#5-6-3-定义-secret-秘钥" class="headerlink" title="5.6.3 定义 secret 秘钥"></a>5.6.3 定义 secret 秘钥</h5><p>为了保证 JWT 字符串的安全性，防止 JWT 字符串在网络传输过程中被别人破解，我们需要专门定义一个用于加密和解密的 secret 密钥：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 3.secret 密钥的本质：字符串</span><br><span class="line">const secretKey=&#x27;plumbiu&#x27;</span><br></pre></td></tr></table></figure>
-
-<h5 id="5-6-4-在登陆成功后生成-JWT-字符串"><a href="#5-6-4-在登陆成功后生成-JWT-字符串" class="headerlink" title="5.6.4 在登陆成功后生成 JWT 字符串"></a>5.6.4 在登陆成功后生成 JWT 字符串</h5><p>调用 jsonwebtoken 包提供的sign()，将用户的信息加密成 JWT 字符串，响应给客户端：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 登录接口</span><br><span class="line">app.post(&#x27;/api/login&#x27;,(req,res)=&gt;&#123;</span><br><span class="line">	// ...省略登陆失败情况下的代码</span><br><span class="line">	// 用户登录成功之后，生成 JWT 字符串，通过 token 属性响应给客户端</span><br><span class="line">	res.send(&#123;</span><br><span class="line">		status:200,</span><br><span class="line">		message:&#x27;登陆成功&#x27;,</span><br><span class="line">		// 调用 jwt.sign() 生成 JWT 字符串 4，三个参数分别是：用户信息对象、加密密钥、配置对象</span><br><span class="line">		token:jwt.sign(&#123;username:userinfo.usernmae&#125;,secretKey,&#123;expireIn:&#x27;30s&#x27;&#125;)//有效期为30s，过了30s，这个token作废</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="5-6-5-将-JWT-字符串还原为-JSON-对象"><a href="#5-6-5-将-JWT-字符串还原为-JSON-对象" class="headerlink" title="5.6.5 将 JWT 字符串还原为 JSON 对象"></a>5.6.5 将 JWT 字符串还原为 JSON 对象</h5><p>客户端每次在访问那些有权限接口的时候，都训要主动通过请求头中的 Authorization 字段，将 Token 字符串发送到服务器进行身份认证。</p>
-<p>此时，服务器可以通过 express-jwt 这个中间件，自动将客户端发送过来的 Token 解析还原成 JSON 对象:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// app.use() 来注册中间件</span></span><br><span class="line"><span class="comment">// expressJWT(&#123;secret:secretKey&#125;) 就是用来解析 Token 的中间件</span></span><br><span class="line"><span class="comment">// .unless(&#123;path:[/^\/api\//]&#125;&#125;) 永安里指定哪些接口不需要访问权限</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="title function_">expressJWT</span>( &#123;<span class="attr">secret</span>:secretKey&#125;).<span class="title function_">unless</span>(&#123;<span class="attr">path</span>:[<span class="regexp">/^\api\//</span>]&#125;) )</span><br></pre></td></tr></table></figure>
-
-<h5 id="5-6-6-使用-req-user-获取用户信息"><a href="#5-6-6-使用-req-user-获取用户信息" class="headerlink" title="5.6.6 使用 req.user 获取用户信息"></a>5.6.6 使用 req.user 获取用户信息</h5><p>当 express-jwt 这个中间件配置成功之后，即可在那些有权限的接口中，使用 req.user 对象，来访问从 JWT</p>
-<h5 id="5-6-7-捕获解析-JWT-失败后产生的错误"><a href="#5-6-7-捕获解析-JWT-失败后产生的错误" class="headerlink" title="5.6.7 捕获解析 JWT 失败后产生的错误"></a>5.6.7 捕获解析 JWT 失败后产生的错误</h5><p>当使用 express-jwt 解析 Token 字符串时，如果客户端发送过来的 Token 字符串过期或不合法，会产生一个解析失败的错误，影响项目的正常运行。我们可以通过 Express 的错误中间件，捕获这个错误并进行相关的处理，示例代码如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">err,req,res,next</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">// token 解析失败导致的错误</span></span><br><span class="line">    <span class="keyword">if</span>(err.<span class="property">name</span>===<span class="string">&#x27;UnauthorizedError&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> res.<span class="title function_">send</span>(&#123;<span class="attr">status</span>:<span class="number">401</span>,<span class="attr">message</span>:<span class="string">&#x27;无效的token&#x27;</span>&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 其它原因导致的错误</span></span><br><span class="line">    res.<span class="title function_">send</span>(&#123;<span class="attr">status</span>:<span class="number">500.</span><span class="attr">message</span>:<span class="string">&#x27;未知错误&#x27;</span>&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -4920,7 +4920,7 @@
 <p>​	为解决这个问题，在技术上改变了以往直接在发送端与接收端主机之间建立TCP连接的机制，而引进了一种一直会连接电源的邮件服务器。发送和接收端通过邮件服务器进行收发邮件。接收端从邮件服务器接收邮件时使用<strong>POP3(Post Office Protocol)协议</strong>。</p>
 <p>​	电子邮件的机制由3部分组成，他们分别是<strong>邮件地址</strong>、<strong>数据格式</strong>以及<strong>发送协议</strong>。</p>
 <h5 id="8-4-2邮件地址"><a href="#8-4-2邮件地址" class="headerlink" title="8.4.2邮件地址"></a>8.4.2邮件地址</h5><p>​	使用电子邮件时需要拥有的地址叫做<strong>邮件地址</strong>，它就相当于通信地址和姓名。互联网中电子邮件地址格式如下：</p>
-<p>​	名称@通信地址（<a href="mailto:&#51;&#x34;&#51;&#52;&#x39;&#48;&#57;&#x34;&#48;&#x33;&#64;&#x71;&#x71;&#x2e;&#x63;&#111;&#x6d;">&#51;&#x34;&#51;&#52;&#x39;&#48;&#57;&#x34;&#48;&#x33;&#64;&#x71;&#x71;&#x2e;&#x63;&#111;&#x6d;</a>）</p>
+<p>​	名称@通信地址（<a href="mailto:&#x33;&#52;&#x33;&#x34;&#57;&#48;&#x39;&#x34;&#x30;&#51;&#64;&#x71;&#113;&#x2e;&#99;&#x6f;&#109;">&#x33;&#52;&#x33;&#x34;&#57;&#48;&#x39;&#x34;&#x30;&#51;&#64;&#x71;&#113;&#x2e;&#99;&#x6f;&#109;</a>）</p>
 <h5 id="8-4-3MIME"><a href="#8-4-3MIME" class="headerlink" title="8.4.3MIME"></a>8.4.3MIME</h5><p>​	电子邮件所能发送的数据类型已经被扩展到MIME，邮箱可以<strong>发送静态图像、动画、声音、程序等各种形式的数据</strong>。</p>
 <p>​	<strong>MIME基本上由首部和正文（数据）两部分组成</strong>。</p>
 <p>​	具体示例可看图解HTTP笔记。</p>
