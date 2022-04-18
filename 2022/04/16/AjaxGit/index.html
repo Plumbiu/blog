@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"plumbiu.github.io","root":"/blog/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":null}},"path":"search.xml"};
+    var CONFIG = {"hostname":"plumbiu.github.io","root":"/blog/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":null}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="一：服务器基本概念与初识Ajax">
@@ -1207,7 +1207,7 @@
 <p> ① id_rsa (私钥文件，存放于客户端的电脑中间即可)</p>
 <p> ② id_rsa.pub (公钥文件，需要配置到 Github 中)</p>
 <h5 id="4-2-4-生成-SSH-key"><a href="#4-2-4-生成-SSH-key" class="headerlink" title="4.2.4 生成 SSH key"></a>4.2.4 生成 SSH key</h5><p>① 打开 Git Bash</p>
-<p>② 填写如下的命令，并将 <a href="mailto:&#x79;&#x6f;&#117;&#114;&#95;&#x65;&#109;&#97;&#105;&#x6c;&#x40;&#x65;&#120;&#97;&#109;&#x70;&#108;&#x65;&#x2e;&#x63;&#x6f;&#x6d;">&#x79;&#x6f;&#117;&#114;&#95;&#x65;&#109;&#97;&#105;&#x6c;&#x40;&#x65;&#120;&#97;&#109;&#x70;&#108;&#x65;&#x2e;&#x63;&#x6f;&#x6d;</a> 替换为账号时填写的邮箱：</p>
+<p>② 填写如下的命令，并将 <a href="mailto:&#x79;&#111;&#x75;&#x72;&#x5f;&#x65;&#x6d;&#x61;&#105;&#x6c;&#x40;&#x65;&#x78;&#97;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#99;&#111;&#x6d;">&#x79;&#111;&#x75;&#x72;&#x5f;&#x65;&#x6d;&#x61;&#105;&#x6c;&#x40;&#x65;&#x78;&#97;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#99;&#111;&#x6d;</a> 替换为账号时填写的邮箱：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;3434909403@qq.com&quot;</span><br></pre></td></tr></table></figure>
 
 <p>③ 连续敲击 3 次回车，即可在：C:\User\用户名文件夹.ssh 目录中生成 id_rsa 和 id_rsa_pub 两个文件</p>
