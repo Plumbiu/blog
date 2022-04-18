@@ -1,0 +1,1 @@
+{"name":"theme-next-three","version":"1.0.0","main":"index.js","repository":"git@github.com:theme-next/theme-next-three.git","author":"Raincal <cyj94228@gmail.com>","license":"MIT","scripts":{"build":"gulp"},"dependencies":{"del":"^5.1.0","gulp":"^4.0.2","gulp-concat":"^2.6.1","gulp-uglify":"^3.0.2"}}

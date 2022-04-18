@@ -1,0 +1,34 @@
+<h1 align="center"><a href="https://github.com/hustcc/ribbon.js">canvas-ribbon.js</a> for <a href="https://github.com/theme-next">NexT</a></h1>
+
+<h1 align="center">Installation</h1>
+
+<h2>If you want to use the CDN instead of clone this repo, please jump to the Step 3.</h2>
+
+<h2 align="center">Step 1 &rarr; Go to NexT dir</h2>
+
+<p>Change dir to <strong>NexT</strong> directory. There must be <code>layout</code>, <code>source</code>, <code>languages</code> and other directories:</p>
+<pre><code class="sh">$ cd themes/next
+$ ls
+_config.yml  crowdin.yml  docs  gulpfile.js  languages  layout  LICENSE.md  package.json  README.md  scripts  source
+</code></pre>
+<h2 align="center">Step 2 &rarr; Get module</h2>
+
+<p>Install module to <code>source/lib</code> directory:</p>
+<pre><code class="sh">$ git clone https://github.com/theme-next/theme-next-canvas-ribbon source/lib/canvas-ribbon
+</code></pre>
+<h2 align="center">Step 3 &rarr; Set it up</h2>
+
+<p>Enable module in <strong>NexT</strong> <code>_config.yml</code> file:</p>
+<pre><code class="yml">canvas_ribbon:
+  enable: true
+</code></pre>
+<p><strong>And, if you wants to use the CDN, then need to set:</strong></p>
+<pre><code class="yml">vendors:
+  ...
+  canvas_ribbon: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js
+</code></pre>
+<h1 align="center">Update</h1>
+
+<pre><code class="sh">$ cd themes/next/source/lib/canvas-ribbon
+$ git pull
+</code></pre>
