@@ -1,3 +1,6 @@
+.sidebar {
+  background: rgba(0,0,0,0.7);
+}
 :root {
   --body-bg-color: #fff;
   --content-bg-color: #fff;
@@ -1174,7 +1177,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ba61ff;
+  background: #653bd2;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
