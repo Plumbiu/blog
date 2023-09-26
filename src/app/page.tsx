@@ -16,8 +16,8 @@ import RepeatIcon from '@mui/icons-material/Repeat'
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline'
 import LocalDiningIcon from '@mui/icons-material/LocalDining'
 import Typography from '@mui/material/Typography'
-import { useEventInfo } from '@/lib/info'
 import Main from '@/components/Main'
+import events from '@/assets/PlumbiuEvents.json'
 
 const eventMap: Record<string, ReactNode> = {
   PushEvent: <LaptopMacIcon />,
@@ -27,9 +27,7 @@ const eventMap: Record<string, ReactNode> = {
   ForkEvent: <LocalDiningIcon />,
   IssuesEvent: <ErrorOutlineIcon />,
 }
-export default async function Home() {
-  const events = await useEventInfo()
-
+export default function Home() {
   return (
     <Main>
       <div

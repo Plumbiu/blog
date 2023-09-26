@@ -14,23 +14,17 @@ import {
   ListItemText,
   Stack,
 } from '@mui/material'
-import type { Follow, PublicRepos } from '@plumbiu/github-info'
 import EamilIcon from '@mui/icons-material/Email'
 import GithubIcon from '@mui/icons-material/GitHub'
 import LocationIcon from '@mui/icons-material/HomeOutlined'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import LinkIcon from '@mui/icons-material/Link'
-import { useRequest } from '@/lib/api'
+import { user, followers, following, public_repos } from '@/assets/Plumbiu.json'
 
 export default async function InfoCard() {
-  const { followers, following, public_repos } = await useRequest<{
-    followers: Follow[]
-    following: Follow[]
-    public_repos: PublicRepos[]
-  }>('user')
   const infoMap = [
     {
-      primary: 'Plumbiu',
+      primary: user.name,
       icon: <GithubIcon />,
       href: 'https://github.com/Plumbiu',
     },
@@ -40,7 +34,7 @@ export default async function InfoCard() {
     },
     { primary: 'Hang Zhou, China', icon: <LocationIcon /> },
     {
-      primary: 'Plumbiu',
+      primary: user.twitter,
       icon: <TwitterIcon />,
       href: 'https://twitter.com/Plumbiu',
     },
@@ -85,8 +79,8 @@ export default async function InfoCard() {
               <Link href="https://github.com/Plumbiu">
                 <Avatar
                   sx={{ width: 56, height: 56 }}
-                  alt="Plumbiu"
-                  src="https://avatars.githubusercontent.com/u/99574369?v=4"
+                  alt={user.name}
+                  src={user.avatar}
                 />
               </Link>
             </ListItemAvatar>
@@ -105,8 +99,7 @@ export default async function InfoCard() {
                   >
                     Bio
                   </Typography>
-                  — Studprogrammeried at Hangzhou Dianzi University
-                  (杭州电子科技大学) (HDU)，a front-end coder
+                  {' — '} {user.bio}
                 </>
               }
             />
