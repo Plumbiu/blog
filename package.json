@@ -20,12 +20,14 @@
     "@plumbiu/github-info": "^0.1.4",
     "highlight.js": "^11.8.0",
     "marked": "^9.0.3",
+    "marked-highlight": "^2.0.6",
     "next": "13.5.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "simple-md-front-matter": "^0.0.3"
   },
   "devDependencies": {
+    "@types/dompurify": "^3.0.3",
     "@types/node": "20.6.3",
     "@types/react": "18.2.22",
     "@types/react-dom": "18.2.7",
