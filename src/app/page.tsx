@@ -12,8 +12,11 @@ import {
 import Main from '@/components/Main'
 
 export default async function Home() {
-  const raw = await fetch('http://localhost:3000/api/article')
-  const data: Res[] = await raw.json()
+  // const raw = await fetch('http://localhost:3000/api/article')
+  // const data: Res[] = await raw.json()
+  const data: Res[] = [
+    
+  ]
   return (
     <Main>
       <List sx={{ width: '100%', bgcolor: 'background.paper' }}>

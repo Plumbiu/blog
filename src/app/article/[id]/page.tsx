@@ -12,10 +12,17 @@ interface Props {
 }
 
 const page: FC<Props> = async ({ params }) => {
-  console.log(params.id)
-  const raw = await fetch('http://localhost:3000/api/article/' + params.id)
-  const data: Article = await raw.json()
-
+  // const raw = await fetch('http://localhost:3000/api/article/' + params.id)
+  // const data: Article = await raw.json()
+  const data: Article = {
+    id: '',
+    content: '',
+    title: '',
+    date: new Date(1970-1-2),
+    updated: new Date(1970-1-2),
+    tags: [],
+    categories: []
+  }
   return (
     <Main>
       <div>
