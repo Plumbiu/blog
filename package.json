@@ -1,8 +1,11 @@
 {
-  "name": "blog",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@plumbiu/blog",
+  "version": "1.0.0",
+  "description": "my blog",
+  "author": "Plumbiu",
+  "license": "MIT",
   "scripts": {
+    "prepare": "simple-git-hooks",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -26,6 +29,18 @@
     "@types/react": "18.2.22",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
+    "eslint": "^8.0.1",
+    "eslint-config-standard-with-typescript": "^39.0.0",
+    "prettier": "3.0.3",
+    "simple-git-hooks": "^2.9.0",
     "typescript": "5.2.2"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "**/*.tsx": [
+      "prettier --write --ignore-unknown"
+    ]
   }
 }
