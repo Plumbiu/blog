@@ -1,8 +1,7 @@
-import { initFields } from '@plumbiu/github-info'
 import { NextResponse } from 'next/server'
 
 export async function GET() {
-  const { eventsField } = await initFields('Plumbiu')
-  const events = await eventsField()
+  const raw = await fetch('https://api.github.com/users/Plumbiu/events')
+  const events = await raw.json()
   return NextResponse.json(events)
 }
