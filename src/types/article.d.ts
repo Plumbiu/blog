@@ -13,9 +13,10 @@ interface RawMatter {
   updated: Date
   tags: string[]
   categories: string[]
+  cover?: string
+  desc?: string
 }
 
 interface FullFrontMatter extends RawMatter {
-  desc: string
   id: string
 }

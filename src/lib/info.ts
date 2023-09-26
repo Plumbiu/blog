@@ -10,3 +10,8 @@ export async function useUserInfo() {
     public_repos: await reposField(),
   }
 }
+
+export async function useEventInfo() {
+  const { eventsField } = await initFields('Plumbiu')
+  return await eventsField()
+}

@@ -1,4 +1,3 @@
-import * as React from 'react'
 import {
   List,
   ListItemText,
@@ -32,7 +31,7 @@ export default async function Article() {
                     height: 48,
                   }}
                 >
-                  {item.tags?.[0] || item.title[0]}
+                  {item.cover ?? item.tags?.[0]}
                 </Avatar>
               </ListItemAvatar>
               <ListItemText

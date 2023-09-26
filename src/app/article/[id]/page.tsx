@@ -12,6 +12,7 @@ import typescript from 'highlight.js/lib/languages/typescript'
 
 hljs.registerLanguage('javascript', javascript)
 hljs.registerLanguage('typescript', typescript)
+
 const marked = new Marked(
   markedHighlight({
     langPrefix: 'hljs language-',
@@ -21,6 +22,7 @@ const marked = new Marked(
     },
   }),
 )
+
 interface Props {
   params: {
     id: string
