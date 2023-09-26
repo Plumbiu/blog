@@ -10,10 +10,11 @@ import {
   ListItem,
 } from '@mui/material'
 import Main from '@/components/Main'
-import { useRequest } from '@/lib/api'
+// import { useRequest } from '@/lib/api'
 
 export default async function Home() {
-  const data = await useRequest<FullFrontMatter[]>('article')
+  // const data = await useRequest<FullFrontMatter[]>('article')
+  const data: FullFrontMatter[] = []
   return (
     <Main>
       <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
