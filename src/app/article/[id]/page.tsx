@@ -3,7 +3,7 @@ import { Typography } from '@mui/material'
 import { type FC } from 'react'
 import { marked } from 'marked'
 import '@/styles/github-markdown-light.css'
-// import { useRequest } from '@/lib/api'
+import { useRequest } from '@/lib/api'
 
 interface Props {
   params: {
@@ -12,16 +12,7 @@ interface Props {
 }
 
 const page: FC<Props> = async ({ params }) => {
-  // const data = await useRequest<Article>('article/' + params.id)
-  const data: Article = {
-    id: '',
-    content: '',
-    title: '',
-    date: new Date('1970'),
-    updated: new Date('1970'),
-    tags: [],
-    categories: [],
-  }
+  const data = await useRequest<Article>('article/' + params.id)
   return (
     <Main>
       <div>
