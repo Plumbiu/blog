@@ -6,7 +6,7 @@ Online View: [my blog](https://blog.plumbiu.top/)
 
 ## TODO
 
-- [ ] code highlight
+- [x] code highlight
 - [ ] lazy load(article list and article)
 - [ ] cover image
 - [ ] mobile display
