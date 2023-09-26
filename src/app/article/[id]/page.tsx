@@ -1,9 +1,10 @@
 import Main from '@/components/Main'
 import { Typography } from '@mui/material'
-import { FC } from 'react'
+import { type FC } from 'react'
 import { marked } from 'marked'
 
 import '@/styles/github-markdown-light.css'
+import { request } from '@/lib/api'
 
 interface Props {
   params: {
@@ -12,8 +13,7 @@ interface Props {
 }
 
 const page: FC<Props> = async ({ params }) => {
-  const raw = await fetch('https://blog.plumbiu.top/api/article/' + params.id)
-  const data: Article = await raw.json()
+  const data = await request<Article>('article/' + params.id)
 
   return (
     <Main>

@@ -10,10 +10,11 @@ import {
   ListItem,
 } from '@mui/material'
 import Main from '@/components/Main'
+import { request } from '@/lib/api'
 
-export default async function Home() {
-  const raw = await fetch('https://blog.plumbiu.top/api/article')
-  const data: Res[] = await raw.json()
+export default async function Article() {
+  const data = await request<Res[]>('article')
+
   return (
     <Main>
       <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
