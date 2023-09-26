@@ -1,8 +1,13 @@
+html {
+  width: 100%;
+  height: 100%;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'segoe UI', 'Helvetica Neue',
     Lato, Roboto, 'PingFang SC', 'Microsoft JhengHei', 'Microsoft YaHei',
     sans-serif;
+  overflow-x: hidden;
 }
 
 a {

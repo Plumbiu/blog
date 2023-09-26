@@ -15,7 +15,7 @@ interface RawMatter {
   categories: string[]
 }
 
-interface Res extends RawMatter {
+interface FullFrontMatter extends RawMatter {
   desc: string
   id: string
 }

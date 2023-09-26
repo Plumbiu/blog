@@ -1,4 +1,4 @@
-import { NextResponse, NextRequest } from 'next/server'
+import { NextResponse, type NextRequest } from 'next/server'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import parseFM from 'simple-md-front-matter'

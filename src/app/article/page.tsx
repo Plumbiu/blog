@@ -10,10 +10,10 @@ import {
   ListItem,
 } from '@mui/material'
 import Main from '@/components/Main'
-import { request } from '@/lib/api'
+import { useRequest } from '@/lib/api'
 
 export default async function Article() {
-  const data = await request<Res[]>('article')
+  const data = await useRequest<FullFrontMatter[]>('article')
 
   return (
     <Main>
@@ -51,11 +51,11 @@ export default async function Article() {
                     >
                       {item.tags?.map((tag) => (
                         <Chip
+                          key={tag}
                           component="span"
                           sx={{
                             mr: 1,
                           }}
-                          key={tag}
                           label={tag}
                           size="small"
                         />

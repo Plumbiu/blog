@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Typography from '@mui/material/Typography'
-import { profileInfo as useProfile } from '@plumbiu/github-info'
 import {
   Avatar,
   Badge,
@@ -20,9 +19,10 @@ import GithubIcon from '@mui/icons-material/GitHub'
 import LocationIcon from '@mui/icons-material/HomeOutlined'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import LinkIcon from '@mui/icons-material/Link'
+import { useUserInfo } from '@/lib/info'
 
 export default async function InfoCard() {
-  const profile = await useProfile('Plumbiu')
+  const { user, followers, following, public_repos } = await useUserInfo()
   const infoMap = [
     {
       primary: 'Plumbiu',
@@ -33,32 +33,32 @@ export default async function InfoCard() {
       primary: 'plumbiuzz@gmail.com',
       icon: <EamilIcon />,
     },
-    { primary: profile.location, icon: <LocationIcon /> },
+    { primary: user.location, icon: <LocationIcon /> },
     {
-      primary: profile.twitter,
+      primary: user.twitter,
       icon: <TwitterIcon />,
       href: 'https://twitter.com/Plumbiu',
     },
     {
-      primary: profile.blog,
+      primary: user.blog,
       icon: <LinkIcon />,
-      href: profile.blog,
+      href: user.blog,
     },
   ]
   const infoGithub = [
     {
       primary: 'Repos',
-      count: profile.public_repos.length,
+      count: public_repos.length,
       href: 'https://github.com/Plumbiu?tab=repositories',
     },
     {
       primary: 'Followers',
-      count: profile.followers.length,
+      count: followers.length,
       href: 'https://github.com/Plumbiu?tab=followers',
     },
     {
       primary: 'Following',
-      count: profile.following.length,
+      count: following.length,
       href: 'https://github.com/Plumbiu?tab=following',
     },
   ]
@@ -68,104 +68,97 @@ export default async function InfoCard() {
     { primary: '分类', href: '/categories' },
   ]
   return (
-    <Box
-      sx={{
-        position: 'fixed',
-        top: '10%',
-        left: '15px',
-        py: 2,
-        width: '100%',
-        maxWidth: 300,
-        bgcolor: 'background.paper',
-      }}
-    >
-      <List>
-        <ListItem alignItems="flex-start">
-          <ListItemAvatar>
-            <Link href="https://github.com/Plumbiu">
-              <Avatar
-                sx={{ width: 56, height: 56 }}
-                alt={profile.name}
-                src={profile.avatar}
-              />
-            </Link>
-          </ListItemAvatar>
-          <ListItemText
-            sx={{
-              px: 2,
-            }}
-            primary={`👋 ${profile.name}`}
-            secondary={
-              <>
-                <Typography
-                  sx={{ display: 'inline' }}
-                  component="span"
-                  variant="body2"
-                  color="text.primary"
-                >
-                  Bio
-                </Typography>
-                {` — ${profile.bio}`}
-              </>
-            }
-          />
-        </ListItem>
-        <Divider />
-        <ListItem
-          sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-          }}
-        >
-          <Stack direction="row" spacing={2}>
-            {infoBlog.map(({ href, primary }) => (
-              <Button key={href} component="a" href={href}>
-                <Badge
-                  color="secondary"
-                  badgeContent={profile.public_repos.length}
-                >
-                  {primary}
-                </Badge>
-              </Button>
-            ))}
-          </Stack>
-        </ListItem>
-        {infoMap.map(({ icon, primary, href }) => (
-          <ListItem disablePadding key={href}>
-            {href ? (
-              <ListItemButton component="a" href={href} target="__blank">
-                <ListItemIcon>{icon}</ListItemIcon>
-                <ListItemText primary={primary} />
-              </ListItemButton>
-            ) : (
-              <ListItemButton>
-                <ListItemIcon>{icon}</ListItemIcon>
-                <ListItemText primary={primary} />
-              </ListItemButton>
-            )}
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <Stack
-        direction="row"
-        spacing={2}
-        justifyContent="center"
-        useFlexGap
-        flexWrap="wrap"
+    <div className="blog-info">
+      <Box
         sx={{
-          pt: 1,
+          bgcolor: 'background.paper',
         }}
       >
-        {infoGithub.map(({ primary, href, count }) => (
-          <Button key={href} component="a" href={href} target="__blank">
-            <Badge color="secondary" badgeContent={count}>
-              {primary}
-            </Badge>
-          </Button>
-        ))}
-      </Stack>
-    </Box>
+        <List>
+          <ListItem alignItems="flex-start">
+            <ListItemAvatar>
+              <Link href="https://github.com/Plumbiu">
+                <Avatar
+                  sx={{ width: 56, height: 56 }}
+                  alt={user.name}
+                  src={user.avatar}
+                />
+              </Link>
+            </ListItemAvatar>
+            <ListItemText
+              sx={{
+                px: 2,
+              }}
+              primary={`👋 ${user.name}`}
+              secondary={
+                <>
+                  <Typography
+                    sx={{ display: 'inline' }}
+                    component="span"
+                    variant="body2"
+                    color="text.primary"
+                  >
+                    Bio
+                  </Typography>
+                  {` — ${user.bio}`}
+                </>
+              }
+            />
+          </ListItem>
+          <Divider />
+          <ListItem
+            sx={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+            }}
+          >
+            <Stack direction="row" spacing={2}>
+              {infoBlog.map(({ href, primary }) => (
+                <Button key={href} component="a" href={href}>
+                  <Badge color="secondary" badgeContent={public_repos.length}>
+                    {primary}
+                  </Badge>
+                </Button>
+              ))}
+            </Stack>
+          </ListItem>
+          {infoMap.map(({ icon, primary, href }) => (
+            <ListItem key={href} disablePadding>
+              {href ? (
+                <ListItemButton component="a" href={href} target="__blank">
+                  <ListItemIcon>{icon}</ListItemIcon>
+                  <ListItemText primary={primary} />
+                </ListItemButton>
+              ) : (
+                <ListItemButton>
+                  <ListItemIcon>{icon}</ListItemIcon>
+                  <ListItemText primary={primary} />
+                </ListItemButton>
+              )}
+            </ListItem>
+          ))}
+        </List>
+        <Divider />
+        <Stack
+          direction="row"
+          spacing={2}
+          justifyContent="center"
+          useFlexGap
+          flexWrap="wrap"
+          sx={{
+            pt: 1,
+          }}
+        >
+          {infoGithub.map(({ primary, href, count }) => (
+            <Button key={href} component="a" href={href} target="__blank">
+              <Badge color="secondary" badgeContent={count}>
+                {primary}
+              </Badge>
+            </Button>
+          ))}
+        </Stack>
+      </Box>
+    </div>
   )
 }
