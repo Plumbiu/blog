@@ -1,0 +1,36 @@
+.blog-main {
+  position: absolute;
+  left: 330px;
+  top: 10%;
+  right: 15px;
+  padding: 4px;
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+.blog-info {
+  position: fixed;
+  top: 10%;
+  left: 15px;
+  padding: 2px 0;
+  width: 300px;
+}
+
+@media screen and (max-width: 960px) {
+  .blog-info {
+    width: 260px;
+  }
+  .blog-main {
+    left: 290px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .blog-info {
+    display: none;
+  }
+  .blog-main {
+    left: 5px;
+    right: 5px;
+  }
+}
