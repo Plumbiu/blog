@@ -23,9 +23,6 @@ export default async function Article() {
               component="a"
               href={'article/' + item.id}
               alignItems="flex-start"
-              sx={{
-                cursor: 'pointer',
-              }}
             >
               <ListItemAvatar>
                 <Avatar
