@@ -1,5 +1,4 @@
 'use client'
-import type { Event } from '@plumbiu/github-info'
 import { type ReactNode } from 'react'
 import {
   Timeline,
@@ -17,10 +16,10 @@ import RepeatIcon from '@mui/icons-material/Repeat'
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline'
 import LocalDiningIcon from '@mui/icons-material/LocalDining'
 import Typography from '@mui/material/Typography'
-import { useRequest } from '@/lib/api'
+import { useEventInfo } from '@/lib/info'
 
 export default async function HomeCard() {
-  const events = await useRequest<Event[]>('event')
+  const events = await useEventInfo()
   const eventMap: Record<string, ReactNode> = {
     PushEvent: <LaptopMacIcon />,
     PullRequestEvent: <RepeatIcon />,
