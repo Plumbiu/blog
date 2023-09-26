@@ -21,8 +21,8 @@ dependencies:
     specifier: ^5.14.10
     version: 5.14.10(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@types/react@18.2.22)(react-dom@18.2.0)(react@18.2.0)
   '@plumbiu/github-info':
-    specifier: ^0.1.4
-    version: 0.1.4
+    specifier: ^0.1.5
+    version: 0.1.5
   highlight.js:
     specifier: ^11.8.0
     version: 11.8.0
@@ -682,8 +682,8 @@ packages:
       fastq: 1.15.0
     dev: true
 
-  /@plumbiu/github-info@0.1.4:
-    resolution: {integrity: sha512-28ND99RZPFTrassehiCrdX8Nr36YgwpRGThF4cFlRAU7Ql+YcCVh8ZfvoE9+Gkt4i4OVfTz7AkWqXGPxnV/rmg==}
+  /@plumbiu/github-info@0.1.5:
+    resolution: {integrity: sha512-AQwKu7xbm/A8jvKypMeMwUSZYSyf6snvFbwtoTrGCGopFmF03wvG0cJEeVbE+JUoe8DtqURuvcB1K/aF0AadBA==}
     dev: false
 
   /@popperjs/core@2.11.8:

@@ -14,15 +14,20 @@ import {
   ListItemText,
   Stack,
 } from '@mui/material'
+import type { Follow, PublicRepos } from '@plumbiu/github-info'
 import EamilIcon from '@mui/icons-material/Email'
 import GithubIcon from '@mui/icons-material/GitHub'
 import LocationIcon from '@mui/icons-material/HomeOutlined'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import LinkIcon from '@mui/icons-material/Link'
-import { useUserInfo } from '@/lib/info'
+import { useRequest } from '@/lib/api'
 
 export default async function InfoCard() {
-  const { user, followers, following, public_repos } = await useUserInfo()
+  const { followers, following, public_repos } = await useRequest<{
+    followers: Follow[]
+    following: Follow[]
+    public_repos: PublicRepos[]
+  }>('user')
   const infoMap = [
     {
       primary: 'Plumbiu',
@@ -33,16 +38,16 @@ export default async function InfoCard() {
       primary: 'plumbiuzz@gmail.com',
       icon: <EamilIcon />,
     },
-    { primary: user.location, icon: <LocationIcon /> },
+    { primary: 'Hang Zhou, China', icon: <LocationIcon /> },
     {
-      primary: user.twitter,
+      primary: 'Plumbiu',
       icon: <TwitterIcon />,
       href: 'https://twitter.com/Plumbiu',
     },
     {
-      primary: user.blog,
+      primary: 'https://blog.plumbiu.club/',
       icon: <LinkIcon />,
-      href: user.blog,
+      href: 'https://blog.plumbiu.club/',
     },
   ]
   const infoGithub = [
@@ -80,8 +85,8 @@ export default async function InfoCard() {
               <Link href="https://github.com/Plumbiu">
                 <Avatar
                   sx={{ width: 56, height: 56 }}
-                  alt={user.name}
-                  src={user.avatar}
+                  alt="Plumbiu"
+                  src="https://avatars.githubusercontent.com/u/99574369?v=4"
                 />
               </Link>
             </ListItemAvatar>
@@ -89,7 +94,7 @@ export default async function InfoCard() {
               sx={{
                 px: 2,
               }}
-              primary={`👋 ${user.name}`}
+              primary={'👋 Plumbiu'}
               secondary={
                 <>
                   <Typography
@@ -100,7 +105,8 @@ export default async function InfoCard() {
                   >
                     Bio
                   </Typography>
-                  {` — ${user.bio}`}
+                  — Studprogrammeried at Hangzhou Dianzi University
+                  (杭州电子科技大学) (HDU)，a front-end coder
                 </>
               }
             />
