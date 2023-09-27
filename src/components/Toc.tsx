@@ -45,6 +45,7 @@ const Toc: FC<Props> = ({ html, title, tags }) => {
         <Hr />
         {tocs.map(({ level, id }) => (
           <div
+            key={id}
             style={{
               margin: '8px 0',
             }}
