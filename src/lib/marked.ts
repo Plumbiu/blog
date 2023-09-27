@@ -9,7 +9,10 @@ hljs.registerLanguage('typescript', typescript)
 
 const render = new Renderer()
 render.heading = (text, level) => {
-  return `<h${level} class="toc-title" id=${text}>${text}</h${level}>`
+  return `<h${level} class="toc-title" id=${text.replace(
+    /\s/g,
+    '',
+  )}>${text}</h${level}>`
 }
 
 const marked = new Marked(

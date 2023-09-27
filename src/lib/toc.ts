@@ -12,7 +12,7 @@ export function genTocs(html: string) {
   for (const heading of headings) {
     tocs.push({
       level: +heading.tagName.replace(/h/i, ''),
-      id: heading.id,
+      id: heading.textContent!,
     })
   }
   return tocs
