@@ -1,9 +1,5 @@
-export function apiURL(suffix: string) {
-  return process.env.API_URL + suffix
-}
-
-export async function useRequest<T>(url: string) {
-  const raw = await fetch(apiURL(url))
+export async function useRequest<T>(suffix: string) {
+  const raw = await fetch(process.env.API_URL + suffix)
   const data: T = await raw.json()
   return data
 }

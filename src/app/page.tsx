@@ -17,7 +17,8 @@ import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline'
 import LocalDiningIcon from '@mui/icons-material/LocalDining'
 import Typography from '@mui/material/Typography'
 import Main from '@/components/Main'
-import events from '@/assets/PlumbiuEvents.json'
+import { events } from '@/assets/Plumbiu/index.json'
+import { formatTime } from '@/lib/time'
 
 const eventMap: Record<string, ReactNode> = {
   PushEvent: <LaptopMacIcon />,
@@ -48,14 +49,16 @@ export default function Home() {
                 variant="body2"
                 color="text.secondary"
               >
-                {created_at}
+                {formatTime(created_at)}
                 <Typography
                   variant="body2"
                   sx={{
                     color: '#9C27B0',
                   }}
                 >
-                  {actor.name} {'>'} {repo} {'>'} {payload.ref ?? 'main'}
+                  {actor.name} {'>'} {repo} {'>'}{' '}
+                  {payload.ref?.slice(payload.ref.lastIndexOf('/') + 1) ??
+                    'main'}
                 </Typography>
               </TimelineOppositeContent>
               <TimelineSeparator>

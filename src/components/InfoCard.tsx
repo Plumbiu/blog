@@ -19,7 +19,12 @@ import GithubIcon from '@mui/icons-material/GitHub'
 import LocationIcon from '@mui/icons-material/HomeOutlined'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import LinkIcon from '@mui/icons-material/Link'
-import { user, followers, following, public_repos } from '@/assets/Plumbiu.json'
+import {
+  user,
+  followers,
+  following,
+  public_repos,
+} from '@/assets/Plumbiu/index.json'
 
 export default async function InfoCard() {
   const infoMap = [

@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server'
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import { dateSort } from '@/lib/posts'
 import parseFM from 'simple-md-front-matter'
 
 export async function GET(req: Request) {
@@ -21,9 +20,9 @@ export async function GET(req: Request) {
       ...parseFM<RawMatter>(file),
     })
   }
-  posts.sort((a, b) => dateSort(b.date, a.date))
+  posts.sort((a, b) => b.date.getTime() - a.date.getTime())
   if (tag) {
-    const filtedPosts = posts.filter(post => post.tags.includes(tag)) ?? []
+    const filtedPosts = posts.filter((post) => post.tags.includes(tag)) ?? []
     return NextResponse.json(filtedPosts)
   }
   return NextResponse.json(posts)

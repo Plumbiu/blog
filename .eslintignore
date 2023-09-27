@@ -1,4 +1,5 @@
 dist
 public
 node_modules
-/next.config.js
+/scripts
+/next.config.cjs
