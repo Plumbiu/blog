@@ -53,7 +53,7 @@ const Toc: FC<Props> = ({ html, title, tags }) => {
               component="a"
               gutterBottom
               variant="body2"
-              href={'#' + id}
+              href={'#' + id.replace(/\s/g, '')}
               sx={{
                 pl: level * 1.5,
               }}
