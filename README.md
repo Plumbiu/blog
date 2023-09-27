@@ -8,9 +8,9 @@ Online View: [my blog](https://blog.plumbiu.top/)
 
 - [x] code highlight
 - [x] toc
+- [x] cover image
+- [x] mobile display
 - [ ] lazy load(article list and article)
-- [ ] cover image
-- [ ] mobile display
 - [ ] article search
 - [ ] friends links
 - [ ] tags、categories... page
