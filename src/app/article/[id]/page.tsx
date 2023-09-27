@@ -5,6 +5,7 @@ import 'highlight.js/styles/github.css'
 import { useRequest } from '@/lib/api'
 import Main from '@/components/ui/Main'
 import marked from '@/lib/marked'
+import Toc from '@/components/Toc'
 
 interface Props {
   params: {
@@ -17,18 +18,8 @@ const page: FC<Props> = async ({ params }) => {
   const html = await marked.parse(data.content)
   return (
     <>
-      {/* <Toc html={html} /> */}
+      <Toc html={html} title={data.title} tags={data.tags} />
       <Main>
-        <Typography
-          variant="h4"
-          gutterBottom
-          component="div"
-          sx={{
-            px: 2,
-          }}
-        >
-          {data.title}
-        </Typography>
         <Typography
           variant="body1"
           gutterBottom
