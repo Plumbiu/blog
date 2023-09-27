@@ -6,19 +6,21 @@ import {
   Typography,
   ListItemButton,
   Chip,
-  ListItem,
 } from '@mui/material'
-import Main from '@/components/Main'
 import { useRequest } from '@/lib/api'
+import InfoCard from '@/components/InfoCard'
+import Main from '@/components/ui/Main'
 
 export default async function Article() {
   const data = await useRequest<FullFrontMatter[]>('article')
   return (
-    <Main>
-      <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
-        {data.map((item) => (
-          <ListItem key={item.id}>
+    <>
+      <InfoCard />
+      <Main>
+        <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
+          {data.map((item) => (
             <ListItemButton
+              key={item.id}
               component="a"
               href={'article/' + item.id}
               alignItems="flex-start"
@@ -61,9 +63,9 @@ export default async function Article() {
                 }
               />
             </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Main>
+          ))}
+        </List>
+      </Main>
+    </>
   )
 }

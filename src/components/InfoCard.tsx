@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link'
 import Typography from '@mui/material/Typography'
 import {
@@ -25,6 +26,7 @@ import {
   following,
   public_repos,
 } from '@/assets/Plumbiu/index.json'
+import Side from './ui/Side'
 
 export default async function InfoCard() {
   const infoMap = [
@@ -72,7 +74,7 @@ export default async function InfoCard() {
     { primary: '分类', href: '/categories' },
   ]
   return (
-    <div className="blog-info">
+    <Side>
       <Box
         sx={{
           bgcolor: 'background.paper',
@@ -128,7 +130,7 @@ export default async function InfoCard() {
             </Stack>
           </ListItem>
           {infoMap.map(({ icon, primary, href }) => (
-            <ListItem key={href} disablePadding>
+            <ListItem key={href ?? primary} disablePadding>
               {href ? (
                 <ListItemButton component="a" href={href} target="__blank">
                   <ListItemIcon>{icon}</ListItemIcon>
@@ -163,6 +165,6 @@ export default async function InfoCard() {
           ))}
         </Stack>
       </Box>
-    </div>
+    </Side>
   )
 }

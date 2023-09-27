@@ -3,10 +3,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import parseFM from 'simple-md-front-matter'
 
-export async function GET(req: Request) {
-  const { searchParams } = new URL(req.url)
-  const tag = searchParams.get('tag')
-
+async function getPosts() {
   const postsPath = path.join(process.cwd(), 'src', 'posts')
   const rawPosts = await fs.readdir(postsPath)
   const posts: FullFrontMatter[] = []
@@ -21,6 +18,14 @@ export async function GET(req: Request) {
     })
   }
   posts.sort((a, b) => b.date.getTime() - a.date.getTime())
+  return posts
+}
+
+export async function GET(req: Request) {
+  const { searchParams } = new URL(req.url)
+  const tag = searchParams.get('tag')
+  // const pagenum = searchParams.get('pagenum')
+  const posts = await getPosts()
   if (tag) {
     const filtedPosts = posts.filter((post) => post.tags.includes(tag)) ?? []
     return NextResponse.json(filtedPosts)

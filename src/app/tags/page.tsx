@@ -1,4 +1,4 @@
-import Main from '@/components/Main'
+import Main from '@/components/ui/Main'
 import React from 'react'
 
 const Tags = () => {

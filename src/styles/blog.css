@@ -8,7 +8,7 @@
   margin: 0 auto;
 }
 
-.blog-info {
+.blog-side {
   position: fixed;
   top: 10%;
   left: 15px;
@@ -17,7 +17,7 @@
 }
 
 @media screen and (max-width: 960px) {
-  .blog-info {
+  .blog-side {
     width: 260px;
   }
   .blog-main {
@@ -26,7 +26,7 @@
 }
 
 @media screen and (max-width: 640px) {
-  .blog-info {
+  .blog-side {
     display: none;
   }
   .blog-main {
