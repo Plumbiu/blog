@@ -36,6 +36,9 @@ const TocList: FC<Props> = ({ tocs }) => {
         display: 'block',
         color: show[id] ? '#1976D2' : 'inherit',
         backgroundColor: show[id] ? '#F8F8F8' : 'inherit',
+        '&:hover': {
+          backgroundColor: '#F8F8F8',
+        },
       }}
     >
       {show[id] && <div className="toc-block" />}
