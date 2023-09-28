@@ -7,7 +7,6 @@ import GithubIcon from '@mui/icons-material/GitHub'
 import LocationIcon from '@mui/icons-material/HomeOutlined'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import LinkIcon from '@mui/icons-material/Link'
-import { useRequest } from '@/lib/api'
 import { public_repos, followers, following } from '@/app/Plumbiu.json'
 
 const infoGithub = [
@@ -51,15 +50,15 @@ const githubInfo = [
   },
 ]
 
-export default async function InfoCard() {
-  const artilceNum = await useRequest<number>('article/total')
-  const tagNum = await useRequest<number>('tags/total')
-  const categoryNum = await useRequest<number>('categories/total')
+export default function InfoCard() {
+  // const artilceNum = await useRequest<number>('article/total')
+  // const tagNum = await useRequest<number>('tags/total')
+  // const categoryNum = await useRequest<number>('categories/total')
 
   const blogInfo = [
-    { primary: '文章', href: '/article', count: artilceNum },
-    { primary: '标签', href: '/tags', count: tagNum },
-    { primary: '分类', href: '/categories', count: categoryNum },
+    { primary: '文章', href: '/article', count: 54 },
+    { primary: '标签', href: '/tags', count: 37 },
+    { primary: '分类', href: '/categories', count: 12 },
   ]
   return (
     <Side>
