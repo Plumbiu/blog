@@ -17,7 +17,7 @@ export default async function Article() {
     <>
       <InfoCard />
       <Main>
-        <List sx={{ width: '100%', bgcolor: 'background.paper', py: 3 }}>
+        <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
           {data.map((item) => (
             <ListItemButton
               key={item.id}
@@ -31,6 +31,7 @@ export default async function Article() {
                     bgcolor: '#9C27B0',
                     width: 48,
                     height: 48,
+                    mr: 2,
                   }}
                 >
                   {item.cover ?? item.tags?.[0]}
@@ -50,15 +51,17 @@ export default async function Article() {
                         <Chip
                           key={tag}
                           component="span"
+                          variant="outlined"
                           sx={{
                             mr: 1,
+                            fontSize: '10px',
                           }}
                           label={tag}
                           size="small"
                         />
                       ))}
                     </Typography>
-                    {item.desc + '...'}
+                    {item.desc + '......'}
                   </>
                 }
               />

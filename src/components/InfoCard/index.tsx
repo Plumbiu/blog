@@ -3,7 +3,6 @@ import Link from 'next/link'
 import Typography from '@mui/material/Typography'
 import {
   Avatar,
-  Badge,
   Box,
   Button,
   Divider,
@@ -20,7 +19,7 @@ import GithubIcon from '@mui/icons-material/GitHub'
 import LocationIcon from '@mui/icons-material/HomeOutlined'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import LinkIcon from '@mui/icons-material/Link'
-import { user, followers, following, public_repos } from '@/app/Plumbiu.json'
+import { user } from '@/app/Plumbiu.json'
 import Side from '../ui/Side'
 
 const infoMap = [
@@ -48,17 +47,14 @@ const infoMap = [
 const infoGithub = [
   {
     primary: 'Repos',
-    count: public_repos.length,
     href: 'https://github.com/Plumbiu?tab=repositories',
   },
   {
     primary: 'Followers',
-    count: followers.length,
     href: 'https://github.com/Plumbiu?tab=followers',
   },
   {
     primary: 'Following',
-    count: following.length,
     href: 'https://github.com/Plumbiu?tab=following',
   },
 ]
@@ -118,9 +114,7 @@ export default function InfoCard() {
             <Stack direction="row" spacing={2}>
               {infoBlog.map(({ href, primary }) => (
                 <Button key={href} component="a" href={href}>
-                  <Badge color="secondary" badgeContent={public_repos.length}>
-                    {primary}
-                  </Badge>
+                  {primary}
                 </Button>
               ))}
             </Stack>
@@ -152,11 +146,9 @@ export default function InfoCard() {
             pt: 1,
           }}
         >
-          {infoGithub.map(({ primary, href, count }) => (
+          {infoGithub.map(({ primary, href }) => (
             <Button key={href} component="a" href={href} target="__blank">
-              <Badge color="secondary" badgeContent={count}>
-                {primary}
-              </Badge>
+              {primary}
             </Button>
           ))}
         </Stack>
