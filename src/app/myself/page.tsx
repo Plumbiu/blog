@@ -16,7 +16,7 @@ import RepeatIcon from '@mui/icons-material/Repeat'
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline'
 import LocalDiningIcon from '@mui/icons-material/LocalDining'
 import Typography from '@mui/material/Typography'
-import { events } from '@/assets/Plumbiu/index.json'
+import { events } from '@/app/Plumbiu.json'
 import { formatTime } from '@/lib/time'
 
 const eventMap: Record<string, ReactNode> = {
