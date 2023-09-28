@@ -19,11 +19,11 @@ const TocList: FC<Props> = ({ tocs, id }) => {
     initalData[toc.id] = false
   }
   const [show, setShow] = useState(initalData)
-  function handleShow(id: string) {
-    setUrl(url + '#' + id)
+  function handleShow(hash: string) {
+    setUrl(`https://blog.plumbiu.top/article/${id}#${hash}`)
     setShow({
       ...initalData,
-      [id]: true,
+      [hash]: true,
     })
   }
   async function handleShare() {
