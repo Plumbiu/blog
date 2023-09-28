@@ -34,50 +34,50 @@ const TocList: FC<Props> = ({ tocs, id }) => {
     <>
       <div
         style={{
-          margin: '12px 0',
+          padding: '6px 0',
+        }}
+      >
+        <Hr />
+      </div>
+      <div
+        style={{
           maxHeight: '460px',
           overflowY: 'scroll',
         }}
       >
-        <Hr />
-        <div
-          style={{
-            padding: '12px 0',
-          }}
-        >
-          {tocs.map(({ level, id }) => (
-            <Typography
-              key={id}
-              className="toc-list"
-              component="a"
-              variant="body2"
-              href={'#' + id.replace(/\s/g, '')}
-              onClick={() => {
-                handleShow(id)
-              }}
-              sx={{
-                pl: level * 2,
-                py: 1,
-                display: 'block',
-                color: show[id] ? '#1976D2' : 'inherit',
-                backgroundColor: show[id] ? '#F8F8F8' : 'inherit',
-                '&:hover': {
-                  backgroundColor: '#F8F8F8',
-                },
-              }}
-            >
-              {show[id] && <div className="toc-block" />}
-              {id}
-            </Typography>
-          ))}
-        </div>
-        <Hr />
+        {tocs.map(({ level, id }) => (
+          <Typography
+            key={id}
+            className="toc-list"
+            component="a"
+            variant="body2"
+            href={'#' + id.replace(/\s/g, '')}
+            onClick={() => {
+              handleShow(id)
+            }}
+            sx={{
+              pl: level * 2,
+              py: 1,
+              display: 'block',
+              color: show[id] ? '#1976D2' : 'inherit',
+              backgroundColor: show[id] ? '#F8F8F8' : 'inherit',
+              '&:hover': {
+                backgroundColor: '#F8F8F8',
+              },
+            }}
+          >
+            {show[id] && <div className="toc-block" />}
+            {id}
+          </Typography>
+        ))}
       </div>
+      <Hr />
       <ButtonGroup
         disableElevation
         variant="outlined"
         size="small"
         sx={{
+          mt: 2,
           pl: 2,
         }}
         aria-label="Disabled elevation buttons"

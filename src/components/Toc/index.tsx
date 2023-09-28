@@ -46,6 +46,7 @@ const Toc: FC<Props> = ({ html, title, tags, categories, id }) => {
               variant="outlined"
               color="primary"
               sx={{
+                mt: 1,
                 mr: 1,
               }}
               label={tag}
@@ -56,6 +57,7 @@ const Toc: FC<Props> = ({ html, title, tags, categories, id }) => {
             <Chip
               color="primary"
               sx={{
+                mt: 1,
                 mr: 1,
               }}
               label={tag}
