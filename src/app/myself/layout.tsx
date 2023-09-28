@@ -1,4 +1,4 @@
-import InfoCard from '@/components/InfoCard/index'
+import InfoCard from '@/components/SideCard/index'
 import Main from '@/components/ui/Main'
 import type { Metadata } from 'next'
 import type { FC, ReactNode } from 'react'

@@ -8,7 +8,7 @@ import {
   Chip,
 } from '@mui/material'
 import { useRequest } from '@/lib/api'
-import InfoCard from '@/components/InfoCard'
+import InfoCard from '@/components/SideCard'
 import Main from '@/components/ui/Main'
 
 export default async function Article() {
@@ -29,8 +29,8 @@ export default async function Article() {
                 <Avatar
                   sx={{
                     bgcolor: '#9C27B0',
-                    width: 48,
-                    height: 48,
+                    width: 52,
+                    height: 52,
                     mr: 2,
                   }}
                 >

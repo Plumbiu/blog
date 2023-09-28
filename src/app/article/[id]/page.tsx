@@ -1,5 +1,6 @@
 import { Typography } from '@mui/material'
 import { type FC } from 'react'
+import type { Metadata } from 'next'
 import '@/styles/github-markdown-light.css'
 import 'highlight.js/styles/github.css'
 import { useRequest } from '@/lib/api'
@@ -42,3 +43,14 @@ const page: FC<Props> = async ({ params }) => {
 }
 
 export default page
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const data = await useRequest<Article>('article/' + params.id)
+
+  return {
+    title: '文章 - ' + data.title,
+    description: data.desc,
+    keywords: data.tags,
+    category: data.categories.join(','),
+  }
+}
