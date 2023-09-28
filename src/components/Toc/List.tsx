@@ -20,7 +20,7 @@ const TocList: FC<Props> = ({ tocs, id }) => {
   }
   const [show, setShow] = useState(initalData)
   function handleShow(id: string) {
-    setUrl('https://blog.plumbiu.top/article/' + id)
+    setUrl(url + '#' + id)
     setShow({
       ...initalData,
       [id]: true,
