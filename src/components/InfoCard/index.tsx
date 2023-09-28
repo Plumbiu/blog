@@ -73,7 +73,7 @@ const infoBlog = [
   { primary: '分类', href: '/categories' },
 ]
 
-export default async function InfoCard() {
+export default function InfoCard() {
   return (
     <Side>
       <Box
