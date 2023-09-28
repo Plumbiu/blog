@@ -29,8 +29,8 @@ export default async function Article() {
                 <Avatar
                   sx={{
                     bgcolor: '#9C27B0',
-                    width: 52,
-                    height: 52,
+                    width: 48,
+                    height: 48,
                     mr: 2,
                   }}
                 >

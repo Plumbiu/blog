@@ -1,14 +1,7 @@
 import * as React from 'react'
-import {
-  AppBar,
-  Box,
-  Toolbar,
-  IconButton,
-  Typography,
-  InputBase,
-} from '@mui/material'
-import MenuIcon from '@mui/icons-material/Menu'
+import { AppBar, Box, Toolbar, Typography, InputBase } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
+import HeaderMenu from './HeaderMenu'
 
 export default function Header() {
   return (
@@ -21,15 +14,7 @@ export default function Header() {
         }}
       >
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
+          <HeaderMenu />
           <Typography
             variant="h6"
             noWrap
