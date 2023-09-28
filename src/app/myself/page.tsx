@@ -67,7 +67,7 @@ export default function Home() {
             </TimelineSeparator>
             <TimelineContent sx={{ py: '12px', px: 2 }}>
               <Typography variant="h6" component="span">
-                {type.replace('Event', '')}
+                {type === 'PullRequestEvent' ? 'PR' : type.replace('Event', '')}
               </Typography>
               {type === 'PushEvent' && (
                 <>
@@ -79,8 +79,10 @@ export default function Home() {
                   >
                     Message:
                   </Typography>
-                  {payload?.commits?.map(({ message }) => (
-                    <Typography variant="body2">{message}</Typography>
+                  {payload?.commits?.map(({ message }, index) => (
+                    <Typography key={message + index} variant="body2">
+                      {message}
+                    </Typography>
                   ))}
                 </>
               )}

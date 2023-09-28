@@ -26,53 +26,54 @@ import {
   following,
   public_repos,
 } from '@/assets/Plumbiu/index.json'
-import Side from './ui/Side'
+import Side from '../ui/Side'
+
+const infoMap = [
+  {
+    primary: user.name,
+    icon: <GithubIcon />,
+    href: 'https://github.com/Plumbiu',
+  },
+  {
+    primary: 'plumbiuzz@gmail.com',
+    icon: <EamilIcon />,
+  },
+  { primary: 'Hang Zhou, China', icon: <LocationIcon /> },
+  {
+    primary: user.twitter,
+    icon: <TwitterIcon />,
+    href: 'https://twitter.com/Plumbiu',
+  },
+  {
+    primary: 'https://blog.plumbiu.club/',
+    icon: <LinkIcon />,
+    href: 'https://blog.plumbiu.club/',
+  },
+]
+const infoGithub = [
+  {
+    primary: 'Repos',
+    count: public_repos.length,
+    href: 'https://github.com/Plumbiu?tab=repositories',
+  },
+  {
+    primary: 'Followers',
+    count: followers.length,
+    href: 'https://github.com/Plumbiu?tab=followers',
+  },
+  {
+    primary: 'Following',
+    count: following.length,
+    href: 'https://github.com/Plumbiu?tab=following',
+  },
+]
+const infoBlog = [
+  { primary: '文章', href: '/article' },
+  { primary: '标签', href: '/tags' },
+  { primary: '分类', href: '/categories' },
+]
 
 export default async function InfoCard() {
-  const infoMap = [
-    {
-      primary: user.name,
-      icon: <GithubIcon />,
-      href: 'https://github.com/Plumbiu',
-    },
-    {
-      primary: 'plumbiuzz@gmail.com',
-      icon: <EamilIcon />,
-    },
-    { primary: 'Hang Zhou, China', icon: <LocationIcon /> },
-    {
-      primary: user.twitter,
-      icon: <TwitterIcon />,
-      href: 'https://twitter.com/Plumbiu',
-    },
-    {
-      primary: 'https://blog.plumbiu.club/',
-      icon: <LinkIcon />,
-      href: 'https://blog.plumbiu.club/',
-    },
-  ]
-  const infoGithub = [
-    {
-      primary: 'Repos',
-      count: public_repos.length,
-      href: 'https://github.com/Plumbiu?tab=repositories',
-    },
-    {
-      primary: 'Followers',
-      count: followers.length,
-      href: 'https://github.com/Plumbiu?tab=followers',
-    },
-    {
-      primary: 'Following',
-      count: following.length,
-      href: 'https://github.com/Plumbiu?tab=following',
-    },
-  ]
-  const infoBlog = [
-    { primary: '文章', href: '/article' },
-    { primary: '标签', href: '/tags' },
-    { primary: '分类', href: '/categories' },
-  ]
   return (
     <Side>
       <Box
