@@ -25,6 +25,7 @@ const page: FC<Props> = async ({ params }) => {
           gutterBottom
           component="div"
           sx={{
+            py: 3,
             px: 2,
           }}
         >

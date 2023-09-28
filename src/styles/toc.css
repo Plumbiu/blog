@@ -1,0 +1,20 @@
+:target {
+  color: #1976D2;
+}
+
+.toc-list {
+  position: relative;
+}
+
+.toc-block {
+  transition: all 1s;
+  position: absolute;
+  left: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  line-height: 100%;
+  width: 12px;
+  height: 12px;
+  border-radius: 0 50% 50% 0;
+  background-color: #1976D2;
+}

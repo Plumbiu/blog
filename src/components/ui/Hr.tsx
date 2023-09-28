@@ -8,9 +8,9 @@ const Hr = () => {
         overflow: 'hidden',
         background: 'transparent',
         borderBottom: '1px solid hsla(210, 18%, 87%, 1)',
-        height: '0.25em',
+        height: '0.1em',
         padding: 0,
-        margin: '12px 0',
+        margin: '8px 0',
         backgroundColor: '#d0d7de',
         border: 0,
       }}

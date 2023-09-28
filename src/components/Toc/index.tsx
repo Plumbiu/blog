@@ -1,9 +1,11 @@
+import '@/styles/toc.css'
 import { genTocs } from '@/lib/toc'
 import { Chip, Typography } from '@mui/material'
 import type { FC } from 'react'
-import Side from './ui/Side'
-import BackToArticle from './ui/BackToArticle'
-import Hr from './ui/Hr'
+import Side from '../ui/Side'
+import BackToArticle from '../ui/BackToArticle'
+import Hr from '../ui/Hr'
+import TocList from './List'
 
 interface Props {
   html: string
@@ -18,7 +20,8 @@ const Toc: FC<Props> = ({ html, title, tags }) => {
       <div
         style={{
           backgroundColor: '#fff',
-          padding: '16px 4px',
+          padding: '16px 0px',
+          overflow: 'hidden',
         }}
       >
         <Typography
@@ -39,30 +42,25 @@ const Toc: FC<Props> = ({ html, title, tags }) => {
           }}
         >
           {tags.map((tag) => (
-            <Chip color="primary" label={tag} size="small" />
+            <Chip
+              color="primary"
+              sx={{
+                mr: 1,
+              }}
+              label={tag}
+              size="small"
+            />
           ))}
         </Typography>
         <Hr />
-        {tocs.map(({ level, id }) => (
-          <div
-            key={id}
-            style={{
-              margin: '8px 0',
-            }}
-          >
-            <Typography
-              component="a"
-              gutterBottom
-              variant="body2"
-              href={'#' + id.replace(/\s/g, '')}
-              sx={{
-                pl: level * 1.5,
-              }}
-            >
-              {id}
-            </Typography>
-          </div>
-        ))}
+        <div
+          style={{
+            maxHeight: '460px',
+            overflowY: 'scroll',
+          }}
+        >
+          <TocList tocs={tocs} />
+        </div>
         <Hr />
         <BackToArticle />
       </div>
