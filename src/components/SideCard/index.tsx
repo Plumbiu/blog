@@ -1,3 +1,4 @@
+'use client'
 import { Box } from '@mui/material'
 import Side from '../ui/Side'
 import ListTop from './ListTop'
