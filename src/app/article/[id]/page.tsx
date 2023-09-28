@@ -7,6 +7,7 @@ import { useRequest } from '@/lib/api'
 import Main from '@/components/ui/Main'
 import marked from '@/lib/marked'
 import Toc from '@/components/Toc'
+import Container from '@/components/ui/Container'
 
 interface Props {
   params: {
@@ -15,16 +16,19 @@ interface Props {
 }
 
 const page: FC<Props> = async ({ params }) => {
-  const data = await useRequest<Article>('article/' + params.id)
-  const html = await marked.parse(data.content)
+  const { id, content, title, tags, categories, date, updated } =
+    await useRequest<Article>('article/' + params.id)
+  const html = await marked.parse(content)
   return (
-    <>
+    <Container>
       <Toc
-        id={data.id}
+        id={id}
         html={html}
-        title={data.title}
-        tags={data.tags}
-        categories={data.categories}
+        title={title}
+        tags={tags}
+        categories={categories}
+        date={date}
+        updated={updated}
       />
       <Main>
         <Typography
@@ -44,7 +48,7 @@ const page: FC<Props> = async ({ params }) => {
           />
         </Typography>
       </Main>
-    </>
+    </Container>
   )
 }
 

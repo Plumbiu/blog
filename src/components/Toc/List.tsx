@@ -41,6 +41,7 @@ const TocList: FC<Props> = ({ tocs, id }) => {
       </div>
       <div
         style={{
+          padding: '4px 0',
           maxHeight: '460px',
           overflowY: 'scroll',
         }}
@@ -103,11 +104,9 @@ const TocList: FC<Props> = ({ tocs, id }) => {
           setOpen(false)
         }}
         autoHideDuration={3000}
-        key="复制链接成功，快分享给你的小伙伴吧！"
-        message="复制链接成功，快分享给你的小伙伴吧！"
       >
         <Alert severity="success" sx={{ width: '100%' }}>
-          复制链接成功，快分享给你的小伙伴吧！
+          复制链接成功！
         </Alert>
       </Snackbar>
     </>

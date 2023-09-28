@@ -1,36 +1,18 @@
 .blog-main {
-  position: absolute;
-  left: 320px;
-  top: 72px;
-  right: 10px;
+  flex: 1;
   padding: 4px 0;
+  min-height: calc(100vh - 100px);
   background-color: #fff;
   margin: 0 auto;
 }
 
 .blog-side {
-  position: fixed;
-  top: 72px;
-  left: 10px;
   padding: 2px 0;
   width: 300px;
-}
-
-@media screen and (max-width: 960px) {
-  .blog-side {
-    width: 260px;
-  }
-  .blog-main {
-    left: 290px;
-  }
 }
 
 @media screen and (max-width: 640px) {
   .blog-side {
     display: none;
-  }
-  .blog-main {
-    left: 5px;
-    right: 5px;
   }
 }

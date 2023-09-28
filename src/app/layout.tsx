@@ -2,6 +2,7 @@ import '@/styles/globals.css'
 import '@/styles/blog.css'
 import type { Metadata } from 'next'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Plumbiu の 小屋',
@@ -23,6 +24,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   )

@@ -5,7 +5,18 @@ interface Props {
 }
 
 const Side: FC<Props> = ({ children }) => {
-  return <div className="blog-side">{children}</div>
+  return (
+    <div className="blog-side">
+      <div
+        style={{
+          position: 'fixed',
+          width: '300px',
+        }}
+      >
+        {children}
+      </div>
+    </div>
+  )
 }
 
 export default Side

@@ -7,7 +7,6 @@
 }
 
 .toc-block {
-  transition: all 1s;
   position: absolute;
   left: -4px;
   top: 50%;
