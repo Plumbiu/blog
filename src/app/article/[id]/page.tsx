@@ -19,15 +19,21 @@ const page: FC<Props> = async ({ params }) => {
   const html = await marked.parse(data.content)
   return (
     <>
-      <Toc html={html} title={data.title} tags={data.tags} />
+      <Toc
+        id={data.id}
+        html={html}
+        title={data.title}
+        tags={data.tags}
+        categories={data.categories}
+      />
       <Main>
         <Typography
           variant="body1"
           gutterBottom
           component="div"
           sx={{
-            py: 3,
             px: 2,
+            py: 1,
           }}
         >
           <div

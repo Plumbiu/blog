@@ -3,17 +3,17 @@ import { genTocs } from '@/lib/toc'
 import { Chip, Typography } from '@mui/material'
 import type { FC } from 'react'
 import Side from '../ui/Side'
-import BackToArticle from '../ui/BackToArticle'
-import Hr from '../ui/Hr'
 import TocList from './List'
 
 interface Props {
+  id: string
   html: string
   title: string
   tags: string[]
+  categories: string[]
 }
 
-const Toc: FC<Props> = ({ html, title, tags }) => {
+const Toc: FC<Props> = ({ html, title, tags, categories, id }) => {
   const tocs = genTocs(html)
   return (
     <Side>
@@ -41,6 +41,17 @@ const Toc: FC<Props> = ({ html, title, tags }) => {
             pl: 2,
           }}
         >
+          {categories.map((tag) => (
+            <Chip
+              variant="outlined"
+              color="primary"
+              sx={{
+                mr: 1,
+              }}
+              label={tag}
+              size="small"
+            />
+          ))}
           {tags.map((tag) => (
             <Chip
               color="primary"
@@ -52,17 +63,7 @@ const Toc: FC<Props> = ({ html, title, tags }) => {
             />
           ))}
         </Typography>
-        <Hr />
-        <div
-          style={{
-            maxHeight: '460px',
-            overflowY: 'scroll',
-          }}
-        >
-          <TocList tocs={tocs} />
-        </div>
-        <Hr />
-        <BackToArticle />
+        <TocList tocs={tocs} id={id} />
       </div>
     </Side>
   )

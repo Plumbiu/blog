@@ -44,3 +44,7 @@ a {
   background-color: #1976d2;
   -webkit-border-radius: 4px;
 }
+/* 不知道为什么 nextjs 会显示 hr，干脆直接隐藏 */
+.md hr {
+  display: none!important;
+}
