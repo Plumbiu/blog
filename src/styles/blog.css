@@ -1,8 +1,8 @@
 .blog-main {
   position: absolute;
-  left: 330px;
-  top: 10%;
-  right: 15px;
+  left: 320px;
+  top: 72px;
+  right: 10px;
   padding: 4px 0;
   background-color: #fff;
   margin: 0 auto;
@@ -10,8 +10,8 @@
 
 .blog-side {
   position: fixed;
-  top: 10%;
-  left: 15px;
+  top: 72px;
+  left: 10px;
   padding: 2px 0;
   width: 300px;
 }
