@@ -1,4 +1,3 @@
-import { type FC } from 'react'
 import type { Metadata } from 'next'
 import '@/styles/github-markdown-light.css'
 import 'highlight.js/styles/github.css'
@@ -21,7 +20,7 @@ export async function generateStaticParams() {
   return ids
 }
 
-const page: FC<Props> = async ({ params }) => {
+export default async function ({ params }: Props) {
   const { content, title, tags, categories, date, updated } =
     await useRequest<Article>('article/' + params.id)
   const html = await renderMD(content)
@@ -50,8 +49,6 @@ const page: FC<Props> = async ({ params }) => {
     </>
   )
 }
-
-export default page
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { title, content, tags, categories } = await useRequest<Article>(
