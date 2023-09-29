@@ -33,6 +33,7 @@ export default async function Article() {
             </Avatar>
           </ListItemAvatar>
           <ListItemText
+            className="title"
             primary={item.title}
             secondary={
               <>

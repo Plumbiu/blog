@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { AppBar, Box, Toolbar, Typography, InputBase } from '@mui/material'
-import SearchIcon from '@mui/icons-material/Search'
+import { AppBar, Box, Toolbar, Typography } from '@mui/material'
 import HeaderMenu from './HeaderMenu'
+import '@docsearch/css'
+import Search from './Search'
 
 export default function Header() {
   return (
@@ -24,35 +24,11 @@ export default function Header() {
           >
             Plumbiu の 小屋
           </Typography>
-          <div
-            style={{
-              position: 'relative',
-            }}
-          >
-            <div
-              style={{
-                padding: 1,
-                height: '100%',
-                position: 'absolute',
-                pointerEvents: 'none',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="搜索文章"
-              inputProps={{ 'aria-label': 'search' }}
-              sx={{
-                color: 'inherit',
-                padding: '4px 4px 4px 0',
-                paddingLeft: '2em',
-                width: '100%',
-              }}
-            />
-          </div>
+          <Search
+            id={process.env.APPLICATION_ID ?? ''}
+            apiKey={process.env.API_KEY ?? ''}
+            name="plumbiu"
+          />
         </Toolbar>
       </AppBar>
     </Box>
