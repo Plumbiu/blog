@@ -15,8 +15,6 @@
   "dependencies": {
     "@docsearch/css": "^3.5.2",
     "@docsearch/react": "^3.5.2",
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.11",
     "@mui/lab": "5.0.0-alpha.145",
     "@mui/material": "^5.14.11",
