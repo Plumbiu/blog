@@ -1,9 +1,17 @@
 :target {
-  color: #1976D2;
+  color: #1976d2;
 }
 
 .toc-list {
   position: relative;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  display: block;
+  font-size: 14px;
+}
+
+.toc-list:hover {
+  background-color: #f8f8f8!important;
 }
 
 .toc-block {
@@ -15,5 +23,5 @@
   width: 12px;
   height: 20px;
   border-radius: 0 50% 50% 0;
-  background-color: #1976D2;
+  background-color: #1976d2;
 }
