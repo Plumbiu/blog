@@ -15,9 +15,12 @@ const TocList: FC<Props> = ({ tocs, id }) => {
   const [currentIdx, setCurrentIdx] = useState(0)
   return (
     <>
+      <div>
+        <Hr />
+      </div>
       <div
         style={{
-          padding: '4px 0',
+          padding: '6px 0',
           maxHeight: '460px',
           overflowY: 'scroll',
         }}
@@ -31,7 +34,7 @@ const TocList: FC<Props> = ({ tocs, id }) => {
               setCurrentIdx(index)
             }}
             style={{
-              paddingLeft: level * 12 + 'px',
+              paddingLeft: level * 16 + 'px',
               color: currentIdx === index ? '#1976D2' : 'inherit',
               backgroundColor: currentIdx === index ? '#F8F8F8' : 'inherit',
             }}

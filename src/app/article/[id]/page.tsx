@@ -39,7 +39,7 @@ const page: FC<Props> = async ({ params }) => {
       <Main>
         <div
           style={{
-            padding: '16px 12px',
+            padding: '16px 20px',
           }}
           className="md"
           dangerouslySetInnerHTML={{

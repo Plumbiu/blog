@@ -6,7 +6,6 @@ import Side from '../ui/Side'
 import TocList from './List'
 import { formatTime } from '@/lib/time'
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled'
-import Hr from '../ui/Hr'
 
 interface Props {
   id: string
@@ -62,7 +61,7 @@ const Toc: FC<Props> = ({ html, title, tags, categories, id, date }) => {
         <div
           style={{
             paddingLeft: '14px',
-            paddingBottom: '6px',
+            paddingBottom: '12px',
           }}
         >
           {categories?.map((tag) => (
@@ -88,13 +87,6 @@ const Toc: FC<Props> = ({ html, title, tags, categories, id, date }) => {
               size="small"
             />
           ))}
-        </div>
-        <div
-          style={{
-            padding: '6px 0',
-          }}
-        >
-          <Hr />
         </div>
         <TocList tocs={tocs} id={id} />
       </div>
