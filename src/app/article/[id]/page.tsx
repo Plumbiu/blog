@@ -1,4 +1,3 @@
-import { Typography } from '@mui/material'
 import { type FC } from 'react'
 import type { Metadata } from 'next'
 import '@/styles/github-markdown-light.css'
@@ -31,22 +30,15 @@ const page: FC<Props> = async ({ params }) => {
         updated={updated}
       />
       <Main>
-        <Typography
-          variant="body1"
-          gutterBottom
-          component="div"
-          sx={{
-            px: 2,
-            py: 1,
+        <div
+          style={{
+            padding: '16px 12px',
           }}
-        >
-          <div
-            className="md"
-            dangerouslySetInnerHTML={{
-              __html: html,
-            }}
-          />
-        </Typography>
+          className="md"
+          dangerouslySetInnerHTML={{
+            __html: html,
+          }}
+        />
       </Main>
     </Container>
   )

@@ -1,6 +1,6 @@
 import '@/styles/toc.css'
 import { genTocs } from '@/lib/toc'
-import { Chip, ListItemText, Typography } from '@mui/material'
+import { Chip } from '@mui/material'
 import type { FC } from 'react'
 import Side from '../ui/Side'
 import TocList from './List'
@@ -17,15 +17,7 @@ interface Props {
   categories: string[]
 }
 
-const Toc: FC<Props> = ({
-  html,
-  title,
-  tags,
-  categories,
-  id,
-  date,
-  updated,
-}) => {
+const Toc: FC<Props> = ({ html, title, tags, categories, id, date }) => {
   const tocs = genTocs(html)
   const formatedDate = formatTime(date)
   return (
@@ -37,47 +29,39 @@ const Toc: FC<Props> = ({
           overflow: 'hidden',
         }}
       >
-        <Typography
-          variant="h6"
-          component="div"
-          sx={{
-            px: '16px',
-            fontWeight: 'bold',
+        <h3
+          style={{
+            paddingLeft: '16px',
           }}
         >
           {title}
-        </Typography>
+        </h3>
         <div
           style={{
             display: 'flex',
             alignItems: 'center',
-            paddingLeft: '16px',
-            marginTop: '2px',
+            padding: '8px 16px',
           }}
         >
           <AccessTimeFilledIcon
             sx={{
               fontSize: '14px',
               color: '#1976D2',
-              mr: '6px',
-              my: '8px',
+              mr: '4px',
             }}
           />
-          <ListItemText
-            sx={{ my: 0 }}
-            primary={formatedDate.split(' ')[0]}
-            primaryTypographyProps={{
+          <p
+            style={{
               fontSize: '14px',
-              fontWeight: 'medium',
-              letterSpacing: 0,
             }}
-          />
+          >
+            {formatedDate.split(' ')[0]}
+          </p>
         </div>
-        <Typography
-          gutterBottom
-          component="div"
-          sx={{
-            pl: '14px',
+        <div
+          style={{
+            paddingLeft: '14px',
+            paddingBottom: '6px',
           }}
         >
           {categories.map((tag) => (
@@ -103,7 +87,7 @@ const Toc: FC<Props> = ({
               size="small"
             />
           ))}
-        </Typography>
+        </div>
         <TocList tocs={tocs} id={id} />
       </div>
     </Side>

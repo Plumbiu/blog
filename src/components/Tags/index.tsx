@@ -1,13 +1,12 @@
 import Main from '@/components/ui/Main'
-import { Typography } from '@mui/material'
+import { Badge, Chip, Typography } from '@mui/material'
 import type { FC } from 'react'
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface Props {
-  // tags: Tag[]
+  tags: Tag[]
 }
 
-const TagsCmp: FC<Props> = () => {
+const TagsCmp: FC<Props> = ({ tags }) => {
   return (
     <Main>
       <Typography
@@ -18,8 +17,20 @@ const TagsCmp: FC<Props> = () => {
           py: 2,
         }}
       >
-        🎉 收录了 {37} 个 tag! 🎉
+        🎉 收录了 {tags.length} 个 tag! 🎉
       </Typography>
+      {tags.map(({ name, count }) => (
+        <Badge
+          key={name}
+          badgeContent={count}
+          color="primary"
+          sx={{
+            m: 1,
+          }}
+        >
+          <Chip variant="outlined" label={name} clickable />
+        </Badge>
+      ))}
     </Main>
   )
 }

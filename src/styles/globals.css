@@ -16,6 +16,20 @@ a {
   color: inherit;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
 /* 滚动条 */
 ::-webkit-scrollbar-thumb:horizontal {
   width: 4px;
@@ -46,5 +60,5 @@ a {
 }
 /* 不知道为什么 nextjs 会显示 hr，干脆直接隐藏 */
 .md hr {
-  display: none!important;
+  display: none !important;
 }

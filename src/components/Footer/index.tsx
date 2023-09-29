@@ -2,6 +2,7 @@ import { getDuration } from '@/lib/time'
 import { Typography } from '@mui/material'
 import React from 'react'
 
+// FIXME: will break the build process, can't figure why
 const Footer = () => {
   return (
     <div
