@@ -1,3 +1,4 @@
+'use client'
 import Main from '@/components/ui/Main'
 import { Badge, Chip, Typography } from '@mui/material'
 import type { FC } from 'react'
