@@ -6,6 +6,7 @@ import rehypeSanitize from 'rehype-sanitize'
 import rehypeStringify from 'rehype-stringify'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeSlug from 'rehype-slug'
+import remarkGfm from 'remark-gfm'
 
 export async function renderMD(md: string) {
   const file = await unified()
@@ -16,9 +17,10 @@ export async function renderMD(md: string) {
     .use(rehypeHighlight)
     .use(remarkSqueezeParagraphs)
     .use(rehypeSlug)
+    .use(remarkGfm)
     .process(md)
 
-  return String(file) // <p>Hello, Next.js!</p>
+  return String(file).replace(/<img/g, '<img loading=\'lazy\'') // <p>Hello, Next.js!</p>
 }
 
 export function sanitizeID(id: string) {
