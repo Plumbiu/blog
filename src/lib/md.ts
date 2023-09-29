@@ -20,7 +20,7 @@ export async function renderMD(md: string) {
     .use(remarkGfm)
     .process(md)
 
-  return String(file).replace(/<img/g, '<img loading=\'lazy\'') // <p>Hello, Next.js!</p>
+  return String(file).replace(/<img/g, '<img loading=\'lazy\'')
 }
 
 export function sanitizeID(id: string) {

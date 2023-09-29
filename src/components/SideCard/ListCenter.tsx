@@ -24,7 +24,7 @@ const ListCenter: FC<Props> = ({ blogInfo, githubInfo }) => {
         <Stack direction="row" spacing={2}>
           {blogInfo.map(({ href, primary, count }) => (
             <Button key={href} component="a" href={href}>
-              <Badge badgeContent={count} color="primary">
+              <Badge badgeContent={count} color="secondary">
                 {primary}
               </Badge>
             </Button>

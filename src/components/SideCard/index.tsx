@@ -1,4 +1,3 @@
-'use client'
 import { Box } from '@mui/material'
 import Side from '../ui/Side'
 import ListTop from './ListTop'
@@ -52,10 +51,6 @@ const githubInfo = [
 ]
 
 export default function InfoCard() {
-  // const artilceNum = await useRequest<number>('article/total')
-  // const tagNum = await useRequest<number>('tags/total')
-  // const categoryNum = await useRequest<number>('categories/total')
-
   const blogInfo = [
     { primary: '文章', href: '/article', count: 54 },
     { primary: '标签', href: '/tags', count: 37 },

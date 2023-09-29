@@ -21,6 +21,7 @@
     "@typescript-eslint/naming-convention": "off",
     "indent": ["error", 2],
     "@typescript-eslint/indent": "off",
-    "multiline-ternary": 0
+    "multiline-ternary": 0,
+    "@typescript-eslint/no-floating-promises": "off"
   }
 }

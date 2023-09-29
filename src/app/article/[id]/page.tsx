@@ -5,7 +5,6 @@ import 'highlight.js/styles/github.css'
 import { useRequest } from '@/lib/api'
 import Main from '@/components/ui/Main'
 import Toc from '@/components/Toc'
-import Container from '@/components/ui/Container'
 import { renderMD } from '@/lib/md'
 
 interface Props {
@@ -27,7 +26,7 @@ const page: FC<Props> = async ({ params }) => {
     await useRequest<Article>('article/' + params.id)
   const html = await renderMD(content)
   return (
-    <Container>
+    <>
       <Toc
         id={params.id}
         html={html}
@@ -48,7 +47,7 @@ const page: FC<Props> = async ({ params }) => {
           }}
         />
       </Main>
-    </Container>
+    </>
   )
 }
 

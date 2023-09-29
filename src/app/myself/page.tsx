@@ -8,7 +8,6 @@ import LocalDiningIcon from '@mui/icons-material/LocalDining'
 import { events } from '@/app/Plumbiu.json'
 import MyselfCmp from '@/components/Myself'
 import type { Event } from '@plumbiu/github-info'
-import Container from '@/components/ui/Container'
 import InfoCard from '@/components/SideCard'
 
 const eventMap: Record<string, ReactNode> = {
@@ -22,9 +21,9 @@ const eventMap: Record<string, ReactNode> = {
 
 export default function Home() {
   return (
-    <Container>
+    <>
       <InfoCard />
       <MyselfCmp eventMap={eventMap} events={events as unknown as Event[]} />
-    </Container>
+    </>
   )
 }

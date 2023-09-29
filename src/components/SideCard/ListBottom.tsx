@@ -27,7 +27,7 @@ const ListBottom: FC<Props> = ({ info }) => {
       >
         {info.map(({ primary, href, count }) => (
           <Button key={href} component="a" href={href} target="__blank">
-            <Badge badgeContent={count} color="primary">
+            <Badge badgeContent={count} color="secondary">
               {primary}
             </Badge>
           </Button>

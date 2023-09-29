@@ -10,12 +10,11 @@ import {
 import { useRequest } from '@/lib/api'
 import InfoCard from '@/components/SideCard'
 import Main from '@/components/ui/Main'
-import Container from '@/components/ui/Container'
 
 export default async function Article() {
   const data = await useRequest<FullFrontMatter[]>('article')
   return (
-    <Container>
+    <>
       <InfoCard />
       <Main>
         <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
@@ -73,6 +72,6 @@ export default async function Article() {
           ))}
         </List>
       </Main>
-    </Container>
+    </>
   )
 }
