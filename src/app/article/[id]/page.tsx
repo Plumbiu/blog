@@ -6,6 +6,7 @@ import { useRequest } from '@/lib/api'
 import Main from '@/components/ui/Main'
 import Toc from '@/components/Toc'
 import Container from '@/components/ui/Container'
+import { renderMD } from '@/lib/md'
 
 interface Props {
   params: {
@@ -18,19 +19,18 @@ export async function generateStaticParams() {
   const ids = posts.map((post) => ({
     id: post.id,
   }))
-  console.log(ids)
-
   return ids
 }
 
 const page: FC<Props> = async ({ params }) => {
   const { content, title, tags, categories, date, updated } =
     await useRequest<Article>('article/' + params.id)
+  const html = await renderMD(content)
   return (
     <Container>
       <Toc
         id={params.id}
-        html={content}
+        html={html}
         title={title}
         tags={tags}
         categories={categories}
@@ -44,7 +44,7 @@ const page: FC<Props> = async ({ params }) => {
           }}
           className="md"
           dangerouslySetInnerHTML={{
-            __html: content,
+            __html: html,
           }}
         />
       </Main>

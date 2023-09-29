@@ -18,7 +18,7 @@ export async function renderMD(md: string) {
     .use(rehypeSlug)
     .process(md)
 
-  return file.value.toString() // <p>Hello, Next.js!</p>
+  return String(file) // <p>Hello, Next.js!</p>
 }
 
 export function sanitizeID(id: string) {

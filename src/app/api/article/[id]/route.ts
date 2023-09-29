@@ -1,4 +1,3 @@
-import { renderMD } from '@/lib/md'
 import { NextResponse, type NextRequest } from 'next/server'
 import fs from 'node:fs/promises'
 import path from 'node:path'
@@ -10,7 +9,7 @@ export async function GET(_req: NextRequest, { params }: { params: Params }) {
   const article: Article = {
     id: params.id,
     ...parseFM<RawMatter>(content),
-    content: await renderMD(content.slice(content.indexOf('---', 3) + 3)),
+    content: content.slice(content.indexOf('---', 3) + 3),
   }
   return NextResponse.json(article)
 }
