@@ -7,23 +7,15 @@ import GithubIcon from '@mui/icons-material/GitHub'
 import LocationIcon from '@mui/icons-material/HomeOutlined'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import LinkIcon from '@mui/icons-material/Link'
-import { public_repos, followers, following } from '@/app/Plumbiu.json'
 
 const infoGithub = [
   {
-    primary: 'Repos',
-    href: 'https://github.com/Plumbiu?tab=repositories',
-    count: public_repos.length,
+    primary: '朋友们',
+    href: '/friends',
   },
   {
-    primary: 'Followers',
-    href: 'https://github.com/Plumbiu?tab=followers',
-    count: followers.length,
-  },
-  {
-    primary: 'Following',
-    href: 'https://github.com/Plumbiu?tab=following',
-    count: following.length,
+    primary: '留言板',
+    href: '/comments',
   },
 ]
 

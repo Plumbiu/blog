@@ -12,7 +12,7 @@ const Container: FC<Props> = ({ children }) => {
         gap: '10px',
         marginTop: '72px',
         marginLeft: '10px',
-        marginRight: '10px',
+        marginRight: '5px',
       }}
     >
       {children}

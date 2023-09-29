@@ -17,12 +17,9 @@ export default async function Article() {
     <>
       <InfoCard />
       <Main>
-        <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
+        <List sx={{ width: '100%', bgcolor: 'background.paper', pt: 0 }}>
           {data.map((item) => (
             <ListItemButton
-              sx={{
-                py: '12px',
-              }}
               key={item.id}
               component="a"
               href={'article/' + item.id}

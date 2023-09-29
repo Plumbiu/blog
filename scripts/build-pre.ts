@@ -1,5 +1,5 @@
 import fsp from 'node:fs/promises'
-import { profileInfo } from '@plumbiu/github-info'
+import { initFields, profileInfo } from '@plumbiu/github-info'
 import path from 'node:path'
 
 async function preBuild() {
@@ -16,10 +16,10 @@ async function preBuild() {
         `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`,
       ),
     )
-    const plumbiu = await profileInfo('Plumbiu')
+    const { eventsField } = await initFields('Plumbiu')
     await fsp.writeFile(
       path.join(path.join(process.cwd(), 'src', 'app'), 'Plumbiu.json'),
-      JSON.stringify(plumbiu),
+      JSON.stringify(await eventsField()),
     )
   }
 }

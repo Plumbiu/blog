@@ -1,5 +1,5 @@
 'use client'
-import { Badge, Button, Stack } from '@mui/material'
+import { Button, Stack } from '@mui/material'
 import Hr from '../ui/Hr'
 import type { FC } from 'react'
 
@@ -7,7 +7,6 @@ interface Props {
   info: Array<{
     primary: string
     href: string
-    count: number
   }>
 }
 
@@ -22,14 +21,12 @@ const ListBottom: FC<Props> = ({ info }) => {
         useFlexGap
         flexWrap="wrap"
         sx={{
-          pt: 1,
+          py: 1,
         }}
       >
-        {info.map(({ primary, href, count }) => (
+        {info.map(({ primary, href }) => (
           <Button key={href} component="a" href={href} target="__blank">
-            <Badge badgeContent={count} color="secondary">
-              {primary}
-            </Badge>
+            {primary}
           </Button>
         ))}
       </Stack>
