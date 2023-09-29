@@ -55,12 +55,14 @@ const page: FC<Props> = async ({ params }) => {
 export default page
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const data = await useRequest<Article>('article/' + params.id)
+  const { title, content, tags, categories } = await useRequest<Article>(
+    'article/' + params.id,
+  )
 
   return {
-    title: '文章 - ' + data.title,
-    description: data.desc,
-    keywords: data.tags,
-    category: data.categories.join(','),
+    title: '文章 - ' + title,
+    description: content.slice(0, 100),
+    keywords: tags,
+    category: categories.join(','),
   }
 }
