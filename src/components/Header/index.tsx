@@ -11,9 +11,14 @@ export default function Header() {
         color="default"
         sx={{
           boxShadow: '0px 2px 4px -1px rgba(0,0,0,0.2)',
+          zIndex: 1,
         }}
       >
-        <Toolbar>
+        <Toolbar
+          sx={{
+            justifyContent: 'space-between',
+          }}
+        >
           <HeaderMenu />
           <Typography
             variant="h6"
