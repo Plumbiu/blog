@@ -65,7 +65,7 @@ const Toc: FC<Props> = ({ html, title, tags, categories, id, date }) => {
             paddingBottom: '6px',
           }}
         >
-          {categories.map((tag) => (
+          {categories?.map((tag) => (
             <Chip
               variant="outlined"
               color="primary"
@@ -77,7 +77,7 @@ const Toc: FC<Props> = ({ html, title, tags, categories, id, date }) => {
               size="small"
             />
           ))}
-          {tags.map((tag) => (
+          {tags?.map((tag) => (
             <Chip
               color="primary"
               sx={{
@@ -96,15 +96,7 @@ const Toc: FC<Props> = ({ html, title, tags, categories, id, date }) => {
         >
           <Hr />
         </div>
-        <div
-          style={{
-            padding: '4px 0',
-            maxHeight: '460px',
-            overflowY: 'scroll',
-          }}
-        >
-          <TocList tocs={tocs} id={id} />
-        </div>
+        <TocList tocs={tocs} id={id} />
       </div>
     </Side>
   )

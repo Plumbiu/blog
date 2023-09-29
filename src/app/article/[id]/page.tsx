@@ -4,7 +4,6 @@ import '@/styles/github-markdown-light.css'
 import 'highlight.js/styles/github.css'
 import { useRequest } from '@/lib/api'
 import Main from '@/components/ui/Main'
-import marked from '@/lib/marked'
 import Toc from '@/components/Toc'
 import Container from '@/components/ui/Container'
 
@@ -14,15 +13,24 @@ interface Props {
   }
 }
 
+export async function generateStaticParams() {
+  const posts = await useRequest<FullFrontMatter[]>('article')
+  const ids = posts.map((post) => ({
+    id: post.id,
+  }))
+  console.log(ids)
+
+  return ids
+}
+
 const page: FC<Props> = async ({ params }) => {
-  const { id, content, title, tags, categories, date, updated } =
+  const { content, title, tags, categories, date, updated } =
     await useRequest<Article>('article/' + params.id)
-  const html = await marked.parse(content)
   return (
     <Container>
       <Toc
-        id={id}
-        html={html}
+        id={params.id}
+        html={content}
         title={title}
         tags={tags}
         categories={categories}
@@ -36,7 +44,7 @@ const page: FC<Props> = async ({ params }) => {
           }}
           className="md"
           dangerouslySetInnerHTML={{
-            __html: html,
+            __html: content,
           }}
         />
       </Main>
