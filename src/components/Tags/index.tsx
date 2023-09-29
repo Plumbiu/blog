@@ -1,5 +1,4 @@
 'use client'
-import Main from '@/components/ui/Main'
 import { Badge, Chip, Typography } from '@mui/material'
 import type { FC } from 'react'
 
@@ -9,7 +8,7 @@ interface Props {
 
 const TagsCmp: FC<Props> = ({ tags }) => {
   return (
-    <Main>
+    <>
       <Typography
         variant="h6"
         component="div"
@@ -32,7 +31,7 @@ const TagsCmp: FC<Props> = ({ tags }) => {
           <Chip variant="outlined" label={name} clickable />
         </Badge>
       ))}
-    </Main>
+    </>
   )
 }
 

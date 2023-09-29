@@ -8,7 +8,6 @@ import LocalDiningIcon from '@mui/icons-material/LocalDining'
 import events from '@/app/Plumbiu.json'
 import MyselfCmp from '@/components/Myself'
 import type { Event } from '@plumbiu/github-info'
-import InfoCard from '@/components/SideCard'
 
 const eventMap: Record<string, ReactNode> = {
   PushEvent: <LaptopMacIcon />,
@@ -20,10 +19,5 @@ const eventMap: Record<string, ReactNode> = {
 }
 
 export default function Home() {
-  return (
-    <>
-      <InfoCard />
-      <MyselfCmp eventMap={eventMap} events={events as unknown as Event[]} />
-    </>
-  )
+  return <MyselfCmp eventMap={eventMap} events={events as unknown as Event[]} />
 }
