@@ -8,7 +8,7 @@
   "scripts": {
     "prepare": "simple-git-hooks",
     "dev": "next dev",
-    "build": "ts-node --esm scripts/build-pre.ts && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
