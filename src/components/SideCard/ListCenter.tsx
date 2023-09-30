@@ -39,12 +39,24 @@ const ListCenter: FC<Props> = ({ blogInfo, githubInfo }) => {
             href={href}
             target="__blank"
           >
-            <ListItemIcon>{icon}</ListItemIcon>
+            <ListItemIcon
+              sx={{
+                minWidth: '42px',
+              }}
+            >
+              {icon}
+            </ListItemIcon>
             <ListItemText primary={primary} />
           </ListItemButton>
         ) : (
           <ListItemButton key={href ?? primary}>
-            <ListItemIcon>{icon}</ListItemIcon>
+            <ListItemIcon
+              sx={{
+                minWidth: '42px',
+              }}
+            >
+              {icon}
+            </ListItemIcon>
             <ListItemText primary={primary} />
           </ListItemButton>
         ),

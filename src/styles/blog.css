@@ -8,12 +8,13 @@
   overflow: scroll;
 }
 
-.blog-side {
-  width: 300px;
+.blog-side-w {
+  min-width: 250px;
+  width: 21%;
 }
 
 @media screen and (max-width: 640px) {
-  .blog-side {
+  .blog-side-w {
     display: none;
   }
 }
