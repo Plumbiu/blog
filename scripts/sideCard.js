@@ -19,22 +19,6 @@ async function getPosts() {
   return posts
 }
 
-async function getCategories() {
-  const posts = await getPosts()
-  const map = new Map()
-  for (const post of posts) {
-    for (const category of post.categories) {
-      const count = map.get(category)
-      if (count) {
-        map.set(category, count + 1)
-      } else {
-        map.set(category, 1)
-      }
-    }
-  }
-  return map
-}
-
 async function resolve() {
   const posts = await getPosts()
 
