@@ -18,7 +18,7 @@ interface Props {
   eventMap: Record<string, ReactNode>
 }
 
-const MyselfCmp: FC<Props> = ({ events, eventMap }) => {
+const OpenSourceCmp: FC<Props> = ({ events, eventMap }) => {
   return (
     <div
       style={{
@@ -85,4 +85,4 @@ const MyselfCmp: FC<Props> = ({ events, eventMap }) => {
   )
 }
 
-export default MyselfCmp
+export default OpenSourceCmp

@@ -1,25 +1,33 @@
-import { type ReactNode } from 'react'
-import {
-  LaptopMac,
-  AddCircle,
-  RemoveRedEye,
-  Repeat,
-  ErrorOutline,
-  LocalDining,
-} from '@mui/icons-material'
-import events from '@/app/Plumbiu.json'
-import MyselfCmp from '@/components/Myself'
-import type { Event } from '@plumbiu/github-info'
+import * as React from 'react'
+import { Typography } from '@mui/material'
+import QA from '@/components/Myself/QA'
 
-const eventMap: Record<string, ReactNode> = {
-  PushEvent: <LaptopMac />,
-  PullRequestEvent: <AddCircle />,
-  CreateEvent: <RemoveRedEye />,
-  WatchEvent: <Repeat />,
-  ForkEvent: <LocalDining />,
-  IssuesEvent: <ErrorOutline />,
-}
+const qas = [
+  { q: 'Who are you ?', a: 'Plumbiu(Guo Xingjun).', emoji: '😀' },
+  { q: "what's your job ?", a: 'A front-end programmer.', emoji: '🥵' },
+  {
+    q: 'Introduce yourself ?',
+    a: 'Studied at Hangzhou Dianzi University(杭州电子科技大学)(HDU), a junior.',
+    emoji: '🥰',
+  },
+]
 
 export default function Home() {
-  return <MyselfCmp eventMap={eventMap} events={events as unknown as Event[]} />
+  return (
+    <div className="myself-container">
+      <Typography
+        variant="h6"
+        component="div"
+        sx={{
+          mx: 'auto',
+          pb: 2,
+        }}
+      >
+        🎉 我的个人介绍！ 🎉
+      </Typography>
+      {qas.map(({ q, a, emoji }) => (
+        <QA q={q} a={a} emoji={emoji} />
+      ))}
+    </div>
+  )
 }

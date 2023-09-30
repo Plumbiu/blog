@@ -20,6 +20,10 @@ const infoGithub = [
     primary: '留言板',
     href: '/comments',
   },
+  {
+    primary: '开源之旅',
+    href: '/opensource',
+  },
 ]
 
 const githubInfo = [

@@ -15,7 +15,7 @@ interface Props {
 
 const ArticleList: FC<Props> = ({ list }) => {
   return (
-    <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
+    <List sx={{ width: '100%', bgcolor: '#fff' }}>
       {list.map((item) => (
         <ListItemButton
           key={item.id}
