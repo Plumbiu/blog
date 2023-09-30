@@ -4,14 +4,12 @@ import { Button } from '@mui/material'
 import { useState, type FC } from 'react'
 import { ArrowBack } from '@mui/icons-material'
 import Hr from '../ui/Hr'
-import { sanitizeID } from '@/lib/md'
 
 interface Props {
   tocs: Toc[]
-  id: string
 }
 
-const TocList: FC<Props> = ({ tocs, id }) => {
+const TocList: FC<Props> = ({ tocs }) => {
   const [currentIdx, setCurrentIdx] = useState(0)
   return (
     <>
@@ -25,11 +23,11 @@ const TocList: FC<Props> = ({ tocs, id }) => {
           overflowY: 'scroll',
         }}
       >
-        {tocs.map(({ level, id: hash }, index) => (
+        {tocs.map(({ level, id, content }, index) => (
           <a
-            key={hash}
+            key={id}
             className="toc-list"
-            href={'#' + sanitizeID(hash)}
+            href={'#' + id}
             onClick={() => {
               setCurrentIdx(index)
             }}
@@ -40,7 +38,7 @@ const TocList: FC<Props> = ({ tocs, id }) => {
             }}
           >
             {currentIdx === index && <div className="toc-block" />}
-            {hash}
+            {content}
           </a>
         ))}
       </div>

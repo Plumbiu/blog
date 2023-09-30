@@ -27,7 +27,6 @@ export default async function ({ params }: Props) {
   return (
     <>
       <Toc
-        id={params.id}
         html={html}
         title={title}
         tags={tags}

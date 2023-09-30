@@ -8,7 +8,6 @@ import { formatTime } from '@/lib/time'
 import { AccessTimeFilled } from '@mui/icons-material'
 
 interface Props {
-  id: string
   html: string
   title: string
   tags: string[]
@@ -17,7 +16,7 @@ interface Props {
   categories: string[]
 }
 
-const Toc: FC<Props> = ({ html, title, tags, categories, id, date }) => {
+const Toc: FC<Props> = ({ html, title, tags, categories, date }) => {
   const tocs = genTocs(html)
   const formatedDate = formatTime(date)
   return (
@@ -88,7 +87,7 @@ const Toc: FC<Props> = ({ html, title, tags, categories, id, date }) => {
             />
           ))}
         </div>
-        <TocList tocs={tocs} id={id} />
+        <TocList tocs={tocs} />
       </div>
     </Side>
   )

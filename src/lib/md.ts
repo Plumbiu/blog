@@ -20,10 +20,3 @@ export async function renderMD(md: string) {
 
   return String(file).replace(/<img/g, "<img loading='lazy'")
 }
-
-export function sanitizeID(id: string) {
-  return id
-    .replace(/\s/g, '-')
-    .replace(/[<>(),]/g, '')
-    .toLocaleLowerCase()
-}
