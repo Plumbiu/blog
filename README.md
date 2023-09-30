@@ -13,9 +13,8 @@ Online View: [my blog](https://blog.plumbiu.top/)
 - [x] toc
 - [x] cover image
 - [x] mobile display
-- [x] footer
 - [x] lazy load(image)
 - [x] article search
-- [ ] lazy load(article list and article)
+- [x] pagination
 - [ ] tags, categories, friends ... page
 - [ ] comment system
