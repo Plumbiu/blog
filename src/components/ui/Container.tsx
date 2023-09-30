@@ -11,8 +11,8 @@ const Container: FC<Props> = ({ children }) => {
         display: 'flex',
         gap: '10px',
         marginTop: '72px',
-        marginLeft: '10px',
-        marginRight: '5px',
+        marginLeft: '7px',
+        marginRight: '7px',
       }}
     >
       {children}

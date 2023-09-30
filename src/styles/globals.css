@@ -26,10 +26,6 @@ p {
   margin: 0;
 }
 
-h3 {
-  font-size: 1.25rem;
-}
-
 /* 滚动条 */
 ::-webkit-scrollbar-thumb:horizontal {
   width: 4px;

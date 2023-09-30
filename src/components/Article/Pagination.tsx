@@ -17,12 +17,14 @@ const PaginationCmp: FC<Props> = ({ page }) => {
     <Pagination
       showFirstButton
       showLastButton
+      hidePrevButton
+      hideNextButton
       page={page}
       onChange={handleChangePage}
       count={Math.floor(articleNum / 8)}
       color="secondary"
       sx={{
-        mt: 1,
+        my: 1.5,
       }}
     />
   )

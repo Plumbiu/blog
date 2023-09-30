@@ -15,7 +15,7 @@ interface Props {
 
 const ArticleList: FC<Props> = ({ list }) => {
   return (
-    <List sx={{ width: '100%', bgcolor: 'background.paper', pt: 0 }}>
+    <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
       {list.map((item) => (
         <ListItemButton
           key={item.id}
@@ -36,12 +36,18 @@ const ArticleList: FC<Props> = ({ list }) => {
             </Avatar>
           </ListItemAvatar>
           <ListItemText
-            className="title"
             primary={item.title}
+            sx={{
+              wordBreak: 'break-word',
+              mt: 0,
+              mb: 0,
+            }}
             secondary={
               <>
                 <Typography
-                  sx={{ display: 'inline' }}
+                  sx={{
+                    display: 'inline',
+                  }}
                   component="span"
                   variant="body2"
                   color="#9C27B0"

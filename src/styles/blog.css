@@ -5,7 +5,8 @@
   background-color: #fff;
   box-shadow: 0px 1px 6px -1px rgba(0, 0, 0, 0.2);
   margin: 0 auto;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .blog-side-w {
