@@ -53,7 +53,7 @@
     "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
-    "**/*.tsx": [
+    "**/*.{tsx,ts}": [
       "prettier --write --ignore-unknown"
     ]
   }
