@@ -7,6 +7,7 @@ import GithubIcon from '@mui/icons-material/GitHub'
 import LocationIcon from '@mui/icons-material/HomeOutlined'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import LinkIcon from '@mui/icons-material/Link'
+import { articleNum, tagNum, categoryNum } from '@/config/sideCard.json'
 
 const infoGithub = [
   {
@@ -44,9 +45,9 @@ const githubInfo = [
 
 export default function InfoCard() {
   const blogInfo = [
-    { primary: '文章', href: '/article', count: 54 },
-    { primary: '标签', href: '/tags', count: 37 },
-    { primary: '分类', href: '/categories', count: 12 },
+    { primary: '文章', href: '/article', count: articleNum },
+    { primary: '标签', href: '/tags', count: tagNum },
+    { primary: '分类', href: '/categories', count: categoryNum },
   ]
   return (
     <Side>
