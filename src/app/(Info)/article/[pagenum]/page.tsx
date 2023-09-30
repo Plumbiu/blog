@@ -1,5 +1,5 @@
 import ArticleList from '@/components/Article/List'
-import PaginationCmp from '@/components/Pagination'
+import PaginationCmp from '@/components/Article/Pagination'
 import Hr from '@/components/ui/Hr'
 import { useRequest } from '@/lib/api'
 

@@ -20,7 +20,7 @@ const ArticleList: FC<Props> = ({ list }) => {
         <ListItemButton
           key={item.id}
           component="a"
-          href={'post/' + item.id}
+          href={'/post/' + item.id}
           alignItems="flex-start"
         >
           <ListItemAvatar>
