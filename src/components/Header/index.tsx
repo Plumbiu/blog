@@ -1,6 +1,5 @@
 import { AppBar, Box, Toolbar, Typography } from '@mui/material'
 import HeaderMenu from './HeaderMenu'
-import '@docsearch/css'
 import Search from './Search'
 
 export default function Header() {
@@ -21,7 +20,7 @@ export default function Header() {
             noWrap
             component="a"
             href="/"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+            sx={{ flexGrow: 1 }}
           >
             Plumbiu の 小屋
           </Typography>
