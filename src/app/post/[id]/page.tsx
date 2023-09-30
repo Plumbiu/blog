@@ -4,7 +4,6 @@ import 'highlight.js/styles/github.css'
 import { useRequest } from '@/lib/api'
 import Main from '@/components/ui/Main'
 import Toc from '@/components/Toc'
-import { renderMD } from '@/lib/md'
 
 interface Props {
   params: {
@@ -23,12 +22,11 @@ export async function generateStaticParams() {
 export default async function ({ params }: Props) {
   const { content, title, tags, categories, date, updated } =
     await useRequest<Article>('article/' + params.id)
-  const html = await renderMD(content)
   return (
     <>
       <Toc
         id={params.id}
-        html={html}
+        html={content}
         title={title}
         tags={tags}
         categories={categories}
@@ -42,7 +40,7 @@ export default async function ({ params }: Props) {
           }}
           className="md"
           dangerouslySetInnerHTML={{
-            __html: html,
+            __html: content,
           }}
         />
       </Main>
