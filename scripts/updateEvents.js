@@ -10,4 +10,4 @@ async function preBuild() {
   )
 }
 
-void preBuild()
+preBuild()

@@ -34,7 +34,7 @@
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.0.0",
     "remark-squeeze-paragraphs": "^6.0.0",
-    "simple-md-front-matter": "^0.0.3",
+    "simple-md-front-matter": "^0.0.4",
     "unified": "^11.0.3"
   },
   "devDependencies": {
