@@ -51,13 +51,13 @@ export default async function ({ params }: Props) {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { title, content, tags, categories } = await useRequest<Article>(
+  const { title, desc, tags, categories } = await useRequest<Article>(
     'article/' + params.id,
   )
 
   return {
     title: '文章 - ' + title,
-    description: content.slice(0, 100),
+    description: desc,
     keywords: tags,
     category: categories.join(','),
   }
