@@ -1,7 +1,6 @@
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
-import remarkSqueezeParagraphs from 'remark-squeeze-paragraphs'
 import rehypeSanitize from 'rehype-sanitize'
 import rehypeStringify from 'rehype-stringify'
 import rehypeHighlight from 'rehype-highlight'
@@ -15,7 +14,6 @@ export async function renderMD(md: string) {
     .use(rehypeSanitize) // Sanitize HTML input
     .use(rehypeStringify) // Convert AST into serialized HTML
     .use(rehypeHighlight)
-    .use(remarkSqueezeParagraphs)
     .use(rehypeSlug)
     .use(remarkGfm)
     .process(md)
