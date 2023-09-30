@@ -2,11 +2,13 @@ import { Box } from '@mui/material'
 import Side from '../ui/Side'
 import ListTop from './ListTop'
 import ListBottom from './ListBottom'
-import EamilIcon from '@mui/icons-material/Email'
-import GithubIcon from '@mui/icons-material/GitHub'
-import LocationIcon from '@mui/icons-material/HomeOutlined'
-import TwitterIcon from '@mui/icons-material/Twitter'
-import LinkIcon from '@mui/icons-material/Link'
+import {
+  Email,
+  GitHub,
+  HomeOutlined as LocationIcon,
+  Twitter,
+  Link as LinkIcon,
+} from '@mui/icons-material'
 import { articleNum, tagNum, categoryNum } from '@/config/sideCard.json'
 
 const infoGithub = [
@@ -23,17 +25,17 @@ const infoGithub = [
 const githubInfo = [
   {
     primary: 'Plumbiu',
-    icon: <GithubIcon />,
+    icon: <GitHub />,
     href: 'https://github.com/Plumbiu',
   },
   {
     primary: 'plumbiuzz@gmail.com',
-    icon: <EamilIcon />,
+    icon: <Email />,
   },
   { primary: 'Hang Zhou, China', icon: <LocationIcon /> },
   {
     primary: 'Plumbiu',
-    icon: <TwitterIcon />,
+    icon: <Twitter />,
     href: 'https://twitter.com/Plumbiu',
   },
   {
@@ -45,7 +47,7 @@ const githubInfo = [
 
 export default function InfoCard() {
   const blogInfo = [
-    { primary: '文章', href: '/article', count: articleNum },
+    { primary: '文章', href: '/article/1', count: articleNum },
     { primary: '标签', href: '/tags', count: tagNum },
     { primary: '分类', href: '/categories', count: categoryNum },
   ]

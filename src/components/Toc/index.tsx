@@ -5,7 +5,7 @@ import type { FC } from 'react'
 import Side from '../ui/Side'
 import TocList from './List'
 import { formatTime } from '@/lib/time'
-import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled'
+import { AccessTimeFilled } from '@mui/icons-material'
 
 interface Props {
   id: string
@@ -43,7 +43,7 @@ const Toc: FC<Props> = ({ html, title, tags, categories, id, date }) => {
             padding: '8px 16px',
           }}
         >
-          <AccessTimeFilledIcon
+          <AccessTimeFilled
             sx={{
               fontSize: '14px',
               color: '#1976D2',

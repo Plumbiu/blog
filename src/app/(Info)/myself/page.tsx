@@ -1,21 +1,23 @@
 import { type ReactNode } from 'react'
-import LaptopMacIcon from '@mui/icons-material/LaptopMac'
-import AddCircleIcon from '@mui/icons-material/AddCircle'
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye'
-import RepeatIcon from '@mui/icons-material/Repeat'
-import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline'
-import LocalDiningIcon from '@mui/icons-material/LocalDining'
+import {
+  LaptopMac,
+  AddCircle,
+  RemoveRedEye,
+  Repeat,
+  ErrorOutline,
+  LocalDining,
+} from '@mui/icons-material'
 import events from '@/app/Plumbiu.json'
 import MyselfCmp from '@/components/Myself'
 import type { Event } from '@plumbiu/github-info'
 
 const eventMap: Record<string, ReactNode> = {
-  PushEvent: <LaptopMacIcon />,
-  PullRequestEvent: <RepeatIcon />,
-  CreateEvent: <AddCircleIcon />,
-  WatchEvent: <RemoveRedEyeIcon />,
-  ForkEvent: <LocalDiningIcon />,
-  IssuesEvent: <ErrorOutlineIcon />,
+  PushEvent: <LaptopMac />,
+  PullRequestEvent: <AddCircle />,
+  CreateEvent: <RemoveRedEye />,
+  WatchEvent: <Repeat />,
+  ForkEvent: <LocalDining />,
+  IssuesEvent: <ErrorOutline />,
 }
 
 export default function Home() {

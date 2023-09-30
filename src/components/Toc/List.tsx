@@ -2,7 +2,7 @@
 import type { Toc } from '@/lib/toc'
 import { Button } from '@mui/material'
 import { useState, type FC } from 'react'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'
+import { ArrowBack } from '@mui/icons-material'
 import Hr from '../ui/Hr'
 import { sanitizeID } from '@/lib/md'
 
@@ -48,7 +48,7 @@ const TocList: FC<Props> = ({ tocs, id }) => {
       <Button
         variant="outlined"
         size="small"
-        startIcon={<ArrowBackIcon />}
+        startIcon={<ArrowBack />}
         component="a"
         href="/article"
         sx={{

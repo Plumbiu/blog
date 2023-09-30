@@ -14,11 +14,7 @@ export default function Header() {
           zIndex: 1,
         }}
       >
-        <Toolbar
-          sx={{
-            justifyContent: 'space-between',
-          }}
-        >
+        <Toolbar>
           <HeaderMenu />
           <Typography
             variant="h6"
