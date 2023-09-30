@@ -1,5 +1,5 @@
 import fsp from 'node:fs/promises'
-import { initFields, profileInfo } from '@plumbiu/github-info'
+import { initFields } from '@plumbiu/github-info'
 import path from 'node:path'
 
 async function preBuild() {
