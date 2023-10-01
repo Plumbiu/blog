@@ -10,6 +10,7 @@
 
 .blog-side-w {
   min-width: 240px;
+  max-width: 320px;
   width: 21%;
 }
 
