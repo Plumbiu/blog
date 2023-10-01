@@ -4,17 +4,18 @@ import { Button, ButtonGroup } from '@mui/material'
 import { useState, type FC, useEffect } from 'react'
 import { ArrowBack } from '@mui/icons-material'
 import Hr from '../ui/Hr'
-
 interface Props {
   tocs: Toc[]
 }
 
 const TocList: FC<Props> = ({ tocs }) => {
-  const [currentHash, setCurrentHash] = useState(
-    decodeURI(location.hash) || tocs[0].hash,
-  )
-
+  const [currentHash, setCurrentHash] = useState('')
   useEffect(() => {
+    if (location.hash) {
+      setCurrentHash(currentHash)
+    } else {
+      setCurrentHash(tocs[0].hash)
+    }
     const observer = new IntersectionObserver(
       (entries) => {
         for (let i = 0; i < entries.length; i++) {
