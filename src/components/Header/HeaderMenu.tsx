@@ -39,7 +39,7 @@ const HeaderMenu = () => {
       </IconButton>
       <Paper sx={{ maxWidth: '100%' }}>
         <Menu open={open} anchorEl={anchorEl} onClose={handleClose}>
-          <MenuItem component="a" href="/myself">
+          <MenuItem component="a" href="/">
             <ListItemIcon>
               <FirstPage fontSize="small" />
             </ListItemIcon>

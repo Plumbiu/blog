@@ -1,16 +1,15 @@
 .blog-main {
   flex: 1;
-  padding: 4px 0;
   min-height: calc(100vh - 100px);
   background-color: #fff;
   box-shadow: 0px 1px 6px -1px rgba(0, 0, 0, 0.2);
   margin: 0 auto;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
 .blog-side-w {
-  min-width: 250px;
+  min-width: 240px;
   width: 21%;
 }
 
