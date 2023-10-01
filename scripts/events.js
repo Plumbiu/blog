@@ -5,7 +5,7 @@ import path from 'node:path'
 async function preBuild() {
   const { eventsField } = await initFields('Plumbiu')
   await fsp.writeFile(
-    path.join(process.cwd(), 'src', 'app', 'Plumbiu.json'),
+    path.join(process.cwd(), 'src', 'config', 'events.json'),
     JSON.stringify(await eventsField()),
   )
 }
