@@ -2,6 +2,8 @@ import ArticleList from '@/components/Article/List'
 import PaginationCmp from '@/components/Article/Pagination'
 import Hr from '@/components/ui/Hr'
 import { useRequest } from '@/lib/api'
+import { Suspense } from 'react'
+import Loading from './loading'
 
 interface Props {
   params: {
@@ -23,10 +25,10 @@ export default async function ({ params }: Props) {
   )
 
   return (
-    <>
+    <Suspense fallback={<Loading />}>
       <ArticleList list={data} />
       <Hr />
       <PaginationCmp page={Number(params.pagenum)} />
-    </>
+    </Suspense>
   )
 }
