@@ -2,7 +2,7 @@ import fsp from 'node:fs/promises'
 import path from 'node:path'
 import parseFM from 'simple-md-front-matter'
 
-const limit = 8
+const limit = 12
 
 export async function getPosts(pagenum = 0, isLimit = false) {
   const postsPath = path.join(process.cwd(), 'src', 'posts')
