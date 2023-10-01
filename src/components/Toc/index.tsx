@@ -1,11 +1,11 @@
 import '@/styles/toc.css'
 import { genTocs } from '@/lib/toc'
-import { Chip } from '@mui/material'
 import type { FC } from 'react'
 import Side from '../ui/Side'
 import TocList from './List'
 import { formatTime } from '@/lib/time'
 import { AccessTimeFilled } from '@mui/icons-material'
+import Tag from '../Tag'
 
 interface Props {
   html: string
@@ -52,6 +52,7 @@ const Toc: FC<Props> = ({ html, title, tags, categories, date }) => {
           <p
             style={{
               fontSize: '14px',
+              padding: '4px 0',
             }}
           >
             {formatedDate.split(' ')[0]}
@@ -64,30 +65,9 @@ const Toc: FC<Props> = ({ html, title, tags, categories, date }) => {
           }}
         >
           {categories?.map((category) => (
-            <Chip
-              key={category}
-              variant="outlined"
-              color="primary"
-              sx={{
-                mt: 1,
-                mr: 1,
-              }}
-              label={category}
-              size="small"
-            />
+            <Tag outlined key={category} text={category} />
           ))}
-          {tags?.map((tag) => (
-            <Chip
-              key={tag}
-              color="primary"
-              sx={{
-                mt: 1,
-                mr: 1,
-              }}
-              label={tag}
-              size="small"
-            />
-          ))}
+          {tags?.map((tag) => <Tag key={tag} text={tag} filled />)}
         </div>
         <TocList tocs={tocs} />
       </div>

@@ -1,13 +1,6 @@
-import {
-  List,
-  ListItemButton,
-  ListItemAvatar,
-  Avatar,
-  ListItemText,
-  Typography,
-  Chip,
-} from '@mui/material'
+import { Avatar } from '@mui/material'
 import type { FC } from 'react'
+import Tag from '../Tag'
 
 interface Props {
   list: FullFrontMatter[]
@@ -15,64 +8,67 @@ interface Props {
 
 const ArticleList: FC<Props> = ({ list }) => {
   return (
-    <List sx={{ width: '100%', bgcolor: '#fff' }}>
+    <div
+      style={{
+        backgroundColor: '#fff',
+        padding: '12px 0',
+      }}
+    >
       {list.map((item) => (
-        <ListItemButton
+        <a
           key={item.id}
-          component="a"
+          style={{
+            display: 'flex',
+            alignItems: 'flex-start',
+            padding: '12px',
+            fontFamily: '"Roboto","Helvetica","Arial",sans-serif',
+          }}
           href={'/post/' + item.id}
-          alignItems="flex-start"
         >
-          <ListItemAvatar>
-            <Avatar
-              sx={{
-                bgcolor: '#9C27B0',
-                width: 48,
-                height: 48,
-                mr: 2,
+          <Avatar
+            sx={{
+              bgcolor: '#9C27B0',
+              width: 52,
+              height: 52,
+              mr: 2,
+            }}
+          >
+            {item.cover ?? item.tags?.[0]}
+          </Avatar>
+          <span>
+            <span
+              style={{
+                lineHeight: '1.5',
+                display: 'block',
+                marginBottom: '4px',
               }}
             >
-              {item.cover ?? item.tags?.[0]}
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText
-            primary={item.title}
-            sx={{
-              wordBreak: 'break-word',
-              mt: 0,
-              mb: 0,
-            }}
-            secondary={
-              <>
-                <Typography
-                  sx={{
-                    display: 'inline',
+              {item.title}
+            </span>
+            <span
+              style={{
+                wordBreak: 'break-word',
+                display: 'flex',
+                flexDirection: 'column',
+              }}
+            >
+              <span>
+                {item.tags?.map((tag) => <Tag key={tag} outlined text={tag} />)}
+                <span
+                  style={{
+                    fontSize: '14px',
+                    letterSpacing: '0.75px',
+                    color: 'rgba(0, 0, 0, 0.6)',
                   }}
-                  component="span"
-                  variant="body2"
-                  color="#9C27B0"
                 >
-                  {item.tags?.map((tag) => (
-                    <Chip
-                      key={tag}
-                      component="span"
-                      variant="outlined"
-                      sx={{
-                        mr: 1,
-                        fontSize: '10px',
-                      }}
-                      label={tag}
-                      size="small"
-                    />
-                  ))}
-                </Typography>
-                {item.desc + '......'}
-              </>
-            }
-          />
-        </ListItemButton>
+                  {item.desc + '......'}
+                </span>
+              </span>
+            </span>
+          </span>
+        </a>
       ))}
-    </List>
+    </div>
   )
 }
 
