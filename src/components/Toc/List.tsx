@@ -12,7 +12,7 @@ const TocList: FC<Props> = ({ tocs }) => {
   const [currentHash, setCurrentHash] = useState('')
   useEffect(() => {
     if (location.hash) {
-      setCurrentHash(currentHash)
+      setCurrentHash(decodeURI(location.hash))
     } else {
       setCurrentHash(tocs[0].hash)
     }
