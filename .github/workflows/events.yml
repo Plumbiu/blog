@@ -23,7 +23,7 @@ jobs:
         run: pnpm install
       - name: Update events data
         run: |
-          node scripts/updateEvents.js
+          node scripts/events.js
       - name: Configure Git
         env:
           GIT_USERNAME: ${{ secrets.NAME }}
