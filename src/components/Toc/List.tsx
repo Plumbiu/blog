@@ -1,7 +1,7 @@
 'use client'
 import type { Toc } from '@/lib/toc'
-import { Button } from '@mui/material'
-import { useState, type FC } from 'react'
+import { Button, ButtonGroup } from '@mui/material'
+import { useState, type FC, useEffect } from 'react'
 import { ArrowBack } from '@mui/icons-material'
 import Hr from '../ui/Hr'
 
@@ -10,7 +10,32 @@ interface Props {
 }
 
 const TocList: FC<Props> = ({ tocs }) => {
-  const [currentIdx, setCurrentIdx] = useState(0)
+  const [currentHash, setCurrentHash] = useState(
+    decodeURI(location.hash) || tocs[0].hash,
+  )
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (let i = 0; i < entries.length; i++) {
+          const entry = entries[i]
+          if (entry.isIntersecting) {
+            const target = entry.target
+            const newHash = '#' + target.id
+            location.href = newHash
+            setCurrentHash(newHash)
+          }
+        }
+      },
+      {
+        rootMargin: '1% 0% -99% 0%',
+      },
+    )
+    document.querySelectorAll('h1,h2,h3').forEach((title) => {
+      observer.observe(title) // 开始观察每个图片元素
+    })
+  }, [])
+
   return (
     <>
       <div>
@@ -19,43 +44,43 @@ const TocList: FC<Props> = ({ tocs }) => {
       <div
         style={{
           padding: '6px 0',
-          maxHeight: '460px',
+          maxHeight: '65vh',
           overflowY: 'scroll',
         }}
       >
-        {tocs.map(({ level, id, content }, index) => (
+        {tocs.map(({ level, hash, content }) => (
           <a
-            key={id}
+            key={hash}
             className="toc-list"
-            href={'#' + id}
-            onClick={() => {
-              setCurrentIdx(index)
-            }}
+            href={hash}
             style={{
               paddingLeft: level * 16 + 'px',
-              color: currentIdx === index ? '#1976D2' : 'inherit',
-              backgroundColor: currentIdx === index ? '#F8F8F8' : 'inherit',
+              color: currentHash === hash ? '#1976D2' : 'inherit',
+              backgroundColor: currentHash === hash ? '#F8F8F8' : 'inherit',
             }}
           >
-            {currentIdx === index && <div className="toc-block" />}
+            {currentHash === hash && <div className="toc-block" />}
             {content}
           </a>
         ))}
       </div>
       <Hr />
-      <Button
+      <ButtonGroup
         variant="outlined"
+        aria-label="outlined primary button group"
         size="small"
-        startIcon={<ArrowBack />}
-        component="a"
-        href="/article"
-        sx={{
-          ml: '12px',
-          mt: 1,
-        }}
       >
-        文章页
-      </Button>
+        <Button
+          startIcon={<ArrowBack />}
+          href="/article"
+          sx={{
+            ml: '12px',
+            mt: 1,
+          }}
+        >
+          文章页
+        </Button>
+      </ButtonGroup>
     </>
   )
 }

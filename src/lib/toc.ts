@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom'
 export interface Toc {
   level: number
   content: string
-  id: string
+  hash: string
 }
 
 export function genTocs(html: string) {
@@ -14,7 +14,7 @@ export function genTocs(html: string) {
     tocs.push({
       level: +heading.tagName.replace(/h/i, ''),
       content: heading.textContent!,
-      id: heading.id,
+      hash: '#' + heading.id,
     })
   }
   return tocs

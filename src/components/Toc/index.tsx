@@ -39,7 +39,7 @@ const Toc: FC<Props> = ({ html, title, tags, categories, date }) => {
           style={{
             display: 'flex',
             alignItems: 'center',
-            padding: '8px 16px',
+            padding: '6px 16px',
           }}
         >
           <AccessTimeFilled
