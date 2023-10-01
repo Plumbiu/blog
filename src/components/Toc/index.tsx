@@ -63,20 +63,22 @@ const Toc: FC<Props> = ({ html, title, tags, categories, date }) => {
             paddingBottom: '12px',
           }}
         >
-          {categories?.map((tag) => (
+          {categories?.map((category) => (
             <Chip
+              key={category}
               variant="outlined"
               color="primary"
               sx={{
                 mt: 1,
                 mr: 1,
               }}
-              label={tag}
+              label={category}
               size="small"
             />
           ))}
           {tags?.map((tag) => (
             <Chip
+              key={tag}
               color="primary"
               sx={{
                 mt: 1,

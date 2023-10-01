@@ -25,7 +25,7 @@ const ListBottom: FC<Props> = ({ info }) => {
         }}
       >
         {info.map(({ primary, href }) => (
-          <Button key={href} component="a" href={href} target="__blank">
+          <Button key={href} component="a" href={href}>
             {primary}
           </Button>
         ))}

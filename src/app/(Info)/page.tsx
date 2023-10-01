@@ -26,7 +26,7 @@ export default function Home() {
         🎉 我的个人介绍！ 🎉
       </Typography>
       {qas.map(({ q, a, emoji }) => (
-        <QA q={q} a={a} emoji={emoji} />
+        <QA key={q} q={q} a={a} emoji={emoji} />
       ))}
     </div>
   )

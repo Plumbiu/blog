@@ -13,6 +13,7 @@ const Friends = () => {
     >
       {friends.map(({ link, name, avatar, desc }) => (
         <Card
+          key={name}
           sx={{
             maxWidth: '20%',
             transition: 'all .15s',
