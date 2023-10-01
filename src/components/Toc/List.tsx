@@ -28,6 +28,7 @@ const TocList: FC<Props> = ({ tocs }) => {
         }
       },
       {
+        // FIXME: bottom title can not be observed
         rootMargin: '1% 0% -99% 0%',
       },
     )
