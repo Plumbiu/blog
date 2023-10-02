@@ -54,7 +54,8 @@ p {
 }
 
 .hover-style,
-.hover-a-style {
+.hover-a-style,
+.hover-btn-icon-style {
   transition:
     background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
@@ -67,4 +68,8 @@ p {
 }
 .hover-a-style:hover {
   background-color: rgba(0, 0, 0, 0.04);
+}
+.hover-btn-icon-style:hover {
+  background-color: #f6fafd;
+  border-color: #1976d2!important;
 }

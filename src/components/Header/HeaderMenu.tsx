@@ -13,7 +13,7 @@ import {
   Category,
 } from '@mui/icons-material'
 import Hr from '../ui/Hr'
-import ButtonIcon from '../ui/Button/Icon'
+import ButtonListIcon from '../ui/Button/ListIcon'
 
 const lists = [
   { text: '首页', link: '/', icon: <FirstPage /> },
@@ -49,7 +49,7 @@ const HeaderMenu = () => {
       <div style={{ maxWidth: '100%', padding: '0 4px' }}>
         <Menu open={open} anchorEl={anchorEl} onClick={handleClose}>
           {lists.map(({ text, link, icon }) => (
-            <ButtonIcon
+            <ButtonListIcon
               blank={false}
               icon={icon}
               mw={36}
@@ -59,7 +59,7 @@ const HeaderMenu = () => {
             />
           ))}
           <Hr />
-          <ButtonIcon
+          <ButtonListIcon
             blank={false}
             icon={<GitHub />}
             mw={36}

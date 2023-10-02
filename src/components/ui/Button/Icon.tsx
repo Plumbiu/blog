@@ -1,63 +1,36 @@
 import Link from 'next/link'
-import type { CSSProperties, FC, ReactNode } from 'react'
+import type { FC, ReactNode } from 'react'
 
 interface Props {
-  icon: ReactNode
+  link: string
   text: string
-  link?: string
-  mw?: number
-  py?: number
-  blank?: boolean
+  icon: ReactNode
 }
 
-const ButtonIcon: FC<Props> = ({
-  icon,
-  text,
-  link,
-  mw = 42,
-  py = 14,
-  blank = true,
-}) => {
-  const child = (
-    <>
-      <div
-        style={{
-          display: 'flex',
-          alignContent: 'center',
-          color: 'rgba(0, 0, 0, 0.54)',
-          minWidth: mw + 'px',
-        }}
-      >
-        {icon}
-      </div>
-      <div
-        style={{
-          letterSpacing: '0.2px',
-        }}
-      >
-        {text}
-      </div>
-    </>
-  )
-  const style: CSSProperties = {
-    display: 'flex',
-    alignItems: 'center',
-    padding: `${py}px 16px`,
-    cursor: 'pointer',
-  }
-  return link ? (
+const ButtonIcon: FC<Props> = ({ link, text, icon }) => {
+  return (
     <Link
-      className="hover-a-style"
+      className="hover-btn-icon-style"
       href={link}
-      target={blank ? '_blank' : '_self'}
-      style={style}
+      style={{
+        display: 'inline-flex',
+        height: '30px',
+        lineHeight: '30px',
+        alignItems: 'center',
+        padding: '0 6px',
+        color: '#1976d2',
+        fontSize: '0.8125rem',
+        letterSpacing: '1px',
+        borderRadius: '4px',
+        gap: 6,
+        borderWidth: '1px',
+        borderStyle: 'solid',
+        borderColor: 'rgba(25, 118, 210, 0.5)',
+      }}
     >
-      {child}
+      <div>{icon}</div>
+      <div>{text}</div>
     </Link>
-  ) : (
-    <div className="hover-a-style" style={style}>
-      {child}
-    </div>
   )
 }
 

@@ -1,9 +1,9 @@
 'use client'
 import type { Toc } from '@/lib/toc'
-import { Button, ButtonGroup } from '@mui/material'
 import { useState, type FC, useEffect } from 'react'
 import { ArrowBack } from '@mui/icons-material'
 import Hr from '../ui/Hr'
+import ButtonIcon from '../ui/Button/Icon'
 interface Props {
   tocs: Toc[]
 }
@@ -29,7 +29,7 @@ const TocList: FC<Props> = ({ tocs }) => {
         }
       },
       {
-        // FIXME: bottom title can not be observed
+        // FIXME: top and bottom title can not be observed
         rootMargin: '1% 0% -99% 0%',
       },
     )
@@ -67,22 +67,26 @@ const TocList: FC<Props> = ({ tocs }) => {
         ))}
       </div>
       <Hr />
-      <ButtonGroup
-        variant="outlined"
-        aria-label="outlined primary button group"
-        size="small"
+      <div
+        style={{
+          marginLeft: '12px',
+          marginTop: '10px',
+        }}
       >
-        <Button
-          startIcon={<ArrowBack />}
-          href="/article"
-          sx={{
-            ml: '12px',
-            mt: 1,
-          }}
-        >
-          文章页
-        </Button>
-      </ButtonGroup>
+        <ButtonIcon
+          link="/article"
+          text="文章页"
+          icon={
+            <ArrowBack
+              sx={{
+                fontSize: '18px',
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            />
+          }
+        />
+      </div>
     </>
   )
 }

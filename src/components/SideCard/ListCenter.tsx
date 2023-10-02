@@ -3,7 +3,7 @@ import type { FC } from 'react'
 import Button from '../ui/Button'
 import Stack from '../ui/Stack'
 import Badge from '../ui/Badge'
-import ButtonIcon from '../ui/Button/Icon'
+import ButtonListIcon from '../ui/Button/ListIcon'
 
 const ListCenter: FC<Props> = ({ blogInfo, githubInfo }) => {
   return (
@@ -17,22 +17,14 @@ const ListCenter: FC<Props> = ({ blogInfo, githubInfo }) => {
           ))}
         </Stack>
       </div>
-      {githubInfo.map(({ icon, primary, href }) =>
-        href ? (
-          <ButtonIcon
-            icon={icon}
-            key={href ?? primary}
-            link={href}
-            text={primary}
-          ></ButtonIcon>
-        ) : (
-          <ButtonIcon
-            icon={icon}
-            key={href ?? primary}
-            text={primary}
-          ></ButtonIcon>
-        ),
-      )}
+      {githubInfo.map(({ icon, primary, href }) => (
+        <ButtonListIcon
+          key={href ?? primary}
+          icon={icon}
+          link={href}
+          text={primary}
+        ></ButtonListIcon>
+      ))}
     </>
   )
 }
