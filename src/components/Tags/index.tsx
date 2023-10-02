@@ -15,7 +15,7 @@ const TagsCmp: FC<Props> = ({ tags }) => {
       <Stack>
         {tags.map(({ name, count }) => (
           <Badge key={name} count={count}>
-            <Tag link={'/tags/' + name} text={name} />
+            <Tag link={'/tags/' + name} text={name} plain />
           </Badge>
         ))}
       </Stack>
