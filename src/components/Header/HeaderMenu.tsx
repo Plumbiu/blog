@@ -50,7 +50,7 @@ const HeaderMenu = () => {
         <Menu open={open} anchorEl={anchorEl} onClick={handleClose}>
           {lists.map(({ text, link, icon }) => (
             <ButtonListIcon
-              key={link ?? text}
+              key={text}
               blank={false}
               icon={icon}
               mw={36}
