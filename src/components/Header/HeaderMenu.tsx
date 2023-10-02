@@ -60,9 +60,8 @@ const HeaderMenu = () => {
           }}
         >
           {lists.map(({ text, link, icon }, index) => (
-            <>
+            <div key={text}>
               <ButtonListIcon
-                key={text}
                 blank={false}
                 icon={icon}
                 mw={36}
@@ -70,8 +69,8 @@ const HeaderMenu = () => {
                 text={text}
                 link={link}
               />
-              {index % 3 ? undefined : <Hr key={text} />}
-            </>
+              {index % 3 ? undefined : <Hr />}
+            </div>
           ))}
         </Menu>
       </div>

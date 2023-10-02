@@ -1,6 +1,7 @@
 .Stack {
   display: flex;
+  flex-wrap: wrap;
   gap: 18px;
   justify-content: center;
-  padding: 8px 0;
+  padding: 8px;
 }

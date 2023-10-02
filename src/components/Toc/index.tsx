@@ -69,7 +69,9 @@ const Toc: FC<Props> = ({ html, title, tags, categories, date }) => {
           {categories?.map((category) => (
             <Tag outlined key={category} text={category} />
           ))}
-          {tags?.map((tag) => <Tag key={tag} text={tag} filled />)}
+          {tags?.map((tag) => (
+            <Tag link={'/tags/' + tag} key={tag} text={tag} />
+          ))}
         </div>
         <Hr />
         <TocList tocs={tocs} />

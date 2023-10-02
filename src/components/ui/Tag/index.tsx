@@ -1,30 +1,35 @@
 import type { FC, ReactNode } from 'react'
+import './index.css'
+import Link from 'next/link'
 
 interface Props {
+  plain?: boolean
   key?: string
   outlined?: boolean
-  filled?: boolean
+  link?: string
   text: ReactNode
 }
 
-const Tag: FC<Props> = ({ outlined, filled, text }) => {
+const Tag: FC<Props> = ({ outlined, text, link, plain }) => {
+  if (plain && link) {
+    return (
+      <Link className="Tag Tag-Link hover-a-style" href={link}>
+        {text}
+      </Link>
+    )
+  }
+  if (link) {
+    return (
+      <Link
+        className={`Tag ${outlined ? 'Tag-Outlined' : 'Tag-Filled'}`}
+        href={link}
+      >
+        {text}
+      </Link>
+    )
+  }
   return (
-    <span
-      style={{
-        display: 'inline-flex',
-        justifyContent: 'center',
-        lineHeight: '22px',
-        height: '22px',
-        padding: '0 6px',
-        border: '1px solid #1976D2',
-        borderRadius: '14px',
-        minWidth: '24px',
-        fontSize: '0.8125rem',
-        color: filled ? '#fff' : '#1976D2',
-        backgroundColor: outlined ? '#fff' : '#1976D2',
-        marginRight: '6px',
-      }}
-    >
+    <span className={`Tag ${outlined ? 'Tag-Outlined' : 'Tag-Filled'}`}>
       {text}
     </span>
   )

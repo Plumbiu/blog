@@ -1,6 +1,8 @@
-'use client'
-import { Badge, Chip, Typography } from '@mui/material'
 import type { FC } from 'react'
+import Title from '../ui/Title'
+import Badge from '../ui/Badge'
+import Stack from '../ui/Stack'
+import Tag from '../ui/Tag'
 
 interface Props {
   tags: Tag[]
@@ -9,28 +11,14 @@ interface Props {
 const TagsCmp: FC<Props> = ({ tags }) => {
   return (
     <>
-      <Typography
-        variant="h6"
-        component="div"
-        sx={{
-          textAlign: 'center',
-          py: 2,
-        }}
-      >
-        🎉 收录了 {tags.length} 个 tag! 🎉
-      </Typography>
-      {tags.map(({ name, count }) => (
-        <Badge
-          key={name}
-          badgeContent={count}
-          color="primary"
-          sx={{
-            m: 1,
-          }}
-        >
-          <Chip variant="outlined" label={name} clickable />
-        </Badge>
-      ))}
+      <Title>🎉 收录了 {tags.length} 个 tag! 🎉</Title>
+      <Stack>
+        {tags.map(({ name, count }) => (
+          <Badge key={name} count={count}>
+            <Tag link={'/tags/' + name} text={name} />
+          </Badge>
+        ))}
+      </Stack>
     </>
   )
 }

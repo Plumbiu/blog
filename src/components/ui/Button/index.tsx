@@ -7,7 +7,7 @@ interface Props {
   link: string
 }
 
-const page: FC<Props> = ({ children, link }) => {
+const Button: FC<Props> = ({ children, link }) => {
   return (
     <Link className="hover-style Btn-Link" href={link}>
       {children}
@@ -15,4 +15,4 @@ const page: FC<Props> = ({ children, link }) => {
   )
 }
 
-export default page
+export default Button
