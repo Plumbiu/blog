@@ -1,7 +1,7 @@
-'use client'
-import { Button, Stack } from '@mui/material'
 import Hr from '../ui/Hr'
 import type { FC } from 'react'
+import Button from '../ui/Button'
+import Stack from '../ui/Stack'
 
 interface Props {
   info: Array<{
@@ -14,20 +14,9 @@ const ListBottom: FC<Props> = ({ info }) => {
   return (
     <>
       <Hr />
-      <Stack
-        direction="row"
-        spacing={2}
-        justifyContent="center"
-        useFlexGap
-        flexWrap="wrap"
-        sx={{
-          py: 1,
-        }}
-      >
+      <Stack spacing={2}>
         {info.map(({ primary, href }) => (
-          <Button key={href} component="a" href={href}>
-            {primary}
-          </Button>
+          <Button link={href}>{primary}</Button>
         ))}
       </Stack>
     </>

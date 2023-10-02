@@ -1,6 +1,7 @@
 import { Avatar } from '@mui/material'
 import type { FC } from 'react'
-import Tag from '../Tag'
+import Tag from '../ui/Tag'
+import Link from 'next/link'
 
 interface Props {
   list: FullFrontMatter[]
@@ -15,13 +16,13 @@ const ArticleList: FC<Props> = ({ list }) => {
       }}
     >
       {list.map((item) => (
-        <a
+        <Link
+          className="hover-style"
           key={item.id}
           style={{
             display: 'flex',
             alignItems: 'flex-start',
             padding: '12px',
-            fontFamily: '"Roboto","Helvetica","Arial",sans-serif',
           }}
           href={'/post/' + item.id}
         >
@@ -66,7 +67,7 @@ const ArticleList: FC<Props> = ({ list }) => {
               </span>
             </span>
           </span>
-        </a>
+        </Link>
       ))}
     </div>
   )

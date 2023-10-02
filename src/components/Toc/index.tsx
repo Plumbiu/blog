@@ -5,7 +5,7 @@ import Side from '../ui/Side'
 import TocList from './List'
 import { formatTime } from '@/lib/time'
 import { AccessTimeFilled } from '@mui/icons-material'
-import Tag from '../Tag'
+import Tag from '../ui/Tag'
 
 interface Props {
   html: string

@@ -1,64 +1,36 @@
-'use client'
-import {
-  Badge,
-  Button,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Stack,
-} from '@mui/material'
 import type { Props } from './ListTop'
 import type { FC } from 'react'
+import Button from '../ui/Button'
+import Stack from '../ui/Stack'
+import Badge from '../ui/Badge'
+import ButtonIcon from '../ui/Button/Icon'
 
 const ListCenter: FC<Props> = ({ blogInfo, githubInfo }) => {
   return (
     <>
-      <ListItem
-        sx={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-        }}
-      >
-        <Stack direction="row" spacing={2}>
+      <div>
+        <Stack spacing={2}>
           {blogInfo.map(({ href, primary, count }) => (
-            <Button key={href} component="a" href={href}>
-              <Badge badgeContent={count} color="secondary">
-                {primary}
-              </Badge>
+            <Button key={href} link={href}>
+              <Badge count={count}>{primary}</Badge>
             </Button>
           ))}
         </Stack>
-      </ListItem>
+      </div>
       {githubInfo.map(({ icon, primary, href }) =>
         href ? (
-          <ListItemButton
+          <ButtonIcon
+            icon={icon}
             key={href ?? primary}
-            component="a"
-            href={href}
-            target="__blank"
-          >
-            <ListItemIcon
-              sx={{
-                minWidth: '42px',
-              }}
-            >
-              {icon}
-            </ListItemIcon>
-            <ListItemText primary={primary} />
-          </ListItemButton>
+            link={href}
+            text={primary}
+          ></ButtonIcon>
         ) : (
-          <ListItemButton key={href ?? primary}>
-            <ListItemIcon
-              sx={{
-                minWidth: '42px',
-              }}
-            >
-              {icon}
-            </ListItemIcon>
-            <ListItemText primary={primary} />
-          </ListItemButton>
+          <ButtonIcon
+            icon={icon}
+            key={href ?? primary}
+            text={primary}
+          ></ButtonIcon>
         ),
       )}
     </>
