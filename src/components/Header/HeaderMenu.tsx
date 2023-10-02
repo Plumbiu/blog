@@ -1,12 +1,5 @@
 'use client'
-import {
-  IconButton,
-  ListItemIcon,
-  ListItemText,
-  Menu,
-  MenuItem,
-  Paper,
-} from '@mui/material'
+import { IconButton, Menu } from '@mui/material'
 import React, { useState } from 'react'
 import {
   Menu as MenuIcon,
@@ -20,6 +13,7 @@ import {
   Category,
 } from '@mui/icons-material'
 import Hr from '../ui/Hr'
+import ButtonIcon from '../ui/Button/Icon'
 
 const lists = [
   { text: '首页', link: '/', icon: <FirstPage /> },
@@ -52,36 +46,29 @@ const HeaderMenu = () => {
       >
         <MenuIcon />
       </IconButton>
-      <Paper sx={{ maxWidth: '100%' }}>
-        <Menu open={open} anchorEl={anchorEl} onClose={handleClose}>
+      <div style={{ maxWidth: '100%', padding: '0 4px' }}>
+        <Menu open={open} anchorEl={anchorEl} onClick={handleClose}>
           {lists.map(({ text, link, icon }) => (
-            <MenuItem
-              key={text}
-              component="a"
-              href={link}
-              sx={{
-                py: 1.25,
-              }}
-            >
-              <ListItemIcon>{icon}</ListItemIcon>
-              <ListItemText>{text}</ListItemText>
-            </MenuItem>
+            <ButtonIcon
+              blank={false}
+              icon={icon}
+              mw={36}
+              py={10}
+              text={text}
+              link={link}
+            />
           ))}
           <Hr />
-          <MenuItem
-            component="a"
-            href="https://github.com/Plumbiu/blog"
-            sx={{
-              py: 1.25,
-            }}
-          >
-            <ListItemIcon>
-              <GitHub fontSize="small" />
-            </ListItemIcon>
-            <ListItemText>Github</ListItemText>
-          </MenuItem>
+          <ButtonIcon
+            blank={false}
+            icon={<GitHub />}
+            mw={36}
+            py={10}
+            text="GitHub"
+            link="https://github.com/Plumbiu/blog"
+          />
         </Menu>
-      </Paper>
+      </div>
     </>
   )
 }
