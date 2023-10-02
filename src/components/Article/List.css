@@ -6,7 +6,7 @@
 .Article-List-Link {
   display: flex;
   align-items: flex-start;
-  padding: 12px;
+  padding: 16px 12px;
 }
 
 .Article-List-Title {

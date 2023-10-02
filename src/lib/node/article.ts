@@ -21,7 +21,11 @@ export async function getPosts(pagenum = 0, isLimit = false) {
   for (const post of rawPosts) {
     const file = await fsp.readFile(path.join(postsPath, post), 'utf-8')
     const end = file.indexOf('---', 3)
-    const desc = file.slice(end + 3, end + 120).replace(/[#`\s]/g, '')
+    const desc = file
+      .slice(end + 3, end + 120)
+      .replace(/[#`\s-]/g, '')
+      .replace(/\[[\w\W]*\]\(/g, ' ')
+      .replace(')', ' ')
     posts.push({
       id: post,
       desc,
