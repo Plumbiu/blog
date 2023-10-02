@@ -30,7 +30,7 @@ const TocList: FC<Props> = ({ tocs }) => {
       },
       {
         // FIXME: top and bottom title can not be observed
-        rootMargin: '1% 0% -99% 0%',
+        rootMargin: '10% 0% -99% 0%',
       },
     )
     document.querySelectorAll('h1,h2,h3').forEach((title) => {
