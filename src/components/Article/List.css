@@ -1,0 +1,29 @@
+.Article-List {
+  background-color: #fff;
+  padding: 12px 0;
+}
+
+.Article-List-Link {
+  display: flex;
+  align-items: flex-start;
+  padding: 12px;
+}
+
+.Article-List-Title {
+  line-height: 1.5;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.Article-List-Desc-Wrap {
+  word-break: break-word;
+  display: flex;
+  flex-direction: column;
+}
+
+.Article-List-Desc {
+  font-size: 14px;
+  letter-spacing: 0.75px;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 1.8;
+}

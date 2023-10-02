@@ -1,0 +1,13 @@
+.Badge-Content {
+  position: absolute;
+  text-align: center;
+  font-size: 0.75rem;
+  line-height: 18px;
+  height: 18px;
+  color: #fff;
+  border-radius: 10px;
+  padding: 1px 6px;
+  background-color: #9c27b0;
+  top: -10px;
+  right: -4px;
+}

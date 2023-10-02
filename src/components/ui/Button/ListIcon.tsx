@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { CSSProperties, FC, ReactNode } from 'react'
+import './ListIcon.css'
 
 interface Props {
   icon: ReactNode
@@ -21,10 +22,8 @@ const ButtonListIcon: FC<Props> = ({
   const child = (
     <>
       <div
+        className="Btn-List-Icon"
         style={{
-          display: 'flex',
-          alignContent: 'center',
-          color: 'rgba(0, 0, 0, 0.54)',
           minWidth: mw + 'px',
         }}
       >
@@ -39,23 +38,20 @@ const ButtonListIcon: FC<Props> = ({
       </div>
     </>
   )
-  const style: CSSProperties = {
-    display: 'flex',
-    alignItems: 'center',
+  const p: CSSProperties = {
     padding: `${py}px 16px`,
-    cursor: 'pointer',
   }
   return link ? (
     <Link
-      className="hover-a-style"
+      className="hover-a-style Btn-List-Icon-Link"
       href={link}
       target={blank ? '_blank' : '_self'}
-      style={style}
+      style={p}
     >
       {child}
     </Link>
   ) : (
-    <div className="hover-a-style" style={style}>
+    <div className="hover-a-style Btn-List-Icon-Link" style={p}>
       {child}
     </div>
   )

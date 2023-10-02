@@ -1,0 +1,6 @@
+.Stack {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  padding: 8px 0;
+}

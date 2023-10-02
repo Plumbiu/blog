@@ -3,6 +3,7 @@ import { articleNum } from '@/config/sideCard.json'
 import Link from 'next/link'
 import FirstPageIcon from '@mui/icons-material/FirstPage'
 import LastPageIcon from '@mui/icons-material/LastPage'
+import './Pagination.css'
 
 interface Props {
   page: number
@@ -11,14 +12,7 @@ interface Props {
 const Pagination: FC<Props> = ({ page }) => {
   const array = new Array(Math.ceil(articleNum / 12)).fill(0)
   return (
-    <div
-      style={{
-        display: 'flex',
-        gap: 12,
-        alignItems: 'center',
-        margin: '12px',
-      }}
-    >
+    <div className="Pagination">
       {page === 1 ? (
         <FirstPageIcon
           fontSize="small"
@@ -27,41 +21,20 @@ const Pagination: FC<Props> = ({ page }) => {
           }}
         />
       ) : (
-        <Link
-          href="1"
-          scroll={false}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-          }}
-        >
+        <Link href="1" scroll={false} className="Pagination-Icon-Link">
           <FirstPageIcon fontSize="small" />
         </Link>
       )}
-      <div
-        style={{
-          display: 'flex',
-          gap: 12,
-          fontSize: '0.875rem',
-        }}
-      >
-        {array.map((item, i) => (
+      <div className="Pagination-Link-Wrap">
+        {array.map((_item, i) => (
           <Link
-            key={item}
+            key={i}
             href={String(i + 1)}
-            className={
-              page - 1 === i ? 'hover-pagination-item-style' : 'hover-a-style'
-            }
-            style={{
-              width: '32px',
-              height: '32px',
-              lineHeight: '32px',
-              textAlign: 'center',
-              backgroundColor: page - 1 === i ? '#9C27B0' : 'inherit',
-              borderRadius: '50%',
-              color: page - 1 === i ? '#fff' : 'rgba(0, 0, 0, 0.87)',
-              cursor: 'pointer',
-            }}
+            className={`Pagination-Link ${
+              page - 1 === i
+                ? 'hover-pagination-item-style Pagination-Icon-Link-Active'
+                : 'hover-a-style'
+            }`}
           >
             {i + 1}
           </Link>
@@ -78,10 +51,7 @@ const Pagination: FC<Props> = ({ page }) => {
         <Link
           href={String(Math.ceil(articleNum / 12))}
           scroll={false}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-          }}
+          className="Pagination-Icon-Link"
         >
           <LastPageIcon fontSize="small" />
         </Link>

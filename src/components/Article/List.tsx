@@ -2,6 +2,7 @@ import type { FC } from 'react'
 import Tag from '../ui/Tag'
 import Link from 'next/link'
 import ArticleCover from './Cover'
+import './List.css'
 
 interface Props {
   list: FullFrontMatter[]
@@ -9,51 +10,24 @@ interface Props {
 
 const ArticleList: FC<Props> = ({ list }) => {
   return (
-    <div
-      style={{
-        backgroundColor: '#fff',
-        padding: '12px 0',
-      }}
-    >
+    <div className="Article-List">
       {list.map((item) => (
         <Link
-          className="hover-style"
+          className="hover-style Article-List-Link"
           key={item.id}
-          style={{
-            display: 'flex',
-            alignItems: 'flex-start',
-            padding: '12px',
-          }}
           href={'/post/' + item.id}
         >
           <ArticleCover>{item.cover ?? item.tags?.[0]}</ArticleCover>
-          <div>
-            <span
-              style={{
-                lineHeight: '1.5',
-                display: 'block',
-                marginBottom: '4px',
-              }}
-            >
-              {item.title}
-            </span>
-            <div
-              style={{
-                wordBreak: 'break-word',
-                display: 'flex',
-                flexDirection: 'column',
-              }}
-            >
+          <div
+            style={{
+              flex: 1,
+            }}
+          >
+            <span className="Article-List-Title">{item.title}</span>
+            <div className="Article-List-Desc-Wrap">
               <div>
                 {item.tags?.map((tag) => <Tag key={tag} outlined text={tag} />)}
-                <span
-                  style={{
-                    fontSize: '14px',
-                    letterSpacing: '0.75px',
-                    color: 'rgba(0, 0, 0, 0.6)',
-                    lineHeight: 1.8,
-                  }}
-                >
+                <span className="Article-List-Desc">
                   {item.desc + '......'}
                 </span>
               </div>

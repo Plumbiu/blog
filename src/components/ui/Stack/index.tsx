@@ -1,4 +1,5 @@
 import type { FC, ReactNode } from 'react'
+import './index.css'
 
 interface Props {
   children: ReactNode
@@ -7,18 +8,7 @@ interface Props {
 }
 
 const Stack: FC<Props> = ({ children, spacing = 2, m = 2 }) => {
-  return (
-    <div
-      style={{
-        display: 'flex',
-        gap: spacing * 9 + 'px',
-        justifyContent: 'center',
-        padding: `${m * 4}px 0`,
-      }}
-    >
-      {children}
-    </div>
-  )
+  return <div className="Stack">{children}</div>
 }
 
 export default Stack

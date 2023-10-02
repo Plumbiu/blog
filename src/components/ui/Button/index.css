@@ -1,0 +1,11 @@
+.Btn-Link {
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-align: center;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  padding: 6px 8px;
+  color: #1976d2;
+  border-radius: 2px;
+  min-width: 45px;
+}

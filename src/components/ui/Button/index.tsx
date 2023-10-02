@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { FC, ReactNode } from 'react'
+import './index.css'
 
 interface Props {
   children: ReactNode
@@ -8,21 +9,7 @@ interface Props {
 
 const page: FC<Props> = ({ children, link }) => {
   return (
-    <Link
-      className="hover-style"
-      href={link}
-      style={{
-        fontWeight: '500',
-        fontSize: '0.875rem',
-        textAlign: 'center',
-        lineHeight: 1.75,
-        letterSpacing: '0.02857em',
-        padding: '6px 8px',
-        color: '#1976d2',
-        borderRadius: '2px',
-        minWidth: '45px',
-      }}
-    >
+    <Link className="hover-style Btn-Link" href={link}>
       {children}
     </Link>
   )

@@ -1,0 +1,31 @@
+.Pagination {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 12px;
+}
+
+.Pagination-Icon-Link {
+  display: flex;
+  align-items: center;
+}
+
+.Pagination-Icon-Link-Active {
+  background-color: #9c27b0;
+  color: #fff;
+}
+
+.Pagination-Link-Wrap {
+  display: flex;
+  gap: 12px;
+  font-size: 0.875rem;
+}
+
+.Pagination-Link {
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+}

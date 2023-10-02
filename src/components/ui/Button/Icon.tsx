@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { FC, ReactNode } from 'react'
+import './Icon.css'
 
 interface Props {
   link: string
@@ -9,25 +10,7 @@ interface Props {
 
 const ButtonIcon: FC<Props> = ({ link, text, icon }) => {
   return (
-    <Link
-      className="hover-btn-icon-style"
-      href={link}
-      style={{
-        display: 'inline-flex',
-        height: '30px',
-        lineHeight: '30px',
-        alignItems: 'center',
-        padding: '0 6px',
-        color: '#1976d2',
-        fontSize: '0.8125rem',
-        letterSpacing: '1px',
-        borderRadius: '4px',
-        gap: 6,
-        borderWidth: '1px',
-        borderStyle: 'solid',
-        borderColor: 'rgba(25, 118, 210, 0.5)',
-      }}
-    >
+    <Link className="hover-btn-icon-style Button-Icon-Link" href={link}>
       <div>{icon}</div>
       <div>{text}</div>
     </Link>
