@@ -1,7 +1,7 @@
-import { Avatar } from '@mui/material'
 import type { FC } from 'react'
 import Tag from '../ui/Tag'
 import Link from 'next/link'
+import ArticleCover from './Cover'
 
 interface Props {
   list: FullFrontMatter[]
@@ -26,17 +26,8 @@ const ArticleList: FC<Props> = ({ list }) => {
           }}
           href={'/post/' + item.id}
         >
-          <Avatar
-            sx={{
-              bgcolor: '#9C27B0',
-              width: 52,
-              height: 52,
-              mr: 2,
-            }}
-          >
-            {item.cover ?? item.tags?.[0]}
-          </Avatar>
-          <span>
+          <ArticleCover>{item.cover ?? item.tags?.[0]}</ArticleCover>
+          <div>
             <span
               style={{
                 lineHeight: '1.5',
@@ -46,27 +37,28 @@ const ArticleList: FC<Props> = ({ list }) => {
             >
               {item.title}
             </span>
-            <span
+            <div
               style={{
                 wordBreak: 'break-word',
                 display: 'flex',
                 flexDirection: 'column',
               }}
             >
-              <span>
+              <div>
                 {item.tags?.map((tag) => <Tag key={tag} outlined text={tag} />)}
                 <span
                   style={{
                     fontSize: '14px',
                     letterSpacing: '0.75px',
                     color: 'rgba(0, 0, 0, 0.6)',
+                    lineHeight: 1.8,
                   }}
                 >
                   {item.desc + '......'}
                 </span>
-              </span>
-            </span>
-          </span>
+              </div>
+            </div>
+          </div>
         </Link>
       ))}
     </div>
