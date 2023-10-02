@@ -15,8 +15,6 @@ export async function generateStaticParams() {
 }
 
 const TagsName = async ({ params }: Props) => {
-  console.log(params.name)
-
   const posts = await useRequest<FullFrontMatter[]>(
     'article?tag=' + params.name,
   )
