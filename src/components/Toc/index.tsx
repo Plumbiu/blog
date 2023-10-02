@@ -4,8 +4,10 @@ import type { FC } from 'react'
 import Side from '../ui/Side'
 import TocList from './List'
 import { formatTime } from '@/lib/time'
-import { AccessTimeFilled } from '@mui/icons-material'
+import { AccessTimeFilled, ArrowBack } from '@mui/icons-material'
+import ButtonIcon from '../ui/Button/Icon'
 import Tag from '../ui/Tag'
+import Hr from '../ui/Hr'
 
 interface Props {
   html: string
@@ -69,7 +71,29 @@ const Toc: FC<Props> = ({ html, title, tags, categories, date }) => {
           ))}
           {tags?.map((tag) => <Tag key={tag} text={tag} filled />)}
         </div>
+        <Hr />
         <TocList tocs={tocs} />
+        <Hr />
+        <div
+          style={{
+            marginLeft: '12px',
+            marginTop: '10px',
+          }}
+        >
+          <ButtonIcon
+            link="/article"
+            text="文章页"
+            icon={
+              <ArrowBack
+                sx={{
+                  fontSize: '18px',
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              />
+            }
+          />
+        </div>
       </div>
     </Side>
   )
