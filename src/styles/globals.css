@@ -55,7 +55,8 @@ p {
 
 .hover-style,
 .hover-a-style,
-.hover-btn-icon-style {
+.hover-btn-icon-style,
+.hover-pagination-item-style {
   transition:
     background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
@@ -64,12 +65,15 @@ p {
 }
 
 .hover-style:hover {
-  background-color: #f6fafd;
+  background-color: #f6fafd !important;
 }
 .hover-a-style:hover {
-  background-color: rgba(0, 0, 0, 0.04);
+  background-color: rgba(0, 0, 0, 0.04) !important;
 }
 .hover-btn-icon-style:hover {
   background-color: #f6fafd;
   border-color: #1976d2 !important;
+}
+.hover-pagination-item-style:hover {
+  background-color: #7b1fa2 !important;
 }
