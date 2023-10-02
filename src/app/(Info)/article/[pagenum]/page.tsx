@@ -3,6 +3,7 @@ import { useRequest } from '@/lib/api'
 import { Suspense } from 'react'
 import Loading from './loading'
 import Pagination from '@/components/Article/Pagination'
+import { articleNum } from '@/config/sideCard.json'
 
 interface Props {
   params: {
@@ -10,11 +11,13 @@ interface Props {
   }
 }
 
-export async function generateStaticParams() {
-  const posts = await useRequest<FullFrontMatter[]>('article')
-  const nums = posts.map((_post, index) => ({
-    pagenum: String(index + 1),
-  }))
+export function generateStaticParams() {
+  const nums = []
+  for (let i = 1; i <= articleNum; i++) {
+    nums.push({
+      pagenum: String(i),
+    })
+  }
   return nums
 }
 
