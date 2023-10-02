@@ -12,13 +12,13 @@ import {
   Tag,
   Category,
 } from '@mui/icons-material'
-import Hr from '../ui/Hr'
+import Hr from '@/components/ui/Hr'
 import ButtonListIcon from '../ui/Button/ListIcon'
 
 const lists = [
   { text: '首页', link: '/', icon: <FirstPage /> },
   { text: '文章', link: '/article/1', icon: <Article /> },
-  { text: '开源之旅', link: '/', icon: <TravelExplore /> },
+  { text: '开源之旅', link: '/opensource', icon: <TravelExplore /> },
   { text: '朋友们', link: '/friends', icon: <People /> },
   { text: '留言板', link: '/comments', icon: <Comment /> },
   { text: '标签', link: '/tags', icon: <Tag /> },

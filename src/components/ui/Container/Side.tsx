@@ -1,4 +1,5 @@
 import { type FC, type ReactNode } from 'react'
+import './Side.css'
 
 interface Props {
   children: ReactNode

@@ -1,5 +1,5 @@
 import React from 'react'
-import './Hr.css'
+import './index.css'
 
 const Hr = () => {
   return <hr className="Hr" />

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import '@/styles/github-markdown-light.css'
 import 'highlight.js/styles/github.css'
 import { useRequest } from '@/lib/api'
-import Main from '@/components/ui/Main'
+import Main from '@/components/ui/Container/Main'
 import Toc from '@/components/Toc'
 import { renderMD } from '@/lib/md'
 

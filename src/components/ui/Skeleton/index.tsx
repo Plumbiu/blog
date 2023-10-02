@@ -1,4 +1,4 @@
-import '@/styles/loading.css'
+import './index.css'
 
 const Skeleton = () => {
   return (

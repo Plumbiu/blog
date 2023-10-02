@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import '@/styles/myself.css'
+import './QA.css'
 
 interface Props {
   q: string

@@ -1,5 +1,4 @@
 import '@/styles/globals.css'
-import '@/styles/blog.css'
 import type { Metadata } from 'next'
 import Header from '@/components/Header'
 import Container from '@/components/ui/Container'
