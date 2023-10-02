@@ -23,6 +23,7 @@ const lists = [
   { text: '留言板', link: '/comments', icon: <Comment /> },
   { text: '标签', link: '/tags', icon: <Tag /> },
   { text: '分类', link: '/categories', icon: <Category /> },
+  { text: 'GitHub', link: 'https://github.com/Plumbiu/blog', icon: <GitHub /> },
 ]
 
 const HeaderMenu = () => {
@@ -47,27 +48,31 @@ const HeaderMenu = () => {
         <MenuIcon />
       </IconButton>
       <div style={{ maxWidth: '100%', padding: '0 4px' }}>
-        <Menu open={open} anchorEl={anchorEl} onClick={handleClose}>
-          {lists.map(({ text, link, icon }) => (
-            <ButtonListIcon
-              key={text}
-              blank={false}
-              icon={icon}
-              mw={36}
-              py={10}
-              text={text}
-              link={link}
-            />
+        <Menu
+          open={open}
+          anchorEl={anchorEl}
+          onClick={handleClose}
+          sx={{
+            '.css-6hp17o-MuiList-root-MuiMenu-list': {
+              paddingTop: 0,
+              paddingBottom: 0,
+            },
+          }}
+        >
+          {lists.map(({ text, link, icon }, index) => (
+            <>
+              <ButtonListIcon
+                key={text}
+                blank={false}
+                icon={icon}
+                mw={36}
+                py={10}
+                text={text}
+                link={link}
+              />
+              {index % 3 ? undefined : <Hr key={text} />}
+            </>
           ))}
-          <Hr />
-          <ButtonListIcon
-            blank={false}
-            icon={<GitHub />}
-            mw={36}
-            py={10}
-            text="GitHub"
-            link="https://github.com/Plumbiu/blog"
-          />
         </Menu>
       </div>
     </>
