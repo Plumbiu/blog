@@ -34,18 +34,18 @@ const ArticleBanner: FC<Props> = ({ posts, name, path }) => {
             <div className="Banner-List-Link-Top">
               <span className="Banner-List-Link-Title">{title}</span>
               <div>
-                {categories.map((category) => (
-                  <Tag key={category} text={category} outlined />
-                ))}
-                {tags.map((tag) => (
-                  <Tag key={tag} text={tag} />
-                ))}
+                <Tag text={formatTime(date).split(' ')[0].slice(2)} outlined />
+                <Tag text={formatTime(updated).split(' ')[0].slice(2)} />
               </div>
             </div>
-            <div className="Banner-List-Link-Desc">{desc}......</div>
+            <div className="Banner-List-Link-Desc">{desc}...</div>
             <div>
-              <Tag text={formatTime(date).split(' ')[0]} outlined />
-              <Tag text={formatTime(updated).split(' ')[0]} />
+              {categories.map((category) => (
+                <Tag key={category} text={category} outlined />
+              ))}
+              {tags.map((tag) => (
+                <Tag key={tag} text={tag} />
+              ))}
             </div>
           </Link>
         ))}

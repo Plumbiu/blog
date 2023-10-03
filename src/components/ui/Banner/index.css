@@ -21,8 +21,15 @@
 }
 
 .Banner-List-Link {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 6px -1px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  margin: 8px;
   width: 40%;
-  padding: 32px 24px;
+  padding: 16px;
 }
 
 .Banner-List-Link-Top {
@@ -33,7 +40,7 @@
 }
 
 .Banner-List-Link-Title {
-  min-width: 125px;
+  min-width: 150px;
   margin-right: 8px;
   overflow: hidden;
 }

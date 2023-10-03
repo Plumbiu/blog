@@ -24,7 +24,7 @@ const ListTop: FC<Props> = ({ blogInfo, githubInfo }) => {
         style={{
           display: 'flex',
           alignItems: 'flex-start',
-          padding: '16px 16px 8px 16px',
+          padding: '8px 0 8px 8px',
         }}
       >
         <Link
@@ -45,7 +45,8 @@ const ListTop: FC<Props> = ({ blogInfo, githubInfo }) => {
         </Link>
         <div
           style={{
-            padding: '8px 15px',
+            padding: '8px',
+            marginLeft: '4px',
           }}
         >
           <div
@@ -54,13 +55,13 @@ const ListTop: FC<Props> = ({ blogInfo, githubInfo }) => {
               letterSpacing: '0.15px',
             }}
           >
-            👋 Plumbiu
+            Plumbiu 👋
           </div>
           <div
             style={{
               color: 'rgba(0, 0, 0, 0.6)',
               fontSize: '0.875rem',
-              lineHeight: '1.43',
+              lineHeight: '1.5',
               letterSpacing: '0.2px',
             }}
           >
