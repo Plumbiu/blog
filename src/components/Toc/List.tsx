@@ -21,7 +21,11 @@ const TocList: FC<Props> = ({ tocs }) => {
           if (entry.isIntersecting) {
             const target = entry.target
             const newHash = '#' + target.id
-            location.href = newHash
+            /*
+              FIXME: This will effect the broswer url,
+              history API will better, but it can notbe back to /article
+              // location.href = newHash
+            */
             setCurrentHash(newHash)
           }
         }
