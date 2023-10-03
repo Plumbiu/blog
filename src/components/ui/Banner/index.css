@@ -15,6 +15,7 @@
   margin: 0 auto;
   flex-wrap: wrap;
   padding: 0 64px;
+  margin-top: 16px;
 }
 
 .Banner-List-Link {
