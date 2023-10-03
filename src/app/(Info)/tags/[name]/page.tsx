@@ -1,5 +1,5 @@
+import ArticleBanner from '@/components/ui/Banner'
 import { useRequest } from '@/lib/api'
-import TagsList from '@/components/Tags/List'
 
 interface Props {
   params: {
@@ -19,7 +19,7 @@ const TagsName = async ({ params }: Props) => {
     'article?tag=' + params.name,
   )
 
-  return <TagsList posts={posts} name={params.name} />
+  return <ArticleBanner path="tags" posts={posts} name={params.name} />
 }
 
 export default TagsName

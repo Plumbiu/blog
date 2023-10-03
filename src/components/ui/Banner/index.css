@@ -1,15 +1,15 @@
-.Tags-Title-Wrap {
+.Banner-Title-Wrap {
   margin-top: 24px;
   text-align: center;
 }
 
-.Tags-Title-Stack {
+.Banner-Title-Stack {
   display: inline-flex;
   justify-content: center;
   margin: 0 auto;
 }
 
-.Tags-List {
+.Banner-List {
   display: flex;
   justify-content: center;
   margin: 0 auto;
@@ -17,28 +17,28 @@
   padding: 0 64px;
 }
 
-.Tags-List-Link {
+.Banner-List-Link {
   width: 40%;
   padding: 32px 24px;
 }
 
-.Tags-List-Link-Top {
+.Banner-List-Link-Top {
   display: flex;
   align-items: flex-start;
   font-size: 20px;
   font-weight: 500;
 }
-.Tags-List-Link-Title {
+.Banner-List-Link-Title {
   margin-right: 8px;
   max-width: 50%;
 }
-.Tags-List-Link-Desc {
+.Banner-List-Link-Desc {
   font-size: 14px;
   color: rgba(0, 0, 0, 0.6);
   padding: 16px 36px 24px 0;
 }
 
-.Tags-List-Btn {
+.Banner-List-Btn {
   position: fixed;
   cursor: pointer;
   align-items: center;
@@ -54,10 +54,10 @@
 }
 
 @media screen and (max-width: 960px) {
-  .Tags-List {
+  .Banner-List {
     padding: 12px;
   }
-  .Tags-List-Link {
+  .Banner-List-Link {
     width: 100%;
   }
 }

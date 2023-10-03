@@ -1,8 +1,8 @@
 import type { FC } from 'react'
-import Tag from '../ui/Tag'
 import Link from 'next/link'
-import ArticleCover from './Cover'
-import './List.css'
+import './index.css'
+import Cover from '@/components/ui/Cover'
+import Tag from '../../Tag'
 
 interface Props {
   list: FullFrontMatter[]
@@ -17,7 +17,7 @@ const ArticleList: FC<Props> = ({ list }) => {
           key={item.id}
           href={'/post/' + item.id}
         >
-          <ArticleCover>{item.cover ?? item.tags?.[0]}</ArticleCover>
+          <Cover>{item.cover ?? item.tags?.[0]}</Cover>
           <div
             style={{
               flex: 1,

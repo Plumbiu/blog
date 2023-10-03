@@ -3,7 +3,7 @@ import { articleNum } from '@/config/sideCard.json'
 import Link from 'next/link'
 import FirstPageIcon from '@mui/icons-material/FirstPage'
 import LastPageIcon from '@mui/icons-material/LastPage'
-import './Pagination.css'
+import './index.css'
 
 interface Props {
   page: number

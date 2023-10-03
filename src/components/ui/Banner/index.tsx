@@ -3,33 +3,36 @@ import { formatTime } from '@/lib/time'
 import Link from 'next/link'
 import React from 'react'
 import { ArrowBack } from '@mui/icons-material'
-import './List.css'
+import './index.css'
 import Badge from '@/components/ui/Badge'
 import Tag from '@/components/ui/Tag'
+
 interface Props {
   posts: FullFrontMatter[]
   name: string
+  path: string
 }
 
-const TagsList: FC<Props> = ({ posts, name }) => {
+const ArticleBanner: FC<Props> = ({ posts, name, path }) => {
+  name = decodeURI(name)
   return (
     <div>
-      <div className="Tags-Title-Wrap">
-        <div className="Tags-Title-Stack">
+      <div className="Banner-Title-Wrap">
+        <div className="Banner-Title-Stack">
           <Badge count={posts.length}>
-            <Tag link={'/tags/' + name} text={name} plain />
+            <Tag link={`/${path}/${name}`} text={name} plain />
           </Badge>
         </div>
       </div>
-      <div className="Tags-List">
+      <div className="Banner-List">
         {posts.map(({ id, desc, title, updated, date, tags, categories }) => (
           <Link
             key={id}
-            className="hover-a-style Tags-List-Link"
+            className="hover-a-style Banner-List-Link"
             href={'/post/' + id}
           >
-            <div className="Tags-List-Link-Top">
-              <span className="Tags-List-Link-Title">{title}</span>
+            <div className="Banner-List-Link-Top">
+              <span className="Banner-List-Link-Title">{title}</span>
               {categories.map((category) => (
                 <Tag key={category} text={category} outlined />
               ))}
@@ -38,7 +41,7 @@ const TagsList: FC<Props> = ({ posts, name }) => {
               ))}
             </div>
             <div
-              className="Tags-List-Link-Desc"
+              className="Banner-List-Link-Desc"
               style={{
                 fontSize: '14px',
                 color: 'rgba(0, 0, 0, 0.6)',
@@ -53,7 +56,7 @@ const TagsList: FC<Props> = ({ posts, name }) => {
             </div>
           </Link>
         ))}
-        <div className="hover-btn-icon-style Tags-List-Btn">
+        <div className="hover-btn-icon-style Banner-List-Btn">
           <ArrowBack fontSize="small" />
           <Link href="/tags">标签页</Link>
         </div>
@@ -62,4 +65,4 @@ const TagsList: FC<Props> = ({ posts, name }) => {
   )
 }
 
-export default TagsList
+export default ArticleBanner

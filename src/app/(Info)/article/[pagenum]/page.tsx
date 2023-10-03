@@ -1,8 +1,8 @@
-import ArticleList from '@/components/Article/List'
+import ArticleList from '@/components/ui/Article/List'
 import { useRequest } from '@/lib/api'
 import { Suspense } from 'react'
 import Loading from './loading'
-import Pagination from '@/components/Article/Pagination'
+import Pagination from '@/components/ui/Pagination'
 import { articleNum } from '@/config/sideCard.json'
 
 interface Props {
