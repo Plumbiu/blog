@@ -32,11 +32,8 @@
   font-weight: 500;
 }
 
-.Banner-List-Link-Top div {
-  white-space: nowrap;
-}
-
 .Banner-List-Link-Title {
+  min-width: 125px;
   margin-right: 8px;
   overflow: hidden;
 }
