@@ -42,16 +42,7 @@ const ArticleBanner: FC<Props> = ({ posts, name, path }) => {
                 ))}
               </div>
             </div>
-            <div
-              className="Banner-List-Link-Desc"
-              style={{
-                fontSize: '14px',
-                color: 'rgba(0, 0, 0, 0.6)',
-                padding: '16px 36px 24px 0',
-              }}
-            >
-              {desc}......
-            </div>
+            <div className="Banner-List-Link-Desc">{desc}......</div>
             <div>
               <Tag text={formatTime(date).split(' ')[0]} outlined />
               <Tag text={formatTime(updated).split(' ')[0]} />
