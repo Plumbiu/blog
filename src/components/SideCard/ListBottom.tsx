@@ -16,7 +16,9 @@ const ListBottom: FC<Props> = ({ info }) => {
       <Hr />
       <Stack spacing={2}>
         {info.map(({ primary, href }) => (
-          <Button link={href}>{primary}</Button>
+          <Button key={primary} link={href}>
+            {primary}
+          </Button>
         ))}
       </Stack>
     </>
