@@ -18,9 +18,9 @@ export async function GET(req: Request) {
     posts = posts.filter((post) => post.tags.includes(tag)) ?? []
   }
   // 3. category searchParams
-  const category = searchParams.get('category')
-  if (category !== null) {
-    posts = posts.filter((post) => post.categories.includes(category)) ?? []
-  }
+  // const category = searchParams.get('category')
+  // if (category !== null) {
+  //   posts = posts.filter((post) => post.categories.includes(category)) ?? []
+  // }
   return NextResponse.json(posts)
 }
