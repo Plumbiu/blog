@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import './QA.css'
+import './index.css'
 
 interface Props {
   q: string

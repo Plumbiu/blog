@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import type { FC, ReactNode } from 'react'
-import './Icon.css'
+import './index.css'
 
 interface Props {
   link: string

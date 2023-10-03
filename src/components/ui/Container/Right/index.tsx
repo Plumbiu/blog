@@ -1,6 +1,6 @@
 import MenuList from '@/components/Header/MenuList'
 import React from 'react'
-import './Right.css'
+import './index.css'
 
 const RightCard = () => {
   return (

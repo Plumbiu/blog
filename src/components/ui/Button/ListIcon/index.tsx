@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import type { CSSProperties, FC, ReactNode } from 'react'
-import './ListIcon.css'
+import './index.css'
 
 interface Props {
   icon: ReactNode

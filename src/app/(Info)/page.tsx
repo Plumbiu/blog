@@ -1,5 +1,5 @@
 import * as React from 'react'
-import QA from '@/components/Myself/QA'
+import QA from '@/components/ui/QA'
 import Title from '@/components/ui/Title'
 
 const qas = [

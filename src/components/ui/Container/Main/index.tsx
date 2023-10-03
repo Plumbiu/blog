@@ -1,5 +1,5 @@
 import { type FC, type ReactNode } from 'react'
-import './main.css'
+import './index.css'
 
 interface Props {
   children: ReactNode
