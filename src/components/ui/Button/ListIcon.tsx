@@ -29,13 +29,7 @@ const ButtonListIcon: FC<Props> = ({
       >
         {icon}
       </div>
-      <div
-        style={{
-          letterSpacing: '0.2px',
-        }}
-      >
-        {text}
-      </div>
+      <div className="Btn-List-Text">{text}</div>
     </>
   )
   const p: CSSProperties = {

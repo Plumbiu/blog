@@ -2,6 +2,7 @@ import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import Header from '@/components/Header'
 import Container from '@/components/ui/Container'
+import RightCard from '@/components/ui/Container/Right'
 
 export const metadata: Metadata = {
   title: 'Plumbiu の 小屋',
@@ -22,7 +23,10 @@ export default function RootLayout({
         }}
       >
         <Header />
-        <Container>{children}</Container>
+        <Container>
+          {children}
+          <RightCard />
+        </Container>
       </body>
     </html>
   )

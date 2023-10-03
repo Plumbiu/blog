@@ -4,10 +4,21 @@
 }
 
 .Article-List-Link {
+  position: relative;
   display: flex;
   align-items: flex-start;
-  padding: 16px 12px;
+  padding: 16px 24px;
 }
+
+/* TODO: Divider */
+/* .Article-List-Link::after {
+  content: '';
+  bottom: 0;
+  position: absolute;
+  height: 1px;
+  width: 60%;
+  background-color: black;
+} */
 
 .Article-List-Title {
   line-height: 1.5;

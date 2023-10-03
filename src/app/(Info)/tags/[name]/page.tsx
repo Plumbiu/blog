@@ -19,7 +19,7 @@ const TagsName = async ({ params }: Props) => {
     'article?tag=' + params.name,
   )
 
-  return <TagsList posts={posts} />
+  return <TagsList posts={posts} name={params.name} />
 }
 
 export default TagsName

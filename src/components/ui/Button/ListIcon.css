@@ -9,3 +9,22 @@
   align-items: center;
   cursor: pointer;
 }
+
+.Btn-List-Text {
+  letter-spacing: 0.2px;
+}
+
+@media screen and (max-width: 780px) {
+  .Btn-List-Text {
+    display: none;
+  }
+  .Btn-List-Icon {
+    min-width: 24px !important;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .Btn-List-Icon-Link {
+    display: none;
+  }
+}

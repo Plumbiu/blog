@@ -1,30 +1,8 @@
 'use client'
 import { IconButton, Menu } from '@mui/material'
 import React, { useState } from 'react'
-import {
-  Menu as MenuIcon,
-  FirstPage,
-  Article,
-  GitHub,
-  TravelExplore,
-  People,
-  Comment,
-  Tag,
-  Category,
-} from '@mui/icons-material'
-import Hr from '@/components/ui/Hr'
-import ButtonListIcon from '../ui/Button/ListIcon'
-
-const lists = [
-  { text: '首页', link: '/', icon: <FirstPage /> },
-  { text: '文章', link: '/article/1', icon: <Article /> },
-  { text: '开源之旅', link: '/opensource', icon: <TravelExplore /> },
-  { text: '朋友们', link: '/friends', icon: <People /> },
-  { text: '留言板', link: '/comments', icon: <Comment /> },
-  { text: '标签', link: '/tags', icon: <Tag /> },
-  { text: '分类', link: '/categories', icon: <Category /> },
-  { text: 'GitHub', link: 'https://github.com/Plumbiu/blog', icon: <GitHub /> },
-]
+import { Menu as MenuIcon } from '@mui/icons-material'
+import MenuList from './MenuList'
 
 const HeaderMenu = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
@@ -59,19 +37,7 @@ const HeaderMenu = () => {
             },
           }}
         >
-          {lists.map(({ text, link, icon }, index) => (
-            <div key={text}>
-              <ButtonListIcon
-                blank={false}
-                icon={icon}
-                mw={36}
-                py={10}
-                text={text}
-                link={link}
-              />
-              {index % 3 ? undefined : <Hr />}
-            </div>
-          ))}
+          <MenuList hr />
         </Menu>
       </div>
     </>

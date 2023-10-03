@@ -1,7 +1,7 @@
 import './index.css'
 import { genTocs } from '@/lib/toc'
 import type { FC } from 'react'
-import Side from '../ui/Container/Side'
+import LeftSider from '../ui/Container/Left'
 import TocList from './List'
 import { formatTime } from '@/lib/time'
 import { AccessTimeFilled, ArrowBack } from '@mui/icons-material'
@@ -22,7 +22,7 @@ const Toc: FC<Props> = ({ html, title, tags, categories, date }) => {
   const tocs = genTocs(html)
   const formatedDate = formatTime(date)
   return (
-    <Side>
+    <LeftSider>
       <div
         style={{
           backgroundColor: '#fff',
@@ -97,7 +97,7 @@ const Toc: FC<Props> = ({ html, title, tags, categories, date }) => {
           />
         </div>
       </div>
-    </Side>
+    </LeftSider>
   )
 }
 

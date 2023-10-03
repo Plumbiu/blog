@@ -1,5 +1,5 @@
 import { Box } from '@mui/material'
-import Side from '../ui/Container/Side'
+import LeftSider from '../ui/Container/Left'
 import ListTop from './ListTop'
 import ListBottom from './ListBottom'
 import {
@@ -56,15 +56,15 @@ export default function InfoCard() {
     { primary: '分类', href: '/categories', count: categoryNum },
   ]
   return (
-    <Side>
+    <LeftSider>
       <Box
         sx={{
-          bgcolor: 'background.paper',
+          bgcolor: '#fff',
         }}
       >
         <ListTop blogInfo={blogInfo} githubInfo={githubInfo} />
         <ListBottom info={infoGithub} />
       </Box>
-    </Side>
+    </LeftSider>
   )
 }

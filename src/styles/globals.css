@@ -26,7 +26,7 @@ p {
 
 /* 滚动条 */
 ::-webkit-scrollbar-thumb:horizontal {
-  width: 4px;
+  position: absolute;
   background-color: #cccccc;
   -webkit-border-radius: 6px;
 }

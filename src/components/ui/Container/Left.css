@@ -1,0 +1,11 @@
+.blog-side-left-w {
+  min-width: 240px;
+  max-width: 300px;
+  width: 20%;
+}
+
+@media screen and (max-width: 780px) {
+  .blog-side-left-w {
+    display: none;
+  }
+}

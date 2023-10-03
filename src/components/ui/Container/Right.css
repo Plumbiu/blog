@@ -1,0 +1,29 @@
+.blog-side-right-w {
+  width: 135px;
+}
+
+.blog-right-card {
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0px 1px 6px -1px rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.blog-right-fixed {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  position: fixed;
+}
+
+@media screen and (max-width: 780px) {
+  .blog-side-right-w {
+    width: 55px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .blog-side-right-w {
+    display: none;
+  }
+}
