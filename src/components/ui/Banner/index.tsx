@@ -33,12 +33,14 @@ const ArticleBanner: FC<Props> = ({ posts, name, path }) => {
           >
             <div className="Banner-List-Link-Top">
               <span className="Banner-List-Link-Title">{title}</span>
-              {categories.map((category) => (
-                <Tag key={category} text={category} outlined />
-              ))}
-              {tags.map((tag) => (
-                <Tag key={tag} text={tag} />
-              ))}
+              <div>
+                {categories.map((category) => (
+                  <Tag key={category} text={category} outlined />
+                ))}
+                {tags.map((tag) => (
+                  <Tag key={tag} text={tag} />
+                ))}
+              </div>
             </div>
             <div
               className="Banner-List-Link-Desc"

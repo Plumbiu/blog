@@ -1,6 +1,7 @@
 .Banner-Title-Wrap {
   margin-top: 24px;
   text-align: center;
+  border-radius: 12px;
 }
 
 .Banner-Title-Stack {
@@ -16,6 +17,7 @@
   flex-wrap: wrap;
   padding: 0 64px;
   margin-top: 16px;
+  border-radius: 12px;
 }
 
 .Banner-List-Link {
@@ -29,12 +31,19 @@
   font-size: 20px;
   font-weight: 500;
 }
+
+.Banner-List-Link-Top div {
+  white-space: nowrap;
+}
+
 .Banner-List-Link-Title {
   margin-right: 8px;
-  max-width: 50%;
+  overflow: hidden;
 }
 .Banner-List-Link-Desc {
+  line-height: 1.5;
   font-size: 14px;
+  word-break: break-all;
   color: rgba(0, 0, 0, 0.6);
   padding: 16px 36px 24px 0;
 }
@@ -54,7 +63,7 @@
   color: #1976d2;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1100px) {
   .Banner-List {
     padding: 12px;
   }
