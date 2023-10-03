@@ -17,13 +17,16 @@ const ArticleBanner: FC<Props> = ({ posts, name, path }) => {
   name = decodeURI(name)
   return (
     <div>
-      <div className="Banner-Title-Wrap">
-        <div className="Banner-Title-Stack">
-          <Badge count={posts.length}>
-            <Tag link={`/${path}/${name}`} text={name} plain />
-          </Badge>
+      {name !== '文章页' && (
+        <div className="Banner-Title-Wrap">
+          <div className="Banner-Title-Stack">
+            <Badge count={posts.length}>
+              <Tag link={`/${path}/${name}`} text={name} plain />
+            </Badge>
+          </div>
         </div>
-      </div>
+      )}
+
       <div className="Banner-List">
         {posts.map(({ id, desc, title, updated, date, tags, categories }) => (
           <Link

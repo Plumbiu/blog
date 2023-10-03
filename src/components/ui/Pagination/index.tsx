@@ -15,7 +15,6 @@ const Pagination: FC<Props> = ({ page }) => {
     <div className="Pagination">
       {page === 1 ? (
         <FirstPageIcon
-          fontSize="small"
           sx={{
             opacity: 0.38,
           }}
@@ -23,7 +22,7 @@ const Pagination: FC<Props> = ({ page }) => {
       ) : (
         <Link href="1" scroll={false} className="Pagination-Icon-Link">
           <div>
-            <FirstPageIcon fontSize="small" />
+            <FirstPageIcon />
           </div>
         </Link>
       )}
@@ -44,7 +43,6 @@ const Pagination: FC<Props> = ({ page }) => {
       </div>
       {page === Math.ceil(articleNum / 12) ? (
         <LastPageIcon
-          fontSize="small"
           sx={{
             opacity: 0.38,
           }}
@@ -55,7 +53,7 @@ const Pagination: FC<Props> = ({ page }) => {
           scroll={false}
           className="Pagination-Icon-Link"
         >
-          <LastPageIcon fontSize="small" />
+          <LastPageIcon />
         </Link>
       )}
     </div>

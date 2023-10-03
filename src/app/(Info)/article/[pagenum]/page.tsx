@@ -1,9 +1,9 @@
-import ArticleList from '@/components/ui/Article/List'
 import { useRequest } from '@/lib/api'
 import { Suspense } from 'react'
 import Loading from './loading'
 import Pagination from '@/components/ui/Pagination'
 import { articleNum } from '@/config/sideCard.json'
+import Banner from '@/components/ui/Banner'
 
 interface Props {
   params: {
@@ -28,7 +28,7 @@ export default async function ({ params }: Props) {
 
   return (
     <Suspense fallback={<Loading />}>
-      <ArticleList list={data} />
+      <Banner posts={data} name="文章页" path="/article/1" />
       <Pagination page={Number(params.pagenum)} />
     </Suspense>
   )
