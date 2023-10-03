@@ -18,6 +18,6 @@ Online View: [my blog](https://blog.plumbiu.top/)
 - [x] pagination
 - [x] friends page 
 - [x] tags page
-- [ ] categories page
+- [x] categories page
 - [ ] toc scroll height mouse following effect
 - [ ] comment system
