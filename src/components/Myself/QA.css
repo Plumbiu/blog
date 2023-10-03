@@ -7,11 +7,13 @@
   align-items: flex-start;
   justify-content: center;
 }
+
 @media screen and (max-width: 780px) {
   .myself-container {
-    width: 100%;
+    width: 90%;
   }
 }
+
 .myself-box {
   display: flex;
   align-items: center;
@@ -25,18 +27,21 @@
   padding: 14px;
   margin: 10px 16px;
 }
+
 .myself-answer-box {
   align-self: flex-start;
   border-top-right-radius: 6px;
   border-bottom-left-radius: 0;
   background-color: red;
 }
+
 .myself-question-box {
-  background-color: #9C27B0;
+  background-color: #9c27b0;
 }
+
 .myself-emoji {
   font-size: 22px;
   padding: 8px;
-  background-color: #D1D1D1;
+  background-color: #d1d1d1;
   border-radius: 50%;
 }

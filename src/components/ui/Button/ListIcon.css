@@ -15,16 +15,16 @@
 }
 
 @media screen and (max-width: 780px) {
-  .Btn-List-Text {
+  .blog-right-fixed .Btn-List-Text {
     display: none;
   }
-  .Btn-List-Icon {
-    min-width: 24px !important;
+  .blog-right-fixed .Btn-List-Icon {
+    min-width: 24px;
   }
 }
 
 @media screen and (max-width: 640px) {
-  .Btn-List-Icon-Link {
+  .blog-right-fixed .Btn-List-Icon-Link {
     display: none;
   }
 }

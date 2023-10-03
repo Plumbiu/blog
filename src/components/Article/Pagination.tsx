@@ -22,7 +22,9 @@ const Pagination: FC<Props> = ({ page }) => {
         />
       ) : (
         <Link href="1" scroll={false} className="Pagination-Icon-Link">
-          <FirstPageIcon fontSize="small" />
+          <div>
+            <FirstPageIcon fontSize="small" />
+          </div>
         </Link>
       )}
       <div className="Pagination-Link-Wrap">
