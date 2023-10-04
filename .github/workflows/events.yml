@@ -25,9 +25,6 @@ jobs:
         run: |
           node scripts/events.js
       - name: Configure Git
-        env:
-          GIT_USERNAME: ${{ secrets.NAME }}
-          GIT_EMAIL: ${{ secrets.EMAIL }}
         run: |
           git config --global user.email 3434909403@qq.com
           git config --global user.name Plumbiu
