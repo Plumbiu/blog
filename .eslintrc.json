@@ -23,5 +23,13 @@
     "@typescript-eslint/indent": "off",
     "multiline-ternary": 0,
     "@typescript-eslint/no-floating-promises": "off"
-  }
+  },
+  "ignorePatterns": [
+    "dist",
+    "public",
+    "node_modules",
+    "/scripts",
+    "/next.config.cjs",
+    "/posts"
+  ]
 }
