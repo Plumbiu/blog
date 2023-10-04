@@ -1,21 +1,21 @@
 import type { Props } from './ListTop'
 import type { FC } from 'react'
-import Button from '../ui/Button'
-import Stack from '../ui/Stack'
-import Badge from '../ui/Badge'
-import ButtonListIcon from '../ui/Button/ListIcon'
+import Button from '../Button'
+import './ListCenter.css'
+import Badge from '../Badge'
+import ButtonListIcon from '../Button/ListIcon'
 
 const ListCenter: FC<Props> = ({ blogInfo, githubInfo }) => {
   return (
     <>
-      <div>
-        <Stack spacing={2}>
-          {blogInfo.map(({ href, primary, count }) => (
+      <div className="List-Center-Badge">
+        {blogInfo.map(({ href, primary, count }) => (
+          <Badge count={count}>
             <Button key={href} link={href}>
-              <Badge count={count}>{primary}</Badge>
+              {primary}
             </Button>
-          ))}
-        </Stack>
+          </Badge>
+        ))}
       </div>
       {githubInfo.map(({ icon, primary, href }) => (
         <ButtonListIcon

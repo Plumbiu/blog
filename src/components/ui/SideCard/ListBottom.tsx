@@ -1,7 +1,7 @@
-import Hr from '../ui/Hr'
+import Hr from '../Hr'
 import type { FC } from 'react'
-import Button from '../ui/Button'
-import Stack from '../ui/Stack'
+import Button from '../Button'
+import Stack from '../Stack'
 
 interface Props {
   info: Array<{

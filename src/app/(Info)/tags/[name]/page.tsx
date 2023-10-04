@@ -1,4 +1,6 @@
+import Badge from '@/components/ui/Badge'
 import ArticleBanner from '@/components/ui/Banner'
+import Tag from '@/components/ui/Tag'
 import { useRequest } from '@/lib/api'
 
 interface Props {
@@ -19,7 +21,21 @@ const TagsName = async ({ params }: Props) => {
     'article?tag=' + params.name,
   )
 
-  return <ArticleBanner path="tags" posts={posts} name={params.name} />
+  return (
+    <>
+      <div
+        style={{
+          marginTop: '16px',
+          textAlign: 'center',
+        }}
+      >
+        <Badge count={posts.length}>
+          <Tag text={params.name} link={'/tags/' + params.name} plain />
+        </Badge>
+      </div>
+      <ArticleBanner path="tags" posts={posts} name={params.name} />
+    </>
+  )
 }
 
 export default TagsName

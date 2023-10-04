@@ -8,13 +8,11 @@ interface Props {
 
 const Badge: FC<Props> = ({ count, children }) => {
   return (
-    <div
-      style={{
-        position: 'relative',
-      }}
-    >
-      <span className="Badge-Content">{count}</span>
-      <span>{children}</span>
+    <div>
+      <div className="Badge-Wrap">
+        <span className="Badge-Content">{count}</span>
+        <span>{children}</span>
+      </div>
     </div>
   )
 }

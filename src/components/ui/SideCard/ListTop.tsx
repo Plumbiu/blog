@@ -1,4 +1,4 @@
-import Hr from '../ui/Hr'
+import Hr from '../Hr'
 import ListCenter from './ListCenter'
 import type { FC, ReactNode } from 'react'
 import Link from 'next/link'

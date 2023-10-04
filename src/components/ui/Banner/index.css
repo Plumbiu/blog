@@ -1,25 +1,13 @@
-.Banner-Title-Wrap {
-  margin-top: 24px;
-  text-align: center;
-  border-radius: 12px;
-}
-
-.Banner-Title-Stack {
-  display: inline-flex;
-  justify-content: center;
-  margin: 0 auto;
-}
-
-.Banner-List {
+.Banner-Wrap {
   display: flex;
   justify-content: center;
   margin: 0 auto;
   flex-wrap: wrap;
-  margin-top: 16px;
+  margin-top: 12px;
   border-radius: 12px;
 }
 
-.Banner-List-Link {
+.Banner-Link {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -28,23 +16,23 @@
   box-shadow: 0px 1px 6px -1px rgba(0, 0, 0, 0.15);
   border-radius: 12px;
   margin: 8px;
-  width: 45%;
-  padding: 16px;
+  width: 47%;
+  padding: 20px;
 }
 
-.Banner-List-Link-Top {
+.Banner-Link-Top {
   display: flex;
   align-items: flex-start;
   font-size: 20px;
   font-weight: 500;
 }
 
-.Banner-List-Link-Title {
-  min-width: 150px;
+.Banner-Link-Title {
+  max-width: 50%;
   margin-right: 8px;
   overflow: hidden;
 }
-.Banner-List-Link-Desc {
+.Banner-Link-Desc {
   line-height: 1.5;
   font-size: 14px;
   word-break: break-all;
@@ -52,26 +40,11 @@
   padding: 12px 12px 12px 0;
 }
 
-.Banner-List-Btn {
-  position: fixed;
-  cursor: pointer;
-  align-items: center;
-  display: flex;
-  gap: 4px;
-  bottom: 50px;
-  right: 35px;
-  padding: 8px;
-  font-size: 14px;
-  border: 1px solid #1976d2;
-  border-radius: 10px;
-  color: #1976d2;
-}
-
 @media screen and (max-width: 1100px) {
-  .Banner-List {
+  .Banner-Wrap {
     padding: 12px;
   }
-  .Banner-List-Link {
+  .Banner-Link {
     width: 100%;
   }
 }

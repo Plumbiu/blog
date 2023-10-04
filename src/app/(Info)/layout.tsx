@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import InfoCard from '@/components/SideCard'
+import InfoCard from '@/components/ui/SideCard'
 import Main from '@/components/ui/Container/Main'
 import { Suspense } from 'react'
 import Loading from './loading'

@@ -26,21 +26,20 @@ const Pagination: FC<Props> = ({ page }) => {
           </div>
         </Link>
       )}
-      <div className="Pagination-Link-Wrap">
-        {array.map((_item, i) => (
-          <Link
-            key={i}
-            href={String(i + 1)}
-            className={`Pagination-Link ${
-              page - 1 === i
-                ? 'hover-pagination-item-style Pagination-Icon-Link-Active'
-                : 'hover-a-style'
-            }`}
-          >
-            {i + 1}
-          </Link>
-        ))}
-      </div>
+      {array.map((_item, i) => (
+        <Link
+          key={i}
+          href={String(i + 1)}
+          className={`Pagination-Link ${
+            page - 1 === i
+              ? 'hover-pagination-item-style Pagination-Icon-Link-Active'
+              : 'hover-a-style'
+          }`}
+        >
+          {i + 1}
+        </Link>
+      ))}
+
       {page === Math.ceil(articleNum / 12) ? (
         <LastPageIcon
           sx={{
@@ -53,7 +52,9 @@ const Pagination: FC<Props> = ({ page }) => {
           scroll={false}
           className="Pagination-Icon-Link"
         >
-          <LastPageIcon />
+          <div>
+            <LastPageIcon />
+          </div>
         </Link>
       )}
     </div>

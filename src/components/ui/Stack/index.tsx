@@ -3,11 +3,9 @@ import './index.css'
 
 interface Props {
   children: ReactNode
-  spacing?: number
-  m?: number
 }
 
-const Stack: FC<Props> = ({ children, spacing = 2, m = 2 }) => {
+const Stack: FC<Props> = ({ children }) => {
   return <div className="Stack">{children}</div>
 }
 
