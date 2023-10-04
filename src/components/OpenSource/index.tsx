@@ -1,86 +1,65 @@
-'use client'
-import type { FC, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import { formatTime } from '@/lib/time'
-import {
-  Timeline,
-  TimelineItem,
-  TimelineOppositeContent,
-  TimelineSeparator,
-  TimelineConnector,
-  TimelineDot,
-  TimelineContent,
-} from '@mui/lab'
-import { Typography } from '@mui/material'
-import type { Event } from '@plumbiu/github-info'
+import Title from '../ui/Title'
+import TimeLine from '../ui/TimeLine'
+import { LaptopMac, AddCircle, RemoveRedEye, Repeat, ErrorOutline, LocalDining } from '@mui/icons-material'
+import events from '~/config/events.json'
+import './index.css'
 
-interface Props {
-  events: Event[]
-  eventMap: Record<string, ReactNode>
+const eventMap: Record<string, ReactNode> = {
+  PushEvent: <LaptopMac />,
+  PullRequestEvent: <AddCircle />,
+  CreateEvent: <RemoveRedEye />,
+  WatchEvent: <Repeat />,
+  ForkEvent: <LocalDining />,
+  IssuesEvent: <ErrorOutline />,
 }
 
-const OpenSourceCmp: FC<Props> = ({ events, eventMap }) => {
+const bgcolorMap: Record<string, string> = {
+  PushEvent: '#1976d2',
+  PullRequestEvent: '#673AB7',
+  CreateEvent: '#C6FF00',
+  WatchEvent: '#009688',
+  ForkEvent: '#3F51B5',
+  IssuesEvent: '#333',
+}
+
+const OpenSourceCmp = () => {
   return (
-    <div
-      style={{
-        padding: 5,
-        textAlign: 'center',
-      }}
-    >
-      <Typography variant="h6" component="span">
-        🎉 我的开源之旅 🎉
-      </Typography>
-      <Timeline position="alternate">
-        {events.map(({ id, created_at, actor, repo, type, payload }) => (
-          <TimelineItem key={id}>
-            <TimelineOppositeContent
-              sx={{ m: 'auto 0' }}
-              align="right"
-              variant="body2"
-              color="text.secondary"
-            >
+    <div className="OpenSource">
+      <Title>🎉 我的开源之旅 🎉</Title>
+      {events.map(({ id, created_at, actor, repo, type, payload }) => (
+        <TimeLine
+          key={id}
+          bgcolor={bgcolorMap[type]}
+          left={
+            <>
               {formatTime(created_at)}
-              <Typography
-                variant="body2"
-                sx={{
-                  color: '#9C27B0',
-                }}
-              >
-                {actor.name} {'>'} {repo} {'>'}{' '}
-                {payload.ref?.slice(payload.ref.lastIndexOf('/') + 1) ?? 'main'}
-              </Typography>
-            </TimelineOppositeContent>
-            <TimelineSeparator>
-              <TimelineConnector />
-              <TimelineDot color={type === 'PushEvent' ? 'primary' : 'success'}>
-                {eventMap[type]}
-              </TimelineDot>
-              <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent sx={{ py: '12px', px: 2 }}>
-              <Typography variant="h6" component="span">
+              <div className="OpenSource-Left">
+                {actor.name} {'>'} {repo} {'>'} {payload.ref?.slice(payload.ref.lastIndexOf('/') + 1) ?? 'main'}
+              </div>
+            </>
+          }
+          icon={eventMap[type]}
+          right={
+            <>
+              <Title align="inherit" p={0}>
                 {type === 'PullRequestEvent' ? 'PR' : type.replace('Event', '')}
-              </Typography>
+              </Title>
               {type === 'PushEvent' && (
                 <>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      color: '#9C27B0',
-                    }}
-                  >
-                    Message:
-                  </Typography>
+                  <div className="OpenSource-Right">Message</div>
                   {payload?.commits?.map(({ message }, index) => (
-                    <Typography key={message + index} variant="body2">
-                      {message}
-                    </Typography>
+                    <div key={index} className="OpenSource-Right-Font-Size">
+                      {message};
+                    </div>
                   ))}
                 </>
               )}
-            </TimelineContent>
-          </TimelineItem>
-        ))}
-      </Timeline>
+            </>
+          }
+        />
+      ))}
     </div>
   )
 }

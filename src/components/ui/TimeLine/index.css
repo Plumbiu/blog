@@ -1,0 +1,46 @@
+.TimeLine {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 12px 0;
+}
+
+.TimeLine-Left {
+  flex: 1;
+  text-align: right;
+}
+
+.TimeLine-Center {
+  display: flex;
+  height: max-content;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.TimeLine-Center-Icon {
+  margin: 0px 20px;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+}
+
+.TimeLine-Center-Bar {
+  position: absolute;
+  left: 50%;
+  top: 60px;
+  bottom: 0;
+  width: 2px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.TimeLine-Right {
+  flex: 1;
+}

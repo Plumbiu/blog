@@ -1,0 +1,21 @@
+
+.OpenSource {
+  font-size: 14px;
+  padding: 4px;
+}
+.OpenSource-Left {
+  padding-top: 2px;
+  color: #9c27b0;
+}
+
+.OpenSource-Right {
+  text-align: inherit;
+  font-size: 14px;
+  color: #9c27b0;
+  font-size: 14px;
+  padding: 4px 0;
+}
+
+.OpenSource-Right-Font-Size {
+  font-size: 14px;
+}

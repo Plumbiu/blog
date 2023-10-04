@@ -18,7 +18,6 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.11",
-    "@mui/lab": "5.0.0-alpha.146",
     "@mui/material": "^5.14.11",
     "@plumbiu/github-info": "^0.1.5",
     "highlight.js": "^11.8.0",

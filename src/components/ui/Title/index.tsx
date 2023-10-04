@@ -2,11 +2,23 @@ import type { FC, ReactNode } from 'react'
 import './index.css'
 
 interface Props {
+  align?: 'center' | 'left' | 'right' | 'inherit'
+  p?: number
   children: ReactNode
 }
 
-const page: FC<Props> = ({ children }) => {
-  return <div className="Title">{children}</div>
+const page: FC<Props> = ({ children, align = 'center', p = 16 }) => {
+  return (
+    <div
+      className="Title"
+      style={{
+        textAlign: align,
+        padding: p + 'px',
+      }}
+    >
+      {children}
+    </div>
+  )
 }
 
 export default page

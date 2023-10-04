@@ -1,0 +1,26 @@
+.Header {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  height: 64px;
+}
+
+.Header-Menu-Wrap {
+  display: flex;
+  align-items: center;
+  margin-left: 24px;
+}
+
+.Header-Logo {
+  font-size: 20px;
+}
+
+.Header-Search-Wrap {
+  margin-right: 24px;
+}
