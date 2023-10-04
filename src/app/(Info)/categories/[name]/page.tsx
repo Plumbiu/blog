@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { useRequest } from '@/lib/api'
 import ArticleBanner from '@/components/ui/Banner'
+import Badge from '@/components/ui/Badge'
+import Tag from '@/components/ui/Tag'
 
 interface Props {
   params: {
@@ -10,17 +12,29 @@ interface Props {
 
 export async function generateStaticParams() {
   const categories = await useRequest<Tag[]>('categories')
-  return categories.map((category) => ({
+  return categories.map(category => ({
     name: category.name,
   }))
 }
 
 const TagsName = async ({ params }: Props) => {
-  const posts = await useRequest<FullFrontMatter[]>(
-    'article?category=' + params.name,
-  )
+  const posts = await useRequest<FullFrontMatter[]>('article?category=' + params.name)
 
-  return <ArticleBanner path="categories" posts={posts} name={params.name} />
+  return (
+    <>
+      <div
+        style={{
+          marginTop: '16px',
+          textAlign: 'center',
+        }}
+      >
+        <Badge count={posts.length}>
+          <Tag text={decodeURI(params.name)} link={'/tags/' + params.name} plain />
+        </Badge>
+      </div>
+      <ArticleBanner path="categories" posts={posts} name={params.name} />
+    </>
+  )
 }
 
 export default TagsName

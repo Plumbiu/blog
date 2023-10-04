@@ -31,7 +31,7 @@ const TagsName = async ({ params }: Props) => {
         }}
       >
         <Badge count={posts.length}>
-          <Tag text={params.name} link={'/tags/' + params.name} plain />
+          <Tag text={decodeURI(params.name)} link={'/tags/' + params.name} plain />
         </Badge>
       </div>
       <ArticleBanner path="tags" posts={posts} name={params.name} />
