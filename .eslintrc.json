@@ -4,24 +4,11 @@
     "es2021": true,
     "node": true
   },
-  "extends": "standard-with-typescript",
+  "extends": "next/core-web-vitals",
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module",
     "tsconfigRootDir": "./"
   },
-  "rules": {
-    "space-before-function-paren": "off",
-    "@typescript-eslint/space-before-function-paren": "off",
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/strict-boolean-expressions": "off",
-    "comma-dangle": ["error", "always-multiline"],
-    "@typescript-eslint/comma-dangle": "off",
-    "@typescript-eslint/no-non-null-assertion": "off",
-    "@typescript-eslint/naming-convention": "off",
-    "indent": ["error", 2],
-    "@typescript-eslint/indent": "off",
-    "multiline-ternary": 0,
-    "@typescript-eslint/no-floating-promises": "off"
-  }
+  "rules": {}
 }
