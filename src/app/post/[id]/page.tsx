@@ -20,7 +20,7 @@ export async function generateStaticParams() {
   return ids
 }
 
-export default async function ({ params }: Props) {
+export default async function PostId({ params }: Props) {
   const { content, title, tags, categories, date, updated } =
     await useRequest<Article>('article/' + params.id)
   const html = await renderMD(content)
