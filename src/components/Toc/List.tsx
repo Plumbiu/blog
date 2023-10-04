@@ -38,7 +38,7 @@ const TocList: FC<Props> = ({ tocs }) => {
     document.querySelectorAll('h1,h2,h3').forEach((title) => {
       observer.observe(title) // 开始观察每个图片元素
     })
-  }, [])
+  }, [tocs])
 
   return (
     <div

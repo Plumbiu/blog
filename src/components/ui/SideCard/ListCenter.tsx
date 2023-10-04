@@ -45,7 +45,7 @@ const ListCenter = () => {
     <>
       <div className="List-Center-Badge">
         {blogInfo.map(({ href, primary, count }) => (
-          <Badge count={count}>
+          <Badge key={primary} count={count}>
             <Button key={href} link={href}>
               {primary}
             </Button>
