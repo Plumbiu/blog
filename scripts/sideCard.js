@@ -3,7 +3,7 @@ import path from 'node:path'
 import parseFM from 'simple-md-front-matter'
 
 async function getPosts() {
-  const postsPath = path.join(process.cwd(), 'src', 'posts')
+  const postsPath = path.join(process.cwd(), 'posts')
   const rawPosts = await fs.readdir(postsPath)
   const posts = []
   for (const post of rawPosts) {
@@ -46,7 +46,7 @@ async function resolve() {
   const categoryNum = categoryMap.size
   const tagNum = tagMap.size
   fs.writeFile(
-    path.join(process.cwd(), 'src', 'config', 'sideCard.json'),
+    path.join(process.cwd(), 'config', 'sideCard.json'),
     JSON.stringify({
       articleNum,
       categoryNum,

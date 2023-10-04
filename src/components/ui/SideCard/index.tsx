@@ -9,7 +9,7 @@ import {
   Twitter,
   Link as LinkIcon,
 } from '@mui/icons-material'
-import { articleNum, tagNum, categoryNum } from '@/config/sideCard.json'
+import { articleNum, tagNum, categoryNum } from '~/config/sideCard.json'
 
 const infoGithub = [
   {

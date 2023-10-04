@@ -5,7 +5,7 @@ import parseFM from 'simple-md-front-matter'
 const limit = 12
 
 export async function getPosts(pagenum = 0, isLimit = false) {
-  const postsPath = path.join(process.cwd(), 'src', 'posts')
+  const postsPath = path.join(process.cwd(), 'posts')
   const start = pagenum * limit
   const DATEREG = /([\d]{4}-[\d]+-[\d]+)/
   let rawPosts = (await fsp.readdir(postsPath)).sort((a, b) => {

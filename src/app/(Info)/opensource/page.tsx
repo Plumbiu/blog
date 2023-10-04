@@ -7,7 +7,7 @@ import {
   ErrorOutline,
   LocalDining,
 } from '@mui/icons-material'
-import events from '@/config/events.json'
+import events from '~/config/events.json'
 import OpenSourceCmp from '@/components/OpenSource'
 import type { Event } from '@plumbiu/github-info'
 

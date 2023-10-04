@@ -2,7 +2,7 @@ import { useRequest } from '@/lib/api'
 import { Suspense } from 'react'
 import Loading from './loading'
 import Pagination from '@/components/ui/Pagination'
-import { articleNum } from '@/config/sideCard.json'
+import { articleNum } from '~/config/sideCard.json'
 import Banner from '@/components/ui/Banner'
 
 interface Props {

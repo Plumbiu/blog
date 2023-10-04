@@ -1,4 +1,4 @@
-import friends from '@/config/friends.json'
+import friends from '~/config/friends.json'
 import { Card, CardContent, CardMedia, Typography } from '@mui/material'
 
 const Friends = () => {

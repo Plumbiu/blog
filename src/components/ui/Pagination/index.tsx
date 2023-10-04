@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import { articleNum } from '@/config/sideCard.json'
+import { articleNum } from '~/config/sideCard.json'
 import Link from 'next/link'
 import FirstPageIcon from '@mui/icons-material/FirstPage'
 import LastPageIcon from '@mui/icons-material/LastPage'
