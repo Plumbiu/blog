@@ -1,16 +1,23 @@
 import Hr from '../Hr'
-import type { FC } from 'react'
 import Button from '../Button'
 import Stack from '../Stack'
 
-interface Props {
-  info: Array<{
-    primary: string
-    href: string
-  }>
-}
+const info = [
+  {
+    primary: '朋友们',
+    href: '/friends',
+  },
+  {
+    primary: '留言板',
+    href: '/comments',
+  },
+  {
+    primary: '开源之旅',
+    href: '/opensource',
+  },
+]
 
-const ListBottom: FC<Props> = ({ info }) => {
+const ListBottom = () => {
   return (
     <>
       <Hr />

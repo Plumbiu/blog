@@ -1,23 +1,8 @@
 import Hr from '../Hr'
-import ListCenter from './ListCenter'
-import type { FC, ReactNode } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-export interface Props {
-  blogInfo: Array<{
-    primary: string
-    href: string
-    count: number
-  }>
-  githubInfo: Array<{
-    primary: string
-    icon: ReactNode
-    href?: string
-  }>
-}
-
-const ListTop: FC<Props> = ({ blogInfo, githubInfo }) => {
+const ListTop = () => {
   return (
     <div>
       <div
@@ -71,7 +56,6 @@ const ListTop: FC<Props> = ({ blogInfo, githubInfo }) => {
         </div>
       </div>
       <Hr />
-      <ListCenter blogInfo={blogInfo} githubInfo={githubInfo} />
     </div>
   )
 }
