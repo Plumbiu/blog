@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Badge from '@/components/ui/Badge'
 import ArticleBanner from '@/components/ui/Banner'
 import Tag from '@/components/ui/Tag'
@@ -39,3 +40,10 @@ const TagsName = async ({ params }: Props) => {
 }
 
 export default TagsName
+
+export function generateMetadata({ params }: Props): Metadata {
+  return {
+    title: 'Plumbiu | 标签 - ' + params.name,
+    description: 'Plumbiu 的标签页 - ' + params.name,
+  }
+}

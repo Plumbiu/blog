@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import TagsCmp from '@/components/Tags'
 import { useRequest } from '@/lib/api'
 import React from 'react'
@@ -9,3 +10,8 @@ const Tags = async () => {
 }
 
 export default Tags
+
+export const metadata: Metadata = {
+  title: 'Plumbiu | 标签',
+  description: '这里是 Plumbiu 的文章标签',
+}

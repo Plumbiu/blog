@@ -1,6 +1,7 @@
 import * as React from 'react'
 import QA from '@/components/ui/QA'
 import Title from '@/components/ui/Title'
+import type { Metadata } from 'next'
 
 const qas = [
   { q: 'Who are you ?', a: 'Plumbiu(Guo Xingjun).', emoji: '😀' },
@@ -21,4 +22,9 @@ export default function Home() {
       ))}
     </div>
   )
+}
+
+export const metadata: Metadata = {
+  title: 'Plumbiu | 首页',
+  description: '这里是 Plumbiu 的个人介绍首页',
 }

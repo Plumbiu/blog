@@ -1,5 +1,12 @@
+import type { Metadata } from 'next'
 import friends from '~/config/friends.json'
-import { Card, CardContent, CardMedia, Typography } from '@mui/material'
+import { Card, CardContent, Typography } from '@mui/material'
+import Image from 'next/image'
+
+export const metadata: Metadata = {
+  title: 'Plumbiu | 朋友们',
+  description: '这里是 Plumbiu 的朋友',
+}
 
 const Friends = () => {
   return (
@@ -26,10 +33,10 @@ const Friends = () => {
             },
           }}
         >
-          <CardMedia
-            component="img"
-            width="60%"
-            image={'/friends/' + avatar}
+          <Image
+            width={350}
+            height={350}
+            src={'/friends/' + avatar}
             alt="green iguana"
           />
           <CardContent

@@ -55,7 +55,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   )
 
   return {
-    title: '文章 - ' + title,
+    title: 'Plumbiu | 文章 - ' + title,
     description: desc,
     keywords: tags,
     category: categories.join(','),
