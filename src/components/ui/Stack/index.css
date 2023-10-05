@@ -2,6 +2,14 @@
   display: flex;
   flex-wrap: wrap;
   gap: 18px;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 8px;
+}
+
+.Stack-Gap-2 {
+  gap: 8px;
+}
+
+.Stack-Gap-4 {
+  gap: 12px;
 }

@@ -5,6 +5,7 @@
 }
 
 .Btn-List-Icon-Link {
+  border-radius: 16px;
   display: flex;
   align-items: center;
   cursor: pointer;

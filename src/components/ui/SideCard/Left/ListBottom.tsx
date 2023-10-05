@@ -18,7 +18,7 @@ const info = [
 
 const ListBottom = () => {
   return (
-    <Stack>
+    <Stack spacing={16}>
       {info.map(({ primary, href }) => (
         <Button key={primary} link={href}>
           {primary}

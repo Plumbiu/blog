@@ -14,6 +14,7 @@ const QA: FC<Props> = ({ q, a, emoji }) => {
         style={{
           display: 'flex',
           alignItems: 'center',
+          marginLeft: '16px',
         }}
       >
         <span className="myself-emoji">🤔</span>
@@ -24,6 +25,7 @@ const QA: FC<Props> = ({ q, a, emoji }) => {
           display: 'flex',
           alignItems: 'center',
           alignSelf: 'flex-end',
+          marginRight: '16px',
         }}
       >
         <span className="myself-box myself-question-box">{a}</span>

@@ -1,17 +1,10 @@
 .myself-container {
   box-sizing: border-box;
   margin: 0 auto;
-  width: 75%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-}
-
-@media screen and (max-width: 780px) {
-  .myself-container {
-    width: 90%;
-  }
 }
 
 .myself-box {

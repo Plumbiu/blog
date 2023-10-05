@@ -16,7 +16,7 @@ const qas = [
 export default function Home() {
   return (
     <div className="myself-container">
-      <Title>🎉 我的个人介绍！ 🎉</Title>
+      <Title>🎉 我的个人介绍 🎉</Title>
       {qas.map(({ q, a, emoji }) => (
         <QA key={q} q={q} a={a} emoji={emoji} />
       ))}

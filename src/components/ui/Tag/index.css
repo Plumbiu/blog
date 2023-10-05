@@ -23,7 +23,8 @@
 }
 
 .Tag-Link {
-  border-radius: 16px;
-  padding: 4px 12px;
+  font-size: 12px;
+  border-radius: 14px;
+  padding: 2px 6px;
   border-color: rgb(189, 189, 189);
 }

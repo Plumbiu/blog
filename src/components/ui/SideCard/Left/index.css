@@ -1,12 +1,24 @@
-.blog-side-left-w {
+.Side-Left-W {
   border-radius: 24px;
   min-width: 240px;
-  max-width: 280px;
+  max-width: 340px;
   width: 20%;
 }
 
+.Side-Left-List-Wrap {
+  position: fixed;
+  background-color: #fff;
+  box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.2);
+  padding: 6px 0px;
+}
+
+
+.Side-Left-List-Wrap .Stack {
+  justify-content: center;
+}
+
 @media screen and (max-width: 780px) {
-  .blog-side-left-w {
+  .Side-Left-W {
     display: none;
   }
 }

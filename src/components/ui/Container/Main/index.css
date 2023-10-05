@@ -9,12 +9,6 @@
   overflow-x: hidden;
 }
 
-@media screen and (max-width: 780px) {
-  .blog-main {
-    margin: 0 5px 0 0;
-  }
-}
-
 @media screen and (max-width: 640px) {
   .blog-main {
     margin: 0;
