@@ -2,18 +2,23 @@
   position: relative;
 }
 
-.List-Center::before {
+.List-Center::before,
+.List-Center::after {
   content: '';
   position: absolute;
   width: 100%;
   height: 1px;
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(to left, #fff, #333, #fff);
+  background: linear-gradient(to left, #fff, rgba(0, 0, 0, 0.25), #fff);
 }
 
 .List-Center::before {
   top: -22px;
+}
+
+.List-Center::after {
+  bottom: 0px;
 }
 
 .List-Center-Badge {
@@ -24,15 +29,6 @@
   margin-bottom: 8px;
 }
 
-.List-Center-Badge .Btn-Link,
-.List-Center-Archives .Btn-Link {
+.List-Center-Badge .Btn-Link {
   padding: 10px 14px;
-}
-
-.List-Center-Archives {
-  margin: 12px 0;
-  text-align: center;
-}
-.List-Center-Archives .Btn-Link {
-  margin: 0 12px;
 }

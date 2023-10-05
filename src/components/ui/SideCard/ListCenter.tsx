@@ -44,10 +44,6 @@ const ListCenter = () => {
           </Badge>
         ))}
       </div>
-      <div className="List-Center-Archives">
-        <Button link={'hello'}>归档</Button>
-        <Button link={'hello'}>关于</Button>
-      </div>
       {githubInfo.map(({ icon, primary, href }) => (
         <ButtonListIcon key={href ?? primary} icon={icon} link={href} text={primary}></ButtonListIcon>
       ))}
