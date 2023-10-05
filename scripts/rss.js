@@ -73,7 +73,6 @@ async function genItems(posts) {
       channel: json.channel,
     },
   })
-  console.log({ xml })
   await fsp.writeFile(path.join(process.cwd(), 'public', 'rss.xml'), xml)
 }
 
