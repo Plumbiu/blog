@@ -23,7 +23,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
       <body
         style={{
-          backgroundColor: '#F6F8FC',
         }}
       >
         <Header />

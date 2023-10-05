@@ -16,6 +16,7 @@
 }
 
 .Side-Left-Item {
+  box-sizing: border-box;
   overflow: hidden;
   width: 100%;
   border-radius: 24px;
@@ -28,10 +29,8 @@
   justify-content: center;
 }
 
-.Side-Left-Fixed {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.Side-Left-Item .Stack {
+  padding: 16px;
 }
 
 @media screen and (max-width: 960px) {

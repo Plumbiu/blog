@@ -7,7 +7,6 @@
   color: #fff;
   border-radius: 0 0 50% 50%;
   background-color: #1976d2;
-  margin-bottom: 6px;
   transition: border-radius 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 

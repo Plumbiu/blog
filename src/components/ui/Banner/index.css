@@ -21,7 +21,6 @@
 }
 
 .Banner-Date {
-  padding-top: 4px;
   display: flex;
 }
 
@@ -31,16 +30,17 @@
 }
 
 .Banner-Link-Title {
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 500;
   overflow: hidden;
+  padding-bottom: 6px;
 }
 .Banner-Link-Desc {
   line-height: 1.5;
-  font-size: 14px;
+  font-size: 13px;
   word-break: break-all;
   color: rgba(0, 0, 0, 0.6);
-  padding: 4px 0;
+  padding: 6px 0;
   padding-right: 24px;
 }
 

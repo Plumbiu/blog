@@ -2,9 +2,8 @@ import ListTop from './ListTop'
 import './index.css'
 import ListBottom from './ListBottom'
 import ListCenter from './ListCenter'
-import TagsCmp from '@/components/Tags'
+import Chips from '@/components/ui/SideCard/Chips'
 import { useRequest } from '@/lib/api'
-import CategoriesCmp from '@/components/Categories'
 import Title from '../../Title'
 
 export default async function LeftSideCard() {
@@ -20,11 +19,11 @@ export default async function LeftSideCard() {
         </div>
         <div className="Side-Left-Item">
           <Title>标签</Title>
-          <TagsCmp tags={tags} />
+          <Chips chips={tags} />
         </div>
         <div className="Side-Left-Item">
           <Title>分类</Title>
-          <CategoriesCmp categories={categories} />
+          <Chips chips={categories} />
         </div>
       </div>
     </div>
