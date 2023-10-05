@@ -1,6 +1,7 @@
-name: Update events data
+name: Update rss
 
 on:
+  # TODO: This will replace with push in the final version
   schedule:
     - cron: '30 5,17 * * *'
 jobs:
@@ -18,18 +19,18 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 7
+          version: 8
       - name: Install dependencies
         run: pnpm install
-      - name: Update events data
+      - name: Update rss.xml
         run: |
-          node scripts/events.js
+          node scripts/rss.js
       - name: Configure Git
         run: |
           git config --global user.email 3434909403@qq.com
           git config --global user.name Plumbiu
           git add .
-          git commit -m "feat: update events data"
+          git commit -m "feat: update rss.xml"
           git pull --rebase
       - name: Push changes
         uses: ad-m/github-push-action@master

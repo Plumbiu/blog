@@ -1,27 +1,9 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import parseFM from 'simple-md-front-matter'
-
-async function getPosts() {
-  const postsPath = path.join(process.cwd(), 'posts')
-  const rawPosts = await fs.readdir(postsPath)
-  const posts = []
-  for (const post of rawPosts) {
-    const file = await fs.readFile(path.join(postsPath, post), 'utf-8')
-    const end = file.indexOf('---', 3)
-    const desc = file.slice(end + 3, end + 120).replace(/[#`\s]/g, '')
-    posts.push({
-      id: post,
-      desc,
-      ...parseFM(file),
-    })
-  }
-  return posts
-}
+import { getPosts }  from './utils.js'
 
 async function resolve() {
   const posts = await getPosts()
-
   const categoryMap = new Map()
   const tagMap = new Map()
   for (const post of posts) {

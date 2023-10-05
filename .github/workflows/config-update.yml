@@ -1,4 +1,4 @@
-name: Update events data
+name: Update config
 
 on:
   schedule:
@@ -18,10 +18,13 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 7
+          version: 8
       - name: Install dependencies
         run: pnpm install
-      - name: Update events data
+      - name: Update events.json
+        run: |
+          node scripts/events.js
+      - name: Update sideCard.json
         run: |
           node scripts/sideCard.js
       - name: Configure Git
@@ -29,7 +32,7 @@ jobs:
           git config --global user.email 3434909403@qq.com
           git config --global user.name Plumbiu
           git add .
-          git commit -m "feat: update events data"
+          git commit -m "feat: update config"
           git pull --rebase
       - name: Push changes
         uses: ad-m/github-push-action@master
