@@ -28,10 +28,6 @@
   justify-content: center;
 }
 
-.Side-Left-Title:hover {
-  border-radius: 0 0 30% 30%;
-}
-
 .Side-Left-Fixed {
   display: flex;
   flex-direction: column;

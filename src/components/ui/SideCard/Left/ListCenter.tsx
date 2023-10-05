@@ -6,9 +6,9 @@ import { Email, GitHub, HomeOutlined as LocationIcon, Twitter, Link as LinkIcon 
 import { articleNum } from '~/config/sideCard.json'
 
 const blogInfo = [
-  { primary: '标签', href: '/tags' },
+  { primary: '归档', href: '/archives' },
   { primary: '文章', href: '/article/1', count: articleNum },
-  { primary: '分类', href: '/categories' },
+  { primary: '关于', href: '/about' },
 ]
 
 const githubInfo = [
