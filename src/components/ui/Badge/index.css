@@ -5,7 +5,7 @@
 
 .Badge-Content {
   position: absolute;
-  z-index: 999;
+  z-index: 15;
   text-align: center;
   font-size: 0.75rem;
   line-height: 18px;

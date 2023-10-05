@@ -8,17 +8,7 @@ interface Props {
 }
 
 const page: FC<Props> = ({ children, align = 'center', p = 16 }) => {
-  return (
-    <div
-      className="Title"
-      style={{
-        textAlign: align,
-        padding: p + 'px',
-      }}
-    >
-      {children}
-    </div>
-  )
+  return <div className="Title">{children}</div>
 }
 
 export default page

@@ -15,21 +15,14 @@
   border: 1px solid rgba(0, 0, 0, 0.15);
   box-shadow: 0px 1px 6px -1px rgba(0, 0, 0, 0.15);
   border-radius: 12px;
-  margin: 8px;
+  margin: 4px;
   width: 47%;
-  padding: 20px;
-}
-
-.Banner-Link-Top {
-  display: flex;
-  align-items: flex-start;
-  font-size: 20px;
-  font-weight: 500;
+  padding: 16px 24px;
 }
 
 .Banner-Link-Title {
-  max-width: 50%;
-  margin-right: 8px;
+  font-size: 18px;
+  font-weight: 500;
   overflow: hidden;
 }
 .Banner-Link-Desc {
@@ -37,7 +30,8 @@
   font-size: 14px;
   word-break: break-all;
   color: rgba(0, 0, 0, 0.6);
-  padding: 12px 12px 12px 0;
+  padding: 4px 0;
+  padding-right: 80px;
 }
 
 @media screen and (max-width: 1100px) {

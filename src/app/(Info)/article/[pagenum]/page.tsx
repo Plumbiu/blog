@@ -5,6 +5,7 @@ import Loading from './loading'
 import Pagination from '@/components/ui/Pagination'
 import { articleNum } from '~/config/sideCard.json'
 import Banner from '@/components/ui/Banner'
+import Title from '@/components/ui/Title'
 
 interface Props {
   params: {
@@ -29,6 +30,7 @@ export default async function ({ params }: Props) {
 
   return (
     <Suspense fallback={<Loading />}>
+      <Title>文章页</Title>
       <Banner posts={data} name="文章页" path="/article/1" />
       <Pagination page={Number(params.pagenum)} />
     </Suspense>

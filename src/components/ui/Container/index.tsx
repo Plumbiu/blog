@@ -9,9 +9,9 @@ const Container: FC<Props> = ({ children }) => {
     <div
       style={{
         display: 'flex',
-        marginTop: '76px',
-        marginLeft: '8px',
-        marginRight: '8px',
+        marginTop: '72px',
+        marginLeft: '10px',
+        marginRight: '10px',
       }}
     >
       {children}

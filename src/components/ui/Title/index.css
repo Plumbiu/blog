@@ -1,16 +1,16 @@
 .Title {
   text-align: center;
-  line-height: 54px;
+  line-height: 64px;
   font-size: 22px;
   width: 100%;
   font-weight: 700;
   color: #fff;
   border-radius: 0 0 50% 50%;
-  background-color: #9c27b0;
-  margin-bottom: 10px;
+  background-color: #1976d2;
+  margin-bottom: 6px;
   transition: border-radius 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
 .Title:hover {
-  border-radius: 0 0 30% 30%;
+  border-radius: 0 0 24px 24px;
 }
