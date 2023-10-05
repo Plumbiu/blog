@@ -33,7 +33,6 @@ const json = {
 
 async function resolve() {
   const posts = await getPosts()
-  console.log(posts)
   genItems(posts)
 }
 
