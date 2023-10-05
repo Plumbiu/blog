@@ -43,9 +43,9 @@ const OpenSourceCmp = () => {
           icon={eventMap[type]}
           right={
             <>
-              <Title align="inherit" p={0}>
+              <div className='OpenSource-Event-Name'>
                 {type === 'PullRequestEvent' ? 'PR' : type.replace('Event', '')}
-              </Title>
+              </div>
               {type === 'PushEvent' && (
                 <>
                   <div className="OpenSource-Right">Message</div>

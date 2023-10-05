@@ -1,4 +1,3 @@
-
 .OpenSource {
   font-size: 14px;
   padding: 4px;
@@ -18,4 +17,11 @@
 
 .OpenSource-Right-Font-Size {
   font-size: 14px;
+}
+
+.OpenSource-Event-Name {
+  font-weight: 500;
+  font-size: 1.25rem;
+  margin: 0 auto;
+  letter-spacing: 0.15px;
 }

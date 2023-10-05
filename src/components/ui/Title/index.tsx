@@ -7,8 +7,8 @@ interface Props {
   children: ReactNode
 }
 
-const page: FC<Props> = ({ children, align = 'center', p = 16 }) => {
+const Title: FC<Props> = ({ children, align = 'center', p = 16 }) => {
   return <div className="Title">{children}</div>
 }
 
-export default page
+export default Title

@@ -3,6 +3,7 @@ import { useRequest } from '@/lib/api'
 import ArticleBanner from '@/components/ui/Banner'
 import Badge from '@/components/ui/Badge'
 import Tag from '@/components/ui/Tag'
+import Title from '@/components/ui/Title'
 
 interface Props {
   params: {
@@ -22,6 +23,7 @@ const TagsName = async ({ params }: Props) => {
 
   return (
     <>
+      <Title>分类页</Title>
       <div
         style={{
           marginTop: '16px',
