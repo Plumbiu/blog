@@ -1,8 +1,12 @@
+// @ts-check
 import { toXML } from '../assets/js/jstoxml.js'
 import fsp from 'fs/promises'
 import { getPosts } from './utils.js'
 import path from 'path'
 
+/**
+ * @param {Object} json
+ */
 const json = {
   channel: [
     { title: 'Plumbiu の 小屋' },
@@ -48,12 +52,14 @@ async function resolve() {
  */
 async function genItems(posts) {
   json.channel.push({
+    // @ts-ignore
     lastBuildDate: posts[0].date,
   })
   for (const post of posts) {
     const { title, desc: description, date: pubDate } = post
     json.channel.push({
       item: {
+        // @ts-ignore
         title,
         link: `https://blog.plumbiu.top/post/${title}`,
         pubDate,

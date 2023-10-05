@@ -1,3 +1,4 @@
+// @ts-check
 import path from 'path'
 import fs from 'node:fs/promises'
 import parseFM from 'simple-md-front-matter'
