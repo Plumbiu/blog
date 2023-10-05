@@ -2,7 +2,7 @@ import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import Header from '@/components/Header'
 import Container from '@/components/ui/Container'
-import RightCard from '@/components/ui/Container/Right'
+import RightCard from '@/components/ui/SideCard/Right'
 
 export const metadata: Metadata = {
   title: 'Plumbiu の 小屋',

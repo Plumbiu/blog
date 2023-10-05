@@ -1,5 +1,5 @@
-import Button from '../Button'
-import Stack from '../Stack'
+import Button from '../../Button'
+import Stack from '../../Stack'
 
 const info = [
   {

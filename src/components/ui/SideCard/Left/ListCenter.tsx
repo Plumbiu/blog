@@ -1,7 +1,7 @@
-import Button from '../Button'
+import Button from '../../Button'
 import './ListCenter.css'
-import Badge from '../Badge'
-import ButtonListIcon from '../Button/ListIcon'
+import Badge from '../../Badge'
+import ButtonListIcon from '../../Button/ListIcon'
 import { Email, GitHub, HomeOutlined as LocationIcon, Twitter, Link as LinkIcon } from '@mui/icons-material'
 import { articleNum, tagNum, categoryNum } from '~/config/sideCard.json'
 
