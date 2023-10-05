@@ -2,7 +2,7 @@
   color: #1976d2;
 }
 
-.Toc-List-W {
+.Toc-W {
   overflow: hidden;
   border-radius: 24px;
   min-width: 260px;
@@ -11,12 +11,12 @@
 }
 
 @media screen and (max-width: 780px) {
-  .Toc-List-W {
+  .Toc-W {
     display: none;
   }
 }
 
-.Toc-List-Wrap {
+.Toc-Wrap {
   box-shadow: 0px 1px 6px -1px rgba(0, 0, 0, 0.2);
   background-color: #fff;
   padding: 16px 0px;
@@ -24,7 +24,27 @@
   position: fixed;
 }
 
-.toc-list {
+.Toc-Wrap h3 {
+  padding-left: 16px;
+}
+
+.Toc-Date {
+  display: flex;
+  align-items: center;
+  padding: 6px 16px;
+}
+
+.Toc-Date p {
+  font-size: 14px;
+  padding: 4px 0;
+}
+
+.Toc-Tags {
+  padding-left: 14px;
+  padding-bottom: 12px;
+}
+
+.Toc-List {
   position: relative;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -32,11 +52,11 @@
   font-size: 14px;
 }
 
-.toc-list:hover {
+.Toc-List:hover {
   background-color: #f8f8f8 !important;
 }
 
-.toc-block {
+.Toc-Block {
   position: absolute;
   left: -4px;
   top: 50%;
@@ -46,4 +66,9 @@
   height: 20px;
   border-radius: 0 50% 50% 0;
   background-color: #1976d2;
+}
+
+.Toc-Bottom {
+  margin-left: 12px;
+  margin-top: 10px;
 }

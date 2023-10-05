@@ -21,22 +21,10 @@ const Toc: FC<Props> = ({ html, title, tags, categories, date }) => {
   const tocs = genTocs(html)
   const formatedDate = formatTime(date)
   return (
-    <div className="Toc-List-W">
-      <div className="Toc-List-W Toc-List-Wrap">
-        <h3
-          style={{
-            paddingLeft: '16px',
-          }}
-        >
-          {title}
-        </h3>
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            padding: '6px 16px',
-          }}
-        >
+    <div className="Toc-W">
+      <div className="Toc-W Toc-Wrap">
+        <h3>{title}</h3>
+        <div className="Toc-Date">
           <AccessTimeFilled
             sx={{
               fontSize: '14px',
@@ -44,21 +32,9 @@ const Toc: FC<Props> = ({ html, title, tags, categories, date }) => {
               mr: '4px',
             }}
           />
-          <p
-            style={{
-              fontSize: '14px',
-              padding: '4px 0',
-            }}
-          >
-            {formatedDate.split(' ')[0]}
-          </p>
+          <p>{formatedDate.split(' ')[0]}</p>
         </div>
-        <div
-          style={{
-            paddingLeft: '14px',
-            paddingBottom: '12px',
-          }}
-        >
+        <div className="Toc-Tags">
           {categories?.map(category => (
             <Tag outlined key={category} text={category} />
           ))}
@@ -69,12 +45,7 @@ const Toc: FC<Props> = ({ html, title, tags, categories, date }) => {
         <Hr />
         <TocList tocs={tocs} />
         <Hr />
-        <div
-          style={{
-            marginLeft: '12px',
-            marginTop: '10px',
-          }}
-        >
+        <div className="Toc-Bottom">
           <ButtonIcon
             link="/article"
             text="文章页"

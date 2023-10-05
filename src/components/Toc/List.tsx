@@ -51,7 +51,7 @@ const TocList: FC<Props> = ({ tocs }) => {
       {tocs.map(({ level, hash, content }) => (
         <Link
           key={hash}
-          className="toc-list"
+          className="Toc-List"
           href={hash}
           style={{
             paddingLeft: level * 16 + 'px',
@@ -59,7 +59,7 @@ const TocList: FC<Props> = ({ tocs }) => {
             backgroundColor: currentHash === hash ? '#F8F8F8' : 'inherit',
           }}
         >
-          {currentHash === hash && <div className="toc-block" />}
+          {currentHash === hash && <div className="Toc-Block" />}
           {content}
         </Link>
       ))}
