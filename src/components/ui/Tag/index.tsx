@@ -13,26 +13,19 @@ interface Props {
 const Tag: FC<Props> = ({ outlined, text, link, plain }) => {
   if (plain && link) {
     return (
-      <Link className="Tag Tag-Link hover-a-style" href={link}>
+      <Link prefetch={false} className="Tag Tag-Link hover-a-style" href={link}>
         {text}
       </Link>
     )
   }
   if (link) {
     return (
-      <Link
-        className={`Tag ${outlined ? 'Tag-Outlined' : 'Tag-Filled'}`}
-        href={link}
-      >
+      <Link prefetch={false} className={`Tag ${outlined ? 'Tag-Outlined' : 'Tag-Filled'}`} href={link}>
         {text}
       </Link>
     )
   }
-  return (
-    <span className={`Tag ${outlined ? 'Tag-Outlined' : 'Tag-Filled'}`}>
-      {text}
-    </span>
-  )
+  return <span className={`Tag ${outlined ? 'Tag-Outlined' : 'Tag-Filled'}`}>{text}</span>
 }
 
 export default Tag
