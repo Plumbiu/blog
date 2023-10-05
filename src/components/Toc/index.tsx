@@ -1,7 +1,6 @@
 import './index.css'
 import { genTocs } from '@/lib/toc'
 import type { FC } from 'react'
-import LeftSider from '../ui/Container/Left'
 import TocList from './List'
 import { formatTime } from '@/lib/time'
 import { AccessTimeFilled, ArrowBack } from '@mui/icons-material'
@@ -22,82 +21,84 @@ const Toc: FC<Props> = ({ html, title, tags, categories, date }) => {
   const tocs = genTocs(html)
   const formatedDate = formatTime(date)
   return (
-    <LeftSider>
-      <div
-        style={{
-          backgroundColor: '#fff',
-          padding: '16px 0px',
-          overflow: 'hidden',
-        }}
-      >
-        <h3
-          style={{
-            paddingLeft: '16px',
-          }}
-        >
-          {title}
-        </h3>
+    <div className="Toc-List-W">
+      <div className="Toc-List-W Toc-List-Wrap">
         <div
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            padding: '6px 16px',
+            backgroundColor: '#fff',
+            padding: '16px 0px',
+            overflow: 'hidden',
           }}
         >
-          <AccessTimeFilled
-            sx={{
-              fontSize: '14px',
-              color: '#1976D2',
-              mr: '4px',
-            }}
-          />
-          <p
+          <h3
             style={{
-              fontSize: '14px',
-              padding: '4px 0',
+              paddingLeft: '16px',
             }}
           >
-            {formatedDate.split(' ')[0]}
-          </p>
-        </div>
-        <div
-          style={{
-            paddingLeft: '14px',
-            paddingBottom: '12px',
-          }}
-        >
-          {categories?.map((category) => (
-            <Tag outlined key={category} text={category} />
-          ))}
-          {tags?.map((tag) => (
-            <Tag link={'/tags/' + tag} key={tag} text={tag} />
-          ))}
-        </div>
-        <Hr />
-        <TocList tocs={tocs} />
-        <Hr />
-        <div
-          style={{
-            marginLeft: '12px',
-            marginTop: '10px',
-          }}
-        >
-          <ButtonIcon
-            link="/article"
-            text="文章页"
-            icon={
-              <ArrowBack
-                sx={{
-                  fontSize: '18px',
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
-              />
-            }
-          />
+            {title}
+          </h3>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              padding: '6px 16px',
+            }}
+          >
+            <AccessTimeFilled
+              sx={{
+                fontSize: '14px',
+                color: '#1976D2',
+                mr: '4px',
+              }}
+            />
+            <p
+              style={{
+                fontSize: '14px',
+                padding: '4px 0',
+              }}
+            >
+              {formatedDate.split(' ')[0]}
+            </p>
+          </div>
+          <div
+            style={{
+              paddingLeft: '14px',
+              paddingBottom: '12px',
+            }}
+          >
+            {categories?.map(category => (
+              <Tag outlined key={category} text={category} />
+            ))}
+            {tags?.map(tag => (
+              <Tag link={'/tags/' + tag} key={tag} text={tag} />
+            ))}
+          </div>
+          <Hr />
+          <TocList tocs={tocs} />
+          <Hr />
+          <div
+            style={{
+              marginLeft: '12px',
+              marginTop: '10px',
+            }}
+          >
+            <ButtonIcon
+              link="/article"
+              text="文章页"
+              icon={
+                <ArrowBack
+                  sx={{
+                    fontSize: '18px',
+                    display: 'flex',
+                    alignItems: 'center',
+                  }}
+                />
+              }
+            />
+          </div>
         </div>
       </div>
-    </LeftSider>
+    </div>
   )
 }
 

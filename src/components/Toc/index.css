@@ -2,6 +2,24 @@
   color: #1976d2;
 }
 
+.Toc-List-W {
+  overflow: hidden;
+  border-radius: 24px;
+  min-width: 320px;
+  max-width: 380px;
+}
+
+@media screen and (max-width: 780px) {
+  .Toc-List-W {
+    display: none;
+  }
+}
+
+.Toc-List-Wrap {
+  box-shadow: 0px 1px 6px -1px rgba(0, 0, 0, 0.2);
+
+}
+
 .toc-list {
   position: relative;
   padding-top: 8px;
