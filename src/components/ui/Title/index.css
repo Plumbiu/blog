@@ -1,8 +1,8 @@
 .Title {
   text-align: center;
-  line-height: 64px;
   font-size: 22px;
   width: 100%;
+  padding: 22px 0;
   font-weight: 700;
   color: #fff;
   border-radius: 0 0 50% 50%;

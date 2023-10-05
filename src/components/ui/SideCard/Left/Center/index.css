@@ -1,0 +1,15 @@
+.List-Center {
+  margin-top: 12px;
+}
+
+.List-Center-Badge {
+  display: flex;
+  gap: 26px;
+  justify-content: center;
+  padding-top: 4px;
+  margin-bottom: 2px;
+}
+
+.List-Center-Badge .Btn-Link {
+  padding: 12px 14px;
+}

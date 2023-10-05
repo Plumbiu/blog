@@ -1,10 +1,10 @@
-import ListTop from './ListTop'
 import './index.css'
-import ListBottom from './ListBottom'
-import ListCenter from './ListCenter'
 import Chips from '@/components/ui/SideCard/Chips'
 import { useRequest } from '@/lib/api'
 import Title from '../../Title'
+import SideCardCenter from './Center'
+import SideCardBottom from './Bottom'
+import SideCardTop from './Top'
 
 export default async function LeftSideCard() {
   const tags = await useRequest<Tag[]>('tags')
@@ -13,9 +13,9 @@ export default async function LeftSideCard() {
     <div className="Side-Left-W">
       <div className="Side-Left-W Side-Left-List">
         <div className="Side-Left-Item">
-          <ListTop />
-          <ListCenter />
-          <ListBottom />
+          <SideCardTop />
+          <SideCardCenter />
+          <SideCardBottom />
         </div>
         <div className="Side-Left-Item">
           <Title>标签</Title>

@@ -1,0 +1,18 @@
+.List-Top-Wrap {
+  align-items: flex-start;
+}
+
+.List-Top-Wrap .Title {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  line-height: 25px;
+}
+
+.List-Top-Wrap img {
+  border-radius: 50%;
+}
+
+.List-Top-Name {
+  padding-bottom: 4px;
+  letter-spacing: 0.15px;
+}
