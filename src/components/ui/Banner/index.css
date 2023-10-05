@@ -47,12 +47,19 @@
   color: rgba(0, 0, 0, 0.6);
 }
 
+.Banner-Date svg {
+  font-size: 14px;
+  color: #1976D2;
+  margin-right: 4px;
+}
+
 .Banner-Link-Title {
   font-size: 19px;
   font-weight: 500;
   overflow: hidden;
   padding-bottom: 6px;
 }
+
 .Banner-Link-Desc {
   line-height: 1.5;
   font-size: 13px;

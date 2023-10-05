@@ -1,12 +1,11 @@
 import fsp from 'node:fs/promises'
 import path from 'node:path'
 import parseFM from 'simple-md-front-matter'
-
-const limit = 12
+import { articleLimit } from '../config'
 
 export async function getPosts(pagenum = 0, isLimit = false) {
   const postsPath = path.join(process.cwd(), 'posts')
-  const start = pagenum * limit
+  const start = pagenum * articleLimit
   const DATEREG = /([\d]{4}-[\d]+-[\d]+)/
   let rawPosts = (await fsp.readdir(postsPath)).sort((a, b) => {
     return (
@@ -15,7 +14,7 @@ export async function getPosts(pagenum = 0, isLimit = false) {
     )
   })
   if (isLimit) {
-    rawPosts = rawPosts.slice(start, start + limit)
+    rawPosts = rawPosts.slice(start, start + articleLimit)
   }
   const posts: FullFrontMatter[] = []
   for (const post of rawPosts) {

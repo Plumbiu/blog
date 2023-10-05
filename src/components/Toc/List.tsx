@@ -2,6 +2,7 @@
 import type { Toc } from '@/lib/toc'
 import { useState, type FC, useEffect } from 'react'
 import Link from 'next/link'
+import './List.css'
 interface Props {
   tocs: Toc[]
 }
@@ -15,7 +16,7 @@ const TocList: FC<Props> = ({ tocs }) => {
       setCurrentHash(tocs[0].hash)
     }
     const observer = new IntersectionObserver(
-      (entries) => {
+      entries => {
         for (let i = 0; i < entries.length; i++) {
           const entry = entries[i]
           if (entry.isIntersecting) {
@@ -35,29 +36,18 @@ const TocList: FC<Props> = ({ tocs }) => {
         rootMargin: '7% 0% -99% 0%',
       },
     )
-    document.querySelectorAll('h1,h2,h3').forEach((title) => {
+    document.querySelectorAll('h1,h2,h3').forEach(title => {
       observer.observe(title) // 开始观察每个图片元素
     })
   }, [tocs])
 
   return (
-    <div
-      style={{
-        padding: '6px 0',
-        maxHeight: '65vh',
-        overflowY: 'scroll',
-      }}
-    >
+    <div className="Toc-List-Wrap">
       {tocs.map(({ level, hash, content }) => (
         <Link
           key={hash}
-          className="Toc-List"
+          className={`Toc-List Toc-List-Level-${level} ${currentHash === hash ? 'Toc-List-Active' : ''}`}
           href={hash}
-          style={{
-            paddingLeft: level * 16 + 'px',
-            color: currentHash === hash ? '#1976D2' : 'inherit',
-            backgroundColor: currentHash === hash ? '#F8F8F8' : 'inherit',
-          }}
         >
           {currentHash === hash && <div className="Toc-Block" />}
           {content}

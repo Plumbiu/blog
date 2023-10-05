@@ -38,13 +38,7 @@ const ArticleBanner: FC<Props> = ({ posts, name, path }) => {
           <div className="Banner-List">
             <div className="Banner-Link-Title">{title}</div>
             <div className="Banner-Date">
-              <AccessTimeFilled
-                sx={{
-                  fontSize: '14px',
-                  color: '#1976D2',
-                  mr: '4px',
-                }}
-              />
+              <AccessTimeFilled />
               <p>{formatTime(date).split(' ')[0]}</p>
             </div>
             <div className="Banner-Link-Desc">{desc}...</div>

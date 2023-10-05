@@ -20,11 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <link rel="icon" type="image/x-icon" sizes="192x192" href="/icons/favico-192x192.png"></link>
       <link rel="icon" type="image/x-icon" sizes="256x256" href="/icons/favico-256x256.png"></link>
       <link rel="icon" type="image/x-icon" sizes="512x512" href="/icons/favico-512x512.png"></link>
-
-      <body
-        style={{
-        }}
-      >
+      <body>
         <Header />
         <Container>
           {children}
