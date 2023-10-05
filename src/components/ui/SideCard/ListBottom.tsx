@@ -1,4 +1,3 @@
-import Hr from '../Hr'
 import Button from '../Button'
 import Stack from '../Stack'
 
@@ -19,16 +18,13 @@ const info = [
 
 const ListBottom = () => {
   return (
-    <>
-      <Hr />
-      <Stack>
-        {info.map(({ primary, href }) => (
-          <Button key={primary} link={href}>
-            {primary}
-          </Button>
-        ))}
-      </Stack>
-    </>
+    <Stack>
+      {info.map(({ primary, href }) => (
+        <Button key={primary} link={href}>
+          {primary}
+        </Button>
+      ))}
+    </Stack>
   )
 }
 

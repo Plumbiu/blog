@@ -2,13 +2,7 @@ import Button from '../Button'
 import './ListCenter.css'
 import Badge from '../Badge'
 import ButtonListIcon from '../Button/ListIcon'
-import {
-  Email,
-  GitHub,
-  HomeOutlined as LocationIcon,
-  Twitter,
-  Link as LinkIcon,
-} from '@mui/icons-material'
+import { Email, GitHub, HomeOutlined as LocationIcon, Twitter, Link as LinkIcon } from '@mui/icons-material'
 import { articleNum, tagNum, categoryNum } from '~/config/sideCard.json'
 
 const blogInfo = [
@@ -42,25 +36,22 @@ const githubInfo = [
 
 const ListCenter = () => {
   return (
-    <>
+    <div className="List-Center">
       <div className="List-Center-Badge">
         {blogInfo.map(({ href, primary, count }) => (
           <Badge key={primary} count={count}>
-            <Button key={href} link={href}>
-              {primary}
-            </Button>
+            <Button link={href}>{primary}</Button>
           </Badge>
         ))}
       </div>
+      <div className="List-Center-Archives">
+        <Button link={'hello'}>归档</Button>
+        <Button link={'hello'}>关于</Button>
+      </div>
       {githubInfo.map(({ icon, primary, href }) => (
-        <ButtonListIcon
-          key={href ?? primary}
-          icon={icon}
-          link={href}
-          text={primary}
-        ></ButtonListIcon>
+        <ButtonListIcon key={href ?? primary} icon={icon} link={href} text={primary}></ButtonListIcon>
       ))}
-    </>
+    </div>
   )
 }
 

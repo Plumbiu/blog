@@ -1,11 +1,38 @@
+.List-Center {
+  position: relative;
+}
+
+.List-Center::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to left, #fff, #333, #fff);
+}
+
+.List-Center::before {
+  top: -22px;
+}
+
 .List-Center-Badge {
   display: flex;
   gap: 26px;
   justify-content: center;
-  margin-top: 18px;
+  margin-top: 16px;
   margin-bottom: 8px;
 }
 
-.List-Center-Badge .Btn-Link {
+.List-Center-Badge .Btn-Link,
+.List-Center-Archives .Btn-Link {
   padding: 10px 14px;
+}
+
+.List-Center-Archives {
+  margin: 12px 0;
+  text-align: center;
+}
+.List-Center-Archives .Btn-Link {
+  margin: 0 12px;
 }
