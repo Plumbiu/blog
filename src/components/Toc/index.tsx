@@ -23,79 +23,71 @@ const Toc: FC<Props> = ({ html, title, tags, categories, date }) => {
   return (
     <div className="Toc-List-W">
       <div className="Toc-List-W Toc-List-Wrap">
-        <div
+        <h3
           style={{
-            backgroundColor: '#fff',
-            padding: '16px 0px',
-            overflow: 'hidden',
+            paddingLeft: '16px',
           }}
         >
-          <h3
+          {title}
+        </h3>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            padding: '6px 16px',
+          }}
+        >
+          <AccessTimeFilled
+            sx={{
+              fontSize: '14px',
+              color: '#1976D2',
+              mr: '4px',
+            }}
+          />
+          <p
             style={{
-              paddingLeft: '16px',
+              fontSize: '14px',
+              padding: '4px 0',
             }}
           >
-            {title}
-          </h3>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              padding: '6px 16px',
-            }}
-          >
-            <AccessTimeFilled
-              sx={{
-                fontSize: '14px',
-                color: '#1976D2',
-                mr: '4px',
-              }}
-            />
-            <p
-              style={{
-                fontSize: '14px',
-                padding: '4px 0',
-              }}
-            >
-              {formatedDate.split(' ')[0]}
-            </p>
-          </div>
-          <div
-            style={{
-              paddingLeft: '14px',
-              paddingBottom: '12px',
-            }}
-          >
-            {categories?.map(category => (
-              <Tag outlined key={category} text={category} />
-            ))}
-            {tags?.map(tag => (
-              <Tag link={'/tags/' + tag} key={tag} text={tag} />
-            ))}
-          </div>
-          <Hr />
-          <TocList tocs={tocs} />
-          <Hr />
-          <div
-            style={{
-              marginLeft: '12px',
-              marginTop: '10px',
-            }}
-          >
-            <ButtonIcon
-              link="/article"
-              text="文章页"
-              icon={
-                <ArrowBack
-                  sx={{
-                    fontSize: '18px',
-                    display: 'flex',
-                    alignItems: 'center',
-                  }}
-                />
-              }
-            />
-          </div>
+            {formatedDate.split(' ')[0]}
+          </p>
+        </div>
+        <div
+          style={{
+            paddingLeft: '14px',
+            paddingBottom: '12px',
+          }}
+        >
+          {categories?.map(category => (
+            <Tag outlined key={category} text={category} />
+          ))}
+          {tags?.map(tag => (
+            <Tag link={'/tags/' + tag} key={tag} text={tag} />
+          ))}
+        </div>
+        <Hr />
+        <TocList tocs={tocs} />
+        <Hr />
+        <div
+          style={{
+            marginLeft: '12px',
+            marginTop: '10px',
+          }}
+        >
+          <ButtonIcon
+            link="/article"
+            text="文章页"
+            icon={
+              <ArrowBack
+                sx={{
+                  fontSize: '18px',
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              />
+            }
+          />
         </div>
       </div>
     </div>

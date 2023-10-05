@@ -5,8 +5,9 @@
 .Toc-List-W {
   overflow: hidden;
   border-radius: 24px;
-  min-width: 320px;
-  max-width: 380px;
+  min-width: 260px;
+  max-width: 320px;
+  width: 20%;
 }
 
 @media screen and (max-width: 780px) {
@@ -17,7 +18,10 @@
 
 .Toc-List-Wrap {
   box-shadow: 0px 1px 6px -1px rgba(0, 0, 0, 0.2);
-
+  background-color: #fff;
+  padding: 16px 0px;
+  overflow: hidden;
+  position: fixed;
 }
 
 .toc-list {
@@ -29,7 +33,7 @@
 }
 
 .toc-list:hover {
-  background-color: #f8f8f8!important;
+  background-color: #f8f8f8 !important;
 }
 
 .toc-block {

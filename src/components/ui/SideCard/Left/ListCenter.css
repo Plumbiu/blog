@@ -14,7 +14,7 @@
 }
 
 .List-Center::before {
-  top: -22px;
+  top: -12px;
 }
 
 .List-Center::after {
@@ -25,10 +25,10 @@
   display: flex;
   gap: 26px;
   justify-content: center;
-  margin-top: 16px;
-  margin-bottom: 8px;
+  padding-top: 4px;
+  margin-bottom: 2px;
 }
 
 .List-Center-Badge .Btn-Link {
-  padding: 10px 14px;
+  padding: 12px 14px;
 }

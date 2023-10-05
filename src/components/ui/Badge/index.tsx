@@ -2,7 +2,7 @@ import type { FC, ReactNode } from 'react'
 import './index.css'
 
 interface Props {
-  count: number
+  count?: number
   children: ReactNode
 }
 
@@ -10,7 +10,7 @@ const Badge: FC<Props> = ({ count, children }) => {
   return (
     <div>
       <div className="Badge-Wrap">
-        <span className="Badge-Content">{count}</span>
+        {count && <span className="Badge-Content">{count}</span>}
         <span>{children}</span>
       </div>
     </div>

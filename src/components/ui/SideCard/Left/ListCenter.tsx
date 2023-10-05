@@ -3,12 +3,12 @@ import './ListCenter.css'
 import Badge from '../../Badge'
 import ButtonListIcon from '../../Button/ListIcon'
 import { Email, GitHub, HomeOutlined as LocationIcon, Twitter, Link as LinkIcon } from '@mui/icons-material'
-import { articleNum, tagNum, categoryNum } from '~/config/sideCard.json'
+import { articleNum } from '~/config/sideCard.json'
 
 const blogInfo = [
+  { primary: '标签', href: '/tags' },
   { primary: '文章', href: '/article/1', count: articleNum },
-  { primary: '标签', href: '/tags', count: tagNum },
-  { primary: '分类', href: '/categories', count: categoryNum },
+  { primary: '分类', href: '/categories' },
 ]
 
 const githubInfo = [
