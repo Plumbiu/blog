@@ -10,14 +10,32 @@
 .Banner-Link {
   box-sizing: border-box;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  gap: 8px;
   border: 1px solid rgba(0, 0, 0, 0.15);
   box-shadow: 0px 1px 6px -1px rgba(0, 0, 0, 0.15);
   border-radius: 12px;
   margin: 4px;
   width: 47%;
-  padding: 16px 24px;
+}
+
+.Banner-Cover {
+  display: flex;
+  align-items: center;
+  padding: 0 36px;
+  height: 100%;
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.Banner-List {
+  flex: 1;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px 12px;
+  width: 47%;
 }
 
 .Banner-Date {
@@ -26,7 +44,7 @@
 
 .Banner-Date p {
   font-size: 12px;
-  color: rgba(0, 0, 0, .6);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .Banner-Link-Title {
@@ -50,5 +68,8 @@
   }
   .Banner-Link {
     width: 100%;
+  }
+  .Banner-Cover {
+    display: none;
   }
 }
