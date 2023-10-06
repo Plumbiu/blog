@@ -21,45 +21,43 @@ const Toc: FC<Props> = ({ html, title, tags, categories, date }) => {
   const tocs = genTocs(html)
   const formatedDate = formatTime(date)
   return (
-    <div className="Toc-W">
-      <div className="Toc-W Toc-Wrap">
-        <h3>{title}</h3>
-        <div className="Toc-Date">
-          <AccessTimeFilled
-            sx={{
-              fontSize: '14px',
-              color: '#1976D2',
-              mr: '4px',
-            }}
-          />
-          <p>{formatedDate.split(' ')[0]}</p>
-        </div>
-        <div className="Toc-Tags">
-          {categories?.map(category => (
-            <Tag outlined key={category} text={category} />
-          ))}
-          {tags?.map(tag => (
-            <Tag link={'/tags/' + tag} key={tag} text={tag} />
-          ))}
-        </div>
-        <Hr />
-        <TocList tocs={tocs} />
-        <Hr />
-        <div className="Toc-Bottom">
-          <ButtonIcon
-            link="/article"
-            text="文章页"
-            icon={
-              <ArrowBack
-                sx={{
-                  fontSize: '18px',
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
-              />
-            }
-          />
-        </div>
+    <div className="Side-Left Toc">
+      <h3>{title}</h3>
+      <div className="Toc-Date">
+        <AccessTimeFilled
+          sx={{
+            fontSize: '14px',
+            color: '#1976D2',
+            mr: '4px',
+          }}
+        />
+        <p>{formatedDate.split(' ')[0]}</p>
+      </div>
+      <div className="Toc-Tags">
+        {categories?.map(category => (
+          <Tag outlined key={category} text={category} />
+        ))}
+        {tags?.map(tag => (
+          <Tag link={'/tags/' + tag} key={tag} text={tag} />
+        ))}
+      </div>
+      <Hr />
+      <TocList tocs={tocs} />
+      <Hr />
+      <div className="Toc-Bottom">
+        <ButtonIcon
+          link="/article"
+          text="文章页"
+          icon={
+            <ArrowBack
+              sx={{
+                fontSize: '18px',
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            />
+          }
+        />
       </div>
     </div>
   )

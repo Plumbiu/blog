@@ -2,29 +2,21 @@
   color: #1976d2;
 }
 
-.Toc-W {
-  overflow: hidden;
-  border-radius: 24px;
-  min-width: 260px;
-  max-width: 320px;
-  width: 20%;
-}
-
 @media screen and (max-width: 780px) {
-  .Toc-W {
+  .Toc {
     display: none;
   }
 }
 
-.Toc-Wrap {
+.Toc {
   box-shadow: 0px 1px 6px -1px rgba(0, 0, 0, 0.2);
   background-color: #fff;
+  border-radius: 12px;
   padding: 16px 0px;
   overflow: hidden;
-  position: fixed;
 }
 
-.Toc-Wrap h3 {
+.Toc h3 {
   padding-left: 16px;
 }
 

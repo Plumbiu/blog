@@ -5,13 +5,11 @@ import SideCardTop from './Top'
 
 export default function LeftSideCard() {
   return (
-    <div className="Side-W">
-      <div className="Side-W Side-Fixed">
-        <div className="Side-Item">
-          <SideCardTop />
-          <SideCardCenter />
-          <SideCardBottom />
-        </div>
+    <div className="Side-Left">
+      <div className="Side-Item">
+        <SideCardTop />
+        <SideCardCenter />
+        <SideCardBottom />
       </div>
     </div>
   )

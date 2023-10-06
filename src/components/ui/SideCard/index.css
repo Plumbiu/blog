@@ -1,24 +1,41 @@
-.Side-W {
-  min-width: 240px;
-  max-width: 300px;
-  width: 20%;
+.Side-Left,
+.Side-Right {
+  position: fixed;
+  width: 18%;
+}
+
+.Side-Left {
+  left: 30px;
+}
+
+.Side-Right {
+  right: 30px;
+}
+
+@media screen and (max-width: 1240px) {
+  .Side-Right {
+    display: none;
+  }
+  .Side-Left {
+    width: 25%;
+  }
 }
 
 @media screen and (max-width: 960px) {
-  .Side-W {
+  .Side-Left {
     display: none;
   }
 }
 
 .Side-Fixed {
-  width: 100%;
   position: fixed;
+  min-width: 240px;
+  max-width: 300px;
 }
 
 .Side-Item {
   box-sizing: border-box;
   overflow: hidden;
-  width: 100%;
   background-color: #fff;
   border-radius: 24px;
   box-shadow: 0px 1px 6px -1px rgba(0, 0, 0, 0.2);
