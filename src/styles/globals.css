@@ -11,7 +11,7 @@ body {
   margin: 0;
   font-family: Roboto, Helvetica, Arial, sans-serif;
   overflow-x: hidden;
-  background-color: #fefefe;
+  background-color: #f8f8fc;
 }
 
 a {
@@ -65,7 +65,6 @@ p {
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
     border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
-
 .hover-style:hover {
   background-color: #f6fafd !important;
 }

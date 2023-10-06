@@ -22,7 +22,7 @@ export async function getPosts(pagenum = 0, isLimit = false) {
     const end = file.indexOf('---', 3)
     const desc = file
       .slice(end + 3, end + 150)
-      .replace(/[#`\s-*]/g, '')
+      .replace(/[#`\s-*!]/g, '')
       .replace(/\[[\w\W]*\]\(/g, ' ')
       .replace(')', ' ')
     posts.push({

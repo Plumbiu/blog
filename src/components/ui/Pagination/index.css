@@ -4,7 +4,8 @@
   justify-content: center;
   overflow: scroll;
   padding: 12px 16px;
-  padding-bottom: 5px;
+  margin-top: 16px;
+  font-size: 18px;
 }
 
 .Pagination-Icon-Link {
@@ -14,12 +15,12 @@
 }
 
 .Pagination-Icon-Link-Active {
-  background-color: #9c27b0;
+  background-color: #1976d2;
   color: #fff;
 }
 
 .Pagination-Link {
-  transform: translateY(-3px);
+  transform: translateY(-6px);
   width: 32px;
   height: 32px;
   line-height: 32px;
