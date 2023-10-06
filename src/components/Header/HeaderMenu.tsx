@@ -37,7 +37,7 @@ const HeaderMenu = () => {
             },
           }}
         >
-          <MenuList hr />
+          <MenuList />
         </Menu>
       </div>
     </>

@@ -1,17 +1,7 @@
 import React from 'react'
 import ButtonListIcon from '../ui/Button/ListIcon'
-import type { FC } from 'react'
 import Hr from '../ui/Hr'
-import {
-  FirstPage,
-  Article,
-  GitHub,
-  TravelExplore,
-  People,
-  Comment,
-  Tag,
-  Category,
-} from '@mui/icons-material'
+import { FirstPage, Article, GitHub, TravelExplore, People, Comment, Tag, Category } from '@mui/icons-material'
 
 const lists = [
   { text: '首页', link: '/', icon: <FirstPage /> },
@@ -24,22 +14,11 @@ const lists = [
   { text: 'GitHub', link: 'https://github.com/Plumbiu/blog', icon: <GitHub /> },
 ]
 
-interface Props {
-  hr?: boolean
-}
-
-const MenuList: FC<Props> = ({ hr }) => {
+const MenuList = () => {
   return lists.map(({ text, link, icon }, index) => (
     <div key={text}>
-      <ButtonListIcon
-        blank={false}
-        icon={icon}
-        mw={36}
-        py={10}
-        text={text}
-        link={link}
-      />
-      {index % 3 ? undefined : hr && <Hr />}
+      <ButtonListIcon blank={false} icon={icon} py={10} text={text} link={link} />
+      {index % 3 ? undefined : <Hr />}
     </div>
   ))
 }
