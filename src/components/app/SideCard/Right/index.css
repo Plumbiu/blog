@@ -1,0 +1,20 @@
+.Side-Archive {
+  font-size: 15px;
+  margin: 16px 0;
+}
+
+.Side-Archive > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+}
+
+.Side-Archive > div p {
+  color: rgba(0, 0, 0, 0.9);
+  min-width: 46px;
+}
+
+.Side-Archive > div a {
+  color: #1976d2;
+}
