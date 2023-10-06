@@ -1,4 +1,4 @@
-import ArchiveCmp from '@/components/Archive'
+import ArchiveCmp from '@/components/app/Archive'
 import Title from '@/components/ui/Title'
 import { useRequest } from '@/lib/api'
 import React from 'react'

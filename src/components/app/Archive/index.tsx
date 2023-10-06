@@ -1,6 +1,6 @@
 import type { FC } from 'react'
 import './index.css'
-import Hr from '../ui/Hr'
+import Hr from '../../ui/Hr'
 import Link from 'next/link'
 import { formatTime } from '@/lib/time'
 

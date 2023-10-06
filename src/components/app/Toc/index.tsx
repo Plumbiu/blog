@@ -4,9 +4,9 @@ import type { FC } from 'react'
 import TocList from './List'
 import { formatTime } from '@/lib/time'
 import { AccessTimeFilled, ArrowBack } from '@mui/icons-material'
-import ButtonIcon from '../ui/Button/Icon'
-import Tag from '../ui/Tag'
-import Hr from '../ui/Hr'
+import ButtonIcon from '../../ui/Button/Icon'
+import Tag from '../../ui/Tag'
+import Hr from '../../ui/Hr'
 
 interface Props {
   html: string

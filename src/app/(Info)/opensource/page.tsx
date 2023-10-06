@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import OpenSourceCmp from '@/components/OpenSource'
+import OpenSourceCmp from '@/components/app/OpenSource'
 
 export default function Home() {
   return <OpenSourceCmp />

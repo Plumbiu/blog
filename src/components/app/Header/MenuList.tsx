@@ -1,6 +1,6 @@
 import React from 'react'
-import ButtonListIcon from '../ui/Button/ListIcon'
-import Hr from '../ui/Hr'
+import ButtonListIcon from '../../ui/Button/ListIcon'
+import Hr from '../../ui/Hr'
 import { FirstPage, Article, GitHub, TravelExplore, People, Comment, Tag, Category } from '@mui/icons-material'
 
 const lists = [

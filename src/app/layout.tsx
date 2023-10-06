@@ -1,6 +1,6 @@
 import '@/styles/globals.css'
 import type { Metadata } from 'next'
-import Header from '@/components/Header'
+import Header from '@/components/app/Header'
 import Container from '@/components/ui/Container'
 import RightCard from '@/components/ui/SideCard/Right'
 

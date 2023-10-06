@@ -3,8 +3,9 @@ import '@/styles/github-markdown-light.css'
 import 'highlight.js/styles/github.css'
 import { useRequest } from '@/lib/api'
 import Main from '@/components/ui/Container/Main'
-import Toc from '@/components/Toc'
+import Toc from '@/components/app/Toc'
 import { renderMD } from '@/lib/md'
+import Title from '@/components/ui/Title'
 
 interface Props {
   params: {
@@ -35,6 +36,7 @@ export default async function PostId({ params }: Props) {
         updated={updated}
       />
       <Main>
+        <Title>{title}</Title>
         <div
           style={{
             padding: '16px 20px',
