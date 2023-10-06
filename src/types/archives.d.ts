@@ -1,4 +1,4 @@
-interface archeve {
+interface Archeve {
   year: string
   articles: FullFrontMatter[]
 }

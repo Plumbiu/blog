@@ -1,10 +1,8 @@
 .Hr {
   box-sizing: content-box;
   overflow: hidden;
-  background: transparent;
-  border-bottom: 1px solid hsla(210, 18%, 87%, 1);
-  height: 1px;
-  padding: 0;
+  background-color: #eee;
+  height: 0.75px;
   margin: 2px 0;
   background-color: #d0d7de;
   border: 0;

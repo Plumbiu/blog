@@ -16,8 +16,10 @@ Online View: [my blog](https://blog.plumbiu.top/)
 - [x] lazy load(image)
 - [x] article search
 - [x] pagination
-- [x] friends page 
 - [x] tags page
 - [x] categories page
+- [x] archive page
+- [ ] about me page
+- [ ] friends page 
 - [ ] toc scroll height mouse following effect
 - [ ] comment system

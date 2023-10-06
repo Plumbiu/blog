@@ -4,11 +4,11 @@ import './index.css'
 interface Props {
   left: ReactNode
   right: ReactNode
-  icon: ReactNode
+  center: ReactNode
   bgcolor: string
 }
 
-const TimeLine: FC<Props> = ({ left, right, icon, bgcolor }) => {
+const TimeLine: FC<Props> = ({ left, right, center, bgcolor }) => {
   return (
     <div className="TimeLine">
       <div className="TimeLine-Left">{left}</div>
@@ -19,7 +19,7 @@ const TimeLine: FC<Props> = ({ left, right, icon, bgcolor }) => {
             backgroundColor: bgcolor,
           }}
         >
-          {icon}
+          {center}
         </div>
         <div className="TimeLine-Center-Bar" />
       </div>

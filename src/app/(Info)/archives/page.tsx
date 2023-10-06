@@ -1,13 +1,16 @@
+import ArchiveCmp from '@/components/Archive'
 import Title from '@/components/ui/Title'
+import { useRequest } from '@/lib/api'
 import React from 'react'
 
-const Achive = () => {
+const Archive = async () => {
+  const archives = await useRequest<Archeve[]>('archives')
   return (
     <div>
       <Title>归档</Title>
-      归档页面正在开发中
+      <ArchiveCmp archives={archives} />
     </div>
   )
 }
 
-export default Achive
+export default Archive

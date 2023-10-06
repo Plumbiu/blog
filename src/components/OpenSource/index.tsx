@@ -40,7 +40,7 @@ const OpenSourceCmp = () => {
               </div>
             </>
           }
-          icon={eventMap[type]}
+          center={eventMap[type]}
           right={
             <>
               <div className='OpenSource-Event-Name'>

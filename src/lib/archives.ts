@@ -10,7 +10,7 @@ export function loadArchives(posts: FullFrontMatter[]) {
       raw[key] = [post]
     }
   }
-  const archives: archeve[] = []
+  const archives: Archeve[] = []
   for (const [year, articles] of Object.entries(raw)) {
     archives.push({
       year,
