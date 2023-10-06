@@ -1,4 +1,4 @@
-import HeaderMenu from './HeaderMenu'
+import HeaderMenu from './Menu'
 import Search from './Search'
 import Link from 'next/link'
 import './index.css'

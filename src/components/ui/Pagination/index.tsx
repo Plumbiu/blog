@@ -1,9 +1,8 @@
 import type { FC } from 'react'
 import Link from 'next/link'
-import FirstPageIcon from '@mui/icons-material/FirstPage'
-import LastPageIcon from '@mui/icons-material/LastPage'
 import './index.css'
 import { paginationTotal } from '@/lib/config'
+import { FirstPageIcon, LastPageIcon } from '@/components/icons'
 
 interface Props {
   page: number
@@ -15,7 +14,7 @@ const Pagination: FC<Props> = ({ page }) => {
     <div className="Pagination">
       {page === 1 ? (
         <FirstPageIcon
-          sx={{
+          style={{
             opacity: 0.38,
           }}
         />
@@ -40,7 +39,7 @@ const Pagination: FC<Props> = ({ page }) => {
 
       {page === paginationTotal ? (
         <LastPageIcon
-          sx={{
+          style={{
             opacity: 0.38,
           }}
         />

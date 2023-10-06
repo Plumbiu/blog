@@ -1,8 +1,8 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { Menu as MenuIcon } from '@mui/icons-material'
-import MenuList from './MenuList'
-import './HeaderMenu.css'
+import MenuList from './List'
+import './index.css'
+import { MenuIcon } from '@/components/icons'
 
 const HeaderMenu = () => {
   const [open, setOpen] = useState(false)

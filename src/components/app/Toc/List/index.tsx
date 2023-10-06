@@ -2,7 +2,7 @@
 import type { Toc } from '@/lib/toc'
 import { useState, type FC, useEffect } from 'react'
 import Link from 'next/link'
-import './List.css'
+import './index.css'
 interface Props {
   tocs: Toc[]
 }

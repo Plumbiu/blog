@@ -3,10 +3,10 @@ import { genTocs } from '@/lib/toc'
 import type { FC } from 'react'
 import TocList from './List'
 import { formatTime } from '@/lib/time'
-import { AccessTimeFilled, ArrowBack } from '@mui/icons-material'
 import ButtonIcon from '../../ui/Button/Icon'
 import Tag from '../../ui/Tag'
 import Hr from '../../ui/Hr'
+import { ArrowBackIcon, ClockIcon } from '@/components/icons'
 
 interface Props {
   html: string
@@ -24,11 +24,11 @@ const Toc: FC<Props> = ({ html, title, tags, categories, date }) => {
     <div className="Side-Left Toc">
       <h3>{title}</h3>
       <div className="Toc-Date">
-        <AccessTimeFilled
-          sx={{
+        <ClockIcon
+          style={{
             fontSize: '14px',
             color: '#1976D2',
-            mr: '4px',
+            marginRight: '4px',
           }}
         />
         <p>{formatedDate.split(' ')[0]}</p>
@@ -49,8 +49,8 @@ const Toc: FC<Props> = ({ html, title, tags, categories, date }) => {
           link="/article"
           text="文章页"
           icon={
-            <ArrowBack
-              sx={{
+            <ArrowBackIcon
+              style={{
                 fontSize: '18px',
                 display: 'flex',
                 alignItems: 'center',

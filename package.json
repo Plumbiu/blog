@@ -15,10 +15,6 @@
   "dependencies": {
     "@docsearch/css": "^3.5.2",
     "@docsearch/react": "^3.5.2",
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
-    "@mui/icons-material": "^5.14.11",
-    "@mui/material": "^5.14.11",
     "@plumbiu/github-info": "^0.1.5",
     "highlight.js": "^11.8.0",
     "jsdom": "^22.1.0",

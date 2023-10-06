@@ -2,17 +2,17 @@ import type { ReactNode } from 'react'
 import { formatTime } from '@/lib/time'
 import Title from '../../ui/Title'
 import TimeLine from '../../ui/TimeLine'
-import { LaptopMac, AddCircle, RemoveRedEye, Repeat, ErrorOutline, LocalDining } from '@mui/icons-material'
 import events from '~/config/events.json'
 import './index.css'
+import { AddCircleIcon, ErrorIcon, EyeIcon, ForkIcon, LapTopIcon, RepeatIcon } from '@/components/icons'
 
 const eventMap: Record<string, ReactNode> = {
-  PushEvent: <LaptopMac />,
-  PullRequestEvent: <AddCircle />,
-  CreateEvent: <RemoveRedEye />,
-  WatchEvent: <Repeat />,
-  ForkEvent: <LocalDining />,
-  IssuesEvent: <ErrorOutline />,
+  PushEvent: <LapTopIcon />,
+  PullRequestEvent: <AddCircleIcon />,
+  CreateEvent: <EyeIcon />,
+  WatchEvent: <RepeatIcon />,
+  ForkEvent: <ForkIcon />,
+  IssuesEvent: <ErrorIcon />,
 }
 
 const bgcolorMap: Record<string, string> = {
@@ -43,7 +43,7 @@ const OpenSourceCmp = () => {
           center={eventMap[type]}
           right={
             <>
-              <div className='OpenSource-Event-Name'>
+              <div className="OpenSource-Event-Name">
                 {type === 'PullRequestEvent' ? 'PR' : type.replace('Event', '')}
               </div>
               {type === 'PushEvent' && (

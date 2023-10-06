@@ -3,9 +3,9 @@ import Link from 'next/link'
 import React from 'react'
 import './index.css'
 import Tag from '@/components/ui/Tag'
-import { AccessTimeFilled } from '@mui/icons-material'
 import { formatTime } from '@/lib/time'
 import Image from 'next/image'
+import { ClockIcon } from '@/components/icons'
 
 interface Props {
   posts: FullFrontMatter[]
@@ -38,7 +38,7 @@ const ArticleBanner: FC<Props> = ({ posts, name, col = 2 }) => {
           <div className="Banner-List">
             <div className="Banner-Link-Title">{title}</div>
             <div className="Banner-Date">
-              <AccessTimeFilled />
+              <ClockIcon />
               <p>{formatTime(date).split(' ')[0]}</p>
             </div>
             <div className="Banner-Link-Desc">{desc}...</div>

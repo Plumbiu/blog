@@ -2,9 +2,9 @@ import Button from '@/components/ui/Button'
 import './index.css'
 import Badge from '@/components/ui/Badge'
 import ButtonListIcon from '@/components/ui/Button/ListIcon'
-import { Email, GitHub, HomeOutlined as LocationIcon, Twitter, Link as LinkIcon } from '@mui/icons-material'
 import { articleNum } from '~/config/sideCard.json'
 import Stack from '@/components/ui/Stack'
+import { GithubIcon, EmailIcon, LocationIcon, TwitterIcon, LinkIcon } from '@/components/icons'
 
 const info = [
   {
@@ -29,17 +29,17 @@ const blogInfo = [
 const githubInfo = [
   {
     primary: 'Plumbiu',
-    icon: <GitHub />,
+    icon: <GithubIcon />,
     href: 'https://github.com/Plumbiu',
   },
   {
     primary: 'plumbiuzz@gmail.com',
-    icon: <Email />,
+    icon: <EmailIcon />,
   },
   { primary: 'Hang Zhou, China', icon: <LocationIcon /> },
   {
     primary: 'Plumbiu',
-    icon: <Twitter />,
+    icon: <TwitterIcon />,
     href: 'https://twitter.com/Plumbiu',
   },
   {
@@ -59,7 +59,7 @@ const SideCardCenter = () => {
           </Badge>
         ))}
       </div>
-      <div className='List-Center-Btn-List'>
+      <div className="List-Center-Btn-List">
         {githubInfo.map(({ icon, primary, href }) => (
           <ButtonListIcon key={href ?? primary} py={10} icon={icon} link={href} text={primary}></ButtonListIcon>
         ))}
