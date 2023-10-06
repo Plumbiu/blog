@@ -18,17 +18,11 @@ const json = {
     { language: 'zh-CN' },
     {
       'atom:link': {
-        _attrs: [
-          {
-            href: 'https://blog.plumbiu.top/rss.xml',
-          },
-          {
-            ref: 'self',
-          },
-          {
-            type: 'application/rss+xml',
-          },
-        ],
+        _attrs: {
+          ' href': 'https://blog.plumbiu.top/rss.xml',
+          ref: 'self',
+          type: 'application/rss+xml',
+        },
       },
     },
     { item: [] },
@@ -72,7 +66,7 @@ async function genItems(posts) {
   const xml = toXML({
     _name: 'rss',
     _attrs: {
-      version: '2.0',
+      ' version': '2.0',
       'xmlns:atom': 'http://www.w3.org/2005/Atom',
     },
     _content: {
