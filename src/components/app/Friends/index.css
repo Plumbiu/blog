@@ -1,0 +1,62 @@
+.Friend {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1240px) {
+  .Friend {
+    gap: 32px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .Friend {
+    gap: 8px;
+  }
+}
+
+.Friend-List {
+  border-radius: 12px;
+  margin-top: 24px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  box-shadow: 0px 1px 6px -1px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+
+.Friend-List:hover > img {
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.Friend-List:hover {
+  transform: scale(1.05);
+}
+
+.Friend-Info {
+  padding: 8px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  width: 250px;
+  text-overflow: ellipsis;
+  gap: 4px;
+}
+
+.Friend-Info img {
+  margin-right: 12px;
+  border-radius: 50%;
+}
+
+.Friend-Name {
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: bolder;
+}
+
+.Friend-Desc {
+  flex: 1;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  margin-top: 2px;
+  word-break: break-word;
+  text-overflow: ellipsis;
+}

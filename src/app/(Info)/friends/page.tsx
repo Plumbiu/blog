@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-// import friends from '~/config/friends.json'
 import Title from '@/components/ui/Title'
+import FriendsCmp from '@/components/app/Friends'
 
 export const metadata: Metadata = {
   title: 'Plumbiu | 朋友们',
@@ -11,7 +11,7 @@ const Friends = () => {
   return (
     <>
       <Title>朋友们(暂未开发完成)</Title>
-      暂未开发完成
+      <FriendsCmp />
     </>
   )
 }
