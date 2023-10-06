@@ -2,6 +2,7 @@ import * as React from 'react'
 import QA from '@/components/ui/QA'
 import Title from '@/components/ui/Title'
 import type { Metadata } from 'next'
+// import { redirect } from 'next/navigation'
 
 const qas = [
   { q: 'Who are you ?', a: 'Plumbiu(Guo Xingjun).', emoji: '😀' },
@@ -14,6 +15,7 @@ const qas = [
 ]
 
 export default function Home() {
+  // redirect('/article/1')
   return (
     <div className="myself-container">
       <Title>🎉 我的个人介绍 🎉</Title>

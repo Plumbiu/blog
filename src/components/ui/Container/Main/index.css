@@ -1,6 +1,7 @@
 .blog-main {
   flex: 1 0;
   border-radius: 24px;
+  min-height: calc(100vh - 100px);
   background-color: #fff;
   box-shadow: 0px 1px 6px -1px rgba(0, 0, 0, 0.2);
   margin: 0 10px;

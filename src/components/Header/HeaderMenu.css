@@ -1,0 +1,20 @@
+#Header-Anchor-Menu {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+}
+
+#Header-Anchor-Icon {
+  padding: 8px;
+}
+
+.Hader-Menu-List {
+  position: fixed;
+  background-color: #fff;
+  left: 12px;
+  top: 48px;
+  padding: 8px 0;
+  color: #333;
+  box-shadow: 0px 1px 6px -1px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}

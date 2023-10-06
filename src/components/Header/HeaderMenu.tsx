@@ -1,46 +1,41 @@
 'use client'
-import { IconButton, Menu } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Menu as MenuIcon } from '@mui/icons-material'
 import MenuList from './MenuList'
+import './HeaderMenu.css'
 
 const HeaderMenu = () => {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
-  const open = Boolean(anchorEl)
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget)
+  const [open, setOpen] = useState(false)
+  function listener(e: any) {
+    console.log(open)
+    if (!e.target?.id?.startsWith('Header-Anchor-')) {
+      if (e.target?.parentNode?.id?.startsWith('Header-Anchor-')) {
+        setOpen(true)
+      } else {
+        setOpen(false)
+      }
+    } else {
+      setOpen(true)
+    }
   }
-  const handleClose = () => {
-    setAnchorEl(null)
-  }
+  useEffect(() => {
+    window.addEventListener('click', listener)
+    return () => {
+      window.removeEventListener('click', listener)
+    }
+  }, [])
+
   return (
-    <>
-      <IconButton
-        size="large"
-        edge="start"
-        color="inherit"
-        aria-label="open drawer"
-        onClick={handleClick}
-        sx={{ mr: 2 }}
-      >
-        <MenuIcon />
-      </IconButton>
+    <div id="Header-Anchor-Menu">
+      <MenuIcon id="Header-Anchor-Icon" />
       <div style={{ maxWidth: '100%', padding: '0 4px' }}>
-        <Menu
-          open={open}
-          anchorEl={anchorEl}
-          onClick={handleClose}
-          sx={{
-            '.css-6hp17o-MuiList-root-MuiMenu-list': {
-              paddingTop: 0,
-              paddingBottom: 0,
-            },
-          }}
-        >
-          <MenuList />
-        </Menu>
+        {open && (
+          <div className="Hader-Menu-List">
+            <MenuList />
+          </div>
+        )}
       </div>
-    </>
+    </div>
   )
 }
 
