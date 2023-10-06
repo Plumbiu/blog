@@ -24,7 +24,7 @@ function toImage(tag: string) {
   return imageMap[key]
 }
 
-const ArticleBanner: FC<Props> = ({ posts, name, col = 2 }) => {
+const ArticleBanner: FC<Props> = ({ posts, name, col = 1 }) => {
   name = decodeURI(name)
   return (
     <div className="Banner-Wrap">
