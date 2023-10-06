@@ -8,8 +8,11 @@
 
 .List-Center-Badge {
   display: flex;
-  gap: 26px;
-  justify-content: center;
+  text-align: center;
+}
+
+.List-Center-Badge div {
+  flex: 1;
 }
 
 .List-Center .Stack {

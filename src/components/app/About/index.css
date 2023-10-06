@@ -1,0 +1,17 @@
+.About {
+  margin: 12px auto;
+}
+
+.About > div {
+  padding: 12px;
+}
+
+.About span {
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.About a {
+  font-size: 16px;
+  color: #1976d2;
+}
