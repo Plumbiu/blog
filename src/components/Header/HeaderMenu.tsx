@@ -7,7 +7,6 @@ import './HeaderMenu.css'
 const HeaderMenu = () => {
   const [open, setOpen] = useState(false)
   function listener(e: any) {
-    console.log(open)
     if (!e.target?.id?.startsWith('Header-Anchor-')) {
       if (e.target?.parentNode?.id?.startsWith('Header-Anchor-')) {
         setOpen(true)
