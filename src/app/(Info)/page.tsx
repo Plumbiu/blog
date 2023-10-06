@@ -5,7 +5,7 @@ import { useRequest } from '@/lib/api'
 import ArticleBanner from '@/components/ui/Banner'
 
 export default async function Home() {
-  const data = await useRequest<FullFrontMatter[]>('article?pagenum=1')
+  const data = await useRequest<FullFrontMatter[]>('article?pagenum=0')
   return (
     <div>
       <Title>最近文章</Title>
