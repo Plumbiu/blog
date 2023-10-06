@@ -1,15 +1,30 @@
 .List-Center {
-  margin-top: 12px;
+  margin: 16px 0;
+}
+
+.List-Center-Btn-List {
+  margin: 12px 0;
 }
 
 .List-Center-Badge {
   display: flex;
   gap: 26px;
   justify-content: center;
-  padding-top: 4px;
-  margin-bottom: 2px;
+}
+
+.List-Center .Stack {
+  padding: 0;
 }
 
 .List-Center-Badge .Btn-Link {
   padding: 12px 14px;
+}
+
+.List-Center svg {
+  color: #fff;
+  font-size: 18px;
+  background-color: #1976d2;
+  padding: 6px;
+  border-radius: 50%;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2);
 }

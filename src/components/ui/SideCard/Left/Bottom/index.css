@@ -1,14 +1,15 @@
 .List-Bottom {
-  padding: 12px 0;
+  padding: 24px 0;
+  text-align: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 22px;
   border-radius: 50% 50% 0 0;
   background-color: #1976d2;
   transition: border-radius 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.List-Bottom a {
-  color: #fff;
-}
 
 .List-Bottom:hover {
-  border-radius: 24px 24px 0 0;
+  border-radius: 12px 12px 0 0;
 }

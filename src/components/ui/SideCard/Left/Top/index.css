@@ -1,14 +1,10 @@
-.List-Top-Wrap {
-  align-items: flex-start;
-}
-
-.List-Top-Wrap .Title {
+.List-Top .Title {
   padding-top: 12px;
   padding-bottom: 12px;
   line-height: 25px;
 }
 
-.List-Top-Wrap img {
+.List-Top img {
   border-radius: 50%;
 }
 

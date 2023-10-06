@@ -4,10 +4,9 @@ import Title from '@/components/ui/Title'
 
 const SideCardTop = () => {
   return (
-    <div className="List-Top-Wrap">
+    <div className="List-Top">
       <Title>
         <Image width={80} height={80} alt={'Plumbiu'} src="/avatar.jpg" />
-        <div className="List-Top-Name">@Plumbiu</div>
       </Title>
     </div>
   )
