@@ -61,7 +61,7 @@ const SideCardCenter = () => {
       </div>
       <div className='List-Center-Btn-List'>
         {githubInfo.map(({ icon, primary, href }) => (
-          <ButtonListIcon py={10} key={href ?? primary} icon={icon} link={href} text={primary}></ButtonListIcon>
+          <ButtonListIcon key={href ?? primary} py={10} icon={icon} link={href} text={primary}></ButtonListIcon>
         ))}
       </div>
       <Stack spacing={16}>

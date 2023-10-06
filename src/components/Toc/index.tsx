@@ -35,10 +35,10 @@ const Toc: FC<Props> = ({ html, title, tags, categories, date }) => {
       </div>
       <div className="Toc-Tags">
         {categories?.map(category => (
-          <Tag outlined key={category} text={category} />
+          <Tag key={category} outlined text={category} />
         ))}
         {tags?.map(tag => (
-          <Tag link={'/tags/' + tag} key={tag} text={tag} />
+          <Tag key={tag} link={'/tags/' + tag} text={tag} />
         ))}
       </div>
       <Hr />

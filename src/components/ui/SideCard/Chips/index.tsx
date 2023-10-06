@@ -18,7 +18,7 @@ const Chips: FC<Props> = ({ chips: tags, withBadge = false, path }) => {
             <Tag link={`/${path}/${name}`} text={name} plain />
           </Badge>
         ) : (
-          <Tag link={`/${path}/${name}`} text={name} plain />
+          <Tag key={name} link={`/${path}/${name}`} text={name} plain />
         )
       })}
     </Stack>
