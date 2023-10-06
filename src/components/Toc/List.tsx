@@ -10,10 +10,10 @@ interface Props {
 const TocList: FC<Props> = ({ tocs }) => {
   const [currentHash, setCurrentHash] = useState('')
   useEffect(() => {
-    if (location.hash) {
+    if (location?.hash) {
       setCurrentHash(decodeURI(location.hash))
     } else {
-      setCurrentHash(tocs[0].hash)
+      setCurrentHash(tocs[0]?.hash)
     }
     const observer = new IntersectionObserver(
       entries => {
