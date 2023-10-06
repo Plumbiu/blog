@@ -10,7 +10,7 @@ import Image from 'next/image'
 interface Props {
   posts: FullFrontMatter[]
   name: string
-  path: string
+  col?: 1 | 2
 }
 
 const imageMap: Record<string, string> = {
@@ -24,12 +24,12 @@ function toImage(tag: string) {
   return imageMap[key]
 }
 
-const ArticleBanner: FC<Props> = ({ posts, name, path }) => {
+const ArticleBanner: FC<Props> = ({ posts, name, col = 2 }) => {
   name = decodeURI(name)
   return (
     <div className="Banner-Wrap">
       {posts.map(({ id, desc, title, tags, categories, date }) => (
-        <Link key={id} className="hover-a-style Banner-Link" href={'/post/' + id}>
+        <Link key={id} className={`hover-a-style Banner-Link Banner-Col-${col}`} href={'/post/' + id}>
           {toImage(tags[0]) && (
             <div className="Banner-Cover">
               <Image width={80} height={80} alt={tags[0]} src={'/cover/' + toImage(tags[0])} />

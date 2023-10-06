@@ -1,36 +1,15 @@
 import * as React from 'react'
-import QA from '@/components/ui/QA'
 import Title from '@/components/ui/Title'
 import type { Metadata } from 'next'
-// import { redirect } from 'next/navigation'
+import { useRequest } from '@/lib/api'
+import ArticleBanner from '@/components/ui/Banner'
 
-const qas = [
-  { q: 'Who are you ?', a: 'Plumbiu(Guo Xingjun).', emoji: '😀' },
-  { q: "what's your job ?", a: 'A front-end programmer.', emoji: '🥵' },
-  {
-    q: 'Introduce yourself ?',
-    a: 'Studied at Hangzhou Dianzi University(杭州电子科技大学)(HDU), a junior.',
-    emoji: '🥰',
-  },
-]
-
-export default function Home() {
-  // redirect('/article/1')
+export default async function Home() {
+  const data = await useRequest<FullFrontMatter[]>('article?pagenum=1')
   return (
-    <div
-      style={{
-        boxSizing: 'border-box',
-        margin: '0 auto',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        justifyContent: 'center',
-      }}
-    >
-      <Title>🎉 我的个人介绍 🎉</Title>
-      {qas.map(({ q, a, emoji }) => (
-        <QA key={q} q={q} a={a} emoji={emoji} />
-      ))}
+    <div>
+      <Title>最近文章</Title>
+      <ArticleBanner col={1} posts={data} name="文章页" />
     </div>
   )
 }

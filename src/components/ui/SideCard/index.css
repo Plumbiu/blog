@@ -1,15 +1,15 @@
 .Side-Left,
 .Side-Right {
   position: fixed;
-  width: 18%;
+  width: 17%;
 }
 
 .Side-Left {
-  left: 30px;
+  left: 8%;
 }
 
 .Side-Right {
-  right: 30px;
+  right: 8%;
 }
 
 @media screen and (max-width: 1240px) {
