@@ -3,7 +3,6 @@ import LeftSideCard from '@/components/ui/SideCard/Left'
 import Main from '@/components/ui/Container/Main'
 import { Suspense } from 'react'
 import Loading from './loading'
-import RightCard from '@/components/ui/SideCard/Right'
 
 export const metadata: Metadata = {
   title: 'Plumbiu の 小屋',
@@ -17,7 +16,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <Suspense fallback={<Loading />}>
         <Main>{children}</Main>
       </Suspense>
-      <RightCard />
     </>
   )
 }

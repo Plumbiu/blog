@@ -34,7 +34,7 @@ const TagsName = async ({ params }: Props) => {
           <Tag text={decodeURI(params.name)} link={'/tags/' + params.name} plain />
         </Badge>
       </div>
-      <ArticleBanner path="categories" posts={posts} name={params.name} />
+      <ArticleBanner posts={posts} name={params.name} />
     </>
   )
 }
