@@ -1,7 +1,7 @@
+import Badge from '@/components/ui/Badge'
+import Stack from '@/components/ui/Stack'
+import Tag from '@/components/ui/Tag'
 import type { FC } from 'react'
-import Badge from '../../Badge'
-import Stack from '../../Stack'
-import Tag from '../../Tag'
 
 interface Props {
   chips: Tag[] | Category[]

@@ -1,8 +1,7 @@
 import type { FC } from 'react'
 import './index.css'
 import Hr from '../../ui/Hr'
-import Link from 'next/link'
-import { formatTime } from '@/lib/time'
+import ArchiveList from './List'
 
 interface Props {
   archives: Archeve[]
@@ -15,15 +14,7 @@ const ArchiveCmp: FC<Props> = ({ archives }) => {
         <div>
           <h2>{year}</h2>
           <Hr />
-          <div className="Archive-Title-Wrap">
-            {articles.map(({ id, title, date }) => (
-              <div key={id} className="Archive-Title">
-                <div></div>
-                <p>{formatTime(date).split(' ')[0].slice(5)}</p>
-                <Link href={'/post/' + id}>{title}</Link>
-              </div>
-            ))}
-          </div>
+          <ArchiveList articles={articles} />
         </div>
       ))}
     </div>

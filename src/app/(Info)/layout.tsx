@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import LeftSideCard from '@/components/ui/SideCard/Left'
-import Main from '@/components/ui/Container/Main'
+import LeftSideCard from '@/components/app/SideCard/Left'
+import Main from '@/components/app/Container/Main'
 import { Suspense } from 'react'
 import Loading from './loading'
 
