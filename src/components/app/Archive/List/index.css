@@ -1,8 +1,8 @@
-.Archive-Title-Wrap {
+.Archive-Title {
   padding-top: 14px;
 }
 
-.Archive-Title {
+.Archive-Title > div {
   position: relative;
   display: flex;
   align-items: center;
@@ -11,7 +11,7 @@
   height: 44px;
 }
 
-.Archive-Title::after {
+.Archive-Title > div::after {
   content: '';
   position: absolute;
   top: 50%;
@@ -24,17 +24,16 @@
   background-color: #1976d2;
 }
 
-.Archive-Title p {
+.Archive-Title > div p {
   color: rgba(0, 0, 0, 0.9);
-  vertical-align: middle;
   min-width: 40px;
 }
 
-.Archive-Title a {
+.Archive-Title > div a {
   color: #1976d2;
 }
 
-.Archive-Title div {
+.Archive-Title > div > div {
   position: relative;
   height: 10px;
   width: 10px;

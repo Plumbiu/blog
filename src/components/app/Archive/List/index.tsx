@@ -9,10 +9,10 @@ interface Props {
 
 const ArchiveList: FC<Props> = ({ articles }) => {
   return (
-    <div className="Archive-Title-Wrap">
+    <div className="Archive-Title">
       {articles.map(({ id, title, date }) => (
-        <div key={id} className="Archive-Title">
-          <div></div>
+        <div key={id}>
+          <div />
           <p>{formatTime(date).split(' ')[0].slice(5)}</p>
           <Link href={'/post/' + id}>{title}</Link>
         </div>
