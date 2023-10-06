@@ -20,7 +20,7 @@ const ArchiveCmp: FC<Props> = ({ archives }) => {
               <div key={id} className="Archive-Title">
                 <div></div>
                 <p>{formatTime(date).split(' ')[0].slice(5)}</p>
-                <Link href={'/posts' + title}>{title}</Link>
+                <Link href={'/posts/' + title}>{title}</Link>
               </div>
             ))}
           </div>
