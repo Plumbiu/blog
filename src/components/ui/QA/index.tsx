@@ -17,8 +17,8 @@ const QA: FC<Props> = ({ q, a, emoji }) => {
           marginLeft: '16px',
         }}
       >
-        <span className="myself-emoji">🤔</span>
-        <span className="myself-box myself-answer-box">{q}</span>
+        <span className="QA-Emoji">🤔</span>
+        <span className="A-Block">{q}</span>
       </div>
       <div
         style={{
@@ -28,8 +28,8 @@ const QA: FC<Props> = ({ q, a, emoji }) => {
           marginRight: '16px',
         }}
       >
-        <span className="myself-box myself-question-box">{a}</span>
-        <span className="myself-emoji">{emoji}</span>
+        <span className="Q-Block">{a}</span>
+        <span className="QA-Emoji">{emoji}</span>
       </div>
     </>
   )

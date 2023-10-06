@@ -6,7 +6,7 @@ interface Props {
 }
 
 const Main: FC<Props> = ({ children }) => {
-  return <div className="blog-main">{children}</div>
+  return <div className="Main">{children}</div>
 }
 
 export default Main

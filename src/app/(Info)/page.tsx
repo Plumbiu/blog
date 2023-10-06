@@ -17,7 +17,16 @@ const qas = [
 export default function Home() {
   // redirect('/article/1')
   return (
-    <div className="myself-container">
+    <div
+      style={{
+        boxSizing: 'border-box',
+        margin: '0 auto',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        justifyContent: 'center',
+      }}
+    >
       <Title>🎉 我的个人介绍 🎉</Title>
       {qas.map(({ q, a, emoji }) => (
         <QA key={q} q={q} a={a} emoji={emoji} />
