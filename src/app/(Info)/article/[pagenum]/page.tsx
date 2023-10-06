@@ -24,14 +24,12 @@ export function generateStaticParams() {
 }
 
 export default async function ({ params }: Props) {
-  const data = await useRequest<FullFrontMatter[]>(
-    'article?pagenum=' + (Number(params.pagenum) - 1),
-  )
+  const data = await useRequest<FullFrontMatter[]>('article?pagenum=' + (Number(params.pagenum) - 1))
 
   return (
     <Suspense fallback={<Loading />}>
       <Title>文章页</Title>
-      <ArticleBanner posts={data} name="文章页" />
+      <ArticleBanner col={1} posts={data} name="文章页" />
       <Pagination page={Number(params.pagenum)} />
     </Suspense>
   )
