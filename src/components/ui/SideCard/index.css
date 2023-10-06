@@ -1,15 +1,17 @@
-.Side-Left,
-.Side-Right {
+.Side-Left {
   position: fixed;
   width: 17%;
-}
-
-.Side-Left {
   left: 8%;
 }
 
 .Side-Right {
+  position: absolute;
+  width: 17%;
   right: 8%;
+}
+
+.Side-Left .Stack {
+  justify-content: center;
 }
 
 @media screen and (max-width: 1240px) {
@@ -44,10 +46,6 @@
 
 .Side-Item .Title {
   padding: 16px 0;
-}
-
-.Side-Item:first-child .Stack {
-  justify-content: center;
 }
 
 .Side-Item .Stack {
