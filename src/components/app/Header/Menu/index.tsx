@@ -26,7 +26,12 @@ const HeaderMenu = () => {
 
   return (
     <div id="Header-Anchor-Menu">
-      <MenuIcon id="Header-Anchor-Icon" />
+      <MenuIcon
+        style={{
+          fontSize: '24px',
+        }}
+        id="Header-Anchor-Icon"
+      />
       <div style={{ maxWidth: '100%', padding: '0 4px' }}>
         {open && (
           <div className="Hader-Menu-List">
