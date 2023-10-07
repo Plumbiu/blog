@@ -7,12 +7,12 @@ import './index.css'
 const FriendsCmp = () => {
   return (
     <div className="Friend">
-      {friends.map(({ name, link, desc, avatar, cover }) => (
+      {friends.map(({ name, link, desc, avatar }) => (
         <Link key={name} href={link} target="_blank" className="Friend-List">
           <Image
-            src={'/friends/' + cover}
-            width={250}
-            height={150}
+            src={`/friends/screenshots/${name}.png`}
+            width={320}
+            height={180}
             alt={name}
             style={{
               objectFit: 'cover',
