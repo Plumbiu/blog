@@ -2,10 +2,8 @@ import React from 'react'
 import Chips from '../Chips'
 import { useRequest } from '@/lib/api'
 import '../index.css'
-import './index.css'
 import Title from '@/components/ui/Title'
-import { formatTime } from '@/lib/time'
-import Link from 'next/link'
+import DateTitle from '../../DateTitle'
 
 const RightCard = async () => {
   const tags = await useRequest<Tag[]>('tags')
@@ -23,15 +21,12 @@ const RightCard = async () => {
         <Chips path="categories" chips={categories} />
       </div>
       <div className="Side-Item">
+        <Title>最近文章</Title>
+        <DateTitle articles={archive.articles} />
+      </div>
+      <div className="Side-Item">
         <Title>归档</Title>
-        <div className="Side-Archive">
-          {archive.articles.map(({ id, title, date }) => (
-            <div key={id}>
-              <p>{formatTime(date).split(' ')[0].slice(5)}</p>
-              <Link href={'/post/' + id}>{title}</Link>
-            </div>
-          ))}
-        </div>
+        <Chips path="categories" chips={categories} />
       </div>
     </div>
   )

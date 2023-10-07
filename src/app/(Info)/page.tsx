@@ -8,7 +8,7 @@ export default async function Home() {
   const data = await useRequest<FullFrontMatter[]>('article?pagenum=0')
   return (
     <div>
-      <Title>最近文章</Title>
+      <Title>首页</Title>
       <ArticleBanner col={1} posts={data} name="文章页" />
     </div>
   )

@@ -10,10 +10,11 @@
 
 .Toc {
   box-shadow: 0px 1px 6px -1px rgba(0, 0, 0, 0.2);
-  background-color: #fff;
   border-radius: 12px;
-  padding: 16px 0px;
+  background-color: #fff;
+  padding-top: 12px;
   overflow: hidden;
+  margin-bottom: 12px;
 }
 
 .Toc h3 {
@@ -37,6 +38,5 @@
 }
 
 .Toc-Bottom {
-  margin-left: 12px;
-  margin-top: 10px;
+  margin: 6px 0 8px 12px;
 }
