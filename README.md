@@ -1,8 +1,7 @@
 # @plumbiu/blog
 
-> A blog with material style!
+> A blog with material style! [my blog](https://blog.plumbiu.top/)
 
-Online View: [my blog](https://blog.plumbiu.top/)
 
 ## TODO
 
@@ -24,3 +23,9 @@ Online View: [my blog](https://blog.plumbiu.top/)
 - [ ] comment page
 - [ ] toc scroll height mouse following effect
 - [ ] comment system
+
+## friends
+
+you can update `config/friends.json` and upload your avatar in `public/friends` to become my friend!
+
+`scripts/screenshots.js` will automatically screenshot your blog page.
