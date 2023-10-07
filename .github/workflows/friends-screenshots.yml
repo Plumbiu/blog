@@ -3,7 +3,7 @@ name: Update config
 on:
   push:
     paths:
-      - 'public/freinds'
+      - 'public/friends'
       - 'config/friends.json'
 jobs:
   build:
