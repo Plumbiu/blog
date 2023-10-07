@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const Friends = () => {
   return (
     <>
-      <Title>朋友们(暂未开发完成)</Title>
+      <Title>朋友们</Title>
       <FriendsCmp />
     </>
   )
