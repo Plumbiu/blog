@@ -17,10 +17,10 @@ export async function generateStaticParams() {
 const ArcheveYear = async ({ params }: Props) => {
   const archeveYear = await useRequest<Archeve[]>('archives?year=' + params.year)
   return (
-    <div>
+    <>
       <Title>归档</Title>
       <ArchiveCmp archives={archeveYear} />
-    </div>
+    </>
   )
 }
 

@@ -6,10 +6,10 @@ import React from 'react'
 const Archive = async () => {
   const archives = await useRequest<Archeve[]>('archives')
   return (
-    <div>
+    <>
       <Title>归档</Title>
       <ArchiveCmp archives={archives} />
-    </div>
+    </>
   )
 }
 
