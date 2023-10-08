@@ -32,7 +32,7 @@ const ArticleBanner: FC<Props> = ({ posts, name, col = 1 }) => {
         <Link key={id} className={`Hover-Dark Banner-Link Banner-Col-${col}`} href={'/post/' + id}>
           {toImage(tags[0]) && (
             <div className="Banner-Cover">
-              <Image width={80} height={80} alt={tags[0]} src={'/cover/' + toImage(tags[0])} />
+              <Image width={70} height={70} alt={tags[0]} src={'/cover/' + toImage(tags[0])} />
             </div>
           )}
           <div className="Banner-List">

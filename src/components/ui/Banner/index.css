@@ -18,6 +18,14 @@
   margin: 8px 0;
 }
 
+.Banner-Link img {
+  transition: scale 100ms ease-in;
+}
+
+.Banner-Link:hover img {
+  scale: 1.2;
+}
+
 .Banner-Col-2 {
   width: 47%;
 }
