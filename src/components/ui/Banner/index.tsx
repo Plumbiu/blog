@@ -29,7 +29,7 @@ const ArticleBanner: FC<Props> = ({ posts, name, col = 1 }) => {
   return (
     <div className="Banner-Wrap">
       {posts.map(({ id, desc, title, tags, categories, date }) => (
-        <Link key={id} className={`hover-a-style Banner-Link Banner-Col-${col}`} href={'/post/' + id}>
+        <Link key={id} className={`Hover-Dark Banner-Link Banner-Col-${col}`} href={'/post/' + id}>
           {toImage(tags[0]) && (
             <div className="Banner-Cover">
               <Image width={80} height={80} alt={tags[0]} src={'/cover/' + toImage(tags[0])} />

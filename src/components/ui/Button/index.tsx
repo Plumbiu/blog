@@ -9,7 +9,7 @@ interface Props {
 
 const Button: FC<Props> = ({ children, link }) => {
   return (
-    <Link className="hover-style Btn-Link" href={link}>
+    <Link className="Hover Btn-Link" href={link}>
       {children}
     </Link>
   )

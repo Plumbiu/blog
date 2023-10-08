@@ -30,7 +30,7 @@ const Pagination: FC<Props> = ({ page }) => {
           key={i}
           href={String(i + 1)}
           className={`Pagination-Link ${
-            page - 1 === i ? 'hover-pagination-item-style Pagination-Icon-Link-Active' : 'hover-a-style'
+            page - 1 === i ? 'Hover-Purple Pagination-Icon-Link-Active' : 'Hover-Dark'
           }`}
         >
           {i + 1}

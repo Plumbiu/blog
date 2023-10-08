@@ -6,6 +6,13 @@
 
 #Header-Anchor-Icon {
   padding: 8px;
+  font-size: 24px;
+  border-radius: 50%;
+}
+
+#Header-Anchor-Menu > div {
+  max-width: 100%;
+  padding: 0 4px;
 }
 
 .Hader-Menu-List {

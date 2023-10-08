@@ -30,7 +30,7 @@ const RightCard = async () => {
       <div className="Side-Item">
         <Title>归档</Title>
         {archeveYear.map(({ year, num }) => (
-          <Link key={year} href={'/archives/' + year} className="hover-a-style Side-Archive-Link">
+          <Link key={year} href={'/archives/' + year} className="Hover-Dark Side-Archive-Link">
             <div>{year}</div>
             <div>{num}</div>
           </Link>

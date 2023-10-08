@@ -13,7 +13,7 @@ interface Props {
 const Tag: FC<Props> = ({ outlined, text, link, plain }) => {
   if (plain && link) {
     return (
-      <Link target='_blank' prefetch={false} className="Tag Tag-Link hover-a-style" href={link}>
+      <Link target='_blank' prefetch={false} className="Tag Tag-Link Hover-Dark" href={link}>
         {text}
       </Link>
     )

@@ -21,11 +21,11 @@ const ButtonListIcon: FC<Props> = ({ icon, text, link, py = 14, blank = true }) 
     padding: `${py}px 16px`,
   }
   return link ? (
-    <Link className="hover-a-style Btn-List-Icon-Link" href={link} target={blank ? '_blank' : '_self'} style={p}>
+    <Link className="Hover-Dark Btn-List-Icon-Link" href={link} target={blank ? '_blank' : '_self'} style={p}>
       {child}
     </Link>
   ) : (
-    <div className="hover-a-style Btn-List-Icon-Link" style={p}>
+    <div className="Hover-Dark Btn-List-Icon-Link" style={p}>
       {child}
     </div>
   )
