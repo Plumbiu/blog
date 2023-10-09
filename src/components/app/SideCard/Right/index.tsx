@@ -1,6 +1,6 @@
 import React from 'react'
 import Chips from '../Chips'
-import { useRequest } from '@/lib/api'
+import { useGet } from '@/lib/api'
 import '../index.css'
 import './index.css'
 import Title from '@/components/ui/Title'
@@ -8,10 +8,10 @@ import DateTitle from '../../DateTitle'
 import Link from 'next/link'
 
 const RightCard = async () => {
-  const tags = await useRequest<Tag[]>('tags')
-  const categories = await useRequest<Category[]>('categories')
-  const archiveArts = await useRequest<FullFrontMatter[]>('archives?limit=5')
-  const archeveYear = await useRequest<ArcheveYear[]>('archives/years')
+  const tags = await useGet<Tag[]>('tags')
+  const categories = await useGet<Category[]>('categories')
+  const archiveArts = await useGet<IFullFrontMatter[]>('archives?limit=5')
+  const archeveYear = await useGet<IArcheveYear[]>('archives/years')
 
   return (
     <div className="Side-Right">

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { useRequest } from '@/lib/api'
+import { useGet } from '@/lib/api'
 import ArticleBanner from '@/components/ui/Banner'
 import Badge from '@/components/ui/Badge'
 import Tag from '@/components/ui/Tag'
@@ -12,14 +12,14 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  const categories = await useRequest<Tag[]>('categories')
+  const categories = await useGet<Tag[]>('categories')
   return categories.map(category => ({
     name: category.name,
   }))
 }
 
 const TagsName = async ({ params }: Props) => {
-  const posts = await useRequest<FullFrontMatter[]>('article?category=' + params.name)
+  const posts = await useGet<IFullFrontMatter[]>('article?category=' + params.name)
 
   return (
     <>

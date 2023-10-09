@@ -4,7 +4,7 @@ import { formatTime } from '@/lib/time'
 import './index.css'
 
 interface Props {
-  articles: FullFrontMatter[]
+  articles: IFullFrontMatter[]
 }
 
 const ArchiveList: FC<Props> = ({ articles }) => {

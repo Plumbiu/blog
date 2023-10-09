@@ -1,9 +1,9 @@
-interface Archeve {
+interface IArcheve {
   year: string
-  articles: FullFrontMatter[]
+  articles: IFullFrontMatter[]
 }
 
-interface ArcheveYear {
+interface IArcheveYear {
   year: string
   num: number
 }

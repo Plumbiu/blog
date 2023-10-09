@@ -2,7 +2,7 @@ import { getPosts } from '@/lib/node/article'
 import { NextResponse } from 'next/server'
 
 export async function GET(req: Request) {
-  let posts: FullFrontMatter[]
+  let posts: IFullFrontMatter[]
   const { searchParams } = new URL(req.url)
   // 1. pagenum searchParams
   const pagenum = searchParams.get('pagenum')

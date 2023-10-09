@@ -1,5 +1,5 @@
-export function loadArchives(posts: FullFrontMatter[]) {
-  const raw: Record<string, FullFrontMatter[]> = {}
+export function loadArchives(posts: IFullFrontMatter[]) {
+  const raw: Record<string, IFullFrontMatter[]> = {}
   for (const post of posts) {
     const date = new Date(post.date)
     const year = date.getFullYear()
@@ -10,7 +10,7 @@ export function loadArchives(posts: FullFrontMatter[]) {
       raw[key] = [post]
     }
   }
-  const archives: Archeve[] = []
+  const archives: IArcheve[] = []
   for (const [year, articles] of Object.entries(raw)) {
     archives.push({
       year,

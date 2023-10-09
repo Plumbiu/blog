@@ -8,7 +8,7 @@ import Image from 'next/image'
 import { ClockIcon } from '@/components/icons'
 
 interface Props {
-  posts: FullFrontMatter[]
+  posts: IFullFrontMatter[]
   name: string
   col?: 1 | 2
 }

@@ -4,7 +4,7 @@ import type { FC } from 'react'
 import './index.css'
 
 interface Props {
-  articles: FullFrontMatter[]
+  articles: IFullFrontMatter[]
   color?: string
 }
 

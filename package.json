@@ -19,6 +19,7 @@
     "highlight.js": "^11.8.0",
     "jsdom": "^22.1.0",
     "next": "^13.5.4",
+    "octokit": "^3.1.1",
     "pageres": "^7.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -30,6 +31,7 @@
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.0.0",
     "simple-md-front-matter": "^0.0.4",
+    "swr": "^2.2.4",
     "unified": "^11.0.3"
   },
   "devDependencies": {

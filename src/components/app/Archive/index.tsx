@@ -4,7 +4,7 @@ import Hr from '../../ui/Hr'
 import ArchiveList from './List'
 
 interface Props {
-  archives: Archeve[]
+  archives: IArcheve[]
 }
 
 const ArchiveCmp: FC<Props> = ({ archives }) => {

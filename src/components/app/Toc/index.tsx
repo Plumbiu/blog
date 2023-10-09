@@ -7,7 +7,7 @@ import ButtonIcon from '../../ui/Button/Icon'
 import Tag from '../../ui/Tag'
 import Hr from '../../ui/Hr'
 import { ArrowBackIcon, ClockIcon } from '@/components/icons'
-import { useRequest } from '@/lib/api'
+import { useGet } from '@/lib/api'
 import DateTitle from '../DateTitle'
 
 interface Props {
@@ -22,7 +22,7 @@ interface Props {
 const Toc: FC<Props> = async ({ html, title, tags, categories, date }) => {
   const tocs = genTocs(html)
   const formatedDate = formatTime(date)
-  const relatedArticles = await useRequest<FullFrontMatter[]>('article?limit=3&tag=' + tags[0])
+  const relatedArticles = await useGet<IFullFrontMatter[]>('article?limit=3&tag=' + tags[0])
   return (
     <div className="Side-Left">
       <div className="Toc">

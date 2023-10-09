@@ -1,13 +1,13 @@
-interface Params {
+interface IArticleParams {
   id: string
 }
 
-interface Article extends RawMatter {
+interface IArticle extends IRawMatter {
   id: string
   content: string
 }
 
-interface RawMatter {
+interface IRawMatter {
   title: string
   date: Date
   updated: Date
@@ -17,6 +17,6 @@ interface RawMatter {
   desc?: string
 }
 
-interface FullFrontMatter extends RawMatter {
+interface IFullFrontMatter extends IRawMatter {
   id: string
 }

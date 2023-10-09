@@ -1,11 +1,11 @@
 import * as React from 'react'
 import Title from '@/components/ui/Title'
 import type { Metadata } from 'next'
-import { useRequest } from '@/lib/api'
+import { useGet } from '@/lib/api'
 import ArticleBanner from '@/components/ui/Banner'
 
 export default async function Home() {
-  const data = await useRequest<FullFrontMatter[]>('article?pagenum=0')
+  const data = await useGet<IFullFrontMatter[]>('article?pagenum=0')
   return (
     <>
       <Title>首页</Title>

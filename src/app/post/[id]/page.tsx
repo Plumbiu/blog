@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import '@/styles/github-markdown-light.css'
 import 'highlight.js/styles/github.css'
-import { useRequest } from '@/lib/api'
+import { useGet } from '@/lib/api'
 import Main from '@/components/app/Container/Main'
 import Toc from '@/components/app/Toc'
 import { renderMD } from '@/lib/md'
@@ -14,7 +14,7 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  const posts = await useRequest<FullFrontMatter[]>('article')
+  const posts = await useGet<IFullFrontMatter[]>('article')
   const ids = posts.map((post) => ({
     id: post.id,
   }))
@@ -23,7 +23,7 @@ export async function generateStaticParams() {
 
 export default async function PostId({ params }: Props) {
   const { content, title, tags, categories, date, updated } =
-    await useRequest<Article>('article/' + params.id)
+    await useGet<IArticle>('article/' + params.id)
   const html = await renderMD(content)
   return (
     <>
@@ -52,7 +52,7 @@ export default async function PostId({ params }: Props) {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { title, desc, tags, categories } = await useRequest<Article>(
+  const { title, desc, tags, categories } = await useGet<IArticle>(
     'article/' + params.id,
   )
 

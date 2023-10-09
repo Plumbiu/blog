@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Badge from '@/components/ui/Badge'
 import ArticleBanner from '@/components/ui/Banner'
 import Tag from '@/components/ui/Tag'
-import { useRequest } from '@/lib/api'
+import { useGet } from '@/lib/api'
 import Title from '@/components/ui/Title'
 
 interface Props {
@@ -12,14 +12,14 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  const tags = await useRequest<Tag[]>('tags')
+  const tags = await useGet<Tag[]>('tags')
   return tags.map((tag) => ({
     name: tag.name,
   }))
 }
 
 const TagsName = async ({ params }: Props) => {
-  const posts = await useRequest<FullFrontMatter[]>(
+  const posts = await useGet<IFullFrontMatter[]>(
     'article?tag=' + params.name,
   )
 
