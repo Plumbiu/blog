@@ -1,4 +1,5 @@
 import '@/styles/globals.css'
+import 'react-toastify/dist/ReactToastify.css'
 import type { Metadata } from 'next'
 import Header from '@/components/app/Header'
 import Container from '@/components/app/Container'
