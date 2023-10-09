@@ -4,7 +4,6 @@ import { formatTime } from '@/lib/time'
 import { useState } from 'react'
 import { Slide, ToastContainer, toast } from 'react-toastify'
 import './index.css'
-import 'react-toastify/dist/ReactToastify.css'
 
 const MessageCmp = () => {
   const [payload, setPayload] = useState<Pick<IMessage, 'name' | 'words'>>({

@@ -1,6 +1,6 @@
-'use client'
 import MessageCmp from '@/components/app/Message'
 import Title from '@/components/ui/Title'
+import 'react-toastify/dist/ReactToastify.css'
 
 const Comments = () => {
   return (
