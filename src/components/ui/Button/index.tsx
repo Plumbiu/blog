@@ -5,11 +5,12 @@ import './index.css'
 interface Props {
   children: ReactNode
   link: string
+  prefetch?: boolean
 }
 
-const Button: FC<Props> = ({ children, link }) => {
+const Button: FC<Props> = ({ children, link, prefetch = true }) => {
   return (
-    <Link className="Hover Btn-Link" href={link}>
+    <Link prefetch={prefetch} className="Hover Btn-Link" href={link}>
       {children}
     </Link>
   )

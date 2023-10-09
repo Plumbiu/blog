@@ -13,7 +13,7 @@ const info = [
   },
   {
     primary: '留言板',
-    href: '/comments',
+    href: '/message',
   },
   {
     primary: '开源之旅',
@@ -66,7 +66,7 @@ const SideCardCenter = () => {
       </div>
       <Stack spacing={16}>
         {info.map(({ primary, href }) => (
-          <Button key={primary} link={href}>
+          <Button prefetch={primary !== '留言板'} key={primary} link={href}>
             {primary}
           </Button>
         ))}

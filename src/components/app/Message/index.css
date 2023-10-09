@@ -1,0 +1,47 @@
+.Message > div {
+  margin: 32px auto;
+}
+
+.Message input {
+  text-indent: 2em;
+  width: 100%;
+  font-size: 18px;
+  border-radius: 12px;
+  padding: 12px 0;
+  outline: none;
+  border: none;
+  letter-spacing: 1px;
+  transition: opacity 150ms;
+}
+
+.Message input:focus {
+  opacity: 0.5;
+}
+
+.Message input:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.Message-Ipt-Wrap {
+  position: relative;
+}
+
+.Message-Ipt-Wrap::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 1px;
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+.Message div {
+  cursor: pointer;
+  width: 250px;
+}
+
+.Message .Btn-Link {
+  font-size: 20px;
+}
