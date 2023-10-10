@@ -9,7 +9,7 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  const result = await useGet<IArcheveYear[]>('archive/years')
+  const result = await useGet<IArcheveYear[]>('archive/year')
 
   return result.map(({ year }) => ({ year }))
 }
