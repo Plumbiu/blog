@@ -11,7 +11,7 @@ const RightCard = async () => {
   const tags = await useGet<Tag[]>('tag')
   const categories = await useGet<Category[]>('category')
   const archiveArts = await useGet<IFullFrontMatter[]>('archive?limit=5')
-  const archeveYear = await useGet<IArcheveYear[]>('archive/years')
+  const archeveYear = await useGet<IArcheveYear[]>('archive/year')
 
   return (
     <div className="Side-Right">
