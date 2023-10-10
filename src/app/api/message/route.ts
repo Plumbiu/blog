@@ -15,20 +15,12 @@ export async function POST(req: Request) {
     if (user.status !== 200) {
       throw new Error('请输入有效的 Github 用户名！')
     }
-    const { data: rawIssues } = await octokit.request('GET /repos/{owner}/{repo}/issues', {
-      owner: 'Plumbiu',
-      repo: 'blog_comments',
-    })
-    const issues = rawIssues.map(({ title }) => title)
     const title = JSON.stringify({ date, name })
-    if (issues.includes(title)) {
-      throw new Error('请勿同一天留言多次！')
-    }
     await octokit.request('POST /repos/{owner}/{repo}/issues', {
       owner: 'Plumbiu',
-      repo: 'blog_comments',
+      repo: 'blog_message',
       title,
-      body: `${words}\n@${name}`,
+      body: `@${name}\n${words}`,
     })
     return NextResponse.json({ msg: '评论成功！', type: 'success' })
   } catch (err: any) {
