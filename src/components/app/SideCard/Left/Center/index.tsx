@@ -9,7 +9,7 @@ import { GithubIcon, EmailIcon, LocationIcon, TwitterIcon, LinkIcon } from '@/co
 const info = [
   {
     primary: '朋友们',
-    href: '/friends',
+    href: '/friend',
   },
   {
     primary: '留言板',
@@ -21,7 +21,7 @@ const info = [
   },
 ]
 const blogInfo = [
-  { primary: '归档', href: '/archives' },
+  { primary: '归档', href: '/archive' },
   { primary: '文章', href: '/article/1', count: articleNum },
   { primary: '关于', href: '/about' },
 ]

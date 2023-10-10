@@ -16,10 +16,10 @@ const lists = [
   { text: '首页', link: '/', icon: <FirstPageIcon /> },
   { text: '文章', link: '/article/1', icon: <ArticleIcon /> },
   { text: '开源之旅', link: '/opensource', icon: <TravelExploreIcon /> },
-  { text: '朋友们', link: '/friends', icon: <PeopleIcon /> },
-  { text: '留言板', link: '/comments', icon: <CommentIcon /> },
-  { text: '标签', link: '/tags', icon: <TagIcon /> },
-  { text: '分类', link: '/categories', icon: <CategoryIcon /> },
+  { text: '朋友们', link: '/friend', icon: <PeopleIcon /> },
+  { text: '留言板', link: '/message', icon: <CommentIcon /> },
+  { text: '标签', link: '/tag', icon: <TagIcon /> },
+  { text: '分类', link: '/category', icon: <CategoryIcon /> },
   { text: 'GitHub', link: 'https://github.com/Plumbiu/blog', icon: <GithubIcon /> },
 ]
 

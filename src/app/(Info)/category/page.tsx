@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation'
 
 const Categories = () => {
-  redirect('/categories/FE')
+  redirect('/category/FE')
 }
 
 export default Categories

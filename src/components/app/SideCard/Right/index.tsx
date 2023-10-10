@@ -8,10 +8,10 @@ import DateTitle from '../../DateTitle'
 import Link from 'next/link'
 
 const RightCard = async () => {
-  const tags = await useGet<Tag[]>('tags')
-  const categories = await useGet<Category[]>('categories')
-  const archiveArts = await useGet<IFullFrontMatter[]>('archives?limit=5')
-  const archeveYear = await useGet<IArcheveYear[]>('archives/years')
+  const tags = await useGet<Tag[]>('tag')
+  const categories = await useGet<Category[]>('category')
+  const archiveArts = await useGet<IFullFrontMatter[]>('archive?limit=5')
+  const archeveYear = await useGet<IArcheveYear[]>('archive/years')
 
   return (
     <div className="Side-Right">
@@ -30,7 +30,7 @@ const RightCard = async () => {
       <div className="Side-Item">
         <Title>归档</Title>
         {archeveYear.map(({ year, num }) => (
-          <Link key={year} href={'/archives/' + year} className="Hover-Dark Side-Archive-Link">
+          <Link key={year} href={'/archive/' + year} className="Hover-Dark Side-Archive-Link">
             <div>{year}</div>
             <div>{num}</div>
           </Link>

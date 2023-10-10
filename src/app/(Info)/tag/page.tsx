@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation'
 
 const Tags = () => {
-  redirect('/tags/Vue')
+  redirect('/tag/Vue')
 }
 
 export default Tags

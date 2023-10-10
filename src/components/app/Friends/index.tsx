@@ -20,7 +20,7 @@ const FriendsCmp = () => {
             }}
           />
           <div className="Friend-Info">
-            <Image src={'/friends/' + avatar} width={40} height={40} alt={name} />
+            <Image src={'/friend/' + avatar} width={40} height={40} alt={name} />
             <div>
               <span className="Friend-Name">{name}</span>
               <div className="Friend-Desc">

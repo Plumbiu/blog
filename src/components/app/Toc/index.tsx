@@ -39,10 +39,10 @@ const Toc: FC<Props> = async ({ html, title, tags, categories, date }) => {
         </div>
         <div className="Toc-Tags">
           {categories?.map(category => (
-            <Tag key={category} link={'/categories/' + category} outlined text={category} />
+            <Tag key={category} link={'/category/' + category} outlined text={category} />
           ))}
           {tags?.map(tag => (
-            <Tag key={tag} link={'/tags/' + tag} text={tag} />
+            <Tag key={tag} link={'/tag/' + tag} text={tag} />
           ))}
         </div>
         <Hr />
