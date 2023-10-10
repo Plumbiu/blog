@@ -28,7 +28,7 @@ export async function POST(req: Request) {
       owner: 'Plumbiu',
       repo: 'blog_comments',
       title,
-      body: words,
+      body: `${words}\n@${name}`,
     })
     return NextResponse.json({ msg: '评论成功！', type: 'success' })
   } catch (err: any) {
