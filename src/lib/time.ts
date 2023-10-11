@@ -1,4 +1,6 @@
-export function formatTime(time: string | Date | number) {
+type Time = string | Date | number
+
+export function formatTime(time: Time) {
   const date = new Date(time)
   const y = date.getFullYear()
   const m = padStart(date.getMonth() + 1)
@@ -12,4 +14,8 @@ export function formatTime(time: string | Date | number) {
 
 function padStart(s: number | string) {
   return String(s).padStart(2, '0')
+}
+
+export function perfixTime(time: Time) {
+  return formatTime(time).split(' ')[0]
 }

@@ -1,6 +1,6 @@
 import type { FC } from 'react'
 import Link from 'next/link'
-import { formatTime } from '@/lib/time'
+import { perfixTime } from '@/lib/time'
 import './index.css'
 
 interface Props {
@@ -13,7 +13,7 @@ const ArchiveList: FC<Props> = ({ articles }) => {
       {articles.map(({ id, title, date }) => (
         <div key={id}>
           <div />
-          <p>{formatTime(date).split(' ')[0].slice(5)}</p>
+          <p>{perfixTime(date).slice(5)}</p>
           <Link href={'/post/' + id}>{title}</Link>
         </div>
       ))}

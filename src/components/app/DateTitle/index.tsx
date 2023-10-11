@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import type { FC } from 'react'
-import { formatTime } from '@/lib/time'
+import { perfixTime } from '@/lib/time'
 import './index.css'
 
 interface Props {
@@ -13,7 +13,7 @@ const DateTitle: FC<Props> = ({ articles, color }) => {
     <div className="Date-Title">
       {articles.map(({ id, title, date }) => (
         <div key={id}>
-          <p>{formatTime(date).split(' ')[0].slice(5)}</p>
+          <p>{perfixTime(date).slice(5)}</p>
           <Link
             style={{
               color,

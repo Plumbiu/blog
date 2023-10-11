@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Slide, ToastContainer, toast } from 'react-toastify'
 import { usePost } from '@/lib/api'
-import { formatTime } from '@/lib/time'
+import { perfixTime } from '@/lib/time'
 import './index.css'
 
 const MessageCmp = () => {
@@ -14,8 +14,7 @@ const MessageCmp = () => {
   async function handleComment() {
     const message: IMessage = {
       ...payload,
-      date: formatTime(Date.now())
-        .split(' ')[0],
+      date: perfixTime(Date.now()),
     }
     const { msg, type } = await usePost<{
       msg: string

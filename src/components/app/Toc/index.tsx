@@ -6,7 +6,7 @@ import Tag from '../../ui/Tag'
 import Hr from '../../ui/Hr'
 import DateTitle from '../DateTitle'
 import TocList from './List'
-import { formatTime } from '@/lib/time'
+import { perfixTime } from '@/lib/time'
 import { ArrowBackIcon, ClockIcon } from '@/components/icons'
 import { useGet } from '@/lib/api'
 
@@ -21,7 +21,6 @@ interface Props {
 
 const TocCmp: FC<Props> = async ({ html, title, tags, categories, date }) => {
   const tocs = html2toc(html)
-  const formatedDate = formatTime(date)
   const relatedArticles = await useGet<IFullFrontMatter[]>(
     'article?limit=3&tag=' + tags[0],
   )
@@ -38,7 +37,7 @@ const TocCmp: FC<Props> = async ({ html, title, tags, categories, date }) => {
               marginRight: '4px',
             }}
           />
-          <p>{formatedDate.split(' ')[0]}</p>
+          <p>{perfixTime(date)}</p>
         </div>
         <div className="Toc-Tags">
           {categories?.map(category => (

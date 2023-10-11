@@ -3,7 +3,7 @@ import Link from 'next/link'
 import './index.css'
 import Image from 'next/image'
 import Tag from '@/components/ui/Tag'
-import { formatTime } from '@/lib/time'
+import { perfixTime } from '@/lib/time'
 import { ClockIcon } from '@/components/icons'
 
 interface Props {
@@ -51,7 +51,7 @@ const ArticleBanner: FC<Props> = ({ posts, name, col = 1 }) => {
             <div className="Banner-Link-Title">{title}</div>
             <div className="Banner-Date">
               <ClockIcon />
-              <p>{formatTime(date).split(' ')[0]}</p>
+              <p>{perfixTime(date)}</p>
             </div>
             <div className="Banner-Link-Desc">{desc}...</div>
             <div>
