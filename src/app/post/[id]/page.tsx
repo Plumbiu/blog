@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
-import '@/styles/github-markdown-light.css'
-import 'highlight.js/styles/github.css'
+import '@plumbiu/md/style/github-markdown-light.css'
+import '@plumbiu/md/style/hljs-markdown-light.css'
+import { md2html } from '@plumbiu/md'
 import { useGet } from '@/lib/api'
 import Main from '@/components/app/Container/Main'
-import Toc from '@/components/app/Toc'
-import { renderMD } from '@/lib/md'
+import TocCmp from '@/components/app/Toc'
 import Title from '@/components/ui/Title'
 
 interface Props {
@@ -25,11 +25,11 @@ export async function generateStaticParams() {
 export default async function PostId({ params }: Props) {
   const { content, title, tags, categories, date, updated } =
     await useGet<IArticle>('article/' + params.id)
-  const html = await renderMD(content)
+  const html = await md2html(content)
 
   return (
     <>
-      <Toc
+      <TocCmp
         html={html}
         title={title}
         tags={tags}

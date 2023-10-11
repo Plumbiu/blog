@@ -1,5 +1,6 @@
 import './index.css'
 import type { FC } from 'react'
+import { html2toc } from '@plumbiu/md'
 import ButtonIcon from '../../ui/Button/Icon'
 import Tag from '../../ui/Tag'
 import Hr from '../../ui/Hr'
@@ -8,7 +9,6 @@ import TocList from './List'
 import { formatTime } from '@/lib/time'
 import { ArrowBackIcon, ClockIcon } from '@/components/icons'
 import { useGet } from '@/lib/api'
-import { genTocs } from '@/lib/toc'
 
 interface Props {
   html: string
@@ -19,8 +19,8 @@ interface Props {
   categories: string[]
 }
 
-const Toc: FC<Props> = async ({ html, title, tags, categories, date }) => {
-  const tocs = genTocs(html)
+const TocCmp: FC<Props> = async ({ html, title, tags, categories, date }) => {
+  const tocs = html2toc(html)
   const formatedDate = formatTime(date)
   const relatedArticles = await useGet<IFullFrontMatter[]>(
     'article?limit=3&tag=' + tags[0],
@@ -80,4 +80,4 @@ const Toc: FC<Props> = async ({ html, title, tags, categories, date }) => {
   )
 }
 
-export default Toc
+export default TocCmp
