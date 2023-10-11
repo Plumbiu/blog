@@ -1,11 +1,10 @@
-import React from 'react'
+import Link from 'next/link'
 import Chips from '../Chips'
+import DateTitle from '../../DateTitle'
 import { useGet } from '@/lib/api'
 import '../index.css'
 import './index.css'
 import Title from '@/components/ui/Title'
-import DateTitle from '../../DateTitle'
-import Link from 'next/link'
 
 const RightCard = async () => {
   const tags = await useGet<Tag[]>('tag')
@@ -30,7 +29,11 @@ const RightCard = async () => {
       <div className="Side-Item">
         <Title>归档</Title>
         {archeveYear.map(({ year, num }) => (
-          <Link key={year} href={'/archive/' + year} className="Hover-Dark Side-Archive-Link">
+          <Link
+            key={year}
+            href={'/archive/' + year}
+            className="Hover-Dark Side-Archive-Link"
+          >
             <div>{year}</div>
             <div>{num}</div>
           </Link>

@@ -6,6 +6,7 @@ export function formatTime(time: string | Date | number) {
   const hh = padStart(date.getHours())
   const mm = padStart(date.getMinutes())
   const ss = padStart(date.getSeconds())
+
   return `${y}-${m}-${d} ${hh}:${mm}:${ss}`
 }
 

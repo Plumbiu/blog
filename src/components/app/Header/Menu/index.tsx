@@ -1,4 +1,5 @@
 'use client'
+
 import React, { useEffect, useState } from 'react'
 import MenuList from './List'
 import './index.css'
@@ -19,6 +20,7 @@ const HeaderMenu = () => {
   }
   useEffect(() => {
     window.addEventListener('click', listener)
+
     return () => {
       window.removeEventListener('click', listener)
     }

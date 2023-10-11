@@ -1,10 +1,9 @@
 import type { FC } from 'react'
 import Link from 'next/link'
-import React from 'react'
 import './index.css'
+import Image from 'next/image'
 import Tag from '@/components/ui/Tag'
 import { formatTime } from '@/lib/time'
-import Image from 'next/image'
 import { ClockIcon } from '@/components/icons'
 
 interface Props {
@@ -19,20 +18,33 @@ const imageMap: Record<string, string> = {
 }
 
 function toImage(tag: string) {
-  const key = Object.keys(imageMap).find(item => item.includes(tag.toLocaleLowerCase()))
+  const key = Object.keys(imageMap).find(item =>
+    item.includes(tag.toLocaleLowerCase()),
+  )
   if (!key) return key
+
   return imageMap[key]
 }
 
 const ArticleBanner: FC<Props> = ({ posts, name, col = 1 }) => {
   name = decodeURI(name)
+
   return (
     <div className="Banner-Wrap">
       {posts.map(({ id, desc, title, tags, categories, date }) => (
-        <Link key={id} className={`Hover-Dark Banner-Link Banner-Col-${col}`} href={'/post/' + id}>
+        <Link
+          key={id}
+          className={`Hover-Dark Banner-Link Banner-Col-${col}`}
+          href={'/post/' + id}
+        >
           {toImage(tags[0]) && (
             <div className="Banner-Cover">
-              <Image width={70} height={70} alt={tags[0]} src={'/cover/' + toImage(tags[0])} />
+              <Image
+                width={70}
+                height={70}
+                alt={tags[0]}
+                src={'/cover/' + toImage(tags[0])}
+              />
             </div>
           )}
           <div className="Banner-List">

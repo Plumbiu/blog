@@ -1,5 +1,4 @@
 import { getTags } from '@/lib/node/tags'
-import { NextResponse } from 'next/server'
 
 export async function GET() {
   const map = await getTags()
@@ -10,5 +9,6 @@ export async function GET() {
       count,
     })
   }
-  return NextResponse.json(tags.sort((a, b) => b.count - a.count))
+
+  return Response.json(tags.sort((a, b) => b.count - a.count))
 }

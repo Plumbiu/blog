@@ -1,7 +1,6 @@
-// @ts-check
 import fsp from 'node:fs/promises'
-import { initFields } from '@plumbiu/github-info'
 import path from 'node:path'
+import { initFields } from '@plumbiu/github-info'
 
 async function preBuild() {
   const { eventsField } = await initFields('Plumbiu')

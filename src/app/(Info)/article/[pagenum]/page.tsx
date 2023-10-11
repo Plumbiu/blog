@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import { useGet } from '@/lib/api'
 import { Suspense } from 'react'
 import Loading from './loading'
+import { useGet } from '@/lib/api'
 import Pagination from '@/components/ui/Pagination'
 import { articleNum } from '~/config/sideCard.json'
 import ArticleBanner from '@/components/ui/Banner'
@@ -20,11 +20,14 @@ export function generateStaticParams() {
       pagenum: String(i),
     })
   }
+
   return nums
 }
 
 export default async function ({ params }: Props) {
-  const data = await useGet<IFullFrontMatter[]>('article?pagenum=' + (Number(params.pagenum) - 1))
+  const data = await useGet<IFullFrontMatter[]>(
+    'article?pagenum=' + (Number(params.pagenum) - 1),
+  )
 
   return (
     <Suspense fallback={<Loading />}>

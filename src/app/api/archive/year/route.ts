@@ -1,6 +1,7 @@
+import type { NextRequest } from 'next/server'
+
 import { loadArchives } from '@/lib/archives'
 import { getPosts } from '@/lib/node/article'
-import { NextResponse, type NextRequest } from 'next/server'
 
 export async function GET(req: NextRequest) {
   const posts = await getPosts()
@@ -9,5 +10,6 @@ export async function GET(req: NextRequest) {
     year,
     num: articles.length,
   }))
-  return NextResponse.json(years)
+
+  return Response.json(years)
 }

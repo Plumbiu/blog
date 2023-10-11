@@ -1,8 +1,9 @@
 'use client'
-import { usePost } from '@/lib/api'
-import { formatTime } from '@/lib/time'
+
 import { useState } from 'react'
 import { Slide, ToastContainer, toast } from 'react-toastify'
+import { usePost } from '@/lib/api'
+import { formatTime } from '@/lib/time'
 import './index.css'
 
 const MessageCmp = () => {
@@ -13,7 +14,8 @@ const MessageCmp = () => {
   async function handleComment() {
     const message: IMessage = {
       ...payload,
-      date: formatTime(Date.now()).split(' ')[0],
+      date: formatTime(Date.now())
+        .split(' ')[0],
     }
     const { msg, type } = await usePost<{
       msg: string
@@ -23,9 +25,10 @@ const MessageCmp = () => {
       type,
     })
   }
+
   return (
     <div className="Message">
-      <div className='Message-Ipt-Wrap'>
+      <div className="Message-Ipt-Wrap">
         <input
           type="text"
           onChange={e => {
@@ -38,7 +41,7 @@ const MessageCmp = () => {
           placeholder="GitHub 用户名"
         />
       </div>
-      <div className='Message-Ipt-Wrap'>
+      <div className="Message-Ipt-Wrap">
         <input
           type="text"
           onChange={e => {

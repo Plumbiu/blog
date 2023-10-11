@@ -14,7 +14,12 @@ const AboutCmp = () => {
       </div>
       <div>
         <span>版权声明</span>
-        <Link href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh-hans">CC BY-NC-SA 3.0 CN DEED</Link>
+        <Link
+          // eslint-disable-next-line @stylistic/max-len
+          href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh-hans"
+        >
+          CC BY-NC-SA 3.0 CN DEED
+        </Link>
       </div>
     </div>
   )

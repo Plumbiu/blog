@@ -1,5 +1,4 @@
 import { getPosts } from '@/lib/node/article'
-import { NextResponse } from 'next/server'
 
 export async function GET(req: Request) {
   let posts: IFullFrontMatter[]
@@ -27,5 +26,6 @@ export async function GET(req: Request) {
   if (limit !== null) {
     posts = posts.slice(0, Number(limit))
   }
-  return NextResponse.json(posts)
+
+  return Response.json(posts)
 }

@@ -17,5 +17,6 @@ export function loadArchives(posts: IFullFrontMatter[]) {
       articles,
     })
   }
+
   return archives.sort((a, b) => Number(b.year) - Number(a.year))
 }

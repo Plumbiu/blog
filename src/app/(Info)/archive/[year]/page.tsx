@@ -16,6 +16,7 @@ export async function generateStaticParams() {
 
 const ArcheveYear = async ({ params }: Props) => {
   const archeveYear = await useGet<IArcheve[]>('archive?year=' + params.year)
+
   return (
     <>
       <Title>归档</Title>

@@ -1,4 +1,3 @@
-import React from 'react'
 import ButtonListIcon from '../../../../ui/Button/ListIcon'
 import Hr from '../../../../ui/Hr'
 import {
@@ -20,13 +19,23 @@ const lists = [
   { text: '留言板', link: '/message', icon: <CommentIcon /> },
   { text: '标签', link: '/tag', icon: <TagIcon /> },
   { text: '分类', link: '/category', icon: <CategoryIcon /> },
-  { text: 'GitHub', link: 'https://github.com/Plumbiu/blog', icon: <GithubIcon /> },
+  {
+    text: 'GitHub',
+    link: 'https://github.com/Plumbiu/blog',
+    icon: <GithubIcon />,
+  },
 ]
 
 const MenuList = () => {
   return lists.map(({ text, link, icon }, index) => (
     <div key={text}>
-      <ButtonListIcon blank={false} icon={icon} py={10} text={text} link={link} />
+      <ButtonListIcon
+        blank={false}
+        icon={icon}
+        py={10}
+        text={text}
+        link={link}
+      />
       {index % 3 ? undefined : <Hr />}
     </div>
   ))

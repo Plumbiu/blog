@@ -1,6 +1,6 @@
-import { formatTime } from '@/lib/time'
 import Link from 'next/link'
 import type { FC } from 'react'
+import { formatTime } from '@/lib/time'
 import './index.css'
 
 interface Props {

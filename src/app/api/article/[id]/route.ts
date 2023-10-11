@@ -1,9 +1,12 @@
-import { NextResponse, type NextRequest } from 'next/server'
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import type { NextRequest } from 'next/server'
 import parseFM from 'simple-md-front-matter'
 
-export async function GET(_req: NextRequest, { params }: { params: IArticleParams }) {
+export async function GET(
+  _req: NextRequest,
+  { params }: { params: IArticleParams },
+) {
   const filePath = path.join(process.cwd(), 'posts', params.id)
   const content = await fs.readFile(filePath, 'utf-8')
 
@@ -12,5 +15,6 @@ export async function GET(_req: NextRequest, { params }: { params: IArticleParam
     ...parseFM<IRawMatter>(content),
     content: content.slice(content.indexOf('---', 3) + 3),
   }
-  return NextResponse.json(article)
+
+  return Response.json(article)
 }

@@ -32,5 +32,6 @@ export async function getPosts(pagenum = 0, isLimit = false) {
     })
   }
   posts.sort((a, b) => b.date.getTime() - a.date.getTime())
+
   return posts
 }

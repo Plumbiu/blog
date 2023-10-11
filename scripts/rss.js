@@ -1,8 +1,7 @@
-// @ts-check
-import { toXML } from '../assets/js/jstoxml.js'
 import fsp from 'fs/promises'
-import { getPosts } from './utils.js'
 import path from 'path'
+import { toXML } from '../assets/js/jstoxml.js'
+import { getPosts } from './utils.js'
 
 /**
  * @param {Object} json

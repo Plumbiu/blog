@@ -20,12 +20,20 @@ const Tag: FC<Props> = ({ outlined, text, link, plain }) => {
   }
   if (link) {
     return (
-      <Link className={`Tag ${outlined ? 'Tag-Outlined' : 'Tag-Filled'}`} href={link}>
+      <Link
+        className={`Tag ${outlined ? 'Tag-Outlined' : 'Tag-Filled'}`}
+        href={link}
+      >
         {text}
       </Link>
     )
   }
-  return <span className={`Tag ${outlined ? 'Tag-Outlined' : 'Tag-Filled'}`}>{text}</span>
+
+  return (
+    <span className={`Tag ${outlined ? 'Tag-Outlined' : 'Tag-Filled'}`}>
+      {text}
+    </span>
+  )
 }
 
 export default Tag

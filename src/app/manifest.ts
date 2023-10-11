@@ -3,7 +3,7 @@ import type { MetadataRoute } from 'next'
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'Plumbiu の 小屋',
-    short_name: "Plumbiu's blog",
+    short_name: 'Plumbiu\'s blog',
     description: 'Plumbiu 的 material 风格博客',
     start_url: '.',
     display: 'standalone',

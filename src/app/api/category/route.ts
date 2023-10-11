@@ -1,5 +1,4 @@
 import { getCategories } from '@/lib/node/categories'
-import { NextResponse } from 'next/server'
 
 export async function GET() {
   const map = await getCategories()
@@ -10,5 +9,6 @@ export async function GET() {
       count,
     })
   }
-  return NextResponse.json(categories.sort((a, b) => b.count - a.count))
+
+  return Response.json(categories.sort((a, b) => b.count - a.count))
 }

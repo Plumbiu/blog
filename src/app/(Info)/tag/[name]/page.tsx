@@ -13,15 +13,14 @@ interface Props {
 
 export async function generateStaticParams() {
   const tags = await useGet<Tag[]>('tag')
-  return tags.map((tag) => ({
+
+  return tags.map(tag => ({
     name: tag.name,
   }))
 }
 
 const TagsName = async ({ params }: Props) => {
-  const posts = await useGet<IFullFrontMatter[]>(
-    'article?tag=' + params.name,
-  )
+  const posts = await useGet<IFullFrontMatter[]>('article?tag=' + params.name)
 
   return (
     <>
@@ -33,7 +32,11 @@ const TagsName = async ({ params }: Props) => {
         }}
       >
         <Badge count={posts.length}>
-          <Tag text={decodeURI(params.name)} link={'/tag/' + params.name} plain />
+          <Tag
+            text={decodeURI(params.name)}
+            link={'/tag/' + params.name}
+            plain
+          />
         </Badge>
       </div>
       <ArticleBanner posts={posts} name={params.name} />

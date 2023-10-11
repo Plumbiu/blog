@@ -17,5 +17,6 @@ export function genTocs(html: string) {
       hash: '#' + heading.id,
     })
   }
+
   return tocs
 }

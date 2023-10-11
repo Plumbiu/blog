@@ -1,14 +1,14 @@
 import './index.css'
-import { genTocs } from '@/lib/toc'
 import type { FC } from 'react'
-import TocList from './List'
-import { formatTime } from '@/lib/time'
 import ButtonIcon from '../../ui/Button/Icon'
 import Tag from '../../ui/Tag'
 import Hr from '../../ui/Hr'
+import DateTitle from '../DateTitle'
+import TocList from './List'
+import { formatTime } from '@/lib/time'
 import { ArrowBackIcon, ClockIcon } from '@/components/icons'
 import { useGet } from '@/lib/api'
-import DateTitle from '../DateTitle'
+import { genTocs } from '@/lib/toc'
 
 interface Props {
   html: string
@@ -22,7 +22,10 @@ interface Props {
 const Toc: FC<Props> = async ({ html, title, tags, categories, date }) => {
   const tocs = genTocs(html)
   const formatedDate = formatTime(date)
-  const relatedArticles = await useGet<IFullFrontMatter[]>('article?limit=3&tag=' + tags[0])
+  const relatedArticles = await useGet<IFullFrontMatter[]>(
+    'article?limit=3&tag=' + tags[0],
+  )
+
   return (
     <div className="Side-Left">
       <div className="Toc">
@@ -39,7 +42,12 @@ const Toc: FC<Props> = async ({ html, title, tags, categories, date }) => {
         </div>
         <div className="Toc-Tags">
           {categories?.map(category => (
-            <Tag key={category} link={'/category/' + category} outlined text={category} />
+            <Tag
+              key={category}
+              link={'/category/' + category}
+              outlined
+              text={category}
+            />
           ))}
           {tags?.map(tag => (
             <Tag key={tag} link={'/tag/' + tag} text={tag} />

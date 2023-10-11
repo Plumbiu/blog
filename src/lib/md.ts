@@ -18,5 +18,5 @@ export async function renderMD(md: string) {
     .use(remarkGfm)
     .process(md)
 
-  return String(file).replace(/<img/g, "<img loading='lazy'")
+  return String(file).replace(/<img/g, '<img loading=\'lazy\'')
 }

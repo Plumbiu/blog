@@ -1,8 +1,10 @@
 'use client'
-import type { Toc } from '@/lib/toc'
-import { useState, type FC, useEffect } from 'react'
+
+import { useState, useEffect, type FC } from 'react'
 import Link from 'next/link'
+import type { Toc } from '@/lib/toc'
 import './index.css'
+
 interface Props {
   tocs: Toc[]
 }
@@ -46,7 +48,9 @@ const TocList: FC<Props> = ({ tocs }) => {
       {tocs.map(({ level, hash, content }) => (
         <Link
           key={hash}
-          className={`Toc-List Toc-List-Level-${level} ${currentHash === hash ? 'Toc-List-Active' : ''}`}
+          className={`Toc-List Toc-List-Level-${level} ${
+            currentHash === hash ? 'Toc-List-Active' : ''
+          }`}
           href={hash}
         >
           {currentHash === hash && <div className="Toc-Block" />}

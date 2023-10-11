@@ -1,5 +1,4 @@
 import { Octokit } from 'octokit'
-import { NextResponse } from 'next/server'
 
 const octokit = new Octokit({
   auth: process.env.OCTOKIT_TOKEN,
@@ -22,8 +21,9 @@ export async function POST(req: Request) {
       title,
       body: `@${name}\n${words}`,
     })
-    return NextResponse.json({ msg: '评论成功！', type: 'success' })
+
+    return Response.json({ msg: '评论成功！', type: 'success' })
   } catch (err: any) {
-    return NextResponse.json({ msg: err.message, type: 'error' })
+    return Response.json({ msg: err.message, type: 'error' })
   }
 }

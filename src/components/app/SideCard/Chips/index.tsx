@@ -1,7 +1,7 @@
+import type { FC } from 'react'
 import Badge from '@/components/ui/Badge'
 import Stack from '@/components/ui/Stack'
 import Tag from '@/components/ui/Tag'
-import type { FC } from 'react'
 
 interface Props {
   chips: Tag[] | Category[]
@@ -13,13 +13,18 @@ const Chips: FC<Props> = ({ chips: tags, withBadge = false, path }) => {
   return (
     <Stack spacing={2}>
       {tags.map(({ name, count }) => {
-        return withBadge ? (
-          <Badge key={name} count={count}>
-            <Tag link={`/${path}/${name}`} text={name} plain />
-          </Badge>
-        ) : (
-          <Tag key={name} link={`/${path}/${name}`} text={name} plain />
-        )
+        return withBadge ?
+          (
+            <Badge key={name} count={count}>
+              <Tag link={`/${path}/${name}`} text={name} plain />
+            </Badge>
+          ) :
+          (
+            <Tag
+              key={name} link={`/${path}/${name}`} text={name}
+              plain
+            />
+          )
       })}
     </Stack>
   )

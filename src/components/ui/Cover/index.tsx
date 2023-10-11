@@ -1,5 +1,6 @@
 import type { FC, ReactNode } from 'react'
 import './index.css'
+
 interface Props {
   children: ReactNode
 }

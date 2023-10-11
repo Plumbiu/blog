@@ -12,10 +12,19 @@ export const metadata: Metadata = {
   viewport: 'width=device-width, initial-scale=1.0',
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
-      <link rel="icon" type="image/x-icon" sizes="32x32" href="/icons/favico-32x32.png"></link>
+      <link
+        rel="icon"
+        type="image/x-icon"
+        sizes="32x32"
+        href="/icons/favico-32x32.png"
+      />
       <body>
         <Header />
         <Container>

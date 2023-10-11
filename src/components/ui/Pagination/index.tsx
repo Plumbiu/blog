@@ -9,47 +9,59 @@ interface Props {
 }
 
 const Pagination: FC<Props> = ({ page }) => {
-  const array = new Array(paginationTotal).fill(0)
+  const array = new Array(paginationTotal)
+    .fill(0)
+
   return (
     <div className="Pagination">
-      {page === 1 ? (
-        <FirstPageIcon
-          style={{
-            opacity: 0.38,
-          }}
-        />
-      ) : (
-        <Link href="1" scroll={false} className="Pagination-Icon-Link">
-          <div>
-            <FirstPageIcon />
-          </div>
-        </Link>
-      )}
+      {page === 1 ?
+        (
+          <FirstPageIcon
+            style={{
+              opacity: 0.38,
+            }}
+          />
+        ) :
+        (
+          <Link href="1" scroll={false} className="Pagination-Icon-Link">
+            <div>
+              <FirstPageIcon />
+            </div>
+          </Link>
+        )}
       {array.map((_item, i) => (
         <Link
           key={i}
           href={String(i + 1)}
           className={`Pagination-Link ${
-            page - 1 === i ? 'Hover-Purple Pagination-Icon-Link-Active' : 'Hover-Dark'
+            page - 1 === i ?
+              'Hover-Purple Pagination-Icon-Link-Active' :
+              'Hover-Dark'
           }`}
         >
           {i + 1}
         </Link>
       ))}
 
-      {page === paginationTotal ? (
-        <LastPageIcon
-          style={{
-            opacity: 0.38,
-          }}
-        />
-      ) : (
-        <Link href={String(paginationTotal)} scroll={false} className="Pagination-Icon-Link">
-          <div>
-            <LastPageIcon />
-          </div>
-        </Link>
-      )}
+      {page === paginationTotal ?
+        (
+          <LastPageIcon
+            style={{
+              opacity: 0.38,
+            }}
+          />
+        ) :
+        (
+          <Link
+            href={String(paginationTotal)}
+            scroll={false}
+            className="Pagination-Icon-Link"
+          >
+            <div>
+              <LastPageIcon />
+            </div>
+          </Link>
+        )}
     </div>
   )
 }

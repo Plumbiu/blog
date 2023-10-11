@@ -4,7 +4,13 @@ import Badge from '@/components/ui/Badge'
 import ButtonListIcon from '@/components/ui/Button/ListIcon'
 import { articleNum } from '~/config/sideCard.json'
 import Stack from '@/components/ui/Stack'
-import { GithubIcon, EmailIcon, LocationIcon, TwitterIcon, LinkIcon } from '@/components/icons'
+import {
+  GithubIcon,
+  EmailIcon,
+  LocationIcon,
+  TwitterIcon,
+  LinkIcon,
+} from '@/components/icons'
 
 const info = [
   {
@@ -61,7 +67,13 @@ const SideCardCenter = () => {
       </div>
       <div className="List-Center-Btn-List">
         {githubInfo.map(({ icon, primary, href }) => (
-          <ButtonListIcon key={href ?? primary} py={10} icon={icon} link={href} text={primary}></ButtonListIcon>
+          <ButtonListIcon
+            key={href ?? primary}
+            py={10}
+            icon={icon}
+            link={href}
+            text={primary}
+          />
         ))}
       </div>
       <Stack spacing={16}>

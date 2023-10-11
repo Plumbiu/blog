@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+
 import friends from '~/config/friends.json'
 import './index.css'
 
@@ -8,7 +8,12 @@ const FriendsCmp = () => {
   return (
     <div className="Friend">
       {friends.map(({ name, link, desc, avatar }) => (
-        <Link key={name} href={link} target="_blank" className="Friend-List">
+        <Link
+          key={name}
+          href={link}
+          target="_blank"
+          className="Friend-List"
+        >
           <Image
             src={`/friends/screenshots/${name}.png`}
             width={320}
@@ -20,7 +25,12 @@ const FriendsCmp = () => {
             }}
           />
           <div className="Friend-Info">
-            <Image src={'/friend/' + avatar} width={40} height={40} alt={name} />
+            <Image
+              src={'/friend/' + avatar}
+              width={40}
+              height={40}
+              alt={name}
+            />
             <div>
               <span className="Friend-Name">{name}</span>
               <div className="Friend-Desc">

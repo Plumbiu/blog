@@ -1,4 +1,3 @@
-// @ts-check
 import path from 'path'
 import fs from 'node:fs/promises'
 import parseFM from 'simple-md-front-matter'
@@ -7,7 +6,10 @@ export async function getPosts() {
   const postsPath = path.join(process.cwd(), 'posts')
   const DATEREG = /([\d]{4}-[\d]+-[\d]+)/
   const rawPosts = (await fs.readdir(postsPath)).sort((a, b) => {
-    return Number(DATEREG.exec(b)?.[0].replace(/-/g, '')) - Number(DATEREG.exec(a)?.[0].replace(/-/g, ''))
+    return (
+      Number(DATEREG.exec(b)?.[0].replace(/-/g, '')) -
+      Number(DATEREG.exec(a)?.[0].replace(/-/g, ''))
+    )
   })
   const posts = []
   for (const post of rawPosts) {
@@ -24,5 +26,6 @@ export async function getPosts() {
       ...parseFM(file),
     })
   }
+
   return posts
 }

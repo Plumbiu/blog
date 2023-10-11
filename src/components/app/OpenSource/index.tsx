@@ -1,10 +1,17 @@
 import type { ReactNode } from 'react'
-import { formatTime } from '@/lib/time'
 import Title from '../../ui/Title'
 import TimeLine from '../../ui/TimeLine'
+import { formatTime } from '@/lib/time'
 import events from '~/config/events.json'
 import './index.css'
-import { AddCircleIcon, ErrorIcon, EyeIcon, ForkIcon, LapTopIcon, RepeatIcon } from '@/components/icons'
+import {
+  AddCircleIcon,
+  ErrorIcon,
+  EyeIcon,
+  ForkIcon,
+  LapTopIcon,
+  RepeatIcon,
+} from '@/components/icons'
 
 const eventMap: Record<string, ReactNode> = {
   PushEvent: <LapTopIcon />,
@@ -36,7 +43,8 @@ const OpenSourceCmp = () => {
             <>
               {formatTime(created_at)}
               <div className="OpenSource-Left">
-                {actor.name} {'>'} {repo} {'>'} {payload.ref?.slice(payload.ref.lastIndexOf('/') + 1) ?? 'main'}
+                {actor.name} {'>'} {repo} {'>'}{' '}
+                {payload.ref?.slice(payload.ref.lastIndexOf('/') + 1) ?? 'main'}
               </div>
             </>
           }
