@@ -2,7 +2,6 @@
 
 import { useState, useEffect, type FC } from 'react'
 import Link from 'next/link'
-import type { Toc } from '@/lib/toc'
 import './index.css'
 
 interface Props {
