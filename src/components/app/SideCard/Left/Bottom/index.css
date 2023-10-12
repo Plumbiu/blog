@@ -1,15 +1,26 @@
-.List-Bottom {
-  padding: 24px 0;
+.List-Center {
+  margin: 16px 0;
+}
+
+.List-Center-Btn-List {
+  margin: 12px 0;
+}
+
+.List-Center-Badge {
+  display: flex;
   text-align: center;
-  color: #fff;
-  font-weight: 700;
-  font-size: 22px;
-  border-radius: 50% 50% 0 0;
-  background-color: #1976d2;
-  transition: border-radius 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.List-Center-Badge div {
+  flex: 1;
+}
+
+.List-Center .Stack {
+  padding: 0;
+}
+
+.List-Center-Badge .Btn-Link {
+  padding: 12px 14px;
 }
 
 
-.List-Bottom:hover {
-  border-radius: 12px 12px 0 0;
-}
