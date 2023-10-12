@@ -3,7 +3,7 @@ import { articleNum } from '~/config/sideCard.json'
   for router article/:pagenum
   one page article limit
 */
-export const articleLimit = 10
+export const articleLimit = 12
 
 /*
   for component Pagination, total pagenum
