@@ -2,6 +2,7 @@ import * as React from 'react'
 import type { Metadata } from 'next'
 import { useGet } from '@/lib/api'
 import ArticleBanner from '@/components/ui/Banner'
+import { name } from '~/config.json'
 
 export default async function Home() {
   const data = await useGet<IFrontMatter[]>('article?pagenum=0')
@@ -10,6 +11,6 @@ export default async function Home() {
 }
 
 export const metadata: Metadata = {
-  title: 'Plumbiu | 首页',
-  description: '这里是 Plumbiu 的个人介绍首页',
+  title: `${name} | 首页`,
+  description: `这里是 ${name} 的个人介绍首页`,
 }

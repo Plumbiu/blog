@@ -5,6 +5,7 @@ import { md2html } from '@plumbiu/md'
 import { useGet } from '@/lib/api'
 import Main from '@/components/app/Container/Main'
 import TocCmp from '@/components/app/Toc'
+import { name } from '~/config.json'
 
 interface Props {
   params: {
@@ -38,18 +39,14 @@ export default async function PostId({ params }: Props) {
       />
       <Main>
         <div
+          className="md"
+          dangerouslySetInnerHTML={{
+            __html: html,
+          }}
           style={{
             padding: '16px 20px',
           }}
-        >
-          <div
-            className="md"
-            dangerouslySetInnerHTML={{
-              __html: html,
-            }}
-          />
-          <div id="Post-Bottom">Comment 页面</div>
-        </div>
+        />
       </Main>
     </>
   )
@@ -61,7 +58,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   )
 
   return {
-    title: 'Plumbiu | 文章 - ' + title,
+    title: `${name} | 文章 - ${title}`,
     description: desc,
     keywords: tags,
     category: categories.join(','),

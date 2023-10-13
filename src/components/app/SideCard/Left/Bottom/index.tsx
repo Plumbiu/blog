@@ -11,6 +11,7 @@ import {
   TwitterIcon,
   LinkIcon,
 } from '@/components/icons'
+import { github_name, twitter } from '~/config.json'
 
 const info = [
   {
@@ -34,9 +35,9 @@ const blogInfo = [
 
 const githubInfo = [
   {
-    primary: 'Plumbiu',
+    primary: github_name,
     icon: <GithubIcon />,
-    href: 'https://github.com/Plumbiu',
+    href: `https://github.com/${github_name}`,
   },
   {
     primary: 'plumbiuzz@gmail.com',
@@ -44,9 +45,9 @@ const githubInfo = [
   },
   { primary: 'Hang Zhou, China', icon: <LocationIcon /> },
   {
-    primary: 'Plumbiu',
+    primary: twitter,
     icon: <TwitterIcon />,
-    href: 'https://twitter.com/Plumbiu',
+    href: `https://twitter.com/${twitter}`,
   },
   {
     primary: 'https://blog.plumbiu.club/',

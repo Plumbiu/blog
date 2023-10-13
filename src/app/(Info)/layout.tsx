@@ -3,9 +3,10 @@ import type { Metadata } from 'next'
 import Loading from './loading'
 import LeftSideCard from '@/components/app/SideCard/Left'
 import Main from '@/components/app/Container/Main'
+import { name } from '~/config.json'
 
 export const metadata: Metadata = {
-  title: 'Plumbiu の 小屋',
+  title: `${name} の 小屋`,
   description: 'Welcome to my blog!',
 }
 

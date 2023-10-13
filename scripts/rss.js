@@ -1,6 +1,7 @@
 import fsp from 'fs/promises'
 import path from 'path'
 import { toXML } from '../assets/js/jstoxml.js'
+import { title, url, name, yourself } from '../config.json'
 import { getPosts } from './utils.js'
 
 /**
@@ -8,17 +9,17 @@ import { getPosts } from './utils.js'
  */
 const json = {
   channel: [
-    { title: 'Plumbiu の 小屋' },
-    { link: 'https://blog.plumbiu.top' },
-    { generator: 'Plumbiu - https://github.com/Plumbiu/blog' },
-    { description: 'Plumbiu 的 material 风格博客' },
-    { webMaster: 'plumbiuzz@gmail.com(Plumbiu)' },
-    { managingEditor: 'plumbiuzz@gmail.com(Plumbiu)' },
+    { title },
+    { link: url },
+    { generator: `${name} - https://github.com/${name}` },
+    { description: `${name} 的 material 风格博客` },
+    { webMaster: yourself },
+    { managingEditor: yourself },
     { language: 'zh-CN' },
     {
       'atom:link': {
         _attrs: {
-          ' href': 'https://blog.plumbiu.top/rss.xml',
+          ' href': `${url}/rss.xml`,
           ref: 'self',
           type: 'application/rss+xml',
         },
@@ -54,10 +55,10 @@ async function genItems(posts) {
       item: {
         // @ts-ignore
         title,
-        link: `https://blog.plumbiu.top/post/${title}`,
+        link: `${url}/post/${title}`,
         pubDate,
-        author: 'Plumbiu',
-        guid: `https://blog.plumbiu.top/post/${title}`,
+        author: name,
+        guid: `${url}/post/${title}`,
         description,
       },
     })

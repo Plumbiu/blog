@@ -1,4 +1,5 @@
 import { Octokit } from 'octokit'
+import { blog_message_repo, github_name } from '~/config.json'
 
 const octokit = new Octokit({
   auth: process.env.OCTOKIT_TOKEN,
@@ -16,8 +17,8 @@ export async function POST(req: Request) {
     }
     const title = JSON.stringify({ date, name })
     await octokit.request('POST /repos/{owner}/{repo}/issues', {
-      owner: 'Plumbiu',
-      repo: 'blog_message',
+      owner: github_name,
+      repo: blog_message_repo,
       title,
       body: `@${name}\n${words}`,
     })

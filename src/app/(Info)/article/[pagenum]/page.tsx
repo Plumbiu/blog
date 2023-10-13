@@ -5,6 +5,7 @@ import { useGet } from '@/lib/api'
 import Pagination from '@/components/ui/Pagination'
 import { articleNum } from '~/config/sideCard.json'
 import ArticleBanner from '@/components/ui/Banner'
+import { name } from '~/config.json'
 
 interface Props {
   params: {
@@ -38,7 +39,7 @@ export default async function ({ params }: Props) {
 
 export function generateMetadata({ params }: Props): Metadata {
   return {
-    title: `Plumbiu | 文章 - 第${params.pagenum}页`,
-    description: 'Plumbiu 的文章页 - ' + params.pagenum,
+    title: `${name} | 文章 - 第${params.pagenum}页`,
+    description: `${name} 的文章页 - ${params.pagenum}`,
   }
 }

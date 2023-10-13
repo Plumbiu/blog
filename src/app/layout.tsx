@@ -4,9 +4,10 @@ import type { Metadata } from 'next'
 import Header from '@/components/app/Header'
 import Container from '@/components/app/Container'
 import RightCard from '@/components/app/SideCard/Right'
+import { title } from '~/config.json'
 
 export const metadata: Metadata = {
-  title: 'Plumbiu の 小屋',
+  title,
   description: 'Welcome to my blog!',
   themeColor: '#1976d2',
   viewport: 'width=device-width, initial-scale=1.0',

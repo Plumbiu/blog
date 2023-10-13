@@ -3,6 +3,7 @@ import { useGet } from '@/lib/api'
 import ArticleBanner from '@/components/ui/Banner'
 import Badge from '@/components/ui/Badge'
 import Tag from '@/components/ui/Tag'
+import { name } from '~/config.json'
 
 interface Props {
   params: {
@@ -19,9 +20,7 @@ export async function generateStaticParams() {
 }
 
 const TagsName = async ({ params }: Props) => {
-  const posts = await useGet<IFrontMatter[]>(
-    'article?category=' + params.name,
-  )
+  const posts = await useGet<IFrontMatter[]>('article?category=' + params.name)
 
   return (
     <>
@@ -48,7 +47,7 @@ export default TagsName
 
 export function generateMetadata({ params }: Props): Metadata {
   return {
-    title: 'Plumbiu | 分类 - ' + params.name,
-    description: 'Plumbiu 的分类页 - ' + params.name,
+    title: `${name} | 分类 - ${params.name}`,
+    description: `${name} 的分类页 - ${params.name}`,
   }
 }

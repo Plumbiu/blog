@@ -3,6 +3,7 @@ import Badge from '@/components/ui/Badge'
 import ArticleBanner from '@/components/ui/Banner'
 import Tag from '@/components/ui/Tag'
 import { useGet } from '@/lib/api'
+import { name } from '~/config.json'
 
 interface Props {
   params: {
@@ -46,7 +47,7 @@ export default TagsName
 
 export function generateMetadata({ params }: Props): Metadata {
   return {
-    title: 'Plumbiu | 标签 - ' + params.name,
-    description: 'Plumbiu 的标签页 - ' + params.name,
+    title: `${name} | 标签 - ${params.name}`,
+    description: `${name} 的标签页 - ${params.name}`,
   }
 }

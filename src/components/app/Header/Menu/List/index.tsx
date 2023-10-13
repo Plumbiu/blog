@@ -10,6 +10,7 @@ import {
   TagIcon,
   TravelExploreIcon,
 } from '@/components/icons'
+import { blog_repo } from '~/config.json'
 
 const lists = [
   { text: '首页', link: '/', icon: <FirstPageIcon /> },
@@ -21,7 +22,7 @@ const lists = [
   { text: '分类', link: '/category', icon: <CategoryIcon /> },
   {
     text: 'GitHub',
-    link: 'https://github.com/Plumbiu/blog',
+    link: blog_repo,
     icon: <GithubIcon />,
   },
 ]

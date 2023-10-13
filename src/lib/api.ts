@@ -1,7 +1,9 @@
+import { url } from '~/config.json'
+
 const queryURL =
   process.env.NODE_ENV === 'development' ?
     'http://localhost:3000/api/' :
-    'https://blog.plumbiu.top/api/'
+    `${url}/api/`
 
 export async function useGet<T>(suffix: string) {
   const raw = await fetch(queryURL + suffix)

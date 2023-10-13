@@ -1,10 +1,11 @@
 import type { MetadataRoute } from 'next'
+import { title, name, url } from '~/config.json'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Plumbiu の 小屋',
-    short_name: 'Plumbiu\'s blog',
-    description: 'Plumbiu 的 material 风格博客',
+    name,
+    short_name: title,
+    description: `${name} 的 material 风格博客`,
     start_url: '.',
     display: 'standalone',
     background_color: '#F6F8FC',
@@ -13,7 +14,7 @@ export default function manifest(): MetadataRoute.Manifest {
     related_applications: [
       {
         platform: 'play',
-        url: 'https://blog.plumbiu.top',
+        url,
         id: 'com.app.blog.plumbiu',
       },
     ],
