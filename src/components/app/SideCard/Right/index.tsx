@@ -10,18 +10,18 @@ import Tag from '@/components/ui/Tag'
 const RightCard = async () => {
   const tags = await useGet<Tag[]>('tag')
   const categories = await useGet<Category[]>('category')
-  const archiveArts = await useGet<IFullFrontMatter[]>('archive?limit=5')
+  const archiveArts = await useGet<IFrontMatter[]>('archive?limit=5')
   const archeveYear = await useGet<IArcheveYear[]>('archive/year')
 
   return (
     <div className="Side-Right">
       <div className="Side-Item">
         <div className="Side-Title">标签</div>
-        <Chips path="tags" chips={tags} />
+        <Chips path="tag" chips={tags} />
       </div>
       <div className="Side-Item">
         <div className="Side-Title">分类</div>
-        <Chips path="categories" chips={categories} />
+        <Chips path="category" chips={categories} />
       </div>
       <div className="Side-Item">
         <div className="Side-Title">最近文章</div>
