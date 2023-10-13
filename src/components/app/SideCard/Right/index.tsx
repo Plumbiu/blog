@@ -4,7 +4,8 @@ import DateTitle from '../../DateTitle'
 import { useGet } from '@/lib/api'
 import '../index.css'
 import './index.css'
-import Title from '@/components/ui/Title'
+import { TagIcon } from '@/components/icons'
+import Tag from '@/components/ui/Tag'
 
 const RightCard = async () => {
   const tags = await useGet<Tag[]>('tag')
@@ -15,19 +16,19 @@ const RightCard = async () => {
   return (
     <div className="Side-Right">
       <div className="Side-Item">
-        <Title>标签</Title>
+        <div className="Side-Title">标签</div>
         <Chips path="tags" chips={tags} />
       </div>
       <div className="Side-Item">
-        <Title>分类</Title>
+        <div className="Side-Title">分类</div>
         <Chips path="categories" chips={categories} />
       </div>
       <div className="Side-Item">
-        <Title>最近文章</Title>
+        <div className="Side-Title">最近文章</div>
         <DateTitle articles={archiveArts} />
       </div>
       <div className="Side-Item">
-        <Title>归档</Title>
+        <div className="Side-Title">归档</div>
         {archeveYear.map(({ year, num }) => (
           <Link
             key={year}

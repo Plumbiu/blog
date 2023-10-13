@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react'
-import Title from '../../ui/Title'
 import TimeLine from '../../ui/TimeLine'
 import { formatTime } from '@/lib/time'
 import events from '~/config/events.json'
@@ -34,7 +33,6 @@ const bgcolorMap: Record<string, string> = {
 const OpenSourceCmp = () => {
   return (
     <div className="OpenSource">
-      <Title>🎉 我的开源之旅 🎉</Title>
       {events.map(({ id, created_at, actor, repo, type, payload }) => (
         <TimeLine
           key={id}

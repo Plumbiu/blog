@@ -1,16 +1,10 @@
 import ArchiveCmp from '@/components/app/Archive'
-import Title from '@/components/ui/Title'
 import { useGet } from '@/lib/api'
 
 const Archive = async () => {
   const archives = await useGet<IArcheve[]>('archive')
 
-  return (
-    <>
-      <Title>归档</Title>
-      <ArchiveCmp archives={archives} />
-    </>
-  )
+  return <ArchiveCmp archives={archives} />
 }
 
 export default Archive

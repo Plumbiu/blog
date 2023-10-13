@@ -7,3 +7,9 @@
 .List-Top img {
   border-radius: 50%;
 }
+
+.List-Top div {
+  margin-top: 4px;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 18px;
+}

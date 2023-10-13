@@ -16,3 +16,21 @@
   font-size: 16px;
   color: rgba(0, 0, 0, 0.85);
 }
+
+.Side-Title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 12px 36px 12px 24px;
+  font-size: 18px;
+}
+
+.Side-Title::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.15);
+}

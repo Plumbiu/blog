@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Title from '@/components/ui/Title'
 import FriendsCmp from '@/components/app/Friends'
 
 export const metadata: Metadata = {
@@ -8,12 +7,7 @@ export const metadata: Metadata = {
 }
 
 const Friends = () => {
-  return (
-    <>
-      <Title>朋友们</Title>
-      <FriendsCmp />
-    </>
-  )
+  return <FriendsCmp />
 }
 
 export default Friends

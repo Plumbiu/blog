@@ -5,7 +5,6 @@ import { md2html } from '@plumbiu/md'
 import { useGet } from '@/lib/api'
 import Main from '@/components/app/Container/Main'
 import TocCmp from '@/components/app/Toc'
-import Title from '@/components/ui/Title'
 
 interface Props {
   params: {
@@ -38,7 +37,6 @@ export default async function PostId({ params }: Props) {
         updated={updated}
       />
       <Main>
-        <Title>{title}</Title>
         <div
           style={{
             padding: '16px 20px',

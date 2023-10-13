@@ -34,7 +34,7 @@ const ArticleBanner: FC<Props> = ({ posts, name, col = 1 }) => {
       {posts.map(({ id, desc, title, tags, categories, date }) => (
         <Link
           key={id}
-          className={`Hover-Dark Banner-Link Banner-Col-${col}`}
+          className={`Hover Banner-Link Banner-Col-${col}`}
           href={'/post/' + id}
         >
           {toImage(tags[0]) && (

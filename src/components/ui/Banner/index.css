@@ -7,23 +7,14 @@
 }
 
 .Banner-Link {
+  position: relative;
   box-sizing: border-box;
   display: flex;
+  margin-bottom: 12px;
   justify-content: space-between;
   align-items: stretch;
-  gap: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  box-shadow: 0px 1px 6px -1px rgba(0, 0, 0, 0.15);
-  border-radius: 12px;
-  margin: 6px 0;
-}
-
-.Banner-Link img {
-  transition: scale 100ms ease-in;
-}
-
-.Banner-Link:hover img {
-  scale: 1.2;
+  box-shadow: 0 1px 6px -1px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
 }
 
 .Banner-Col-2 {
@@ -37,9 +28,8 @@
 .Banner-Cover {
   display: flex;
   align-items: center;
-  padding: 0 36px;
+  padding: 0 20px 0 36px;
   height: 100%;
-  border-right: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .Banner-List {
@@ -48,7 +38,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 16px 12px;
+  padding: 16px;
   width: 47%;
 }
 
