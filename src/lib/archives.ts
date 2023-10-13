@@ -1,5 +1,5 @@
-export function loadArchives(posts: IFullFrontMatter[]) {
-  const raw: Record<string, IFullFrontMatter[]> = {}
+export function loadArchives(posts: IFrontMatter[]) {
+  const raw: Record<string, IFrontMatter[]> = {}
   for (const post of posts) {
     const date = new Date(post.date)
     const year = date.getFullYear()

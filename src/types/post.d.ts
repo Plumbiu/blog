@@ -1,22 +1,14 @@
-interface IArticleParams {
-  id: string
-}
-
-interface IArticle extends IRawMatter {
+interface IArticle {
   id: string
   content: string
-}
-
-interface IRawMatter {
   title: string
   date: Date
   updated: Date
   tags: string[]
   categories: string[]
+  desc: string
   cover?: string
-  desc?: string
 }
 
-interface IFullFrontMatter extends IRawMatter {
-  id: string
-}
+type IFrontMatter = Omit<IArticle, 'content'>
+type TRawFrontMatter = Omit<IFrontMatter, 'id'>

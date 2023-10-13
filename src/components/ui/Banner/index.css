@@ -28,6 +28,7 @@
 .Banner-Cover {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 0 20px 0 36px;
   height: 100%;
 }
@@ -80,13 +81,16 @@
   .Banner-Col-2 {
     width: 100%;
   }
-  .Banner-Cover {
-    display: none;
-  }
 }
 
 @media screen and (max-width: 960px) {
   .Banner-Col-1 {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .Banner-Cover {
+    display: none;
   }
 }

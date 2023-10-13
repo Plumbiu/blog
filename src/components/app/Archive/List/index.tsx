@@ -4,7 +4,7 @@ import { perfixTime } from '@/lib/time'
 import './index.css'
 
 interface Props {
-  articles: IFullFrontMatter[]
+  articles: IFrontMatter[]
 }
 
 const ArchiveList: FC<Props> = ({ articles }) => {

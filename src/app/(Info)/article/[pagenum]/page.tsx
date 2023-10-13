@@ -24,7 +24,7 @@ export function generateStaticParams() {
 }
 
 export default async function ({ params }: Props) {
-  const data = await useGet<IFullFrontMatter[]>(
+  const data = await useGet<IFrontMatter[]>(
     'article?pagenum=' + (Number(params.pagenum) - 1),
   )
 

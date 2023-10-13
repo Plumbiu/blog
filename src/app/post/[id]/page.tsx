@@ -13,7 +13,7 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  const posts = await useGet<IFullFrontMatter[]>('article')
+  const posts = await useGet<IFrontMatter[]>('article')
   const ids = posts.map(post => ({
     id: post.id,
   }))

@@ -16,7 +16,7 @@ export async function getPosts(pagenum = 0, isLimit = false) {
   if (isLimit) {
     rawPosts = rawPosts.slice(start, start + articleLimit)
   }
-  const posts: IFullFrontMatter[] = []
+  const posts: IFrontMatter[] = []
   for (const post of rawPosts) {
     const file = await fsp.readFile(path.join(postsPath, post), 'utf-8')
     const end = file.indexOf('---', 3)
@@ -27,8 +27,8 @@ export async function getPosts(pagenum = 0, isLimit = false) {
       .replace(')', ' ')
     posts.push({
       id: post,
+      ...parseFM<TRawFrontMatter>(file),
       desc,
-      ...parseFM<IRawMatter>(file),
     })
   }
   posts.sort((a, b) => b.date.getTime() - a.date.getTime())

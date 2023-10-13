@@ -7,7 +7,7 @@ import { perfixTime } from '@/lib/time'
 import { ClockIcon } from '@/components/icons'
 
 interface Props {
-  posts: IFullFrontMatter[]
+  posts: IFrontMatter[]
   name: string
   col?: 1 | 2
 }

@@ -1,6 +1,6 @@
 interface IArcheve {
   year: string
-  articles: IFullFrontMatter[]
+  articles: IFrontMatter[]
 }
 
 interface IArcheveYear {

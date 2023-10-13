@@ -21,7 +21,7 @@ interface Props {
 
 const TocCmp: FC<Props> = async ({ html, title, tags, categories, date }) => {
   const tocs = html2toc(html)
-  const relatedArticles = await useGet<IFullFrontMatter[]>(
+  const relatedArticles = await useGet<IFrontMatter[]>(
     'article?limit=3&tag=' + tags[0],
   )
 

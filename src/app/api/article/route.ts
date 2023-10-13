@@ -1,7 +1,7 @@
 import { getPosts } from '@/lib/node/article'
 
 export async function GET(req: Request) {
-  let posts: IFullFrontMatter[]
+  let posts: IFrontMatter[]
   const { searchParams } = new URL(req.url)
   // 1. pagenum searchParams
   const pagenum = searchParams.get('pagenum')

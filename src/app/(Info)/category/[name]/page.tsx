@@ -19,7 +19,7 @@ export async function generateStaticParams() {
 }
 
 const TagsName = async ({ params }: Props) => {
-  const posts = await useGet<IFullFrontMatter[]>(
+  const posts = await useGet<IFrontMatter[]>(
     'article?category=' + params.name,
   )
 
