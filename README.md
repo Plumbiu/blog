@@ -50,6 +50,8 @@ Update `config.json`:
   "github_name": "Plumbiu", // Your GitHub name
   "twitter": "Plumbiu", // Your twitter name
   "title": "Plumbiu の 小屋", // Blog title name
+  "location": "Hang Zhou, China", // Your home location
+  "email": "plumbiuzz@gmail.com", // Email
   "url": "https://blog.plumbiu.top", // Your blog site url
   "yourself": "plumbiuzz@gmail.com(Plumbiu)", // Email + name
   "blog_message_repo": "blog_message", // Your message repo in github, it can be private
