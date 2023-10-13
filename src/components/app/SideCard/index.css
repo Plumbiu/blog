@@ -1,13 +1,13 @@
 .Side-Left {
   position: fixed;
   width: 19%;
-  left: 6%;
+  left: 8px;
 }
 
 .Side-Right {
   position: absolute;
   width: 19%;
-  right: 6%;
+  right: 8px;
 }
 
 .Side-Left .Stack {
@@ -30,19 +30,13 @@
   }
 }
 
-.Side-Fixed {
-  position: fixed;
-  min-width: 240px;
-  max-width: 300px;
-}
-
 .Side-Item {
   box-sizing: border-box;
   overflow: hidden;
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0px 1px 6px -1px rgba(0, 0, 0, 0.2);
-  margin-bottom: 16px;
+  box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.2);
+  margin-bottom: 4px;
 }
 
 .Side-Item .Stack {
