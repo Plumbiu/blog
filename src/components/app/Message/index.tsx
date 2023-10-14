@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { Slide, ToastContainer, toast } from 'react-toastify'
 import { usePost } from '@/lib/api'
 import { perfixTime } from '@/lib/time'
 import './index.css'
@@ -16,13 +15,10 @@ const MessageCmp = () => {
       ...payload,
       date: perfixTime(Date.now()),
     }
-    const { msg, type } = await usePost<{
+    await usePost<{
       msg: string
       type: 'success' | 'error'
     }>('message', message)
-    toast(msg, {
-      type,
-    })
   }
 
   return (
@@ -61,7 +57,6 @@ const MessageCmp = () => {
       >
         留言
       </div>
-      <ToastContainer transition={Slide} autoClose={250} hideProgressBar />
     </div>
   )
 }
