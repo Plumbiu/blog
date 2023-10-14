@@ -1,5 +1,6 @@
 import '@/styles/globals.css'
 import 'react-toastify/dist/ReactToastify.css'
+import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import Header from '@/components/app/Header'
 import Container from '@/components/app/Container'
@@ -32,6 +33,7 @@ export default function RootLayout({
           {children}
           <RightCard />
         </Container>
+        <Analytics />
       </body>
     </html>
   )
