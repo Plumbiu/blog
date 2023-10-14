@@ -1,9 +1,9 @@
 .Main {
   position: absolute;
   left: 20%;
-  right: 20%;
+  right: 19%;
   border-radius: 8px;
-  min-height: calc(100vh - 100px);
+  min-height: calc(100vh - 160px);
   background-color: #fff;
   margin: 0 8px;
   box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.2);
