@@ -7,7 +7,7 @@ const AboutCmp = () => {
     <div className="About">
       <div>
         <span>文章作者</span>
-        <Link href={`https://github.com/${github_name}`}>${github_name}</Link>
+        <Link href={`https://github.com/${github_name}`}>{github_name}</Link>
       </div>
       <div>
         <span>文章链接首页</span>

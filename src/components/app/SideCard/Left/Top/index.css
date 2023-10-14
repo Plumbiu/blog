@@ -13,3 +13,15 @@
   color: rgba(0, 0, 0, 0.9);
   font-size: 18px;
 }
+
+.List-Top-Me {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.List-Top-Me svg {
+  font-size: 24px;
+  color: #1976d2;
+}
