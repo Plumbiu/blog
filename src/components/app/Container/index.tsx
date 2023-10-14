@@ -10,7 +10,7 @@ const Container: FC<Props> = ({ children }) => {
       style={{
         position: 'relative',
         display: 'flex',
-        margin: '60px auto',
+        margin: '64px auto',
       }}
     >
       {children}
