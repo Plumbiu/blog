@@ -5,7 +5,7 @@
   line-height: 22px;
   height: 22px;
   padding: 0 6px;
-  border: 0.85px solid #1976d2;
+  border: 0.85px solid var(--blog-theme);
   border-radius: 14px;
   min-width: 24px;
   font-size: 0.8125rem;
@@ -13,14 +13,14 @@
 }
 
 .Tag-Outlined {
-  color: #1976d2;
-  background-color: #fff;
+  color: var(--blog-theme);
+  background-color: var(--blog-bg-default);
 }
 
 .Tag-Filled {
   color: #fff;
-  background-color: #1976d2;
-  border-color: #1976d2;
+  background-color: var(--blog-theme);
+  border-color: var(--blog-theme);
 }
 
 .Tag-Link {

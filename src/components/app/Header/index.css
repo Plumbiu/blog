@@ -6,8 +6,8 @@
   backdrop-filter: blur(5px);
   top: 0;
   width: 100%;
-  box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.2);
-  background-color: rgba(255, 255, 255, 0.75);
+  box-shadow: var(--blog-shadow);
+  background-color: var(--blog-bg-header);
   z-index: 199;
   height: 58px;
 }
@@ -25,4 +25,9 @@
 .Header-Search-Wrap {
   transform: scale(0.9);
   margin-right: 8px;
+}
+
+.Header-Right-Wrap {
+  display: flex;
+  align-items: center;
 }

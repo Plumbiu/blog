@@ -8,12 +8,12 @@
   position: relative;
   box-sizing: border-box;
   display: flex;
-  background-color: #fff;
+  background-color: var(--blog-bg-default);
   margin-bottom: 8px;
   padding: 0 12px;
   justify-content: space-between;
   align-items: stretch;
-  box-shadow: 0 1px 6px -1px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--blog-shadow-wide);
   border-radius: 4px;
 }
 
@@ -50,12 +50,12 @@
 
 .Banner-Date p {
   font-size: 13px;
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--blog-color-default);
 }
 
 .Banner-Date svg {
   font-size: 14px;
-  color: #1976d2;
+  color: var(--blog-theme);
   margin-right: 4px;
 }
 
@@ -70,7 +70,7 @@
   font-size: 13px;
   line-height: 1.5;
   word-break: break-all;
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--blog-color-default);
   padding: 8px 0;
   padding-right: 24px;
 }

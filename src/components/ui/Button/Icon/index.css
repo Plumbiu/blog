@@ -4,7 +4,7 @@
   line-height: 30px;
   align-items: center;
   padding: 0 6px;
-  color: #1976d2;
+  color: var(--blog-theme);
   font-size: 0.8125rem;
   letter-spacing: 1px;
   border-radius: 4px;

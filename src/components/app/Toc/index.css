@@ -1,5 +1,5 @@
 :target {
-  color: #1976d2;
+  color: var(--blog-theme);
 }
 
 @media screen and (max-width: 780px) {
@@ -9,9 +9,9 @@
 }
 
 .Toc {
-  box-shadow: 0px 1px 6px -1px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--blog-shadow-wide);
   border-radius: 12px;
-  background-color: #fff;
+  background-color: var(--blog-bg-default);
   padding-top: 12px;
   overflow: hidden;
   margin-bottom: 12px;

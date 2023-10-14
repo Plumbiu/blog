@@ -5,7 +5,7 @@
   line-height: 1.75;
   letter-spacing: 0.02857em;
   padding: 6px 8px;
-  color: #1976d2;
+  color: var(--blog-theme);
   border-radius: 2px;
   min-width: 45px;
 }

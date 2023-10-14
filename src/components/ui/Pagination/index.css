@@ -13,7 +13,7 @@
 }
 
 .Pagination-Icon-Link-Active {
-  background-color: #1976d2;
+  background-color: var(--blog-theme);
   color: #fff;
 }
 

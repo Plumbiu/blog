@@ -19,7 +19,7 @@
   display: block;
   width: 1px;
   height: 22px;
-  background-color: #1976d2;
+  background-color: var(--blog-theme);
 }
 
 .Archive-Title > div:last-child::after {
@@ -27,12 +27,12 @@
 }
 
 .Archive-Title > div p {
-  color: rgba(0, 0, 0, 0.9);
+  color: var(--blog-color-darker);
   min-width: 40px;
 }
 
 .Archive-Title > div a {
-  color: #1976d2;
+  color: var(--blog-theme);
 }
 
 .Archive-Title > div > div {
@@ -40,5 +40,5 @@
   height: 10px;
   width: 10px;
   border-radius: 50%;
-  background-color: #1976d2;
+  background-color: var(--blog-theme);
 }

@@ -10,10 +10,10 @@
 }
 
 .Date-Title > div p {
-  color: rgba(0, 0, 0, 0.9);
+  color: var(--blog-color-darker);
   min-width: 46px;
 }
 
 .Date-Title > div a {
-  color: #1976d2;
+  color: var(--blog-theme);
 }

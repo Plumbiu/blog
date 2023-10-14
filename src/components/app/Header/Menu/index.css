@@ -17,11 +17,11 @@
 
 .Hader-Menu-List {
   position: fixed;
-  background-color: #fff;
+  background-color: var(--blog-bg-default);
   left: 12px;
   top: 48px;
   padding: 8px 0;
   color: #333;
-  box-shadow: 0px 1px 6px -1px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--blog-shadow-wide);
   border-radius: 8px;
 }

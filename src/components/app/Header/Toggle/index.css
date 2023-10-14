@@ -1,0 +1,14 @@
+.Header-Toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+}
+
+.Header-Toggle svg {
+  font-size: 20px;
+}

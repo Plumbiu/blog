@@ -7,7 +7,7 @@
 }
 
 .Side-Archive-Link div:last-child {
-  color: #1976d2;
+  color: var(--blog-theme);
 }
 
 .Side-Title {

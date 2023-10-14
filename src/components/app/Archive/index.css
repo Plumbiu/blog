@@ -24,8 +24,8 @@
   border-radius: 18px;
   transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   width: 56px;
-  background-color: #1976d2;
-  box-shadow: 0 1px 8px #1976d2;
+  background-color: var(--blog-theme);
+  box-shadow: var(--blog-shadow);
 }
 
 .Archive h2:hover::after {

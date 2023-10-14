@@ -13,5 +13,5 @@
 
 .About a {
   font-size: 16px;
-  color: #1976d2;
+  color: var(--blog-theme);
 }

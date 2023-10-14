@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import '@plumbiu/md/style/github-markdown-light.css'
-import '@plumbiu/md/style/hljs-markdown-light.css'
+import '@plumbiu/md/style/github-markdown.css'
+import '@plumbiu/md/style/hljs-markdown.css'
 import { md2html } from '@plumbiu/md'
 import { useGet } from '@/lib/api'
 import Main from '@/components/app/Container/Main'

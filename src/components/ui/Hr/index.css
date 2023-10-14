@@ -4,6 +4,6 @@
   background-color: #eee;
   height: 0.75px;
   margin: 2px 0;
-  background-color: #d0d7de;
+  background-color: var(--blog-bg-hr);
   border: 0;
 }

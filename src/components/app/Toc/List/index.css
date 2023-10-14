@@ -12,7 +12,7 @@
 }
 
 .Toc-List:hover {
-  background-color: #f8f8f8 !important;
+  background-color: var(--blog-hover-dark) !important;
 }
 
 .Toc-Block {
@@ -24,7 +24,7 @@
   width: 12px;
   height: 20px;
   border-radius: 0 50% 50% 0;
-  background-color: #1976d2;
+  background-color: var(--blog-theme);
 }
 
 .Toc-List-Level-1 {
@@ -40,6 +40,6 @@
 }
 
 .Toc-List-Active {
-  color: #1976d2;
-  background-color: #f8f8f8;
+  color: var(--blog-theme);
+  font-weight: bold;
 }
