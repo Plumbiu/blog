@@ -19,9 +19,12 @@
   transform: translateY(50%);
   display: block;
   width: 1px;
-  filter: blur(1px);
-  height: 24px;
+  height: 22px;
   background-color: #1976d2;
+}
+
+.Archive-Title > div:last-child::after {
+  display: none;
 }
 
 .Archive-Title > div p {
@@ -38,6 +41,5 @@
   height: 10px;
   width: 10px;
   border-radius: 50%;
-  filter: blur(1px);
   background-color: #1976d2;
 }

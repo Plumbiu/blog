@@ -1,20 +1,13 @@
 .Side-Archive-Link {
   display: flex;
   justify-content: space-between;
-  padding: 12px 48px;
-  margin: 8px 16px;
+  padding: 12px;
+  margin: 8px 12px;
   border-radius: 12px;
 }
 
-.Side-Archive-Link div:first-child {
-  font-size: 18px;
-  color: #1976d2;
-  font-weight: bold;
-}
-
 .Side-Archive-Link div:last-child {
-  font-size: 16px;
-  color: rgba(0, 0, 0, 0.85);
+  color: #1976d2;
 }
 
 .Side-Title {
@@ -22,7 +15,7 @@
   display: flex;
   align-items: center;
   padding: 12px 36px 12px 24px;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .Side-Title::after {

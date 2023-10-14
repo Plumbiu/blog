@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   color: rgba(0, 0, 0, 0.54);
-  min-width: 42px;
+  min-width: 38px;
 }
 
 .Btn-List-Icon-Link {
@@ -13,12 +13,12 @@
 }
 
 .Btn-List-Text {
+  font-size: 14px;
   letter-spacing: 0.5px;
 }
 
 .Btn-List-Icon svg {
   color: #fff;
-  font-size: 18px;
   background-color: #1976d2;
   padding: 6px;
   border-radius: 50%;

@@ -11,7 +11,6 @@
 .List-Top div {
   margin-top: 4px;
   color: rgba(0, 0, 0, 0.9);
-  font-size: 18px;
 }
 
 .List-Top-Me {
@@ -22,6 +21,6 @@
 }
 
 .List-Top-Me svg {
-  font-size: 24px;
+  font-size: 20px;
   color: #1976d2;
 }

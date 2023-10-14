@@ -4,8 +4,6 @@ import DateTitle from '../../DateTitle'
 import { useGet } from '@/lib/api'
 import '../index.css'
 import './index.css'
-import { TagIcon } from '@/components/icons'
-import Tag from '@/components/ui/Tag'
 
 const RightCard = async () => {
   const tags = await useGet<Tag[]>('tag')
@@ -35,7 +33,7 @@ const RightCard = async () => {
             href={'/archive/' + year}
             className="Hover-Dark Side-Archive-Link"
           >
-            <div>{year}</div>
+            <div>{year}年</div>
             <div>{num}</div>
           </Link>
         ))}

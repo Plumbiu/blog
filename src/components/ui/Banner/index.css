@@ -2,19 +2,19 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 8px;
-  border-radius: 12px;
 }
 
 .Banner-Link {
   position: relative;
   box-sizing: border-box;
   display: flex;
-  margin-bottom: 12px;
+  background-color: #fff;
+  margin-bottom: 8px;
+  padding: 0 12px;
   justify-content: space-between;
   align-items: stretch;
   box-shadow: 0 1px 6px -1px rgba(0, 0, 0, 0.15);
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .Banner-Col-2 {
@@ -22,14 +22,14 @@
 }
 
 .Banner-Col-1 {
-  width: 97%;
+  width: 98.5%;
 }
 
 .Banner-Cover {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 20px 0 36px;
+  padding: 0 20px 0 24px;
   height: 100%;
 }
 
@@ -44,11 +44,12 @@
 }
 
 .Banner-Date {
+  margin-top: 2px;
   display: flex;
 }
 
 .Banner-Date p {
-  font-size: 12px;
+  font-size: 13px;
   color: rgba(0, 0, 0, 0.6);
 }
 
@@ -59,25 +60,22 @@
 }
 
 .Banner-Link-Title {
-  font-size: 19px;
   font-weight: 500;
+  font-size: 17px;
   overflow: hidden;
   padding-bottom: 6px;
 }
 
 .Banner-Link-Desc {
-  line-height: 1.5;
   font-size: 13px;
+  line-height: 1.5;
   word-break: break-all;
   color: rgba(0, 0, 0, 0.6);
-  padding: 6px 0;
+  padding: 8px 0;
   padding-right: 24px;
 }
 
 @media screen and (max-width: 1100px) {
-  .Banner-Wrap {
-    padding: 12px;
-  }
   .Banner-Col-2 {
     width: 100%;
   }
@@ -86,6 +84,9 @@
 @media screen and (max-width: 960px) {
   .Banner-Col-1 {
     width: 100%;
+  }
+  .Banner-Link-Title {
+    font-size: 18px;
   }
 }
 

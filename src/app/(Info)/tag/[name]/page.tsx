@@ -1,7 +1,5 @@
 import type { Metadata } from 'next'
-import Badge from '@/components/ui/Badge'
 import ArticleBanner from '@/components/ui/Banner'
-import Tag from '@/components/ui/Tag'
 import { useGet } from '@/lib/api'
 import { name } from '~/config.json'
 
@@ -22,25 +20,7 @@ export async function generateStaticParams() {
 const TagsName = async ({ params }: Props) => {
   const posts = await useGet<IFrontMatter[]>('article?tag=' + params.name)
 
-  return (
-    <>
-      <div
-        style={{
-          marginTop: '16px',
-          textAlign: 'center',
-        }}
-      >
-        <Badge count={posts.length}>
-          <Tag
-            text={decodeURI(params.name)}
-            link={'/tag/' + params.name}
-            plain
-          />
-        </Badge>
-      </div>
-      <ArticleBanner posts={posts} name={params.name} />
-    </>
-  )
+  return <ArticleBanner posts={posts} name={params.name} />
 }
 
 export default TagsName

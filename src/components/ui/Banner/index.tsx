@@ -40,8 +40,8 @@ const ArticleBanner: FC<Props> = ({ posts, name, col = 1 }) => {
           {toImage(tags[0]) && (
             <div className="Banner-Cover">
               <Image
-                width={70}
-                height={70}
+                width={64}
+                height={64}
                 alt={tags[0]}
                 src={'/cover/' + toImage(tags[0])}
               />

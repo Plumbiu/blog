@@ -4,7 +4,6 @@
   justify-content: center;
   overflow: scroll;
   padding: 12px 16px;
-  font-size: 18px;
 }
 
 .Pagination-Icon-Link {
@@ -18,11 +17,14 @@
   color: #fff;
 }
 
+.Pagination svg {
+  height: 28px;
+}
+
 .Pagination-Link {
-  transform: translateY(-6px);
-  width: 32px;
-  height: 32px;
-  line-height: 32px;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
   text-align: center;
   border-radius: 50%;
   cursor: pointer;
