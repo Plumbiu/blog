@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import TimeLine from '../../ui/TimeLine'
+import TimeLine from '@/components/ui/TimeLine'
 import { formatTime } from '@/lib/time'
 import events from '~/config/events.json'
 import './index.css'

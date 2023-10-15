@@ -1,5 +1,5 @@
-import ButtonListIcon from '../../../../ui/Button/ListIcon'
-import Hr from '../../../../ui/Hr'
+import ButtonListIcon from '@/components/ui/Button/ListIcon'
+import Hr from '@/components/ui/Hr'
 import {
   ArticleIcon,
   CategoryIcon,
