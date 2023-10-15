@@ -2,6 +2,7 @@
   --blog-theme: #1976d2;
   --blog-scrollbar: #efd4ff;
   --blog-body-bg: #f6f6fc;
+  --blog-skeleton: #e5e7ec;
   --blog-bg-default: #fff;
   --blog-bg-header: rgba(255, 255, 255, 0.75);
   --blog-color-lighter: rgba(0, 0, 0, 0.2);
@@ -22,12 +23,13 @@ html[theme='dark'] {
   --blog-bg-default: #161b22;
   --blog-scrollbar: #4392a6;
   --blog-bg-header: #0d1117;
+  --blog-skeleton: #453a44;
   --blog-color-lighter: rgba(255, 255, 255, 0.2);
   --blog-color-light: rgba(255, 255, 255, 0.4);
   --blog-color-default: rgba(255, 255, 255, 0.6);
   --blog-color-dark: rgba(255, 255, 255, 0.8);
   --blog-color-darker: rgba(255, 255, 255, 0.9);
-  --blog-body-bg: #141614;
+  --blog-body-bg: #212223;
   --blog-hover-default: #313131;
   --blog-hover-dark: rgba(255, 255, 255, 0.04);
   --blog-hover-darker: rgba(255, 255, 255, 0.1);
