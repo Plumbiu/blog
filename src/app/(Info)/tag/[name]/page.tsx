@@ -26,8 +26,10 @@ const TagsName = async ({ params }: Props) => {
 export default TagsName
 
 export function generateMetadata({ params }: Props): Metadata {
+  const decodedName = decodeURI(params.name)
+
   return {
-    title: `${name} | 标签 - ${params.name}`,
-    description: `${name} 的标签页 - ${params.name}`,
+    title: `${name} | 标签 - ${decodedName}`,
+    description: `${name} 的标签页 - ${decodedName}`,
   }
 }
