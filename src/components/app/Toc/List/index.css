@@ -1,4 +1,5 @@
 .Toc-List-Wrap {
+  font-size: 14px;
   padding: 6px 0;
   max-height: 30vh;
   overflow-y: scroll;
@@ -8,11 +9,12 @@
   position: relative;
   padding-top: 8px;
   padding-bottom: 8px;
+  transition: background-color 100ms;
   display: block;
 }
 
 .Toc-List:hover {
-  background-color: var(--blog-hover-dark) !important;
+  background-color: var(--blog-hover-darker) !important;
 }
 
 .Toc-Block {
@@ -41,5 +43,4 @@
 
 .Toc-List-Active {
   color: var(--blog-theme);
-  font-weight: bold;
 }

@@ -15,10 +15,6 @@ import { github_name, twitter, url, location, email } from '~/config.json'
 
 const info = [
   {
-    primary: '朋友们',
-    href: '/friend',
-  },
-  {
     primary: '留言板',
     href: '/message',
   },
@@ -30,7 +26,10 @@ const info = [
 const blogInfo = [
   { primary: '归档', href: '/archive' },
   { primary: '文章', href: '/article/1', count: articleNum },
-  { primary: '关于', href: '/about' },
+  {
+    primary: '朋友',
+    href: '/friend',
+  },
 ]
 
 const githubInfo = [
@@ -70,14 +69,14 @@ const SideCardBottom = () => {
         {githubInfo.map(({ icon, primary, href }) => (
           <ButtonListIcon
             key={href ?? primary}
-            py={10}
+            py={9}
             icon={icon}
             link={href}
             text={primary}
           />
         ))}
       </div>
-      <Stack spacing={16}>
+      <Stack>
         {info.map(({ primary, href }) => (
           <Button prefetch={primary !== '留言板'} key={primary} link={href}>
             {primary}

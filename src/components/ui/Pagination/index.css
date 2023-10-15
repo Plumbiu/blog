@@ -3,7 +3,7 @@
   gap: 10px;
   justify-content: center;
   overflow: scroll;
-  padding: 12px 16px;
+  padding: 12px 16px 0 16px;
 }
 
 .Pagination-Icon-Link {

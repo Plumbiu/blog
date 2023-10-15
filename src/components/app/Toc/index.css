@@ -10,14 +10,14 @@
 
 .Toc {
   box-shadow: var(--blog-shadow-wide);
-  border-radius: 12px;
+  border-radius: 6px;
   background-color: var(--blog-bg-default);
   padding-top: 12px;
   overflow: hidden;
   margin-bottom: 12px;
 }
 
-.Toc h2, h3 {
+.Toc h4 {
   padding-left: 16px;
 }
 
@@ -28,7 +28,7 @@
 }
 
 .Toc-Date p {
-  font-size: 14px;
+  font-size: 12px;
   padding: 4px 0;
 }
 
@@ -38,5 +38,5 @@
 }
 
 .Toc-Bottom {
-  margin: 6px 0 8px 12px;
+  margin: 8px 0 8px 12px;
 }

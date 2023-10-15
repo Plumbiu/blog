@@ -8,19 +8,14 @@
 
 .List-Center-Badge {
   display: flex;
-  text-align: center;
-}
-
-.List-Center-Badge div {
-  flex: 1;
+  justify-content: space-evenly;
 }
 
 .List-Center .Stack {
+  justify-content: space-evenly;
   padding: 0;
 }
 
 .List-Center-Badge .Btn-Link {
-  padding: 12px;
+  padding: 9px 12px;
 }
-
-
