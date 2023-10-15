@@ -2,7 +2,7 @@
   font-size: 14px;
   letter-spacing: 1px;
   font-weight: bold;
-  padding: 16px 36px;
+  padding: 8px 0;
   color: var(--blog-color-dark);
   text-align: center;
 }
@@ -25,4 +25,10 @@
 
 .Footer-CopyRight span {
   color: var(--blog-color-lighter);
+}
+
+@media screen and (max-width: 1240px) {
+  .Footer {
+    margin-left: 30%;
+  }
 }

@@ -4,7 +4,7 @@ import Header from '@/components/app/Header'
 import Container from '@/components/app/Container'
 import RightCard from '@/components/app/SideCard/Right'
 import { title } from '~/config.json'
-import Footer from '@/components/ui/Footer'
+import Footer from '@/components/app/Footer'
 
 export const metadata: Metadata = {
   title,
