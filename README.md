@@ -44,7 +44,7 @@ you can update `config/friends.json` and upload your avatar in `public/friends` 
 
 ## DIY
 
-Update `config.json`:
+### Update `config.json`:
 
 ```json
 {
@@ -61,6 +61,8 @@ Update `config.json`:
 }
 ```
 
+### Update article
+
 Put your artilce in the `posts` folder, you should have these `front-matter`:
 
 ```md
@@ -73,4 +75,54 @@ tags:
 categories:
   - FE
 ---
+```
+
+### Env file
+
+See `.example.env` file, After the configuration file, you can name it `.env.*`
+
+### Github Action
+
+In the folder `.github/workflows/`, you can find code like this:
+
+```yml
+# ....
+- name: Configure Git
+  run: |
+    git config --global user.email 3434909403@qq.com
+    git config --global user.name Plumbiu
+    git add .
+    git commit -m "feat: update events.json"
+    git pull --rebase
+
+# ....
+```
+
+Set the `user.email` and `user.name` for yourself.
+
+### Other
+
+This repo use my own eslint plugin `@plumbiu/eslint-config`, if you don't like it, you can change it in the `package.json`:
+
+```json
+{
+  // ...
+-  "eslintConfig": {
+-    "extends": ["@plumbiu"],
+-    "ignorePatterns": ["/assets"]
+-  }
+}
+```
+
+And for `simple-git-hooks`:
+
+```json
+{
+  "scripts": {
+-    "prepare": "simple-git-hooks"
+  },
+  "devDependencies": {
+-    "simple-git-hooks": "^2.9.0"
+  }
+}
 ```
