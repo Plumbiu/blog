@@ -26,7 +26,7 @@ const FriendsCmp = () => {
           />
           <div className="Friend-Info">
             <Image
-              src={'/friend/' + avatar}
+              src={'/friends/' + avatar}
               width={40}
               height={40}
               alt={name}
