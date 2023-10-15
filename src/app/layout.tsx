@@ -4,6 +4,7 @@ import Header from '@/components/app/Header'
 import Container from '@/components/app/Container'
 import RightCard from '@/components/app/SideCard/Right'
 import { title } from '~/config.json'
+import Footer from '@/components/ui/Footer'
 
 export const metadata: Metadata = {
   title,
@@ -31,6 +32,7 @@ export default function RootLayout({
           {children}
           <RightCard />
         </Container>
+        <Footer />
       </body>
     </html>
   )

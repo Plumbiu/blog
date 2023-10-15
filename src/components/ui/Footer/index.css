@@ -1,0 +1,28 @@
+.Footer {
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  padding: 16px 36px;
+  color: var(--blog-color-dark);
+  text-align: center;
+}
+
+.Footer a {
+  color: var(--blog-theme);
+}
+
+.Footer > div {
+  margin-bottom: 4px;
+}
+
+.Footer-CopyRight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: normal;
+  gap: 8px;
+}
+
+.Footer-CopyRight span {
+  color: var(--blog-color-lighter);
+}
