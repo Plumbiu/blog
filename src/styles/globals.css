@@ -44,10 +44,6 @@ html[theme='dark'] {
   .md {
     --color-canvas-default: var(--blog-bg-default) !important;
   }
-  .md .highlight pre,
-  .md pre {
-    padding: 0;
-  }
 }
 
 html {
