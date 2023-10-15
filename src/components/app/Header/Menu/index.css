@@ -21,7 +21,7 @@
   left: 12px;
   top: 48px;
   padding: 8px 0;
-  color: #333;
+  color: var(--blog-color-darker);
   box-shadow: var(--blog-shadow-wide);
   border-radius: 8px;
 }

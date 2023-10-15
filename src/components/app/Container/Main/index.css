@@ -1,11 +1,10 @@
 .Main {
-  position: absolute;
-  left: 18%;
-  right: 19%;
+  flex: 1;
+  margin-left: 18.3%;
+  margin-right: 0.5%;
   border-radius: 6px;
   min-height: calc(100vh - 160px);
   background-color: var(--blog-bg-default);
-  margin: 0 8px;
   box-shadow: var(--blog-shadow);
   overflow: hidden;
 }
@@ -13,19 +12,18 @@
 .Main:has(> .Banner-Wrap) {
   background-color: transparent;
   box-shadow: none;
-  margin: 0;
 }
 
 @media screen and (max-width: 1240px) {
   .Main {
-    right: 0;
-    left: 29%;
+    margin-left: 29%;
+    margin-right: 0;
   }
 }
 
 @media screen and (max-width: 960px) {
   .Main {
-    right: 0;
-    left: 0;
+    margin-left: 0;
+    margin-right: 0;
   }
 }

@@ -5,9 +5,8 @@
 }
 
 .Side-Right {
-  position: absolute;
-  width: 18%;
-  right: 0.8%;
+  width: 17%;
+  margin-right: 0.8%;
 }
 
 .Side-Left .Stack {
