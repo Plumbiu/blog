@@ -3,7 +3,6 @@ import Hr from '../../../../ui/Hr'
 import {
   ArticleIcon,
   CategoryIcon,
-  CommentIcon,
   FirstPageIcon,
   GithubIcon,
   PeopleIcon,
@@ -17,7 +16,6 @@ const lists = [
   { text: '文章', link: '/article/1', icon: <ArticleIcon /> },
   { text: '开源之旅', link: '/opensource', icon: <TravelExploreIcon /> },
   { text: '朋友们', link: '/friend', icon: <PeopleIcon /> },
-  { text: '留言板', link: '/message', icon: <CommentIcon /> },
   { text: '标签', link: '/tag', icon: <TagIcon /> },
   { text: '分类', link: '/category', icon: <CategoryIcon /> },
   {
