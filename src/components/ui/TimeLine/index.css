@@ -38,7 +38,8 @@
   bottom: 0;
   width: 2px;
   margin: 0 auto;
-  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  background-color: var(--blog-color-light);
 }
 
 .TimeLine-Right {
