@@ -15,10 +15,6 @@ import { github_name, twitter, url, location, email } from '~/config.json'
 
 const info = [
   {
-    primary: '留言板',
-    href: '/message',
-  },
-  {
     primary: '开源之旅',
     href: '/opensource',
   },

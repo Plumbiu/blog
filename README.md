@@ -19,9 +19,9 @@
 - [x] archive page
 - [x] about me page
 - [x] friends page
-- [x] message page
 - [x] dark theme
 - [x] footer component
+- [ ] message page(delete once as I didn't like the style)
 - [ ] toc scroll height mouse following effect
 - [ ] comment system
 

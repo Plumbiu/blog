@@ -4,7 +4,9 @@ import { blog_message_repo, github_name } from '~/config.json'
 const octokit = new Octokit({
   auth: process.env.OCTOKIT_TOKEN,
 })
-
+/*
+  Message Route is processing, I dont't like the style before, so I delete it
+*/
 export async function POST(req: Request) {
   const { name, words, date } = (await req.json()) as IMessage
   try {
