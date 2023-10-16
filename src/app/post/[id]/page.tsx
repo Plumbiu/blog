@@ -44,7 +44,7 @@ export default async function PostId({ params }: Props) {
             __html: html,
           }}
           style={{
-            padding: '16px 20px',
+            padding: '16px 20px 56px 20px',
           }}
         />
       </Main>

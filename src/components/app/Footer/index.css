@@ -32,3 +32,9 @@
     margin-left: 30%;
   }
 }
+
+@media screen and (max-width: 960px) {
+  .Footer {
+    margin-left: 0;
+  }
+}

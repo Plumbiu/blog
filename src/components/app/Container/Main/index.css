@@ -23,7 +23,7 @@
 
 @media screen and (max-width: 960px) {
   .Main {
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: 16px;
+    margin-right: 16px;
   }
 }

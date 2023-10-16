@@ -15,5 +15,6 @@
 }
 
 .Date-Title > div a {
+  font-size: 14px;
   color: var(--blog-theme);
 }
