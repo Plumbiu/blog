@@ -22,7 +22,7 @@
 html[theme='dark'] {
   --blog-bg-default: #000;
   --blog-scrollbar: #4392a6;
-  --blog-bg-header: #000;
+  --blog-bg-header: rgba(0, 0, 0, 0.75);
   --blog-skeleton: #453a44;
   --blog-color-lighter: rgba(255, 255, 255, 0.2);
   --blog-color-light: rgba(255, 255, 255, 0.4);
