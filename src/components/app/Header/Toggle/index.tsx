@@ -14,7 +14,7 @@ const HeaderToggle = () => {
 
   return (
     <div className="Header-Toggle Hover" onClick={toggleTheme}>
-      {mode ? <SunIcon /> : <MoonIcon />}
+      {mode === 'light' ? <SunIcon /> : <MoonIcon />}
     </div>
   )
 }
