@@ -31,7 +31,7 @@ export default async function ({ params }: Props) {
 
   return (
     <Suspense fallback={<Loading />}>
-      <ArticleBanner col={1} posts={data} name="文章页" />
+      <ArticleBanner posts={data} name="文章页" />
       <Pagination page={Number(params.pagenum)} />
     </Suspense>
   )

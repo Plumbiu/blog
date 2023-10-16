@@ -7,7 +7,7 @@ import { name } from '~/config.json'
 export default async function Home() {
   const data = await useGet<IFrontMatter[]>('article?pagenum=0')
 
-  return <ArticleBanner col={1} posts={data} name="文章页" />
+  return <ArticleBanner posts={data} name="文章页" />
 }
 
 export const metadata: Metadata = {
