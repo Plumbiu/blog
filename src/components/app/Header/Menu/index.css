@@ -24,4 +24,5 @@
   color: var(--blog-color-darker);
   box-shadow: var(--blog-shadow-wide);
   border-radius: 8px;
+  transition: opacity 150ms;
 }

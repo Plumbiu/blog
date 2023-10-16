@@ -7,34 +7,39 @@ import { MenuIcon } from '@/components/icons'
 
 const HeaderMenu = () => {
   const [open, setOpen] = useState(false)
-  function listener(e: any) {
-    if (!e.target?.id?.startsWith('Header-Anchor-')) {
-      if (e.target?.parentNode?.id?.startsWith('Header-Anchor-')) {
-        setOpen(true)
-      } else {
-        setOpen(false)
-      }
+
+  function clickListener(e: any) {
+    const target = e.target
+    if (
+      target?.id?.startsWith('Header-Anchor-') ||
+      target?.parentNode?.id?.startsWith('Header-Anchor-')
+    ) {
+      setOpen(() => !open)
     } else {
-      setOpen(true)
+      setOpen(() => false)
     }
   }
+
   useEffect(() => {
-    window.addEventListener('click', listener)
+    window.addEventListener('click', clickListener)
 
     return () => {
-      window.removeEventListener('click', listener)
+      window.removeEventListener('click', clickListener)
     }
-  }, [])
+  }, [open])
 
   return (
     <div id="Header-Anchor-Menu">
       <MenuIcon className="Hover-Darker" id="Header-Anchor-Icon" />
       <div>
-        {open && (
-          <div className="Hader-Menu-List">
-            <MenuList />
-          </div>
-        )}
+        <div
+          className="Hader-Menu-List"
+          style={{
+            opacity: open ? 1 : 0,
+          }}
+        >
+          <MenuList />
+        </div>
       </div>
     </div>
   )
