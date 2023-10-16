@@ -30,13 +30,12 @@ const HeaderMenu = () => {
 
   return (
     <div id="Header-Anchor-Menu">
-      <MenuIcon className="Hover-Darker" id="Header-Anchor-Icon" />
+      <MenuIcon className="Hover" id="Header-Anchor-Icon" />
       <div>
         <div
           className="Hader-Menu-List"
           style={{
-            opacity: open ? 1 : 0,
-            display: open ? 'block' : 'none',
+            transform: `scale(${open ? 1 : 0})`,
           }}
         >
           <MenuList />

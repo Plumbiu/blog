@@ -1,7 +1,7 @@
 #Header-Anchor-Menu {
   display: flex;
   cursor: pointer;
-  align-items: center;
+  margin-right: 12px;
 }
 
 #Header-Anchor-Icon {
@@ -21,8 +21,9 @@
   left: 12px;
   top: 48px;
   padding: 8px 0;
+  transform: scale(0);
   color: var(--blog-color-darker);
   box-shadow: var(--blog-shadow-wide);
   border-radius: 8px;
-  transition: opacity 150ms;
+  transition: transform 100ms;
 }

@@ -9,7 +9,7 @@
   box-sizing: border-box;
   display: flex;
   background-color: var(--blog-bg-default);
-  margin-bottom: 12px;
+  margin-bottom: 9px;
   padding: 0 12px;
   justify-content: space-between;
   align-items: stretch;

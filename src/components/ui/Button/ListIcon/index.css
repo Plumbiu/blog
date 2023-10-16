@@ -22,7 +22,6 @@
   background-color: var(--blog-theme);
   padding: 6px;
   border-radius: 50%;
-  box-shadow: var(--blog-shadow-wider);
 }
 
 @media screen and (max-width: 780px) {

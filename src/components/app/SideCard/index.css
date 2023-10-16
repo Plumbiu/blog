@@ -1,12 +1,12 @@
 .Side-Left {
   position: fixed;
   width: 17%;
-  left: 1%;
+  left: 0.8%;
 }
 
 .Side-Right {
   width: 17%;
-  margin-right: 1%;
+  margin-right: 0.8%;
 }
 
 .Side-Left .Stack {
