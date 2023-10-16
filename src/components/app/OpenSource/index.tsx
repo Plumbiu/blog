@@ -56,9 +56,7 @@ const OpenSourceCmp = () => {
                 <>
                   <div className="OpenSource-Right">Message</div>
                   {payload?.commits?.map(({ message }, index) => (
-                    <div key={index} className="OpenSource-Right-Font-Size">
-                      {message};
-                    </div>
+                    <div key={index}>{message};</div>
                   ))}
                 </>
               )}

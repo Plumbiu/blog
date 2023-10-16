@@ -1,26 +1,22 @@
-.List-Top {
-  padding-top: 14px;
-  margin: 0 auto;
+.Side-LT {
+  margin: 12px 0 16px 0;
   text-align: center;
 }
 
-.List-Top img {
+.Side-LT img {
   border-radius: 50%;
 }
 
-.List-Top div {
+.Side-LT > div {
   margin-top: 4px;
   color: var(--blog-color-darker);
-}
-
-.List-Top-Me {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
 }
 
-.List-Top-Me svg {
-  font-size: 20px;
+.Side-LT > div svg {
+  font-size: 22px;
   color: var(--blog-theme);
 }

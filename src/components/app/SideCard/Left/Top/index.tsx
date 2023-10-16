@@ -6,11 +6,11 @@ import { RssIcon } from '@/components/icons'
 
 const SideCardTop = () => {
   return (
-    <div className="List-Top">
+    <div className="Side-LT">
       <Link href={`https://github.com/${github_name}`}>
         <Image width={72} height={72} alt={name} src="/avatar.jpg" />
       </Link>
-      <div className="List-Top-Me">
+      <div>
         @{name}
         <Link href="/rss.xml" target="_blank">
           <RssIcon />

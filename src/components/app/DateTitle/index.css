@@ -1,20 +1,20 @@
 .Date-Title {
-  margin: 16px 0;
+  margin: 16px;
+  margin-bottom: 6px;
 }
 
 .Date-Title > div {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
+  gap: 12px;
+  padding-bottom: 14px;
 }
 
 .Date-Title > div p {
   color: var(--blog-color-darker);
-  min-width: 46px;
 }
 
 .Date-Title > div a {
-  font-size: 14px;
+  flex: 1;
   color: var(--blog-theme);
 }

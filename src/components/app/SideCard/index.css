@@ -9,8 +9,16 @@
   margin-right: 0.8%;
 }
 
-.Side-Left .Stack {
-  justify-content: center;
+:is(.Side-Left, .Side-Right) > div {
+  padding: 2px 0;
+  background-color: var(--blog-bg-default);
+  border-radius: 6px;
+  box-shadow: var(--blog-shadow);
+  margin-bottom: 6px;
+
+  .Tag {
+    margin-right: 0;
+  }
 }
 
 @media screen and (max-width: 1240px) {
@@ -19,7 +27,6 @@
   }
   .Side-Left {
     width: 28%;
-    left: 10px;
   }
 }
 
@@ -27,22 +34,4 @@
   .Side-Left {
     display: none;
   }
-}
-
-.Side-Item {
-  box-sizing: border-box;
-  overflow: hidden;
-  background-color: var(--blog-bg-default);
-  border-radius: 6px;
-  box-shadow: var(--blog-shadow);
-  margin-bottom: 6px;
-}
-
-.Side-Item .Stack {
-  padding: 12px;
-  gap: 8px;
-}
-
-.Side-Item .Tag {
-  margin-right: 0;
 }

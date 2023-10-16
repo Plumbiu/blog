@@ -1,21 +1,21 @@
-.List-Center {
+.Side-LB {
   margin: 16px 0;
 }
 
-.List-Center-Btn-List {
+.Side-LB-List {
   margin: 12px 5px;
 }
 
-.List-Center-Badge {
+.Side-LB-Badge {
   display: flex;
   justify-content: space-evenly;
 }
 
-.List-Center .Stack {
-  justify-content: space-evenly;
-  padding: 0;
+.Side-LB-Badge .Btn-Link {
+  padding: 9px 12px;
 }
 
-.List-Center-Badge .Btn-Link {
-  padding: 9px 12px;
+.Side-LB .Stack {
+  justify-content: space-evenly;
+  padding: 0;
 }

@@ -1,27 +1,18 @@
 .OpenSource {
+  margin: 16px 0;
   font-size: 14px;
-  padding: 4px;
 }
 .OpenSource-Left {
-  padding-top: 2px;
-  color: #9c27b0;
+  padding-top: 4px;
+  color: var(--blog-theme);
 }
 
 .OpenSource-Right {
   text-align: inherit;
-  font-size: 14px;
-  color: #9c27b0;
-  font-size: 14px;
+  color: var(--blog-theme);
   padding: 4px 0;
 }
 
-.OpenSource-Right-Font-Size {
-  font-size: 14px;
-}
-
 .OpenSource-Event-Name {
-  font-weight: 500;
-  font-size: 1.25rem;
-  margin: 0 auto;
-  letter-spacing: 0.15px;
+  font-size: 18px;
 }

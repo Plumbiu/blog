@@ -1,11 +1,7 @@
 .Btn-Link {
-  font-weight: 500;
   font-size: 13px;
-  text-align: center;
   line-height: 1.75;
-  letter-spacing: 0.02857em;
   padding: 6px 8px;
   color: var(--blog-theme);
   border-radius: 6px;
-  min-width: 45px;
 }

@@ -40,7 +40,7 @@ const TocCmp: FC<Props> = async ({ html, title, tags, categories, date }) => {
           <p>{perfixTime(date)}</p>
         </div>
         <div className="Toc-Tags">
-          {categories?.map(category => (
+          {categories?.map((category) => (
             <Tag
               key={category}
               link={'/category/' + category}
@@ -48,7 +48,7 @@ const TocCmp: FC<Props> = async ({ html, title, tags, categories, date }) => {
               text={category}
             />
           ))}
-          {tags?.map(tag => (
+          {tags?.map((tag) => (
             <Tag key={tag} link={'/tag/' + tag} text={tag} />
           ))}
         </div>
@@ -56,19 +56,7 @@ const TocCmp: FC<Props> = async ({ html, title, tags, categories, date }) => {
         <TocList tocs={tocs} />
         <Hr />
         <div className="Toc-Bottom">
-          <ButtonIcon
-            link="/article"
-            text="文章页"
-            icon={
-              <ArrowBackIcon
-                style={{
-                  fontSize: '18px',
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
-              />
-            }
-          />
+          <ButtonIcon link="/article" text="文章页" icon={<ArrowBackIcon />} />
         </div>
       </div>
       <div className="Toc">

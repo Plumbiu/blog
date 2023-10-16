@@ -2,22 +2,8 @@
   color: var(--blog-theme);
 }
 
-@media screen and (max-width: 780px) {
-  .Toc {
-    display: none;
-  }
-}
-
-.Toc {
-  box-shadow: var(--blog-shadow-wide);
-  border-radius: 6px;
-  background-color: var(--blog-bg-default);
-  padding-top: 12px;
-  overflow: hidden;
-  margin-bottom: 12px;
-}
-
 .Toc h4 {
+  margin-top: 14px;
   padding-left: 16px;
 }
 

@@ -53,15 +53,15 @@ const githubInfo = [
 
 const SideCardBottom = () => {
   return (
-    <div className="List-Center">
-      <div className="List-Center-Badge">
+    <div className="Side-LB">
+      <div className="Side-LB-Badge">
         {blogInfo.map(({ href, primary, count }) => (
           <Badge key={primary} count={count}>
             <Button link={href}>{primary}</Button>
           </Badge>
         ))}
       </div>
-      <div className="List-Center-Btn-List">
+      <div className="Side-LB-List">
         {githubInfo.map(({ icon, primary, href }) => (
           <ButtonListIcon
             key={href ?? primary}

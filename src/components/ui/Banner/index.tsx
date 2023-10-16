@@ -9,7 +9,6 @@ import { ClockIcon } from '@/components/icons'
 interface Props {
   posts: IFrontMatter[]
   name: string
-  col?: 1 | 2
 }
 
 const imageMap: Record<string, string> = {
@@ -18,7 +17,7 @@ const imageMap: Record<string, string> = {
 }
 
 function toImage(tag: string) {
-  const key = Object.keys(imageMap).find(item =>
+  const key = Object.keys(imageMap).find((item) =>
     item.includes(tag.toLocaleLowerCase()),
   )
   if (!key) return key
@@ -26,17 +25,13 @@ function toImage(tag: string) {
   return imageMap[key]
 }
 
-const ArticleBanner: FC<Props> = ({ posts, name, col = 1 }) => {
+const ArticleBanner: FC<Props> = ({ posts, name }) => {
   name = decodeURI(name)
 
   return (
     <div className="Banner-Wrap">
       {posts.map(({ id, desc, title, tags, categories, date }) => (
-        <Link
-          key={id}
-          className={`Hover Banner-Link Banner-Col-${col}`}
-          href={'/post/' + id}
-        >
+        <Link key={id} className="Hover" href={'/post/' + id}>
           {toImage(tags[0]) && (
             <div className="Banner-Cover">
               <Image
@@ -55,10 +50,10 @@ const ArticleBanner: FC<Props> = ({ posts, name, col = 1 }) => {
             </div>
             <div className="Banner-Link-Desc">{desc}...</div>
             <div>
-              {categories.map(category => (
+              {categories.map((category) => (
                 <Tag key={category} text={category} outlined />
               ))}
-              {tags.map(tag => (
+              {tags.map((tag) => (
                 <Tag key={tag} text={tag} />
               ))}
             </div>

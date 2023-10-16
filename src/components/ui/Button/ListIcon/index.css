@@ -1,7 +1,6 @@
 .Btn-List-Icon {
   display: flex;
   align-items: center;
-  color: rgba(0, 0, 0, 0.54);
   min-width: 38px;
 }
 
@@ -22,19 +21,4 @@
   background-color: var(--blog-theme);
   padding: 6px;
   border-radius: 50%;
-}
-
-@media screen and (max-width: 780px) {
-  .blog-right-fixed .Btn-List-Text {
-    display: none;
-  }
-  .blog-right-fixed .Btn-List-Icon {
-    min-width: 24px;
-  }
-}
-
-@media screen and (max-width: 640px) {
-  .blog-right-fixed .Btn-List-Icon-Link {
-    display: none;
-  }
 }

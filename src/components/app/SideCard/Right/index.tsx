@@ -13,19 +13,19 @@ const RightCard = async () => {
 
   return (
     <div className="Side-Right">
-      <div className="Side-Item">
+      <div>
         <div className="Side-Title">标签</div>
         <Chips path="tag" chips={tags} />
       </div>
-      <div className="Side-Item">
+      <div>
         <div className="Side-Title">分类</div>
         <Chips path="category" chips={categories} />
       </div>
-      <div className="Side-Item">
+      <div>
         <div className="Side-Title">最近文章</div>
         <DateTitle articles={archiveArts} />
       </div>
-      <div className="Side-Item">
+      <div>
         <div className="Side-Title">归档</div>
         {archeveYear.map(({ year, num }) => (
           <Link

@@ -10,23 +10,17 @@ export default function Header() {
     <div className="Header">
       <div className="Header-Menu-Wrap">
         <HeaderMenu />
-        <Link className="Header-Logo" href="/">
-          {title}
-        </Link>
+        <Link href="/">{title}</Link>
       </div>
       <div className="Header-Right-Wrap">
         <HeaderToggle />
-        {process.env.APPLICATION_ID &&
-          process.env.API_KEY &&
-          process.env.APPLICATION_NAME && (
-          <div className="Header-Search-Wrap">
-            <Search
-              id={process.env.APPLICATION_ID ?? ''}
-              apiKey={process.env.API_KEY ?? ''}
-              name={process.env.APPLICATION_NAME}
-            />
-          </div>
-        )}
+        <div className="Header-Search-Wrap">
+          <Search
+            id={process.env.APPLICATION_ID ?? ''}
+            apiKey={process.env.API_KEY ?? ''}
+            name={process.env.APPLICATION_NAME ?? ''}
+          />
+        </div>
       </div>
     </div>
   )

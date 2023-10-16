@@ -6,9 +6,13 @@ import { MoonIcon, SunIcon } from '@/components/icons'
 
 const HeaderToggle = () => {
   const [mode, setMode] = useState<'dark' | 'light'>('dark')
+  let anchor: HTMLElement
   function toggleTheme() {
     const theme = mode === 'dark' ? 'light' : 'dark'
-    document.documentElement.setAttribute('theme', theme)
+    if (!anchor) {
+      anchor = document.documentElement
+    }
+    anchor.setAttribute('theme', theme)
     setMode(theme)
   }
 

@@ -18,16 +18,15 @@
   margin-left: 12px;
 }
 
-.Header-Logo {
+.Header-Menu-Wrap > a {
   font-size: 18px;
-}
-
-.Header-Search-Wrap {
-  transform: scale(0.9);
-  margin-right: 8px;
 }
 
 .Header-Right-Wrap {
   display: flex;
-  align-items: center;
+}
+
+.Header-Search-Wrap {
+  transform: scale(0.9);
+  margin-right: 12px;
 }

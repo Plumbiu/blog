@@ -5,7 +5,7 @@ import SideCardTop from './Top'
 export default function LeftSideCard() {
   return (
     <div className="Side-Left">
-      <div className="Side-Item">
+      <div>
         <SideCardTop />
         <SideCardBottom />
       </div>

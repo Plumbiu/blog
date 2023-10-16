@@ -2,15 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
   cursor: pointer;
   border-radius: 50%;
   width: 28px;
   height: 28px;
   padding: 4px;
-  margin-right: -4px;
-}
-
-.Header-Toggle svg {
+  margin-right: -6px;
   font-size: 20px;
 }
