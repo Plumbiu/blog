@@ -6,6 +6,7 @@
   min-height: calc(100vh - 160px);
   background-color: var(--blog-bg-default);
   box-shadow: var(--blog-shadow);
+  overflow-x: scroll;
 }
 
 .Main:has(> .Banner-Wrap) {
