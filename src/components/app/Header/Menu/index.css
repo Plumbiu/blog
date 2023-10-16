@@ -22,8 +22,9 @@
   top: 48px;
   padding: 8px 0;
   transform: scale(0);
+  transform-origin: top;
   color: var(--blog-color-darker);
   box-shadow: var(--blog-shadow-wide);
   border-radius: 8px;
-  transition: transform 100ms;
+  transition: transform 80ms;
 }

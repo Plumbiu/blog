@@ -104,17 +104,17 @@ p {
     color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 .Hover:hover {
-  background-color: var(--blog-hover-default) !important;
+  background-color: var(--blog-hover-default);
 }
 .Hover-Dark:hover {
-  background-color: var(--blog-hover-dark) !important;
+  background-color: var(--blog-hover-dark);
 }
 .Hover-Border:hover {
   background-color: var(--blog-hover-default);
-  border-color: var(--blog-theme) !important;
+  border-color: var(--blog-theme);
 }
 .Hover-Purple:hover {
-  background-color: #7b1fa2 !important;
+  background-color: #7b1fa2;
 }
 
 .md {
