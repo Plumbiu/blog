@@ -1,22 +1,19 @@
 'use client'
 
 import './index.css'
-import { useEffect, useState } from 'react'
-import { toggleTheme } from '@/lib/theme'
+import { useState } from 'react'
 import { MoonIcon, SunIcon } from '@/components/icons'
 
 const HeaderToggle = () => {
   const [mode, setMode] = useState<'dark' | 'light'>('dark')
-
-  useEffect(() => {
-    toggleTheme(mode)
-  }, [mode])
+  function toggleTheme() {
+    const theme = mode === 'dark' ? 'light' : 'dark'
+    document.documentElement.setAttribute('theme', theme)
+    setMode(theme)
+  }
 
   return (
-    <div
-      className="Header-Toggle Hover"
-      onClick={() => setMode(mode === 'light' ? 'dark' : 'light')}
-    >
+    <div className="Header-Toggle Hover" onClick={toggleTheme}>
       {mode ? <SunIcon /> : <MoonIcon />}
     </div>
   )
