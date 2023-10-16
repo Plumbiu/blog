@@ -17,7 +17,7 @@
 @media screen and (max-width: 1240px) {
   .Main {
     margin-left: 30%;
-    margin-right: 0;
+    margin-right: 8px;
   }
 }
 
