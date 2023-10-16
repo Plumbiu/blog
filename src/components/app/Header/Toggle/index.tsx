@@ -6,15 +6,18 @@ import { toggleTheme } from '@/lib/theme'
 import { MoonIcon, SunIcon } from '@/components/icons'
 
 const HeaderToggle = () => {
-  const [isDark, setIsDark] = useState(true)
+  const [mode, setMode] = useState<'dark' | 'light'>('dark')
 
   useEffect(() => {
-    toggleTheme(isDark)
-  }, [isDark])
+    toggleTheme(mode)
+  }, [mode])
 
   return (
-    <div className="Header-Toggle Hover" onClick={() => setIsDark(!isDark)}>
-      {isDark ? <SunIcon /> : <MoonIcon />}
+    <div
+      className="Header-Toggle Hover"
+      onClick={() => setMode(mode === 'light' ? 'dark' : 'light')}
+    >
+      {mode ? <SunIcon /> : <MoonIcon />}
     </div>
   )
 }

@@ -36,6 +36,7 @@ const HeaderMenu = () => {
           className="Hader-Menu-List"
           style={{
             opacity: open ? 1 : 0,
+            display: open ? 'block' : 'none',
           }}
         >
           <MenuList />
