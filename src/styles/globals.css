@@ -31,7 +31,7 @@ html[theme='dark'] {
   --blog-hover-default: #313231;
   --blog-hover-dark: rgba(255, 255, 255, 0.18);
   --blog-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3);
-  --blog-shadow-wide: 0px 2px 6px -1px rgba(0, 0, 0, .3);
+  --blog-shadow-wide: 0px 2px 6px -1px rgba(0, 0, 0, 0.3);
   --blog-bg-hr: #343434;
   --docsearch-searchbox-background: rgba(44, 44, 44, 0.8);
   --docsearch-text-color: #fcfcfc;
@@ -42,7 +42,9 @@ html[theme='dark'] {
   .md {
     --color-canvas-default: var(--blog-bg-default) !important;
   }
-  .DocSearch-Button:active, .DocSearch-Button:focus, .DocSearch-Button:hover {
+  .DocSearch-Button:active,
+  .DocSearch-Button:focus,
+  .DocSearch-Button:hover {
     background-color: rgba(0, 0, 0, 0.4);
   }
 }
@@ -51,7 +53,7 @@ body {
   margin: 0;
   font-size: 15px;
   font-family: Roboto, Helvetica, Arial, sans-serif;
-    background-color: var(--blog-body-bg);
+  background-color: var(--blog-body-bg);
 }
 
 a {
@@ -119,4 +121,10 @@ p {
 
 .md {
   font-size: 15px !important;
+}
+
+/* Production mode is missing, waiting autoprefixer update  */
+.md .highlight pre,
+.md pre {
+  padding: 16px;
 }
