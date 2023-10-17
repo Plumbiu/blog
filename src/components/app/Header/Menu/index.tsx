@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import MenuList from './List'
 import './index.css'
 import { MenuIcon } from '@/components/icons'
@@ -31,16 +32,15 @@ const HeaderMenu = () => {
   return (
     <div id="Header-Anchor-Menu">
       <MenuIcon className="Hover" id="Header-Anchor-Icon" />
-      <div>
-        <div
-          className="Hader-Menu-List"
-          style={{
-            transform: `scale(${open ? 1 : 0})`,
-          }}
-        >
-          <MenuList />
-        </div>
+      <div
+        className="Hader-Menu-List"
+        style={{
+          transform: `scale(${open ? 1 : 0})`,
+        }}
+      >
+        <MenuList />
       </div>
+      {createPortal(open && <div className="Header-Menu"></div>, document.body)}
     </div>
   )
 }
