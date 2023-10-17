@@ -40,7 +40,7 @@ const HeaderMenu = () => {
       >
         <MenuList />
       </div>
-      {createPortal(open && <div className="Header-Menu"></div>, document.body)}
+      open && <div className="Header-Menu"></div>
     </div>
   )
 }
