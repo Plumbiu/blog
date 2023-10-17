@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { createPortal } from 'react-dom'
 import MenuList from './List'
 import './index.css'
 import { MenuIcon } from '@/components/icons'
