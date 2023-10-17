@@ -29,3 +29,9 @@ export async function getPosts() {
 
   return posts
 }
+
+export async function readJSON(path) {
+  const raw = await fs.readFile(path, 'utf-8')
+
+  return JSON.parse(raw)
+}

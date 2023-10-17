@@ -1,50 +1,36 @@
 import fsp from 'fs/promises'
 import path from 'path'
 import { toXML } from '../assets/js/jstoxml.js'
-import { title, url, name, yourself } from '../config.json'
-import { getPosts } from './utils.js'
-
-/**
- * @param {Object} json
- */
-const json = {
-  channel: [
-    { title },
-    { link: url },
-    { generator: `${name} - https://github.com/${name}` },
-    { description: `${name} 的 material 风格博客` },
-    { webMaster: yourself },
-    { managingEditor: yourself },
-    { language: 'zh-CN' },
-    {
-      'atom:link': {
-        _attrs: {
-          ' href': `${url}/rss.xml`,
-          ref: 'self',
-          type: 'application/rss+xml',
-        },
-      },
-    },
-    { item: [] },
-  ],
-}
+import { getPosts, readJSON } from './utils.js'
 
 async function resolve() {
-  const posts = await getPosts()
-  genItems(posts)
-}
+  const { title, url, name, yourself } = readJSON(
+    path.join(process.cwd(), 'config.json'),
+  )
+  const json = {
+    channel: [
+      { title },
+      { link: url },
+      { generator: `${name} - https://github.com/${name}` },
+      { description: `${name} 的 material 风格博客` },
+      { webMaster: yourself },
+      { managingEditor: yourself },
+      { language: 'zh-CN' },
+      {
+        'atom:link': {
+          _attrs: {
+            ' href': `${url}/rss.xml`,
+            ref: 'self',
+            type: 'application/rss+xml',
+          },
+        },
+      },
+      { item: [] },
+    ],
+  }
 
-/**
- * @param {Object[]} posts
- * @param {string} posts[].id
- * @param {string} posts[].desc
- * @param {string} posts[].title
- * @param {string} posts[].date
- * @param {string} posts[].updated
- * @param {string[]} posts[].tags
- * @param {string[]} posts[].categories
- */
-async function genItems(posts) {
+  const posts = await getPosts()
+
   json.channel.push({
     // @ts-ignore
     lastBuildDate: posts[0].date,
