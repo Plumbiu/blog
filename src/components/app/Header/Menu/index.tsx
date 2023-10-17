@@ -39,7 +39,7 @@ const HeaderMenu = () => {
       >
         <MenuList />
       </div>
-      open && <div className="Header-Menu"></div>
+      {open && <div className="Header-Menu"></div>}
     </div>
   )
 }
