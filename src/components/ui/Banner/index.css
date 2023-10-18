@@ -28,6 +28,7 @@
 
 .Banner-List {
   padding: 16px;
+  flex: 1;
 }
 
 .Banner-Date {

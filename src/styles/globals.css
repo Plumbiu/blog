@@ -129,9 +129,3 @@ p {
 .md {
   font-size: 15px !important;
 }
-
-/* Production mode is missing, waiting autoprefixer update  */
-.md .highlight pre,
-.md pre {
-  padding: 16px;
-}
