@@ -1,4 +1,4 @@
-name: Update rss and sideCard.json
+name: Update public/rss, config/sideCard.json and public/markdown/*
 
 on:
   push:
@@ -29,6 +29,9 @@ jobs:
       - name: Update sideCard.json
         run: |
           node scripts/sideCard.js
+      - name: Update public/markdown/**/*.webp
+        run: |
+          node scripts/optimizer/image.js
       - name: Configure Git
         run: |
           git config --global user.email 3434909403@qq.com
