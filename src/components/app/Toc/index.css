@@ -23,6 +23,10 @@
   padding-bottom: 12px;
 }
 
+.Toc-Tags .Tag {
+  margin-right: 6px !important;
+}
+
 .Toc-Bottom {
   margin: 8px 0 8px 12px;
 }

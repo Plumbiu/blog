@@ -17,7 +17,9 @@ const TocList: FC<Props> = ({ tocs }) => {
       setCurrentHash(tocs[0]?.hash)
     }
     const observer = new IntersectionObserver(
-      entries => {
+      (entries) => {
+        console.log(entries.length)
+
         for (let i = 0; i < entries.length; i++) {
           const entry = entries[i]
           if (entry.isIntersecting) {
@@ -28,7 +30,7 @@ const TocList: FC<Props> = ({ tocs }) => {
               history API will better, but it can notbe back to /article
               // location.href = newHash
             */
-            setCurrentHash(newHash)
+            setCurrentHash(() => newHash)
           }
         }
       },
@@ -37,22 +39,25 @@ const TocList: FC<Props> = ({ tocs }) => {
         rootMargin: '7% 0% -99% 0%',
       },
     )
-    document.querySelectorAll('h1,h2,h3').forEach(title => {
+    document.querySelectorAll('h1,h2,h3').forEach((title) => {
       observer.observe(title) // 开始观察每个图片元素
     })
+
+    return () => {
+      observer.disconnect()
+    }
   }, [tocs])
 
   return (
-    <div className="Toc-List-Wrap">
+    <div className="Toc-List">
       {tocs.map(({ level, hash, content }) => (
         <Link
           key={hash}
-          className={`Toc-List Toc-List-Level-${level} ${
+          className={`Toc-P-${level} ${
             currentHash === hash ? 'Toc-List-Active' : ''
           }`}
           href={hash}
         >
-          {currentHash === hash && <div className="Toc-Block" />}
           {content}
         </Link>
       ))}

@@ -1,47 +1,34 @@
-.Toc-List-Wrap {
+.Toc-List {
   font-size: 14px;
   padding: 6px 0;
   max-height: 35vh;
   overflow-y: scroll;
 }
 
-.Toc-List {
+.Toc-List > a {
   position: relative;
+  display: block;
   padding-top: 8px;
   padding-bottom: 8px;
+  margin: 0 8px;
   border-radius: 4px;
   transition: background-color 100ms;
-  display: block;
 }
 
-.Toc-List:hover {
-  background-color: var(--blog-hover-default) !important;
-}
-
-.Toc-Block {
-  position: absolute;
-  left: -4px;
-  top: 50%;
-  transform: translateY(-50%);
-  line-height: 100%;
-  width: 12px;
-  height: 20px;
-  border-radius: 0 50% 50% 0;
-  background-color: var(--blog-theme);
-}
-
-.Toc-List-Level-1 {
-  padding-left: 16px;
-}
-
-.Toc-List-Level-2 {
-  padding-left: 32px;
-}
-
-.Toc-List-Level-3 {
-  padding-left: 48px;
+.Toc-List > a:hover {
+  background-color: var(--blog-hover-default);
 }
 
 .Toc-List-Active {
-  color: var(--blog-theme);
+  background-color: var(--blog-hover-default);
+}
+
+.Toc-P-1 {
+  padding-left: 12px;
+}
+.Toc-P-2 {
+  padding-left: 22px;
+}
+.Toc-P-3 {
+  padding-left: 32px;
 }
