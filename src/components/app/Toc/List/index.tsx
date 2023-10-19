@@ -18,8 +18,6 @@ const TocList: FC<Props> = ({ tocs }) => {
     }
     const observer = new IntersectionObserver(
       (entries) => {
-        console.log(entries.length)
-
         for (let i = 0; i < entries.length; i++) {
           const entry = entries[i]
           if (entry.isIntersecting) {
