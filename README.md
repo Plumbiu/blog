@@ -63,6 +63,8 @@ you can update `config/friends.json` and upload your avatar in `public/friends` 
 
 ### Update article
 
+Your post file name should be `2023-2-1-xxxx.md`!
+
 Put your artilce in the `posts` folder, you should have these `front-matter`:
 
 ```md

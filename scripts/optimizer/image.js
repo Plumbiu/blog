@@ -12,10 +12,10 @@ async function resolveImage() {
     const md = await fs.readFile(path.join(postsPath, dir))
     const writePath = path.join(mdImgPath, dir)
     if (!existsSync(writePath)) {
-      console.log(`have aleady exist ${writePath}`)
       await fs.mkdir(writePath)
     } else {
-      return
+      console.log(`have aleady exist ${writePath}\n`)
+      continue
     }
     let url
     while ((url = MDIMAGE.exec(md)?.[1])) {
