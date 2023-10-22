@@ -8,8 +8,7 @@
   "scripts": {
     "prepare": "simple-git-hooks",
     "dev": "next dev",
-    "optimize:image": "node scripts/optimizer/image.js",
-    "build": "pnpm optimize:image && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
