@@ -1,12 +1,12 @@
 .Side-Left {
   position: fixed;
-  width: 17%;
-  left: 0.8%;
+  left: 10px;
+  width: 280px;
 }
 
 .Side-Right {
-  width: 17%;
-  margin-right: 0.8%;
+  margin-right: 10px;
+  width: 280px;
 }
 
 :is(.Side-Left, .Side-Right) > div {
@@ -14,7 +14,8 @@
   background-color: var(--blog-bg-default);
   border-radius: 6px;
   box-shadow: var(--blog-shadow);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
 
   .Tag {
     margin-right: 0;
@@ -24,9 +25,6 @@
 @media screen and (max-width: 1240px) {
   .Side-Right {
     display: none;
-  }
-  .Side-Left {
-    width: 28%;
   }
 }
 

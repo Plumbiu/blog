@@ -1,8 +1,8 @@
 .Main {
   flex: 1;
-  margin-left: 18.5%;
-  margin-right: 0.7%;
   border-radius: 6px;
+  margin-left: 300px;
+  margin-right: 10px;
   min-height: calc(100vh - 160px);
   background-color: var(--blog-bg-default);
   box-shadow: var(--blog-shadow);
@@ -14,16 +14,8 @@
   box-shadow: none;
 }
 
-@media screen and (max-width: 1240px) {
-  .Main {
-    margin-left: 30%;
-    margin-right: 8px;
-  }
-}
-
 @media screen and (max-width: 960px) {
   .Main {
-    margin-left: 8px;
-    margin-right: 8px;
+    margin-left: 10px;
   }
 }
