@@ -17,13 +17,13 @@ export async function generateStaticParams() {
   }))
 }
 
-const TagsName = async ({ params }: Props) => {
+const TagName = async ({ params }: Props) => {
   const posts = await useGet<IFrontMatter[]>('article?tag=' + params.name)
 
   return <ArticleBanner posts={posts} name={params.name} />
 }
 
-export default TagsName
+export default TagName
 
 export function generateMetadata({ params }: Props): Metadata {
   const decodedName = decodeURI(params.name)

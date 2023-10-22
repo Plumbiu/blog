@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation'
 
-const Tags = () => {
+const Tag = () => {
   redirect('/tag/Vue')
 }
 
-export default Tags
+export default Tag
