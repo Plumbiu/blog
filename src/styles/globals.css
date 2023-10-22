@@ -81,15 +81,17 @@ p {
 /* 滚动条 */
 ::-webkit-scrollbar-thumb:horizontal {
   position: absolute;
+  background-color: var(--blog-theme);
   -webkit-border-radius: 6px;
 }
 ::-webkit-scrollbar-track-piece {
   -webkit-border-radius: 0;
 }
 ::-webkit-scrollbar {
+  -webkit-appearance: none;
   transition: background-color 0.25s ease-out;
   width: 6px;
-  height: 8px;
+  height: 6px;
 }
 ::-webkit-scrollbar-thumb:vertical {
   height: 50px;

@@ -1,0 +1,37 @@
+.Lab {
+  margin: 16px 0;
+}
+
+.Lab > div {
+  padding: 0 24px;
+  margin: 24px 0;
+  overflow-x: scroll;
+}
+
+.Lab .Banner-Card-List {
+  margin-top: 0;
+}
+
+.Lab-Title {
+  position: relative;
+  font-size: 20px;
+  padding-left: 24px;
+}
+
+.Lab-Title::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  border-radius: 3px;
+  background-color: var(--blog-theme);
+}
+
+.Lab-List {
+  display: inline-flex;
+  align-items: stretch;
+  gap: 24px;
+  padding-bottom: 26px;
+}

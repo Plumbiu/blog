@@ -3,7 +3,6 @@
   border-radius: 6px;
   margin-left: 300px;
   margin-right: 10px;
-  min-height: calc(100vh - 160px);
   background-color: var(--blog-bg-default);
   box-shadow: var(--blog-shadow);
   overflow-x: scroll;

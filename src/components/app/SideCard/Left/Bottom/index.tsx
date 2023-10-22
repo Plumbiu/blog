@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import Button from '@/components/ui/Button'
 import './index.css'
 import Badge from '@/components/ui/Badge'
@@ -17,6 +18,10 @@ const info = [
   {
     primary: '开源之旅',
     href: '/opensource',
+  },
+  {
+    primary: '实验室',
+    href: '/lab',
   },
 ]
 const blogInfo = [
@@ -74,7 +79,7 @@ const SideCardBottom = () => {
       </div>
       <Stack>
         {info.map(({ primary, href }) => (
-          <Button prefetch={primary !== '留言板'} key={primary} link={href}>
+          <Button key={primary} link={href}>
             {primary}
           </Button>
         ))}
