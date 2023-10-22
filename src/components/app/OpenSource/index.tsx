@@ -19,6 +19,7 @@ const eventMap: Record<string, ReactNode> = {
   WatchEvent: <RepeatIcon />,
   ForkEvent: <ForkIcon />,
   IssuesEvent: <ErrorIcon />,
+  IssueCommentEvent: <ErrorIcon />,
 }
 
 const bgcolorMap: Record<string, string> = {
@@ -28,6 +29,7 @@ const bgcolorMap: Record<string, string> = {
   WatchEvent: '#009688',
   ForkEvent: '#3F51B5',
   IssuesEvent: '#333',
+  IssueCommentEvent: '#333',
 }
 
 const OpenSourceCmp = () => {
