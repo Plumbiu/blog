@@ -24,7 +24,7 @@ export default function RootLayout({
         rel="icon"
         type="image/x-icon"
         sizes="32x32"
-        href="/icons/favico-32x32.png"
+        href="/icons/favico-32x32.webp"
       />
       <body>
         <Header />
