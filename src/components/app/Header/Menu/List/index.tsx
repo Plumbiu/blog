@@ -5,6 +5,7 @@ import {
   CategoryIcon,
   FirstPageIcon,
   GithubIcon,
+  LabIcon,
   PeopleIcon,
   TagIcon,
   TravelExploreIcon,
@@ -18,6 +19,7 @@ const lists = [
   { text: '朋友们', link: '/friend', icon: <PeopleIcon /> },
   { text: '标签', link: '/tag', icon: <TagIcon /> },
   { text: '分类', link: '/category', icon: <CategoryIcon /> },
+  { text: '实验室', link: '/lab', icon: <LabIcon /> },
   {
     text: 'GitHub',
     link: blog_repo,
