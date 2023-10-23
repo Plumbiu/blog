@@ -18,6 +18,11 @@ const tool = [
     desc: '监控 windows 程序的切换，显示其句柄标题，支持自定义配置',
   },
   {
+    title: 'truth-cli',
+    link: 'https://github.com/truthRestorer/truth-cli',
+    desc: '引力图和树图展示依赖关系，支持 npm、yarn 和 pnpm',
+  },
+  {
     title: 'string-line',
     link: 'https://github.com/Plumbiu/string-line',
     desc: '查看字符串的增加和减少内容',
@@ -56,6 +61,11 @@ const web = [
     title: 'fe_tensorflow',
     link: 'https://fe-tensorflow.vercel.app/',
     desc: '使用 vue 和 tensorflow JavaScript API 构建的深度学习 WebUI',
+  },
+  {
+    title: 'truth-cli-web',
+    link: 'https://truth-cli.vercel.app/',
+    desc: 'truth-cli 的 web 展示，采用 vue + echarts 开发',
   },
 ]
 
