@@ -11,10 +11,8 @@ interface Props {
 }
 
 const Search: FC<Props> = ({ id, apiKey, name }) => {
-  setTimeout(() => {
-    // @ts-ignore
-    import('@/styles/docsearch/modal.css')
-  })
+  // @ts-ignore
+  import('@/styles/docsearch/modal.css')
 
   return <DocSearch appId={id} apiKey={apiKey} indexName={name} />
 }
