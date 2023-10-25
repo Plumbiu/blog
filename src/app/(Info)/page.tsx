@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { useGet } from '@/lib/api'
 import ArticleBanner from '@/components/ui/Banner'
 import { name } from '~/config.json'
+import ButtonBg from '@/components/ui/Button/Bg'
 
 export default async function Home() {
   const data = await useGet<IFrontMatter[]>('article?pagenum=0&limit=5')
@@ -10,6 +11,7 @@ export default async function Home() {
   return (
     <>
       <ArticleBanner posts={data} name="文章页" />
+      <ButtonBg link="/article/1">文章页</ButtonBg>
     </>
   )
 }

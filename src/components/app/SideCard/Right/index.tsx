@@ -8,7 +8,6 @@ import './index.css'
 const RightCard = async () => {
   const tags = await useGet<Tag[]>('tag')
   const categories = await useGet<Category[]>('category')
-  const archiveArts = await useGet<IFrontMatter[]>('archive?limit=5')
   const archeveYear = await useGet<IArcheveYear[]>('archive/year')
 
   return (
@@ -20,10 +19,6 @@ const RightCard = async () => {
       <div>
         <div className="Side-Title">分类</div>
         <Chips path="category" chips={categories} />
-      </div>
-      <div>
-        <div className="Side-Title">最近文章</div>
-        <DateTitle articles={archiveArts} />
       </div>
       <div>
         <div className="Side-Title">归档</div>

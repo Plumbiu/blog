@@ -63,24 +63,6 @@
   padding-right: 24px;
 }
 
-.Banner-Bottom {
-  margin: 16px 0;
-}
-
-.Banner-Bottom > a {
-  font-size: 12px;
-  border-radius: 6px;
-  padding: 10px 14px;
-  background-color: var(--blog-theme);
-  box-shadow: var(--blog-shadow-wide);
-  color: #fff;
-  transition: box-shadow 200ms;
-}
-
-.Banner-Bottom > a:hover {
-  box-shadow: var(--blog-shadow-wider);
-}
-
 @media screen and (max-width: 480px) {
   .Banner-Cover {
     display: none;

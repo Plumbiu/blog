@@ -60,9 +60,6 @@ const ArticleBanner: FC<Props> = ({ posts, name }) => {
           </div>
         </Link>
       ))}
-      <div className="Banner-Bottom">
-        <Link href={'/article/1'}>文章页</Link>
-      </div>
     </div>
   )
 }
