@@ -11,12 +11,12 @@ interface Props {
 }
 
 const Search: FC<Props> = ({ id, apiKey, name }) => {
-  return (
+  setTimeout(() => {
     // @ts-ignore
-    <div onClick={async () => await import('@/styles/docsearch/modal.css')}>
-      <DocSearch appId={id} apiKey={apiKey} indexName={name} />
-    </div>
-  )
+    import('@/styles/docsearch/modal.css')
+  })
+
+  return <DocSearch appId={id} apiKey={apiKey} indexName={name} />
 }
 
 export default Search
