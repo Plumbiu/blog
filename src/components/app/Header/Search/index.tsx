@@ -1,7 +1,7 @@
 'use client'
 
 import type { FC } from 'react'
-import '@docsearch/css'
+import '@/styles/docsearch/button.css'
 import { DocSearch } from '@docsearch/react'
 
 interface Props {
@@ -11,7 +11,12 @@ interface Props {
 }
 
 const Search: FC<Props> = ({ id, apiKey, name }) => {
-  return <DocSearch appId={id} apiKey={apiKey} indexName={name} />
+  return (
+    // @ts-ignore
+    <div onClick={async () => await import('@/styles/docsearch/modal.css')}>
+      <DocSearch appId={id} apiKey={apiKey} indexName={name} />
+    </div>
+  )
 }
 
 export default Search
