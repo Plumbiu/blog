@@ -29,7 +29,7 @@ const ArticleBanner: FC<Props> = ({ posts, name }) => {
   name = decodeURI(name)
 
   return (
-    <div className="Banner-Wrap">
+    <div className="Banner">
       {posts.map(({ id, desc, title, tags, categories, date }) => (
         <Link key={id} className="Hover" href={'/post/' + id}>
           {toImage(tags[0]) && (
@@ -43,12 +43,12 @@ const ArticleBanner: FC<Props> = ({ posts, name }) => {
             </div>
           )}
           <div className="Banner-List">
-            <div className="Banner-Link-Title">{title}</div>
+            <div className="Banner-Title">{title}</div>
             <div className="Banner-Date">
               <ClockIcon />
               <p>{perfixTime(date)}</p>
             </div>
-            <div className="Banner-Link-Desc">{desc}...</div>
+            <div className="Banner-Desc">{desc}...</div>
             <div>
               {categories.map((category) => (
                 <Tag key={category} text={category} outlined />
@@ -60,6 +60,9 @@ const ArticleBanner: FC<Props> = ({ posts, name }) => {
           </div>
         </Link>
       ))}
+      <div className="Banner-Bottom">
+        <Link href={'/article/1'}>文章页</Link>
+      </div>
     </div>
   )
 }

@@ -6,9 +6,10 @@
   background-color: var(--blog-bg-default);
   box-shadow: var(--blog-shadow);
   overflow-x: scroll;
+  overflow-y: hidden;
 }
 
-.Main:has(> .Banner-Wrap) {
+.Main:has(> .Banner) {
   background-color: transparent;
   box-shadow: none;
 }

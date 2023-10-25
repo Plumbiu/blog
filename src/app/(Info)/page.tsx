@@ -5,9 +5,13 @@ import ArticleBanner from '@/components/ui/Banner'
 import { name } from '~/config.json'
 
 export default async function Home() {
-  const data = await useGet<IFrontMatter[]>('article?pagenum=0')
+  const data = await useGet<IFrontMatter[]>('article?pagenum=0&limit=5')
 
-  return <ArticleBanner posts={data} name="文章页" />
+  return (
+    <>
+      <ArticleBanner posts={data} name="文章页" />
+    </>
+  )
 }
 
 export const metadata: Metadata = {
