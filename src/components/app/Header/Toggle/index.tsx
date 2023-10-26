@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { MoonIcon, SunIcon } from '@/components/icons'
 
 const HeaderToggle = () => {
-  const [mode, setMode] = useState<'dark' | 'light'>('light')
+  const [mode, setMode] = useState<'dark' | 'light'>('dark')
   let anchor: HTMLElement
   function toggleTheme() {
     const theme = mode === 'dark' ? 'light' : 'dark'
