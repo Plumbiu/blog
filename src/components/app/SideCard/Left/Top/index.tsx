@@ -12,7 +12,7 @@ const SideCardTop = () => {
       </Link>
       <div>
         @{name}
-        <Link href="/rss.xml" target="_blank">
+        <Link prefetch={false} href="/rss.xml" target="_blank">
           <RssIcon />
         </Link>
       </div>

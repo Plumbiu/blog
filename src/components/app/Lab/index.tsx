@@ -10,7 +10,7 @@ const tool = [
   {
     title: '@plumbiu/md',
     link: 'https://github.com/Plumbiu/md',
-    desc: '自己的 markdown 工具，支持 md 转 html，md 和 html 生成目录树(toc)和高亮语法',
+    desc: 'markdown 工具，支持 md 转 html，生成目录树(toc)和高亮语法',
   },
   {
     title: 'running-app',
@@ -21,6 +21,11 @@ const tool = [
     title: 'truth-cli',
     link: 'https://github.com/truthRestorer/truth-cli',
     desc: '引力图和树图展示依赖关系，支持 npm、yarn 和 pnpm',
+  },
+  {
+    title: 'simple-md-front-matter',
+    link: 'https://github.com/truthRestorer/simple-md-front-matter',
+    desc: '基于 yaml 语法解析 markdown 的 front matter 语法',
   },
   {
     title: 'string-line',
@@ -53,6 +58,16 @@ const tool = [
 
 const web = [
   {
+    title: 'Plumbiuのblog',
+    link: 'https://blog.plumbiu.top/',
+    desc: 'Material 风格的博客，基于 Next.js 开发',
+  },
+  {
+    title: 'truth-cli-web',
+    link: 'https://truth-cli.vercel.app/',
+    desc: 'truth-cli 的 web 展示，采用 vue + echarts 开发',
+  },
+  {
     title: 'nextjs_tensorflow',
     link: 'https://nextjs-tensorflow.vercel.app/',
     desc: '使用 nextjs 和 tensorflow JavaScript API 构建的深度学习 WebUI',
@@ -62,46 +77,45 @@ const web = [
     link: 'https://fe-tensorflow.vercel.app/',
     desc: '使用 vue 和 tensorflow JavaScript API 构建的深度学习 WebUI',
   },
-  {
-    title: 'truth-cli-web',
-    link: 'https://truth-cli.vercel.app/',
-    desc: 'truth-cli 的 web 展示，采用 vue + echarts 开发',
-  },
 ]
 
 const LabCmp = () => {
   return (
     <div className="Lab">
-      <p className="Lab-Title">工具</p>
       <div>
-        <div className="Lab-List">
-          {tool.map(({ link, title, desc }) => (
-            <BannerCard
-              width={280}
-              height={158}
-              key={title}
-              link={link}
-              title={title}
-              desc={desc}
-              bannerSrc={`/lab/${title.replace('@plumbiu/', '')}.png`}
-            />
-          ))}
+        <p className="Lab-Title">工具</p>
+        <div>
+          <div className="Lab-List">
+            {tool.map(({ link, title, desc }) => (
+              <BannerCard
+                width={280}
+                height={158}
+                key={title}
+                link={link}
+                title={title}
+                desc={desc}
+                bannerSrc={`/lab/${title.replace('@plumbiu/', '')}.png`}
+              />
+            ))}
+          </div>
         </div>
       </div>
-      <p className="Lab-Title">网站</p>
       <div>
-        <div className="Lab-List">
-          {web.map(({ link, title, desc }) => (
-            <BannerCard
-              width={280}
-              height={158}
-              key={title}
-              link={link}
-              title={title}
-              desc={desc}
-              bannerSrc={`/lab/${title.replace('@plumbiu/', '')}.png`}
-            />
-          ))}
+        <p className="Lab-Title">网站</p>
+        <div>
+          <div className="Lab-List">
+            {web.map(({ link, title, desc }) => (
+              <BannerCard
+                width={280}
+                height={158}
+                key={title}
+                link={link}
+                title={title}
+                desc={desc}
+                bannerSrc={`/lab/${title.replace('@plumbiu/', '')}.png`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
