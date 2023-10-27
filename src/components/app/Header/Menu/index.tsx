@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { createPortal } from 'react-dom'
 import MenuList from './List'
 import './index.css'
 import { MenuIcon } from '@/components/icons'
@@ -40,8 +39,6 @@ const HeaderMenu = () => {
       >
         <MenuList />
       </div>
-      {open &&
-        createPortal(<div className="Header-Menu"></div>, document?.body)}
     </div>
   )
 }

@@ -15,15 +15,6 @@
   padding: 0 4px;
 }
 
-.Header-Menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 197;
-}
-
 .Hader-Menu-List {
   position: fixed;
   background-color: var(--blog-bg-default);
