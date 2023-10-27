@@ -2,7 +2,11 @@
 
 import type { FC } from 'react'
 import '@/styles/docsearch/button.css'
-import { DocSearch } from '@docsearch/react'
+import dynamic from 'next/dynamic'
+
+const DocSearch = dynamic(() =>
+  import('@docsearch/react').then((cmp) => cmp.DocSearch),
+)
 
 interface Props {
   id: string
