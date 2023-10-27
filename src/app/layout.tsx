@@ -1,5 +1,5 @@
 import '@/styles/globals.css'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import Header from '@/components/app/Header'
 import Container from '@/components/app/Container'
 import RightCard from '@/components/app/SideCard/Right'
@@ -9,8 +9,12 @@ import Footer from '@/components/app/Footer'
 export const metadata: Metadata = {
   title,
   description: 'Welcome to my blog!',
+}
+export const viewport: Viewport = {
   themeColor: '#1976d2',
-  viewport: 'width=device-width, initial-scale=1.0',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
 }
 
 export default function RootLayout({
