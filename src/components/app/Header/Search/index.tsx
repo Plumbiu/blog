@@ -1,11 +1,17 @@
 'use client'
 
-import type { FC } from 'react'
+import { useState, type FC, useCallback, useRef } from 'react'
+import { DocSearchButton } from '@docsearch/react/dist/esm/DocSearchButton'
 import '@/styles/docsearch/button.css'
 import dynamic from 'next/dynamic'
+import { createPortal } from 'react-dom'
+// eslint-disable-next-line @stylistic/max-len
+import { useDocSearchKeyboardEvents } from '@docsearch/react/dist/esm/useDocSearchKeyboardEvents'
 
-const DocSearch = dynamic(() =>
-  import('@docsearch/react').then((cmp) => cmp.DocSearch),
+const DocSearchModal = dynamic(() =>
+  import('@docsearch/react/dist/esm/DocSearchModal').then(
+    (cmp) => cmp.DocSearchModal,
+  ),
 )
 
 interface Props {
@@ -15,10 +21,56 @@ interface Props {
 }
 
 const Search: FC<Props> = ({ id, apiKey, name }) => {
+  const [isOpen, setIsOpen] = useState(false)
+  const [initialQuery, setInitialQuery] = useState('')
+  const searchButtonRef = useRef(null)
   // @ts-ignore
   import('@/styles/docsearch/modal.css')
 
-  return <DocSearch appId={id} apiKey={apiKey} indexName={name} />
+  const onOpen = useCallback(
+    function () {
+      setIsOpen(true)
+    },
+    [setIsOpen],
+  )
+  const onClose = useCallback(
+    function () {
+      setIsOpen(false)
+    },
+    [setIsOpen],
+  )
+  const onInput = useCallback(
+    function (event: { key: any }) {
+      setIsOpen(true)
+      setInitialQuery(event.key)
+    },
+    [setIsOpen, setInitialQuery],
+  )
+  useDocSearchKeyboardEvents({
+    isOpen: isOpen,
+    onOpen: onOpen,
+    onClose: onClose,
+    onInput: onInput,
+    searchButtonRef: searchButtonRef,
+  })
+
+  return (
+    <>
+      <DocSearchButton ref={searchButtonRef} onClick={onOpen} />
+      {isOpen &&
+        createPortal(
+          <DocSearchModal
+            appId={id}
+            apiKey={apiKey}
+            indexName={name}
+            onClose={onClose}
+            initialScrollY={window.scrollY}
+            initialQuery={initialQuery}
+          />,
+          document.body,
+        )}
+    </>
+  )
 }
 
 export default Search
