@@ -33,11 +33,12 @@
 
 .Banner-Date {
   margin-top: 4px;
+  margin: 8px 0;
   display: flex;
 }
 
 .Banner-Date p {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--blog-color-default);
 }
 
@@ -48,18 +49,16 @@
 }
 
 .Banner-Title {
-  font-weight: 500;
-  font-size: 18px;
+  font-size: 17px;
   overflow: hidden;
-  padding-bottom: 6px;
 }
 
 .Banner-Desc {
   font-size: 13px;
   line-height: 1.5;
+  margin-bottom: 12px;
   word-break: break-all;
   color: var(--blog-color-default);
-  padding: 8px 0;
   padding-right: 24px;
 }
 
