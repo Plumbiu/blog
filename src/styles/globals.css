@@ -78,7 +78,7 @@ html[theme='dark'] {
   --blog-color-default: rgba(255, 255, 255, 0.6);
   --blog-color-dark: rgba(255, 255, 255, 0.8);
   --blog-color-darker: rgba(255, 255, 255, 0.9);
-  --blog-body-bg: #2a2d2e;
+  --blog-body-bg: #252525;
   --blog-hover-default: #313231;
   --blog-hover-dark: rgba(255, 255, 255, 0.18);
   --blog-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3);
