@@ -7,20 +7,18 @@ interface Props {
 
 const PostCmp: FC<Props> = ({ html }) => {
   return (
-    <>
-      <div
-        className="md"
-        dangerouslySetInnerHTML={{
-          __html: html,
-        }}
-        style={{
-          padding: '16px 20px 56px 20px',
-          margin: '0 20px 0 260px',
-          flex: 1,
-          overflowX: 'scroll',
-        }}
-      />
-    </>
+    <div
+      className="md"
+      dangerouslySetInnerHTML={{
+        __html: html,
+      }}
+      style={{
+        padding: '16px 20px 56px 20px',
+        margin: '0 20px 0 260px',
+        flex: 1,
+        overflowX: 'scroll',
+      }}
+    />
   )
 }
 

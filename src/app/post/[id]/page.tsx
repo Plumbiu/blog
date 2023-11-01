@@ -5,7 +5,6 @@ import { md2html } from '@plumbiu/md'
 import { useGet } from '@/lib/api'
 import TocCmp from '@/components/app/Toc'
 import { name } from '~/config.json'
-import Main from '@/components/app/Container/Main'
 import PostCmp from '@/components/app/Post'
 
 interface Props {
