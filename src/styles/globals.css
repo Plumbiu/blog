@@ -193,3 +193,31 @@ p {
 .md {
   font-size: 15px !important;
 }
+
+.Side-Left {
+  width: 220px;
+}
+.Side-Right {
+  width: 240px;
+}
+
+:is(.Side-Left, .Side-Right) > div {
+  overflow: hidden;
+  padding: 2px 0;
+  background-color: var(--blog-bg-default);
+  border-radius: 6px;
+  box-shadow: var(--blog-shadow);
+  margin-bottom: 8px;
+}
+
+@media screen and (max-width: 1240px) {
+  .Side-Right {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .Side-Left {
+    display: none;
+  }
+}

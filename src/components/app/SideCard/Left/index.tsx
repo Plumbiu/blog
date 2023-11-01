@@ -1,4 +1,3 @@
-import '../index.css'
 import SideCardBottom from './Bottom'
 import SideCardTop from './Top'
 

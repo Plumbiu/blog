@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import Chips from '../Chips'
 import { useGet } from '@/lib/api'
-import '../index.css'
 import './index.css'
 import { ReadMoreIcon } from '@/components/icons'
 
