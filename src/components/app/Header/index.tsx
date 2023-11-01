@@ -1,3 +1,5 @@
+'use client'
+
 import Search from './Search'
 import './index.css'
 import HeaderToggle from './Toggle'
@@ -5,8 +7,8 @@ import HeaderToggle from './Toggle'
 export default function Header() {
   return (
     <div className="Header">
-      <HeaderToggle />
-      <div className="Header-Search-Wrap">
+      <div className="Header-Search">
+        <HeaderToggle />
         <Search
           id={process.env.APPLICATION_ID ?? ''}
           apiKey={process.env.API_KEY ?? ''}

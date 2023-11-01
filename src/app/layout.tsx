@@ -6,6 +6,7 @@ import RightCard from '@/components/app/SideCard/Right'
 import { title } from '~/config.json'
 import Footer from '@/components/app/Footer'
 import HeaderMenu from '@/components/app/Header/Menu'
+import HeaderDrawer from '@/components/app/Header/Drawer'
 
 export const metadata: Metadata = {
   title,
@@ -34,6 +35,7 @@ export default function RootLayout({
       <body>
         <div className="Header-Menu">
           <HeaderMenu />
+          <HeaderDrawer />
         </div>
         <Header />
         <Container>

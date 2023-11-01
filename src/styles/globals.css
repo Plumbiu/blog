@@ -212,8 +212,17 @@ p {
 
 .Header-Menu {
   position: fixed;
+  display: flex;
+  align-items: stretch;
+  z-index: 99;
   left: 20px;
   top: 10px;
+}
+
+.Header-Menu svg {
+  padding: 6px;
+  font-size: 22px;
+  border-radius: 50%;
 }
 
 @media screen and (max-width: 1240px) {
@@ -225,5 +234,8 @@ p {
 @media screen and (max-width: 960px) {
   .Side-Left {
     display: none;
+  }
+  .Header-Menu {
+    position: absolute;
   }
 }

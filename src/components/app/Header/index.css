@@ -19,15 +19,8 @@
   display: flex;
 }
 
-.Header-Right-Icon > a {
-  width: 28px;
-  height: 28px;
-  padding: 4px;
-  margin-right: -6px;
-  font-size: 20px;
-}
-
-.Header-Search-Wrap {
+.Header-Search {
+  display: flex;
   transform: scale(0.9);
   margin-right: 12px;
 }

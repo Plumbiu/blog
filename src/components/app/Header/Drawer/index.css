@@ -1,0 +1,26 @@
+.Header-Drawer {
+  display: flex;
+  gap: 6px;
+}
+
+.Header-Drawer svg {
+  cursor: pointer;
+  font-size: 22px;
+}
+
+.Header-Drawer-Link {
+  opacity: 0;
+  transition: opacity 250ms;
+}
+
+.Header-Drawer-Link a {
+  margin-right: 8px;
+}
+
+.Header-Drawer-Link a:hover {
+  color: var(--blog-theme);
+}
+
+.Header-Drawer:hover .Header-Drawer-Link {
+  opacity: 1;
+}
