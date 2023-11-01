@@ -3,9 +3,9 @@ import '@plumbiu/md/style/github-markdown.css'
 import '@plumbiu/md/style/hljs-markdown.css'
 import { md2html } from '@plumbiu/md'
 import { useGet } from '@/lib/api'
-import Main from '@/components/app/Container/Main'
 import TocCmp from '@/components/app/Toc'
 import { name } from '~/config.json'
+import Main from '@/components/app/Container/Main'
 
 interface Props {
   params: {
@@ -15,7 +15,7 @@ interface Props {
 
 export async function generateStaticParams() {
   const posts = await useGet<IFrontMatter[]>('article')
-  const ids = posts.map(post => ({
+  const ids = posts.map((post) => ({
     id: post.id,
   }))
 
@@ -37,17 +37,17 @@ export default async function PostId({ params }: Props) {
         date={date}
         updated={updated}
       />
-      <Main>
-        <div
-          className="md"
-          dangerouslySetInnerHTML={{
-            __html: html,
-          }}
-          style={{
-            padding: '16px 20px 56px 20px',
-          }}
-        />
-      </Main>
+      <div
+        className="md"
+        dangerouslySetInnerHTML={{
+          __html: html,
+        }}
+        style={{
+          padding: '16px 20px 56px 20px',
+          margin: '0 20px 0 260px',
+          flex: 1,
+        }}
+      />
     </>
   )
 }

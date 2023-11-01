@@ -1,7 +1,7 @@
 .Main {
   flex: 1;
   border-radius: 6px;
-  margin-left: 260px;
+  margin-left: 20px;
   margin-right: 20px;
   background-color: var(--blog-bg-default);
   box-shadow: var(--blog-shadow);
@@ -12,10 +12,4 @@
 .Main:has(> .Banner) {
   background-color: transparent;
   box-shadow: none;
-}
-
-@media screen and (max-width: 960px) {
-  .Main {
-    margin-left: 10px;
-  }
 }

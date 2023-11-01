@@ -8,14 +8,6 @@
 }
 
 .Side-LT > div {
-  margin-top: 4px;
-  color: var(--blog-color-darker);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.Side-LT > div svg {
-  font-size: 22px;
+  font-size: 18px;
+  margin-top: 8px;
 }
