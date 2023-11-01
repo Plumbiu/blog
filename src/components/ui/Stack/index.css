@@ -2,13 +2,13 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  padding: 8px;
+  padding: 8px 12px;
 }
 
 .Stack-Gap-2 {
-  gap: 8px;
+  gap: 12px;
 }
 
 .Stack-Gap-4 {
-  gap: 12px;
+  gap: 16px;
 }

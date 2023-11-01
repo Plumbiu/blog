@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Chips from '../Chips'
-import DateTitle from '../../DateTitle'
 import { useGet } from '@/lib/api'
 import '../index.css'
 import './index.css'
@@ -13,12 +12,15 @@ const RightCard = async () => {
   return (
     <div className="Side-Right">
       <div>
-        <div className="Side-Title">标签</div>
-        <Chips path="tag" chips={tags} />
+        <div className="Side-Title">
+          <span>标签</span>
+          { tags.length > 15 && <span>更多</span>}
+        </div>
+        <Chips path="tag" chips={tags.slice(0, 15)} />
       </div>
       <div>
         <div className="Side-Title">分类</div>
-        <Chips path="category" chips={categories} />
+        <Chips path="category" chips={categories.slice(0, 15)} />
       </div>
       <div>
         <div className="Side-Title">归档</div>

@@ -33,17 +33,21 @@ const blogInfo = [
   },
 ]
 
+const myInfo = [
+  {
+    primary: email,
+    icon: <EmailIcon />,
+  },
+  { primary: location, icon: <LocationIcon /> },
+]
+
 const githubInfo = [
   {
     primary: github_name,
     icon: <GithubIcon />,
     href: `https://github.com/${github_name}`,
   },
-  {
-    primary: email,
-    icon: <EmailIcon />,
-  },
-  { primary: location, icon: <LocationIcon /> },
+
   {
     primary: twitter,
     icon: <TwitterIcon />,

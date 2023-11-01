@@ -10,10 +10,26 @@ interface Props {
   text: ReactNode
 }
 
+function channel() {
+  return Math.floor(Math.random() * 200).toString(16)
+}
+
+function limitChannel() {
+  const r = channel().padStart(2, '0')
+  const g = channel().padStart(2, '0')
+
+  return [r, g, 'e2'].sort(() => Math.random() - 0.5)
+}
+
+function randomColor() {
+  return '#' + limitChannel().join('')
+}
+
 const Tag: FC<Props> = ({ outlined, text, link, plain }) => {
+  const color = randomColor()
   if (plain && link) {
     return (
-      <Link className="Tag Tag-Link Hover-Dark" href={link}>
+      <Link style={{ color }} className="Tag" href={link}>
         {text}
       </Link>
     )
@@ -21,6 +37,7 @@ const Tag: FC<Props> = ({ outlined, text, link, plain }) => {
   if (link) {
     return (
       <Link
+        style={{ color }}
         className={`Tag ${outlined ? 'Tag-Outlined' : 'Tag-Filled'}`}
         href={link}
       >

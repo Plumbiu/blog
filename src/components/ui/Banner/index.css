@@ -4,6 +4,11 @@
   flex-wrap: wrap;
 }
 
+.Banner .Tag {
+  font-size: 0.7125rem;
+  margin-right: 8px;
+}
+
 .Banner > a {
   position: relative;
   box-sizing: border-box;

@@ -5,16 +5,16 @@
 }
 
 .Side-Right {
-  width: 240px;
+  width: 220px;
 }
 
 :is(.Side-Left, .Side-Right) > div {
+  overflow: hidden;
   padding: 2px 0;
   background-color: var(--blog-bg-default);
   border-radius: 6px;
   box-shadow: var(--blog-shadow);
   margin-bottom: 8px;
-  padding-bottom: 8px;
 
   .Tag {
     margin-right: 0;
