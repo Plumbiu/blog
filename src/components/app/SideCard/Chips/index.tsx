@@ -16,7 +16,6 @@ const Chips: FC<Props> = ({ chips, path }) => {
           key={name}
           link={`/${path}/${name}`}
           text={name}
-          plain
         />
       ))}
     </Stack>
