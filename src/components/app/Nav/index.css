@@ -18,6 +18,9 @@
 }
 
 .Navbar-Link:hover {
+  color: var(--blog-color-default);
+}
+.Navbar-Link-Active {
   color: var(--blog-theme);
 }
 
