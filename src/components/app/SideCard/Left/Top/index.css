@@ -1,5 +1,5 @@
 .Side-LT {
-  margin: 12px 0 16px 0;
+  margin: 22px 0 16px 0;
   text-align: center;
 }
 
@@ -18,5 +18,4 @@
 
 .Side-LT > div svg {
   font-size: 22px;
-  color: var(--blog-theme);
 }

@@ -1,8 +1,8 @@
 .Main {
   flex: 1;
   border-radius: 6px;
-  margin-left: 300px;
-  margin-right: 10px;
+  margin-left: 260px;
+  margin-right: 20px;
   background-color: var(--blog-bg-default);
   box-shadow: var(--blog-shadow);
   overflow-x: scroll;

@@ -67,15 +67,7 @@ const SideCardBottom = () => {
         ))}
       </div>
       <div className="Side-LB-List">
-        {githubInfo.map(({ icon, primary, href }) => (
-          <ButtonListIcon
-            key={href ?? primary}
-            py={9}
-            icon={icon}
-            link={href}
-            text={primary}
-          />
-        ))}
+        {githubInfo.map(({ icon, primary, href }) => icon)}
       </div>
       <Stack>
         {info.map(({ primary, href }) => (

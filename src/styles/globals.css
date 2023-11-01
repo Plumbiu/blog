@@ -4,13 +4,13 @@
   --blog-body-bg: #f1f2fe;
   --blog-skeleton: #e5e7ec;
   --blog-bg-default: #fff;
-  --blog-bg-header: rgba(255, 255, 255, 0.75);
+  --blog-bg-header: rgba(241, 242, 254, 0.35);
   --blog-color-lighter: rgba(0, 0, 0, 0.2);
   --blog-color-light: rgba(0, 0, 0, 0.4);
   --blog-color-default: rgba(0, 0, 0, 0.6);
   --blog-color-dark: rgba(0, 0, 0, 0.8);
   --blog-color-darker: rgba(0, 0, 0, 0.9);
-  --blog-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.2);
+  --blog-shadow: 0px 1px 2px -1px rgba(125, 125, 125, 0.2);
   --blog-shadow-wide: 0px 1px 6px -1px rgba(0, 0, 0, 0.2);
   --blog-shadow-wider: 0px 2px 6px 1px rgba(0, 0, 0, 0.2);
   --blog-hover-default: #e1e2e3;
@@ -71,14 +71,14 @@
 html[theme='dark'] {
   --blog-bg-default: #171619;
   --blog-scrollbar: #4392a6;
-  --blog-bg-header: rgba(0, 0, 0, 0.35);
+  --blog-bg-header: rgba(8, 8, 8, 0.35);
   --blog-skeleton: #453a44;
   --blog-color-lighter: rgba(255, 255, 255, 0.2);
   --blog-color-light: rgba(255, 255, 255, 0.4);
   --blog-color-default: rgba(255, 255, 255, 0.6);
   --blog-color-dark: rgba(255, 255, 255, 0.8);
   --blog-color-darker: rgba(255, 255, 255, 0.9);
-  --blog-body-bg: #141414;
+  --blog-body-bg: #080808;
   --blog-hover-default: #313231;
   --blog-hover-dark: rgba(255, 255, 255, 0.18);
   --blog-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3);

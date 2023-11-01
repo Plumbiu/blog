@@ -1,12 +1,11 @@
 .Side-Left {
   position: fixed;
-  left: 10px;
-  width: 280px;
+  left: 10%;
+  width: 240px;
 }
 
 .Side-Right {
-  margin-right: 10px;
-  width: 280px;
+  width: 240px;
 }
 
 :is(.Side-Left, .Side-Right) > div {

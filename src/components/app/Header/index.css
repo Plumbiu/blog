@@ -6,7 +6,6 @@
   backdrop-filter: blur(10px);
   top: 0;
   width: 100%;
-  box-shadow: var(--blog-shadow);
   background-color: var(--blog-bg-header);
   z-index: 199;
   height: 58px;

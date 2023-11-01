@@ -8,7 +8,7 @@ const SideCardTop = () => {
   return (
     <div className="Side-LT">
       <Link href={`https://github.com/${github_name}`}>
-        <Image width={72} height={72} alt={name} src="/avatar.jpg" />
+        <Image width={106} height={106} alt={name} src="/avatar.jpg" />
       </Link>
       <div>
         @{name}

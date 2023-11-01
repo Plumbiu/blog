@@ -3,7 +3,15 @@
 }
 
 .Side-LB-List {
+  display: flex;
+  justify-content: space-around;
   margin: 18px 6px;
+}
+
+.Side-LB-List svg {
+  background-color: var(--blog-color-lighter);
+  padding: 6px;
+  border-radius: 50%;
 }
 
 .Side-LB-Badge {
