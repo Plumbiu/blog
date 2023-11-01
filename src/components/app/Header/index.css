@@ -1,13 +1,7 @@
 .Header {
-  position: fixed;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  backdrop-filter: blur(10px);
-  top: 0;
-  width: 100%;
-  background-color: var(--blog-bg-header);
-  z-index: 199;
+  justify-content: flex-end;
   height: 58px;
 }
 

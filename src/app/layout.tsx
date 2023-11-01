@@ -5,6 +5,7 @@ import Container from '@/components/app/Container'
 import RightCard from '@/components/app/SideCard/Right'
 import { title } from '~/config.json'
 import Footer from '@/components/app/Footer'
+import HeaderMenu from '@/components/app/Header/Menu'
 
 export const metadata: Metadata = {
   title,
@@ -31,6 +32,9 @@ export default function RootLayout({
         href="/icons/favico-32x32.webp"
       />
       <body>
+        <div className="Header-Menu">
+          <HeaderMenu />
+        </div>
         <Header />
         <Container>
           {children}

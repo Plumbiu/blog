@@ -14,7 +14,7 @@
   display: flex;
   background-color: var(--blog-bg-default);
   margin-bottom: 20px;
-  padding: 16px 12px;
+  padding: 12px;
   justify-content: space-between;
   align-items: stretch;
   width: 100%;

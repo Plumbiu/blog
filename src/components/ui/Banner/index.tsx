@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 import Link from 'next/link'
 import './index.css'
-import Image from 'next/image'
+// import Image from 'next/image'
 import { perfixTime } from '@/lib/time'
 import { ClockIcon } from '@/components/icons'
 
@@ -15,14 +15,14 @@ const imageMap: Record<string, string> = {
   rollup: 'rollup.svg',
 }
 
-function toImage(tag: string) {
-  const key = Object.keys(imageMap).find((item) =>
-    item.includes(tag.toLocaleLowerCase()),
-  )
-  if (!key) return key
+// function toImage(tag: string) {
+//   const key = Object.keys(imageMap).find((item) =>
+//     item.includes(tag.toLocaleLowerCase()),
+//   )
+//   if (!key) return key
 
-  return imageMap[key]
-}
+//   return imageMap[key]
+// }
 
 const ArticleBanner: FC<Props> = ({ posts, name }) => {
   name = decodeURI(name)
@@ -31,7 +31,7 @@ const ArticleBanner: FC<Props> = ({ posts, name }) => {
     <div className="Banner">
       {posts.map(({ id, desc, title, tags, categories, date }) => (
         <Link key={id} className="Hover" href={'/post/' + id}>
-          {toImage(tags[0]) && (
+          {/* {toImage(tags[0]) && (
             <div className="Banner-Cover">
               <Image
                 width={64}
@@ -40,7 +40,7 @@ const ArticleBanner: FC<Props> = ({ posts, name }) => {
                 src={'/cover/' + toImage(tags[0])}
               />
             </div>
-          )}
+          )} */}
           <div className="Banner-List">
             <div className="Banner-Title">{title}</div>
             <div className="Banner-Date">
