@@ -3,23 +3,13 @@
 }
 
 .Side-LB-List {
+  width: 80%;
   display: flex;
   justify-content: space-around;
-  margin: 18px 6px;
+  margin: 22px auto;
 }
 
 .Side-LB-List svg {
-  background-color: var(--blog-color-lighter);
-  padding: 6px;
+  font-size: 18px;
   border-radius: 50%;
-}
-
-.Side-LB-Badge {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.Side-LB .Stack {
-  justify-content: space-evenly;
-  padding: 0;
 }

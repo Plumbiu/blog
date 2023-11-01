@@ -20,6 +20,15 @@
   font-size: 16px;
 }
 
+.Side-Title-Link {
+  height: 21px;
+}
+
+.Side-Title-Link > svg {
+  color: #c1b6ff;
+  font-size: 22px;
+}
+
 .Side-Title::after {
   content: '';
   position: absolute;

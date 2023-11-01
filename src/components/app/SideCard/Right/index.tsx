@@ -3,6 +3,7 @@ import Chips from '../Chips'
 import { useGet } from '@/lib/api'
 import '../index.css'
 import './index.css'
+import { ReadMoreIcon } from '@/components/icons'
 
 const RightCard = async () => {
   const tags = await useGet<Tag[]>('tag')
@@ -14,7 +15,11 @@ const RightCard = async () => {
       <div>
         <div className="Side-Title">
           <span>标签</span>
-          { tags.length > 15 && <span>更多</span>}
+          {tags.length > 15 && (
+            <Link className="Side-Title-Link" href="/">
+              <ReadMoreIcon />
+            </Link>
+          )}
         </div>
         <Chips path="tag" chips={tags.slice(0, 15)} />
       </div>

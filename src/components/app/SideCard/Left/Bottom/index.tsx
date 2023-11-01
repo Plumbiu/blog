@@ -11,6 +11,7 @@ import {
   LocationIcon,
   TwitterIcon,
   LinkIcon,
+  RssIcon,
 } from '@/components/icons'
 import { github_name, twitter, url, location, email } from '~/config.json'
 
@@ -58,28 +59,19 @@ const githubInfo = [
     icon: <LinkIcon />,
     href: url,
   },
+  {
+    primary: 'rss',
+    icon: <RssIcon />,
+    href: '/rss.xml',
+  },
 ]
 
 const SideCardBottom = () => {
   return (
     <div className="Side-LB">
-      <div className="Side-LB-Badge">
-        {blogInfo.map(({ href, primary, count }) => (
-          <Badge key={primary} count={count}>
-            <Button link={href}>{primary}</Button>
-          </Badge>
-        ))}
-      </div>
       <div className="Side-LB-List">
         {githubInfo.map(({ icon, primary, href }) => icon)}
       </div>
-      <Stack>
-        {info.map(({ primary, href }) => (
-          <Button key={primary} link={href}>
-            {primary}
-          </Button>
-        ))}
-      </Stack>
     </div>
   )
 }

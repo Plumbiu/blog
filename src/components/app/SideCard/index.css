@@ -1,10 +1,5 @@
+.Side-Right,
 .Side-Left {
-  position: fixed;
-  left: 10%;
-  width: 240px;
-}
-
-.Side-Right {
   width: 220px;
 }
 

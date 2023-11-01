@@ -1,10 +1,18 @@
-:target {
-  color: var(--blog-theme);
+.Toc {
+  position: fixed;
+  background-color: var(--blog-bg-default);
+  width: 240px;
 }
 
 .Toc h4 {
   margin-top: 14px;
   padding-left: 16px;
+}
+
+.Toc .Tag {
+  color: inherit!important;
+  font-size: 0.7125rem;
+  margin-right: 8px;
 }
 
 .Toc-Date {
