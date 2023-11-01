@@ -6,10 +6,18 @@
   width: 80%;
   display: flex;
   justify-content: space-around;
-  margin: 22px auto;
+  margin: 18px auto;
+}
+
+.Side-LB-List > a {
+  transition: color 100ms;
+}
+
+.Side-LB-List > a:hover {
+  color: var(--blog-theme);
 }
 
 .Side-LB-List svg {
-  font-size: 18px;
+  font-size: 20px;
   border-radius: 50%;
 }

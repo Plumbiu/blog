@@ -69,7 +69,8 @@
 }
 
 html[theme='dark'] {
-  --blog-bg-default: #171619;
+  --blog-bg-default: #121212;
+  --blog-body-bg: #0d0d0d;
   --blog-scrollbar: #4392a6;
   --blog-bg-header: rgba(8, 8, 8, 0.35);
   --blog-skeleton: #453a44;
@@ -78,8 +79,7 @@ html[theme='dark'] {
   --blog-color-default: rgba(255, 255, 255, 0.6);
   --blog-color-dark: rgba(255, 255, 255, 0.8);
   --blog-color-darker: rgba(255, 255, 255, 0.9);
-  --blog-body-bg: #080808;
-  --blog-hover-default: #313231;
+  --blog-hover-default: #1a1a1a;
   --blog-hover-dark: rgba(255, 255, 255, 0.18);
   --blog-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3);
   --blog-shadow-wide: 0px 2px 6px -1px rgba(0, 0, 0, 0.3);

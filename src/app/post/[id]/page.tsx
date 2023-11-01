@@ -6,6 +6,7 @@ import { useGet } from '@/lib/api'
 import TocCmp from '@/components/app/Toc'
 import { name } from '~/config.json'
 import Main from '@/components/app/Container/Main'
+import PostCmp from '@/components/app/Post'
 
 interface Props {
   params: {
@@ -37,17 +38,7 @@ export default async function PostId({ params }: Props) {
         date={date}
         updated={updated}
       />
-      <div
-        className="md"
-        dangerouslySetInnerHTML={{
-          __html: html,
-        }}
-        style={{
-          padding: '16px 20px 56px 20px',
-          margin: '0 20px 0 260px',
-          flex: 1,
-        }}
-      />
+      <PostCmp html={html} />
     </>
   )
 }

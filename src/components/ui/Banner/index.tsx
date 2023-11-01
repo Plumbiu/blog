@@ -2,7 +2,6 @@ import type { FC } from 'react'
 import Link from 'next/link'
 import './index.css'
 import Image from 'next/image'
-import Tag from '@/components/ui/Tag'
 import { perfixTime } from '@/lib/time'
 import { ClockIcon } from '@/components/icons'
 
@@ -49,12 +48,14 @@ const ArticleBanner: FC<Props> = ({ posts, name }) => {
               <p>{perfixTime(date)}</p>
             </div>
             <div className="Banner-Desc">{desc}...</div>
-            <div>
+            <div className="Banner-Tag">
               {categories.map((category) => (
-                <Tag key={category} text={category} outlined />
+                <div key={category} className="Banner-Tag-Plain">
+                  {category}
+                </div>
               ))}
               {tags.map((tag) => (
-                <Tag key={tag} text={tag} />
+                <div key={tag} className="Banner-Tag-Fill">{tag}</div>
               ))}
             </div>
           </div>

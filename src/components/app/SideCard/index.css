@@ -1,6 +1,8 @@
-.Side-Right,
 .Side-Left {
   width: 220px;
+}
+.Side-Right {
+  width: 260px;
 }
 
 :is(.Side-Left, .Side-Right) > div {

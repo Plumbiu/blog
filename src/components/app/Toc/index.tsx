@@ -38,7 +38,6 @@ const TocCmp: FC<Props> = async ({ html, title, tags, categories, date }) => {
           <Tag
             key={category}
             link={'/category/' + category}
-            outlined
             text={category}
           />
         ))}

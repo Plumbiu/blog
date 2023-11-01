@@ -3,7 +3,7 @@
   justify-content: center;
   transition: color 100ms;
   min-width: 24px;
-  font-size: 0.9125rem;
+  font-size: 0.9rem;
   margin-right: 4px;
 }
 
@@ -11,13 +11,10 @@
   color: var(--blog-color-hr) !important;
 }
 
-.Tag-Outlined {
-  color: var(--blog-theme);
-}
-
 .Tag-Filled {
   color: #fff;
+  font-size: 0.7125rem;
   border-radius: 10px;
-  padding: 3px 6px;
+  padding: 4px 4px;
   background-color: var(--blog-theme);
 }

@@ -1,10 +1,6 @@
-import { Fragment } from 'react'
-import Button from '@/components/ui/Button'
 import './index.css'
-import Badge from '@/components/ui/Badge'
-import ButtonListIcon from '@/components/ui/Button/ListIcon'
+import Link from 'next/link'
 import { articleNum } from '~/config/sideCard.json'
-import Stack from '@/components/ui/Stack'
 import {
   GithubIcon,
   EmailIcon,
@@ -33,7 +29,6 @@ const blogInfo = [
     href: '/friend',
   },
 ]
-
 const myInfo = [
   {
     primary: email,
@@ -42,25 +37,21 @@ const myInfo = [
   { primary: location, icon: <LocationIcon /> },
 ]
 
-const githubInfo = [
+const btmInfo = [
   {
-    primary: github_name,
     icon: <GithubIcon />,
     href: `https://github.com/${github_name}`,
   },
 
   {
-    primary: twitter,
     icon: <TwitterIcon />,
     href: `https://twitter.com/${twitter}`,
   },
   {
-    primary: url,
     icon: <LinkIcon />,
     href: url,
   },
   {
-    primary: 'rss',
     icon: <RssIcon />,
     href: '/rss.xml',
   },
@@ -70,7 +61,11 @@ const SideCardBottom = () => {
   return (
     <div className="Side-LB">
       <div className="Side-LB-List">
-        {githubInfo.map(({ icon, primary, href }) => icon)}
+        {btmInfo.map(({ icon, href }) => (
+          <Link key={href} href={href}>
+            {icon}
+          </Link>
+        ))}
       </div>
     </div>
   )

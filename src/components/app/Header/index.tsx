@@ -1,16 +1,13 @@
-import Link from 'next/link'
 import HeaderMenu from './Menu'
 import Search from './Search'
 import './index.css'
 import HeaderToggle from './Toggle'
-import { title } from '~/config.json'
 
 export default function Header() {
   return (
     <div className="Header">
       <div className="Header-Menu-Wrap">
         <HeaderMenu />
-        <Link href="/">{title}</Link>
       </div>
       <div className="Header-Right-Wrap">
         <HeaderToggle />
