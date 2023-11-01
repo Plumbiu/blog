@@ -1,9 +1,10 @@
 import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import Loading from './loading'
-import LeftSideCard from '@/components/app/SideCard/Left'
 import Main from '@/components/app/Container/Main'
+import RightCard from '@/components/app/SideCard'
 import { name } from '~/config.json'
+import Nav from '@/components/app/Nav'
 
 export const metadata: Metadata = {
   title: `${name} の 小屋`,
@@ -16,11 +17,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <>
-      <LeftSideCard />
-      <Suspense fallback={<Loading />}>
-        <Main>{children}</Main>
-      </Suspense>
-    </>
+    <Suspense fallback={<Loading />}>
+      <Main>
+        <Nav />
+        {children}
+      </Main>
+      <RightCard />
+    </Suspense>
   )
 }

@@ -2,11 +2,9 @@ import '@/styles/globals.css'
 import type { Metadata, Viewport } from 'next'
 import Header from '@/components/app/Header'
 import Container from '@/components/app/Container'
-import RightCard from '@/components/app/SideCard/Right'
 import { title } from '~/config.json'
 import Footer from '@/components/app/Footer'
 import HeaderMenu from '@/components/app/Header/Menu'
-import HeaderDrawer from '@/components/app/Header/Drawer'
 
 export const metadata: Metadata = {
   title,
@@ -35,12 +33,11 @@ export default function RootLayout({
       <body>
         <div className="Header-Menu">
           <HeaderMenu />
-          <HeaderDrawer />
+          {/* <HeaderDrawer /> */}
         </div>
         <Header />
         <Container>
           {children}
-          <RightCard />
         </Container>
         <Footer />
       </body>

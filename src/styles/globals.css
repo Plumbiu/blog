@@ -69,7 +69,7 @@
 }
 
 html[theme='dark'] {
-  --blog-bg-default: #121212;
+  --blog-bg-default: #181818;
   --blog-body-bg: #0d0d0d;
   --blog-scrollbar: #4392a6;
   --blog-bg-header: rgba(8, 8, 8, 0.35);
@@ -120,7 +120,7 @@ html[theme='dark'] {
 
 body {
   margin: 0;
-  font-size: 15px;
+  font-size: 14px;
   font-family: Roboto, Helvetica, Arial, sans-serif;
   background-color: var(--blog-body-bg);
 }
@@ -207,7 +207,7 @@ p {
   background-color: var(--blog-bg-default);
   border-radius: 6px;
   box-shadow: var(--blog-shadow);
-  margin-bottom: 8px;
+  margin-bottom: 18px;
 }
 
 .Header-Menu {

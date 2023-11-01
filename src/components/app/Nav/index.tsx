@@ -20,14 +20,17 @@ const lists = [
   { text: '实验室', link: '/lab', icon: <LabIcon /> },
 ]
 
-const page: FC<Props> = ({}) => {
+const Nav: FC<Props> = ({}) => {
   return (
-    <div className="Header-Right-Icon">
-      {lists.map(({ link, icon }) => (
-        <Link href={link}>{icon}</Link>
+    <div className="Navbar">
+      {lists.map(({ link, icon, text }) => (
+        <Link key={text} className="Navbar-Link" href={link}>
+          {icon}
+          <span>{text}</span>
+        </Link>
       ))}
     </div>
   )
 }
 
-export default page
+export default Nav

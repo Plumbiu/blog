@@ -14,7 +14,7 @@ const PostCmp: FC<Props> = ({ html }) => {
       }}
       style={{
         padding: '16px 20px 56px 20px',
-        margin: '0 20px 0 260px',
+        margin: '0 260px 0 0',
         flex: 1,
         overflowX: 'scroll',
       }}

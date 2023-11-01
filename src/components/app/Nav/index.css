@@ -1,0 +1,26 @@
+.Navbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  background-color: var(--blog-bg-default);
+  margin: 0 auto;
+  width: 100%;
+  border-radius: 8px;
+  padding: 16px 0;
+  margin-bottom: 16px;
+}
+
+.Navbar-Link {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  transform: color 120ms;
+}
+
+.Navbar-Link:hover {
+  color: var(--blog-theme);
+}
+
+.Navbar-Link svg {
+  font-size: 22px;
+}

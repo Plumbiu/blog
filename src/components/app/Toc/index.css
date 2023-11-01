@@ -1,5 +1,6 @@
 .Toc {
   position: fixed;
+  right: 20%;
   background-color: var(--blog-bg-default);
   width: 240px;
 }
@@ -10,7 +11,7 @@
 }
 
 .Toc .Tag {
-  color: inherit!important;
+  color: inherit !important;
   font-size: 0.7125rem;
   margin-right: 8px;
 }
