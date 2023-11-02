@@ -19,7 +19,6 @@ export default function RootLayout({
   return (
     <Suspense fallback={<Loading />}>
       <Main>
-        <Nav />
         {children}
       </Main>
       <RightCard />

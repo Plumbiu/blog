@@ -40,8 +40,8 @@ const Nav: FC<Props> = ({}) => {
           }`}
           href={link}
         >
+          {path.includes(link) && text}
           {icon}
-          <span>{text}</span>
         </Link>
       ))}
     </div>

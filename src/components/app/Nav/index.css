@@ -1,29 +1,31 @@
 .Navbar {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-around;
-  background-color: var(--blog-bg-default);
-  margin: 0 auto;
-  width: 100%;
-  border-radius: 8px;
-  padding: 16px 0;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 6px;
   margin-bottom: 16px;
 }
 
 .Navbar-Link {
   display: flex;
-  gap: 4px;
+  padding: 8px 12px;
+  font-size: 12px;
+  border-radius: 8px;
   align-items: center;
-  transform: color 120ms;
+  transition: color 120ms;
 }
 
 .Navbar-Link:hover {
-  color: var(--blog-color-default);
-}
-.Navbar-Link-Active {
   color: var(--blog-theme);
 }
 
+.Navbar-Link-Active {
+  color: var(--blog-theme);
+  background-color: var(--blog-bg-default);
+}
+
 .Navbar-Link svg {
+  margin-left: 4px;
   font-size: 22px;
 }

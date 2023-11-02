@@ -190,14 +190,11 @@ p {
   background-color: #7b1fa2;
 }
 
-.md {
-  font-size: 15px !important;
-}
-
 .Side-Left {
   width: 220px;
 }
 .Side-Right {
+  margin-left: 10px;
   width: 240px;
 }
 

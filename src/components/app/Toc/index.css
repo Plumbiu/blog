@@ -1,8 +1,14 @@
 .Toc {
   position: fixed;
-  right: 20%;
+  right: calc(20% - 80px);
   background-color: var(--blog-bg-default);
-  width: 240px;
+  width: 320px;
+}
+
+@media screen and (max-width: 1240px) {
+  .Toc {
+    display: none;
+  }
 }
 
 .Toc h4 {

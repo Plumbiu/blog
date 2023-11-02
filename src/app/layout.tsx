@@ -5,6 +5,7 @@ import Container from '@/components/app/Container'
 import { title } from '~/config.json'
 import Footer from '@/components/app/Footer'
 import HeaderMenu from '@/components/app/Header/Menu'
+import Nav from '@/components/app/Nav'
 
 export const metadata: Metadata = {
   title,
@@ -37,6 +38,7 @@ export default function RootLayout({
         </div>
         <Header />
         <Container>
+          <Nav />
           {children}
         </Container>
         <Footer />
