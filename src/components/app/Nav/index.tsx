@@ -38,9 +38,16 @@ const Nav: FC<Props> = ({}) => {
           className={`Navbar-Link ${
             path.includes(link) ? 'Navbar-Link-Active' : ''
           }`}
-          href={link}
+          href={link + '#' + link.slice(1)}
         >
-          {path.includes(link) && text}
+          <span
+            style={{
+              opacity: path.includes(link) ? 1 : 0,
+            }}
+            className="Navbar-Title"
+          >
+            {text}
+          </span>
           {icon}
         </Link>
       ))}

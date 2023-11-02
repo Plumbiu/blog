@@ -3,20 +3,27 @@
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-start;
-  gap: 6px;
+  gap: 24px;
   margin-bottom: 16px;
 }
 
+@media screen and (max-width: 960px) {
+  .Navbar {
+    display: none;
+  }
+}
+
 .Navbar-Link {
+  overflow: hidden;
   display: flex;
   padding: 8px 12px;
-  font-size: 12px;
+  font-size: 0.8125rem;
   border-radius: 8px;
   align-items: center;
   transition: color 120ms;
 }
 
-.Navbar-Link:hover {
+.Navbar-Link svg:hover {
   color: var(--blog-theme);
 }
 
@@ -25,7 +32,12 @@
   background-color: var(--blog-bg-default);
 }
 
+.Navbar-Title {
+  opacity: 0;
+  transition: opacity 250ms;
+}
+
 .Navbar-Link svg {
-  margin-left: 4px;
+  margin-left: 8px;
   font-size: 22px;
 }

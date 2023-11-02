@@ -194,7 +194,6 @@ p {
   width: 220px;
 }
 .Side-Right {
-  margin-left: 10px;
   width: 240px;
 }
 
@@ -233,6 +232,10 @@ p {
     display: none;
   }
   .Header-Menu {
+    width: 100%;
+    height: 100%;
     position: absolute;
+    left: 5px;
+    top: 5px;
   }
 }
