@@ -2,8 +2,8 @@
   position: fixed;
   cursor: pointer;
   z-index: 199;
-  left: 20px;
-  top: 10px;
+  left: 5px;
+  top: 12px;
 }
 
 .Header-Menu svg {
@@ -39,7 +39,5 @@
 @media screen and (max-width: 960px) {
   .Header-Menu {
     position: absolute;
-    left: 5px;
-    top: 5px;
   }
 }
