@@ -6,6 +6,9 @@ import { title } from '~/config.json'
 import Footer from '@/components/app/Footer'
 import HeaderMenu from '@/components/app/Header/Menu'
 import Nav from '@/components/app/Nav'
+import HeaderBanner from '@/components/app/Header/Banner'
+import Main from '@/components/app/Container/Main'
+import RightCard from '@/components/app/SideCard'
 
 export const metadata: Metadata = {
   title,
@@ -36,6 +39,7 @@ export default function RootLayout({
         <div className="Header-Menu">
           <HeaderMenu />
         </div>
+        <HeaderBanner />
         <Header />
         <Container>
           <Nav />

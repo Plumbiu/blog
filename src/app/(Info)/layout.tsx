@@ -5,6 +5,7 @@ import Main from '@/components/app/Container/Main'
 import RightCard from '@/components/app/SideCard'
 import { name } from '~/config.json'
 import Nav from '@/components/app/Nav'
+import HeaderBanner from '@/components/app/Header/Banner'
 
 export const metadata: Metadata = {
   title: `${name} の 小屋`,
@@ -18,9 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <Suspense fallback={<Loading />}>
-      <Main>
-        {children}
-      </Main>
+      <Main>{children}</Main>
       <RightCard />
     </Suspense>
   )

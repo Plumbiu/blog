@@ -1,0 +1,9 @@
+.Header-Banner {
+  box-sizing: border-box;
+  padding-top: 60px;
+  height: 200px;
+  background-color: var(--blog-bg-default);
+  border-radius: 0 0 24px 24px;
+  margin-bottom: 24px;
+  text-align: center;
+}

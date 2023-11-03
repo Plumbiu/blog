@@ -5,13 +5,11 @@ interface Props {}
 
 const HeaderBanner: FC<Props> = ({}) => {
   return (
-    <div
-      style={{
-        height: '120px',
-        backgroundColor: 'rgba(255, 255, 255, .1)',
-        marginBottom: '24px',
-      }}
-    >
+    <div className="Header-Banner">
+      <div>
+        <h1>Plumbiu の 小屋</h1>
+        <span>|首页</span>
+      </div>
     </div>
   )
 }
