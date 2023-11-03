@@ -1,4 +1,5 @@
 .Post {
+  border-radius: 16px;
   padding: 16px 20px;
   flex: 1;
   overflow-x: scroll;

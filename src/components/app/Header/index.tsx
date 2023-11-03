@@ -1,7 +1,6 @@
 import Search from './Search'
 import './index.css'
 import HeaderToggle from './Toggle'
-import HeaderBanner from './Banner'
 
 export default function Header() {
   return (

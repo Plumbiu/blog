@@ -16,6 +16,10 @@
   background-color: transparent;
 }
 
+.Container > .Main:has(.Post)+.Side {
+  visibility: hidden;
+}
+
 @media screen and (max-width: 1240px) {
   .Container {
     width: 100%;

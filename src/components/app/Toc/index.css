@@ -1,7 +1,7 @@
 .Toc {
   position: fixed;
   border-radius: 16px;
-  right: calc(14vw);
+  right: calc(27.5% - 200px);
   background-color: var(--blog-bg-default);
   width: 280px;
 }
@@ -12,7 +12,7 @@
   }
 }
 
-.Toc h4 {
+.Toc h3 {
   margin-top: 14px;
   padding-left: 16px;
 }
