@@ -1,17 +1,25 @@
 .Main {
   flex: 1;
   display: flex;
-  border-radius: 6px;
-  gap: 20px;
+  align-items: flex-start;
+  gap: 15px;
   margin: 0 10px;
-  background-color: var(--blog-bg-default);
-  box-shadow: var(--blog-shadow);
   overflow-x: scroll;
   overflow-y: hidden;
 }
 
+.Main:has(> .Banner) {
+  box-shadow: none;
+}
+
 .Main > div:first-child {
   flex: 1;
+  border-radius: 16px;
+  background-color: var(--blog-bg-default);
+}
+
+.Main > div.Banner {
+  background-color: transparent;
 }
 
 .Main:has(> .Post) {
@@ -20,9 +28,4 @@
 
 .Main:has(> .Post) .Side-Right {
   display: none;
-}
-
-.Main:has(> .Banner) {
-  background-color: transparent;
-  box-shadow: none;
 }

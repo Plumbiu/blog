@@ -1,15 +1,6 @@
-.Lab {
-  margin: 16px 0;
-}
-
 .Lab > div {
   padding: 0 12px;
   margin: 12px 0;
-  overflow-x: scroll;
-}
-
-.Lab .Banner-Card-List {
-  margin-top: 0;
 }
 
 .Lab-Title {
@@ -30,9 +21,7 @@
 }
 
 .Lab-List {
-  display: inline-flex;
-  align-items: stretch;
-  gap: 24px;
-  padding: 0 4px;
-  margin: 24px 0;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }

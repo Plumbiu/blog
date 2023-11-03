@@ -29,10 +29,6 @@ const BannerCard: FC<Props> = ({
         width={width}
         height={height}
         alt={link}
-        style={{
-          objectFit: 'cover',
-          borderRadius: '12px',
-        }}
       />
       <div className="Banner-Card-Info">
         {avatar && <Image src={avatar} width={40} height={40} alt={title} />}

@@ -106,7 +106,7 @@ const LabCmp = () => {
           <div className="Lab-List">
             {web.map(({ link, title, desc }) => (
               <BannerCard
-                width={280}
+                width={240}
                 height={158}
                 key={title}
                 link={link}

@@ -1,6 +1,6 @@
 .Friend {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-wrap: wrap;
 }
 
@@ -14,49 +14,4 @@
   .Friend {
     gap: 8px;
   }
-}
-
-.Friend-List {
-  border-radius: 12px;
-  margin-top: 24px;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  box-shadow: var(--blog-shadow);
-  box-sizing: border-box;
-}
-
-.Friend-List:hover > img {
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-}
-
-.Friend-List:hover {
-  transform: scale(1.05);
-}
-
-.Friend-Info {
-  padding: 8px;
-  box-sizing: border-box;
-  display: flex;
-  align-items: flex-start;
-  width: 250px;
-  text-overflow: ellipsis;
-  gap: 4px;
-}
-
-.Friend-Info img {
-  margin-right: 12px;
-  border-radius: 50%;
-}
-
-.Friend-Name {
-  color: var(--blog-color-dark);
-  font-weight: bolder;
-}
-
-.Friend-Desc {
-  flex: 1;
-  color: var(--blog-color-default);
-  font-size: 14px;
-  margin-top: 2px;
-  word-break: break-word;
-  text-overflow: ellipsis;
 }

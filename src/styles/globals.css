@@ -197,7 +197,7 @@ p {
   width: 220px;
 }
 .Side-Right {
-  width: 240px;
+  width: 200px;
 }
 
 :is(.Side-Left, .Side-Right) > div {

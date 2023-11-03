@@ -1,4 +1,4 @@
-import type { FC } from 'react'
+import type { FC, ReactNode } from 'react'
 import Link from 'next/link'
 import './index.css'
 // import Image from 'next/image'
@@ -6,13 +6,9 @@ import { perfixTime } from '@/lib/time'
 import { ClockIcon } from '@/components/icons'
 
 interface Props {
+  children?: ReactNode
   posts: IFrontMatter[]
   name: string
-}
-
-const imageMap: Record<string, string> = {
-  vue: 'vue.svg',
-  rollup: 'rollup.svg',
 }
 
 // function toImage(tag: string) {
@@ -24,7 +20,7 @@ const imageMap: Record<string, string> = {
 //   return imageMap[key]
 // }
 
-const ArticleBanner: FC<Props> = ({ posts, name }) => {
+const ArticleBanner: FC<Props> = ({ posts, name, children }) => {
   name = decodeURI(name)
 
   return (
@@ -55,12 +51,15 @@ const ArticleBanner: FC<Props> = ({ posts, name }) => {
                 </div>
               ))}
               {tags.map((tag) => (
-                <div key={tag} className="Banner-Tag-Fill">{tag}</div>
+                <div key={tag} className="Banner-Tag-Fill">
+                  {tag}
+                </div>
               ))}
             </div>
           </div>
         </Link>
       ))}
+      {children}
     </div>
   )
 }

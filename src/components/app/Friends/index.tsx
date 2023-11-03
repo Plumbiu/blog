@@ -7,6 +7,8 @@ const FriendsCmp = () => {
     <div className="Friend">
       {friends.map(({ name, link, desc, avatar }) => (
         <BannerCard
+          width={240}
+          height={135}
           key={name}
           link={link}
           bannerSrc={`/friends/screenshots/${name}.png`}

@@ -1,6 +1,4 @@
 import type { Metadata } from 'next'
-import { Suspense } from 'react'
-import Loading from './loading'
 import { useGet } from '@/lib/api'
 import Pagination from '@/components/ui/Pagination'
 import { articleNum } from '~/config/sideCard.json'
@@ -30,10 +28,9 @@ export default async function ({ params }: Props) {
   )
 
   return (
-    <Suspense fallback={<Loading />}>
-      <ArticleBanner posts={data} name="文章页" />
+    <ArticleBanner posts={data} name="文章页">
       <Pagination page={Number(params.pagenum)} />
-    </Suspense>
+    </ArticleBanner>
   )
 }
 
