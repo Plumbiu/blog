@@ -5,12 +5,12 @@ import Loading from './loading'
 import Header from '@/components/app/Header'
 import Container from '@/components/app/Container'
 import { title } from '~/config.json'
-import Footer from '@/components/app/Footer'
+import Footer from '@/components/app/Container/Footer'
 import HeaderMenu from '@/components/app/Header/Menu'
-import Nav from '@/components/app/Nav'
+import Nav from '@/components/app/Container/Nav'
 import HeaderBanner from '@/components/app/Header/Banner'
 import Main from '@/components/app/Container/Main'
-import RightCard from '@/components/app/SideCard'
+import Side from '@/components/app/Container/Side'
 
 export const metadata: Metadata = {
   title,
@@ -47,7 +47,7 @@ export default function RootLayout({
           <Nav />
           <Main>
             <Suspense fallback={<Loading />}>{children}</Suspense>
-            <RightCard />
+            <Side />
           </Main>
         </Container>
         <Footer />

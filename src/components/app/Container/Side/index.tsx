@@ -60,7 +60,7 @@ const btmInfo = [
   },
 ]
 
-const RightCard = async () => {
+const Side = async () => {
   const tags = await useGet<Tag[]>('tag')
   const categories = await useGet<Category[]>('category')
   const archeveYear = await useGet<IArcheveYear[]>('archive/year')
@@ -99,4 +99,4 @@ const RightCard = async () => {
   )
 }
 
-export default RightCard
+export default Side
