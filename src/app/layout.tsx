@@ -43,7 +43,10 @@ export default function RootLayout({
         <Header />
         <Container>
           <Nav />
-          {children}
+          <Main>
+            {children}
+            <RightCard />
+          </Main>
         </Container>
         <Footer />
       </body>

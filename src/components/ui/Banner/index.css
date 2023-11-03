@@ -10,7 +10,6 @@
 
 .Banner > a {
   position: relative;
-  box-sizing: border-box;
   display: flex;
   background-color: var(--blog-bg-default);
   margin-bottom: 20px;
