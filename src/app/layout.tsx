@@ -41,8 +41,8 @@ export default function RootLayout({
         <div className="Header-Menu">
           <HeaderMenu />
         </div>
-        <HeaderBanner />
         <Header />
+        <HeaderBanner />
         <Container>
           <Nav />
           <Main>

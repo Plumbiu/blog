@@ -27,19 +27,7 @@ export default async function PostId({ params }: Props) {
     await useGet<IArticle>('article/' + params.id)
   const html = await md2html(content)
 
-  return (
-    <>
-      <PostCmp html={html} />
-      <TocCmp
-        html={html}
-        title={title}
-        tags={tags}
-        categories={categories}
-        date={date}
-        updated={updated}
-      />
-    </>
-  )
+  return <PostCmp html={html} />
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

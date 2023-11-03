@@ -1,7 +1,7 @@
 .Toc {
   position: fixed;
   border-radius: 16px;
-  right: calc(20% - 120px);
+  right: calc(14vw);
   background-color: var(--blog-bg-default);
   width: 280px;
 }

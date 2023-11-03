@@ -66,7 +66,7 @@ const RightCard = async () => {
   const archeveYear = await useGet<IArcheveYear[]>('archive/year')
 
   return (
-    <div className="Side-Right">
+    <div className="Side">
       <div>
         <div className="Side-Title">
           <span>标签</span>

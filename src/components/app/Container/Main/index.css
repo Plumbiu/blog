@@ -22,10 +22,17 @@
   background-color: transparent;
 }
 
-.Main:has(> .Post) {
-  margin-right: calc(20% + 30px);
+@media screen and (max-width: 1240px) {
+  .Main {
+    width: 100%;
+  }
+  .Main:has(> .Post) {
+    margin: 0 5px;
+  }
 }
 
-.Main:has(> .Post) .Side-Right {
-  display: none;
+@media screen and (max-width: 960px) {
+  .Main {
+    width: 100%;
+  }
 }

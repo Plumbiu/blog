@@ -193,14 +193,11 @@ p {
   background-color: #7b1fa2;
 }
 
-.Side-Left {
-  width: 220px;
-}
-.Side-Right {
-  width: 200px;
+.Side {
+  width: 240px;
 }
 
-:is(.Side-Left, .Side-Right) > div {
+.Side > div {
   overflow: hidden;
   padding: 2px 0;
   background-color: var(--blog-bg-default);
@@ -225,7 +222,7 @@ p {
 }
 
 @media screen and (max-width: 1240px) {
-  .Side-Right {
+  .Side {
     display: none;
   }
 }
@@ -236,7 +233,6 @@ p {
   }
   .Header-Menu {
     width: 100%;
-    height: 100%;
     position: absolute;
     left: 5px;
     top: 5px;

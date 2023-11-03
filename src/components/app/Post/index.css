@@ -1,17 +1,5 @@
 .Post {
-  padding: 16px 20px 56px 20px;
+  padding: 16px 20px;
   flex: 1;
   overflow-x: scroll;
-}
-
-@media screen and (max-width: 1240px) {
-  .Post {
-    margin-right: 0;
-  }
-}
-
-@media screen and (max-width: 960px) {
-  .Post {
-    margin-right: 0;
-  }
 }
