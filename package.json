@@ -18,6 +18,7 @@
     "@plumbiu/md": "^0.4.2",
     "next": "^14.0.1",
     "octokit": "^3.1.1",
+    "preact": "^10.18.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "simple-md-front-matter": "^0.0.4"
