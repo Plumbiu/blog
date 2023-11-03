@@ -1,12 +1,20 @@
 .Header-Menu {
-  display: flex;
+  position: fixed;
   cursor: pointer;
-  margin-right: 12px;
+  z-index: 199;
+  left: 20px;
+  top: 10px;
+}
+
+.Header-Menu svg {
+  padding: 6px;
+  font-size: 22px;
+  border-radius: 50%;
 }
 
 .Header-Menu > div {
   max-width: 100%;
-  padding: 0 4px;
+  padding: 0;
 }
 
 .Header-Menu-List {
@@ -26,4 +34,12 @@
 
 .Header-Menu:hover .Header-Menu-List {
   transform: scale(1);
+}
+
+@media screen and (max-width: 960px) {
+  .Header-Menu {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+  }
 }

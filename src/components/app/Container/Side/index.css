@@ -1,3 +1,16 @@
+.Side {
+  width: 240px;
+}
+
+.Side > div {
+  overflow: hidden;
+  padding: 2px 0;
+  background-color: var(--blog-bg-default);
+  border-radius: 12px;
+  box-shadow: var(--blog-shadow);
+  margin-bottom: 18px;
+}
+
 .Side-Archive-Link {
   display: flex;
   justify-content: space-between;
@@ -37,4 +50,10 @@
   left: 0;
   height: 1px;
   background-color: var(--blog-color-lighter);
+}
+
+@media screen and (max-width: 1240px) {
+  .Side {
+    display: none;
+  }
 }
