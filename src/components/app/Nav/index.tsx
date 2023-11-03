@@ -11,10 +11,12 @@ import {
   TagIcon,
   CategoryIcon,
   LabIcon,
+  FirstPageIcon,
 } from '@/components/icons'
 
 interface Props {}
 const lists = [
+  { text: '首页', link: '/', icon: <FirstPageIcon /> },
   {
     text: '文章',
     link: '/article',
@@ -40,14 +42,6 @@ const Nav: FC<Props> = ({}) => {
           }`}
           href={link + '#' + link.slice(1)}
         >
-          <span
-            style={{
-              opacity: path.includes(link) ? 1 : 0,
-            }}
-            className="Navbar-Title"
-          >
-            {text}
-          </span>
           {icon}
         </Link>
       ))}

@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title,
   description: 'Welcome to my blog!',
 }
+
 export const viewport: Viewport = {
   themeColor: '#1976d2',
   width: 'device-width',
@@ -24,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" theme="dark">
+    <html lang="en" theme="light">
       <link
         rel="icon"
         type="image/x-icon"
@@ -34,7 +35,6 @@ export default function RootLayout({
       <body>
         <div className="Header-Menu">
           <HeaderMenu />
-          {/* <HeaderDrawer /> */}
         </div>
         <Header />
         <Container>

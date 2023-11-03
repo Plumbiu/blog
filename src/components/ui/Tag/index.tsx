@@ -7,19 +7,14 @@ interface Props {
   text: ReactNode
 }
 
-function channel() {
-  return Math.floor((Math.random() + 3) * 40).toString(16)
-}
-
-function limitChannel() {
-  const r = channel().padStart(2, '0')
-  const g = channel().padStart(2, '0')
-
-  return [r, g, 'ef'].sort(() => Math.random() - 0.5)
-}
-
 function randomColor() {
-  return '#' + limitChannel().join('')
+  const colors = [
+    'blueviolet',
+    'darkgoldenrod',
+    'var(--blog-color-light)',
+  ]
+
+  return colors[Math.floor(Math.random() * colors.length)]
 }
 
 const Tag: FC<Props> = ({ text, link }) => {

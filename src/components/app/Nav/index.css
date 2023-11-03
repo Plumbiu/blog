@@ -3,8 +3,9 @@
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-start;
-  gap: 24px;
+  gap: 16px;
   margin-bottom: 16px;
+  margin-right: 10px;
 }
 
 @media screen and (max-width: 960px) {
@@ -14,30 +15,22 @@
 }
 
 .Navbar-Link {
-  overflow: hidden;
   display: flex;
-  padding: 8px 12px;
-  font-size: 0.8125rem;
-  border-radius: 8px;
-  align-items: center;
-  transition: color 120ms;
-}
-
-.Navbar-Link svg:hover {
-  color: var(--blog-theme);
-}
-
-.Navbar-Link-Active {
-  color: var(--blog-theme);
+  justify-content: center;
+  text-align: center;
+  padding: 8px;
   background-color: var(--blog-bg-default);
+  transition: background-color 150ms;
+  font-size: 0.8725rem;
+  border-radius: 10px;
+  align-items: center;
 }
 
-.Navbar-Title {
-  opacity: 0;
-  transition: opacity 250ms;
+.Navbar-Link:hover {
+  background-color: var(--blog-color-lighter);
 }
 
 .Navbar-Link svg {
-  margin-left: 8px;
-  font-size: 22px;
+  color: var(--blog-theme);
+  font-size: 18px;
 }

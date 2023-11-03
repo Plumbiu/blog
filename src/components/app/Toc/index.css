@@ -2,7 +2,7 @@
   position: fixed;
   right: calc(20% - 80px);
   background-color: var(--blog-bg-default);
-  width: 320px;
+  width: 280px;
 }
 
 @media screen and (max-width: 1240px) {
