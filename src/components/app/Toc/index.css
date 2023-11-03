@@ -1,5 +1,6 @@
 .Toc {
   position: fixed;
+  border-radius: 16px;
   right: calc(20% - 120px);
   background-color: var(--blog-bg-default);
   width: 280px;

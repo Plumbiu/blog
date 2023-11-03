@@ -1,5 +1,7 @@
 import '@/styles/globals.css'
 import type { Metadata, Viewport } from 'next'
+import { Suspense } from 'react'
+import Loading from './loading'
 import Header from '@/components/app/Header'
 import Container from '@/components/app/Container'
 import { title } from '~/config.json'
@@ -44,7 +46,7 @@ export default function RootLayout({
         <Container>
           <Nav />
           <Main>
-            {children}
+            <Suspense fallback={<Loading />}>{children}</Suspense>
             <RightCard />
           </Main>
         </Container>

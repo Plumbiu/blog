@@ -12,7 +12,7 @@
   position: relative;
   display: flex;
   background-color: var(--blog-bg-default);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   padding: 6px 12px;
   justify-content: space-between;
   align-items: stretch;
