@@ -5,7 +5,6 @@
   justify-content: flex-start;
   gap: 18px;
   margin-bottom: 16px;
-  margin-right: 10px;
 }
 
 @media screen and (max-width: 960px) {

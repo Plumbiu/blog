@@ -1,5 +1,6 @@
 .Header-Banner {
   box-sizing: border-box;
+  margin-top: -58px;
   padding-top: 60px;
   height: 200px;
   background-color: var(--blog-bg-default);

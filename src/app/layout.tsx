@@ -9,7 +9,6 @@ import Footer from '@/components/app/Container/Footer'
 import HeaderMenu from '@/components/app/Header/Menu'
 import Nav from '@/components/app/Container/Nav'
 import HeaderBanner from '@/components/app/Header/Banner'
-import Main from '@/components/app/Container/Main'
 import Side from '@/components/app/Container/Side'
 
 export const metadata: Metadata = {
@@ -38,17 +37,15 @@ export default function RootLayout({
         href="/icons/favico-32x32.webp"
       />
       <body>
-        <div className="Header-Menu">
-          <HeaderMenu />
-        </div>
+        <HeaderMenu />
         <Header />
         <HeaderBanner />
         <Container>
           <Nav />
-          <Main>
+          <div className="Main">
             <Suspense fallback={<Loading />}>{children}</Suspense>
-            <Side />
-          </Main>
+          </div>
+          <Side />
         </Container>
         <Footer />
       </body>

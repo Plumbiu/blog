@@ -1,12 +1,26 @@
 .Container {
-  width: 72%;
   display: flex;
-  margin: 0 auto;
+  border-radius: 16px;
+  justify-content: center;
   margin-bottom: 12px;
 }
 
-@media screen and (max-width: 960px) {
+.Container > .Main {
+  margin: 0 15px;
+  width: 45%;
+  border-radius: 16px;
+  background-color: var(--blog-bg-default);
+}
+
+.Container > .Main:has(.Banner) {
+  background-color: transparent;
+}
+
+@media screen and (max-width: 1240px) {
   .Container {
     width: 100%;
+  }
+  .Container:has(> .Post) {
+    margin: 0 5px;
   }
 }
