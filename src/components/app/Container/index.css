@@ -21,10 +21,8 @@
 }
 
 @media screen and (max-width: 1240px) {
-  .Container {
+  .Container .Main {
     width: 100%;
-  }
-  .Container:has(> .Post) {
     margin: 0 5px;
   }
 }
