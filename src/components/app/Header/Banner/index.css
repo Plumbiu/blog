@@ -1,10 +1,35 @@
 .Header-Banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   box-sizing: border-box;
   margin-top: -58px;
   padding-top: 58px;
-  height: 200px;
+  height: 150px;
   background-color: var(--blog-bg-default);
   border-radius: 0 0 24px 24px;
   margin-bottom: 24px;
   text-align: center;
+}
+
+.Header-Banner-Icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 12px;
+  gap: 24px;
+}
+
+.Header-Banner-Icon > div {
+  color: var(--blog-color-dark);
+  cursor: pointer;
+  transition: color 150ms;
+}
+
+.Header-Banner-Icon > div:hover {
+  color: var(--blog-theme);
+}
+
+.Header-Banner-Icon svg {
+  font-size: 20px;
 }

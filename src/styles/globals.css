@@ -70,7 +70,7 @@
 
 html[theme='dark'] {
   --blog-bg-default: #121212;
-  --blog-body-bg: #1d1d1d;
+  --blog-body-bg: #151515;
   --blog-scrollbar: #4392a6;
   --blog-bg-header: rgba(8, 8, 8, 0.35);
   --blog-skeleton: #453a44;
