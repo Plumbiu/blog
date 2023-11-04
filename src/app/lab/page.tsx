@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import LabCmp from '@/components/app/Lab'
-import { name } from '~/config.json'
+import { name } from '@/lib/json'
 
 export const metadata: Metadata = {
   title: `${name} | 实验室`,

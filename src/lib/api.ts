@@ -1,4 +1,4 @@
-import { url } from '~/config.json'
+import { url } from '@/lib/json'
 
 const queryURL =
   process.env.NODE_ENV === 'development' ?

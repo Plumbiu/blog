@@ -4,7 +4,7 @@ import '@plumbiu/md/style/hljs-markdown.css'
 import { md2html } from '@plumbiu/md'
 import { useGet } from '@/lib/api'
 import TocCmp from '@/components/app/Toc'
-import { name } from '~/config.json'
+import { name } from '@/lib/json'
 import PostCmp from '@/components/app/Post'
 
 interface Props {

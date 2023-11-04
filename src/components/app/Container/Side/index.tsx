@@ -11,8 +11,14 @@ import {
   RssIcon,
   TwitterIcon,
 } from '@/components/icons'
-import { github_name, twitter, url, location, email } from '~/config.json'
-import { articleNum } from '~/config/sideCard.json'
+import {
+  github_name,
+  twitter,
+  url,
+  location,
+  email,
+  articleNum,
+} from '@/lib/json'
 
 const info = [
   {

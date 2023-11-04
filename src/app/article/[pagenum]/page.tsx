@@ -1,9 +1,8 @@
 import type { Metadata } from 'next'
 import { useGet } from '@/lib/api'
 import Pagination from '@/components/ui/Pagination'
-import { articleNum } from '~/config/sideCard.json'
+import { articleNum, name } from '@/lib/json'
 import ArticleBanner from '@/components/ui/Banner'
-import { name } from '~/config.json'
 
 interface Props {
   params: {

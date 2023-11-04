@@ -1,4 +1,4 @@
-import { articleNum } from '~/config/sideCard.json'
+import { articleNum } from '@/lib/json'
 /*
   for router article/:pagenum
   one page article limit

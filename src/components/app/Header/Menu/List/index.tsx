@@ -10,7 +10,7 @@ import {
   TagIcon,
   TravelExploreIcon,
 } from '@/components/icons'
-import { blog_repo } from '~/config.json'
+import { blog_repo } from '@/lib/json'
 
 const lists = [
   { text: '首页', link: '/', icon: <FirstPageIcon /> },

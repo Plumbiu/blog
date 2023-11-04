@@ -2,7 +2,7 @@ import * as React from 'react'
 import type { Metadata } from 'next'
 import { useGet } from '@/lib/api'
 import ArticleBanner from '@/components/ui/Banner'
-import { name } from '~/config.json'
+import { name } from '@/lib/json'
 
 export default async function Home() {
   const data = await useGet<IFrontMatter[]>('article?pagenum=0&limit=5')

@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 import './index.css'
 import { EmailIcon, LocationIcon, RssIcon } from '@/components/icons'
-import { location, email } from '~/config.json'
+import { location, email } from '@/lib/json'
 
 interface Props {}
 
@@ -26,7 +26,7 @@ const HeaderBanner: FC<Props> = ({}) => {
       </div>
       <div className="Header-Banner-Icon">
         {info.map(({ primary, icon }) => (
-          <div>{icon}</div>
+          <div key={primary}>{icon}</div>
         ))}
       </div>
     </div>

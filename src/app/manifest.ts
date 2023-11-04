@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next'
-import { title, name, url } from '~/config.json'
+import { title, name, url } from '@/lib/json'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {

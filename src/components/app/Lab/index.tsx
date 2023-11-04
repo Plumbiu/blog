@@ -88,9 +88,9 @@ const LabCmp = () => {
           <div className="Lab-List">
             {tool.map(({ link, title, desc }) => (
               <BannerCard
+                key={title}
                 width={280}
                 height={158}
-                key={title}
                 link={link}
                 title={title}
                 desc={desc}
@@ -106,9 +106,9 @@ const LabCmp = () => {
           <div className="Lab-List">
             {web.map(({ link, title, desc }) => (
               <BannerCard
+                key={title}
                 width={240}
                 height={158}
-                key={title}
                 link={link}
                 title={title}
                 desc={desc}

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { useGet } from '@/lib/api'
 import ArticleBanner from '@/components/ui/Banner'
-import { name } from '~/config.json'
+import { name } from '@/lib/json'
 
 interface Props {
   params: {

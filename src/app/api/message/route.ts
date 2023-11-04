@@ -1,5 +1,5 @@
 import { Octokit } from 'octokit'
-import { blog_message_repo, github_name } from '~/config.json'
+import { blog_message_repo, github_name } from '@/lib/json'
 
 const octokit = new Octokit({
   auth: process.env.OCTOKIT_TOKEN,

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import OpenSourceCmp from '@/components/app/OpenSource'
-import { name } from '~/config.json'
+import { name } from '@/lib/json'
 
 export default function Opensource() {
   return <OpenSourceCmp />
