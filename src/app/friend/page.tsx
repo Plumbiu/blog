@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import FriendsCmp from '@/components/app/Friends'
 import { name } from '@/lib/json'
+import Nav from '@/components/app/Container/Nav'
 
 export const metadata: Metadata = {
   title: `${name} | 朋友们`,
@@ -8,7 +9,12 @@ export const metadata: Metadata = {
 }
 
 const Friends = () => {
-  return <FriendsCmp />
+  return (
+    <>
+      <Nav scope="friend" />
+      <FriendsCmp />
+    </>
+  )
 }
 
 export default Friends

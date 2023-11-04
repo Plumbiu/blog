@@ -1,9 +1,15 @@
 import type { Metadata } from 'next'
 import OpenSourceCmp from '@/components/app/OpenSource'
 import { name } from '@/lib/json'
+import Nav from '@/components/app/Container/Nav'
 
 export default function Opensource() {
-  return <OpenSourceCmp />
+  return (
+    <>
+      <Nav scope="opensource" />
+      <OpenSourceCmp />
+    </>
+  )
 }
 
 export const metadata: Metadata = {

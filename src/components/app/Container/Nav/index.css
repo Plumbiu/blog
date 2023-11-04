@@ -34,3 +34,16 @@
   color: var(--blog-theme);
   font-size: 18px;
 }
+
+.Navbar-Link-Active {
+  background-color: var(--blog-theme);
+}
+
+.Navbar-Link-Active svg {
+  color: #fff;
+}
+
+.Navbar-Text {
+  margin-right: 6px;
+  color: white;
+}

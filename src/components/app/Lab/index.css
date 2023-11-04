@@ -6,6 +6,7 @@
   position: relative;
   font-size: 20px;
   padding-left: 24px;
+  margin-left: 12px;
 }
 
 .Lab-Title::before {

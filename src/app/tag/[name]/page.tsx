@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import ArticleBanner from '@/components/ui/Banner'
 import { useGet } from '@/lib/api'
 import { name } from '@/lib/json'
+import Nav from '@/components/app/Container/Nav'
 
 interface Props {
   params: {
@@ -12,7 +13,7 @@ interface Props {
 export async function generateStaticParams() {
   const tags = await useGet<Tag[]>('tag')
 
-  return tags.map(tag => ({
+  return tags.map((tag) => ({
     name: tag.name,
   }))
 }
@@ -20,7 +21,12 @@ export async function generateStaticParams() {
 const TagName = async ({ params }: Props) => {
   const posts = await useGet<IFrontMatter[]>('article?tag=' + params.name)
 
-  return <ArticleBanner posts={posts} name={params.name} />
+  return (
+    <>
+      <Nav scope="tag" />
+      <ArticleBanner posts={posts} name={params.name} />
+    </>
+  )
 }
 
 export default TagName

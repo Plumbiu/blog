@@ -11,33 +11,52 @@ import {
   CategoryIcon,
   LabIcon,
   FirstPageIcon,
+  ArchiveIcon,
 } from '@/components/icons'
 
-interface Props {}
+interface Props {
+  scope: string
+}
+
 const lists = [
-  { text: '首页', link: '/', icon: <FirstPageIcon /> },
+  { text: '首页', link: '/', icon: <FirstPageIcon />, alias: 'home' },
   {
     text: '文章',
     link: '/article',
     icon: <ArticleIcon />,
+    alias: 'article',
   },
-  { text: '朋友们', link: '/friend', icon: <PeopleIcon /> },
-  { text: '实验室', link: '/lab', icon: <LabIcon /> },
-  { text: '标签', link: '/tag', icon: <TagIcon /> },
-  { text: '分类', link: '/category', icon: <CategoryIcon /> },
-  { text: '开源之旅', link: '/opensource', icon: <TravelExploreIcon /> },
+  { text: '朋友们', link: '/friend', icon: <PeopleIcon />, alias: 'friend' },
+  { text: '归档', link: '/archive', icon: <ArchiveIcon />, alias: 'archive' },
+  { text: '实验室', link: '/lab', icon: <LabIcon />, alias: 'lab' },
+  { text: '标签', link: '/tag', icon: <TagIcon />, alias: 'tag' },
+  {
+    text: '分类',
+    link: '/category',
+    icon: <CategoryIcon />,
+    alias: 'category',
+  },
+  {
+    text: '开源之旅',
+    link: '/opensource',
+    icon: <TravelExploreIcon />,
+    alias: 'opensource',
+  },
 ]
 
-const Nav: FC<Props> = ({}) => {
+const Nav: FC<Props> = ({ scope }) => {
   return (
     <div className="Navbar">
-      {lists.map(({ link, icon, text }) => (
+      {lists.map(({ link, icon, text, alias }) => (
         <Link
           key={text}
           scroll={false}
-          className="Navbar-Link"
-          href={link + '#' + link.slice(1)}
+          className={`Navbar-Link ${
+            scope === alias ? 'Navbar-Link-Active' : ''
+          }`}
+          href={link}
         >
+          {scope === alias && <div className="Navbar-Text">{text}</div>}
           {icon}
         </Link>
       ))}
