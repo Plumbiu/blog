@@ -19,14 +19,15 @@
   text-align: center;
   padding: 12px;
   background-color: var(--blog-bg-default);
-  transition: background-color 150ms;
+  border: 1px solid var(--blog-color-lightest);
+  transition: border-color 150ms;
   font-size: 0.8725rem;
   border-radius: 10px;
   align-items: center;
 }
 
 .Navbar-Link:hover {
-  background-color: var(--blog-color-lighter);
+  border-color: var(--blog-theme);
 }
 
 .Navbar-Link svg {

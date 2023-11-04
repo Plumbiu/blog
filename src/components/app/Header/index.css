@@ -33,6 +33,7 @@
   align-items: center;
   cursor: pointer;
   border-radius: 50%;
+  color: var(--blog-color-dark);
   width: 28px;
   height: 28px;
   padding: 4px;
