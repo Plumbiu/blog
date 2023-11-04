@@ -21,35 +21,37 @@ const TocCmp: FC<Props> = async ({ html, title, tags, categories, date }) => {
   const tocs = html2toc(html)
 
   return (
-    <div className="Toc">
-      <h3>{title}</h3>
-      <div className="Toc-Date">
-        <ClockIcon
-          style={{
-            fontSize: '13px',
-            color: '#1976D2',
-            marginRight: '4px',
-          }}
-        />
-        <p>{perfixTime(date)}</p>
-      </div>
-      <div className="Toc-Tags">
-        {categories?.map((category) => (
-          <Tag
-            key={category}
-            link={'/category/' + category}
-            text={category}
+    <div className="Toc-Wrap">
+      <div className="Toc">
+        <h3>{title}</h3>
+        <div className="Toc-Date">
+          <ClockIcon
+            style={{
+              fontSize: '13px',
+              color: '#1976D2',
+              marginRight: '4px',
+            }}
           />
-        ))}
-        {tags?.map((tag) => (
-          <Tag key={tag} link={'/tag/' + tag} text={tag} />
-        ))}
-      </div>
-      <Hr />
-      <TocList tocs={tocs} />
-      <Hr />
-      <div className="Toc-Bottom">
-        <ButtonIcon link="/article" text="文章页" icon={<ArrowBackIcon />} />
+          <p>{perfixTime(date)}</p>
+        </div>
+        <div className="Toc-Tags">
+          {categories?.map((category) => (
+            <Tag
+              key={category}
+              link={'/category/' + category}
+              text={category}
+            />
+          ))}
+          {tags?.map((tag) => (
+            <Tag key={tag} link={'/tag/' + tag} text={tag} />
+          ))}
+        </div>
+        <Hr />
+        <TocList tocs={tocs} />
+        <Hr />
+        <div className="Toc-Bottom">
+          <ButtonIcon link="/article" text="文章页" icon={<ArrowBackIcon />} />
+        </div>
       </div>
     </div>
   )

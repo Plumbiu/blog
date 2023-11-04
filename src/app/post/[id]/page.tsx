@@ -29,6 +29,7 @@ export default async function PostId({ params }: Props) {
 
   return (
     <>
+      <PostCmp html={html} />
       <TocCmp
         html={html}
         title={title}
@@ -37,7 +38,6 @@ export default async function PostId({ params }: Props) {
         date={date}
         updated={updated}
       />
-      <PostCmp html={html} />
     </>
   )
 }

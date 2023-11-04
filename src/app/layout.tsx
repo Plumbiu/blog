@@ -42,9 +42,7 @@ export default function RootLayout({
         <HeaderBanner />
         <Container>
           <Nav />
-          <div className="Main">
-            <Suspense fallback={<Loading />}>{children}</Suspense>
-          </div>
+          <Suspense fallback={<Loading />}>{children}</Suspense>
           <Side />
         </Container>
         <Footer />
