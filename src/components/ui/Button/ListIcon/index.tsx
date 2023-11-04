@@ -30,7 +30,7 @@ const ButtonListIcon: FC<Props> = ({
   return link ?
     (
       <Link
-        className="Hover-Dark Btn-List-Icon-Link"
+        className="Hover Btn-List-Icon-Link"
         href={link}
         target={blank ? '_blank' : '_self'}
         style={p}
@@ -39,7 +39,7 @@ const ButtonListIcon: FC<Props> = ({
       </Link>
     ) :
     (
-      <div className="Hover-Dark Btn-List-Icon-Link" style={p}>
+      <div className="Hover Btn-List-Icon-Link" style={p}>
         {child}
       </div>
     )

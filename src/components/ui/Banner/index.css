@@ -53,6 +53,7 @@
 }
 
 .Banner-Title {
+  margin-left: -6px;
   color: var(--blog-theme);
   font-size: 18px;
   font-weight: 700;
@@ -75,18 +76,6 @@
   gap: 10px;
   font-size: 0.8rem;
   color: var(--blog-theme);
-}
-
-.Banner-Tag .Tag:hover {
-  color: var(--blog-color-hr);
-}
-
-.Banner-Tag-Fill {
-  color: #fff;
-  font-size: 0.7185rem;
-  border-radius: 12px;
-  padding: 4px 6px;
-  background-color: var(--blog-theme);
 }
 
 @media screen and (max-width: 480px) {

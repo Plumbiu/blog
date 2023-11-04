@@ -26,15 +26,3 @@
 .Footer-CopyRight span {
   color: var(--blog-color-lighter);
 }
-
-@media screen and (max-width: 1240px) {
-  .Footer {
-    margin-left: 300px;
-  }
-}
-
-@media screen and (max-width: 960px) {
-  .Footer {
-    margin-left: 0;
-  }
-}

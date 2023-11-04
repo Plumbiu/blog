@@ -94,7 +94,7 @@ const Side = async () => {
           <Link
             key={year}
             href={'/archive/' + year}
-            className="Hover-Dark Side-Archive-Link"
+            className="Hover Side-Archive-Link"
           >
             <div>{year}年</div>
             <div>{num}</div>
