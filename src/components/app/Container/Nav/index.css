@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-start;
-  gap: 18px;
+  gap: 16px;
   min-width: 120px;
   margin-bottom: 16px;
 }
@@ -18,7 +18,7 @@
   display: flex;
   justify-content: center;
   text-align: center;
-  padding: 12px;
+  padding: 10px;
   background-color: var(--blog-bg-default);
   border: 1px solid var(--blog-color-lightest);
   transition: border-color 150ms;
@@ -33,7 +33,7 @@
 
 .Navbar-Link svg {
   color: var(--blog-theme);
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .Navbar-Link-Active {
@@ -45,6 +45,7 @@
 }
 
 .Navbar-Text {
+  font-size: 13px;
   margin-right: 6px;
   color: white;
 }

@@ -3,7 +3,7 @@
   align-items: center;
   background-color: var(--blog-bg-default);
   justify-content: space-between;
-  padding: 0 12px;
+  padding-left: 12px;
   height: 58px;
 }
 
@@ -37,6 +37,6 @@
   width: 28px;
   height: 28px;
   padding: 4px;
-  margin-left: 12px;
-  font-size: 20px;
+  margin-left: 16px;
+  font-size: 22px;
 }

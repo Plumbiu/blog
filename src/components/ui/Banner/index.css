@@ -9,7 +9,7 @@
   display: flex;
   background-color: var(--blog-bg-default);
   margin-bottom: 16px;
-  padding: 4px 12px;
+  padding: 3px 8px;
   border: 1px solid var(--blog-color-lightest);
   transition: border-color 150ms;
   justify-content: space-between;
@@ -62,16 +62,15 @@
 .Banner-Title {
   margin-left: -6px;
   color: var(--blog-theme);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   overflow: hidden;
 }
 
 .Banner-Desc {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.5;
-  letter-spacing: 0.4px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   word-break: normal;
   color: var(--blog-color-default);
   padding-right: 12px;
@@ -81,7 +80,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 0.8rem;
+  font-size: 0.7285rem;
   color: var(--blog-theme);
 }
 
