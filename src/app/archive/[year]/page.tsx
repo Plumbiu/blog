@@ -1,5 +1,4 @@
 import ArchiveCmp from '@/components/app/Archive'
-import Nav from '@/components/app/Container/Nav'
 import { useGet } from '@/lib/api'
 
 interface Props {
@@ -17,12 +16,7 @@ export async function generateStaticParams() {
 const ArcheveYear = async ({ params }: Props) => {
   const archeveYear = await useGet<IArcheve[]>('archive?year=' + params.year)
 
-  return (
-    <>
-      <Nav scope="archive" />
-      <ArchiveCmp archives={archeveYear} />
-    </>
-  )
+  return <ArchiveCmp archives={archeveYear} />
 }
 
 export default ArcheveYear

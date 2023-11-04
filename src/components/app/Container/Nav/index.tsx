@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { type FC } from 'react'
 import './index.css'
+import { usePathname } from 'next/navigation'
 import {
   ArticleIcon,
   TravelExploreIcon,
@@ -14,9 +15,7 @@ import {
   ArchiveIcon,
 } from '@/components/icons'
 
-interface Props {
-  scope: string
-}
+interface Props {}
 
 const lists = [
   { text: '首页', link: '/', icon: <FirstPageIcon />, alias: 'home' },
@@ -44,7 +43,10 @@ const lists = [
   },
 ]
 
-const Nav: FC<Props> = ({ scope }) => {
+const Nav: FC<Props> = ({}) => {
+  let path = usePathname()
+  path = path === '/' ? '/home' : path
+
   return (
     <div className="Navbar">
       {lists.map(({ link, icon, text, alias }) => (
@@ -52,11 +54,11 @@ const Nav: FC<Props> = ({ scope }) => {
           key={text}
           scroll={false}
           className={`Navbar-Link ${
-            scope === alias ? 'Navbar-Link-Active' : ''
+            path.includes(alias) ? 'Navbar-Link-Active' : ''
           }`}
           href={link}
         >
-          {scope === alias && <div className="Navbar-Text">{text}</div>}
+          {path.includes(alias) && <div className="Navbar-Text">{text}</div>}
           {icon}
         </Link>
       ))}

@@ -3,7 +3,6 @@ import { useGet } from '@/lib/api'
 import Pagination from '@/components/ui/Pagination'
 import { articleNum, name } from '@/lib/json'
 import ArticleBanner from '@/components/ui/Banner'
-import Nav from '@/components/app/Container/Nav'
 
 interface Props {
   params: {
@@ -28,12 +27,9 @@ export default async function ({ params }: Props) {
   )
 
   return (
-    <>
-      <Nav scope="article" />
-      <ArticleBanner posts={data} name="文章页">
-        <Pagination page={Number(params.pagenum)} />
-      </ArticleBanner>
-    </>
+    <ArticleBanner posts={data} name="文章页">
+      <Pagination page={Number(params.pagenum)} />
+    </ArticleBanner>
   )
 }
 

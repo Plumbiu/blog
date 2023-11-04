@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { useGet } from '@/lib/api'
 import ArticleBanner from '@/components/ui/Banner'
 import { name } from '@/lib/json'
-import Nav from '@/components/app/Container/Nav'
 
 interface Props {
   params: {
@@ -21,12 +20,7 @@ export async function generateStaticParams() {
 const CategoryName = async ({ params }: Props) => {
   const posts = await useGet<IFrontMatter[]>('article?category=' + params.name)
 
-  return (
-    <>
-      <Nav scope="category" />
-      <ArticleBanner posts={posts} name={params.name} />
-    </>
-  )
+  return <ArticleBanner posts={posts} name={params.name} />
 }
 
 export default CategoryName

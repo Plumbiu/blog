@@ -7,6 +7,7 @@ import Container from '@/components/app/Container'
 import { title } from '@/lib/json'
 import Footer from '@/components/app/Container/Footer'
 import Side from '@/components/app/Container/Side'
+import Nav from '@/components/app/Container/Nav'
 
 export const metadata: Metadata = {
   title,
@@ -36,6 +37,7 @@ export default function RootLayout({
       <body>
         <Header />
         <Container>
+          <Nav />
           <Suspense fallback={<Loading />}>{children}</Suspense>
           <Side />
         </Container>

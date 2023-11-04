@@ -6,7 +6,6 @@ import { useGet } from '@/lib/api'
 import TocCmp from '@/components/app/Toc'
 import { name } from '@/lib/json'
 import PostCmp from '@/components/app/Post'
-import Nav from '@/components/app/Container/Nav'
 
 interface Props {
   params: {
@@ -30,7 +29,6 @@ export default async function PostId({ params }: Props) {
 
   return (
     <>
-      <Nav scope="article" />
       <PostCmp html={html} />
       <TocCmp
         html={html}
