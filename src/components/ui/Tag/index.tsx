@@ -3,6 +3,7 @@ import './index.css'
 import Link from 'next/link'
 
 interface Props {
+  filled?: boolean
   link?: string
   text: ReactNode
 }
@@ -17,7 +18,7 @@ function randomColor() {
   return colors[Math.floor(Math.random() * colors.length)]
 }
 
-const Tag: FC<Props> = ({ text, link }) => {
+const Tag: FC<Props> = ({ text, link, filled }) => {
   const color = randomColor()
   if (link) {
     return (

@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, type FC } from 'react'
+import { type FC } from 'react'
 import './index.css'
 import { usePathname } from 'next/navigation'
 import {
@@ -37,6 +37,7 @@ const Nav: FC<Props> = ({}) => {
       {lists.map(({ link, icon, text }) => (
         <Link
           key={text}
+          scroll={false}
           className={`Navbar-Link ${
             path.includes(link) ? 'Navbar-Link-Active' : ''
           }`}

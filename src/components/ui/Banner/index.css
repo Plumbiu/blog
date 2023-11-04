@@ -4,16 +4,12 @@
   flex-wrap: wrap;
 }
 
-.Banner .Tag {
-  margin-right: 8px;
-}
-
 .Banner > a {
   position: relative;
   display: flex;
   background-color: var(--blog-bg-default);
   margin-bottom: 16px;
-  padding: 6px 12px;
+  padding: 4px 12px;
   justify-content: space-between;
   align-items: stretch;
   width: 100%;
@@ -65,10 +61,18 @@
 
 .Banner-Tag {
   display: flex;
-  align-items: flex-end;
-  gap: 12px;
+  align-items: center;
+  gap: 10px;
   font-size: 0.8rem;
   color: var(--blog-theme);
+}
+
+.Banner-Tag-Fill {
+  color: #fff;
+  font-size: 0.7125rem;
+  border-radius: 12px;
+  padding: 3px 6px;
+  background-color: var(--blog-theme);
 }
 
 @media screen and (max-width: 480px) {
