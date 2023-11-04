@@ -9,11 +9,7 @@ interface Props {
 }
 
 function randomColor() {
-  const colors = [
-    'blueviolet',
-    'darkgoldenrod',
-    'var(--blog-color-light)',
-  ]
+  const colors = ['blueviolet', 'darkgoldenrod', 'var(--blog-color-light)']
 
   return colors[Math.floor(Math.random() * colors.length)]
 }
@@ -28,7 +24,7 @@ const Tag: FC<Props> = ({ text, link, filled }) => {
     )
   }
 
-  return <span className="Tag Tag-Filled">{text}</span>
+  return <span className={`Tag ${filled ? 'Tag-Filled' : ''}`}>{text}</span>
 }
 
 export default Tag

@@ -17,12 +17,6 @@
   padding-left: 16px;
 }
 
-.Toc .Tag {
-  color: inherit !important;
-  font-size: 0.7125rem;
-  margin-right: 8px;
-}
-
 .Toc-Date {
   display: flex;
   align-items: center;
@@ -40,7 +34,7 @@
 }
 
 .Toc-Tags .Tag {
-  margin-right: 6px !important;
+  font-size: 0.7225rem;
 }
 
 .Toc-Bottom {

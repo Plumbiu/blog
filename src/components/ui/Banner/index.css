@@ -67,11 +67,15 @@
   color: var(--blog-theme);
 }
 
+.Banner-Tag .Tag:hover {
+  color: var(--blog-color-hr);
+}
+
 .Banner-Tag-Fill {
   color: #fff;
-  font-size: 0.7125rem;
+  font-size: 0.7185rem;
   border-radius: 12px;
-  padding: 3px 6px;
+  padding: 4px 6px;
   background-color: var(--blog-theme);
 }
 

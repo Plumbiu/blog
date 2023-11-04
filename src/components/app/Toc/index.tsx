@@ -36,14 +36,10 @@ const TocCmp: FC<Props> = async ({ html, title, tags, categories, date }) => {
         </div>
         <div className="Toc-Tags">
           {categories?.map((category) => (
-            <Tag
-              key={category}
-              link={'/category/' + category}
-              text={category}
-            />
+            <Tag key={category} text={category} />
           ))}
           {tags?.map((tag) => (
-            <Tag key={tag} link={'/tag/' + tag} text={tag} />
+            <Tag key={tag} text={tag} filled />
           ))}
         </div>
         <Hr />
