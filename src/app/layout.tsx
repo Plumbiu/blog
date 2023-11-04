@@ -6,9 +6,7 @@ import Header from '@/components/app/Header'
 import Container from '@/components/app/Container'
 import { title } from '@/lib/json'
 import Footer from '@/components/app/Container/Footer'
-import HeaderMenu from '@/components/app/Header/Menu'
 import Nav from '@/components/app/Container/Nav'
-import HeaderBanner from '@/components/app/Header/Banner'
 import Side from '@/components/app/Container/Side'
 
 export const metadata: Metadata = {
@@ -37,9 +35,7 @@ export default function RootLayout({
         href="/icons/favico-32x32.webp"
       />
       <body>
-        <HeaderMenu />
         <Header />
-        <HeaderBanner />
         <Container>
           <Nav />
           <Suspense fallback={<Loading />}>{children}</Suspense>

@@ -2,12 +2,13 @@
   display: flex;
   border-radius: 16px;
   justify-content: center;
+  margin-top: 16px;
   margin-bottom: 12px;
 }
 
 .Container > div:nth-child(2) {
-  margin: 0 15px;
-  width: 50%;
+  margin: 0 16px;
+  width: 48%;
   border-radius: 16px;
   background-color: var(--blog-bg-default);
 }

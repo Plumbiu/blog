@@ -21,14 +21,9 @@ const info = [
 const HeaderBanner: FC<Props> = ({}) => {
   return (
     <div className="Header-Banner">
-      <div>
-        <h1>Plumbiu の 小屋</h1>
-      </div>
-      <div className="Header-Banner-Icon">
-        {info.map(({ primary, icon }) => (
-          <div key={primary}>{icon}</div>
-        ))}
-      </div>
+      {info.map(({ primary, icon }) => (
+        <div key={primary}>{icon}</div>
+      ))}
     </div>
   )
 }

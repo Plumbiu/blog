@@ -1,9 +1,6 @@
 .Header-Menu {
-  position: fixed;
   cursor: pointer;
   z-index: 199;
-  left: 5px;
-  top: 12px;
 }
 
 .Header-Menu svg {

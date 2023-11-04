@@ -10,10 +10,16 @@
   background-color: var(--blog-bg-default);
   margin-bottom: 16px;
   padding: 4px 12px;
+  border: 1px solid var(--blog-color-lightest);
+  transition: border-color 150ms;
   justify-content: space-between;
   align-items: stretch;
   width: 100%;
   border-radius: 16px;
+}
+
+.Banner > a:hover {
+  border-color: var(--blog-theme);
 }
 
 .Banner-Cover {
@@ -33,11 +39,12 @@
   margin-top: 4px;
   margin: 10px 0;
   display: flex;
+  align-items: center;
 }
 
 .Banner-Date p {
-  font-size: 13px;
-  color: var(--blog-color-default);
+  font-size: 12px;
+  color: var(--blog-color-dark);
 }
 
 .Banner-Date svg {
@@ -46,17 +53,20 @@
 }
 
 .Banner-Title {
+  color: var(--blog-theme);
   font-size: 18px;
+  font-weight: 700;
   overflow: hidden;
 }
 
 .Banner-Desc {
   font-size: 14px;
   line-height: 1.5;
+  letter-spacing: 0.4px;
   margin-bottom: 12px;
   word-break: break-all;
   color: var(--blog-color-default);
-  padding-right: 24px;
+  padding-right: 56px;
 }
 
 .Banner-Tag {

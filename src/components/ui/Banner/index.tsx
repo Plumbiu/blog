@@ -26,7 +26,7 @@ const ArticleBanner: FC<Props> = ({ posts, name, children }) => {
   return (
     <div className="Banner">
       {posts.map(({ id, desc, title, tags, categories, date }) => (
-        <Link key={id} className="Hover" href={'/post/' + id}>
+        <Link key={id} href={'/post/' + id}>
           {/* {toImage(tags[0]) && (
             <div className="Banner-Cover">
               <Image
@@ -38,12 +38,12 @@ const ArticleBanner: FC<Props> = ({ posts, name, children }) => {
             </div>
           )} */}
           <div className="Banner-List">
-            <div className="Banner-Title">{title}</div>
+            <div className="Banner-Title">🌟 {title}</div>
             <div className="Banner-Date">
               <ClockIcon />
               <p>{perfixTime(date)}</p>
             </div>
-            <div className="Banner-Desc">{desc}...</div>
+            <div className="Banner-Desc">{desc}......</div>
             <div className="Banner-Tag">
               {categories.map((category) => (
                 <div key={category} className="Banner-Tag-Plain">

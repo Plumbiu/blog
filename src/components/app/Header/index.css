@@ -1,7 +1,9 @@
 .Header {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  background-color: var(--blog-bg-default);
+  justify-content: space-between;
+  padding: 0 12px;
   height: 58px;
 }
 
@@ -23,4 +25,17 @@
   display: flex;
   transform: scale(0.9);
   margin-right: 12px;
+}
+
+.Header-Search > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  padding: 4px;
+  margin-left: 12px;
+  font-size: 20px;
 }

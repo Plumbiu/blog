@@ -1,12 +1,8 @@
 .Header-Banner {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
   margin-top: -58px;
-  padding-top: 58px;
-  height: 150px;
-  background-color: var(--blog-bg-default);
   border-radius: 0 0 24px 24px;
   margin-bottom: 24px;
   text-align: center;

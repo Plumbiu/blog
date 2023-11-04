@@ -5,6 +5,7 @@
   --blog-skeleton: #e5e7ec;
   --blog-bg-default: #fff;
   --blog-bg-header: rgba(241, 242, 254, 0.35);
+  --blog-color-lightest: rgba(0, 0, 0, 0.1);
   --blog-color-lighter: rgba(0, 0, 0, 0.2);
   --blog-color-light: rgba(0, 0, 0, 0.4);
   --blog-color-default: rgba(0, 0, 0, 0.6);
@@ -74,6 +75,7 @@ html[theme='dark'] {
   --blog-scrollbar: #4392a6;
   --blog-bg-header: rgba(8, 8, 8, 0.35);
   --blog-skeleton: #453a44;
+  --blog-color-lightest: rgba(255, 255, 255, 0.1);
   --blog-color-lighter: rgba(255, 255, 255, 0.2);
   --blog-color-light: rgba(255, 255, 255, 0.4);
   --blog-color-default: rgba(255, 255, 255, 0.6);
@@ -121,8 +123,8 @@ html[theme='dark'] {
 body {
   margin: 0;
   font-size: 14px;
-  font-family: tzy, -apple-system, BlinkMacSystemFont, PingFang SC,
-    Hiragino Sans GB, Microsoft YaHei, sans-serif !important;
+  font-family: -apple-system, BlinkMacSystemFont, PingFang SC, Hiragino Sans GB,
+    Microsoft YaHei, sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--blog-body-bg);
@@ -133,12 +135,6 @@ a {
   color: inherit;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
 p {
   margin: 0;
 }

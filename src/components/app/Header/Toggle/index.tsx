@@ -1,6 +1,5 @@
 'use client'
 
-import './index.css'
 import { useState } from 'react'
 import { MoonIcon, SunIcon } from '@/components/icons'
 
@@ -18,7 +17,7 @@ const HeaderToggle = () => {
   }
 
   return (
-    <div className="Header-Toggle Hover" onClick={toggleTheme}>
+    <div className="Hover" onClick={toggleTheme}>
       {mode === 'light' ? <SunIcon /> : <MoonIcon />}
     </div>
   )
