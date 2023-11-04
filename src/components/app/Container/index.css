@@ -2,6 +2,7 @@
   display: flex;
   border-radius: 16px;
   justify-content: center;
+  align-items: flex-start;
   margin-top: 16px;
   margin-bottom: 12px;
 }
@@ -26,5 +27,11 @@
 @media screen and (max-width: 1240px) {
   .Container > div:nth-child(2) {
     width: 90%;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .Container > div:nth-child(2) {
+    width: 100%;
   }
 }
