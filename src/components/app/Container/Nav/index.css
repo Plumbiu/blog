@@ -4,6 +4,7 @@
   align-items: flex-end;
   justify-content: flex-start;
   gap: 18px;
+  min-width: 120px;
   margin-bottom: 16px;
 }
 

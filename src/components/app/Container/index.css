@@ -8,6 +8,7 @@
 }
 
 .Container > div:nth-child(2) {
+  box-sizing: border-box;
   border: 1px solid var(--blog-color-lightest);
   margin: 0 16px;
   width: 48%;

@@ -45,7 +45,11 @@ const lists = [
 
 const Nav: FC<Props> = ({}) => {
   let path = usePathname()
-  path = path === '/' ? '/home' : path
+  if (path === '/') {
+    path = 'home'
+  } else if (path.includes('post')) {
+    path = 'article'
+  }
 
   return (
     <div className="Navbar">
