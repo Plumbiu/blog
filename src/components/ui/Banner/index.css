@@ -10,7 +10,7 @@
   background-color: var(--blog-bg-default);
   margin-bottom: 16px;
   padding: 3px 8px;
-  border: 1px solid var(--blog-color-lightest);
+  border: var(--blog-border);
   transition: border-color 150ms;
   justify-content: space-between;
   align-items: stretch;

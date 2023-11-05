@@ -17,14 +17,12 @@
 .Navbar-Link {
   display: flex;
   justify-content: center;
-  text-align: center;
-  padding: 10px;
+  align-items: flex-end;
+  padding: 8.5px 10px;
   background-color: var(--blog-bg-default);
-  border: 1px solid var(--blog-color-lightest);
+  border: var(--blog-border);
   transition: border-color 150ms;
-  font-size: 0.8725rem;
-  border-radius: 10px;
-  align-items: center;
+  border-radius: 8px;
 }
 
 .Navbar-Link:hover {
@@ -45,7 +43,7 @@
 }
 
 .Navbar-Text {
-  font-size: 13px;
+  font-size: 0.785rem;
   margin-right: 6px;
   color: white;
 }

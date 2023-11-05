@@ -6,7 +6,7 @@
   overflow: hidden;
   padding: 2px 0;
   background-color: var(--blog-bg-default);
-  border: 1px solid var(--blog-color-lightest);
+  border: var(--blog-border);
   border-radius: 12px;
   box-shadow: var(--blog-shadow);
   margin-bottom: 18px;

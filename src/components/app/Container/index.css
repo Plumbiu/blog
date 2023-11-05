@@ -3,13 +3,12 @@
   border-radius: 16px;
   justify-content: center;
   align-items: flex-start;
-  margin-top: 16px;
   margin-bottom: 12px;
 }
 
 .Container > div:nth-child(2) {
   box-sizing: border-box;
-  border: 1px solid var(--blog-color-lightest);
+  border: var(--blog-border);
   margin: 0 16px;
   width: 48%;
   border-radius: 16px;

@@ -17,6 +17,7 @@
   --blog-hover-default: #dadada;
   --blog-hover-dark: rgba(0, 0, 0, 0.07);
   --blog-bg-hr: #d0d7de;
+  --blog-border: 1px solid var(--blog-color-lightest);
   /*
     Copyright (c) 2015-present Algolia, Inc.
     This source code is licensed under the MIT license found in the

@@ -1,5 +1,6 @@
 import type { FC } from 'react'
 import './index.css'
+import Image from 'next/image'
 import { EmailIcon, LocationIcon, RssIcon } from '@/components/icons'
 import { location, email } from '@/lib/json'
 
@@ -21,9 +22,10 @@ const info = [
 const HeaderBanner: FC<Props> = ({}) => {
   return (
     <div className="Header-Banner">
-      {info.map(({ primary, icon }) => (
-        <div key={primary}>{icon}</div>
-      ))}
+      <Image width={50} height={50} src="/avatar.jpg" alt="avatar" />
+      <div>
+        <div>@ Plumbiu</div>
+      </div>
     </div>
   )
 }

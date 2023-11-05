@@ -1,7 +1,7 @@
 .Toc {
   position: sticky;
   top: 24px;
-  border: 1px solid var(--blog-color-lightest);
+  border: var(--blog-border);
   border-radius: 16px;
   background-color: var(--blog-bg-default);
   width: 280px;
