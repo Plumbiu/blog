@@ -2,8 +2,13 @@
   display: inline-flex;
   justify-content: center;
   transition: color 100ms;
+  transition: color 150ms;
   min-width: 24px;
   margin-right: 4px;
+}
+
+.Tag:hover {
+  color: var(--blog-color-dark)!important;
 }
 
 .Tag-Filled {
