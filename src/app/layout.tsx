@@ -37,7 +37,7 @@ export default function RootLayout({
       />
       <body>
         <Header />
-        <HeaderBanner />
+        {/* <HeaderBanner /> */}
         <Container>
           <Nav />
           <Suspense fallback={<Loading />}>{children}</Suspense>

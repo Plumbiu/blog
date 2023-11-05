@@ -44,7 +44,9 @@ const lists = [
 ]
 
 const Nav: FC<Props> = ({}) => {
+  // TODO: usePathname only work in csr
   let path = usePathname()
+
   if (path === '/') {
     path = 'home'
   } else if (path.includes('post')) {
@@ -57,7 +59,7 @@ const Nav: FC<Props> = ({}) => {
         <Link
           key={text}
           scroll={false}
-          className={`Navbar-Link ${
+          className={`Navbar-Link Hover-Border ${
             path.includes(alias) ? 'Navbar-Link-Active' : ''
           }`}
           href={link}

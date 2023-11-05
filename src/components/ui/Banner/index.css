@@ -11,7 +11,6 @@
   margin-bottom: 16px;
   padding: 3px 8px;
   border: var(--blog-border);
-  transition: border-color 150ms;
   justify-content: space-between;
   align-items: stretch;
   width: 100%;
@@ -23,10 +22,6 @@
     margin-right: 10px;
     margin-left: 10px;
   }
-}
-
-.Banner > a:hover {
-  border-color: var(--blog-theme);
 }
 
 .Banner-Cover {
@@ -71,7 +66,7 @@
   font-size: 13px;
   line-height: 1.5;
   margin-bottom: 8px;
-  word-break: normal;
+  word-break: break-all;
   color: var(--blog-color-default);
   padding-right: 12px;
 }

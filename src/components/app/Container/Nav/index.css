@@ -21,12 +21,7 @@
   padding: 8.5px 10px;
   background-color: var(--blog-bg-default);
   border: var(--blog-border);
-  transition: border-color 150ms;
   border-radius: 8px;
-}
-
-.Navbar-Link:hover {
-  border-color: var(--blog-theme);
 }
 
 .Navbar-Link svg {

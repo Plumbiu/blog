@@ -1,3 +1,5 @@
+'use client'
+
 import type { FC } from 'react'
 import './index.css'
 import Image from 'next/image'
@@ -22,9 +24,14 @@ const info = [
 const HeaderBanner: FC<Props> = ({}) => {
   return (
     <div className="Header-Banner">
-      <Image width={50} height={50} src="/avatar.jpg" alt="avatar" />
-      <div>
-        <div>@ Plumbiu</div>
+      <Image width={64} height={64} src="/avatar.jpg" alt="avatar" />
+      <div className="Header-Banner-Desc">
+        <div>@Plumbiu</div>
+        <div className="Header-Banner-Icons">
+          {info.map(({ icon, primary }) => (
+            <div key={primary}>{icon}</div>
+          ))}
+        </div>
       </div>
     </div>
   )

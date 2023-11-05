@@ -3,7 +3,7 @@
   border-radius: 16px;
   justify-content: center;
   align-items: flex-start;
-  margin-bottom: 12px;
+  margin: 12px auto;
 }
 
 .Container > div:nth-child(2) {
