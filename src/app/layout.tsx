@@ -8,7 +8,6 @@ import { title } from '@/lib/json'
 import Footer from '@/components/app/Container/Footer'
 import Side from '@/components/app/Container/Side'
 import Nav from '@/components/app/Container/Nav'
-import HeaderBanner from '@/components/app/Header/Banner'
 
 export const metadata: Metadata = {
   title,
@@ -30,17 +29,19 @@ export default function RootLayout({
   return (
     <html lang="en" theme="light">
       <link
-        rel="icon"
-        type="image/x-icon"
-        sizes="32x32"
         href="/icons/favico-32x32.webp"
+        rel="icon"
+        sizes="32x32"
+        type="image/x-icon"
       />
       <body>
         <Header />
         {/* <HeaderBanner /> */}
         <Container>
           <Nav />
-          <Suspense fallback={<Loading />}>{children}</Suspense>
+          <Suspense fallback={ <Loading /> }>
+            {children}
+          </Suspense>
           <Side />
         </Container>
         <Footer />

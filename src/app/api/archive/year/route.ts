@@ -1,5 +1,4 @@
 import type { NextRequest } from 'next/server'
-
 import { loadArchives } from '@/lib/archives'
 import { getPosts } from '@/lib/node/article'
 
