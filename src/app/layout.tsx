@@ -39,9 +39,7 @@ export default function RootLayout({
         {/* <HeaderBanner /> */}
         <Container>
           <Nav />
-          <Suspense fallback={ <Loading /> }>
-            {children}
-          </Suspense>
+          <Suspense fallback={<Loading />}>{children}</Suspense>
           <Side />
         </Container>
         <Footer />

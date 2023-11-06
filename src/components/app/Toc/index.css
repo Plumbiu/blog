@@ -1,3 +1,7 @@
+.Toc-Wrap {
+  align-self: stretch;
+}
+
 .Toc {
   position: sticky;
   top: 24px;
