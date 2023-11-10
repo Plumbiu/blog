@@ -5,6 +5,7 @@ on:
     paths:
       - 'public/friends'
       - 'config/friends.json'
+      - 'config/lab.json'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,6 +30,9 @@ jobs:
       - name: Update sideCard.json
         run: |
           node scripts/sideCard.js
+      - name: Update sideCard.json
+        run: |
+          node scripts/lab.js
       - name: Configure Git
         run: |
           git config --global user.email 3434909403@qq.com

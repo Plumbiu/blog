@@ -22,8 +22,7 @@ async function resolveImage() {
       const name = path.parse(url).name
       try {
         const raw = await (await fetch(url)).arrayBuffer()
-        const img = Buffer.from(raw)
-        const minify = sharp(Buffer.from(img)).resize(700)
+        const minify = sharp(raw).resize(700)
         minify
           .webp({
             quality: 50,
