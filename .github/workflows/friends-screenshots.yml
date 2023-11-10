@@ -30,7 +30,7 @@ jobs:
       - name: Update sideCard.json
         run: |
           node scripts/sideCard.js
-      - name: Update sideCard.json
+      - name: Update lab.json
         run: |
           node scripts/lab.js
       - name: Configure Git
