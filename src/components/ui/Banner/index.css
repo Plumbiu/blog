@@ -13,7 +13,7 @@
   display: flex;
   background-color: var(--blog-bg-default);
   margin-bottom: 16px;
-  padding: 3px 8px;
+  padding: 0 8px;
   border: var(--blog-border);
   justify-content: space-between;
   align-items: stretch;
