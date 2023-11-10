@@ -74,14 +74,7 @@ const Side = async () => {
   return (
     <div className="Side">
       <div>
-        <div className="Side-Title">
-          <span>标签</span>
-          {tags.length > 15 && (
-            <Link className="Side-Title-Link" href="/">
-              <ReadMoreIcon />
-            </Link>
-          )}
-        </div>
+        <div className="Side-Title">标签</div>
         <Chips path="tag" chips={tags.slice(0, 15)} />
       </div>
       <div>
