@@ -63,6 +63,11 @@ const web = [
     desc: 'Material 风格的博客，基于 Next.js 开发',
   },
   {
+    title: 'img-tools',
+    link: 'https://img-tools.plumbiu.top/',
+    desc: '压缩、转换和剪切图片(开发中)，提供 API',
+  },
+  {
     title: 'truth-cli-web',
     link: 'https://truth-cli.vercel.app/',
     desc: 'truth-cli 的 web 展示，采用 vue + echarts 开发',
@@ -83,13 +88,13 @@ const LabCmp = () => {
   return (
     <div className="Lab">
       <div>
-        <p className="Lab-Title">工具</p>
+        <p className="Lab-Title">网站</p>
         <div>
           <div className="Lab-List">
-            {tool.map(({ link, title, desc }) => (
+            {web.map(({ link, title, desc }) => (
               <BannerCard
                 key={title}
-                width={280}
+                width={240}
                 height={158}
                 link={link}
                 title={title}
@@ -101,13 +106,13 @@ const LabCmp = () => {
         </div>
       </div>
       <div>
-        <p className="Lab-Title">网站</p>
+        <p className="Lab-Title">工具</p>
         <div>
           <div className="Lab-List">
-            {web.map(({ link, title, desc }) => (
+            {tool.map(({ link, title, desc }) => (
               <BannerCard
                 key={title}
-                width={240}
+                width={280}
                 height={158}
                 link={link}
                 title={title}
