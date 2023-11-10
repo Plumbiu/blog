@@ -4,6 +4,7 @@ import { blog_message_repo, github_name } from '@/lib/json'
 const octokit = new Octokit({
   auth: process.env.OCTOKIT_TOKEN,
 })
+
 /*
   Message Route is processing, I dont't like the style before, so I delete it
 */

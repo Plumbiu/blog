@@ -14,12 +14,12 @@ export async function GET(req: Request) {
   // 2. tag searchParams
   const tag = searchParams.get('tag')
   if (tag !== null) {
-    posts = posts.filter(post => post.tags.includes(tag)) ?? []
+    posts = posts.filter((post) => post.tags.includes(tag)) ?? []
   }
   // 3. category searchParams
   const category = searchParams.get('category')
   if (category !== null) {
-    posts = posts.filter(post => post.categories.includes(category)) ?? []
+    posts = posts.filter((post) => post.categories.includes(category)) ?? []
   }
   // 4. limit searchParams
   const limit = searchParams.get('limit')

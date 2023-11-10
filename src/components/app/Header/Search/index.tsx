@@ -9,9 +9,11 @@ import { createPortal } from 'react-dom'
 import { useDocSearchKeyboardEvents } from '@docsearch/react/dist/esm/useDocSearchKeyboardEvents'
 
 const DocSearchModal = dynamic(() =>
+  // eslint-disable-next-line @stylistic/implicit-arrow-linebreak
   import('@docsearch/react/dist/esm/DocSearchModal').then(
     (cmp) => cmp.DocSearchModal,
   ),
+// eslint-disable-next-line @stylistic/function-paren-newline
 )
 
 interface Props {

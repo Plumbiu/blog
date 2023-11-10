@@ -1,9 +1,9 @@
 import { url } from '@/lib/json'
 
 const queryURL =
-  process.env.NODE_ENV === 'development' ?
-    'http://localhost:3000/api/' :
-    `${url}/api/`
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3000/api/'
+    : `${url}/api/`
 
 export async function useGet<T>(suffix: string) {
   const raw = await fetch(queryURL + suffix)

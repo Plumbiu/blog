@@ -27,22 +27,20 @@ const ButtonListIcon: FC<Props> = ({
     padding: `${py}px 16px`,
   }
 
-  return link ?
-    (
-      <Link
-        className="Hover Btn-List-Icon-Link"
-        href={link}
-        target={blank ? '_blank' : '_self'}
-        style={p}
-      >
-        {child}
-      </Link>
-    ) :
-    (
-      <div className="Hover Btn-List-Icon-Link" style={p}>
-        {child}
-      </div>
-    )
+  return link ? (
+    <Link
+      className="Hover Btn-List-Icon-Link"
+      href={link}
+      target={blank ? '_blank' : '_self'}
+      style={p}
+    >
+      {child}
+    </Link>
+  ) : (
+    <div className="Hover Btn-List-Icon-Link" style={p}>
+      {child}
+    </div>
+  )
 }
 
 export default ButtonListIcon

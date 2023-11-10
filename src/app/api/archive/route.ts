@@ -13,7 +13,7 @@ export async function GET(req: Request) {
   // 2. year searchParams
   const year = searchParams.get('year')
   if (year !== null) {
-    archives = archives.filter(archive => archive.year === year) ?? []
+    archives = archives.filter((archive) => archive.year === year) ?? []
   }
 
   return Response.json(archives)
