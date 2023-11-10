@@ -1,5 +1,5 @@
 .Toc-List {
-  font-size: 14px;
+  font-size: 13px;
   padding: 6px 0;
   max-height: 35vh;
   overflow-y: scroll;
@@ -12,15 +12,15 @@
   padding-bottom: 8px;
   margin: 0 8px;
   border-radius: 4px;
-  transition: background-color 100ms;
+  transition: color 100ms;
 }
 
 .Toc-List > a:hover {
-  background-color: var(--blog-hover-default);
+  color: var(--blog-theme);
 }
 
 .Toc-List-Active {
-  background-color: var(--blog-hover-default);
+  color: var(--blog-theme);
 }
 
 .Toc-P-1 {

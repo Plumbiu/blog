@@ -21,7 +21,7 @@ const lists = [
   { text: '首页', link: '/', icon: <FirstPageIcon />, alias: 'home' },
   {
     text: '文章',
-    link: '/article',
+    link: '/article/1',
     icon: <ArticleIcon />,
     alias: 'article',
   },

@@ -3,6 +3,10 @@
   overflow: hidden;
 }
 
+.Archive h2 {
+  margin: 0;
+}
+
 @media screen and (max-width: 960px) {
   .Archive {
     padding: 4px 12px;

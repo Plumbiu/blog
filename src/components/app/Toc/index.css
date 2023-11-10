@@ -11,6 +11,10 @@
   width: 280px;
 }
 
+:is(.Toc) p, h3 {
+  margin: 0;
+}
+
 @media screen and (max-width: 1240px) {
   .Toc {
     display: none;

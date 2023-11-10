@@ -4,6 +4,10 @@
   flex-wrap: wrap;
 }
 
+:is(.Banner) p {
+  margin: 0;
+}
+
 .Banner > a {
   position: relative;
   display: flex;
@@ -74,9 +78,19 @@
 .Banner-Tag {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   font-size: 0.7285rem;
   color: var(--blog-theme);
+}
+
+.Banner-Tag > div {
+  padding: 3px 6px;
+}
+
+.Banner-Tag-Fill {
+  color: #fff;
+  background-color: var(--blog-theme);
+  border-radius: 12px;
 }
 
 @media screen and (max-width: 480px) {

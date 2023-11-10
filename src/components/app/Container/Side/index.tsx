@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Chips from './Chips'
+import Chips from '@/components/ui/Chips'
 import { useGet } from '@/lib/api'
 import './index.css'
 import {
