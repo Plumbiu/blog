@@ -1,6 +1,6 @@
 import path from 'node:path'
 import fs from 'node:fs/promises'
-import sharp from 'sharp'
+import Pageres from 'pageres'
 import { readJSON } from './utils.js'
 
 async function updateJson() {
@@ -10,24 +10,19 @@ async function updateJson() {
   const writePath = path.join(process.cwd(), 'public', 'lab')
   const labDir = await fs.readdir(writePath)
   const data = [...web, ...tool]
-    .filter(({ title }) => !labDir.includes(title))
+    .filter(
+      ({ title }) => !labDir.includes(`${title.replace('/', '-')}.png`),
+    )
     .map(({ title, link }) => ({
-      title,
+      title: title.replace('/', '-'),
       link,
     }))
   for (const { title, link } of data) {
     try {
-      const raw = await (await fetch(link)).arrayBuffer()
-      const minify = sharp(raw)
-      minify
-        .webp({
-          quality: 50,
-        })
-        .toFile(path.join(writePath, `${title}.webp`), (err) => {
-          if (err) {
-            console.log(err.message)
-          }
-        })
+      await new Pageres({ delay: 2, filename: title })
+        .source(link, ['1920x1080'], { crop: 1080 })
+        .destination('public/lab')
+        .run()
     } catch (err) {
       console.log(err.message)
     }

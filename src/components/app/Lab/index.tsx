@@ -17,7 +17,7 @@ const LabCmp = () => {
                 link={link}
                 title={title}
                 desc={desc}
-                bannerSrc={`/lab/${title.replace('@plumbiu/', '')}.png`}
+                bannerSrc={`/lab/${title.replace('/', '-')}.png`}
               />
             ))}
           </div>
@@ -35,7 +35,7 @@ const LabCmp = () => {
                 link={link}
                 title={title}
                 desc={desc}
-                bannerSrc={`/lab/${title.replace('@plumbiu/', '')}.png`}
+                bannerSrc={`/lab/${title.replace('/', '-')}.png`}
               />
             ))}
           </div>
