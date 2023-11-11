@@ -27,7 +27,8 @@
   margin-right: 12px;
 }
 
-.Header-Search > div {
+.Header-Search > div,
+.Header-Search > a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,6 +38,6 @@
   width: 28px;
   height: 28px;
   padding: 4px;
-  margin-left: 16px;
-  font-size: 22px;
+  margin-left: 8px;
+  font-size: 20px;
 }

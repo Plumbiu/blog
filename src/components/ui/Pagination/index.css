@@ -1,6 +1,6 @@
 .Pagination {
   display: flex;
-  gap: 10px;
+  gap: 16px;
   justify-content: center;
   padding: 12px 16px 0 16px;
 }
@@ -9,12 +9,7 @@
   display: flex;
   overflow: hidden;
   overflow-x: scroll;
-  align-items: flex-end;
-}
-
-.Pagination-Icon-Link-Active {
-  background-color: var(--blog-theme);
-  color: #fff;
+  align-items: center;
 }
 
 .Pagination svg {
@@ -23,10 +18,16 @@
 }
 
 .Pagination-Link {
+  background-color: var(--blog-bg-default);
   width: 32px;
   height: 32px;
   line-height: 32px;
   text-align: center;
-  border-radius: 50%;
+  border-radius: 8px;
   cursor: pointer;
+}
+
+.Pagination-Link-Active {
+  background-color: var(--blog-theme);
+  color: #fff;
 }

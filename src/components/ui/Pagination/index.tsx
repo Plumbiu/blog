@@ -21,18 +21,14 @@ const Pagination: FC<Props> = ({ page }) => {
         />
       ) : (
         <Link className="Pagination-Icon-Link" href="1" scroll={false}>
-          <div>
-            <FirstPageIcon />
-          </div>
+          <FirstPageIcon />
         </Link>
       )}
       {array.map((_item, i) => (
         <Link
           key={i}
           className={`Pagination-Link ${
-            page - 1 === i
-              ? 'Hover-Purple Pagination-Icon-Link-Active'
-              : 'Hover-Dark'
+            page - 1 === i ? 'Pagination-Link-Active' : 'Hover'
           }`}
           href={String(i + 1)}
         >
@@ -51,9 +47,7 @@ const Pagination: FC<Props> = ({ page }) => {
           href={String(paginationTotal)}
           scroll={false}
         >
-          <div>
-            <LastPageIcon />
-          </div>
+          <LastPageIcon />
         </Link>
       )}
     </div>

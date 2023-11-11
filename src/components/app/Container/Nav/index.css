@@ -4,7 +4,7 @@
   align-items: flex-end;
   justify-content: flex-start;
   gap: 16px;
-  min-width: 120px;
+  width: 160px;
   margin-bottom: 16px;
 }
 
@@ -21,7 +21,7 @@
   padding: 8.5px 10px;
   background-color: var(--blog-bg-default);
   border: var(--blog-border);
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .Navbar-Link svg {

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import './index.css'
 // import Image from 'next/image'
 import { perfixTime } from '@/lib/time'
-import { ClockIcon } from '@/components/icons'
+import { ClockIcon, UpdateClockIcon } from '@/components/icons'
 
 interface Props {
   children?: ReactNode
@@ -25,7 +25,7 @@ const ArticleBanner: FC<Props> = ({ posts, name, children }) => {
 
   return (
     <div className="Banner">
-      {posts.map(({ id, desc, title, tags, categories, date }) => (
+      {posts.map(({ id, desc, title, tags, categories, date, updated }) => (
         <Link className="Hover-Border" key={id} href={'/post/' + id}>
           {/* {toImage(tags[0]) && (
             <div className="Banner-Cover">
@@ -42,6 +42,8 @@ const ArticleBanner: FC<Props> = ({ posts, name, children }) => {
             <div className="Banner-Date">
               <ClockIcon />
               <p>{perfixTime(date)}</p>
+              <UpdateClockIcon />
+              <p>{perfixTime(updated)}</p>
             </div>
             <div className="Banner-Desc">{desc}......</div>
             <div className="Banner-Tag">

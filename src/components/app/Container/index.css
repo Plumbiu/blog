@@ -11,7 +11,7 @@
   border: var(--blog-border);
   margin: 0 16px;
   width: 48%;
-  border-radius: 16px;
+  border-radius: 6px;
   background-color: var(--blog-bg-default);
 }
 

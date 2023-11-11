@@ -1,41 +1,25 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import Chips from '@/components/ui/Chips'
 import { useGet } from '@/lib/api'
 import './index.css'
+import { EmailIcon, GithubIcon, LocationIcon } from '@/components/icons'
 import {
-  EmailIcon,
-  GithubIcon,
-  LinkIcon,
-  LocationIcon,
-  ReadMoreIcon,
-  RssIcon,
-  TwitterIcon,
-} from '@/components/icons'
-import {
-  github_name,
-  twitter,
-  url,
   location,
   email,
   articleNum,
+  tagNum,
+  categoryNum,
+  github_name,
 } from '@/lib/json'
 
-const info = [
-  {
-    primary: '开源之旅',
-    href: '/opensource',
-  },
-  {
-    primary: '实验室',
-    href: '/lab',
-  },
-]
 const blogInfo = [
-  { primary: '归档', href: '/archive' },
+  { primary: '标签', href: '/tag', count: tagNum },
   { primary: '文章', href: '/article/1', count: articleNum },
   {
-    primary: '朋友',
-    href: '/friend',
+    primary: '分类',
+    href: '/category',
+    count: categoryNum,
   },
 ]
 const myInfo = [
@@ -46,26 +30,6 @@ const myInfo = [
   { primary: location, icon: <LocationIcon /> },
 ]
 
-const btmInfo = [
-  {
-    icon: <GithubIcon />,
-    href: `https://github.com/${github_name}`,
-  },
-
-  {
-    icon: <TwitterIcon />,
-    href: `https://twitter.com/${twitter}`,
-  },
-  {
-    icon: <LinkIcon />,
-    href: url,
-  },
-  {
-    icon: <RssIcon />,
-    href: '/rss.xml',
-  },
-]
-
 const Side = async () => {
   const tags = await useGet<Tag[]>('tag')
   const categories = await useGet<Category[]>('category')
@@ -73,6 +37,31 @@ const Side = async () => {
 
   return (
     <div className="Side">
+      <div className="Side-Me">
+        <Image src="/avatar.jpg" width={86} height={86} alt="avatar" />
+        <div className="Side-Name">Plumbiu</div>
+        <div className="Side-Location">
+          <LocationIcon />
+          {location}
+        </div>
+        <div className="Side-Blog">
+          {blogInfo.map(({ primary, href, count }) => (
+            <Link key={primary} href={href}>
+              <div>{primary}</div>
+              <div className="Side-Count">{count}</div>
+            </Link>
+          ))}
+        </div>
+        <Link
+          target="_blank"
+          href={`https://github.com/${github_name}`}
+          className="Side-Follow-Me"
+        >
+          <GithubIcon />
+          {'  '}
+          Follow Me
+        </Link>
+      </div>
       <div>
         <div className="Side-Title">标签</div>
         <Chips path="tag" chips={tags.slice(0, 15)} />

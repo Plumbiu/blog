@@ -1,20 +1,15 @@
+import Link from 'next/link'
 import Search from './Search'
 import './index.css'
 import HeaderToggle from './Toggle'
 import HeaderMenu from './Menu'
-import { EmailIcon, LocationIcon, RssIcon } from '@/components/icons'
-import { location, email } from '@/lib/json'
+import { RssIcon } from '@/components/icons'
 
 const info = [
   {
     primary: 'rss',
     icon: <RssIcon />,
     href: '/rss.xml',
-  },
-  { primary: location, icon: <LocationIcon /> },
-  {
-    primary: email,
-    icon: <EmailIcon />,
   },
 ]
 
@@ -23,10 +18,10 @@ export default function Header() {
     <div className="Header">
       <HeaderMenu />
       <div className="Header-Search">
-        {info.map(({ primary, icon }) => (
-          <div className="Hover" key={primary}>
+        {info.map(({ primary, href, icon }) => (
+          <Link key={primary} target="_blank" href={href} className="Hover">
             {icon}
-          </div>
+          </Link>
         ))}
         <HeaderToggle />
         <Search

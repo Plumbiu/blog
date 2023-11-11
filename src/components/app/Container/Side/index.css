@@ -7,9 +7,85 @@
   padding: 2px 0;
   background-color: var(--blog-bg-default);
   border: var(--blog-border);
-  border-radius: 12px;
+  border-radius: 4px;
   box-shadow: var(--blog-shadow);
   margin-bottom: 18px;
+}
+
+.Side .Side-Me {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 0;
+  justify-content: space-around;
+}
+
+.Side-Blog {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  width: 100%;
+}
+
+.Side-Blog a {
+  font-size: 13px;
+  margin-top: 4px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  color: var(--blog-color-default);
+  transition: background-color 100ms;
+}
+
+.Side-Blog a:hover {
+  background-color: rgba(57, 87, 200, 0.15);
+}
+
+.Side-Follow-Me {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: var(--blog-theme);
+  margin-top: 4px;
+  width: 80%;
+  color: #e9e9e9;
+  padding: 8px 0;
+  border-radius: 8px;
+}
+
+.Side-Follow-Me > svg {
+  font-size: 18px;
+}
+
+.Side-Location {
+  display: flex;
+  align-items: center;
+  color: var(--blog-color-dark);
+  font-size: 12px;
+}
+
+.Side-Location > svg {
+  font-size: 14px;
+  color: var(--blog-theme);
+}
+
+.Side-Count {
+  color: var(--blog-theme);
+  font-size: 18px;
+  margin-top: 6px;
+}
+
+.Side-Name {
+  font-size: 16px;
+  color: var(--blog-color-dark);
+  font-weight: 600;
+}
+
+.Side-Me > img {
+  border-radius: 50%;
 }
 
 .Side-Archive-Link {
@@ -25,32 +101,16 @@
 }
 
 .Side-Title {
-  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 24px 12px 12px;
-  margin-bottom: 6px;
-  font-size: 16px;
-}
-
-.Side-Title-Link {
-  height: 21px;
+  padding: 6px 12px;
+  color: var(--blog-color-default);
 }
 
 .Side-Title-Link > svg {
   color: #c1b6ff;
   font-size: 22px;
-}
-
-.Side-Title::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  height: 1px;
-  background-color: var(--blog-color-lighter);
 }
 
 @media screen and (max-width: 1240px) {

@@ -1,24 +1,24 @@
 .Banner {
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-:is(.Banner) p {
+.Banner p {
   margin: 0;
 }
 
 .Banner > a {
-  position: relative;
+  box-sizing: border-box;
   display: flex;
   background-color: var(--blog-bg-default);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   padding: 0 8px;
   border: var(--blog-border);
   justify-content: space-between;
   align-items: stretch;
-  width: 100%;
-  border-radius: 16px;
+  border-radius: 6px;
 }
 
 @media screen and (max-width: 960px) {
@@ -45,11 +45,12 @@
   margin-top: 4px;
   margin: 8px 0;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .Banner-Date p {
-  font-size: 12px;
+  font-size: 11.5px;
+  margin-right: 8px;
   color: var(--blog-color-dark);
 }
 

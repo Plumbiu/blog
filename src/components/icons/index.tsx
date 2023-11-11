@@ -18,6 +18,24 @@ export function ClockIcon(props: SVGProps<SVGSVGElement>) {
   )
 }
 
+export function UpdateClockIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path fill="currentColor" d="M5 5h14v2H5z" opacity=".3"></path>
+      <path
+        fill="currentColor"
+        d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V9h14v10zm0-12H5V5h14v2zm-2.51 4.53l-1.06-1.06l-4.87 4.87l-2.11-2.11l-1.06 1.06l3.17 3.17z"
+      />
+    </svg>
+  )
+}
+
 export function EmailIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -112,7 +130,11 @@ export function LocationIcon(props: SVGProps<SVGSVGElement>) {
       viewBox="0 0 24 24"
       {...props}
     >
-      <path fill="currentColor" d="M4 21V9l8-6l8 6v12h-6v-7h-4v7H4Z" />
+      <path
+        fill="currentColor"
+        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9z"
+      />
+      <circle cx="12" cy="9" r="2.5" fill="currentColor"></circle>
     </svg>
   )
 }
