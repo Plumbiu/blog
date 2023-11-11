@@ -10,6 +10,7 @@
 }
 
 .Banner > a {
+  width: 100%;
   box-sizing: border-box;
   display: flex;
   background-color: var(--blog-bg-default);
