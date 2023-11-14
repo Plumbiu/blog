@@ -7,6 +7,7 @@ async function resolveImage() {
   const postsPath = path.join(process.cwd(), 'posts')
   const mdImgPath = path.join(process.cwd(), 'public', 'markdown')
   const MDIMAGE = /!\[.*\]\((.*)\)/g
+  const illegalFile = /\\\/:\*\?\"<>\|/
   const dirs = await fs.readdir(postsPath)
   for (const dir of dirs) {
     const md = await fs.readFile(path.join(postsPath, dir))
@@ -20,6 +21,9 @@ async function resolveImage() {
     let url
     while ((url = MDIMAGE.exec(md)?.[1])) {
       const name = path.parse(url).name
+      if (illegalFile.test(name)) {
+        continue
+      }
       try {
         const raw = await (await fetch(url)).arrayBuffer()
         const minify = sharp(raw).resize(700)
