@@ -3,8 +3,7 @@ name: Update public/rss, config/sideCard.json and public/markdown/*
 on:
   push:
     paths:
-      - '**.md'
-      - '!README.md'
+      - 'posts'
 jobs:
   build:
     runs-on: ubuntu-latest
