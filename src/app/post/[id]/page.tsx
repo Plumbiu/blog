@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import '@plumbiu/md/style/github-markdown.css'
 import '@plumbiu/md/style/hljs-markdown.css'
 import { md2html } from '@plumbiu/md'
+import { minify } from 'html-minifier-terser'
 import { useGet } from '@/lib/api'
 import TocCmp from '@/components/app/Toc'
 import { name } from '@/lib/json'
@@ -25,7 +26,26 @@ export async function generateStaticParams() {
 export default async function PostId({ params }: Props) {
   const { content, title, tags, categories, date, updated } =
     await useGet<IArticle>('article/' + params.id)
-  const html = await md2html(content)
+  const html = await minify(await md2html(content), {
+    conservativeCollapse: true,
+    collapseBooleanAttributes: true,
+    collapseInlineTagWhitespace: true,
+    collapseWhitespace: true,
+    minifyCSS: true,
+    minifyJS: true,
+    minifyURLs: true,
+    removeAttributeQuotes: true,
+    removeEmptyAttributes: true,
+    removeTagWhitespace: true,
+    removeRedundantAttributes: true,
+    removeScriptTypeAttributes: true,
+    removeStyleLinkTypeAttributes: true,
+    removeComments: true,
+    removeOptionalTags: true,
+    removeEmptyElements: true,
+    trimCustomFragments: true,
+    useShortDoctype: true,
+  })
 
   return (
     <>
