@@ -27,10 +27,6 @@ export default async function PostId({ params }: Props) {
   const { content, title, tags, categories, date, updated } =
     await useGet<IArticle>('article/' + params.id)
   const html = await minify(await md2html(content), {
-    conservativeCollapse: true,
-    collapseBooleanAttributes: true,
-    collapseInlineTagWhitespace: true,
-    collapseWhitespace: true,
     minifyCSS: true,
     minifyJS: true,
     minifyURLs: true,
