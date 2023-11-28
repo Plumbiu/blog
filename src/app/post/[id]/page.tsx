@@ -26,22 +26,7 @@ export async function generateStaticParams() {
 export default async function PostId({ params }: Props) {
   const { content, title, tags, categories, date, updated } =
     await useGet<IArticle>('article/' + params.id)
-  const html = await minify(await md2html(content), {
-    minifyCSS: true,
-    minifyJS: true,
-    minifyURLs: true,
-    removeAttributeQuotes: true,
-    removeEmptyAttributes: true,
-    removeTagWhitespace: true,
-    removeRedundantAttributes: true,
-    removeScriptTypeAttributes: true,
-    removeStyleLinkTypeAttributes: true,
-    removeComments: true,
-    removeOptionalTags: true,
-    removeEmptyElements: true,
-    trimCustomFragments: true,
-    useShortDoctype: true,
-  })
+  const html = await md2html(content)
 
   return (
     <>

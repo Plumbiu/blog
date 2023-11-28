@@ -16,7 +16,6 @@
     "@docsearch/react": "^3.5.2",
     "@plumbiu/github-info": "^0.1.5",
     "@plumbiu/md": "^0.4.2",
-    "html-minifier-terser": "^7.2.0",
     "next": "^14.0.3",
     "octokit": "^3.1.2",
     "react": "^18.2.0",
