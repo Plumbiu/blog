@@ -7,7 +7,7 @@ async function resolveImage() {
   const postsPath = path.join(process.cwd(), 'posts')
   const mdImgPath = path.join(process.cwd(), 'public', 'markdown')
   const MDIMAGE = /!\[.*\]\((.*)\)/g
-  const illegalFile = /\\\/:\*\?\"<>\|/
+  const illegalFile = /[\\\/:\*\?\"<>\|]/
   const dirs = await fs.readdir(postsPath)
   for (const dir of dirs) {
     const md = await fs.readFile(path.join(postsPath, dir))
