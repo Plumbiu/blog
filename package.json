@@ -23,7 +23,7 @@
     "simple-md-front-matter": "^0.0.4"
   },
   "devDependencies": {
-    "@plumbiu/eslint-config": "^0.1.10",
+    "@plumbiu/eslint-config": "^0.2.0",
     "@types/html-minifier-terser": "^7.0.2",
     "@types/node": "^20.10.0",
     "@types/react": "^18.2.38",
