@@ -3,6 +3,7 @@
   --blog-scrollbar: #efd4ff;
   --blog-body-bg: #f1f2f8;
   --blog-skeleton: #e5e7ec;
+  --blog-bg-main: #fff;
   --blog-bg-default: #fff;
   --blog-bg-header: rgba(241, 242, 254, 0.35);
   --blog-color-lightest: rgba(0, 0, 0, 0.1);
@@ -72,7 +73,8 @@
 
 html[theme='dark'] {
   --blog-bg-default: #0e0e0e;
-  --blog-body-bg: #111;
+  --blog-bg-main: #0E0E0E;
+  --blog-body-bg: #171717;
   --blog-scrollbar: #4392a6;
   --blog-bg-header: rgba(8, 8, 8, 0.35);
   --blog-skeleton: #453a44;
@@ -121,7 +123,9 @@ html[theme='dark'] {
   }
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: 500;
 }
 
@@ -181,5 +185,5 @@ a {
 }
 
 .md {
-  font-family: inherit!important;
+  font-family: inherit !important;
 }

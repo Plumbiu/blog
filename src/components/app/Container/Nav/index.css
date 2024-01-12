@@ -1,24 +1,19 @@
 .Navbar {
+  overflow: auto;
   display: flex;
-  flex-direction: column;
   align-items: flex-end;
   justify-content: flex-start;
   gap: 16px;
-  width: 160px;
-  margin-bottom: 16px;
-}
-
-@media screen and (max-width: 960px) {
-  .Navbar {
-    display: none;
-  }
+  padding-bottom: 8px;
+  margin-bottom: 8px;
 }
 
 .Navbar-Link {
   display: flex;
-  justify-content: center;
+  flex-shrink: 0;
+  justify-content: space-evenly;
   align-items: flex-end;
-  padding: 8.5px 10px;
+  padding: 8px 10px;
   background-color: var(--blog-bg-default);
   border: var(--blog-border);
   border-radius: 4px;
@@ -36,9 +31,12 @@
 .Navbar-Link-Active svg {
   color: #fff;
 }
+.Navbar-Link-Active .Navbar-Text {
+  color: #fff;
+}
 
 .Navbar-Text {
   font-size: 0.785rem;
   margin-right: 6px;
-  color: white;
+  color: var(--blog-color-dark);
 }

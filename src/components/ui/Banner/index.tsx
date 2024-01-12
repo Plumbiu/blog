@@ -38,7 +38,7 @@ const ArticleBanner: FC<Props> = ({ posts, name, children }) => {
             </div>
           )} */}
           <div className="Banner-List">
-            <div className="Banner-Title">🌟 {title}</div>
+            <div className="Banner-Title">{title}</div>
             <div className="Banner-Date">
               <ClockIcon />
               <p>{perfixTime(date)}</p>

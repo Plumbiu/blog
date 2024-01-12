@@ -3,7 +3,15 @@ import { useGet } from '@/lib/api'
 
 const Category = async () => {
   const categories = await useGet<Tag[]>('category')
-  return <Chips path="category" chips={categories} />
+  return (
+    <div
+      style={{
+        backgroundColor: 'var(--blog-bg-main)',
+      }}
+    >
+      <Chips path="category" chips={categories} />
+    </div>
+  )
 }
 
 export default Category

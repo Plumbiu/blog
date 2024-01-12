@@ -1,4 +1,6 @@
 .OpenSource {
+  background-color: var(--blog-bg-main);
+  padding-top: 4px;
   font-size: 14px;
 }
 .OpenSource-Left {

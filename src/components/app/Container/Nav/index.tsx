@@ -64,7 +64,7 @@ const Nav: FC<Props> = ({}) => {
           }`}
           href={link}
         >
-          {path.includes(alias) && <div className="Navbar-Text">{text}</div>}
+          <div className="Navbar-Text">{text}</div>
           {icon}
         </Link>
       ))}
