@@ -8,7 +8,7 @@
   border: var(--blog-border);
   border-radius: 6px;
   background-color: var(--blog-bg-default);
-  width: 280px;
+  width: 240px;
 }
 
 :is(.Toc) p, h3 {

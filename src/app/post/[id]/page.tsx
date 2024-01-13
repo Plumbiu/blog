@@ -28,7 +28,12 @@ export default async function PostId({ params }: Props) {
   const html = await md2html(content)
 
   return (
-    <>
+    <div
+      style={{
+        display: 'flex',
+        gap: '16px',
+      }}
+    >
       <PostCmp html={html} />
       <TocCmp
         html={html}
@@ -38,7 +43,7 @@ export default async function PostId({ params }: Props) {
         date={date}
         updated={updated}
       />
-    </>
+    </div>
   )
 }
 
