@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   )
 
   return {
-    title: `${name} | 文章 - ${title}`,
+    title,
     description: desc,
     keywords: tags,
     category: categories.join(','),
