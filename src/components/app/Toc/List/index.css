@@ -29,9 +29,9 @@
 }
 .Toc-P-2 {
   color: var(--blog-color-darker);
-  padding-left: 30px;
+  padding-left: 24px;
 }
 .Toc-P-3 {
   color: var(--blog-color-default);
-  padding-left: 48px;
+  padding-left: 36px;
 }
