@@ -28,10 +28,10 @@
   padding-left: 12px;
 }
 .Toc-P-2 {
-  color: #333;
+  color: var(--blog-color-darker);
   padding-left: 30px;
 }
 .Toc-P-3 {
-  color: #888;
+  color: var(--blog-color-default);
   padding-left: 48px;
 }
