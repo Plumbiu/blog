@@ -2,9 +2,9 @@
   display: flex;
   align-items: center;
   background-color: var(--blog-bg-default);
-  justify-content: space-between;
+  justify-content: flex-end;
   padding-left: 12px;
-  height: 52px;
+  height: 48px;
 }
 
 .Header-Menu-Wrap {

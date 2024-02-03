@@ -1,16 +1,16 @@
 .Toc-List {
   font-size: 13px;
   padding: 6px 0;
-  max-height: 35vh;
+  max-height: 70vh;
   overflow-y: scroll;
 }
 
 .Toc-List > a {
   position: relative;
   display: block;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  margin: 0 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  margin: 0 2px;
   border-radius: 4px;
   transition: color 100ms;
 }
@@ -24,11 +24,14 @@
 }
 
 .Toc-P-1 {
+  font-weight: 600;
   padding-left: 12px;
 }
 .Toc-P-2 {
-  padding-left: 22px;
+  color: #333;
+  padding-left: 30px;
 }
 .Toc-P-3 {
-  padding-left: 32px;
+  color: #888;
+  padding-left: 48px;
 }

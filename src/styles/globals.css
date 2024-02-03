@@ -1,7 +1,7 @@
 :root {
   --blog-theme: #1976d2;
   --blog-scrollbar: #efd4ff;
-  --blog-body-bg: #f1f2f8;
+  --blog-body-bg: #f2f2f2;
   --blog-skeleton: #e5e7ec;
   --blog-bg-main: #fff;
   --blog-bg-default: #fff;
@@ -73,8 +73,8 @@
 
 html[theme='dark'] {
   --blog-bg-default: #0e0e0e;
-  --blog-bg-main: #0E0E0E;
-  --blog-body-bg: #171717;
+  --blog-bg-main: #0e0e0e;
+  --blog-body-bg: #111;
   --blog-scrollbar: #4392a6;
   --blog-bg-header: rgba(8, 8, 8, 0.35);
   --blog-skeleton: #453a44;
