@@ -11,7 +11,6 @@ interface Props {
 
 export async function generateStaticParams() {
   const tags = await useGet<Tag[]>('tag')
-
   return tags.map((tag) => ({
     name: tag.name,
   }))
