@@ -9,36 +9,38 @@ async function resolveImage() {
   const MDIMAGE = /!\[.*\]\((.*)\)/g
   const illegalFile = /[\\\/:\*\?\"<>\|]/
   const dirs = await fs.readdir(postsPath)
-  for (const dir of dirs) {
-    const md = await fs.readFile(path.join(postsPath, dir))
-    const writePath = path.join(mdImgPath, dir)
-    if (!existsSync(writePath)) {
-      await fs.mkdir(writePath)
-    } else {
-      console.log(`have aleady exist ${writePath}\n`)
-      continue
-    }
-    let url
-    while ((url = MDIMAGE.exec(md)?.[1])) {
-      const name = path.parse(url).name
-      if (illegalFile.test(name)) {
-        continue
+  await Promise.all(
+    dirs.map(async (dir) => {
+      const md = await fs.readFile(path.join(postsPath, dir))
+      const writePath = path.join(mdImgPath, dir)
+      if (!existsSync(writePath)) {
+        await fs.mkdir(writePath)
+      } else {
+        console.log(`have aleady exist ${writePath}\n`)
+        return
       }
-      try {
-        const raw = await (await fetch(url)).arrayBuffer()
-        const minify = sharp(raw).resize(700)
-        minify
-          .webp({
-            quality: 50,
-          })
-          .toFile(path.join(writePath, `${name}.webp`), (err) => {
-            if (err) {
-              console.log(err.message)
-            }
-          })
-      } catch (err) {}
-    }
-  }
+      let url
+      while ((url = MDIMAGE.exec(md)?.[1])) {
+        const name = path.parse(url).name
+        if (illegalFile.test(name)) {
+          continue
+        }
+        try {
+          const raw = await (await fetch(url)).arrayBuffer()
+          const minify = sharp(raw).resize(700)
+          minify
+            .webp({
+              quality: 50,
+            })
+            .toFile(path.join(writePath, `${name}.webp`), (err) => {
+              if (err) {
+                console.log(err.message)
+              }
+            })
+        } catch (err) {}
+      }
+    }),
+  )
 }
 
 resolveImage()

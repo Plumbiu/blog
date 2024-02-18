@@ -10,23 +10,23 @@ async function updateJson() {
   const writePath = path.join(process.cwd(), 'public', 'lab')
   const labDir = await fs.readdir(writePath)
   const data = [...web, ...tool]
-    .filter(
-      ({ title }) => !labDir.includes(`${title.replace('/', '-')}.png`),
-    )
+    .filter(({ title }) => !labDir.includes(`${title.replace('/', '-')}.png`))
     .map(({ title, link }) => ({
       title: title.replace('/', '-'),
       link,
     }))
-  for (const { title, link } of data) {
-    try {
-      await new Pageres({ delay: 2, filename: title })
-        .source(link, ['1920x1080'], { crop: 1080 })
-        .destination('public/lab')
-        .run()
-    } catch (err) {
-      console.log(err.message)
-    }
-  }
+  await Promise.all(
+    data.map(async ({ title, link }) => {
+      try {
+        await new Pageres({ delay: 2, filename: title })
+          .source(link, ['1920x1080'], { crop: 1080 })
+          .destination('public/lab')
+          .run()
+      } catch (err) {
+        console.log(err.message)
+      }
+    }),
+  )
 }
 
 updateJson()
