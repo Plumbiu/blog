@@ -4,12 +4,13 @@ import type { NextRequest } from 'next/server'
 import parseFM from 'simple-md-front-matter'
 import { isFileNameLegal } from '@/lib/node/file'
 
+const MDIMAGE = /!\[.*\]\((.*)\)/g
+
 export async function GET(
   _req: NextRequest,
   { params }: { params: { id: string } },
 ) {
   const filePath = path.join(process.cwd(), 'posts', params.id)
-  const MDIMAGE = /!\[.*\]\((.*)\)/g
   let content = await fs.readFile(filePath, 'utf-8')
   let url: string | undefined
   while ((url = MDIMAGE.exec(content)?.[1])) {
