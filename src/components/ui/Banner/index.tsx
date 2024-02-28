@@ -26,7 +26,13 @@ const ArticleBanner: FC<Props> = ({ posts, name, children }) => {
   return (
     <div className="Banner">
       {posts.map(({ id, desc, title, tags, categories, date, updated }) => (
-        <Link className="Hover-Border" key={id} href={'/post/' + id}>
+        <Link
+          download={false}
+          prefetch={false}
+          className="Hover-Border"
+          key={id}
+          href={'/post/' + id}
+        >
           {/* {toImage(tags[0]) && (
             <div className="Banner-Cover">
               <Image
