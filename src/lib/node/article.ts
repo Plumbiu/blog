@@ -1,9 +1,9 @@
 import fsp from 'node:fs/promises'
 import path from 'node:path'
 import parseFM from 'simple-md-front-matter'
-import { md2html } from '@plumbiu/md'
 import { articleLimit } from '../config'
 import { perfixTime } from '../time'
+import { md2html } from '@/lib/md/index'
 
 function datePriority(d: string) {
   return Number(perfixTime(d).replace(/-/g, ''))
@@ -26,7 +26,7 @@ export async function getPosts(pagenum = 0, isLimit = false) {
     rawPosts.map(async (post) => {
       const file = await fsp.readFile(path.join(postsPath, post), 'utf-8')
       const end = file.indexOf('---', 3)
-      const desc = await md2html(file.slice(end + 3, end + 350))
+      const desc = file.slice(end + 3, end + 350)
       return {
         id: post,
         ...parseFM<TRawFrontMatter>(file),

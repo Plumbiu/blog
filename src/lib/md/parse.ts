@@ -7,17 +7,7 @@ import rehypeHighlight from 'rehype-highlight'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 
-interface Md2htmlOpts {
-  lazy: boolean
-}
-
-export async function md2html(
-  md: string,
-  options: Md2htmlOpts = {
-    lazy: true,
-  },
-) {
-  const { lazy } = options
+export async function md2html(md: string) {
   const file = await unified()
     .use(remarkParse) // Convert into markdown AST
     .use(remarkRehype) // Transform to HTML AST
@@ -28,15 +18,9 @@ export async function md2html(
     .use(remarkGfm)
     .process(md)
   let markdown = String(file)
-  if (lazy) {
-    // eslint-disable-next-line @stylistic/quotes
-    markdown = markdown.replace(/<img/g, "<img loading='lazy'")
-  }
+  // eslint-disable-next-line @stylistic/quotes
+  markdown = markdown.replace(/<img/g, "<img loading='lazy'")
   return markdown
-}
-
-interface Md2tocOpts {
-  isPython?: boolean
 }
 
 interface Toc {
@@ -44,22 +28,9 @@ interface Toc {
   title: string
 }
 
-export function md2toc(
-  md: string,
-  options: Md2tocOpts = {
-    isPython: false,
-  },
-) {
-  const { isPython } = options
+export function md2toc(md: string) {
   let pos = 0
   const toc: Toc[] = []
-  let codePos = 0
-  if (isPython) {
-    while ((codePos = md.indexOf('```')) !== -1) {
-      const end = md.indexOf('```', codePos + 3)
-      md = md.replace(md.slice(codePos, end + 3), '')
-    }
-  }
 
   while (((pos = md.indexOf('#')), pos) !== -1) {
     if (md[pos - 1] !== '\n' && pos !== 0) {
@@ -79,20 +50,4 @@ export function md2toc(
     md = md.slice(pos)
   }
   return toc
-}
-
-export async function parseMd(
-  md: string,
-  options: Md2htmlOpts & Md2tocOpts = {
-    lazy: true,
-    isPython: false,
-  },
-) {
-  const { lazy, isPython } = options
-  const data = {
-    html: await md2html(md, { lazy }),
-    toc: md2toc(md, { isPython }),
-  }
-
-  return data
 }

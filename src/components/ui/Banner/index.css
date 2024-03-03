@@ -12,7 +12,6 @@
 .Banner_Inner {
   width: 100%;
   box-sizing: border-box;
-  display: flex;
   background-color: var(--blog-bg-default);
   margin-bottom: 16px;
   justify-content: space-between;
@@ -36,8 +35,9 @@
 }
 
 .Banner-List {
-  padding: 16px;
-  flex: 1;
+  padding-left: 16px;
+  padding-top: 12px;
+  padding-bottom: 8px;
 }
 
 .Banner-Date {
@@ -47,7 +47,7 @@
 }
 
 .Banner-Date p {
-  font-size: 11.5px;
+  font-size: 13px;
   margin-right: 8px;
   color: var(--blog-color-dark);
 }
@@ -65,7 +65,8 @@
 }
 
 .Banner-Desc {
-  font-size: 13px;
+  padding: 0 16px;
+  font-size: 14px;
   line-height: 1.5;
   margin-bottom: 8px;
   word-break: break-all;
@@ -82,12 +83,12 @@
 }
 
 .Banner-Tag > div {
-  padding: 3px 6px;
+  padding: 2px 6px;
 }
 
 .Banner-Tag-Fill {
   border: 1px solid var(--blog-theme);
-  border-radius: 12px;
+  border-radius: 18px;
 }
 
 @media screen and (max-width: 480px) {
