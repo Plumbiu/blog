@@ -23,7 +23,7 @@ const TocCmp: FC<Props> = async ({ html, title, tags, categories, date }) => {
   return (
     <div className="Toc-Wrap">
       <div className="Toc">
-        <h3>{title}</h3>
+        <h4>{title}</h4>
         <div className="Toc-Date">
           <ClockIcon
             style={{
