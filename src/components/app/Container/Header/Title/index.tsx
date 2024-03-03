@@ -6,9 +6,11 @@ import './index.css'
 interface Props {}
 
 const HeaderTitle: FC<Props> = ({}) => {
-  const [title, setTitle] = useState(document.title)
+  const [title, setTitle] = useState(
+    document.title.split('| ')?.[1] ?? document.title,
+  )
 
-  return <div>{title}</div>
+  return <h1 className="Header-Title">{title}</h1>
 }
 
 export default HeaderTitle

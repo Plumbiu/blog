@@ -6,7 +6,7 @@
   position: sticky;
   top: 24px;
   font-size: 14px;
-  padding: 0 12px;
+  padding: 12px;
   border-radius: 6px;
   background-color: var(--blog-bg-default);
   min-width: 240px;

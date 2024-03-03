@@ -1,8 +1,8 @@
 .Header {
   position: relative;
-  background-color: var(--blog-header-bg);
+  background: var(--blog-header-bg);
   padding-left: 12px;
-  height: 360px;
+  height: 320px;
 }
 
 .Header-Top {
