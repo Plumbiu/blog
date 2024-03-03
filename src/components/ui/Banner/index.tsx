@@ -2,6 +2,7 @@ import { Fragment, type FC, type ReactNode } from 'react'
 import Link from 'next/link'
 import './index.css'
 // import Image from 'next/image'
+import ButtonBg from '../Button/Bg'
 import { perfixTime } from '@/lib/time'
 import { ClockIcon, UpdateClockIcon } from '@/components/icons'
 
@@ -17,8 +18,8 @@ const ArticleBanner: FC<Props> = ({ posts, name, children }) => {
   return (
     <div className="Banner">
       {posts.map(({ id, desc, title, tags, categories, date, updated }) => (
-        <div className="Banner_Inner">
-          <Link key={id} href={'/post/' + id}>
+        <div className="Banner-Inner">
+          <Link className="Banner-Link" key={id} href={'/post/' + id}>
             <div className="Banner-List">
               <div className="Banner-Title">{title}</div>
               <div className="Banner-Date">
@@ -42,7 +43,7 @@ const ArticleBanner: FC<Props> = ({ posts, name, children }) => {
             </div>
           </Link>
           <div
-            className="Banner-Desc"
+            className="Banner-Desc md"
             dangerouslySetInnerHTML={{
               __html: desc,
             }}

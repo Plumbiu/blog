@@ -3,33 +3,4 @@
   padding: 16px 20px;
   overflow-x: scroll;
 }
-.md {
-  font-size: 0.895rem !important;
-}
-.md .highlight pre,
-.md pre {
-  font-size: 100% !important;
-}
 
-.md h1 {
-  font-size: 1.6em;
-}
-.md h2 {
-  font-size: 1.4em;
-}
-.md h3 {
-  font-size: 1.2em;
-}
-.md h4 {
-  font-size: 1.1em;
-}
-.md h5 {
-  font-size: 1em;
-}
-.md h6 {
-  font-size: 1em;
-}
-
-.md img {
-  display: flex;
-}

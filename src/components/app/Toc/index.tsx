@@ -34,14 +34,6 @@ const TocCmp: FC<Props> = ({ html, title, tags, categories, date }) => {
           />
           <p>{perfixTime(date)}</p>
         </div>
-        <div className="Toc-Tags">
-          {categories?.map((category) => (
-            <Tag key={category} text={category} />
-          ))}
-          {tags?.map((tag) => (
-            <Tag key={tag} text={tag} filled />
-          ))}
-        </div>
         <Hr />
         <TocList tocs={tocs} />
       </div>

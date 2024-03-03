@@ -1,6 +1,8 @@
 import '@/styles/globals.css'
 import type { Metadata, Viewport } from 'next'
 import { Suspense } from 'react'
+import '@/styles/md/hljs.css'
+import '@/styles/md/github-markdown.css'
 import { Roboto_Mono } from 'next/font/google'
 import Loading from './loading'
 import Header from '@/components/app/Container/Header'

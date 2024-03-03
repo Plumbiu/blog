@@ -25,6 +25,7 @@
   justify-content: space-evenly;
   text-align: center;
   width: 100%;
+  margin: 4px 0;
 }
 
 .Side-Blog a {
@@ -80,7 +81,7 @@
 }
 
 .Side-Name {
-  font-size: 16px;
+  font-size: 18px;
   color: var(--blog-color-dark);
   font-weight: 600;
 }
@@ -112,11 +113,6 @@
   padding: 6px 12px;
   font-weight: 600;
   color: var(--blog-color-default);
-}
-
-.Side-Title-Link > svg {
-  color: #c1b6ff;
-  font-size: 22px;
 }
 
 @media screen and (max-width: 1240px) {

@@ -1,14 +1,13 @@
 .Tag {
+  font-size: 14px;
   display: inline-flex;
   justify-content: center;
-  transition: color 100ms;
   transition: color 150ms;
-  min-width: 24px;
-  margin-right: 4px;
+  min-width: 20px;
 }
 
 .Tag:hover {
-  color: var(--blog-color-dark)!important;
+  color: var(--blog-color-dark) !important;
 }
 
 .Tag-Filled {

@@ -63,6 +63,7 @@ const Side = async () => {
         </Link>
       </div>
       <div>
+        <div className="Side-Title">Tag</div>
         <Chips path="tag" chips={tags.slice(0, 15)} />
       </div>
       <div>

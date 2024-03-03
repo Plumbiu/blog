@@ -9,7 +9,8 @@
   margin: 0;
 }
 
-.Banner_Inner {
+.Banner-Inner {
+  border: 1px solid transparent;
   width: 100%;
   box-sizing: border-box;
   background-color: var(--blog-bg-default);
@@ -20,10 +21,14 @@
 }
 
 @media screen and (max-width: 960px) {
-  .Banner_Inner {
+  .Banner-Inner {
     margin-right: 10px;
     margin-left: 10px;
   }
+}
+
+.Banner-Link:hover .Banner-Inner {
+  border-color: var(--blog-theme);
 }
 
 .Banner-Cover {
@@ -43,13 +48,12 @@
 .Banner-Date {
   margin: 6px 0;
   display: flex;
+  font-size: 14px;
   align-items: center;
 }
 
 .Banner-Date p {
-  font-size: 13px;
   margin-right: 8px;
-  color: var(--blog-color-dark);
 }
 
 .Banner-Date svg {
@@ -58,19 +62,19 @@
 }
 
 .Banner-Title {
-  color: var(--blog-theme);
-  font-size: 18px;
+  color: var(--blog-color-darker);
+  font-size: 20px;
   font-weight: 600;
   overflow: hidden;
 }
 
 .Banner-Desc {
-  padding: 0 16px;
+  padding: 12px 16px;
   font-size: 14px;
-  line-height: 1.5;
   margin-bottom: 8px;
   word-break: break-all;
-  color: var(--blog-color-default);
+  color: var(--blog-color-default) !important;
+  border-top: 1px dashed var(--blog-color-darker);
   padding-right: 12px;
 }
 
@@ -78,7 +82,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.7285rem;
+  font-size: 14px;
   color: var(--blog-theme);
 }
 

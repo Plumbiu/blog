@@ -26,7 +26,7 @@ export async function getPosts(pagenum = 0, isLimit = false) {
     rawPosts.map(async (post) => {
       const file = await fsp.readFile(path.join(postsPath, post), 'utf-8')
       const end = file.indexOf('---', 3)
-      const desc = file.slice(end + 3, end + 350)
+      const desc = await md2html(file.slice(end + 3, end + 650))
       return {
         id: post,
         ...parseFM<TRawFrontMatter>(file),

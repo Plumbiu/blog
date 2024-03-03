@@ -9,7 +9,7 @@
 .Container > div:nth-child(2) {
   box-sizing: border-box;
   margin: 0 16px;
-  width: 65%;
+  width: 60%;
   border-radius: 6px;
 }
 
