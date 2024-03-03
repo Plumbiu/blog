@@ -1,0 +1,10 @@
+.Wave {
+  position: absolute;
+  left: -3%;
+  right: -3%;
+  bottom: 0px;
+  width: 106%;
+  min-width: 600px;
+  max-width: unset;
+  fill: blue;
+}

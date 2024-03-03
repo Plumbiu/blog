@@ -5,9 +5,10 @@
 .Toc {
   position: sticky;
   top: 24px;
+  padding: 0 12px;
   border-radius: 6px;
   background-color: var(--blog-bg-default);
-  min-width: 260px;
+  min-width: 240px;
 }
 
 :is(.Toc) p,
@@ -22,14 +23,13 @@ h4 {
 }
 
 .Toc h4 {
-  padding-top: 14px;
-  padding-left: 16px;
+  padding-top: 8px;
 }
 
 .Toc-Date {
   display: flex;
   align-items: center;
-  padding: 6px 16px;
+  padding: 6px 0;
 }
 
 .Toc-Date p {
@@ -38,7 +38,6 @@ h4 {
 }
 
 .Toc-Tags {
-  padding-left: 14px;
   padding-bottom: 12px;
 }
 

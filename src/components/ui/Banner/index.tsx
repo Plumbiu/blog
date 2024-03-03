@@ -11,32 +11,13 @@ interface Props {
   name: string
 }
 
-// function toImage(tag: string) {
-//   const key = Object.keys(imageMap).find((item) =>
-//     item.includes(tag.toLocaleLowerCase()),
-//   )
-//   if (!key) return key
-
-//   return imageMap[key]
-// }
-
 const ArticleBanner: FC<Props> = ({ posts, name, children }) => {
   name = decodeURI(name)
 
   return (
     <div className="Banner">
       {posts.map(({ id, desc, title, tags, categories, date, updated }) => (
-        <a className="Hover-Border" key={id} href={'/post/' + id}>
-          {/* {toImage(tags[0]) && (
-            <div className="Banner-Cover">
-              <Image
-                width={64}
-                height={64}
-                alt={tags[0]}
-                src={'/cover/' + toImage(tags[0])}
-              />
-            </div>
-          )} */}
+        <Link className="Hover-Border" key={id} href={'/post/' + id}>
           <div className="Banner-List">
             <div className="Banner-Title">{title}</div>
             <div className="Banner-Date">
@@ -59,7 +40,7 @@ const ArticleBanner: FC<Props> = ({ posts, name, children }) => {
               ))}
             </div>
           </div>
-        </a>
+        </Link>
       ))}
       {children}
     </div>

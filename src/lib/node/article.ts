@@ -1,6 +1,7 @@
 import fsp from 'node:fs/promises'
 import path from 'node:path'
 import parseFM from 'simple-md-front-matter'
+import { md2html } from '@plumbiu/md'
 import { articleLimit } from '../config'
 import { perfixTime } from '../time'
 
@@ -21,21 +22,19 @@ export async function getPosts(pagenum = 0, isLimit = false) {
   if (isLimit) {
     rawPosts = rawPosts.slice(start, start + articleLimit)
   }
-  const posts: IFrontMatter[] = []
-  for (const post of rawPosts) {
-    const file = await fsp.readFile(path.join(postsPath, post), 'utf-8')
-    const end = file.indexOf('---', 3)
-    const desc = file
-      .slice(end + 3, end + 150)
-      .replace(/[#`\s-*!]/g, '')
-      .replace(/\[[\w\W]*\]\(/g, ' ')
-      .replace(')', ' ')
-    posts.push({
-      id: post,
-      ...parseFM<TRawFrontMatter>(file),
-      desc,
-    })
-  }
+  const posts: IFrontMatter[] = await Promise.all(
+    rawPosts.map(async (post) => {
+      const file = await fsp.readFile(path.join(postsPath, post), 'utf-8')
+      const end = file.indexOf('---', 3)
+      const desc = await md2html(file.slice(end + 3, end + 350))
+      return {
+        id: post,
+        ...parseFM<TRawFrontMatter>(file),
+        desc,
+      }
+    }),
+  )
+
   posts.sort((a, b) => b.date.getTime() - a.date.getTime())
 
   return posts

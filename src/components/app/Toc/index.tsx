@@ -44,10 +44,6 @@ const TocCmp: FC<Props> = async ({ html, title, tags, categories, date }) => {
         </div>
         <Hr />
         <TocList tocs={tocs} />
-        <Hr />
-        <div className="Toc-Bottom">
-          <ButtonIcon link="/article" text="文章页" icon={<ArrowBackIcon />} />
-        </div>
       </div>
     </div>
   )

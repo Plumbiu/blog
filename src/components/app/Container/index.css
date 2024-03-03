@@ -9,7 +9,7 @@
 .Container > div:nth-child(2) {
   box-sizing: border-box;
   margin: 0 16px;
-  width: 70%;
+  width: 65%;
   border-radius: 6px;
 }
 
@@ -25,11 +25,13 @@
 @media screen and (max-width: 1240px) {
   .Container > div:nth-child(2) {
     width: 90%;
+    transform: translateX(0);
   }
 }
 
 @media screen and (max-width: 960px) {
   .Container > div:nth-child(2) {
+    transform: translateX(0);
     width: 100%;
   }
 }

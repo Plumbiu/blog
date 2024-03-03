@@ -1,5 +1,5 @@
 .Side {
-  width: 240px;
+  width: 220px;
 }
 
 .Side > div {
@@ -8,7 +8,7 @@
   background-color: var(--blog-bg-default);
   border-radius: 4px;
   box-shadow: var(--blog-shadow);
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .Side .Side-Me {
@@ -28,9 +28,8 @@
 }
 
 .Side-Blog a {
-  font-size: 13px;
-  margin-top: 4px;
-  padding: 4px 12px;
+  font-size: 14px;
+  padding: 4px 8px;
   border-radius: 4px;
   color: var(--blog-color-default);
   transition: background-color 150ms;
@@ -48,10 +47,9 @@
   cursor: pointer;
   background-color: var(--blog-theme);
   margin-top: 4px;
-  width: 80%;
-  color: #eee;
-  padding: 8px 0;
-  border-radius: 8px;
+  color: #efefef;
+  padding: 6px 24px;
+  border-radius: 4px;
   transition: opacity 150ms;
 }
 
@@ -95,8 +93,12 @@
   display: flex;
   justify-content: space-between;
   padding: 12px;
-  margin: 8px 4px;
   border-radius: 12px;
+  transition: color 150ms;
+}
+
+.Side-Archive-Link:hover {
+  color: var(--blog-theme);
 }
 
 .Side-Archive-Link div:last-child {
@@ -108,6 +110,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 6px 12px;
+  font-weight: 600;
   color: var(--blog-color-default);
 }
 

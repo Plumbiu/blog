@@ -63,20 +63,14 @@ const Side = async () => {
         </Link>
       </div>
       <div>
-        <div className="Side-Title">标签</div>
         <Chips path="tag" chips={tags.slice(0, 15)} />
       </div>
       <div>
-        <div className="Side-Title">分类</div>
-        <Chips path="category" chips={categories.slice(0, 15)} />
-      </div>
-      <div>
-        <div className="Side-Title">归档</div>
         {archeveYear.map(({ year, num }) => (
           <Link
             key={year}
             href={'/archive/' + year}
-            className="Hover Side-Archive-Link"
+            className="Side-Archive-Link"
           >
             <div>{year}年</div>
             <div>{num}</div>
