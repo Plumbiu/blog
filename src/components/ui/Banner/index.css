@@ -9,19 +9,19 @@
   margin: 0;
 }
 
-.Banner a {
+.Banner_Inner {
   width: 100%;
   box-sizing: border-box;
   display: flex;
   background-color: var(--blog-bg-default);
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   justify-content: space-between;
   align-items: stretch;
   border-radius: 6px;
 }
 
 @media screen and (max-width: 960px) {
-  .Banner a {
+  .Banner_Inner {
     margin-right: 10px;
     margin-left: 10px;
   }
@@ -41,10 +41,9 @@
 }
 
 .Banner-Date {
-  margin-top: 4px;
-  margin: 8px 0;
+  margin: 6px 0;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .Banner-Date p {
@@ -60,7 +59,7 @@
 
 .Banner-Title {
   color: var(--blog-theme);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   overflow: hidden;
 }
@@ -87,8 +86,7 @@
 }
 
 .Banner-Tag-Fill {
-  color: #fff;
-  background-color: var(--blog-theme);
+  border: 1px solid var(--blog-theme);
   border-radius: 12px;
 }
 
