@@ -13,19 +13,13 @@
   flex-shrink: 0;
   justify-content: space-evenly;
   align-items: flex-end;
-  padding: 8px 10px;
-  background-color: var(--blog-bg-default);
+  padding: 6px 10px;
   border: var(--blog-border);
   border-radius: 4px;
 }
 
 .Navbar-Link svg {
-  color: var(--blog-theme);
   font-size: 16px;
-}
-
-.Navbar-Link-Active {
-  background-color: var(--blog-theme);
 }
 
 .Navbar-Link-Active svg {

@@ -1,8 +1,8 @@
 .Header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   background-color: var(--blog-bg-default);
-  justify-content: flex-end;
   padding-left: 12px;
   height: 48px;
 }

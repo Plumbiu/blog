@@ -1,6 +1,5 @@
 import BannerCard from '@/components/ui/Banner/Card'
 import lab from '~/config/lab.json'
-import './index.css'
 
 const LabCmp = () => {
   return (

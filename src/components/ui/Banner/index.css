@@ -16,7 +16,6 @@
   background-color: var(--blog-bg-default);
   margin-bottom: 12px;
   padding: 0 8px;
-  border: var(--blog-border);
   justify-content: space-between;
   align-items: stretch;
   border-radius: 6px;

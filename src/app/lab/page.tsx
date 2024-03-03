@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import LabCmp from '@/components/app/Lab'
 import { name } from '@/lib/json'
+import '@/components/app/Lab/index.css'
 
 export const metadata: Metadata = {
   title: `${name} | 实验室`,

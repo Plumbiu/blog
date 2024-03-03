@@ -7,6 +7,7 @@ interface Props {
   text: string
   link?: string
   py?: number
+  px?: number
   blank?: boolean
 }
 
@@ -15,6 +16,7 @@ const ButtonListIcon: FC<Props> = ({
   text,
   link,
   py = 14,
+  px = 16,
   blank = true,
 }) => {
   const child = (
@@ -24,7 +26,7 @@ const ButtonListIcon: FC<Props> = ({
     </>
   )
   const p: CSSProperties = {
-    padding: `${py}px 16px`,
+    padding: `${py}px ${px}px`,
   }
 
   return link ? (

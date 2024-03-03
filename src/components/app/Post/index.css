@@ -1,7 +1,11 @@
 .Post {
-  font-size: 14px;
+  color: #eee;
   border-radius: 6px;
   padding: 16px 20px;
   overflow-x: scroll;
-  border: var(--blog-border);
+}
+
+.md .highlight pre,
+.md pre {
+  font-size: 100% !important;
 }

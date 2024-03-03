@@ -1,7 +1,9 @@
 import Link from 'next/link'
+import Nav from '../Nav'
 import Search from './Search'
 import './index.css'
 import HeaderToggle from './Toggle'
+import HeaderMenu from './Menu/index'
 import { RssIcon } from '@/components/icons'
 
 const info = [
@@ -15,6 +17,7 @@ const info = [
 export default function Header() {
   return (
     <div className="Header">
+      <HeaderMenu />
       <div className="Header-Search">
         {info.map(({ primary, href, icon }) => (
           <Link key={primary} target="_blank" href={href} className="Hover">

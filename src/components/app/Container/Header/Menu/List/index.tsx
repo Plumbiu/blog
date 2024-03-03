@@ -33,7 +33,8 @@ const MenuList = () => {
       <ButtonListIcon
         blank={false}
         icon={icon}
-        py={10}
+        py={4}
+        px={4}
         text={text}
         link={link}
       />

@@ -1,5 +1,4 @@
 import friends from '~/config/friends.json'
-import './index.css'
 import BannerCard from '@/components/ui/Banner/Card'
 
 const FriendsCmp = () => {

@@ -74,7 +74,7 @@
 html[theme='dark'] {
   --blog-bg-default: #0e0e0e;
   --blog-bg-main: #0e0e0e;
-  --blog-body-bg: #111;
+  --blog-body-bg: #161616;
   --blog-scrollbar: #4392a6;
   --blog-bg-header: rgba(8, 8, 8, 0.35);
   --blog-skeleton: #453a44;
@@ -131,7 +131,7 @@ h3 {
 
 body {
   margin: 0;
-  font-size: 14px;
+  font-size: 15px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--blog-body-bg);

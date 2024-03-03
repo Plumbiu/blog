@@ -5,13 +5,13 @@
 .Toc {
   position: sticky;
   top: 24px;
-  border: var(--blog-border);
   border-radius: 6px;
   background-color: var(--blog-bg-default);
-  width: 240px;
+  min-width: 260px;
 }
 
-:is(.Toc) p, h3 {
+:is(.Toc) p,
+h3 {
   margin: 0;
 }
 
@@ -33,7 +33,7 @@
 }
 
 .Toc-Date p {
-  font-size: 12px;
+  font-size: 14px;
   padding: 4px 0;
 }
 

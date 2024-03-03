@@ -1,5 +1,4 @@
 import type { FC } from 'react'
-import './index.css'
 
 interface Props {
   html: string
