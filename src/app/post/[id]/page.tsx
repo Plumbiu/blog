@@ -32,6 +32,7 @@ export default async function PostId({ params }: Props) {
       style={{
         display: 'flex',
         gap: '16px',
+        position: 'relative',
       }}
     >
       <PostCmp html={html} />

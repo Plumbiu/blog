@@ -4,14 +4,14 @@
 }
 
 .Header-Menu > svg {
-  padding: 6px;
+  padding: 4px;
   font-size: 22px;
   border-radius: 50%;
 }
 
 .Header-Menu > div {
+  padding: 4px 0;
   max-width: 100%;
-  padding: 0;
 }
 
 .Header-Menu-List {
@@ -19,7 +19,7 @@
   background-color: var(--blog-bg-default);
   left: 6px;
   top: 48px;
-  padding: 8px 0;
+  padding: 8px;
   transform: scale(0);
   z-index: 199;
   transform-origin: top;
@@ -27,6 +27,10 @@
   box-shadow: var(--blog-shadow-wide);
   border-radius: 4px;
   transition: transform 80ms;
+}
+
+.Header-Menu-List > div {
+  padding: 0 4px;
 }
 
 .Header-Menu:hover .Header-Menu-List {

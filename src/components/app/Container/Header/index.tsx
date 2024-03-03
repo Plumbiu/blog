@@ -4,6 +4,7 @@ import Search from './Search'
 import './index.css'
 import HeaderToggle from './Toggle'
 import HeaderMenu from './Menu/index'
+import HeaderTitle from './Title'
 import { RssIcon } from '@/components/icons'
 import Wave from '@/components/ui/Wave'
 
@@ -33,6 +34,9 @@ export default function Header() {
             name={process.env.APPLICATION_NAME ?? ''}
           />
         </div>
+      </div>
+      <div>
+        <HeaderTitle />
       </div>
       <Wave />
     </div>
