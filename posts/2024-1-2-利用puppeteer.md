@@ -21,7 +21,7 @@ Puppeteer  是一个 Node 工具库，它提供了一套高阶 API 来通过 Dev
 
 图片/视频内容主要在 `/user/media` 页面，然而这个页面需要用户登录才可以，一般登录的信息都是在 Cookie 或者 Localstroge 里，而推特将登录信息放在了 `cookie -> auth_token` 字段上，如下图：
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ea34b17b85fc4fcab2379556a9a9d7d6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=745&h=270&s=45303&e=png&b=2a2a2a)
+![](https://plumbiu.github.io/blogImg/ea34b17b85fc4fcab2379556a9a9d7d6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#)
 
 同时 puppeteer 也提供了设置 cookie 的方法：
 
