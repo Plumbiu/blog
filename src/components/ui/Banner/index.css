@@ -48,7 +48,7 @@
 .Banner-Date {
   margin: 6px 0;
   display: flex;
-  font-size: 14px;
+  font-size: 13px;
   align-items: center;
 }
 
@@ -81,8 +81,7 @@
 .Banner-Tag {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 14px;
+  font-size: 13px;
   color: var(--blog-theme);
 }
 

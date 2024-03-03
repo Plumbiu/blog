@@ -4,7 +4,5 @@
   right: 0;
   bottom: 0px;
   width: 100%;
-  min-width: 600px;
-  max-width: unset;
   fill: var(--blog-body-bg);
 }

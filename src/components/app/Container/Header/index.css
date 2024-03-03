@@ -1,10 +1,14 @@
 .Header {
   position: relative;
-  display: flex;
-  justify-content: space-between;
   background-color: var(--blog-header-bg);
   padding-left: 12px;
   height: 460px;
+}
+
+.Header-Top {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 16px;
 }
 
 .Header-Menu-Wrap {
@@ -23,7 +27,6 @@
 
 .Header-Search {
   display: flex;
-  transform: scale(0.9);
   margin-right: 12px;
 }
 

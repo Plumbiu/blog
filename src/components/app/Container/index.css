@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: flex-start;
   margin: 12px auto;
+  overflow: hidden;
 }
 
 .Container > div:nth-child(2) {

@@ -1,6 +1,6 @@
 .Hr {
   height: 0.75px;
-  margin: 2px 0;
+  margin: 0;
   background-color: var(--blog-bg-hr);
   border: 0;
 }

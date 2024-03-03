@@ -17,7 +17,7 @@ const ArticleBanner: FC<Props> = ({ posts, name, children }) => {
 
   return (
     <div className="Banner">
-      {posts.map(({ id, desc, title, tags, categories, date, updated }) => (
+      {posts.map(({ id, desc, title, tags, categories, date }) => (
         <div className="Banner-Inner">
           <Link className="Banner-Link" key={id} href={'/post/' + id}>
             <div className="Banner-List">
@@ -25,8 +25,6 @@ const ArticleBanner: FC<Props> = ({ posts, name, children }) => {
               <div className="Banner-Date">
                 <ClockIcon />
                 <p>{perfixTime(date)}</p>
-                <UpdateClockIcon />
-                <p>{perfixTime(updated)}</p>
                 <div className="Banner-Tag">
                   {categories.map((category) => (
                     <div key={category} className="Banner-Tag-Plain">
@@ -34,7 +32,7 @@ const ArticleBanner: FC<Props> = ({ posts, name, children }) => {
                     </div>
                   ))}
                   {tags.map((tag) => (
-                    <div key={tag} className="Banner-Tag-Fill">
+                    <div key={tag} className="Banner-Tag-Plain">
                       {tag}
                     </div>
                   ))}
