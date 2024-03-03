@@ -17,7 +17,7 @@ interface Props {
   categories: string[]
 }
 
-const TocCmp: FC<Props> = async ({ html, title, tags, categories, date }) => {
+const TocCmp: FC<Props> = ({ html, title, tags, categories, date }) => {
   const tocs = html2toc(html)
 
   return (
