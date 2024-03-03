@@ -5,7 +5,7 @@ import ArticleBanner from '@/components/ui/Banner'
 import { name } from '@/lib/json'
 
 export default async function Home() {
-  const data = await useGet<IFrontMatter[]>('article?pagenum=0&limit=8')
+  const data = await useGet<IFrontMatter[]>('article?pagenum=0&limit=4')
 
   return <ArticleBanner posts={data} name="文章页" />
 }
