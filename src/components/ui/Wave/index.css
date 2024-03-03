@@ -1,10 +1,10 @@
 .Wave {
   position: absolute;
-  left: -3%;
-  right: -3%;
+  left: 0;
+  right: 0;
   bottom: 0px;
-  width: 106%;
+  width: 100%;
   min-width: 600px;
   max-width: unset;
-  fill: blue;
+  fill: var(--blog-body-bg);
 }
