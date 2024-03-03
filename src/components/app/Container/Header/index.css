@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   justify-content: space-between;
-  background-color: var(--blog-bg-default);
+  background-color: var(--blog-header-bg);
   padding-left: 12px;
   height: 460px;
 }

@@ -1,4 +1,5 @@
 :root {
+  --blog-header-bg: #c8e3f4;
   --blog-theme: #1976d2;
   --blog-scrollbar: #efd4ff;
   --blog-body-bg: #f4f4f4;
@@ -72,6 +73,7 @@
 }
 
 html[theme='dark'] {
+  --blog-header-bg: #161f27;
   --blog-bg-default: #0e0e0e;
   --blog-bg-main: #0e0e0e;
   --blog-body-bg: #161616;

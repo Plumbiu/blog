@@ -1,10 +1,10 @@
 import './index.css'
 import type { FC } from 'react'
-import { html2toc } from '@plumbiu/md'
 import ButtonIcon from '../../ui/Button/Icon'
 import Tag from '../../ui/Tag'
 import Hr from '../../ui/Hr'
 import TocList from './List'
+import { html2toc } from '@/lib/md/index'
 import { perfixTime } from '@/lib/time'
 import { ArrowBackIcon, ClockIcon } from '@/components/icons'
 
