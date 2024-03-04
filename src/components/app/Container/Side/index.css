@@ -1,5 +1,5 @@
 .Side {
-  width: 220px;
+  width: 200px;
 }
 
 .Side > div {
@@ -92,6 +92,7 @@
 .Side-Archive-Link {
   display: flex;
   justify-content: space-between;
+  font-size: 14px;
   padding: 12px;
   border-radius: 12px;
   transition: color 150ms;
