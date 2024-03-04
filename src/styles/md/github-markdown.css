@@ -143,7 +143,7 @@ html[theme='dark'] {
   color: var(--color-fg-default);
   background-color: var(--color-canvas-default);
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 0.925rem;
   line-height: 1.5;
   word-wrap: break-word;
 }
