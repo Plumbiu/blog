@@ -19,7 +19,12 @@ const ArticleBanner: FC<Props> = ({ posts, name, children }) => {
     <div className="Banner">
       {posts.map(({ id, desc, title, tags, categories, date }) => (
         <div className="Banner-Inner">
-          <Link className="Banner-Link" key={id} href={'/post/' + id}>
+          <Link
+            target="__blank"
+            className="Banner-Link"
+            key={id}
+            href={'/post/' + id}
+          >
             <div className="Banner-List">
               <div className="Banner-Title">{title}</div>
               <div className="Banner-Date">
@@ -46,7 +51,11 @@ const ArticleBanner: FC<Props> = ({ posts, name, children }) => {
               __html: desc + '\n\n.......',
             }}
           />
-          <Link className="Banner-Link-ReadMore" href={'/post/' + id}>
+          <Link
+            target="__blank"
+            className="Banner-Link-ReadMore"
+            href={'/post/' + id}
+          >
             Read More
           </Link>
         </div>
