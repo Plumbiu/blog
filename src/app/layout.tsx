@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import { Suspense } from 'react'
 import '@/styles/md/hljs.css'
 import '@/styles/md/github-markdown.css'
-import { Roboto_Mono } from 'next/font/google'
+import { Noto_Sans_HK } from 'next/font/google'
 import Loading from './loading'
 import Header from '@/components/app/Container/Header'
 import Container from '@/components/app/Container'
@@ -11,10 +11,10 @@ import { title } from '@/lib/json'
 import Footer from '@/components/app/Container/Footer'
 import Side from '@/components/app/Container/Side'
 
-const mono = Roboto_Mono({
-  weight: '400',
+const sans = Noto_Sans_HK({
+  weight: ['400', '700'],
   subsets: ['latin'],
-  display: 'swap',
+  display: 'auto',
 })
 export const metadata: Metadata = {
   title,
@@ -34,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" theme="dark" className={mono.className}>
+    <html lang="en" theme="dark" className={sans.className}>
       <link
         href="/icons/favico-32x32.webp"
         rel="icon"
