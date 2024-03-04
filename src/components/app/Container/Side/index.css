@@ -7,7 +7,6 @@
   padding: 2px 0;
   background-color: var(--blog-bg-default);
   border-radius: 4px;
-  box-shadow: var(--blog-shadow);
   margin-bottom: 16px;
 }
 

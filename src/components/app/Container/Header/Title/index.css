@@ -1,5 +1,15 @@
-.Header-Title {
+.Header-Title-Wrapper {
   text-align: center;
+}
+
+.Header-Title {
   margin-top: 48px;
   color: var(--blog-color-dark);
+}
+
+.Header-Title-Tag {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
 }
