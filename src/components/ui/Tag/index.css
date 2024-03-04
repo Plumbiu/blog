@@ -1,13 +1,15 @@
 .Tag {
+  cursor: pointer;
   font-size: 14px;
   display: inline-flex;
   justify-content: center;
-  transition: color 150ms;
+  opacity: 0.95;
+  transition: opacity 150ms;
   min-width: 20px;
 }
 
 .Tag:hover {
-  color: var(--blog-color-dark) !important;
+  opacity: 1;
 }
 
 .Tag-Filled {
