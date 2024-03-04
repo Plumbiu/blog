@@ -43,9 +43,12 @@ const ArticleBanner: FC<Props> = ({ posts, name, children }) => {
           <div
             className="Banner-Desc md"
             dangerouslySetInnerHTML={{
-              __html: desc,
+              __html: desc + '\n\n.......',
             }}
           />
+          <Link className="Banner-Link-ReadMore" href={'/post/' + id}>
+            Read More
+          </Link>
         </div>
       ))}
       {children}

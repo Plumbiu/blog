@@ -27,8 +27,8 @@
   }
 }
 
-.Banner-Link:hover .Banner-Inner {
-  border-color: var(--blog-theme);
+.Banner-Link:hover .Banner-Title {
+  color: var(--blog-theme);
 }
 
 .Banner-Cover {
@@ -66,6 +66,7 @@
   font-size: 20px;
   font-weight: 600;
   overflow: hidden;
+  transition: color 75ms;
 }
 
 .Banner-Desc {
@@ -74,15 +75,27 @@
   margin-bottom: 8px;
   word-break: break-all;
   color: var(--blog-color-default) !important;
-  border-top: 1px dashed var(--blog-color-darker);
   padding-right: 12px;
+  filter: blur(0.0125rem);
+}
+
+.Banner-Link-ReadMore {
+  display: block;
+  margin: 8px 16px 16px 16px;
+  font-size: 14px;
+  padding: 4px 0;
+  font-weight: 700;
+  transition: color 75ms;
+}
+
+.Banner-Link-ReadMore:hover {
+  color: var(--blog-theme);
 }
 
 .Banner-Tag {
   display: flex;
   align-items: center;
   font-size: 13px;
-  color: var(--blog-theme);
 }
 
 .Banner-Tag > div {
