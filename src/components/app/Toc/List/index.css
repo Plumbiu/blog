@@ -22,9 +22,6 @@
   color: var(--blog-theme);
 }
 
-.Toc-P-1 {
-  font-weight: 600;
-}
 .Toc-P-2 {
   color: var(--blog-color-darker);
   padding-left: 12px;
