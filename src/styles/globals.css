@@ -82,9 +82,9 @@ html[theme='dark'] {
     hsla(200deg, 100%, 85%, 0.1),
     hsla(200deg, 100%, 85%, 0)
   );
-  --blog-bg-default: #0e0e0e;
+  --blog-bg-default: #141414;
   --blog-bg-main: #0e0e0e;
-  --blog-body-bg: #161616;
+  --blog-body-bg: #1e1e1e;
   --blog-scrollbar: #4392a6;
   --blog-bg-header: rgba(8, 8, 8, 0.35);
   --blog-skeleton: #453a44;
