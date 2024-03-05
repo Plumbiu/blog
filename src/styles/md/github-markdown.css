@@ -222,7 +222,7 @@ html[theme='dark'] {
 .md pre::before {
   content: attr(data-lang);
   position: absolute;
-  padding: 8px 16px;
+  padding: 8px 12px;
   top: 0;
   left: 0;
   right: 0;
@@ -258,11 +258,6 @@ html[theme='dark'] {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
-}
-.md [type='button'],
-.md [type='reset'],
-.md [type='submit'] {
-  -webkit-appearance: button;
 }
 .md [type='checkbox'],
 .md [type='radio'] {
@@ -736,7 +731,7 @@ html[theme='dark'] {
 }
 .md .highlight pre,
 .md pre {
-  padding: 48px 8px 8px 16px;
+  padding: 48px 8px 8px 12px;
   font-size: 100%;
   margin: 8px 0;
   line-height: 1.45;
