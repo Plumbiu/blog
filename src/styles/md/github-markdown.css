@@ -6,6 +6,7 @@
 */
 html[theme='dark'] {
   .md {
+    --color-code-lang: #192c3d;
     --color-prettylights-syntax-comment: #8b949e;
     --color-prettylights-syntax-constant: #79c0ff;
     --color-prettylights-syntax-entity: #d2a8ff;
@@ -51,6 +52,7 @@ html[theme='dark'] {
   }
 }
 .md {
+  --color-code-lang: #e7f3fa;
   --color-prettylights-syntax-comment: #6e7781;
   --color-prettylights-syntax-constant: #0550ae;
   --color-prettylights-syntax-entity: #6639ba;
@@ -212,6 +214,22 @@ html[theme='dark'] {
   box-sizing: content-box;
   background-color: var(--color-canvas-default);
 }
+
+.md pre {
+  position: relative;
+}
+
+.md pre::before {
+  content: attr(data-lang);
+  position: absolute;
+  padding: 8px 16px;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--color-code-lang);
+  color: var(--blog-color-default);
+}
+
 .md code,
 .md kbd,
 .md pre,
@@ -718,8 +736,7 @@ html[theme='dark'] {
 }
 .md .highlight pre,
 .md pre {
-  overflow: auto;
-  padding: 8px;
+  padding: 48px 8px 8px 16px;
   font-size: 100%;
   margin: 8px 0;
   line-height: 1.45;
@@ -738,6 +755,7 @@ html[theme='dark'] {
   word-wrap: normal;
   background-color: transparent;
   border: 0;
+  white-space: pre-wrap;
 }
 .md .csv-data td,
 .md .csv-data th {

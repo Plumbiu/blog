@@ -4,23 +4,46 @@ import remarkRehype from 'remark-rehype'
 import rehypeSanitize from 'rehype-sanitize'
 import rehypeStringify from 'rehype-stringify'
 import rehypeHighlight from 'rehype-highlight'
+import rehypeRewrite from 'rehype-rewrite'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
+
+const langMap: Record<string, string> = {
+  js: 'javascript',
+  ts: 'typescript',
+}
 
 export async function md2html(md: string) {
   const file = await unified()
     .use(remarkParse) // Convert into markdown AST
     .use(remarkRehype) // Transform to HTML AST
     .use(rehypeSanitize) // Sanitize HTML input
+    .use(rehypeRewrite, {
+      rewrite(node, _idx, parent) {
+        if (node.type === 'element') {
+          if (node.tagName === 'img') {
+            node.properties.loading = 'lazy'
+          } else if (node.tagName === 'pre') {
+            const child = node.children[0]
+            if (child.type === 'element') {
+              const prop = (child.properties.className as string[])?.[0].slice(
+                9,
+              )
+              if (prop) {
+                node.properties['data-lang'] =
+                  langMap[prop.toLowerCase()] ?? prop
+              }
+            }
+          }
+        }
+      },
+    })
     .use(rehypeStringify) // Convert AST into serialized HTML
     .use(rehypeHighlight)
     .use(rehypeSlug)
     .use(remarkGfm)
     .process(md)
-  let markdown = String(file)
-  // eslint-disable-next-line @stylistic/quotes
-  markdown = markdown.replace(/<img/g, "<img loading='lazy'")
-  return markdown
+  return String(file)
 }
 
 interface Toc {

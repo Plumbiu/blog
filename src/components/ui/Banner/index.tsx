@@ -18,7 +18,7 @@ const ArticleBanner: FC<Props> = ({ posts, name, children }) => {
   return (
     <div className="Banner">
       {posts.map(({ id, desc, title, tags, categories, date }) => (
-        <div className="Banner-Inner">
+        <div key={id} className="Banner-Inner">
           <Link
             target="__blank"
             className="Banner-Link"
