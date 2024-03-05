@@ -230,6 +230,7 @@ html[theme='dark'] {
   top: 0;
   left: 0;
   right: 0;
+  font-size: 85%;
   background-color: var(--color-code-lang);
   color: var(--blog-color-default);
 }

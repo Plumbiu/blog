@@ -23,7 +23,7 @@ const TocCmp: FC<Props> = ({ html, title, tags, categories, date }) => {
   return (
     <div className="Toc-Wrap">
       <div className="Toc">
-        <h4>{title}</h4>
+        <div className="Toc-Title">{title}</div>
         <div className="Toc-Date">
           <ClockIcon
             style={{

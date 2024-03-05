@@ -11,9 +11,15 @@
   min-width: 200px;
 }
 
+.Toc-Title {
+  font-size: 15px;
+  padding-top: 4px;
+}
+
 :is(.Toc) p,
 h4 {
   margin: 0;
+  color: var(--blog-color-dark);
 }
 
 @media screen and (max-width: 1240px) {
