@@ -1,6 +1,7 @@
 .Toc-List {
   padding: 6px 0;
   max-height: 70vh;
+  font-size: 14px;
   overflow-y: scroll;
 }
 
