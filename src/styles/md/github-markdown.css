@@ -223,6 +223,8 @@ html[theme='dark'] {
 
 .md pre::before {
   content: attr(data-lang);
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
+    Liberation Mono, monospace;
   position: absolute;
   padding: 8px 12px;
   top: 0;
