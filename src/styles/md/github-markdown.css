@@ -6,6 +6,7 @@
 */
 html[theme='dark'] {
   .md {
+    --color-header: #ffe100;
     --color-code-lang: #192c3d;
     --color-prettylights-syntax-comment: #8b949e;
     --color-prettylights-syntax-constant: #79c0ff;
@@ -52,6 +53,7 @@ html[theme='dark'] {
   }
 }
 .md {
+  --color-header: #2c0b8e;
   --color-code-lang: #e7f3fa;
   --color-prettylights-syntax-comment: #6e7781;
   --color-prettylights-syntax-constant: #0550ae;
@@ -234,7 +236,6 @@ html[theme='dark'] {
 .md kbd,
 .md pre,
 .md samp {
-  font-family: monospace;
   font-size: 1em;
 }
 .md figure {
@@ -366,6 +367,7 @@ html[theme='dark'] {
 .md h6 {
   margin-top: 24px;
   margin-bottom: 16px;
+  color: var(--color-header);
   font-weight: var(--base-text-weight-semibold, 600);
   line-height: 1.25;
 }
@@ -434,8 +436,6 @@ html[theme='dark'] {
 .md pre {
   margin-top: 0;
   margin-bottom: 0;
-  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
-    Liberation Mono, monospace;
   font-size: 12px;
   word-wrap: normal;
 }
@@ -699,7 +699,6 @@ html[theme='dark'] {
   font-size: 85%;
   white-space: break-spaces;
   background-color: var(--color-neutral-muted);
-  border-radius: 6px;
 }
 .md code br,
 .md tt br {
@@ -734,11 +733,15 @@ html[theme='dark'] {
   padding: 48px 8px 8px 12px;
   font-size: 100%;
   margin: 8px 0;
-  line-height: 1.45;
+  line-height: 1.4;
+  font-size: 110%;
   color: var(--color-fg-default);
   background-color: var(--color-canvas-subtle);
-  border-radius: 6px;
 }
+.md .hljs-comment {
+  font-size: 100%;
+}
+
 .md pre code,
 .md pre tt {
   display: inline;

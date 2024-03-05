@@ -1,8 +1,8 @@
-import '@/styles/globals.css'
 import type { Metadata, Viewport } from 'next'
 import { Suspense } from 'react'
-import '@/styles/md/github-markdown.css'
+import '@/styles/globals.css'
 import '@/styles/md/hljs.css'
+import '@/styles/md/github-markdown.css'
 import { Noto_Sans_SC } from 'next/font/google'
 import Loading from './loading'
 import Header from '@/components/app/Container/Header'
@@ -12,7 +12,7 @@ import Footer from '@/components/app/Container/Footer'
 import Side from '@/components/app/Container/Side'
 
 const sans = Noto_Sans_SC({
-  weight: ['400', '700'],
+  weight: ['400'],
   subsets: ['latin'],
   display: 'auto',
 })

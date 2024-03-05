@@ -1,5 +1,4 @@
 import type { FC } from 'react'
-import './index.css'
 import Hr from '../../ui/Hr'
 import ArchiveList from './List'
 

@@ -79,6 +79,15 @@
   filter: blur(0.0125rem);
 }
 
+.Banner-Desc h1,
+.Banner-Desc h2,
+.Banner-Desc h3,
+.Banner-Desc h4,
+.Banner-Desc h5,
+.Banner-Desc h6 {
+  color: var(--blog-color-default) !important;
+}
+
 .Banner-Link-ReadMore {
   display: block;
   margin: 8px 16px 16px 16px;
