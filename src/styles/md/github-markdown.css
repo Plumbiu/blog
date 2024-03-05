@@ -698,7 +698,8 @@ html[theme='dark'] {
 .md tt {
   padding: 0.2em 0.4em;
   margin: 0;
-  font-size: 85%;
+  font-size: 0.9em;
+  border-radius: 6px;
   white-space: break-spaces;
   background-color: var(--color-neutral-muted);
 }
@@ -714,6 +715,9 @@ html[theme='dark'] {
 }
 .md pre code {
   font-size: 100%;
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
+  Liberation Mono, monospace;
+  border-radius: 0;
 }
 .md pre > code {
   padding: 0;
