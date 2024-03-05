@@ -18,6 +18,7 @@ export async function md2html(md: string) {
     .use(remarkParse) // Convert into markdown AST
     .use(remarkRehype) // Transform to HTML AST
     .use(rehypeSanitize) // Sanitize HTML input
+    .use(rehypeStringify) // Convert AST into serialized HTML
     .use(rehypeRewrite, {
       rewrite(node, _idx, parent) {
         if (node.type === 'element') {
@@ -38,7 +39,6 @@ export async function md2html(md: string) {
         }
       },
     })
-    .use(rehypeStringify) // Convert AST into serialized HTML
     .use(rehypeHighlight)
     .use(rehypeSlug)
     .use(remarkGfm)
