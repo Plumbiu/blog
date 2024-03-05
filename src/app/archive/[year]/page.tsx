@@ -1,5 +1,6 @@
 import ArchiveCmp from '@/components/app/Archive'
 import { useGet } from '@/lib/api'
+import '@/components/app/Archive/index.css'
 
 interface Props {
   params: {

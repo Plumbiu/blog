@@ -1,7 +1,7 @@
 .Archive {
   padding: 4px 36px;
   overflow: hidden;
-  background-color: var(--blog-bg-main);
+  background-color: var(--blog-bg-default);
 }
 
 .Archive h2 {

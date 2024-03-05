@@ -6,7 +6,7 @@ const Tag = async () => {
   return (
     <div
       style={{
-        backgroundColor: 'var(--blog-bg-main)',
+        backgroundColor: 'var(--blog-bg-default)',
       }}
     >
       <Chips path="tag" chips={tags} />

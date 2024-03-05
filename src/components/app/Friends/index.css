@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  background-color: var(--blog-bg-main);
+  background-color: var(--blog-bg-default);
 }
 
 @media screen and (max-width: 1240px) {
