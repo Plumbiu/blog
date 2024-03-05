@@ -35,6 +35,20 @@ export async function md2html(md: string) {
                   langMap[prop.toLowerCase()] ?? prop
               }
             }
+          } else if (node.tagName === 'p') {
+            const children = node.children
+            if (children && children.length > 1) {
+              const isImgs = children.every((el) => {
+                return (
+                  (el.type === 'element' && el.tagName === 'img') ||
+                  (el.type === 'text' &&
+                    (el.value === '\r\n' || el.value === '\n'))
+                )
+              })
+              if (isImgs) {
+                node.properties.className = 'Img-Wrapper'
+              }
+            }
           }
         }
       },

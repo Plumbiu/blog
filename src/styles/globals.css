@@ -196,3 +196,15 @@ a {
 .md {
   font-family: inherit !important;
 }
+
+.Img-Wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.Img-Wrapper > img {
+  border-radius: 16px;
+  width: calc(50% - 4px);
+}
