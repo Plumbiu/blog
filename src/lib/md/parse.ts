@@ -16,6 +16,7 @@ const langMap: Record<string, string> = {
 export async function md2html(md: string) {
   const file = await unified()
     .use(remarkParse) // Convert into markdown AST
+    .use(remarkGfm)
     .use(remarkRehype) // Transform to HTML AST
     .use(rehypeSanitize) // Sanitize HTML input
     .use(rehypeStringify) // Convert AST into serialized HTML
@@ -55,7 +56,6 @@ export async function md2html(md: string) {
     })
     .use(rehypeHighlight)
     .use(rehypeSlug)
-    .use(remarkGfm)
     .process(md)
   return String(file)
 }
