@@ -27,7 +27,7 @@ const TocCmp: FC<Props> = ({ html, title, tags, categories, date }) => {
         <div className="Toc-Date">
           <ClockIcon
             style={{
-              fontSize: '13px',
+              fontSize: '14px',
               color: '#1976D2',
               marginRight: '4px',
             }}

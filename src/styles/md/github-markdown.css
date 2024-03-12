@@ -145,10 +145,8 @@ html[theme='dark'] {
   -webkit-text-size-adjust: 100%;
   margin: 0;
   color: var(--color-fg-default);
-  background-color: var(--blog-bg-default);
   font-family: inherit;
-  font-size: 0.925rem;
-  line-height: 1.5;
+  line-height: 1.4;
   word-wrap: break-word;
 }
 .md .octicon {
@@ -219,6 +217,8 @@ html[theme='dark'] {
 
 .md pre {
   position: relative;
+  border-radius: 8px;
+
 }
 
 .md pre::before {
@@ -226,8 +226,8 @@ html[theme='dark'] {
   font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
     Liberation Mono, monospace;
   position: absolute;
-  font-size: 0.85em;
-  padding: 8px 12px;
+  border-radius: 8px 8px 4px 4px;
+  padding: 12px;
   top: 0;
   left: 0;
   right: 0;
@@ -403,7 +403,7 @@ html[theme='dark'] {
 }
 .md p {
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 .md blockquote {
   margin: 0;
@@ -486,7 +486,6 @@ html[theme='dark'] {
 .md .anchor:focus {
   outline: none;
 }
-.md p,
 .md blockquote,
 .md ul,
 .md ol,
@@ -495,7 +494,7 @@ html[theme='dark'] {
 .md pre,
 .md details {
   margin-top: 0;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .md blockquote > :first-child {
   margin-top: 0;
@@ -737,7 +736,7 @@ html[theme='dark'] {
 }
 .md .highlight pre,
 .md pre {
-  padding: 48px 8px 8px 12px;
+  padding: 54px 8px 8px 12px;
   margin: 8px 0;
   line-height: 1.25;
   font-size: 115%;

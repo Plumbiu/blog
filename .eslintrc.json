@@ -2,6 +2,6 @@
   "extends": ["@plumbiu"],
   "ignorePatterns": ["/assets"],
   "rules": {
-    "@stylistic/linebreak-style": "lf"
+    "@stylistic/linebreak-style": 0
   }
 }

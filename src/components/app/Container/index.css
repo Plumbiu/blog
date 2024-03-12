@@ -10,6 +10,7 @@
   box-sizing: border-box;
   margin: 0 16px;
   width: 65%;
+  max-width: 1340px;
   border-radius: 6px;
 }
 

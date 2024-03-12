@@ -7,12 +7,11 @@
   top: 24px;
   padding: 12px;
   border-radius: 6px;
-  background-color: var(--blog-bg-default);
   min-width: 200px;
 }
 
 .Toc-Title {
-  font-size: 15px;
+  font-size: 16px;
   padding-top: 4px;
 }
 
@@ -39,7 +38,7 @@ h4 {
 }
 
 .Toc-Date p {
-  font-size: 13px;
+  font-size: 14px;
   padding: 4px 0;
 }
 
