@@ -16,7 +16,6 @@
 
 .Header-Menu-List {
   position: fixed;
-  background-color: var(--blog-bg-default);
   left: 6px;
   top: 48px;
   padding: 8px;

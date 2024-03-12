@@ -7,7 +7,6 @@
   transform: translateX(-50%);
   width: max-content;
   padding: 12px;
-  background-color: var(--blog-bg-default);
   border: var(--blog-border);
   border-radius: 16px;
 }

@@ -18,7 +18,6 @@
 }
 
 .Pagination-Link {
-  background-color: var(--blog-bg-default);
   width: 32px;
   height: 32px;
   line-height: 32px;
