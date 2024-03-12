@@ -3,7 +3,6 @@ import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeSanitize from 'rehype-sanitize'
 import rehypeStringify from 'rehype-stringify'
-import rehypeSemanticImages from '@benjc/rehype-semantic-images'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeRewrite from 'rehype-rewrite'
 import rehypeSlug from 'rehype-slug'
@@ -21,7 +20,6 @@ export async function md2html(md: string) {
     .use(remarkRehype) // Transform to HTML AST
     .use(rehypeSanitize) // Sanitize HTML input
     .use(rehypeStringify) // Convert AST into serialized HTML
-
     .use(rehypeRewrite, {
       rewrite(node, _idx, parent) {
         if (node.type === 'element') {
