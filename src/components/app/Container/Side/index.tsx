@@ -53,7 +53,7 @@ const Side = async () => {
           ))}
         </div>
       </div>
-      <div>
+      {/* <div>
         <Chips path="tag" chips={tags.slice(0, 15)} />
       </div>
       <div>
@@ -67,7 +67,7 @@ const Side = async () => {
             <div>{num}</div>
           </Link>
         ))}
-      </div>
+      </div> */}
     </div>
   )
 }

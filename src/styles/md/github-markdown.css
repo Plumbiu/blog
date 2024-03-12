@@ -146,7 +146,7 @@ html[theme='dark'] {
   margin: 0;
   color: var(--color-fg-default);
   font-family: inherit;
-  line-height: 1.4;
+  line-height: 1.5;
   word-wrap: break-word;
 }
 .md .octicon {
@@ -403,7 +403,7 @@ html[theme='dark'] {
 }
 .md p {
   margin-top: 0;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 .md blockquote {
   margin: 0;

@@ -3,6 +3,7 @@ import Hr from '@/components/ui/Hr'
 import {
   ArticleIcon,
   CategoryIcon,
+  ClockIcon,
   FirstPageIcon,
   GithubIcon,
   LabIcon,
@@ -16,6 +17,7 @@ const lists = [
   { text: '首页', link: '/', icon: <FirstPageIcon /> },
   { text: '文章', link: '/article/1', icon: <ArticleIcon /> },
   { text: '开源之旅', link: '/opensource', icon: <TravelExploreIcon /> },
+  { text: '时间线', link: '/archive', icon: <ClockIcon /> },
   { text: '朋友们', link: '/friend', icon: <PeopleIcon /> },
   { text: '标签', link: '/tag', icon: <TagIcon /> },
   { text: '分类', link: '/category', icon: <CategoryIcon /> },
