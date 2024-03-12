@@ -1,6 +1,4 @@
 import type { Metadata } from 'next'
-import '@/styles/md/github-markdown.css'
-import '@/styles/md/hljs.css'
 import { md2html } from '@/lib/md/index'
 import { useGet } from '@/lib/api'
 import TocCmp from '@/components/app/Toc'
