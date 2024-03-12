@@ -8,7 +8,7 @@
 
 .Container > div:nth-child(2) {
   box-sizing: border-box;
-  margin: 0 16px;
+  margin-left: 2%;
   width: 65%;
   max-width: 1340px;
   border-radius: 6px;

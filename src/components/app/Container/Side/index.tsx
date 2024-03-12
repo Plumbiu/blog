@@ -38,7 +38,7 @@ const Side = async () => {
   return (
     <div className="Side">
       <div className="Side-Me">
-        <Image src="/avatar.jpg" width={86} height={86} alt="avatar" />
+        <Image src="/avatar.jpg" width={120} height={120} alt="avatar" />
         <div className="Side-Name">Plumbiu</div>
         <div className="Side-Location">
           <LocationIcon />

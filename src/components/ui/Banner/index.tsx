@@ -51,13 +51,6 @@ const ArticleBanner: FC<Props> = ({ posts, name, children }) => {
               __html: desc,
             }}
           />
-          <Link
-            target="__blank"
-            className="Banner-Link-ReadMore"
-            href={'/post/' + id}
-          >
-            Read More
-          </Link>
         </div>
       ))}
       {children}

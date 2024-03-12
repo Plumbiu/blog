@@ -1,5 +1,5 @@
 .Side {
-  width: 200px;
+  width: 260px;
 }
 
 .Side > div {
@@ -27,7 +27,6 @@
 }
 
 .Side-Blog a {
-  font-size: 14px;
   padding: 4px 8px;
   border-radius: 4px;
   color: var(--blog-color-default);
@@ -38,37 +37,16 @@
   background-color: rgba(57, 87, 200, 0.15);
 }
 
-.Side-Follow-Me {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  cursor: pointer;
-  background-color: var(--blog-theme);
-  margin-top: 4px;
-  color: #efefef;
-  padding: 6px 24px;
-  border-radius: 4px;
-  transition: opacity 150ms;
-}
-
-.Side-Follow-Me:hover {
-  opacity: 0.85;
-}
-
-.Side-Follow-Me > svg {
-  font-size: 18px;
-}
-
 .Side-Location {
   display: flex;
   align-items: center;
   color: var(--blog-color-dark);
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .Side-Location > svg {
-  font-size: 14px;
+  font-size: 15px;
+  margin-right: 2px;
   color: var(--blog-theme);
 }
 
@@ -79,7 +57,7 @@
 }
 
 .Side-Name {
-  font-size: 18px;
+  font-size: 22px;
   color: var(--blog-color-dark);
   font-weight: 600;
 }
@@ -91,7 +69,6 @@
 .Side-Archive-Link {
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
   padding: 12px;
   border-radius: 12px;
   transition: color 150ms;
