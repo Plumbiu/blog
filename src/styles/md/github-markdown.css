@@ -226,6 +226,7 @@ html[theme='dark'] {
   font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
     Liberation Mono, monospace;
   position: absolute;
+  font-size: 0.85em;
   padding: 8px 12px;
   top: 0;
   left: 0;
@@ -699,7 +700,7 @@ html[theme='dark'] {
 .md tt {
   padding: 0.2em 0.4em;
   margin: 0;
-  font-size: 0.9em;
+  font-size: 0.85em;
   border-radius: 6px;
   white-space: break-spaces;
   background-color: var(--color-neutral-muted);
