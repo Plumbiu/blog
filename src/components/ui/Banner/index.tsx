@@ -1,4 +1,4 @@
-import { type FC, type ReactNode } from 'react'
+import { type FC } from 'react'
 import Link from 'next/link'
 import './index.css'
 import { perfixTime } from '@/lib/time'

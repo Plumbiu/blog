@@ -6,13 +6,6 @@
   margin: 0;
 }
 
-@media screen and (max-width: 960px) {
-  .Banner-Inner {
-    margin-right: 10px;
-    margin-left: 10px;
-  }
-}
-
 .Banner-Link {
   display: flex;
   align-items: center;
@@ -45,14 +38,6 @@
   color: var(--blog-theme);
 }
 
-.Banner-Cover {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 20px 0 24px;
-  height: 100%;
-}
-
 .Banner-List {
   padding-left: 16px;
   padding-top: 12px;
@@ -70,11 +55,6 @@
   margin-right: 8px;
 }
 
-.Banner-Date svg {
-  color: var(--blog-theme);
-  margin-right: 4px;
-}
-
 .Banner-Title {
   color: var(--blog-color-darker);
   font-size: 18px;
@@ -90,15 +70,4 @@
 
 .Banner-Tag > div {
   padding: 2px 6px;
-}
-
-.Banner-Tag-Fill {
-  border: 1px solid var(--blog-theme);
-  border-radius: 18px;
-}
-
-@media screen and (max-width: 480px) {
-  .Banner-Cover {
-    display: none;
-  }
 }

@@ -133,16 +133,8 @@ html[theme='dark'] {
   }
 }
 
-h1,
-h2,
-h3 {
-  margin: 0;
-}
-
 body {
   margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   background-color: var(--blog-body-bg);
 }
 

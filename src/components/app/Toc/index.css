@@ -16,20 +16,10 @@
   padding-top: 4px;
 }
 
-:is(.Toc) p,
-h4 {
-  margin: 0;
-  color: var(--blog-color-dark);
-}
-
 @media screen and (max-width: 1240px) {
   .Toc {
     display: none;
   }
-}
-
-.Toc h4 {
-  padding-top: 8px;
 }
 
 .Toc-Date {
@@ -41,16 +31,4 @@ h4 {
 .Toc-Date p {
   font-size: 14px;
   padding: 4px 0;
-}
-
-.Toc-Tags {
-  padding-bottom: 12px;
-}
-
-.Toc-Tags .Tag {
-  font-size: 0.7225rem;
-}
-
-.Toc-Bottom {
-  padding: 8px 0 8px 12px;
 }

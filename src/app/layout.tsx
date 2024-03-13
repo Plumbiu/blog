@@ -1,13 +1,10 @@
 import type { Metadata, Viewport } from 'next'
-import { Suspense } from 'react'
 import '@/styles/globals.css'
 import { Noto_Sans_SC } from 'next/font/google'
-import Loading from './loading'
 import Header from '@/components/app/Container/Header'
 import Container from '@/components/app/Container'
 import { title } from '@/lib/json'
 import Footer from '@/components/app/Container/Footer'
-import Side from '@/components/app/Container/Side'
 
 const sans = Noto_Sans_SC({
   weight: ['400'],
@@ -42,11 +39,9 @@ export default function RootLayout({
       <body>
         <Header />
         <Container>
-          <Suspense fallback={<Loading />}>
-            <div>
-              <div className="Main-Children">{children}</div>
-            </div>
-          </Suspense>
+          <div>
+            <div className="Main-Children">{children}</div>
+          </div>
         </Container>
         <Footer />
       </body>
