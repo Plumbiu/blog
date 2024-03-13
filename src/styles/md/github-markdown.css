@@ -736,8 +736,9 @@ html[theme='dark'] {
 }
 .md .highlight pre,
 .md pre {
-  padding: 54px 8px 8px 12px;
+  padding: 48px 8px 8px 12px;
   margin: 8px 0;
+  overflow-x: scroll;
   line-height: 1.25;
   font-size: 115%;
   color: var(--color-fg-default);
