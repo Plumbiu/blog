@@ -44,7 +44,6 @@ export default function RootLayout({
       <body>
         <Header />
         <Container>
-          <Side />
           <Suspense fallback={<Loading />}>
             <div>
               <div className="Main-Children">{children}</div>

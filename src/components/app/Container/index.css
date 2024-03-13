@@ -6,19 +6,6 @@
   margin: 36px auto;
 }
 
-.Container > div:nth-child(2) {
-  box-sizing: border-box;
-  margin-left: 1.5%;
-  width: 65%;
-  max-width: 1340px;
-  border-radius: 6px;
-}
-
-.Container > div.Banner {
-  border: none;
-  background-color: transparent;
-}
-
 .Container > div.Post ~ .Side {
   display: none;
 }
