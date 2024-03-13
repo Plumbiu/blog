@@ -1,7 +1,16 @@
 .Post {
-  width: 100%;
+  width: 50%;
+  transform: translateX(120px);
+  margin: 0 auto;
   box-sizing: border-box;
   border-radius: 4px;
   padding: 16px 20px;
 }
 
+
+@media screen and (max-width: 1240px) {
+  .Post {
+    width: 100%;
+    transform: translateX(0);
+  }
+}

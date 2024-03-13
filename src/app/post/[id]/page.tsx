@@ -5,6 +5,8 @@ import TocCmp from '@/components/app/Toc'
 import PostCmp from '@/components/app/Post'
 import '@/components/app/Post/index.css'
 import './index.css'
+import '@/styles/md/hljs.css'
+import '@/styles/md/github-markdown.css'
 
 interface Props {
   params: {

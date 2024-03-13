@@ -1,5 +1,6 @@
 .Toc-Wrap {
-  margin-left: 2%;
+  width: 240px;
+  margin-left: calc(120px + 2%);
   align-self: stretch;
 }
 
@@ -8,7 +9,6 @@
   top: 24px;
   padding: 12px;
   border-radius: 6px;
-  min-width: 240px;
 }
 
 .Toc-Title {
