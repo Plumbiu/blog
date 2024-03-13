@@ -4,6 +4,7 @@ import { useGet } from '@/lib/api'
 import TocCmp from '@/components/app/Toc'
 import PostCmp from '@/components/app/Post'
 import '@/components/app/Post/index.css'
+import './index.css'
 
 interface Props {
   params: {
@@ -26,13 +27,7 @@ export default async function PostId({ params }: Props) {
   const html = await md2html(content)
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        gap: '16px',
-        position: 'relative',
-      }}
-    >
+    <div className="Post-Wrap">
       <PostCmp html={html} />
       <TocCmp
         html={html}

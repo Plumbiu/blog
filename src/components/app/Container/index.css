@@ -3,12 +3,12 @@
   border-radius: 16px;
   justify-content: center;
   align-items: flex-start;
-  margin: 52px auto;
+  margin: 36px auto;
 }
 
 .Container > div:nth-child(2) {
   box-sizing: border-box;
-  margin-left: 2%;
+  margin-left: 1.5%;
   width: 65%;
   max-width: 1340px;
   border-radius: 6px;
