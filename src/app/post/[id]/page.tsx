@@ -36,13 +36,12 @@ export default async function PostId({ params }: Props) {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { title, desc, tags, categories } = await useGet<IArticle>(
+  const { title, tags, categories } = await useGet<IArticle>(
     'article/' + params.id,
   )
 
   return {
     title,
-    description: desc,
     keywords: tags,
     category: categories.join(','),
   }

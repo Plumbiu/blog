@@ -6,7 +6,6 @@ interface IArticle {
   updated: Date
   tags: string[]
   categories: string[]
-  desc: string
   cover?: string
 }
 

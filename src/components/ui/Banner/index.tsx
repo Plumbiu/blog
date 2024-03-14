@@ -31,7 +31,7 @@ const ArticleBanner: FC<Props> = ({ posts, name }) => {
     <div className="Banner">
       {usedPosts.map(([year, posts]) => (
         <div data-year={year} className="Banner-Year">
-          {posts.map(({ id, desc, title, tags, categories, date }) => (
+          {posts.map(({ id, title, tags, categories, date }) => (
             <Link
               target="__blank"
               className="Banner-Link"
