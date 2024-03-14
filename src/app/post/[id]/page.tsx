@@ -24,16 +24,13 @@ export async function generateStaticParams() {
 }
 
 export default async function PostId({ params }: Props) {
-  const { content } =
-    await useGet<IArticle>('article/' + params.id)
-  const html = await md2html(content)
+  const { content } = await useGet<IArticle>('article/' + params.id)
+  const { html, tocs } = await md2html(content)
 
   return (
     <div className="Post-Wrap">
       <PostCmp html={html} />
-      <TocCmp
-        html={html}
-      />
+      <TocCmp tocs={tocs} />
     </div>
   )
 }

@@ -1,15 +1,12 @@
 import './index.css'
 import type { FC } from 'react'
 import TocList from './List'
-import { html2toc } from '@/lib/md/index'
 
 interface Props {
-  html: string
+  tocs: Toc[]
 }
 
-const TocCmp: FC<Props> = ({ html }) => {
-  const tocs = html2toc(html)
-
+const TocCmp: FC<Props> = ({ tocs }) => {
   return (
     <div className="Toc-Wrap">
       {tocs.length > 0 ? (
