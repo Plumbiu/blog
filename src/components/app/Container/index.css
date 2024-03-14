@@ -5,21 +5,3 @@
   align-items: flex-start;
   margin: 36px auto;
 }
-
-.Container > div.Post ~ .Side {
-  display: none;
-}
-
-@media screen and (max-width: 1240px) {
-  .Container > div:nth-child(2) {
-    width: 90%;
-    transform: translateX(0);
-  }
-}
-
-@media screen and (max-width: 960px) {
-  .Container > div:nth-child(2) {
-    transform: translateX(0);
-    width: 100%;
-  }
-}
