@@ -20,21 +20,11 @@ const TocCmp: FC<Props> = ({ html, title, tags, categories, date }) => {
 
   return (
     <div className="Toc-Wrap">
-      <div className="Toc">
-        <div className="Toc-Title">{title}</div>
-        <div className="Toc-Date">
-          <ClockIcon
-            style={{
-              fontSize: '14px',
-              color: '#1976D2',
-              marginRight: '4px',
-            }}
-          />
-          <p>{perfixTime(date)}</p>
+      {tocs.length > 0 ? (
+        <div className="Toc">
+          <TocList tocs={tocs} />
         </div>
-        <Hr />
-        <TocList tocs={tocs} />
-      </div>
+      ) : undefined}
     </div>
   )
 }
