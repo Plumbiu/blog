@@ -24,7 +24,7 @@ export async function generateStaticParams() {
 }
 
 export default async function PostId({ params }: Props) {
-  const { content, title, tags, categories, date, updated } =
+  const { content } =
     await useGet<IArticle>('article/' + params.id)
   const html = await md2html(content)
 
@@ -33,11 +33,6 @@ export default async function PostId({ params }: Props) {
       <PostCmp html={html} />
       <TocCmp
         html={html}
-        title={title}
-        tags={tags}
-        categories={categories}
-        date={date}
-        updated={updated}
       />
     </div>
   )

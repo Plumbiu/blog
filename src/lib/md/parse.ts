@@ -7,7 +7,6 @@ import rehypeHighlight from 'rehype-highlight'
 import rehypeRewrite from 'rehype-rewrite'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
-import remarkPangu from 'remark-pangu'
 
 const langMap: Record<string, string> = {
   js: 'javascript',
@@ -17,7 +16,6 @@ const langMap: Record<string, string> = {
 export async function md2html(md: string) {
   const file = await unified()
     .use(remarkParse) // Convert into markdown AST
-    .use(remarkPangu)
     .use(remarkGfm)
     .use(remarkRehype) // Transform to HTML AST
     .use(rehypeSanitize) // Sanitize HTML input
