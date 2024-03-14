@@ -49,6 +49,21 @@
   font-size: 8em;
 }
 
+@media screen and (max-width: 740px) {
+  .Banner-Year::before  {
+    left: 32px;
+    top: -86px;
+  }
+
+  .Banner-Title {
+    font-size: 16px!important;
+  }
+
+  .Banner-Date {
+    font-size: 14px!important;
+  }
+}
+
 .Banner-Link:hover .Banner-Title {
   color: var(--blog-color-darkest);
 }
