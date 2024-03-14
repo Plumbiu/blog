@@ -140,6 +140,10 @@ body {
   background-color: var(--blog-body-bg);
 }
 
+p {
+  margin: 0;
+}
+
 a {
   text-decoration: none;
   color: inherit;
