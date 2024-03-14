@@ -1,6 +1,7 @@
 .Header-Menu {
+  display: flex;
+  align-items: center;
   cursor: pointer;
-  z-index: 199;
 }
 
 .Header-Menu > svg {

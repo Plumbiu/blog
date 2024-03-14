@@ -1,20 +1,29 @@
 .Header {
   position: relative;
   background: var(--blog-header-bg);
-  padding-left: 12px;
   height: 320px;
 }
 
 .Header-Top {
   display: flex;
   justify-content: space-between;
-  padding-top: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.Headr-Top-Absolute {
+  position: fixed;
+  top: 0;
+  z-index: 99999;
+  height: max-content;
+  width: 100%;
+  backdrop-filter: blur(4px);
+  background-color: var(--blog-bg-header);
 }
 
 .Header-Menu-Wrap {
   display: flex;
   align-items: center;
-  margin-left: 12px;
 }
 
 .Header-Menu-Wrap > a {

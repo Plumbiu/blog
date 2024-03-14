@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { useScroll } from 'ahooks'
 import Search from './Search'
 import './index.css'
 import HeaderToggle from './Toggle'
@@ -16,9 +19,14 @@ const info = [
 ]
 
 export default function Header() {
+  const pos = useScroll()
   return (
     <div className="Header">
-      <div className="Header-Top">
+      <div
+        className={`Header-Top ${
+          pos && pos.top > 160 ? 'Headr-Top-Absolute' : ''
+        }`}
+      >
         <HeaderMenu />
         <div className="Header-Search">
           {info.map(({ primary, href, icon }) => (

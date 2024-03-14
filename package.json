@@ -15,6 +15,7 @@
   "dependencies": {
     "@docsearch/react": "^3.6.0",
     "@plumbiu/github-info": "^0.1.5",
+    "ahooks": "^3.7.10",
     "dayjs": "^1.11.10",
     "html2toc": "^0.0.3",
     "next": "^14.1.3",
