@@ -29,7 +29,7 @@ export async function md2html(md: string) {
             node.properties.loading = 'lazy'
           } else if (node.tagName === 'pre') {
             const child = node.children[0]
-            if (child.type === 'element') {
+            if (child.type === 'element' && child.tagName === 'code') {
               const prop = (child.properties.className as string[])?.[0].slice(
                 9,
               )
