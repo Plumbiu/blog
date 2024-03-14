@@ -1,5 +1,6 @@
 .Friend {
   display: flex;
+  width: 50vw;
   justify-content: space-around;
   flex-wrap: wrap;
 }

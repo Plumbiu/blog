@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Nav from '../Nav'
 import Search from './Search'
 import './index.css'
 import HeaderToggle from './Toggle'
