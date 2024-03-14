@@ -17,6 +17,7 @@
   --blog-color-default: rgba(0, 0, 0, 0.6);
   --blog-color-dark: rgba(0, 0, 0, 0.8);
   --blog-color-darker: rgba(0, 0, 0, 0.9);
+  --blog-color-darkest: rgb(0, 0, 0);
   --blog-shadow: 0px 1px 2px -1px rgba(125, 125, 125, 0.2);
   --blog-shadow-wide: 0px 1px 6px -1px rgba(0, 0, 0, 0.2);
   --blog-shadow-wider: 0px 2px 6px 1px rgba(0, 0, 0, 0.2);
@@ -94,6 +95,7 @@ html[theme='dark'] {
   --blog-color-default: rgba(255, 255, 255, 0.6);
   --blog-color-dark: rgba(255, 255, 255, 0.8);
   --blog-color-darker: rgba(255, 255, 255, 0.9);
+  --blog-color-darkest: rgb(255, 255, 255);
   --blog-hover-default: #232323;
   --blog-hover-dark: rgba(255, 255, 255, 0.18);
   --blog-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3);

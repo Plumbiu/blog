@@ -1,6 +1,7 @@
 import { type FC } from 'react'
 import Link from 'next/link'
 import './index.css'
+import dayjs from 'dayjs'
 import { perfixTime } from '@/lib/time'
 
 interface Props {
@@ -37,20 +38,20 @@ const ArticleBanner: FC<Props> = ({ posts, name }) => {
               key={id}
               href={'/post/' + id}
             >
-              <div className="Banner-List">
-                <div className="Banner-Title">{title}</div>
-                <div className="Banner-Date">
-                  <p>{perfixTime(date)}</p>
+              <div>
+                <div className="Banner-Top">
+                  <div className="Banner-Title">{title}</div>
+                  <div className="Banner-Date">
+                    {dayjs(perfixTime(date)).format('MMM DD · ddd')}
+                  </div>
+                </div>
+                <div className="Banner-Bottom">
                   <div className="Banner-Tag">
                     {categories.map((category) => (
-                      <div key={category} className="Banner-Tag-Plain">
-                        {category}
-                      </div>
+                      <div key={category}>{category}</div>
                     ))}
                     {tags.map((tag) => (
-                      <div key={tag} className="Banner-Tag-Plain">
-                        {tag}
-                      </div>
+                      <div key={tag}>{tag}</div>
                     ))}
                   </div>
                 </div>

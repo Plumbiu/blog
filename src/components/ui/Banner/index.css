@@ -14,11 +14,26 @@
   justify-content: space-between;
   align-items: stretch;
   border-radius: 6px;
+  padding-left: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 .Banner-Year {
   position: relative;
   margin-bottom: 64px;
+}
+
+.Banner-Top {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.Banner-Date {
+  color: var(--blog-color-light);
+  font-weight: lighter;
+  font-size: 15px;
 }
 
 .Banner-Year::before {
@@ -35,31 +50,22 @@
 }
 
 .Banner-Link:hover .Banner-Title {
-  color: var(--blog-theme);
+  color: var(--blog-color-darkest);
 }
 
-.Banner-List {
-  padding-left: 16px;
-  padding-top: 12px;
-  padding-bottom: 8px;
-}
-
-.Banner-Date {
+.Banner-Bottom {
   color: var(--blog-color-light);
   display: flex;
   font-size: 14px;
   align-items: center;
 }
 
-.Banner-Date p {
-  margin-right: 8px;
-}
 
 .Banner-Title {
-  color: var(--blog-color-darker);
-  font-size: 18px;
+  color: var(--blog-color-dark);
   overflow: hidden;
-  transition: color 75ms;
+  font-size: 19px;
+  transition: color 200ms ease-out;
 }
 
 .Banner-Tag {
@@ -69,5 +75,6 @@
 }
 
 .Banner-Tag > div {
-  padding: 2px 6px;
+  padding: 2px 8px;
+  padding-left: 0;
 }
