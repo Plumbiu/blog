@@ -758,7 +758,7 @@ html[theme='dark'] {
   margin: 0;
   overflow: visible;
   line-height: inherit;
-  word-wrap: normal;
+  word-wrap: break-word;
   background-color: transparent;
   border: 0;
   white-space: pre-wrap;

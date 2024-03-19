@@ -1,5 +1,5 @@
 .Post {
-  width: 50%;
+  width: 50vw;
   transform: translateX(200px);
   box-sizing: border-box;
   border-radius: 4px;
@@ -9,7 +9,7 @@
 
 @media screen and (max-width: 1240px) {
   .Post {
-    width: 100%;
+    width: 100vw;
     transform: translateX(0);
   }
 }
