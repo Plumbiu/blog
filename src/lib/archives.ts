@@ -4,7 +4,7 @@ export function loadArchives(posts: IFrontMatter[]) {
     const date = new Date(post.date)
     const year = date.getFullYear()
     const key = String(year)
-    if (raw[key]) {
+    if (!raw[key]) {
       raw[key] = []
     }
     raw[key].push(post)
