@@ -1,10 +1,12 @@
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
+import remarkToc from 'remark-toc'
 import remarkRehype from 'remark-rehype'
 import rehypeSanitize from 'rehype-sanitize'
 import rehypeStringify from 'rehype-stringify'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeRewrite from 'rehype-rewrite'
+import remarkTextr from 'remark-textr'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 
@@ -18,6 +20,11 @@ export async function md2html(md: string) {
   const file = await unified()
     .use(remarkParse) // Convert into markdown AST
     .use(remarkGfm)
+    .use(remarkToc, {
+      maxDepth: 3,
+      heading: '目录',
+    })
+    .use(remarkTextr)
     .use(remarkRehype) // Transform to HTML AST
     .use(rehypeSanitize) // Sanitize HTML input
     .use(rehypeSlug)
@@ -68,7 +75,7 @@ export async function md2html(md: string) {
       },
     })
     .use(rehypeHighlight)
-    .process(md)
+    .process(`# 目录\n${md}`)
 
   return { html: String(file), tocs }
 }

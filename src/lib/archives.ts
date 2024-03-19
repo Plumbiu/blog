@@ -5,10 +5,9 @@ export function loadArchives(posts: IFrontMatter[]) {
     const year = date.getFullYear()
     const key = String(year)
     if (raw[key]) {
-      raw[key].push(post)
-    } else {
-      raw[key] = [post]
+      raw[key] = []
     }
+    raw[key].push(post)
   }
   const archives: IArcheve[] = []
   for (const [year, articles] of Object.entries(raw)) {

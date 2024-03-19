@@ -31,11 +31,14 @@
     "remark-pangu": "^2.2.0",
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.0",
+    "remark-textr": "^6.1.0",
+    "remark-toc": "^9.0.0",
     "simple-md-front-matter": "^0.0.4",
     "unified": "^11.0.4"
   },
   "devDependencies": {
     "@plumbiu/eslint-config": "^0.2.1",
+    "@types/hast": "^3.0.4",
     "@types/node": "^20.11.26",
     "@types/react": "^18.2.65",
     "@types/react-dom": "^18.2.21",

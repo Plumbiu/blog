@@ -6,9 +6,7 @@ const queryURL =
     : `${url}/api/`
 
 export async function useGet<T>(suffix: string) {
-  const raw = await fetch(queryURL + suffix)
-  const data: T = await raw.json()
-
+  const data: T = await fetch(queryURL + suffix).then((res) => res.json())
   return data
 }
 
