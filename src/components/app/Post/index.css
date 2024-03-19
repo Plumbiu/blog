@@ -1,7 +1,6 @@
 .Post {
   width: 50%;
-  transform: translateX(160px);
-  margin: 0 auto;
+  transform: translateX(200px);
   box-sizing: border-box;
   border-radius: 4px;
   padding: 16px 20px;
