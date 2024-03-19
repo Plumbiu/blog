@@ -9,6 +9,11 @@ import rehypeRewrite from 'rehype-rewrite'
 import remarkTextr from 'remark-textr'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
+import { NodeType, rewritePlugins } from './plugins'
+import { rewriteCodeLang } from './plugins/code-lang'
+import { rewriteImageWrap } from './plugins/img-wrap'
+import { rewriteLazyImage } from './plugins/lazy-image'
+import { rewriteToc } from './plugins/toc'
 
 const langMap: Record<string, string> = {
   js: 'javascript',
@@ -29,52 +34,18 @@ export async function md2html(md: string) {
     .use(rehypeSanitize) // Sanitize HTML input
     .use(rehypeSlug)
     .use(rehypeStringify) // Convert AST into serialized HTML
-    .use(rehypeRewrite, {
-      rewrite(node, _idx, parent) {
-        if (node.type === 'element') {
-          if (node.tagName === 'img') {
-            node.properties.loading = 'lazy'
-          } else if (node.tagName === 'pre') {
-            const child = node.children[0]
-            if (child.type === 'element' && child.tagName === 'code') {
-              const prop = (child.properties.className as string[])?.[0].slice(
-                9,
-              )
-              if (prop) {
-                node.properties['data-lang'] =
-                  langMap[prop.toLowerCase()] ?? prop
-              }
-            }
-          } else if (node.tagName === 'p') {
-            const children = node.children
-            if (children && children.length > 1) {
-              const isImgs = children.every((el) => {
-                return (
-                  (el.type === 'element' && el.tagName === 'img') ||
-                  (el.type === 'text' &&
-                    (el.value === '\r\n' || el.value === '\n'))
-                )
-              })
-              if (isImgs) {
-                node.properties.className = 'Img-Wrapper'
-              }
-            }
-          } else if (
-            node.tagName[0] === 'h' &&
-            +node.tagName[1] > 0 &&
-            +node.tagName[1] < 7
-          ) {
-            const id = node.properties.id as string
-            tocs.push({
-              level: +node.tagName[1],
-              hash: '#' + id,
-              content: (node.children[0] as any).value,
-            })
-          }
-        }
-      },
-    })
     .use(rehypeHighlight)
+    .use(
+      rehypeRewrite,
+      rewritePlugins(
+        rewriteCodeLang,
+        rewriteLazyImage,
+        rewriteImageWrap,
+        (node: NodeType) => {
+          tocs.push(...rewriteToc(node))
+        },
+      ),
+    )
     .process(`# 目录\n${md}`)
 
   return { html: String(file), tocs }
