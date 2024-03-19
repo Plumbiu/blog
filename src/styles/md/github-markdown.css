@@ -7,7 +7,8 @@
 html[theme='dark'] {
   .md {
     --color-header: #ffe100;
-    --color-code-lang: #192c3d;
+    --color-code-lang: #171718;
+    --color-code-bg: #202024;
     --color-prettylights-syntax-comment: #8b949e;
     --color-prettylights-syntax-constant: #79c0ff;
     --color-prettylights-syntax-entity: #d2a8ff;
@@ -54,7 +55,8 @@ html[theme='dark'] {
 }
 .md {
   --color-header: #2c0b8e;
-  --color-code-lang: #e7f3fa;
+  --color-code-lang: #171718;
+  --color-code-bg: #202024;
   --color-prettylights-syntax-comment: #6e7781;
   --color-prettylights-syntax-constant: #0550ae;
   --color-prettylights-syntax-entity: #6639ba;
@@ -233,7 +235,7 @@ html[theme='dark'] {
   right: 0;
   font-size: 85%;
   background-color: var(--color-code-lang);
-  color: var(--blog-color-default);
+  color: rgb(200, 200, 200);
 }
 
 .md code,
@@ -742,7 +744,7 @@ html[theme='dark'] {
   line-height: 1.45;
   font-size: 115%;
   color: var(--color-fg-default);
-  background-color: var(--color-canvas-subtle);
+  background-color: var(--color-code-bg);
 }
 .md .hljs-comment {
   font-size: 100%;
