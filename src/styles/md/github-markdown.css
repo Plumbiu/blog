@@ -7,8 +7,8 @@
 html[theme='dark'] {
   .md {
     --color-header: #ffe100;
-    --color-code-lang: #171718;
-    --color-code-bg: #202024;
+    --color-code-lang: #080808;
+    --color-code-bg: #161618;
     --color-prettylights-syntax-comment: #8b949e;
     --color-prettylights-syntax-constant: #79c0ff;
     --color-prettylights-syntax-entity: #d2a8ff;
