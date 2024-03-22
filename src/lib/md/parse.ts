@@ -31,6 +31,7 @@ export async function md2html(md: string) {
     .use(rehypeSlug)
     .use(rehypeStringify) // Convert AST into serialized HTML
     .use(rehypePrism, {
+      ignoreMissing: true,
       showLineNumbers: true,
     })
     .use(
