@@ -11,14 +11,9 @@ import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import { NodeType, rewritePlugins } from './plugins'
 import { rewriteCodeLang } from './plugins/code-lang'
-import { rewriteImageWrap } from './plugins/img-wrap'
 import { rewriteLazyImage } from './plugins/lazy-image'
 import { rewriteToc } from './plugins/toc'
-
-const langMap: Record<string, string> = {
-  js: 'javascript',
-  ts: 'typescript',
-}
+import { rewriteImageWrapper } from './plugins/img-wrap'
 
 export async function md2html(md: string) {
   const tocs: Toc[] = []
@@ -40,7 +35,7 @@ export async function md2html(md: string) {
       rewritePlugins(
         rewriteCodeLang,
         rewriteLazyImage,
-        rewriteImageWrap,
+        rewriteImageWrapper,
         (node: NodeType) => {
           tocs.push(...rewriteToc(node))
         },
