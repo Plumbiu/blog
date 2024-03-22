@@ -25,7 +25,6 @@
   z-index: 199;
   transform-origin: top;
   color: var(--blog-color-darker);
-  box-shadow: var(--blog-shadow-wide);
   border-radius: 4px;
   transition: transform 80ms;
 }

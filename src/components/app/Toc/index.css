@@ -1,14 +1,24 @@
 .Toc-Wrap {
   width: 240px;
-  margin-left: calc(160px + 2%);
+  margin-left: 220px;
   align-self: stretch;
 }
 
 .Toc {
   position: sticky;
-  top: 15%;
+  top: 10%;
   padding: 12px;
   border-radius: 6px;
+}
+
+.Toc::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 15%;
+  bottom: 15%;
+  width: 2px;
+  background-color: var(--blog-color-lighter);
 }
 
 .Toc-Title {
