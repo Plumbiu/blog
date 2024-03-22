@@ -4,12 +4,12 @@ import remarkToc from 'remark-toc'
 import remarkRehype from 'remark-rehype'
 import rehypeSanitize from 'rehype-sanitize'
 import rehypeStringify from 'rehype-stringify'
-import rehypeHighlight from 'rehype-highlight'
 import rehypeRewrite from 'rehype-rewrite'
 import remarkTextr from 'remark-textr'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import rehypePrism from 'rehype-prism-plus'
+import { minify } from 'html-minifier-terser'
 import { NodeType, rewritePlugins } from './plugins'
 import { rewriteCodeLang } from './plugins/code-lang'
 import { rewriteLazyImage } from './plugins/lazy-image'
@@ -47,5 +47,12 @@ export async function md2html(md: string) {
     )
     .process(`# 目录\n${md}`)
 
-  return { html: String(file), tocs }
+  return { html: await minify(String(file), {
+    removeAttributeQuotes: true,
+    quoteCharacter: '\'',
+    minifyCSS: true,
+    minifyJS: true,
+    minifyURLs: true,
+    collapseBooleanAttributes: true,
+  }), tocs }
 }
