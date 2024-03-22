@@ -9,6 +9,7 @@ import rehypeRewrite from 'rehype-rewrite'
 import remarkTextr from 'remark-textr'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
+import rehypePrism from 'rehype-prism-plus'
 import { NodeType, rewritePlugins } from './plugins'
 import { rewriteCodeLang } from './plugins/code-lang'
 import { rewriteLazyImage } from './plugins/lazy-image'
@@ -29,7 +30,9 @@ export async function md2html(md: string) {
     .use(rehypeSanitize) // Sanitize HTML input
     .use(rehypeSlug)
     .use(rehypeStringify) // Convert AST into serialized HTML
-    .use(rehypeHighlight)
+    .use(rehypePrism, {
+      showLineNumbers: true,
+    })
     .use(
       rehypeRewrite,
       rewritePlugins(

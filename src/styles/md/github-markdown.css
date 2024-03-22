@@ -7,7 +7,7 @@
 html[theme='dark'] {
   .md {
     --color-header: #ffe100;
-    --color-code-lang: #080808;
+    --color-code-lang: #121212;
     --color-code-bg: #161618;
     --color-prettylights-syntax-comment: #8b949e;
     --color-prettylights-syntax-constant: #79c0ff;
@@ -220,7 +220,6 @@ html[theme='dark'] {
 .md pre {
   position: relative;
   border-radius: 8px;
-
 }
 
 .md pre::before {
@@ -729,16 +728,8 @@ html[theme='dark'] {
   background: transparent;
   border: 0;
 }
-.md .highlight {
-  margin-bottom: 16px;
-}
-.md .highlight pre {
-  margin-bottom: 0;
-  word-break: normal;
-}
-.md .highlight pre,
 .md pre {
-  padding: 48px 8px 8px 12px;
+  padding: 43px 8px 8px 12px;
   margin: 8px 0;
   overflow-x: scroll;
   line-height: 1.45;
