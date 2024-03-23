@@ -1,11 +1,12 @@
 .Toc-Wrap {
   align-self: stretch;
   width: 180px;
+  transform: translateX(90px);
 }
 
 .Toc {
   position: sticky;
-  top: 13%;
+  top: 10%;
   padding: 12px;
 }
 
