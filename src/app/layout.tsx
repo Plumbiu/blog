@@ -1,16 +1,10 @@
 import type { Metadata, Viewport } from 'next'
 import '@/styles/globals.css'
-import { Noto_Sans_SC } from 'next/font/google'
 import Header from '@/components/app/Container/Header'
 import Container from '@/components/app/Container'
 import { title } from '@/lib/json'
 import Footer from '@/components/app/Container/Footer'
 
-const sans = Noto_Sans_SC({
-  weight: ['400'],
-  subsets: ['latin'],
-  display: 'auto',
-})
 export const metadata: Metadata = {
   title,
   description: 'Welcome to my blog!',
