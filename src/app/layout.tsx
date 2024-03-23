@@ -29,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" theme="dark" className={sans.className}>
+    <html lang="en" theme="dark">
       <link
         href="/icons/favico-32x32.webp"
         rel="icon"
@@ -39,7 +39,7 @@ export default function RootLayout({
       <body>
         <Header />
         <Container>
-          <div>{children}</div>
+          {children}
         </Container>
         <Footer />
       </body>

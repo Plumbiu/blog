@@ -1,7 +1,9 @@
 .Container {
   display: flex;
   border-radius: 16px;
-  justify-content: center;
-  align-items: flex-start;
   margin: 36px auto;
+}
+
+.Container > div {
+  margin: 0 auto;
 }

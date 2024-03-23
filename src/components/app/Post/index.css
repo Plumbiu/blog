@@ -1,15 +1,13 @@
 .Post {
-  width: 50vw;
-  transform: translateX(200px);
+  width: 55vw;
   box-sizing: border-box;
+  padding: 16px 0;
   border-radius: 4px;
-  padding: 16px 20px;
 }
 
 
 @media screen and (max-width: 1240px) {
   .Post {
-    width: 100vw;
-    transform: translateX(0);
+    width: 95vw;
   }
 }
