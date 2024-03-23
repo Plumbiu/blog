@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { md2html } from '@/lib/md/index'
+import { getTocs } from '@/lib/md/index'
 import { useGet } from '@/lib/api'
 import TocCmp from '@/components/app/Toc'
 import PostCmp from '@/components/app/Post'
@@ -25,11 +25,11 @@ export async function generateStaticParams() {
 
 export default async function PostId({ params }: Props) {
   const { content } = await useGet<IArticle>('article/' + params.id)
-  const { html, tocs } = await md2html(content)
+  const { tocs } = await getTocs(content)
 
   return (
     <div className="Post-Wrap">
-      <PostCmp html={html} />
+      <PostCmp md={content} />
       <TocCmp tocs={tocs} />
     </div>
   )
