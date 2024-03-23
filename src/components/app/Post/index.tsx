@@ -3,11 +3,9 @@ import ReactMarkdown from 'react-markdown'
 import remarkParse from 'remark-parse'
 import remarkToc from 'remark-toc'
 import remarkRehype from 'remark-rehype'
-import rehypeSanitize from 'rehype-sanitize'
 import rehypeStringify from 'rehype-stringify'
 import rehypeRewrite from 'rehype-rewrite'
 import remarkTextr from 'remark-textr'
-import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import rehypePrism from 'rehype-prism-plus'
 import { rewritePlugins } from '@/lib/md/plugins'
@@ -42,7 +40,6 @@ const PostCmp: FC<Props> = ({ md }) => {
             rewriteToc,
           ),
         ],
-        rehypeSanitize,
       ]}
       className="md Post"
     >
