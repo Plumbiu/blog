@@ -2,6 +2,7 @@
   width: 55vw;
   box-sizing: border-box;
   padding: 16px 0;
+  margin-left: 120px!important;
   border-radius: 4px;
 }
 
@@ -9,5 +10,6 @@
 @media screen and (max-width: 1240px) {
   .Post {
     width: 95vw;
+    margin-left: 0!important;
   }
 }

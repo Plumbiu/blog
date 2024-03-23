@@ -52,7 +52,7 @@
 @media screen and (max-width: 740px) {
   .Banner-Year::before  {
     left: 32px;
-    top: -86px;
+    top: -64px;
   }
 
   .Banner-Title {
