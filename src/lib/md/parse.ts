@@ -11,7 +11,7 @@ function tocVisit(nodes: RootContent[]) {
       if (child && child.type === 'text') {
         toc.push({
           level: node.depth,
-          hash: `#user-content-${child.value.replace(/\s/g, '')}`,
+          hash: `#${child.value.replace(/\s/g, '')}`,
           content: child.value,
         })
       }
