@@ -4,15 +4,15 @@ import remarkParse from 'remark-parse'
 import remarkToc from 'remark-toc'
 import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
-import rehypeRewrite from 'rehype-rewrite'
 import remarkTextr from 'remark-textr'
 import remarkGfm from 'remark-gfm'
 import rehypePrism from 'rehype-prism-plus'
-import { rewritePlugins } from '@/lib/md/plugins'
-import { rewriteCodeLang } from '@/lib/md/plugins/code-lang'
-import { rewriteImageWrapper } from '@/lib/md/plugins/img-wrap'
-import { rewriteLazyImage } from '@/lib/md/plugins/lazy-image'
-import { rewriteToc } from '@/lib/md/plugins/toc'
+import {
+  rehypeCodeLang,
+  rehypeImageWrapper,
+  rehypeLazyImage,
+  rehypeSlug,
+} from '@/plugins/rehype'
 
 interface Props {
   md: string
@@ -31,15 +31,10 @@ const PostCmp: FC<Props> = ({ md }) => {
       rehypePlugins={[
         rehypeStringify,
         [rehypePrism, { ignoreMissing: true, showLineNumbers: true }],
-        [
-          rehypeRewrite,
-          rewritePlugins(
-            rewriteCodeLang,
-            rewriteLazyImage,
-            rewriteImageWrapper,
-            rewriteToc,
-          ),
-        ],
+        rehypeCodeLang,
+        rehypeLazyImage,
+        rehypeImageWrapper,
+        rehypeSlug,
       ]}
       className="md Post"
     >
