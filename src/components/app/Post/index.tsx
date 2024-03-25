@@ -1,4 +1,5 @@
 import type { FC } from 'react'
+import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
 import remarkParse from 'remark-parse'
 import remarkToc from 'remark-toc'
@@ -36,6 +37,18 @@ const PostCmp: FC<Props> = ({ md }) => {
         rehypeImageWrapper,
         rehypeSlug,
       ]}
+      components={{
+        img: (node) => {
+          return (
+            <Image
+              src={node.src!}
+              width={600}
+              height={600}
+              alt={node.alt ?? ''}
+            />
+          )
+        },
+      }}
       className="md Post"
     >
       {'# 目录\n' + md}

@@ -2,14 +2,19 @@
   width: 55vw;
   box-sizing: border-box;
   padding: 16px 0;
-  margin-left: 120px!important;
+  margin-left: 120px !important;
   border-radius: 4px;
 }
-
+.Post img {
+  width: auto;
+  max-width: 50% !important;
+  height: auto;
+}
 
 @media screen and (max-width: 1240px) {
   .Post {
     width: 95vw;
-    margin-left: 0!important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
   }
 }
