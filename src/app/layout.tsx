@@ -1,5 +1,8 @@
+/* eslint-disable @stylistic/max-len */
 import type { Metadata, Viewport } from 'next'
 import '@/styles/globals.css'
+import Script from 'next/script'
+import Head from 'next/head'
 import Header from '@/components/app/Container/Header'
 import Container from '@/components/app/Container'
 import { title } from '@/lib/json'
@@ -23,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" theme="dark">
+    <html lang="en">
       <link
         href="/icons/favico-32x32.webp"
         rel="icon"
@@ -31,10 +34,16 @@ export default function RootLayout({
         type="image/x-icon"
       />
       <body>
+        <Script id="theme" strategy="beforeInteractive">
+          {`
+          const localTheme = localStorage.getItem('theme')
+          const theme = localTheme ? localTheme : window.matchMedia("(prefers-color-scheme:light)").matches ? 'light' : 'dark'
+          const htmlElm = document.documentElement
+          localStorage.setItem('theme', theme)
+          htmlElm.setAttribute('theme', theme)`}
+        </Script>
         <Header />
-        <Container>
-          {children}
-        </Container>
+        <Container>{children}</Container>
         <Footer />
       </body>
     </html>

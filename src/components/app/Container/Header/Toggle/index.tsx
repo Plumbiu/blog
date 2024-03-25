@@ -1,19 +1,31 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { MoonIcon, SunIcon } from '@/components/icons'
 
 let anchor: HTMLElement
 
+type Theme = 'dark' | 'light'
+
 const HeaderToggle = () => {
-  const [mode, setMode] = useState<'dark' | 'light'>('dark')
+  const [mode, setMode] = useState<Theme>()
+  useEffect(() => {
+    const theme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark'
+    if (theme) {
+      setMode(theme as Theme)
+    }
+  }, [])
   function toggleTheme() {
-    const theme = mode === 'dark' ? 'light' : 'dark'
+    const theme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark'
+    if (!theme) {
+      return
+    }
     if (!anchor) {
       anchor = document.documentElement
     }
     anchor.setAttribute('theme', theme)
-    setMode(theme)
+    localStorage.setItem('theme', theme)
+    setMode(theme as Theme)
   }
 
   return (
