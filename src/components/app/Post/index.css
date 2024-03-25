@@ -14,7 +14,10 @@
 @media screen and (max-width: 1240px) {
   .Post {
     width: 95vw;
-    max-width: 100% !important;
     margin-left: 0 !important;
+  }
+
+  .Post img {
+    max-width: 100% !important;
   }
 }
