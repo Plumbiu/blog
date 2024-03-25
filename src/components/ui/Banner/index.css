@@ -32,7 +32,6 @@
 
 .Banner-Date {
   color: var(--blog-color-light);
-  font-weight: lighter;
   font-size: 15px;
 }
 
@@ -45,7 +44,6 @@
   top: -64px;
   -webkit-text-stroke: 2px var(--blog-color-lighter);
   color: transparent;
-  font-weight: 200;
   font-size: 8em;
 }
 
