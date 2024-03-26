@@ -9,26 +9,14 @@ interface Props {
 }
 
 const TocList: FC<Props> = ({ tocs }) => {
-  const [currentHash, setCurrentHash] = useState('')
+  const [currentHash, setCurrentHash] = useState('目录')
   useEffect(() => {
-    if (location?.hash) {
-      setCurrentHash(decodeURI(location.hash))
-    } else {
-      setCurrentHash(tocs[0]?.hash)
-    }
     const observer = new IntersectionObserver(
       (entries) => {
-        for (let i = 0; i < entries.length; i++) {
-          const entry = entries[i]
+        for (const entry of entries) {
           if (entry.isIntersecting) {
             const target = entry.target
             const newHash = '#' + target.id
-
-            /*
-              FIXME: This will effect the broswer url,
-              history API will better, but it can notbe back to /article
-              // location.href = newHash
-            */
             setCurrentHash(() => newHash)
           }
         }
@@ -52,7 +40,7 @@ const TocList: FC<Props> = ({ tocs }) => {
       {tocs.map(({ level, hash, content }) => (
         <Link
           key={hash}
-          className={`Toc-P-${level} ${
+          className={`Toc-List-Anchor Toc-P-${level} ${
             currentHash === hash ? 'Toc-List-Active' : ''
           }`}
           href={hash}

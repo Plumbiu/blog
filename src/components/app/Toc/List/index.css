@@ -5,7 +5,8 @@
   overflow-y: scroll;
 }
 
-.Toc-List > a {
+.Toc-List-Anchor {
+  cursor: pointer;
   position: relative;
   display: block;
   padding-top: 4px;
@@ -15,7 +16,7 @@
   transition: color 100ms;
 }
 
-.Toc-List > a:hover {
+.Toc-List-Anchor:hover {
   color: var(--blog-theme);
 }
 
@@ -24,10 +25,8 @@
 }
 
 .Toc-P-2 {
-  color: var(--blog-color-darker);
   padding-left: 12px;
 }
 .Toc-P-3 {
-  color: var(--blog-color-default);
   padding-left: 24px;
 }
