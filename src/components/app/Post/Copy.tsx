@@ -1,13 +1,18 @@
 'use client'
-
-import { FC, useEffect } from 'react'
+import { toast } from 'sonner'
+import { FC } from 'react'
 import { CopyIcon } from '@/components/icons/lang'
 
 const CopyComponent: FC<{
   text: string
 }> = ({ text }) => {
   async function copy() {
-    await navigator.clipboard.writeText(text)
+    try {
+      await navigator.clipboard.writeText(text)
+      toast.success('复制成功')
+    } catch (error) {
+      toast.error('复制失败')
+    }
   }
 
   return (
