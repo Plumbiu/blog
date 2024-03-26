@@ -16,8 +16,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
-    Liberation Mono, monospace;
   border-radius: 8px 8px 0 0;
   background-color: var(--color-code-lang);
   color: rgb(200, 200, 200);

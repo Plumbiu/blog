@@ -4,6 +4,7 @@
     LICENSE file at
     https://github.com/sindresorhus/github-markdown-css/blob/main/license
 */
+
 html[theme='dark'] {
   .md {
     --color-header: #ffe100;
@@ -147,7 +148,8 @@ html[theme='dark'] {
   -webkit-text-size-adjust: 100%;
   margin: 0;
   color: var(--color-fg-default);
-  font-family: inherit;
+  font-family: -apple-system, BlinkMacSystemFont, PingFang SC, Hiragino Sans GB,
+    Microsoft YaHei, sans-serif !important;
   line-height: 1.5;
   word-wrap: break-word;
 }
@@ -185,7 +187,6 @@ html[theme='dark'] {
   font-style: italic;
 }
 .md h1 {
-  margin: 0.67em 0;
   font-weight: var(--base-text-weight-semibold, 600);
   padding-bottom: 0.3em;
   font-size: 2em;
@@ -241,7 +242,6 @@ html[theme='dark'] {
   font: inherit;
   margin: 0;
   overflow: visible;
-  font-family: inherit;
   font-size: inherit;
   line-height: inherit;
 }
@@ -350,8 +350,8 @@ html[theme='dark'] {
 .md h4,
 .md h5,
 .md h6 {
-  margin-top: 24px;
-  margin-bottom: 16px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   color: var(--color-header);
   font-weight: var(--base-text-weight-semibold, 600);
   line-height: 1.25;
@@ -362,7 +362,6 @@ html[theme='dark'] {
 }
 .md h2 {
   font-weight: var(--base-text-weight-semibold, 600);
-  padding-bottom: 0.3em;
   font-size: 1.5em;
 }
 .md h3 {
@@ -414,15 +413,7 @@ html[theme='dark'] {
 .md tt,
 .md code,
 .md samp {
-  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
-    Liberation Mono, monospace;
   font-size: 12px;
-}
-.md pre {
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: 12px;
-  word-wrap: normal;
 }
 .md .octicon {
   display: inline-block;
@@ -695,11 +686,6 @@ html[theme='dark'] {
 .md samp {
   font-size: 85%;
 }
-.md pre code {
-  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
-    Liberation Mono, monospace;
-  border-radius: 0;
-}
 .md pre > code {
   padding: 0;
   margin: 0;
@@ -712,7 +698,9 @@ html[theme='dark'] {
   margin-bottom: 8px;
   overflow-x: scroll;
   line-height: 1.45;
-  font-size: 115%;
+  margin-top: 0;
+  font-size: 1.125rem;
+  word-wrap: normal;
   color: var(--color-fg-default);
   background-color: var(--color-code-bg);
 }
