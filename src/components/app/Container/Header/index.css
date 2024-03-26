@@ -1,7 +1,7 @@
 .Header {
   position: relative;
   background: var(--blog-header-bg);
-  height: 320px;
+  height: 260px;
 }
 
 .Header-Top {

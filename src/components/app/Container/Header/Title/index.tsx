@@ -3,7 +3,6 @@
 import { useEffect, type FC, useState } from 'react'
 import './index.css'
 import Tag from '@/components/ui/Tag'
-import Stack from '@/components/ui/Stack'
 
 interface Props {}
 

@@ -45,7 +45,6 @@ export default function Header() {
       <div>
         <HeaderTitle />
       </div>
-      <Wave />
     </div>
   )
 }

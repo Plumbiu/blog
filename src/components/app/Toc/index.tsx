@@ -9,11 +9,9 @@ interface Props {
 const TocCmp: FC<Props> = ({ tocs }) => {
   return (
     <div className="Toc-Wrap">
-      {tocs.length > 0 ? (
-        <div className="Toc">
-          <TocList tocs={tocs} />
-        </div>
-      ) : undefined}
+      <div className="Toc">
+        <TocList tocs={tocs} />
+      </div>
     </div>
   )
 }

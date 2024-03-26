@@ -186,28 +186,6 @@ a {
   border-color: var(--blog-theme);
 }
 
-.Img-Wrapper {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-}
-
-.Img-Wrapper > img {
-  border-radius: 16px;
-  flex-wrap: wrap;
-  width: 49%!important;
-}
-
-@media screen and (max-width: 960px) {
-  .Img-Wrapper {
-    flex-wrap: wrap;
-  }
-  .Img-Wrapper > img {
-    width: 100%!important;
-    margin-bottom: 12px;
-  }
-}
-
 .md img {
   position: relative;
   cursor: pointer;
