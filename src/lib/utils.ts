@@ -1,5 +1,8 @@
+import GithubSlugger from 'github-slugger'
+
+const slugger = new GithubSlugger()
+
 export function transfromId(id: string) {
-  id = id.replace(/\s+/g, '-')
-  id = id.replace(/[^a-zA-Z0-9-_]/g, '')
-  return id.toLowerCase()
+  slugger.reset()
+  return slugger.slug(id)
 }

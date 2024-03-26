@@ -16,6 +16,7 @@
     "@plumbiu/github-info": "^0.1.5",
     "ahooks": "^3.7.10",
     "dayjs": "^1.11.10",
+    "github-slugger": "^2.0.0",
     "hast-util-from-html": "^2.0.1",
     "hast-util-to-html": "^9.0.0",
     "hast-util-to-string": "^3.0.0",

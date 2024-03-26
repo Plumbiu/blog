@@ -17,7 +17,8 @@ const TocList: FC<Props> = ({ tocs }) => {
           if (entry.isIntersecting) {
             const target = entry.target
             const newHash = '#' + target.id
-            setCurrentHash(() => newHash)
+            setCurrentHash(newHash)
+            break
           }
         }
       },
