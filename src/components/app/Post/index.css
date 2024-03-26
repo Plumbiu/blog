@@ -12,6 +12,69 @@
   height: auto;
 }
 
+.pre-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
+    Liberation Mono, monospace;
+  border-radius: 8px 8px 0 0;
+  background-color: var(--color-code-lang);
+  color: rgb(200, 200, 200);
+  height: 38px;
+}
+
+.pre-circle {
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  background-color: attr(data-bg);
+}
+
+.pre-circle[data-red] {
+  background-color: #ea6a5f;
+}
+.pre-circle[data-yellow] {
+  background-color: #f2be4e;
+}
+.pre-circle[data-green] {
+  background-color: #61c354;
+}
+
+.pre-lang-wrap {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding-left: 12px;
+}
+
+.pre-lang {
+  margin-left: 4px;
+}
+
+.pre-wrap svg {
+  height: 24px;
+  width: 24px;
+  display: block;
+}
+
+.pre-wrap .pre-copy svg {
+  width: 20px;
+  height: 20px;
+}
+
+.pre-copy {
+  cursor: pointer;
+  padding: 4px;
+  margin-right: 12px;
+  transition: background-color 150ms ease-out;
+  border-radius: 8px;
+}
+
+.pre-copy:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
 @media screen and (max-width: 1240px) {
   .Post {
     width: 95vw;

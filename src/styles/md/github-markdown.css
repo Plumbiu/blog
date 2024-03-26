@@ -217,26 +217,6 @@ html[theme='dark'] {
   background-color: var(--color-canvas-default);
 }
 
-.md pre {
-  position: relative;
-  border-radius: 8px;
-}
-
-.md pre::before {
-  content: attr(data-lang);
-  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
-    Liberation Mono, monospace;
-  position: absolute;
-  border-radius: 8px 8px 4px 4px;
-  padding: 8px 12px;
-  top: 0;
-  left: 0;
-  right: 0;
-  font-size: 85%;
-  background-color: var(--color-code-lang);
-  color: rgb(200, 200, 200);
-}
-
 .md code,
 .md kbd,
 .md pre,
@@ -729,8 +709,7 @@ html[theme='dark'] {
   border: 0;
 }
 .md pre {
-  padding: 43px 8px 8px 12px;
-  margin: 8px 0;
+  margin-bottom: 8px;
   overflow-x: scroll;
   line-height: 1.45;
   font-size: 115%;

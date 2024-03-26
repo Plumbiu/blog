@@ -1,5 +1,7 @@
-import type { FC } from 'react'
+import { type FC, type ReactNode } from 'react'
 import Image from 'next/image'
+import { toHtml } from 'hast-util-to-html'
+import { toString } from 'hast-util-to-string'
 import ReactMarkdown from 'react-markdown'
 import remarkParse from 'remark-parse'
 import remarkToc from 'remark-toc'
@@ -8,15 +10,31 @@ import rehypeStringify from 'rehype-stringify'
 import remarkTextr from 'remark-textr'
 import remarkGfm from 'remark-gfm'
 import rehypePrism from 'rehype-prism-plus'
+import CopyComponent from './Copy'
 import {
   rehypeCodeLang,
   rehypeImageWrapper,
   rehypeLazyImage,
   rehypeSlug,
 } from '@/plugins/rehype'
+import {
+  JavaScriptIcon,
+  ReactIcon,
+  RustIcon,
+  TypeScriptIcon,
+  VueIcon,
+} from '@/components/icons/lang'
 
 interface Props {
   md: string
+}
+
+const iconMap: Record<string, ReactNode> = {
+  javascript: <JavaScriptIcon />,
+  typescript: <TypeScriptIcon />,
+  rust: <RustIcon />,
+  react: <ReactIcon />,
+  vue: <VueIcon />,
 }
 
 const PostCmp: FC<Props> = ({ md }) => {
@@ -38,6 +56,29 @@ const PostCmp: FC<Props> = ({ md }) => {
         rehypeSlug,
       ]}
       components={{
+        pre: (node) => {
+          const lang = (node as any)?.['data-lang'] as string
+          return (
+            <div className="pre-wrap">
+              <div className="pre-bar">
+                <div className="pre-lang-wrap">
+                  <div className="pre-circle" data-red />
+                  <div className="pre-circle" data-yellow />
+                  <div className="pre-circle" data-green />
+                  <span className="pre-lang">
+                    {iconMap[lang.toLocaleLowerCase()] ?? lang}
+                  </span>
+                </div>
+                <CopyComponent text={toString(node.node!)} />
+              </div>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: toHtml(node.node!),
+                }}
+              />
+            </div>
+          )
+        },
         img: (node) => {
           return (
             <Image
