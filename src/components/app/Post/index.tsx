@@ -21,6 +21,7 @@ import {
   JavaScriptIcon,
   ReactIcon,
   RustIcon,
+  TextIcon,
   TypeScriptIcon,
   VueIcon,
 } from '@/components/icons/lang'
@@ -34,6 +35,8 @@ const iconMap: Record<string, ReactNode> = {
   typescript: <TypeScriptIcon />,
   rust: <RustIcon />,
   react: <ReactIcon />,
+  jsx: <ReactIcon />,
+  tsx: <ReactIcon />,
   vue: <VueIcon />,
 }
 
@@ -66,7 +69,9 @@ const PostCmp: FC<Props> = ({ md }) => {
                   <div className="pre-circle" data-yellow />
                   <div className="pre-circle" data-green />
                   <span className="pre-lang">
-                    {iconMap[lang.toLocaleLowerCase()] ?? lang}
+                    {iconMap[lang?.toLowerCase() ?? '__'] ?? lang ?? (
+                      <TextIcon />
+                    )}
                   </span>
                 </div>
                 <CopyComponent text={toString(node.node!)} />
