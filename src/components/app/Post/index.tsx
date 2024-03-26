@@ -18,10 +18,15 @@ import {
   rehypeSlug,
 } from '@/plugins/rehype'
 import {
+  BashIcon,
   JavaScriptIcon,
+  JsonIcon,
+  JsxIcon,
   ReactIcon,
   RustIcon,
+  ShellIcon,
   TextIcon,
+  TsxIcon,
   TypeScriptIcon,
   VueIcon,
 } from '@/components/icons/lang'
@@ -35,9 +40,12 @@ const iconMap: Record<string, ReactNode> = {
   typescript: <TypeScriptIcon />,
   rust: <RustIcon />,
   react: <ReactIcon />,
-  jsx: <ReactIcon />,
-  tsx: <ReactIcon />,
+  jsx: <JsxIcon />,
+  tsx: <TsxIcon />,
   vue: <VueIcon />,
+  json: <JsonIcon />,
+  shell: <ShellIcon />,
+  bash: <BashIcon />,
 }
 
 const PostCmp: FC<Props> = ({ md }) => {
@@ -68,11 +76,11 @@ const PostCmp: FC<Props> = ({ md }) => {
                   <div className="pre-circle" data-red />
                   <div className="pre-circle" data-yellow />
                   <div className="pre-circle" data-green />
-                  <span className="pre-lang">
+                  <div className="pre-lang">
                     {iconMap[lang?.toLowerCase() ?? '__'] ?? lang ?? (
                       <TextIcon />
                     )}
-                  </span>
+                  </div>
                 </div>
                 <CopyComponent text={toString(node.node!)} />
               </div>
