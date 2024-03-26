@@ -28,9 +28,6 @@ jobs:
       - name: Update sideCard.json
         run: |
           node scripts/sideCard.js
-      - name: Generate public/markdown/**/*.webp
-        run: |
-          node scripts/optimizer/image.js
       - name: Configure Git
         run: |
           git config --global user.email 3434909403@qq.com
