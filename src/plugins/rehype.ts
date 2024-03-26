@@ -1,5 +1,6 @@
 import type { Root } from 'hast'
 import { visit } from 'unist-util-visit'
+import { transfromId } from '@/lib/utils'
 
 type RehypePlugin<T> = (options?: T) => (tree: Root) => void
 
@@ -47,8 +48,7 @@ export const rehypeImageWrapper: RehypePlugin<undefined> = () => {
           const isImgs = children.every((el) => {
             return (
               (el.type === 'element' && el.tagName === 'img') ||
-              (el.type === 'text' &&
-                (el.value === '\r\n' || el.value === '\n'))
+              (el.type === 'text' && (el.value === '\r\n' || el.value === '\n'))
             )
           })
           if (isImgs) {
@@ -70,7 +70,7 @@ export const rehypeSlug: RehypePlugin<undefined> = () => {
         if (depth > 0 && depth < 7) {
           const heading = node.children[0]
           if (heading.type === 'text') {
-            node.properties.id = heading.value.replace(WHITE_REGX, '')
+            node.properties.id = transfromId(heading.value)
           }
         }
       }

@@ -1,5 +1,6 @@
 import { remark } from 'remark'
 import { visit } from 'unist-util-visit'
+import { transfromId } from '@/lib/utils'
 
 export async function getTocs(md: string) {
   const ast = remark.parse(md)
@@ -16,7 +17,7 @@ export async function getTocs(md: string) {
     if (child.type === 'text') {
       tocs.push({
         level: depth,
-        hash: '#' + child.value.replace(/\s/g, ''),
+        hash: '#' + transfromId(child.value),
         content: child.value,
       })
     }
