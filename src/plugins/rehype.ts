@@ -41,18 +41,26 @@ export const rehypeLazyImage: RehypePlugin<undefined> = () => {
 
 export const rehypeImageWrapper: RehypePlugin<undefined> = () => {
   return (tree) => {
-    visit(tree, 'element', (node) => {
-      if (node.tagName === 'p') {
-        const children = node.children
-        if (children && children.length > 1) {
-          const isImgs = children.every((el) => {
-            return (
-              (el.type === 'element' && el.tagName === 'img') ||
-              (el.type === 'text' && (el.value === '\r\n' || el.value === '\n'))
-            )
-          })
-          if (isImgs) {
-            node.properties.className = 'Img-Wrapper'
+    visit(tree, 'element', (node, _idx, parent) => {
+      if (node.tagName === 'img') {
+        if (!parent) {
+          return
+        }
+
+        if (parent.type !== 'element') {
+          return
+        }
+        const children = parent?.children
+        if (!children) {
+          return
+        }
+        if (children.length > 1) {
+          const classNames = parent.properties.class
+          if (Array.isArray(classNames)) {
+            const set = new Set(classNames)
+            parent.properties.class = [...set]
+          } else {
+            parent.properties.class = ['gallery']
           }
         }
       }
@@ -61,7 +69,6 @@ export const rehypeImageWrapper: RehypePlugin<undefined> = () => {
 }
 
 export const rehypeSlug: RehypePlugin<undefined> = () => {
-  const WHITE_REGX = /\s/g
   return (tree) => {
     visit(tree, 'element', (node) => {
       const tagName = node.tagName

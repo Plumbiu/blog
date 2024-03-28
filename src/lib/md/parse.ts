@@ -8,7 +8,7 @@ export async function getTocs(md: string) {
     {
       level: 0,
       content: '目录',
-      hash: '目录',
+      hash: '#目录',
     },
   ]
   visit(ast, 'heading', (node) => {

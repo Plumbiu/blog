@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { toHtml } from 'hast-util-to-html'
 import { toString } from 'hast-util-to-string'
 import ReactMarkdown from 'react-markdown'
+import sizeOf from 'image-size'
 import remarkParse from 'remark-parse'
 import remarkToc from 'remark-toc'
 import remarkRehype from 'remark-rehype'
@@ -54,20 +55,20 @@ const PostCmp: FC<Props> = ({ md }) => {
       remarkPlugins={[
         remarkParse,
         remarkGfm,
-        [remarkToc, { maxDep: 3, heading: '目录' }],
+        [remarkToc, { maxDep: 3, heading: '目录', skip: '---------' }],
         remarkTextr,
         remarkRehype,
       ]}
       rehypePlugins={[
         rehypeStringify,
         [rehypePrism, { ignoreMissing: true, showLineNumbers: true }],
+        rehypeImageWrapper,
         rehypeCodeLang,
         rehypeLazyImage,
-        rehypeImageWrapper,
         rehypeSlug,
       ]}
       components={{
-        pre: (node) => {
+        pre(node) {
           const lang = (node as any)?.['data-lang'] as string
           return (
             <div className="pre-wrap">
@@ -92,12 +93,12 @@ const PostCmp: FC<Props> = ({ md }) => {
             </div>
           )
         },
-        img: (node) => {
+        img(node) {
           return (
             <Image
               src={node.src!}
-              width={600}
-              height={600}
+              width={800}
+              height={800}
               alt={node.alt ?? ''}
             />
           )
@@ -105,7 +106,7 @@ const PostCmp: FC<Props> = ({ md }) => {
       }}
       className="md Post"
     >
-      {'# 目录\n' + md}
+      {'# 目录\r\n' + '# ---------' + md}
     </ReactMarkdown>
   )
 }
