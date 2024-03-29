@@ -14,7 +14,7 @@
 .Headr-Top-Absolute {
   position: fixed;
   top: 0;
-  z-index: 99999;
+  z-index: 999;
   height: max-content;
   width: 100%;
   backdrop-filter: blur(4px);

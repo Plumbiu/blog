@@ -1,9 +1,8 @@
+/* eslint-disable @stylistic/max-len */
 import { type FC, type ReactNode } from 'react'
-import Image from 'next/image'
 import { toHtml } from 'hast-util-to-html'
 import { toString } from 'hast-util-to-string'
 import ReactMarkdown from 'react-markdown'
-import sizeOf from 'image-size'
 import remarkParse from 'remark-parse'
 import remarkToc from 'remark-toc'
 import remarkRehype from 'remark-rehype'
@@ -95,12 +94,9 @@ const PostCmp: FC<Props> = ({ md }) => {
         },
         img(node) {
           return (
-            <Image
-              src={node.src!}
-              width={800}
-              height={800}
-              alt={node.alt ?? ''}
-            />
+            <a href={node.src!} className="chocolat-image" >
+              <img src={node.src!} alt={node.alt ?? ''} className="glightbox" />
+            </a>
           )
         },
       }}

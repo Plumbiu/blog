@@ -54,14 +54,12 @@ export const rehypeImageWrapper: RehypePlugin<undefined> = () => {
         if (!children) {
           return
         }
-        if (children.length > 1) {
-          const classNames = parent.properties.class
-          if (Array.isArray(classNames)) {
-            const set = new Set(classNames)
-            parent.properties.class = [...set]
-          } else {
-            parent.properties.class = ['gallery']
-          }
+        const classNames = parent.properties.class
+        if (Array.isArray(classNames)) {
+          const set = new Set(classNames)
+          parent.properties.class = [...set]
+        } else {
+          parent.properties.class = ['chocolat-parent']
         }
       }
     })

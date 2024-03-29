@@ -1,4 +1,6 @@
+/* eslint-disable @stylistic/max-len */
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { getTocs } from '@/lib/md/index'
 import { useGet } from '@/lib/api'
 import TocCmp from '@/components/app/Toc'
@@ -7,6 +9,7 @@ import '@/components/app/Post/index.css'
 import './index.css'
 import '@/styles/md/hljs.css'
 import '@/styles/md/github-markdown.css'
+import '@/styles/chocolat.css'
 
 interface Props {
   params: {
@@ -29,8 +32,18 @@ export default async function PostId({ params }: Props) {
 
   return (
     <div className="Post-Wrap">
+      <Script
+        id="image-gallery"
+        src="https://cdn.jsdelivr.net/npm/chocolat@1.1.2/dist/js/chocolat.min.js"
+        strategy="beforeInteractive"
+      />
       <PostCmp md={content} />
       <TocCmp tocs={tocs} />
+      <Script id="image-gallery" strategy="beforeInteractive">
+        {`
+    Chocolat(document.querySelectorAll('.chocolat-parent .chocolat-image'))
+          `}
+      </Script>
     </div>
   )
 }
