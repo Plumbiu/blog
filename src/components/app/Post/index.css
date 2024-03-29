@@ -69,6 +69,24 @@
   border-radius: 8px;
 }
 
+.pre-code-wrap {
+  position: relative;
+}
+
+.pre-code-lang {
+  position: absolute;
+  z-index: 99;
+  right: 14px;
+  top: 2px;
+  color: transparent;
+  transition: color 125ms ease-out;
+  color: transparent;
+}
+
+.pre-code-wrap:hover .pre-code-lang {
+  color: #888;
+}
+
 .pre-copy:hover {
   background-color: rgba(255, 255, 255, 0.08);
 }

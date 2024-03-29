@@ -32,16 +32,18 @@ export default async function PostId({ params }: Props) {
 
   return (
     <div className="Post-Wrap">
+      <PostCmp md={content} />
+      <TocCmp tocs={tocs} />
       <Script
         id="image-gallery"
         src="https://cdn.jsdelivr.net/npm/chocolat@1.1.2/dist/js/chocolat.min.js"
         strategy="beforeInteractive"
       />
-      <PostCmp md={content} />
-      <TocCmp tocs={tocs} />
       <Script id="image-gallery" strategy="beforeInteractive">
         {`
-    Chocolat(document.querySelectorAll('.chocolat-parent .chocolat-image'))
+    Chocolat(document.querySelectorAll('.chocolat-parent .chocolat-image'), {
+      loop: true,
+    })
           `}
       </Script>
     </div>

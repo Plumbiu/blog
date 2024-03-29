@@ -30,6 +30,7 @@ import {
   TypeScriptIcon,
   VueIcon,
 } from '@/components/icons/lang'
+import { upperFirst } from '@/lib/utils'
 
 interface Props {
   md: string
@@ -46,6 +47,19 @@ const iconMap: Record<string, ReactNode> = {
   json: <JsonIcon />,
   shell: <ShellIcon />,
   bash: <BashIcon />,
+}
+
+const aliasMap: Record<string, string> = {
+  javascript: 'JavaScript',
+  typescript: 'TypScript',
+  rust: 'Rust',
+  react: 'React',
+  jsx: 'JSX',
+  tsx: 'TSX',
+  vue: 'Vue',
+  json: 'JSON',
+  shell: 'Shell',
+  bash: 'Bash',
 }
 
 const PostCmp: FC<Props> = ({ md }) => {
@@ -84,17 +98,22 @@ const PostCmp: FC<Props> = ({ md }) => {
                 </div>
                 <CopyComponent text={toString(node.node!)} />
               </div>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: toHtml(node.node!),
-                }}
-              />
+              <div className="pre-code-wrap">
+                <div className="pre-code-lang">{aliasMap[lang ?? '__'] ?? 'TXT'}</div>
+                <div
+                  data-lang={lang ?? 'raw'}
+                  className="pre-code"
+                  dangerouslySetInnerHTML={{
+                    __html: toHtml(node.node!),
+                  }}
+                />
+              </div>
             </div>
           )
         },
         img(node) {
           return (
-            <a href={node.src!} className="chocolat-image" >
+            <a href={node.src!} className="chocolat-image">
               <img src={node.src!} alt={node.alt ?? ''} className="glightbox" />
             </a>
           )

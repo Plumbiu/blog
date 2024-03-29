@@ -696,6 +696,7 @@ html[theme='dark'] {
 }
 .md pre {
   margin-bottom: 8px;
+  padding-top: 3px;
   overflow-x: scroll;
   line-height: 1.45;
   margin-top: 0;
@@ -716,10 +717,8 @@ html[theme='dark'] {
   margin: 0;
   overflow: visible;
   line-height: inherit;
-  word-wrap: break-word;
   background-color: transparent;
   border: 0;
-  white-space: pre-wrap;
 }
 .md .csv-data td,
 .md .csv-data th {

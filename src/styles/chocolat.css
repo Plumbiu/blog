@@ -220,7 +220,6 @@ body.chocolat-open > .chocolat-image-wrapper {
 }
 
 /* uncomment to hide controls when zoomed-in*/
-/*
 .chocolat-zoomable .chocolat-top,
 .chocolat-zoomable .chocolat-bottom,
 .chocolat-zoomable .chocolat-right,
@@ -236,4 +235,3 @@ body.chocolat-open > .chocolat-image-wrapper {
   visibility: hidden;
   opacity: 0;
 }
-*/
