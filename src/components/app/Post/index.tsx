@@ -30,7 +30,6 @@ import {
   TypeScriptIcon,
   VueIcon,
 } from '@/components/icons/lang'
-import { upperFirst } from '@/lib/utils'
 
 interface Props {
   md: string
@@ -50,8 +49,8 @@ const iconMap: Record<string, ReactNode> = {
 }
 
 const aliasMap: Record<string, string> = {
-  javascript: 'JavaScript',
-  typescript: 'TypScript',
+  javascript: 'Javascript',
+  typescript: 'Typscript',
   rust: 'Rust',
   react: 'React',
   jsx: 'JSX',
@@ -121,7 +120,7 @@ const PostCmp: FC<Props> = ({ md }) => {
       }}
       className="md Post"
     >
-      {'# 目录\r\n' + '# ---------' + md}
+      {'# 目录\n' + '# ---------' + md}
     </ReactMarkdown>
   )
 }

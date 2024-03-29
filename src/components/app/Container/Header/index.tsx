@@ -8,7 +8,6 @@ import HeaderToggle from './Toggle'
 import HeaderMenu from './Menu/index'
 import HeaderTitle from './Title'
 import { RssIcon } from '@/components/icons'
-import Wave from '@/components/ui/Wave'
 
 const info = [
   {

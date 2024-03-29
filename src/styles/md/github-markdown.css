@@ -222,6 +222,7 @@ html[theme='dark'] {
 .md kbd,
 .md pre,
 .md samp {
+  font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
   font-size: 1em;
 }
 .md figure {

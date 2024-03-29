@@ -14,10 +14,10 @@
 .Headr-Top-Absolute {
   position: fixed;
   top: 0;
-  z-index: 999;
+  z-index: 99;
   height: max-content;
   width: 100%;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
   background-color: var(--blog-bg-header);
 }
 
