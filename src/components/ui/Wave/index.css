@@ -1,8 +1,0 @@
-.Wave {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0px;
-  width: 100%;
-  fill: var(--blog-body-bg);
-}

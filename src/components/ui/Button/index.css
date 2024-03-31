@@ -1,7 +1,22 @@
-.Btn-Link {
-  font-size: 13px;
-  line-height: 1.75;
-  padding: 9px 12px;
-  color: var(--blog-theme);
-  border-radius: 6px;
+.Btn-List-Icon {
+  display: flex;
+  align-items: center;
+  min-width: 38px;
+}
+
+.Btn-List-Icon-Link {
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Btn-List-Text {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.Btn-List-Icon svg {
+  padding: 6px;
+  border-radius: 50%;
 }

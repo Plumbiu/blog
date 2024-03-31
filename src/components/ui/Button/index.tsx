@@ -1,19 +1,48 @@
 import Link from 'next/link'
-import type { FC, ReactNode } from 'react'
+import type { CSSProperties, FC, ReactNode } from 'react'
 import './index.css'
 
 interface Props {
-  children: ReactNode
-  link: string
-  prefetch?: boolean
+  icon: ReactNode
+  text: string
+  link?: string
+  py?: number
+  px?: number
+  blank?: boolean
 }
 
-const Button: FC<Props> = ({ children, link, prefetch = true }) => {
-  return (
-    <Link prefetch={prefetch} className="Hover Btn-Link" href={link}>
-      {children}
+const ButtonListIcon: FC<Props> = ({
+  icon,
+  text,
+  link,
+  py = 14,
+  px = 16,
+  blank = true,
+}) => {
+  const child = (
+    <>
+      <div className="Btn-List-Icon">{icon}</div>
+      <div className="Btn-List-Text">{text}</div>
+    </>
+  )
+  const p: CSSProperties = {
+    padding: `${py}px ${px}px`,
+  }
+
+  return link ? (
+    <Link
+      className="Hover Btn-List-Icon-Link"
+      href={link}
+      target={blank ? '_blank' : '_self'}
+      style={p}
+    >
+      {child}
     </Link>
+  ) : (
+    <div className="Hover Btn-List-Icon-Link" style={p}>
+      {child}
+    </div>
   )
 }
 
-export default Button
+export default ButtonListIcon
