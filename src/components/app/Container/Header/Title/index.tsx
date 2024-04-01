@@ -28,7 +28,7 @@ const HeaderTitle: FC<Props> = ({}) => {
 
   return (
     <div className="Header-Title-Wrapper">
-      <h1 className="Header-Title">{meta.title}</h1>
+      <h2 className="Header-Title">{meta.title}</h2>
       <div className="Header-Title-Tag">
         <Tag text={meta.categories} filled />
         {meta.keywords?.split(',').map((item) => (
