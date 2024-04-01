@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { useScroll } from 'ahooks'
-import Search from './Search'
 import './index.css'
 import HeaderToggle from './Toggle'
 import HeaderMenu from './Menu/index'
@@ -28,17 +27,12 @@ export default function Header() {
       >
         <HeaderMenu />
         <div className="Header-Search">
+          <HeaderToggle />
           {info.map(({ primary, href, icon }) => (
             <Link key={primary} target="_blank" href={href} className="Hover">
               {icon}
             </Link>
           ))}
-          <HeaderToggle />
-          <Search
-            id={process.env.APPLICATION_ID ?? ''}
-            apiKey={process.env.API_KEY ?? ''}
-            name={process.env.APPLICATION_NAME ?? ''}
-          />
         </div>
       </div>
       <div>
