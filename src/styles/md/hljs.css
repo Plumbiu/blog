@@ -76,7 +76,6 @@ pre {
 
  code[class*="language-"],
  pre[class*="language-"] {
-   background: hsl(220, 13%, 18%);
    color: hsl(220, 14%, 71%);
    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
    direction: ltr;
@@ -113,7 +112,6 @@ pre {
  
  /* Code blocks */
  pre[class*="language-"] {
-   margin: 0.5em 0;
    overflow: auto;
    border-radius: 0 0 8px 8px;
  }

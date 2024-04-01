@@ -6,6 +6,7 @@
   );
   --blog-theme: #1976d2;
   --blog-scrollbar: #efd4ff;
+  --blog-body-color: #222;
   --blog-body-bg: #fff;
   --blog-skeleton: #e5e7ec;
   --blog-bg-default: #fbfbfb;
@@ -21,56 +22,6 @@
   --blog-hover-dark: rgba(0, 0, 0, 0.07);
   --blog-bg-hr: #d0d7de;
   --blog-border: 1px solid var(--blog-color-lightest);
-  /*
-    Copyright (c) 2015-present Algolia, Inc.
-    This source code is licensed under the MIT license found in the
-    LICENSE file at
-    https://github.com/algolia/docsearch/blob/main/LICENSE
-  */
-  --docsearch-primary-color: rgb(84, 104, 255);
-  --docsearch-text-color: rgb(28, 30, 33);
-  --docsearch-spacing: 12px;
-  --docsearch-icon-stroke-width: 1.4;
-  --docsearch-highlight-color: var(--docsearch-primary-color);
-  --docsearch-muted-color: rgb(150, 159, 175);
-  --docsearch-container-background: rgba(101, 108, 133, 0.8);
-  --docsearch-logo-color: rgba(84, 104, 255);
-
-  /* modal */
-  --docsearch-modal-width: 560px;
-  --docsearch-modal-height: 600px;
-  --docsearch-modal-background: rgb(245, 246, 247);
-  --docsearch-modal-shadow: inset 1px 1px 0 0 rgba(255, 255, 255, 0.5),
-    0 3px 8px 0 rgba(85, 90, 100, 1);
-
-  /* searchbox */
-  --docsearch-searchbox-height: 56px;
-  --docsearch-searchbox-background: rgb(235, 237, 240);
-  --docsearch-searchbox-focus-background: #fff;
-  --docsearch-searchbox-shadow: inset 0 0 0 2px var(--docsearch-primary-color);
-
-  /* hit */
-  --docsearch-hit-height: 56px;
-  --docsearch-hit-color: rgb(68, 73, 80);
-  --docsearch-hit-active-color: #fff;
-  --docsearch-hit-background: #fff;
-  --docsearch-hit-shadow: 0 1px 3px 0 rgb(212, 217, 225);
-
-  /* key */
-  --docsearch-key-gradient: linear-gradient(
-    -225deg,
-    rgb(213, 219, 228) 0%,
-    rgb(248, 248, 248) 100%
-  );
-  --docsearch-key-shadow: inset 0 -2px 0 0 rgb(205, 205, 230),
-    inset 0 0 1px 1px #fff, 0 1px 2px 1px rgba(30, 35, 90, 0.4);
-  --docsearch-key-pressed-shadow: inset 0 -2px 0 0 #cdcde6,
-    inset 0 0 1px 1px #fff, 0 1px 1px 0 rgba(30, 35, 90, 0.4);
-  /* footer */
-  --docsearch-footer-height: 44px;
-  --docsearch-footer-background: #fff;
-  --docsearch-footer-shadow: 0 -1px 0 0 rgb(224, 227, 232),
-    0 -3px 6px 0 rgba(69, 98, 155, 0.12);
 }
 
 html[theme='dark'] {
@@ -80,6 +31,7 @@ html[theme='dark'] {
     hsla(200deg, 100%, 85%, 0)
   );
   --blog-bg-default: #1b1b1b;
+  --blog-body-color: #efefef;
   --blog-body-bg: #1e1e1e;
   --blog-scrollbar: #4392a6;
   --blog-bg-header: rgba(8, 8, 8, 0.35);
@@ -94,43 +46,12 @@ html[theme='dark'] {
   --blog-hover-default: #232323;
   --blog-hover-dark: rgba(255, 255, 255, 0.18);
   --blog-bg-hr: #343434;
-  --docsearch-searchbox-background: rgba(44, 44, 44, 0.8);
-  --docsearch-key-gradient: linear-gradient(-225deg, #232133, #122111);
-  --docsearch-key-shadow: inset 0 -2px 0 0 #342933, inset 0 0 1px 1px #121212,
-    0 1px 2px 1px rgba(125, 125, 125, 0.2);
-  color: #fff;
-  --docsearch-text-color: rgb(245, 246, 247);
-  --docsearch-container-background: rgba(9, 10, 17, 0.8);
-  --docsearch-modal-background: rgb(21, 23, 42);
-  --docsearch-modal-shadow: inset 1px 1px 0 0 rgb(44, 46, 64),
-    0 3px 8px 0 rgb(0, 3, 9);
-  --docsearch-searchbox-background: rgb(9, 10, 17);
-  --docsearch-searchbox-focus-background: #000;
-  --docsearch-hit-color: rgb(190, 195, 201);
-  --docsearch-hit-shadow: none;
-  --docsearch-hit-background: rgb(9, 10, 17);
-  --docsearch-key-gradient: linear-gradient(
-    -26.5deg,
-    rgb(86, 88, 114) 0%,
-    rgb(49, 53, 91) 100%
-  );
-  --docsearch-key-shadow: inset 0 -2px 0 0 rgb(40, 45, 85),
-    inset 0 0 1px 1px rgb(81, 87, 125), 0 2px 2px 0 rgba(3, 4, 9, 0.3);
-  --docsearch-key-pressed-shadow: inset 0 -2px 0 0 #282d55,
-    inset 0 0 1px 1px #51577d, 0 1px 1px 0 #0304094d;
-  --docsearch-footer-background: rgb(30, 33, 54);
-  --docsearch-footer-shadow: inset 0 1px 0 0 rgba(73, 76, 106, 0.5),
-    0 -4px 8px 0 rgba(0, 0, 0, 0.2);
-  --docsearch-logo-color: rgb(255, 255, 255);
-  --docsearch-muted-color: rgb(127, 132, 151);
-  .md {
-    --color-canvas-default: var(--blog-bg-default) !important;
-  }
 }
 
 body {
   margin: 0;
   background-color: var(--blog-body-bg);
+  color: var(--blog-body-color);
 }
 
 p {
@@ -169,8 +90,7 @@ a {
   -webkit-border-radius: 4px;
 }
 
-.Hover,
-.Hover-Border {
+.Hover {
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
     border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
@@ -180,14 +100,10 @@ a {
   background-color: var(--blog-hover-dark);
 }
 
-.Hover-Border:hover {
-  border-color: var(--blog-theme);
-}
-
 .md img {
   position: relative;
   cursor: pointer;
-  transition: opacity 125ms;
+  transition: opacity 125ms ease-out;
 }
 
 .md img:hover {
