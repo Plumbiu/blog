@@ -10,7 +10,8 @@ import rehypeStringify from 'rehype-stringify'
 import remarkTextr from 'remark-textr'
 import remarkGfm from 'remark-gfm'
 import rehypePrism from 'rehype-prism-plus'
-import Image, { getImageProps } from 'next/image'
+import Image from 'next/image'
+import Link from 'next/link'
 import CopyComponent from './Copy'
 import {
   rehypeCodeLang,
@@ -62,6 +63,8 @@ const aliasMap: Record<string, string> = {
   bash: 'Bash',
 }
 
+const REPO_IMAGE = 'https://plumbiu.github.io/blogImg/'
+
 const PostCmp: FC<Props> = ({ md }) => {
   return (
     <ReactMarkdown
@@ -100,10 +103,10 @@ const PostCmp: FC<Props> = ({ md }) => {
               </div>
               <div className="pre-code-wrap">
                 <div className="pre-code-lang">
-                  {aliasMap[lang ?? '__'] ?? 'TXT'}
+                  {aliasMap[lang ?? '__'] ?? 'PlainText'}
                 </div>
                 <div
-                  data-lang={lang ?? 'raw'}
+                  data-lang={lang ?? 'PlainText'}
                   className="pre-code"
                   dangerouslySetInnerHTML={{
                     __html: toHtml(node.node!),
@@ -114,16 +117,22 @@ const PostCmp: FC<Props> = ({ md }) => {
           )
         },
         img(node) {
-          return (
-            <a href={node.src!} className="chocolat-image">
+          const src = node.src as string
+          const props = {
+            src,
+            alt: node.alt ?? '',
+          }
+          return src.startsWith(REPO_IMAGE) ? (
+            <Link href={node.src!} className="chocolat-image">
               <Image
                 height={500}
                 width={500}
-                src={node.src!}
-                alt={node.alt ?? ''}
+                {...props}
                 className="glightbox"
               />
-            </a>
+            </Link>
+          ) : (
+            <img {...props} />
           )
         },
       }}
