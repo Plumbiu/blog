@@ -6,7 +6,7 @@ const Category = async () => {
   return (
     <div
       style={{
-        backgroundColor: 'var(--blog-bg-default)',
+        width: '80%',
       }}
     >
       <Chips path="category" chips={categories} />

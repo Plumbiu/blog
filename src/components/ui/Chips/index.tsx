@@ -1,7 +1,7 @@
 /* eslint-disable @stylistic/multiline-ternary */
 import type { FC } from 'react'
-import Stack from '@/components/ui/Stack'
 import Tag from '@/components/ui/Tag'
+import './index.css'
 
 interface Props {
   chips: Tag[] | Category[]
@@ -10,15 +10,11 @@ interface Props {
 
 const Chips: FC<Props> = ({ chips, path }) => {
   return (
-    <Stack spacing={2}>
+    <div className="Chips">
       {chips.map(({ name }) => (
-        <Tag
-          key={name}
-          link={`/${path}/${name}`}
-          text={name}
-        />
+        <Tag key={name} link={`/${path}/${name}`} text={name} />
       ))}
-    </Stack>
+    </div>
   )
 }
 
