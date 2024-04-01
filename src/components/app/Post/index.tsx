@@ -121,18 +121,15 @@ const PostCmp: FC<Props> = ({ md }) => {
           const props = {
             src,
             alt: node.alt ?? '',
+            height: 500,
+            width: 500,
           }
           return src.startsWith(REPO_IMAGE) ? (
             <Link href={node.src!} className="chocolat-image">
-              <Image
-                height={500}
-                width={500}
-                {...props}
-                className="glightbox"
-              />
+              <Image {...props} className="glightbox" />
             </Link>
           ) : (
-            <img {...props} />
+            <Image {...props} />
           )
         },
       }}
