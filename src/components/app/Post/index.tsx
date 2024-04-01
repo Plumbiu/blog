@@ -10,6 +10,7 @@ import rehypeStringify from 'rehype-stringify'
 import remarkTextr from 'remark-textr'
 import remarkGfm from 'remark-gfm'
 import rehypePrism from 'rehype-prism-plus'
+import Image, { getImageProps } from 'next/image'
 import CopyComponent from './Copy'
 import {
   rehypeCodeLang,
@@ -98,7 +99,9 @@ const PostCmp: FC<Props> = ({ md }) => {
                 <CopyComponent text={toString(node.node!)} />
               </div>
               <div className="pre-code-wrap">
-                <div className="pre-code-lang">{aliasMap[lang ?? '__'] ?? 'TXT'}</div>
+                <div className="pre-code-lang">
+                  {aliasMap[lang ?? '__'] ?? 'TXT'}
+                </div>
                 <div
                   data-lang={lang ?? 'raw'}
                   className="pre-code"
@@ -113,7 +116,13 @@ const PostCmp: FC<Props> = ({ md }) => {
         img(node) {
           return (
             <a href={node.src!} className="chocolat-image">
-              <img src={node.src!} alt={node.alt ?? ''} className="glightbox" />
+              <Image
+                height={500}
+                width={500}
+                src={node.src!}
+                alt={node.alt ?? ''}
+                className="glightbox"
+              />
             </a>
           )
         },

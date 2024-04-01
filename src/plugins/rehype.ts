@@ -1,6 +1,7 @@
 import type { Root } from 'hast'
 import { visit } from 'unist-util-visit'
 import { transfromId } from '@/lib/utils'
+import { LEGAL_REGX } from '@/lib/node/file'
 
 type RehypePlugin<T> = (options?: T) => (tree: Root) => void
 
@@ -78,6 +79,20 @@ export const rehypeSlug: RehypePlugin<undefined> = () => {
             node.properties.id = transfromId(heading.value)
           }
         }
+      }
+    })
+  }
+}
+
+export const rehypeImageOptimize: RehypePlugin<undefined> = () => {
+  return (tree) => {
+    visit(tree, 'element', (node) => {
+      if (node.tagName === 'img') {
+        let src = node.properties.src as string
+        if (src) {
+          src = src.replace(LEGAL_REGX, '')
+        }
+        node.properties.src = src
       }
     })
   }
