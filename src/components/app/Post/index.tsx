@@ -10,7 +10,7 @@ import rehypeStringify from 'rehype-stringify'
 import remarkTextr from 'remark-textr'
 import remarkGfm from 'remark-gfm'
 import rehypePrism from 'rehype-prism-plus'
-import Image from 'next/image'
+import Image, { getImageProps } from 'next/image'
 import Link from 'next/link'
 import CopyComponent from './Copy'
 import {
@@ -117,19 +117,24 @@ const PostCmp: FC<Props> = ({ md }) => {
           )
         },
         img(node) {
-          const src = node.src as string
+          const nodeSrc = node.src as string
           const props = {
-            src,
+            ...getImageProps({
+              src: nodeSrc,
+              height: 500,
+              width: 500,
+              alt: node.alt ?? '',
+            }).props,
+            className: 'glightbox',
             alt: node.alt ?? '',
-            height: 500,
-            width: 500,
           }
-          return src.startsWith(REPO_IMAGE) ? (
-            <Link href={node.src!} className="chocolat-image">
-              <Image {...props} className="glightbox" />
+          return (
+            <Link
+              href={nodeSrc.startsWith(REPO_IMAGE) ? nodeSrc : props.src}
+              className="chocolat-image"
+            >
+              <Image {...props} />
             </Link>
-          ) : (
-            <Image {...props} />
           )
         },
       }}
