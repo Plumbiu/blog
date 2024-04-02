@@ -22,7 +22,7 @@ export default function Header() {
     <div className="Header">
       <div
         className={`Header-Top ${
-          pos && pos.top > 160 ? 'Headr-Top-Absolute' : ''
+          pos && pos.top > 160 ? 'Header-Top-Absolute' : ''
         }`}
       >
         <HeaderMenu />

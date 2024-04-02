@@ -11,14 +11,24 @@
   padding-bottom: 8px;
 }
 
-.Headr-Top-Absolute {
+.Header-Top-Absolute {
   position: fixed;
   top: 0;
   z-index: 99;
   height: max-content;
   width: 100%;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(12px);
   background-color: var(--blog-bg-header);
+  animation: slidein 500ms ease;
+}
+
+@keyframes slidein {
+  from {
+    transform: translateY(-999px);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 .Header-Menu-Wrap {
