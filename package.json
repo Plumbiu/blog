@@ -12,6 +12,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^14.1.4",
     "@plumbiu/github-info": "^0.1.5",
     "ahooks": "^3.7.10",
     "dayjs": "^1.11.10",
@@ -34,7 +35,6 @@
     "remark-textr": "^6.1.0",
     "remark-toc": "^9.0.0",
     "simple-md-front-matter": "^0.0.4",
-    "sonner": "^1.4.41",
     "unified": "^11.0.4",
     "unist-util-is": "^6.0.0",
     "unist-util-select": "^5.1.0",

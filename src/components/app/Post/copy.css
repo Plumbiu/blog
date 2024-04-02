@@ -1,0 +1,13 @@
+
+@keyframes svgScale {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.pre-copy > svg {
+  animation: svgScale 120ms linear forwards;
+}

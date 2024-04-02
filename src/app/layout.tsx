@@ -2,7 +2,6 @@
 import type { Metadata, Viewport } from 'next'
 import '@/styles/globals.css'
 import Script from 'next/script'
-import { Toaster } from 'sonner'
 import Header from '@/components/app/Container/Header'
 import Container from '@/components/app/Container'
 import { title } from '@/lib/json'
@@ -45,7 +44,6 @@ export default function RootLayout({
         <Header />
         <Container>{children}</Container>
         <Footer />
-        <Toaster />
       </body>
     </html>
   )
