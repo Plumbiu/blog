@@ -1,7 +1,7 @@
 .Friend {
   display: flex;
-  width: 50vw;
-  justify-content: space-around;
+  width: 100%;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 }
 
@@ -14,5 +14,6 @@
 @media screen and (max-width: 960px) {
   .Friend {
     gap: 8px;
+    justify-content: center;
   }
 }
