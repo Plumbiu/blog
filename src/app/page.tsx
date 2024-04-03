@@ -21,14 +21,18 @@ export function generateStaticParams() {
 }
 
 export default async function ({ params }: Props) {
-  const data = await useGet<IFrontMatter[]>('article')
+  const data = await useGet<IFrontMatter[]>(
+    'article',
+  )
 
-  return <ArticleBanner posts={data} />
+  return (
+    <ArticleBanner posts={data} name="文章页" />
+  )
 }
 
 export function generateMetadata({ params }: Props): Metadata {
   return {
-    title: `${name} | 首页`,
-    description: `${name} 的首页`,
+    title: `${name} | 文章`,
+    description: `${name} 的文章页`,
   }
 }

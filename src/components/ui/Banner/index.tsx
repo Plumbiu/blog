@@ -6,9 +6,11 @@ import { perfixTime } from '@/lib/time'
 
 interface Props {
   posts: IFrontMatter[]
+  name: string
 }
 
-const ArticleBanner: FC<Props> = ({ posts }) => {
+const ArticleBanner: FC<Props> = ({ posts, name }) => {
+  name = decodeURI(name)
   const formatedPosts: Record<string, IFrontMatter[]> = {}
   for (const { id, tags, categories, date, ...rest } of posts) {
     const key = perfixTime(date).split('-')[0]
