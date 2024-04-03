@@ -31,7 +31,7 @@ const ArticleBanner: FC<Props> = ({ posts, name }) => {
     <div className="Banner">
       {usedPosts.map(([year, posts]) => (
         <div key={year} data-year={year} className="Banner-Year">
-          {posts.map(({ id, title, tags, categories, date }) => (
+          {posts.map(({ id, title, tags, categories, date, readTime }) => (
             <Link
               target="__blank"
               className="Banner-Link"
@@ -41,7 +41,8 @@ const ArticleBanner: FC<Props> = ({ posts, name }) => {
               <div className="Banner-Top">
                 <div className="Banner-Title">{title}</div>
                 <div className="Banner-Date">
-                  {dayjs(perfixTime(date)).format('MMM DD · ddd')}
+                  {dayjs(perfixTime(date)).format('MMM DD · dddd')} · {readTime}
+                  min
                 </div>
               </div>
               <div className="Banner-Bottom">

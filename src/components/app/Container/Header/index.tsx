@@ -29,7 +29,7 @@ export default function Header() {
         <div className="Header-Search">
           <HeaderToggle />
           {info.map(({ primary, href, icon }) => (
-            <Link key={primary} target="_blank" href={href} className="Hover">
+            <Link key={primary} target="_blank" href={href}>
               {icon}
             </Link>
           ))}

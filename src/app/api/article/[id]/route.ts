@@ -13,6 +13,7 @@ export async function GET(
   const article: IArticle = {
     id: params.id,
     ...parseFM<TRawFrontMatter>(content),
+    readTime: Math.floor(content.length / 225),
     content: content.slice(content.indexOf('---', 3) + 3),
   }
 

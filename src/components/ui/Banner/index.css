@@ -8,15 +8,14 @@
 }
 
 .Banner-Link {
-  box-sizing: border-box;
-  justify-content: space-between;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  display: block;
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 
 .Banner-Year {
   position: relative;
-  margin-bottom: 48px;
+  margin-bottom: 64px;
 }
 
 .Banner-Top {
@@ -84,7 +83,7 @@
 .Banner-Title {
   color: var(--blog-color-dark);
   overflow: hidden;
-  font-size: 19px;
+  font-size: 18px;
   transition: color 200ms ease-out;
 }
 

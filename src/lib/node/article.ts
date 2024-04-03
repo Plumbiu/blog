@@ -27,6 +27,7 @@ export async function getPosts(pagenum = 0, isLimit = false) {
       return {
         id: post,
         ...parseFM<TRawFrontMatter>(file),
+        readTime: Math.floor(file.length / 225),
       }
     }),
   )

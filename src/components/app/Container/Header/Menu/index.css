@@ -4,22 +4,19 @@
   cursor: pointer;
 }
 
-.Header-Menu > svg {
-  padding: 4px;
+.Header-Menu svg {
   font-size: 22px;
-  border-radius: 50%;
-  transform: translateX(12px);
+  display: flex;
 }
 
 .Header-Menu > div {
   padding: 4px 0;
-  max-width: 100%;
 }
 
 .Header-Menu-List {
   position: fixed;
   left: 6px;
-  top: 36px;
+  top: 40px;
   padding: 8px;
   transform: scale(0);
   z-index: 199;
@@ -30,10 +27,6 @@
   transition: transform 80ms;
 }
 
-.Header-Menu-List > div {
-  padding: 0 4px;
-}
-
-.Header-Menu:hover .Header-Menu-List {
-  transform: scale(1);
+.Header-Menu-List svg {
+  font-size: 18px;
 }
