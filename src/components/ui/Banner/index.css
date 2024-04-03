@@ -1,4 +1,5 @@
 .Banner {
+  margin-top: 12px;
   box-sizing: border-box;
 }
 
@@ -7,21 +8,15 @@
 }
 
 .Banner-Link {
-  display: flex;
-  align-items: center;
-  width: 100%;
   box-sizing: border-box;
   justify-content: space-between;
-  align-items: stretch;
-  border-radius: 6px;
-  padding-left: 16px;
   padding-top: 12px;
   padding-bottom: 12px;
 }
 
 .Banner-Year {
   position: relative;
-  margin-bottom: 64px;
+  margin-bottom: 48px;
 }
 
 .Banner-Top {
@@ -44,24 +39,36 @@
   top: -64px;
   -webkit-text-stroke: 2px var(--blog-color-lighter);
   color: transparent;
-  font-size: 8em;
+  font-size: 7em;
 }
 
 @media screen and (max-width: 740px) {
   .Banner-Year::before  {
-    left: 32px;
+    left: 0;
     top: -64px;
   }
 
   .Banner-Title {
     font-size: 16px!important;
+    max-width: 380px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   .Banner-Date {
-    font-size: 14px!important;
+    font-size: 13px!important;
   }
 }
 
+
+@media screen and (max-width: 480px) {
+  .Banner-Top {
+    justify-content: space-between;
+  }
+  .Banner-Title {
+    max-width: 180px;
+  }
+}
 .Banner-Link:hover .Banner-Title {
   color: var(--blog-color-darkest);
 }
