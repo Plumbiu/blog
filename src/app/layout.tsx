@@ -37,9 +37,8 @@ export default function RootLayout({
           {`
           const localTheme = localStorage.getItem('theme')
           const theme = localTheme ? localTheme : window.matchMedia("(prefers-color-scheme:light)").matches ? 'light' : 'dark'
-          const htmlElm = document.documentElement
           localStorage.setItem('theme', theme)
-          htmlElm.setAttribute('theme', theme)`}
+          document.documentElement.setAttribute('theme', theme)`}
         </Script>
         <Header />
         <Container>{children}</Container>

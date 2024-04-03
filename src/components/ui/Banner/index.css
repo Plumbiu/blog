@@ -81,7 +81,7 @@
 
 
 .Banner-Title {
-  color: var(--blog-color-dark);
+  color: var(--blog-color-darker);
   overflow: hidden;
   font-size: 18px;
   transition: color 200ms ease-out;

@@ -701,7 +701,7 @@ html[theme='dark'] {
   overflow-x: scroll;
   line-height: 1.45;
   margin-top: 0;
-  font-size: 1.125rem;
+  font-size: 18px;
   word-wrap: normal;
   color: var(--color-fg-default);
   background-color: var(--color-code-bg);

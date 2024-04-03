@@ -1,15 +1,16 @@
 :root {
   --blog-header-bg: linear-gradient(
     0deg,
-    hsl(202deg, 71%, 90%),
-    hsl(204deg, 67%, 85%)
+    hsl(204, 59%, 93%),
+    hsl(204, 50%, 85%)
   );
   --blog-theme: #1976d2;
   --blog-scrollbar: #efd4ff;
-  --blog-body-color: #222;
+  --blog-body-color: #111;
   --blog-body-bg: #f4f4f8;
   --blog-post-bg: #fff;
   --blog-skeleton: #e5e7ec;
+  --blog-tag-bg: rgb(46, 44, 44);
   --blog-bg-default: #fbfbfb;
   --blog-bg-header: rgba(241, 242, 254, 0.35);
   --blog-color-lightest: rgba(0, 0, 0, 0.1);
@@ -38,6 +39,7 @@ html[theme='dark'] {
   --blog-scrollbar: #4392a6;
   --blog-bg-header: rgba(8, 8, 8, 0.35);
   --blog-skeleton: #453a44;
+  --blog-tag-bg: rgb(100, 100, 100);
   --blog-color-lightest: rgba(255, 255, 255, 0.1);
   --blog-color-lighter: rgba(255, 255, 255, 0.2);
   --blog-color-light: rgba(255, 255, 255, 0.4);

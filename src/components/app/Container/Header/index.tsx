@@ -3,10 +3,10 @@
 import Link from 'next/link'
 import { useScroll } from 'ahooks'
 import './index.css'
-import HeaderToggle from './Toggle'
+import { useEffect, useState } from 'react'
 import HeaderMenu from './Menu/index'
 import HeaderTitle from './Title'
-import { RssIcon } from '@/components/icons'
+import { MoonIcon, RssIcon, SunIcon } from '@/components/icons'
 
 const info = [
   {
@@ -15,9 +15,27 @@ const info = [
     href: '/rss.xml',
   },
 ]
+type Theme = 'dark' | 'light'
 
+function nextTheme() {
+  return localStorage.getItem('theme') === 'dark' ? 'light' : 'dark'
+}
 export default function Header() {
   const pos = useScroll()
+  const [mode, setMode] = useState<Theme>()
+
+  useEffect(() => {
+    const theme = nextTheme()
+    setMode(theme as Theme)
+  }, [])
+
+  function toggleTheme() {
+    const theme = nextTheme()
+    document.documentElement.setAttribute('theme', theme)
+    localStorage.setItem('theme', theme)
+    setMode(theme as Theme)
+  }
+
   return (
     <div className="Header">
       <div
@@ -27,7 +45,9 @@ export default function Header() {
       >
         <HeaderMenu />
         <div className="Header-Search">
-          <HeaderToggle />
+          <div onClick={toggleTheme}>
+            {mode === 'light' ? <SunIcon /> : <MoonIcon />}
+          </div>
           {info.map(({ primary, href, icon }) => (
             <Link key={primary} target="_blank" href={href}>
               {icon}

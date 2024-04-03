@@ -1,7 +1,7 @@
 .Post {
   width: 55vw;
   box-sizing: border-box;
-  padding: 12px 24px;
+  padding: 24px;
   margin-left: 120px !important;
   border-radius: 24px;
   background-color: var(--blog-post-bg);

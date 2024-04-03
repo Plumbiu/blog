@@ -12,9 +12,9 @@
 }
 
 .Tag-Filled {
-  color: var(--blog-color-darker);
+  color: var(--blog-body-color);
   font-size: 0.7125rem;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 3px 8px;
-  background-color: var(--blog-color-lightest);
+  border: 1px solid var(--blog-tag-bg);
 }
