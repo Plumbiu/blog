@@ -1,16 +1,34 @@
-import * as React from 'react'
 import type { Metadata } from 'next'
 import { useGet } from '@/lib/api'
+import { articleNum, name } from '@/lib/json'
 import ArticleBanner from '@/components/ui/Banner'
-import { name } from '@/lib/json'
 
-export default async function Home() {
-  const data = await useGet<IFrontMatter[]>('article?pagenum=0&limit=4')
-
-  return <ArticleBanner posts={data} name="文章页" />
+interface Props {
+  params: {
+    pagenum: string
+  }
 }
 
-export const metadata: Metadata = {
-  title: `${name} | 首页`,
-  description: `这里是 ${name} 的个人介绍首页`,
+export function generateStaticParams() {
+  const nums = []
+  for (let i = 1; i <= articleNum; i++) {
+    nums.push({
+      pagenum: String(i),
+    })
+  }
+
+  return nums
+}
+
+export default async function ({ params }: Props) {
+  const data = await useGet<IFrontMatter[]>('article')
+
+  return <ArticleBanner posts={data} />
+}
+
+export function generateMetadata({ params }: Props): Metadata {
+  return {
+    title: `${name} | 首页`,
+    description: `${name} 的首页`,
+  }
 }

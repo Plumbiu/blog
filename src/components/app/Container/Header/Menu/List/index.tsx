@@ -14,7 +14,6 @@ import { blog_repo } from '@/lib/json'
 
 const lists = [
   { text: '首页', link: '/', icon: <FirstPageIcon /> },
-  { text: '文章', link: '/article', icon: <ArticleIcon /> },
   { text: '开源之旅', link: '/opensource', icon: <TravelExploreIcon /> },
   { text: '朋友们', link: '/friend', icon: <PeopleIcon /> },
   { text: '标签', link: '/tag', icon: <TagIcon /> },
