@@ -1,13 +1,15 @@
 .Toc-Wrap {
   align-self: stretch;
-  width: 180px;
   transform: translateX(30px);
+  max-width: 240px;
 }
 
 .Toc {
   position: sticky;
   top: 10%;
-  padding: 12px;
+  padding: 4px 12px;
+  border-radius: 12px;
+  background-color: var(--blog-post-bg);
 }
 
 .Toc-Title {

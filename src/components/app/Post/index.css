@@ -1,9 +1,10 @@
 .Post {
   width: 55vw;
   box-sizing: border-box;
-  padding: 12px 0;
+  padding: 12px 24px;
   margin-left: 120px !important;
-  border-radius: 4px;
+  border-radius: 24px;
+  background-color: var(--blog-post-bg);
 }
 .Post img {
   width: auto;
