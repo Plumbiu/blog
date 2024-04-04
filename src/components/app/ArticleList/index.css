@@ -1,35 +1,35 @@
-.Banner {
+.ArtList {
   margin-top: 12px;
   box-sizing: border-box;
 }
 
-.Banner p {
+.ArtList p {
   margin: 0;
 }
 
-.Banner-Link {
+.ArtList-Link {
   display: block;
   margin-top: 24px;
   margin-bottom: 24px;
 }
 
-.Banner-Year {
+.ArtList-Year {
   position: relative;
   margin-bottom: 64px;
 }
 
-.Banner-Top {
+.ArtList-Top {
   display: flex;
   align-items: flex-end;
   gap: 12px;
 }
 
-.Banner-Date {
+.ArtList-Date {
   color: var(--blog-color-light);
   font-size: 15px;
 }
 
-.Banner-Year::before {
+.ArtList-Year::before {
   content: attr(data-year);
   position: absolute;
   z-index: -1;
@@ -42,58 +42,56 @@
 }
 
 @media screen and (max-width: 740px) {
-  .Banner-Year::before  {
+  .ArtList-Year::before {
     left: 0;
     top: -64px;
   }
 
-  .Banner-Title {
-    font-size: 16px!important;
+  .ArtList-Title {
+    font-size: 16px !important;
     max-width: 380px;
     white-space: nowrap;
     text-overflow: ellipsis;
   }
 
-  .Banner-Date {
-    font-size: 13px!important;
+  .ArtList-Date {
+    font-size: 13px !important;
   }
 }
 
-
 @media screen and (max-width: 480px) {
-  .Banner-Top {
+  .ArtList-Top {
     justify-content: space-between;
   }
-  .Banner-Title {
+  .ArtList-Title {
     max-width: 180px;
   }
 }
-.Banner-Link:hover .Banner-Title {
+.ArtList-Link:hover .ArtList-Title {
   color: var(--blog-color-darkest);
 }
 
-.Banner-Bottom {
+.ArtList-Bottom {
   color: var(--blog-color-light);
   display: flex;
   font-size: 14px;
   align-items: center;
 }
 
-
-.Banner-Title {
+.ArtList-Title {
   color: var(--blog-color-darker);
   overflow: hidden;
   font-size: 18px;
   transition: color 200ms ease-out;
 }
 
-.Banner-Tag {
+.ArtList-Tag {
   display: flex;
   align-items: center;
   font-size: 13px;
 }
 
-.Banner-Tag > div {
+.ArtList-Tag > div {
   padding: 2px 8px;
   padding-left: 0;
 }

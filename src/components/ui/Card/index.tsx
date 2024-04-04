@@ -13,7 +13,7 @@ interface Props {
   height?: number
 }
 
-const BannerCard: FC<Props> = ({
+const Card: FC<Props> = ({
   link,
   bannerSrc,
   avatar,
@@ -41,4 +41,4 @@ const BannerCard: FC<Props> = ({
   )
 }
 
-export default BannerCard
+export default Card

@@ -1,11 +1,11 @@
 import friends from '~/config/friends.json'
-import BannerCard from '@/components/ui/Banner/Card'
+import Card from '@/components/ui/Card'
 
 const FriendsCmp = () => {
   return (
     <div className="Friend">
       {friends.map(({ name, link, desc, avatar }) => (
-        <BannerCard
+        <Card
           key={name}
           width={360}
           height={240}

@@ -9,7 +9,7 @@ interface Props {
   name: string
 }
 
-const ArticleBanner: FC<Props> = ({ posts, name }) => {
+const ArtList: FC<Props> = ({ posts, name }) => {
   name = decodeURI(name)
   const formatedPosts: Record<string, IFrontMatter[]> = {}
   for (const { id, tags, categories, date, ...rest } of posts) {
@@ -28,25 +28,25 @@ const ArticleBanner: FC<Props> = ({ posts, name }) => {
   const usedPosts = Object.entries(formatedPosts).sort((a, b) => +b[0] - +a[0])
 
   return (
-    <div className="Banner">
+    <div className="ArtList">
       {usedPosts.map(([year, posts]) => (
-        <div key={year} data-year={year} className="Banner-Year">
+        <div key={year} data-year={year} className="ArtList-Year">
           {posts.map(({ id, title, tags, categories, date, readTime }) => (
             <Link
               target="__blank"
-              className="Banner-Link"
+              className="ArtList-Link"
               key={id}
               href={'/post/' + id}
             >
-              <div className="Banner-Top">
-                <div className="Banner-Title">{title}</div>
-                <div className="Banner-Date">
+              <div className="ArtList-Top">
+                <div className="ArtList-Title">{title}</div>
+                <div className="ArtList-Date">
                   {dayjs(perfixTime(date)).format('MMM DD · dddd')} · {readTime}
                   min
                 </div>
               </div>
-              <div className="Banner-Bottom">
-                <div className="Banner-Tag">
+              <div className="ArtList-Bottom">
+                <div className="ArtList-Tag">
                   {categories.map((category) => (
                     <div key={category}>{category}</div>
                   ))}
@@ -63,4 +63,4 @@ const ArticleBanner: FC<Props> = ({ posts, name }) => {
   )
 }
 
-export default ArticleBanner
+export default ArtList

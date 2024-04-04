@@ -1,7 +1,8 @@
 'use client'
+
 import { FC, useState } from 'react'
 import { CopyCheckIcon, CopyErrorIcon, CopyIcon } from '@/components/icons/lang'
-import './copy.css'
+import './index.css'
 
 const CopyComponent: FC<{
   text: string

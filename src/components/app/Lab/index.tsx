@@ -1,4 +1,4 @@
-import BannerCard from '@/components/ui/Banner/Card'
+import Card from '@/components/ui/Card'
 import lab from '~/config/lab.json'
 
 const LabCmp = () => {
@@ -9,7 +9,7 @@ const LabCmp = () => {
         <div>
           <div className="Lab-List">
             {lab.web.map(({ link, title, desc }) => (
-              <BannerCard
+              <Card
                 key={title}
                 width={240}
                 height={158}
@@ -27,7 +27,7 @@ const LabCmp = () => {
         <div>
           <div className="Lab-List">
             {lab.tool.map(({ link, title, desc }) => (
-              <BannerCard
+              <Card
                 key={title}
                 width={280}
                 height={158}

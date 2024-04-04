@@ -2,7 +2,7 @@
 
 import { useRef, useState } from 'react'
 import { useClickAway } from 'ahooks'
-import ButtonListIcon from '@/components/ui/Button'
+import ButtonListIcon from './Button'
 import './index.css'
 import {
   CategoryIcon,
@@ -14,7 +14,6 @@ import {
   TagIcon,
   TravelExploreIcon,
 } from '@/components/icons'
-import Hr from '@/components/ui/Hr'
 import { blog_repo } from '@/lib/json'
 
 const lists = [

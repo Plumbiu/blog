@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { useGet } from '@/lib/api'
 import { articleNum, name } from '@/lib/json'
-import ArticleBanner from '@/components/ui/Banner'
+import ArtList from '@/components/app/ArticleList'
 
 interface Props {
   params: {
@@ -26,7 +26,7 @@ export default async function ({ params }: Props) {
   )
 
   return (
-    <ArticleBanner posts={data} name="文章页" />
+    <ArtList posts={data} name="文章页" />
   )
 }
 
