@@ -17,7 +17,7 @@
   position: fixed;
   left: 6px;
   top: 40px;
-  padding: 8px;
+  padding: 12px 4px;
   transform: scale(0);
   z-index: 199;
   transform-origin: top;
@@ -29,4 +29,11 @@
 
 .Header-Menu-List svg {
   font-size: 18px;
+}
+
+.Header-Menu-List > div {
+  margin-bottom: 4px;
+  font-size: 14px;
+  margin-left: 4px;
+  margin-right: 4px;
 }

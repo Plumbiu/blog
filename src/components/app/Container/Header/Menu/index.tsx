@@ -66,7 +66,6 @@ const HeaderMenu = () => {
               text={text}
               link={link}
             />
-            {index % 3 ? undefined : <Hr />}
           </div>
         ))}
       </div>

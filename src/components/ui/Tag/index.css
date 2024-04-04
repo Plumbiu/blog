@@ -2,19 +2,15 @@
   cursor: pointer;
   display: inline-flex;
   justify-content: center;
-  opacity: 0.95;
   transition: opacity 150ms;
+  opacity: 0.95;
   min-width: 20px;
 }
 
-.Tag:hover {
-  opacity: 1;
-}
-
 .Tag-Filled {
-  color: var(--blog-body-color);
+  color: #fff;
   font-size: 0.7125rem;
   border-radius: 12px;
-  padding: 3px 8px;
-  border: 1px solid var(--blog-tag-bg);
+  padding: 3px 10px;
+  background-color: #1976d2;
 }

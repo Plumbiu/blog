@@ -1,3 +1,21 @@
+.Toc {
+  position: fixed;
+  top: 50%;
+  right: 5vw;
+  transform: translateY(-50%);
+  padding: 4px 12px;
+  border-radius: 12px;
+  background-color: var(--blog-post-bg);
+  box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2),
+    0 12px 17px 2px rgba(0, 0, 0, 0.14), 0 5px 22px 4px rgba(0, 0, 0, 0.12);
+}
+
+@media screen and (max-width: 1240px) {
+  .Toc {
+    display: none;
+  }
+}
+
 .Toc-List {
   padding: 6px 0;
   max-height: 70vh;
@@ -17,10 +35,6 @@
 }
 
 .Toc-List-Anchor:hover {
-  color: var(--blog-theme);
-}
-
-.Toc-List-Active {
   color: var(--blog-theme);
 }
 

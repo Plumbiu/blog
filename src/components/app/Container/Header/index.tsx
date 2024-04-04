@@ -18,7 +18,7 @@ const info = [
 type Theme = 'dark' | 'light'
 
 function nextTheme() {
-  return localStorage.getItem('theme') === 'dark' ? 'light' : 'dark'
+  return localStorage.getItem('theme')
 }
 export default function Header() {
   const pos = useScroll()
@@ -30,7 +30,7 @@ export default function Header() {
   }, [])
 
   function toggleTheme() {
-    const theme = nextTheme()
+    const theme = nextTheme() === 'dark' ? 'light' : 'dark'
     document.documentElement.setAttribute('theme', theme)
     localStorage.setItem('theme', theme)
     setMode(theme as Theme)
@@ -46,7 +46,7 @@ export default function Header() {
         <HeaderMenu />
         <div className="Header-Search">
           <div onClick={toggleTheme}>
-            {mode === 'light' ? <SunIcon /> : <MoonIcon />}
+            {mode && (mode === 'light' ? <SunIcon /> : <MoonIcon />)}
           </div>
           {info.map(({ primary, href, icon }) => (
             <Link key={primary} target="_blank" href={href}>

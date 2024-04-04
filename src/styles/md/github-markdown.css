@@ -147,7 +147,7 @@ html[theme='dark'] {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   margin: 0;
-  color: var(--color-fg-default);
+  color: var(--blog-body-color);
   font-family: -apple-system, BlinkMacSystemFont, PingFang SC, Hiragino Sans GB,
     Microsoft YaHei, sans-serif !important;
   line-height: 1.5;
