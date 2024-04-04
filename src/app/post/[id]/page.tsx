@@ -31,8 +31,6 @@ export default async function PostId({ params }: Props) {
 
   return (
     <>
-      <PostCmp md={content} />
-      <TocCmp tocs={tocs} />
       <Script
         id="image-gallery"
         src="https://cdn.jsdelivr.net/npm/chocolat@1.1.2/dist/js/chocolat.min.js"
@@ -45,6 +43,8 @@ export default async function PostId({ params }: Props) {
     })
           `}
       </Script>
+      <PostCmp md={content} />
+      <TocCmp tocs={tocs} />
     </>
   )
 }
