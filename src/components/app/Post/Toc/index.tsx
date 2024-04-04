@@ -1,7 +1,7 @@
 'use client'
 
 import './index.css'
-import type { FC } from 'react'
+import { useState, type FC, useEffect } from 'react'
 import Link from 'next/link'
 import { createPortal } from 'react-dom'
 
@@ -10,7 +10,11 @@ interface Props {
 }
 
 const TocCmp: FC<Props> = ({ tocs }) => {
-  return createPortal(
+  const [isMounted, setIsMounted] = useState(false)
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+  return isMounted ? createPortal(
     <div className="Toc">
       <div className="Toc-List">
         {tocs.map(({ level, hash, content }) => (
@@ -25,7 +29,7 @@ const TocCmp: FC<Props> = ({ tocs }) => {
       </div>
     </div>,
     document.body,
-  )
+  ) : null
 }
 
 export default TocCmp
