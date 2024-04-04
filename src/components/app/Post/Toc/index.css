@@ -1,8 +1,8 @@
 .Toc {
   position: fixed;
-  top: 50%;
-  right: 5vw;
-  transform: translateY(-50%);
+  top: 25%;
+  left: 80vw;
+  max-width: 15vw;
   padding: 4px 12px;
   border-radius: 12px;
   background-color: var(--blog-post-bg);
@@ -18,7 +18,7 @@
 
 .Toc-List {
   padding: 6px 0;
-  max-height: 70vh;
+  max-height: 50vh;
   font-size: 14px;
   overflow-y: scroll;
 }
