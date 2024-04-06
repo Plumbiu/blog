@@ -133,7 +133,11 @@ const PostCmp: FC<Props> = ({ md }) => {
               href={nodeSrc.startsWith(REPO_IMAGE) ? nodeSrc : props.src}
               className="chocolat-image"
             >
-              <Image {...props} />
+              <Image
+                {...props}
+                placeholder="blur"
+                blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+              />
             </Link>
           )
         },
