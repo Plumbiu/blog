@@ -5,7 +5,6 @@ import Script from 'next/script'
 import Header from '@/components/app/Container/Header'
 import Container from '@/components/app/Container'
 import { title } from '@/lib/json'
-import Footer from '@/components/app/Container/Footer'
 
 export const metadata: Metadata = {
   title,
@@ -42,7 +41,6 @@ export default function RootLayout({
         </Script>
         <Header />
         <Container>{children}</Container>
-        <Footer />
       </body>
     </html>
   )
