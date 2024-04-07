@@ -45,6 +45,7 @@ export default function Header() {
       type: 'set-theme',
       theme: `github-${theme}`,
     }, 'https://beaudar.lipk.org')
+    console.log(beaudarFrame)
     setMode(theme)
   }
 
