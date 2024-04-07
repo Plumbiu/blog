@@ -29,11 +29,6 @@ export default function Header() {
 
   useEffect(() => {
     const theme = nextTheme()
-    beaudarFrame = document.querySelector('iframe')
-    beaudarFrame?.contentWindow?.postMessage({
-      type: 'set-theme',
-      theme: `github-${theme}`,
-    }, 'https://beaudar.lipk.org')
     setMode(theme as Theme)
   }, [])
 
@@ -41,6 +36,9 @@ export default function Header() {
     const theme = nextTheme() === 'dark' ? 'light' : 'dark'
     document.documentElement.setAttribute('theme', theme)
     localStorage.setItem('theme', theme)
+    if (!beaudarFrame) {
+      beaudarFrame = document.querySelector('iframe')
+    }
     beaudarFrame?.contentWindow?.postMessage({
       type: 'set-theme',
       theme: `github-${theme}`,
