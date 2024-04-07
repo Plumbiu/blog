@@ -55,12 +55,6 @@ export default async function PostId({ params }: Props) {
         crossorigin="anonymous"
         async
       />
-      <Script defer>
-        {`
-        const beaudarFrame = document.getElementsByClassName('beaudar-frame)?.[0]
-        console.log(beaudarFrame)
-        `}
-      </Script>
     </>
   )
 }
