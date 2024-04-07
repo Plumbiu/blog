@@ -28,7 +28,6 @@ export async function generateStaticParams() {
 export default async function PostId({ params }: Props) {
   const { content } = await useGet<IArticle>('article/' + params.id)
   const { tocs } = await getTocs(content)
-
   return (
     <>
       <Script
@@ -56,6 +55,12 @@ export default async function PostId({ params }: Props) {
         crossorigin="anonymous"
         async
       />
+      <Script defer>
+        {`
+        const beaudarFrame = document.getElementsByClassName('beaudar-frame)?.[0]
+        console.log(beaudarFrame)
+        `}
+      </Script>
     </>
   )
 }
