@@ -46,7 +46,6 @@ export default async function PostId({ params }: Props) {
         src="https://beaudar.lipk.org/client.js"
         // @ts-ignore
         repo="Plumbiu/blog"
-        strategy="beforeInteractive"
         branch="main"
         issue-term="title"
         issue-label="url"
