@@ -9,6 +9,7 @@
 }
 
 .beaudar {
+  margin-top: 48px;
   width: 55vw;
 }
 
@@ -23,10 +24,6 @@
   .Post {
     width: 95vw;
     margin-left: 0 !important;
-  }
-
-  .beaudar {
-    width: 95vw!important;
   }
 
   .Post img {
