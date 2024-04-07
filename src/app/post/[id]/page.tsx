@@ -44,7 +44,7 @@ export default async function PostId({ params }: Props) {
       </Script>
       <PostCmp md={content} />
       <TocCmp tocs={tocs} />
-      <Script
+      <script
         src="https://beaudar.lipk.org/client.js"
         // @ts-ignore
         repo="Plumbiu/blog"
