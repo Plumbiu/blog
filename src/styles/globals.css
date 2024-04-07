@@ -30,8 +30,8 @@ html[theme='dark'] {
   );
   --blog-bg-default: #1b1b1b;
   --blog-body-color: #efefef;
-  --blog-body-bg: #292929;
-  --blog-post-bg: #1f1f1f;
+  --blog-body-bg: #1d1d1d;
+  --blog-post-bg: #222;
   --blog-scrollbar: #4392a6;
   --blog-bg-header: rgba(8, 8, 8, 0.35);
   --blog-skeleton: #453a44;
