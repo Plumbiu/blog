@@ -1,5 +1,9 @@
 :root {
-  --blog-header-bg: #d1e4f1;
+  --blog-header-bg: linear-gradient(
+    10deg,
+    hsla(213, 64%, 38%, 0.05),
+    #a6f4fe
+  );
   --blog-theme: #1976d2;
   --blog-scrollbar: #efd4ff;
   --blog-body-color: #111;
@@ -25,13 +29,13 @@
 html[theme='dark'] {
   --blog-header-bg: linear-gradient(
     0deg,
-    hsla(200deg, 100%, 85%, 0.1),
-    hsla(200deg, 100%, 85%, 0)
+    hsla(200deg, 100%, 85%, 0.05),
+    #222
   );
   --blog-bg-default: #1b1b1b;
   --blog-body-color: #efefef;
-  --blog-body-bg: #292929;
-  --blog-post-bg: #1f1f1f;
+  --blog-body-bg: #1d1d1d;
+  --blog-post-bg: #222;
   --blog-scrollbar: #4392a6;
   --blog-bg-header: rgba(8, 8, 8, 0.35);
   --blog-skeleton: #453a44;

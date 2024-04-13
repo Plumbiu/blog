@@ -28,7 +28,6 @@ export async function generateStaticParams() {
 export default async function PostId({ params }: Props) {
   const { content } = await useGet<IArticle>('article/' + params.id)
   const { tocs } = await getTocs(content)
-
   return (
     <>
       <Script
@@ -43,6 +42,17 @@ export default async function PostId({ params }: Props) {
     })
           `}
       </Script>
+      <Script
+        src="https://beaudar.lipk.org/client.js"
+        // @ts-ignore
+        repo="Plumbiu/blog"
+        branch="main"
+        issue-term="title"
+        issue-label="url"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        async
+      />
       <PostCmp md={content} />
       <TocCmp tocs={tocs} />
     </>

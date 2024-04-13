@@ -20,6 +20,9 @@ type Theme = 'dark' | 'light'
 function nextTheme() {
   return localStorage.getItem('theme')
 }
+
+let beaudarFrame: HTMLIFrameElement | null | undefined = undefined
+
 export default function Header() {
   const pos = useScroll()
   const [mode, setMode] = useState<Theme>()
@@ -33,7 +36,15 @@ export default function Header() {
     const theme = nextTheme() === 'dark' ? 'light' : 'dark'
     document.documentElement.setAttribute('theme', theme)
     localStorage.setItem('theme', theme)
-    setMode(theme as Theme)
+    if (!beaudarFrame) {
+      beaudarFrame = document.querySelector('iframe')
+    }
+    beaudarFrame?.contentWindow?.postMessage({
+      type: 'set-theme',
+      theme: `github-${theme}`,
+    }, 'https://beaudar.lipk.org')
+    console.log(beaudarFrame)
+    setMode(theme)
   }
 
   return (
