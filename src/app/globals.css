@@ -29,7 +29,10 @@ h6 {
   color: var(--p-pure-text);
   font-weight: 700;
   code {
-    font-size: inherit;
+    font-size: inherit !important;
+  }
+  a {
+    font-size: inherit !important;
   }
 }
 h1 {
