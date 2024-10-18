@@ -1,0 +1,50 @@
+.toc {
+  height: 100%;
+  color: var(--p-text-2);
+  overflow-x: hidden;
+  position: fixed;
+  right: 32px;
+  top: 120px;
+  z-index: 99;
+  padding-left: 64px;
+  font-size: 14px;
+  width: calc((100% - var(--p-center-w)) / 2 - 32px);
+  max-height: 50vh;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+@media screen and (min-width: 1600px) {
+  .toc {
+    width: calc((100% - var(--p-max-center-w)) / 2 - 32px);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .toc {
+    display: none;
+  }
+}
+
+.link {
+  display: block;
+  height: 28px;
+  line-height: 28px;
+  transition: color 150ms;
+  overflow: hidden;
+  border-width: 0;
+  border-left-width: 1px;
+  border-style: solid;
+  border-color: var(--p-divider);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.link:hover {
+  color: var(--p-hover-text);
+}
+
+.active {
+  color: var(--p-hover-text);
+  border-color: var(--p-blockquote-before);
+}

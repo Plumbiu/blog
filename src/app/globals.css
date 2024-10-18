@@ -1,0 +1,66 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+body {
+  margin: 0;
+  color: var(--p-text-1);
+  overflow-x: hidden;
+  background-color: var(--p-background);
+  text-rendering: optimizeLegibility;
+  transition: background-color 100ms;
+  scrollbar-width: thin;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--p-pure-text);
+  font-weight: 700;
+  code {
+    font-size: inherit;
+  }
+}
+h1 {
+  font-size: 1.65rem;
+}
+h2 {
+  font-size: 1.45rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 1.1rem;
+}
+h5,
+h6 {
+  font-size: 1rem;
+}
+
+.center {
+  width: var(--p-center-w);
+  max-width: var(--p-max-center-w);
+  margin: auto;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+@media screen and (max-width: 1024px) {
+  .center {
+    width: 100%;
+    padding: 0 16px;
+    max-width: 100%;
+  }
+}

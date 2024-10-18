@@ -1,0 +1,57 @@
+.header {
+  display: flex;
+  padding-right: 32px;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--p-header-h);
+  gap: 24px;
+
+  & a {
+    color: var(--p-text-2);
+    transition: color 125ms ease-in-out;
+    &:hover {
+      color: var(--p-text-1);
+    }
+  }
+}
+
+.header svg {
+  display: block;
+  font-size: 24px;
+}
+
+.item {
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.item:hover {
+  color: var(--p-hover-text);
+}
+
+.left {
+  padding-left: 64px;
+}
+
+@media screen and (max-width: 1024px) {
+  .left {
+    padding-left: 24px;
+  }
+}
+
+.right {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.star {
+  fill: var(--p-text-3);
+  width: 36px;
+  transition: fill 200ms;
+
+  &:hover {
+    fill: var(--hue-2);
+  }
+}

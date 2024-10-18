@@ -1,0 +1,43 @@
+.artlist {
+  min-height: 100vh;
+}
+
+.link {
+  display: block;
+  margin-bottom: 48px;
+}
+
+.top {
+  display: flex;
+  align-items: baseline;
+  column-gap: 12px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 0;
+  padding: 4px 0;
+  color: var(--p-pure-text);
+}
+
+.date {
+  color: var(--p-text-3);
+  font-size: 14px;
+}
+
+.desc {
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.subtitle {
+  color: var(--p-text-3);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.empty {
+  color: var(--p-text-2);
+  font-size: 16px;
+}

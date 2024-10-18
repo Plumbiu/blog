@@ -1,0 +1,13 @@
+.wrap {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 999;
+  font-size: 26px;
+  color: var(--p-text-2);
+  transition: color 125ms ease-in-out;
+  cursor: pointer;
+  &:hover {
+    color: var(--p-text-1);
+  }
+}

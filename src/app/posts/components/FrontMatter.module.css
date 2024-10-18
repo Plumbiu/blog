@@ -1,0 +1,13 @@
+.wrap {
+  margin-bottom: 16px;
+}
+
+.title {
+  color: var(--p-pure-text);
+  margin-bottom: 6px;
+}
+
+.date {
+  color: var(--p-text-2);
+  font-size: 14px;
+}

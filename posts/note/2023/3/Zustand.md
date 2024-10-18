@@ -1,0 +1,251 @@
+---
+title: Zustand——React状态管理库
+date: 2023-03-17
+---
+
+代码仓库：[Plumbiu/zustand (github.com)](https://github.com/Plumbiu/zustand)
+
+# 基本使用
+
+Zustand 是 React 的持久化管理库，支持插件系统
+
+## JavaScript 示例
+
+这里讨论的是 JS 的用法，创建 TS 文件是为了以后更改方便
+
+>   JS 用法在 TS 中会警告，影响不大
+
+### 定义 store
+
+新建 `store/person.ts`
+
+1.   导入 `create` 方法
+
+```typescript
+import { create } from 'zustand'
+```
+
+2.   导出对应的数据
+
+`create()` 函数参数中会有一个 `set` 方法，我们可以使用此方法修改存储的数据对象，语法为：
+
+```typescript
+set((state) => ({ /* 你要修改的对象 */ }))
+```
+
+具体使用：
+
+```typescript
+export const usePersonStore = create((set) => ({
+  	name: 'xj',
+  	age: 18,
+  	increase: () => {    
+    	set((state) => ({ age: state.age + 1 }))
+  	}
+}))
+```
+
+4.   完整示例代码
+
+```typescript
+import { create } from 'zustand'
+export const usePersonStore = create((set) => ({
+  	name: 'xj',
+  	age: 18,
+  	increase: () => {    
+    	set((state) => ({ age: state.age + 1 }))
+  	}
+}))
+```
+
+### 组件中使用
+
+1.   导入对应的 `store`
+
+```typescript
+import { usePersonStore } from './store'
+```
+
+2.   获取 `store` 中的数据
+
+>   我们已经在 `usePersonStore` 提前定义好了 `name` 和 `age` 两个属性。可以使用两种方法获取其属性
+
+-   解构方式
+
+
+
+```typescript
+const { name, age } = usePersonStore()
+```
+
+-   传递函数参数
+
+```typescript
+const name = usePersonStore(state => state.name)
+const age = usePersonStore(state => state.age)
+```
+
+3.   完整代码：
+
+```tsx
+// components/Person.tsx
+import { usePersonStore } from '../store/person'
+const Person = () => {
+  	const { age, name } = usePersonStore()
+  	return (
+    	<div>
+      		<div> age: {age}</div>
+      		<div> name: {name}</div>
+    	</div>
+  	)
+}
+export default Person
+```
+
+在 APP 组件中测试全局数据是否生效
+
+```tsx
+// App.tsx
+import Person from "./components/Person"
+import { usePersonStore } from './store/person'
+const App = () => {
+  	const { increase } = usePersonStore()
+  	return (
+    	<div>
+      		<Person />
+      		<button onClick={increase}>age++</button>
+    	</div>
+  	)
+}
+export default App
+```
+
+## TypeScript 示例
+
+在 JavaScript 示例中，虽然写法简单，但是会失去类型检查，对于大项目来说很难维护，所以需要使用 TypeScript
+
+### 定义 store
+
+TS 定义 `store` 与 JS 不同，稍显麻烦
+
+1.   导入 `create` 方法
+
+```typescript
+import { create } from 'zustand'
+```
+
+2.   定义接口类型
+
+```typescript
+interface IPerson {
+  	name: string
+  	age: number
+  	increase: () => void
+}
+```
+
+3.   导出对应的数据
+
+>   `create()` 会返回一个函数，所以才会有下面 `create<>()()` 的写法。
+>
+>   此时会有类型推断，且在组件中使用也不会有任何报错
+
+```typescript
+export const usePersonStore = create<IPerson>()((set) => ({
+  	name: 'xj',
+  	age: 18,
+  	increase: () => {    
+    	set((state: any) => ({ age: state.age + 1 }))
+  	}
+}))
+```
+
+### 组件中使用
+
+与 `JavaScript 示例` 相同，不再赘述
+
+# 更优雅的使用
+
+之前我们使用解构的方式导入对应的数据：
+
+```typescript
+const { name, age } = usePersonStore()
+```
+
+这样是可行的，但是上面代码将会订阅整个状态，这意味着当我们的组件在某个状态更新后，所有含 `name`，`age` 的组件都会全部渲染，即使 `name`，`age` 没有改变
+
+我们可以通过导出自定义钩子来避免全局订阅的情况
+
+```typescript
+// store/person.ts
+// ....
+export const usePersonName = () => usePersonStore(state => state.name)
+export const usePersonAge = () => usePersonStore(state => state.age)
+export const usePersonIncrease = () => usePersonStore(state => state.increase)
+```
+
+在组件使用仅需调用对应的钩子即可
+
+```tsx
+// components/Person.tsx
+// ...
+const age = usePersonAge()
+const name = usePersonName()
+```
+
+```tsx
+// App.tsx
+const increase = usePersonIncrease()
+```
+
+# 中间件
+
+Zustand 的中间件类似于 Pinia 中的插件系统，可以扩展自身的功能。
+
+这里以持久化为例
+
+1.   导入 `devtools` 和 `persist`
+
+```typescript
+import { devtools, persist } from 'zustand/middleware'
+```
+
+2.   改写 `create` 方法
+
+```typescript
+const usePersonStore = create<IPerson>()(
+	devtools(
+    	persist((set) => ({
+            name: 'xj',
+            age: 18,
+            increase: () => set((state) => ({ age: state.age + 1 }))
+        }), {
+            name: 'person' // 设置 localStorage 中的 key 值
+        })
+    )
+)
+```
+
+此时查看浏览器的 `Local Storage`，可以发现存在 `key` 为 `person` 的键值对存在
+
+![](https://plumbiu.github.io/blogImg/QQ截图20230317221421.png)
+
+此时我们点击 `age++` 按钮，即使刷新页面，`age` 的值也不会重置
+
+当然，当我们想要持久化的数据增加，即需要使用多个 `devtools + persist` 组合时，会增加许多冗余的代码，我们可以自定义一个持久化中间件：
+
+```typescript
+const myMiddleware = (f: any, name: string): any => devtools(persist(f, { name })) // 本人水平不够，只能用 any 了
+```
+
+修改 `create` 代码
+
+```typescript
+const usePersonStore = create<IPerson>()(
+  	myMiddleware((set: any) => ({
+    		name: 'xj',
+    		age: 18,
+    		increase: () => set((state: IPerson) => ({ age: state.age + 1 }))
+  }), 'person')
+)
+```

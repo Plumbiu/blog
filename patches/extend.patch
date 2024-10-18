@@ -1,0 +1,76 @@
+diff --git a/index.js b/index.js
+index 2aa3faae68c43e0221134e0ee72a713fd7d47a5f..0f1f618bb7291869c73325e416edc62921fdd597 100644
+--- a/index.js
++++ b/index.js
+@@ -1,64 +1,21 @@
+ 'use strict';
+ 
+-var hasOwn = Object.prototype.hasOwnProperty;
+-var toStr = Object.prototype.toString;
+-var defineProperty = Object.defineProperty;
+-var gOPD = Object.getOwnPropertyDescriptor;
+-
+-var isArray = function isArray(arr) {
+-	if (typeof Array.isArray === 'function') {
+-		return Array.isArray(arr);
+-	}
+-
+-	return toStr.call(arr) === '[object Array]';
+-};
+-
+-var isPlainObject = function isPlainObject(obj) {
+-	if (!obj || toStr.call(obj) !== '[object Object]') {
+-		return false;
+-	}
+-
+-	var hasOwnConstructor = hasOwn.call(obj, 'constructor');
+-	var hasIsPrototypeOf = obj.constructor && obj.constructor.prototype && hasOwn.call(obj.constructor.prototype, 'isPrototypeOf');
+-	// Not own constructor property must be Object
+-	if (obj.constructor && !hasOwnConstructor && !hasIsPrototypeOf) {
++var isArray = Array.isArray
++function isPlainObject(t){
++	if("[object Object]" !== Object.prototype.toString.call(t)) {
+ 		return false;
+ 	}
+-
+-	// Own properties are enumerated firstly, so to speed up,
+-	// if last one is own, then all properties are own.
+-	var key;
+-	for (key in obj) { /**/ }
+-
+-	return typeof key === 'undefined' || hasOwn.call(obj, key);
+-};
++	var e = Object.getPrototypeOf(t);
++	return !e || e.constructor === Object
++}
+ 
+ // If name is '__proto__', and Object.defineProperty is available, define __proto__ as an own property on target
+ var setProperty = function setProperty(target, options) {
+-	if (defineProperty && options.name === '__proto__') {
+-		defineProperty(target, options.name, {
+-			enumerable: true,
+-			configurable: true,
+-			value: options.newValue,
+-			writable: true
+-		});
+-	} else {
+-		target[options.name] = options.newValue;
+-	}
++	target[options.name] = options.newValue;
+ };
+ 
+ // Return undefined instead of __proto__ if '__proto__' is not an own property
+ var getProperty = function getProperty(obj, name) {
+-	if (name === '__proto__') {
+-		if (!hasOwn.call(obj, name)) {
+-			return void 0;
+-		} else if (gOPD) {
+-			// In early versions of node, obj['__proto__'] is buggy when obj has
+-			// __proto__ as an own property. Object.getOwnPropertyDescriptor() works.
+-			return gOPD(obj, name).value;
+-		}
+-	}
+-
+ 	return obj[name];
+ };
+ 

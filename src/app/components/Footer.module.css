@@ -1,0 +1,16 @@
+.wrap {
+  font-size: 14px;
+  color: var(--p-text-3);
+
+  & > a {
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-style: solid;
+    margin-right: 8px;
+    border-color: var(--p-divider);
+    transition: border-color 250ms ease-in-out;
+    &:hover {
+      border-color: var(--p-text-1);
+    }
+  }
+}

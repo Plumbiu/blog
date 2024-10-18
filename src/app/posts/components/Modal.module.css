@@ -1,0 +1,32 @@
+.mask {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  overflow: auto;
+  text-align: center;
+  background-color: #27272779;
+  &::after {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+  }
+}
+
+.modal {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+  width: 100%;
+  top: 0;
+  max-width: 100vw;
+}
+
+.mask img {
+  object-fit: cover;
+  max-height: 80vh;
+  max-width: 95%;
+  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+    0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+}

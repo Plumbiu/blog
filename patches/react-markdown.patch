@@ -1,0 +1,68 @@
+diff --git a/lib/index.js b/lib/index.js
+index 414a534de551144be34dbb637b2586f56d2e7b96..be074d20b242386483db4ba160485dd48671ea52 100644
+--- a/lib/index.js
++++ b/lib/index.js
+@@ -172,36 +172,36 @@ export function Markdown(options) {
+   if (typeof children === 'string') {
+     file.value = children
+   } else {
+-    unreachable(
+-      'Unexpected value `' +
+-        children +
+-        '` for `children` prop, expected `string`'
+-    )
++    // unreachable(
++    //   'Unexpected value `' +
++    //     children +
++    //     '` for `children` prop, expected `string`'
++    // )
+   }
+ 
+-  if (allowedElements && disallowedElements) {
+-    unreachable(
+-      'Unexpected combined `allowedElements` and `disallowedElements`, expected one or the other'
+-    )
+-  }
++  // if (allowedElements && disallowedElements) {
++  //   unreachable(
++  //     'Unexpected combined `allowedElements` and `disallowedElements`, expected one or the other'
++  //   )
++  // }
+ 
+-  for (const deprecation of deprecations) {
+-    if (Object.hasOwn(options, deprecation.from)) {
+-      unreachable(
+-        'Unexpected `' +
+-          deprecation.from +
+-          '` prop, ' +
+-          (deprecation.to
+-            ? 'use `' + deprecation.to + '` instead'
+-            : 'remove it') +
+-          ' (see <' +
+-          changelog +
+-          '#' +
+-          deprecation.id +
+-          '> for more info)'
+-      )
+-    }
+-  }
++  // for (const deprecation of deprecations) {
++  //   if (Object.hasOwn(options, deprecation.from)) {
++  //     unreachable(
++  //       'Unexpected `' +
++  //         deprecation.from +
++  //         '` prop, ' +
++  //         (deprecation.to
++  //           ? 'use `' + deprecation.to + '` instead'
++  //           : 'remove it') +
++  //         ' (see <' +
++  //         changelog +
++  //         '#' +
++  //         deprecation.id +
++  //         '> for more info)'
++  //     )
++  //   }
++  // }
+ 
+   const mdastTree = processor.parse(file)
+   /** @type {Nodes} */

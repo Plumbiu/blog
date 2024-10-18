@@ -1,0 +1,353 @@
+---
+title: Rollup基本使用
+date: 2023-02-08
+---
+
+# Rollup 简介
+
+Rollup 仅仅是一款 ESM 打包器，Rollup 中并不支持类似 HMR 这种高级特性，Rollup 并不是要与 Webpack 竞争，而是提供一个充分利用 ESM 各项特征的高效打包器。
+
+# Rollup 快速上手
+
+## 安装
+
+```shell
+yarn init
+yarn add rollup --dev
+```
+
+## 基本使用
+
+在根目录中新建 src 文件目录，内有三个文件：
+
+- index.js
+
+- logger.js
+
+- message.js
+
+**index.js**
+
+```javascript
+// 导入对应的属性和方法
+import { log } from './logger'
+import { messages } from './message'
+// 获取对象中的属性
+const msg = messages.hi
+// 打印
+log(msg)
+```
+
+**logger.js**
+
+```javascript
+const log = (msg) => {
+  console.log(msg)
+}
+const formatLog = (msg) => {
+  console.log(`msg: ${msg}`)
+}
+
+export {
+  log,
+  formatLog
+}
+```
+
+**message.js**
+
+```javascript
+const messages = {
+  hi: 'Hello World!',
+  world: 'earth'
+}
+
+export {
+  messages
+}
+```
+
+执行打包命令，`yarn rollup`
+
+```shell
+yarn rollup ./src/index.js --format iife --file dist/bundle.js
+```
+
+以上命令表示，使用 `rollup` 打包 `src/index.js` 文件，并采用 `iife` 的打包方式，输出目录为 `dist/`，输出文件为，`bundle.js`。
+
+查看 `bundle.js` 文件，可以看到，`rollup` 自动去除了没有用到的方法
+
+```javascript
+(function () {
+  'use strict';
+
+  const log = (msg) => {
+    console.log(msg);
+  };
+
+  const messages = {
+    hi: 'Hello World!',
+    world: 'earth'
+  };
+
+  // 导入对应的属性和方法
+  // 获取对象中的属性
+  const msg = messages.hi;
+  // 打印
+  log(msg);
+
+})();
+```
+
+# 配置文件
+
+项目根目录中新建 `rollup.config.js` 文件，导出对应对象
+
+```javascript
+export default {
+  input: 'src/index.js',
+  output: {
+    file: 'dist/bundle.js',
+    format: 'iife', // 输出格式
+  },
+}
+```
+
+注意，如果使用了 `es6 module` 语法，在 `package.json` 中还需要加入以下内容：
+
+```json
+"type": "module"
+```
+
+接下来运行一下命令，`--config` 表示按照配置项内容执行 `yarn rollup` 打包命令
+
+```shell
+yarn rollup --config
+```
+
+# 插件
+
+`rollup` 自身的功能仅仅是 `esm` 模块的打包，但是如果我们项目中有更大的需求，例如：加载其他类型的资源模块(.css或者.vue)、导入 CommonJS 模块、编译 ECMAScript 新特性，这些就需要使用 rollup 的插件功能
+
+> 插件是 Rollup 唯一扩展途径
+
+## 基本使用
+
+**rollup-plugin-json**：使 `rollup` 支持导入 `json` 的数据
+
+**安装**
+
+```shell
+yarn add rollup-plugin-json --dev
+```
+
+**配置 `rollup.config.js`**
+
+从包(插件) `rollup-plugin-json` 导出 `json` 函数，设置默认导出的对象中的 `plugins` 属性，如下面代码所示：
+
+```javascript
+import json from 'rollup-plugin-json'
+export default {
+  // other config
+  plugins: [json()]
+}
+```
+
+接下来我们测试功能，在 `src/index.js` 文件中，导入 `package.json`
+
+```javascript
+// ...
+import { name, version } from '../package.json'
+log(version)
+// ...
+```
+
+运行打包命令 `yarn rollup --config`，查看输出路径中的 `bundle.js` 文件，可以看到，rollup 自动将 `package.json` 中没有用到的属性去掉了，只留下我们需要的 `name` 和 `version`
+
+```javascript
+(function () {
+  // ...
+  var name = "Rollup";
+  var version = "1.0.0";
+  // ...
+})();
+```
+
+## 加载 NPM 模块
+
+**rollup-plugin-node-resolve**
+
+**安装**
+
+```shell
+yarn add rollup-plugin-node-resolve --dev
+```
+
+这里使用的是 `loadsh-es` npm模块，之所以不使用普通版本，是因为 `rollup` 默认支持 `esmodule` 模块语法，如果要使用普通版本，请看下节**加载 CommonJS 模块**
+
+**配置 rollup.config.js 模块**
+
+```javascript
+import resolve from 'rollup-plugin-node-resolve'
+
+export default {
+  // ...
+  plugins: [resolve()]
+}
+```
+
+**index.js**
+
+```javascript
+// 导入对应的属性和方法
+import _ from 'lodash-es'
+// ...
+log(_.camelCase('hello world'))
+```
+
+然后执行 `yarn rollup --config` 命令，查看输出文件(太长了，这里不复制下来了)
+
+## 加载 CommonJS 模块
+
+**rollup-plugin-commonjs**
+
+```shell
+yarn add rollup-plugin-commonjs --dev
+```
+
+**配置 rolup.config.js**
+
+```javascript
+import commonjs from 'rollup-plugin-commonjs'
+export default {
+  // ....
+  plugins: [commonjs()]
+}
+```
+
+**编写 CommonJS 语法文件**
+
+`src/cjs-module.js`
+
+```javascript
+module.exports = {
+  foo: 'bar'
+}
+```
+
+`src/index.js`
+
+```javascript
+import cjs from './cjs-module.js'
+// ...
+log(cjs)
+```
+
+接着执行 `yarn rollup --config`
+
+# 代码拆分
+
+rollup 最新版支持使用 `Dynamic Imports` 实现按需加载，并且也会自动 `Code Splitting`
+
+**index.js**
+
+```javascript
+import('./logger').then(({ log }) => {
+  log('code splitting~~')
+})
+```
+
+**配置 rollup.config.js**
+
+因为 `Dynamic Imports` 需要多个文件，所以我们不能单独指定一个输出文件，为此，我们可以指定输出目录 `dir: 'dist'`，同时指定输出格式为 `amd`
+
+```javascript
+export default {
+  input: 'src/index.js',
+  output: {
+    dir: 'dist',
+    format: 'amd'
+  }
+}
+```
+
+# 多入口打包
+
+多入口打包内部会自动提取公共模块，也就是说内部会执行代码拆分，所以不能使用 `iife` 输出格式
+
+**配置 rollup.config.js**
+
+```javascript
+export default {
+  input: {
+    foo: 'src/index.js',
+    bar: 'src/album.js'
+  },
+  // input: ['src/index.js', 'src/alubm.js']
+  output: {
+    dir: 'dist',
+    format: 'amd'
+  }
+}
+```
+
+# 选用原则
+
+Rollup 优势：
+
+- 输出结果更加扁平，执行效率高
+
+- 自动移除未引用代码
+
+- 打包结果依然完全可读
+
+Rollup 缺点：
+
+- 加载非 ESM 的第三方模块比较复杂
+
+- 模块最终都被打包到一个函数中，无法实现 HMR
+
+- 浏览器环境中，代码拆分功能依赖 AMD 库
+
+如果我们在开发应用程序，我们会大量引入第三方库，也需要 HMR 提升我们的开发体验，而且当应用程序体积变大时，必须涉及到分包，这些需求，Rollup 难度会很大。
+
+但是如果我们正在开发一个框架或类库，可以使用 Rollup，因为这些很少依赖到第三方的模块，并且像 Vue、React 等框架/库都在使用 Rollup
+
+# Parcel
+
+**零配置前端应用打包器**
+
+## 基本使用
+
+安装
+
+```shell
+yarn init
+yarn add parcel-bundler --dev
+```
+
+**如何打包**
+
+我们在根目录中创建 `src` 目录，同时新建 `index.html` 作为打包入口(官方建议)。
+
+```shell
+yarn parcel src/index.html
+```
+
+此时 `parcel` 会自动处理，并在项目根目录中生产出 `dist/` 文件目录，同时也会启动开发环境
+
+![](https://plumbiu.github.io/blogImg/QQ%E6%88%AA%E5%9B%BE20230208162303.png)
+
+如果我们要将我们的应用程序打包，可以运行以下命令，由于多线程的使用，打包速度会比 webpack 快很多：
+
+```shell
+yarn parcel build src/index.html
+```
+
+## 特点
+
+parcel 可以在不手动安装包的情况下，根据代码自动安装依赖，例如，但你导入 `jquery` 中的方法时，parcel 会自动帮忙安装好 `jquery`，同时其他一些资源文件也无需手动安装插件配置。真正做到零配置。
+
+但是 parcel 的应用范围还是很局限，一方面零配置的功能使得项目的颗粒度下降，虽然 webpack 配置起来麻烦，但是可配置项很多，意味着实现的功能也很多，这方面做点了解即可。
+
+

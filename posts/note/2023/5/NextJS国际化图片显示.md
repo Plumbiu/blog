@@ -1,0 +1,226 @@
+---
+title: NextJS国际化、前端图片显示
+date: 2023-05-10
+---
+
+此笔记是基于开发 [Plumbiu/nextjs_tensorflow](https://github.com/Plumbiu/nextjs_tensorflow) 时所遇到的问题而总结的
+
+# NextJS 中的国际化
+
+本次项目较小，采用的国际化方案比较简单，如果是大一点的项目，可以尝试以下官方推荐的包：
+
+[`react-intl`](https://formatjs.io/docs/getting-started/installation), [`react-i18next`](https://react.i18next.com/), [`lingui`](https://lingui.dev/), [`rosetta`](https://github.com/lukeed/rosetta), [`next-intl`](https://github.com/amannn/next-intl), [`next-translate`](https://github.com/aralroca/next-translate), [`next-multilingual`](https://github.com/Avansai/next-multilingual), [`typesafe-i18n`](https://github.com/ivanhofer/typesafe-i18n),
+
+## 配置 next.config.js
+
+```javascript
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  i18n: {
+    locales: ['en-US', 'zh-CN'],
+    defaultLocale: 'zh-CN'
+  }
+}
+```
+
+## 切换 locale
+
+配置好 `next.config.js` 文件对应的 `i18n` 后，我们可以在组件中访问到对应的 `locales` 和 `locale`
+
+```typescript
+const { locales. locale } = useRouter()
+console.log(locales) // ['zh-CN', 'zh-CN']
+console.log(locale)  // 'zh-CN'
+```
+
+其中 `locales` 为我们配置好的几种语言，`locale` 为当前所处语言
+
+切换可以使用以下方法
+
+-   **使用 `Link` 标签：**
+
+增加 `locale` 属性即可
+
+```tsx
+export default function page() {
+	return (
+  	<Link href='/another' locale="en-US">
+    	To en-us
+    </Link>
+  ) 
+}
+```
+
+-   **使用 `router.push` 方法：**
+
+有点意思的是，`router.push` 可以接受三个参数：
+
+1.   跳转的链接
+2.   `as` 官方解释为连接伪装(`url masking`)，
+3.   配置项，这里设置 `locale` 属性
+
+```tsx
+export default function page() {
+  const router = useRouter()
+  function localeChangeHandler(locale) {
+  	router.push(router.pathname, router.asPath, {
+      locale
+    })
+  }
+  return (
+  	<button onClick={() => localeChangeHandler('en-US')}>
+    	English
+    </button>
+  )
+}
+```
+
+>   URL masking，也称为链接伪装，是URL重定向的一种形式。URL重定向是将您的域名访问者发送到另一个备用目标URL。掩码重定向也称为URL伪装或域名掩码。掩码（或外套）指的是地址栏中的URL不是页面上内容的实际URL。因此，您的用户认为他们在一个域上，而实际上他们在另一个域上。
+
+此时，如果我们切换 `locale`，路由的地址也会发生变化，这是 `NextJS` 预先配置好的
+
+-   对于默认语言(本项目中为 `zh-CN`)，路由地址为 `127.0.0.1/xxx`
+
+-   对于 `en-US`，路由地址为 `127.0.0.1/en-US/xxx`
+
+## 准备 json 文件
+
+我们需要准备类似以下格式的 `json` 文件，用于 `en-US` 和 `zh-CN` 语言的切换：
+
+```json
+{
+  "en-US": {
+    "bar": "This is bar's title"
+  },
+  "zh-CN": {
+    "bar": "这是 bar 的标题"
+  }
+}
+```
+
+## 组件中使用
+
+```tsx
+// 1. 导入对应的 json 文件
+import i18n from '@/assets/title.json'
+export default function page() {
+  // 2. 获取当前浏览器的语言
+  const { locale } = useRouter()
+  return (
+    {/* 3. 对应数据的写法 */}
+  	<h2>{i18n[locale]['bar']}</h2>
+  )
+}
+```
+
+# 优雅的文件上传 input
+
+html 中的 `input[type=file]` 的默认样式太难看，而且无法更改样式：
+
+![](https://plumbiu.github.io/blogImg/QQ截图20230509213659.png)
+
+对此，我们可以曲线修改，也就是用 `<button>` 实现：
+
+```tsx
+export default function page() {
+  const iptRef = useRef(null)
+  function fileHandler() {
+    if(!prtRef.current || !iptRef.current.files) return
+    const file = iptRef.current.files[0]
+    // ...
+  }
+  return (
+  	<>
+    	<input ref={iptRef} onChange={fileHandler} type="file" hidden />
+    	<button onClick={() => iptRef.current.click()}>上传文件</button>
+    </>
+  )
+}
+```
+
+分析上面代码，核心包括以下几点：
+
+1.   隐藏 `input[type=file]`
+
+添加 `hidden` 属性即可
+
+```jsx
+<input hidden type='file' />
+```
+
+2.   点击按钮触发 `input[type=file]` 的点击事件
+
+```jsx
+<button onClick={() => iptRef.current.click() }>
+  上传文件
+</button>
+```
+
+3.   绑定 `input[type=file]` 的 `onChange` 属性
+
+```jsx
+<input hidden type='file' onChange={fileHandler} />
+```
+
+4.   定义 `fileHandler`
+
+```jsx
+function fileHandler() {
+	if(!iptRef.current || !iptRef.current.files) return
+  const file = iptRef.current.files[0]
+	// do something
+}
+```
+
+## 图片显示
+
+可以使用 `window.URL.createObjectURL(file: File)` 创建一个 唯一的 blob 连接用于显示
+
+>   注：只是在前端页面展示，并不是上传图片到后端
+
+```tsx
+export default function page() {
+  const [imgSrc, setImgSrc] = useState('')
+  const iptRef = useRef(null)
+  function imgShowHandler() {
+    if(!(iptRef.current && ipt.current.files)) return
+    const file = iptRef.current.files[0]
+    setImgSrc(window.URL.createObjectURL(file))
+  }
+  return (
+  	<div>
+    	{ imgSrc ? <img src={imgSrc} /> : <p>Empty Img</p> }
+      <input onChange={imgShowHandler} ref={iptRef} hidden type="file" accept="image/png,image/jpg" />
+      <button onClick={() => iptRef.current.click()}>上传图片</button>
+    </div>
+  )
+}
+```
+
+核心逻辑代码：
+
+1.   定义 `img` 的链接
+
+```javascript
+const [imgSrc, setImgSrc] = useState('')
+// ...
+return (
+	<img src={imgSrc} />
+)
+```
+
+2.   设置 `img` 链接
+
+使用 `window.URL.createObjectURL(file)` 即可
+
+```javascript
+function imgShowHandler() {
+  // 如果 input 标签实例或者文件未上传不存在，那么不作任何处理
+  if(!(iptRef.current && iptRef.current.files)) return
+  // 此 demo 演示的是单文件上传，所以获取 files 的第一个元素
+  const file = iptRef.current.files[0]
+  // 使用 window.URL.createObjectURL(file) 创建对应图片的一个唯一 blob 标签， 并将其设置成 img
+  setImgSrc(window.URL.createObjectURL(file))
+}
+```
