@@ -12,7 +12,7 @@ function Header() {
         <a target="_blank" href="/rss.xml">
           <RssIcon />
         </a>
-        <Link href="/github">
+        <Link target="_blank" href="https://github.com/Plumbiu/blog">
           <GithubIcon />
         </Link>
       </div>
