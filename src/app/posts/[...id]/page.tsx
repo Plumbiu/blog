@@ -31,6 +31,7 @@ export async function getPostContent(
   } catch (error) {
     file = error.message
   }
+  console.log(file)
   const { frontmatter, mdContent } = getFrontmatter(file)
   if (!frontmatter || !mdContent) {
     return
