@@ -25,7 +25,11 @@ interface PostContent {
 export async function getPostContent(
   id: string[],
 ): Promise<PostContent | undefined> {
-  const url = path.join(process.cwd(), 'posts', ...id)
+  const url = path.join(
+    process.cwd(),
+    'posts',
+    ...id.map((item) => decodeURI(item)),
+  )
   let file = ''
   try {
     file = await fsp.readFile(`${url}.md`, 'utf-8')

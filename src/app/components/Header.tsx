@@ -9,7 +9,6 @@ function Header() {
         <Link href="/list/blog">Home</Link>
       </div>
       <div className={styles.right}>
-        <Link href="/about">About</Link>
         <a target="_blank" href="/rss.xml">
           <RssIcon />
         </a>
