@@ -1,4 +1,5 @@
 import fsp from 'node:fs/promises'
+import path from 'node:path'
 import { Metadata } from 'next'
 import Markdown from '../components/Markdown'
 import Toc from '../components/Toc'
@@ -24,14 +25,11 @@ interface PostContent {
 export async function getPostContent(
   id: string[],
 ): Promise<PostContent | undefined> {
-  const url = `posts/${decodeURI(id.join('/'))}`
+  const url = path.join(process.cwd(), 'posts', ...id)
   let file = ''
   try {
     file = await fsp.readFile(`${url}.md`, 'utf-8')
-  } catch (error) {
-    file = error.message
-  }
-  console.log(file)
+  } catch (error) {}
   const { frontmatter, mdContent } = getFrontmatter(file)
   if (!frontmatter || !mdContent) {
     return
