@@ -28,7 +28,9 @@ export async function getPostContent(
   let file = ''
   try {
     file = await fsp.readFile(`${url}.md`, 'utf-8')
-  } catch (error) {}
+  } catch (error) {
+    file = error.message
+  }
   const { frontmatter, mdContent } = getFrontmatter(file)
   if (!frontmatter || !mdContent) {
     return
