@@ -21,6 +21,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <link
+        href="/icons/32x32.png"
+        rel="icon"
+        sizes="32x32"
+        type="image/x-icon"
+      />
       <ViewTransitions>
         <body className={noto.className}>
           <ThemeProvider>

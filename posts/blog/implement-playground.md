@@ -69,7 +69,7 @@ async function Markdown(props) {
     <ReactMarkdown
       components={{
         pre(props) {
-          return <MyCustomComponent {...props}>
+          return <MyCustomComponent {...props} />
         },
       }}
     >
@@ -84,7 +84,7 @@ async function Markdown(props) {
 ```jsx {2,3}
 <ReactMarkdown
   remarkPlugins={[myRemarkPlugin]}
-  rehypePlugins={[myRehypePlugin, { custom: true }]]}
+  rehypePlugins={[myRehypePlugin, { custom: true }]}
 >
   {props.md}
 </ReactMarkdown>
