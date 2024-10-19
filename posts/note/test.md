@@ -64,7 +64,7 @@ export default Test2
 
 ## tsx
 
-<!-- ```tsx Playground
+```tsx Playground
 import Test from './Test'
 
 function App() {
@@ -86,7 +86,7 @@ function Test(props: TestProps) {
   return <div>This is Test</div>
 }
 export default Test
-``` -->
+```
 
 # Tip
 

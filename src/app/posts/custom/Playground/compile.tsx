@@ -16,7 +16,6 @@ const baseScope: Scope = {
 
 const transfromOptions: Options = {
   transforms: ['jsx', 'flow', 'imports'],
-  production: true,
 }
 
 const baseScopeKeys = Object.keys(baseScope)

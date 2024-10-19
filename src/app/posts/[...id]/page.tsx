@@ -11,6 +11,7 @@ import {
   upperFirstChar,
 } from '@/utils'
 import fmJsons from '@/front_matter.json'
+import path from 'node:path'
 
 interface PostContent {
   frontmatter: {
@@ -24,9 +25,11 @@ export async function getPostContent(
   id: string[],
 ): Promise<PostContent | undefined> {
   const relaivePath = joinFormatPaths('posts', decodeURI(id.join('/')))
-  const url = joinFormatPaths(process.cwd(), relaivePath)
   try {
-    const file = await fsp.readFile(`${url}.md`, 'utf-8')
+    const file = await fsp.readFile(
+      path.join(process.cwd(), `${relaivePath}.md`),
+      'utf-8',
+    )
     const mdContent = removeFrontmatter(file)
     // @ts-ignore
     const frontmatter = fmJsons[relaivePath]
