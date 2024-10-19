@@ -69,6 +69,6 @@
     }
   },
   "simple-git-hooks": {
-    "pre-commit": "esno ./scripts/index.ts && esno ./scripts/rss.ts"
+    "pre-commit": "esno ./scripts/index.ts"
   }
 }
