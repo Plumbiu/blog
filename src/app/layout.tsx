@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { ViewTransitions } from 'next-view-transitions'
 import { ThemeProvider } from 'next-themes'
 import Header from './components/Header'
 import Modal from './posts/components/Modal'
@@ -8,6 +7,7 @@ import './variable.css'
 import Footer from './components/Footer'
 import Float from './components/Float'
 import { noto } from './fonts'
+import { Suspense } from 'react'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -27,17 +27,15 @@ export default function RootLayout({
         sizes="32x32"
         type="image/x-icon"
       />
-      <ViewTransitions>
-        <body className={noto.className}>
-          <ThemeProvider>
-            <Header />
-            {children}
-            <Footer />
-            <Float />
-            <Modal />
-          </ThemeProvider>
-        </body>
-      </ViewTransitions>
+      <body className={noto.className}>
+        <ThemeProvider>
+          <Header />
+          <Suspense>{children}</Suspense>
+          <Footer />
+          <Float />
+          <Modal />
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

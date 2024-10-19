@@ -2,7 +2,7 @@
 
 import { memo, useEffect, useRef, useState } from 'react'
 import { clsx } from 'clsx'
-import { Link } from 'next-view-transitions'
+import Link from 'next/link'
 import styles from './Toc.module.css'
 import { throttle } from '@//utils'
 

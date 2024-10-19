@@ -1,6 +1,6 @@
 'use client'
 
-import { Link } from 'next-view-transitions'
+import Link from 'next/link'
 import { clsx } from 'clsx'
 import { usePathname } from 'next/navigation'
 import styles from './Navigator.module.css'

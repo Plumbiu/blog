@@ -1,4 +1,4 @@
-import { Link } from 'next-view-transitions'
+import Link from 'next/link'
 import { Metadata } from 'next'
 import styles from './page.module.css'
 import { upperFirstChar } from '@/utils'
