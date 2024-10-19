@@ -69,7 +69,6 @@
       "extend": "patches/extend.patch",
       "sucrase": "patches/sucrase.patch",
       "parse-numeric-range": "patches/parse-numeric-range.patch",
-      "react-markdown": "patches/react-markdown.patch",
       "jstoxml": "patches/jstoxml.patch"
     }
   },

@@ -14,9 +14,6 @@ patchedDependencies:
   parse-numeric-range:
     hash: rtcgdib32wdayntyosv62beg2e
     path: patches/parse-numeric-range.patch
-  react-markdown:
-    hash: hx6inxit3fstp2en652wl2h3xm
-    path: patches/react-markdown.patch
   space-separated-tokens:
     hash: 6ai2fufzdwpp2bzjvmlbwslpxm
     path: patches/space-separated-tokens.patch
@@ -63,7 +60,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-markdown:
         specifier: ^9.0.1
-        version: 9.0.1(patch_hash=hx6inxit3fstp2en652wl2h3xm)(@types/react@18.3.11)(react@18.3.1)
+        version: 9.0.1(@types/react@18.3.11)(react@18.3.1)
       rehype-prism-plus:
         specifier: ^2.0.0
         version: 2.0.0
@@ -6606,7 +6603,7 @@ snapshots:
       react: 18.3.1
       scheduler: 0.23.2
 
-  react-markdown@9.0.1(patch_hash=hx6inxit3fstp2en652wl2h3xm)(@types/react@18.3.11)(react@18.3.1):
+  react-markdown@9.0.1(@types/react@18.3.11)(react@18.3.1):
     dependencies:
       '@types/hast': 3.0.4
       '@types/react': 18.3.11
