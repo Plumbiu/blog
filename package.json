@@ -67,7 +67,8 @@
       "extend": "patches/extend.patch",
       "sucrase": "patches/sucrase.patch",
       "parse-numeric-range": "patches/parse-numeric-range.patch",
-      "jstoxml": "patches/jstoxml.patch"
+      "jstoxml": "patches/jstoxml.patch",
+      "unified": "patches/unified.patch"
     }
   },
   "simple-git-hooks": {

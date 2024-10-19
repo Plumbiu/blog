@@ -109,6 +109,7 @@ const shikiOptions = {
   ],
 }
 async function transfrom2Jsx(code: string) {
+  const start = Date.now()
   const shiki = await getSingletonHighlighterCore(shikiOptions)
   const processor = unified()
     .use(remarkParse)
@@ -121,6 +122,7 @@ async function transfrom2Jsx(code: string) {
     ])
     .use(remarkRehype)
     .use([rehypeElementPlugin, rehypePrismGenerator(shiki)])
+  const parseStart = Date.now()
   const mdastTree = processor.parse(code)
   const hastTree = await processor.run(mdastTree)
 
@@ -140,5 +142,10 @@ async function transfrom2Jsx(code: string) {
     passKeys: true,
     passNode: true,
   })
+  const end = Date.now()
+  console.log(`
+    parse: ${end - parseStart}ms
+    finish ${end - start}ms
+  `)
   return node
 }

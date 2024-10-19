@@ -1,12 +1,11 @@
 'use client'
 
-import dynamic from 'next/dynamic'
 import { createElement, ReactNode } from 'react'
-import Loading from '@/components/Loading'
+import Playground from './Playground'
 
-const Playground = dynamic(() => import('./Playground'), {
-  loading: () => <Loading />,
-})
+// const Playground = dynamic(() => import('./Playground'), {
+//   loading: () => <Loading />,
+// })
 
 export interface CustomComponentProp {
   [key: string]: any
