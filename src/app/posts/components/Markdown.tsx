@@ -10,7 +10,6 @@ import remarkPlayground, { getLangFromProps } from '@/plugins/remark/playground'
 import { remarkSlug } from '@/plugins/remark/slug'
 import rehypeElementPlugin from '@/plugins/rehype/element'
 import rehypePrismGenerator from '@/plugins/rehype/hightlight'
-import { BuildVisitor, visit } from 'unist-util-visit'
 import { Components, toJsxRuntime } from 'hast-util-to-jsx-runtime'
 import { Fragment, jsx, jsxs } from 'react/jsx-runtime'
 import { mono } from '@/app/fonts'
@@ -96,8 +95,6 @@ const shikiOptions = {
     import('shiki/langs/go.mjs'),
     import('shiki/langs/html.mjs'),
     import('shiki/langs/html-derivative.mjs'),
-    import('shiki/langs/vue-html.mjs'),
-    import('shiki/langs/markdown.mjs'),
     import('shiki/langs/xml.mjs'),
     import('shiki/langs/regex.mjs'),
     import('shiki/langs/less.mjs'),
@@ -125,14 +122,8 @@ async function transfrom2Jsx(code: string) {
   const parseStart = Date.now()
   const mdastTree = processor.parse(code)
   const hastTree = await processor.run(mdastTree)
+  const parseEnd = Date.now()
 
-  const transform: BuildVisitor<any> = (node, index, parent) => {
-    if (node.type === 'raw' && parent && typeof index === 'number') {
-      parent.children[index] = { type: 'text', value: node.value }
-      return index
-    }
-  }
-  visit(hastTree, transform)
   const node = toJsxRuntime(hastTree, {
     Fragment,
     components,
@@ -144,7 +135,7 @@ async function transfrom2Jsx(code: string) {
   })
   const end = Date.now()
   console.log(`
-    parse: ${end - parseStart}ms
+    parse: ${parseEnd - parseStart}ms
     finish ${end - start}ms
   `)
   return node

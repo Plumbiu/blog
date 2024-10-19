@@ -57,7 +57,7 @@ export default Test
 
 # 我的方案
 
-最终的方案是使用 [react-markdown](https://github.com/remarkjs/react-markdown) 和 [remark](https://github.com/remarkjs/remark)、[rehype](https://github.com/rehypejs/rehype) 插件，加上 [sucrase](https://github.com/alangpierce/sucrase) 解析 JSX 语法。
+最终的方案是使用 [remark](https://github.com/remarkjs/remark)、[rehype](https://github.com/rehypejs/rehype) 插件，加上 [sucrase](https://github.com/alangpierce/sucrase) 解析 JSX 语法。
 
 `react-markdown` 中通过 `unified` 转换语法树，最后通过 `hast-util-to-jsx-runtime` 转换为 React 组件，通过语法树转化，这是一个很棒的想法，因为我可以把 Markdown 本身的标签替换为我的自定义标签，如下图 `6-10` 行代码：
 

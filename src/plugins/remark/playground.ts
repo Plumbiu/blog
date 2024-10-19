@@ -39,6 +39,8 @@ const langAlias: Record<string, string> = {
   tsx: 'TSX',
 }
 
+const SplitKey = '///'
+const DefaultLang = 'Txt'
 function remarkPlayground(): RemarkReturn {
   return (tree) => {
     visit(tree, 'code', (node) => {
@@ -47,9 +49,9 @@ function remarkPlayground(): RemarkReturn {
       const code = node.value.trim()
       const meta = node.meta
       const lang = node.lang?.toLowerCase()
-      let alias = lang ? langAlias[lang] || lang : 'Txt'
+      let alias = lang ? langAlias[lang] || lang : DefaultLang
       if (!alias) {
-        alias = 'Txt'
+        alias = DefaultLang
       }
       props[ComponentLangKey] = upperFirstChar(alias)
       if (!lang || !meta?.includes(PlaygroundName)) {
@@ -57,8 +59,8 @@ function remarkPlayground(): RemarkReturn {
       }
       const firstLine = getFirstLine(code)
       const endIndex = firstLine.length
-      const myBeAppFile = firstLine.startsWith('///')
-        ? firstLine.replace('///', '').trim()
+      const myBeAppFile = firstLine.startsWith(SplitKey)
+        ? firstLine.replace(SplitKey, '').trim()
         : undefined
       const setNode = (selector: string) => {
         props[ComponentKey] = PlaygroundName

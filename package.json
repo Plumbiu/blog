@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@plumbiu/react-store": "^0.9.3",
+    "@shikijs/rehype": "^1.22.0",
     "clsx": "^2.1.1",
     "hast-util-to-jsx-runtime": "^2.3.2",
     "hast-util-to-string": "^3.0.1",

@@ -5,15 +5,15 @@ import { filter } from 'unist-util-filter'
 import rangeParser from 'parse-numeric-range'
 import type { Element, Root } from 'hast'
 import { HighlighterCore, HighlighterGeneric } from 'shiki/core'
+import { getCodeFromProps, getLangFromProps } from '../remark/playground'
 
-const getLanguage = (node: Element) => {
-  const className = node.properties.className as string[]
+const getLanguage = (className: string[]) => {
   for (const classListItem of className) {
     if (classListItem.slice(0, 9) === 'language-') {
       return classListItem.slice(9).toLowerCase()
     }
   }
-  return null
+  return 'txt'
 }
 
 /**
@@ -53,14 +53,14 @@ const calculateStartingLine = (meta: string) => {
  * Create container AST for node lines
  */
 const createLineNodes = (number: number) => {
-  const a = new Array(number)
+  const a: any[] = []
   for (let i = 0; i < number; i++) {
-    a[i] = {
+    a.push({
       type: 'element',
       tagName: 'span',
       properties: { className: [] },
       children: [],
-    }
+    })
   }
   return a
 }
@@ -139,6 +139,8 @@ const rehypePrismGenerator = (
     return (tree: Root) => {
       visit(tree, 'element', function visitor(node, index, parent) {
         const props = node.properties
+        let code = getCodeFromProps(props)
+
         if (
           !parent ||
           parent.type !== 'element' ||
@@ -147,10 +149,11 @@ const rehypePrismGenerator = (
         ) {
           return
         }
-
+        if (!code) {
+          code = toString(node)
+        }
         // @ts-ignore meta is a custom code block property
-        const meta: string =
-          node?.data?.meta || node?.properties?.metastring || ''
+        const meta: string = node.data?.meta ?? props?.metastring ?? ''
         // Coerce className to array
         if (props.className) {
           if (typeof props.className === 'boolean') {
@@ -161,40 +164,35 @@ const rehypePrismGenerator = (
         } else {
           props.className = []
         }
-        const lang = getLanguage(node)
-        if (!lang) {
-          return
-        }
-        // If no language is set on the code block, use defaultLanguage if specified
+        const lang = getLanguage(props.className as string[])
         props.className.push('shiki')
-
         // Syntax highlight
-        const code = toString(node)
-        const refractorRoot =
-          shiki.codeToHast(code, {
-            themes: themeOptions,
-            lang,
-            // @ts-ignore
-          }).children?.[0]?.children[0] ?? node
-        refractorRoot.children = addNodePositionClosure()(
-          refractorRoot.children,
-        )
+        let shikiRoot = node
+        try {
+          shikiRoot =
+            shiki.codeToHast(code, {
+              themes: themeOptions,
+              lang,
+              // @ts-ignore
+            }).children?.[0]?.children[0] ?? node
+        } catch (error) {}
 
+        shikiRoot.children = addNodePositionClosure()(shikiRoot.children)
         // Add position info to root
-        if (refractorRoot.children.length > 0) {
-          refractorRoot.position = {
+        if (shikiRoot.children.length > 0) {
+          shikiRoot.position = {
             start: {
-              line: refractorRoot.children[0].position.start.line,
+              line: shikiRoot.children[0].position!.start.line,
               column: 0,
             },
             end: {
-              line: refractorRoot.children[refractorRoot.children.length - 1]
-                .position.end.line,
+              line: shikiRoot.children[shikiRoot.children.length - 1].position!
+                .end.line,
               column: 0,
             },
           }
         } else {
-          refractorRoot.position = {
+          shikiRoot.position = {
             start: { line: 0, column: 0 },
             end: { line: 0, column: 0 },
           }
@@ -202,20 +200,23 @@ const rehypePrismGenerator = (
 
         const shouldHighlightLine = calculateLinesToHighlight(meta)
         const startingLineNumber = calculateStartingLine(meta)
-        const codeLineArray = createLineNodes(refractorRoot.position.end.line)
-
-        for (const [i, line] of codeLineArray.entries()) {
+        const codeLineArray = createLineNodes(shikiRoot.position.end.line)
+        for (let i = 0; i < codeLineArray.length; i++) {
+          const line = codeLineArray[i]
           // Default class name for each line
           line.properties.className = ['code-line']
 
           // Syntax highlight
           const treeExtract = filter(
-            refractorRoot,
+            shikiRoot,
             (node) =>
               node.position &&
               node.position.start.line <= i + 1 &&
               node.position.end.line >= i + 1,
           )
+          if (!treeExtract?.children) {
+            continue
+          }
           line.children = treeExtract.children
 
           // Line number
@@ -235,15 +236,6 @@ const rehypePrismGenerator = (
             line.properties.className.push(ch === '-' ? 'deleted' : 'inserted')
           }
         }
-
-        // Remove possible trailing line when splitting by \n which results in empty array
-        if (
-          codeLineArray.length > 0 &&
-          toString(codeLineArray[codeLineArray.length - 1]).trim() === ''
-        ) {
-          codeLineArray.pop()
-        }
-
         node.children = codeLineArray
       })
     }
