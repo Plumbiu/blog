@@ -64,7 +64,7 @@ export function getFrontmatter(content: string) {
   }
 }
 
-interface PostInfo {
+export interface PostInfo {
   type: FrontmatterKey
   frontmatter: FrontMatterItem
   content: string

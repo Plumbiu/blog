@@ -1,12 +1,10 @@
 import fsp from 'fs/promises'
-import path from 'path'
 import { toXML } from 'jstoxml'
-import { getPostsInfo } from '@/utils/node.js'
-import { gitadd } from './utils'
+import { PostInfo } from '@/utils/node.js'
 
 const URL = 'https://blog.plumbiu.top'
 
-async function resolve() {
+async function generateRss(posts: PostInfo[]) {
   const json: Record<string, any> = {
     channel: [
       { title: 'Plumbiu の 小屋' },
@@ -24,8 +22,6 @@ async function resolve() {
       },
     ],
   }
-
-  const posts = await getPostsInfo()
 
   json.channel.push({
     lastBuildDate: posts[0].frontmatter.date,
@@ -56,7 +52,7 @@ async function resolve() {
   })
   const rssPath = 'public/rss.xml'
   await fsp.writeFile(rssPath, xml)
-  gitadd(rssPath)
+  return rssPath
 }
 
-resolve()
+export default generateRss
