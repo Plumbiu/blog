@@ -22,17 +22,14 @@ const getLanguage = (className: string[]) => {
 const NumRangeRegx = /{([\d,-]+)}/
 const calculateLinesToHighlight = (meta: string) => {
   // Remove space between {} e.g. {1, 3}
-  const parsedMeta = meta
-    .split(',')
-    .map((str) => str.trim())
-    .join()
-  const parsed = NumRangeRegx.exec(parsedMeta)
+  const parsed = NumRangeRegx.exec(meta)
   if (parsed === null) {
     return () => false
   }
   const strlineNumbers = parsed[1]
   const lineNumbers = rangeParser(strlineNumbers)
-  return (index: number) => lineNumbers.includes(index + 1)
+  // @ts-ignore has patched to Set<number>
+  return (index: number) => lineNumbers.has(index + 1)
 }
 
 /**

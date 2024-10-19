@@ -21,6 +21,7 @@ import { isValidElement } from 'react'
 import { getSingletonHighlighterCore } from 'shiki/core'
 import { createOnigurumaEngine } from 'shiki/engine/oniguruma'
 import getWasm from 'shiki/wasm'
+import { createJavaScriptRegexEngine } from 'shiki/engine/javascript'
 
 const components: Partial<Components> = {
   pre(props) {

@@ -12,7 +12,7 @@ patchedDependencies:
     hash: vuklsk3t2dpsarp3md24bvusmm
     path: patches/jstoxml.patch
   parse-numeric-range:
-    hash: rtcgdib32wdayntyosv62beg2e
+    hash: mkbag4pevbssu7c2fdazlcw3xu
     path: patches/parse-numeric-range.patch
   space-separated-tokens:
     hash: 6ai2fufzdwpp2bzjvmlbwslpxm
@@ -51,7 +51,7 @@ importers:
         version: 0.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       parse-numeric-range:
         specifier: ^1.3.0
-        version: 1.3.0(patch_hash=rtcgdib32wdayntyosv62beg2e)
+        version: 1.3.0(patch_hash=mkbag4pevbssu7c2fdazlcw3xu)
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -6285,7 +6285,7 @@ snapshots:
       json-parse-even-better-errors: 2.3.1
       lines-and-columns: 1.2.4
 
-  parse-numeric-range@1.3.0(patch_hash=rtcgdib32wdayntyosv62beg2e): {}
+  parse-numeric-range@1.3.0(patch_hash=mkbag4pevbssu7c2fdazlcw3xu): {}
 
   parse5@7.2.0:
     dependencies:
@@ -6682,7 +6682,7 @@ snapshots:
   rehype-prism-plus@2.0.0:
     dependencies:
       hast-util-to-string: 3.0.1
-      parse-numeric-range: 1.3.0(patch_hash=rtcgdib32wdayntyosv62beg2e)
+      parse-numeric-range: 1.3.0(patch_hash=mkbag4pevbssu7c2fdazlcw3xu)
       refractor: 4.8.1
       rehype-parse: 9.0.1
       unist-util-filter: 5.0.1
