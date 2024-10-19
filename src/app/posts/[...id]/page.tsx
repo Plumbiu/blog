@@ -21,6 +21,13 @@ interface PostContent {
   content: string
 }
 
+export function generateStaticParams() {
+  const paths = Object.keys(fmJsons)
+  return paths.map((id) => ({
+    id: id.split('/').slice(1),
+  }))
+}
+
 export async function getPostContent(
   id: string[],
 ): Promise<PostContent | undefined> {
