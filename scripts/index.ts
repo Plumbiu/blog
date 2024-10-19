@@ -1,6 +1,7 @@
 /* eslint-disable @stylistic/max-len */
 import fsp from 'node:fs/promises'
 import yaml from 'js-yaml'
+import { $ } from 'execa'
 import { imageMeta } from 'image-meta'
 import pc from 'picocolors'
 import { getPosts } from './utils'
@@ -11,12 +12,6 @@ interface FrontMatterItem {
 }
 
 type FileMap = Record<string, string>
-interface Frontmatter {
-  note: Record<string, FrontMatterItem>
-  life: Record<string, FrontMatterItem>
-  blog: Record<string, FrontMatterItem>
-  summary: Record<string, FrontMatterItem>
-}
 async function generateFrontMatter(fileMap: FileMap) {
   const result: Record<string, FrontMatterItem> = {}
   const Start_Str = '---'
@@ -32,9 +27,8 @@ async function generateFrontMatter(fileMap: FileMap) {
     frontMatter.date = new Date(frontMatter.date).valueOf()
     result[p.slice(0, p.length - 3)] = frontMatter
   }
-
   await fsp.writeFile('./src/front_matter.json', JSON.stringify(result))
-  console.log(pc.bgGreenBright('Post update successfully') + '\n')
+  $`git add ./src/front_matter.json`
 }
 
 interface IIMage {
