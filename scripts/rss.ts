@@ -2,6 +2,7 @@ import fsp from 'fs/promises'
 import path from 'path'
 import { toXML } from 'jstoxml'
 import { getPostsInfo } from '@/utils/node.js'
+import { gitadd } from './utils'
 
 const URL = 'https://blog.plumbiu.top'
 
@@ -53,7 +54,9 @@ async function resolve() {
       channel: json.channel,
     },
   })
-  await fsp.writeFile('public/rss.xml', xml)
+  const rssPath = 'public/rss.xml'
+  await fsp.writeFile(rssPath, xml)
+  gitadd(rssPath)
 }
 
 resolve()

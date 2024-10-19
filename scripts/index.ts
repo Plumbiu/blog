@@ -1,9 +1,9 @@
 /* eslint-disable @stylistic/max-len */
 import fsp from 'node:fs/promises'
-import { $ } from 'execa'
 import { imageMeta } from 'image-meta'
 import pc from 'picocolors'
 import { getFrontmatter, getMarkdownPath } from '@/utils/node'
+import { gitadd } from './utils'
 
 interface FrontMatterItem {
   title: string
@@ -24,7 +24,7 @@ async function generateFrontMatter(fileMap: FileMap) {
   }
   const mdPath = './src/front_matter.json'
   await fsp.writeFile(mdPath, JSON.stringify(result))
-  $`git add ${mdPath}`
+  gitadd(mdPath)
 }
 
 interface IIMage {
@@ -62,8 +62,9 @@ async function generateImageInfo(fileMap: FileMap) {
       }
     }),
   )
-
+  const imageInfoPath = './src/image-info.json'
   await fsp.writeFile('./src/image-info.json', JSON.stringify(result))
+  gitadd(imageInfoPath)
 }
 
 async function generate() {

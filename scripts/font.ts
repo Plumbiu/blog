@@ -1,10 +1,10 @@
 /* eslint-disable @stylistic/quotes */
 import fsp from 'node:fs/promises'
 import Fontmin from 'fontmin'
-import { getPosts } from './utils'
+import { getMarkdownPath } from '@/utils/node'
 
 async function run() {
-  const paths = await getPosts()
+  const paths = await getMarkdownPath()
   const set = new Set<string>()
   await Promise.all(
     paths.map(async (p) => {
