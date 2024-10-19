@@ -1,4 +1,3 @@
-/* eslint-disable @stylistic/max-len */
 import ReactMarkdown from 'react-markdown'
 import React, { isValidElement, ReactNode } from 'react'
 import remarkDirective from 'remark-directive'
@@ -53,11 +52,7 @@ async function Markdown({ content }: { content: string }) {
         remarkSlug,
         remarkPlayground,
       ]}
-      rehypePlugins={[
-        rehypeElementPlugin,
-        rehypePrismGenerator(shiki),
-        // [rehypePrism, { ignoreMissing: true }],
-      ]}
+      rehypePlugins={[rehypeElementPlugin, rehypePrismGenerator(shiki)]}
       components={{
         pre(props) {
           const children = props.children

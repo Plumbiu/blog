@@ -1,12 +1,11 @@
 import fsp from 'node:fs/promises'
-import path from 'node:path'
 import { Metadata } from 'next'
 import React from 'react'
 import Markdown from '../components/Markdown'
 import Toc from '../components/Toc'
 import FrontMatter from '../components/FrontMatter'
-import { getCategory, upperFirstChar } from '@/utils'
-import { getFrontmatter, getMarkdownPath } from '@/utils/node'
+import { getCategory, removeFrontmatter, upperFirstChar } from '@/utils'
+import fmJsons from '@/front_matter.json'
 
 interface PostContent {
   frontmatter: {
@@ -19,16 +18,15 @@ interface PostContent {
 export async function getPostContent(
   id: string[],
 ): Promise<PostContent | undefined> {
-  const url = path.join(
-    process.cwd(),
-    'posts',
-    ...id.map((item) => decodeURI(item)),
-  )
+  const pathSuffix = `posts/${decodeURI(id.join('/'))}`
+  const url = `${process.cwd()}/${pathSuffix}}`
   let file = ''
   try {
     file = await fsp.readFile(`${url}.md`, 'utf-8')
   } catch (error) {}
-  const { frontmatter, mdContent } = getFrontmatter(file)
+  const mdContent = removeFrontmatter(file)
+  // @ts-ignore
+  const frontmatter = fmJsons[pathSuffix]
   if (!frontmatter || !mdContent) {
     return
   }

@@ -1,7 +1,7 @@
 import fsp from 'node:fs/promises'
 import yaml from 'js-yaml'
 import stripMarkdown from './strip-markdown'
-import { getLineContent, isLikeNum, getCategory } from '.'
+import { getLineContent, isLikeNum, getCategory, removeFrontmatter } from '.'
 
 export interface FrontMatterItem {
   title: string
@@ -60,7 +60,7 @@ export function getFrontmatter(content: string) {
   }
   return {
     frontmatter,
-    mdContent: content.slice(endIndex + FrontmatterWrapStr.length),
+    mdContent: removeFrontmatter(content),
   }
 }
 

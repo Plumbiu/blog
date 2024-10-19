@@ -1,4 +1,5 @@
 import { StringValueObj } from '@/types/base'
+import { FrontmatterWrapStr } from './node'
 
 export const removeMdSuffix = (p: string) => {
   return p.slice(0, p.length - 3)
@@ -148,4 +149,13 @@ export function formatId(id: string) {
 
 export function isPromise<T extends any>(x: unknown): x is Promise<T> {
   return x instanceof Promise
+}
+
+export function removeFrontmatter(md: string) {
+  const startIdx = md.indexOf(FrontmatterWrapStr)
+  if (startIdx !== 0) {
+    return md
+  }
+  const endIndex = md.indexOf(FrontmatterWrapStr, 1)
+  return md.slice(endIndex + FrontmatterWrapStr.length)
 }

@@ -18,7 +18,7 @@ interface Frontmatter {
   summary: Record<string, FrontMatterItem>
 }
 async function generateFrontMatter(fileMap: FileMap) {
-  const map: Record<string, FrontMatterItem> = {}
+  const result: Record<string, FrontMatterItem> = {}
   const Start_Str = '---'
   for (const p in fileMap) {
     const file = fileMap[p]
@@ -30,19 +30,7 @@ async function generateFrontMatter(fileMap: FileMap) {
     const parseString = file.slice(Start_Str.length, endIndex)
     const frontMatter = yaml.load(parseString) as FrontMatterItem
     frontMatter.date = new Date(frontMatter.date).valueOf()
-    map[p.slice(0, p.length - 3)] = frontMatter
-  }
-
-  const result: Frontmatter = {
-    note: {},
-    life: {},
-    blog: {},
-    summary: {},
-  }
-
-  for (const [path, value] of Object.entries(map)) {
-    const c = path.split('/')[1] as keyof Frontmatter
-    result[c][path] = value
+    result[p.slice(0, p.length - 3)] = frontMatter
   }
 
   await fsp.writeFile('./src/front_matter.json', JSON.stringify(result))
