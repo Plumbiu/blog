@@ -1,10 +1,9 @@
 /* eslint-disable @stylistic/max-len */
 import fsp from 'node:fs/promises'
-import yaml from 'js-yaml'
 import { $ } from 'execa'
 import { imageMeta } from 'image-meta'
 import pc from 'picocolors'
-import { getPosts } from './utils'
+import { getFrontmatter, getMarkdownPath } from '@/utils/node'
 
 interface FrontMatterItem {
   title: string
@@ -14,21 +13,18 @@ interface FrontMatterItem {
 type FileMap = Record<string, string>
 async function generateFrontMatter(fileMap: FileMap) {
   const result: Record<string, FrontMatterItem> = {}
-  const Start_Str = '---'
   for (const p in fileMap) {
     const file = fileMap[p]
-    const startIdx = file.indexOf(Start_Str)
-    if (startIdx !== 0) {
-      return
+    const { frontmatter } = getFrontmatter(file)
+    if (!frontmatter) {
+      continue
     }
-    const endIndex = file.indexOf(Start_Str, 1)
-    const parseString = file.slice(Start_Str.length, endIndex)
-    const frontMatter = yaml.load(parseString) as FrontMatterItem
-    frontMatter.date = new Date(frontMatter.date).valueOf()
-    result[p.slice(0, p.length - 3)] = frontMatter
+    frontmatter.date = new Date(frontmatter.date).valueOf()
+    result[p.slice(0, p.length - 3)] = frontmatter
   }
-  await fsp.writeFile('./src/front_matter.json', JSON.stringify(result))
-  $`git add ./src/front_matter.json`
+  const mdPath = './src/front_matter.json'
+  await fsp.writeFile(mdPath, JSON.stringify(result))
+  $`git add ${mdPath}`
 }
 
 interface IIMage {
@@ -71,17 +67,15 @@ async function generateImageInfo(fileMap: FileMap) {
 }
 
 async function generate() {
-  const posts = await getPosts()
-
+  const posts = await getMarkdownPath()
   const fileMap: FileMap = {}
   await Promise.all(
-    posts.map(async (p) => {
+    [...posts].map(async (p) => {
       const file = await fsp.readFile(p, 'utf-8')
       fileMap[p] = file
     }),
   )
   await generateFrontMatter(fileMap)
-  // await generateImageInfo(fileMap)
 }
 
 generate()

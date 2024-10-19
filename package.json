@@ -1,6 +1,7 @@
 {
   "name": "blog-next",
   "version": "0.1.0",
+  "type": "module",
   "scripts": {
     "prepare": "simple-git-hooks",
     "dev": "next dev",
@@ -44,7 +45,6 @@
     "eslint": "^9.13.0",
     "esno": "^4.8.0",
     "execa": "^9.4.1",
-    "fast-glob": "^3.3.2",
     "fontmin": "^1.1.0",
     "image-meta": "^0.2.1",
     "js-yaml": "^4.1.0",
@@ -66,7 +66,8 @@
       "extend": "patches/extend.patch",
       "sucrase": "patches/sucrase.patch",
       "parse-numeric-range": "patches/parse-numeric-range.patch",
-      "react-markdown": "patches/react-markdown.patch"
+      "react-markdown": "patches/react-markdown.patch",
+      "jstoxml": "patches/jstoxml.patch"
     }
   },
   "simple-git-hooks": {
