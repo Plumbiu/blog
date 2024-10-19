@@ -1,6 +1,6 @@
 import fsp from 'fs/promises'
 import { toXML } from 'jstoxml'
-import { PostInfo } from '@/utils/node.js'
+import { PostInfo } from '@/utils/node'
 
 const URL = 'https://blog.plumbiu.top'
 

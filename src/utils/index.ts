@@ -1,16 +1,13 @@
+import { FrontmatterWrapStr } from '@/constants'
 import { StringValueObj } from '@/types/base'
-import { FrontmatterWrapStr } from './node'
 
+const RemoveMdSuffixRegx = /\.md$/
 export const removeMdSuffix = (p: string) => {
-  return p.slice(0, p.length - 3)
+  return p.replace(RemoveMdSuffixRegx, '')
 }
 
 export const upperFirstChar = (s: string) => {
   return s[0].toUpperCase() + s.slice(1)
-}
-
-export const isUpperChar = (ch: string) => {
-  return ch.toUpperCase() === ch
 }
 
 export function throttle(fn: Function, wait = 300) {
@@ -25,31 +22,6 @@ export function throttle(fn: Function, wait = 300) {
     start = now
     fn.apply(this, args)
   }
-}
-
-export const monthArr = [
-  'Jan',
-  'Feb',
-  'Mar',
-  'Apr',
-  'May',
-  'Jun',
-  'Jul',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dec',
-]
-export function formatTime(time: string | number, withDate = false) {
-  const d = new Date(time)
-  const month = monthArr[d.getMonth()]
-  const year = d.getFullYear()
-  let result = `${year} ${month}`
-  if (withDate) {
-    result = `${result} ${d.getDate()}`
-  }
-  return result
 }
 
 export function isString(x: unknown): x is string {
@@ -75,11 +47,11 @@ export function getFirstLine(s: string) {
   for (let i = 0; i < s.length; i++) {
     const ch = s[i]
     if (ch === '\r' || ch === '\n') {
-      return { str, endIdx: i }
+      return str
     }
     str += ch
   }
-  return { str, endIdx: -1 }
+  return str
 }
 
 export const buildFiles = (code: string, startStr: string) => {
@@ -91,21 +63,12 @@ export const buildFiles = (code: string, startStr: string) => {
   for (let i = 0; i < tokens.length; i++) {
     const token = tokens[i]
     if (token[0] === ' ') {
-      const { str, endIdx } = getFirstLine(tokens[i])
+      const str = getFirstLine(tokens[i])
       const key = str.trim()
-      attrs[key] = tokens[i].slice(endIdx).trim()
+      attrs[key] = tokens[i].slice(str.length).trim()
     }
   }
   return attrs
-}
-
-export function removeTitle(code: string) {
-  code = code.trim()
-  if (code[0] !== '#') {
-    return code
-  }
-  const { endIdx } = getFirstLine(code)
-  return code.slice(endIdx).trim()
 }
 
 const DescNumRegx = /^\d+$/
@@ -114,17 +77,6 @@ export function isLikeNum(s: string) {
     return false
   }
   return DescNumRegx.test(s)
-}
-
-export function getLineContent(code: string, idx = 1) {
-  if (idx < 1) {
-    idx = 1
-  }
-  const segments = code
-    .trim()
-    .split('\n')
-    .filter((s) => s.trim())
-  return segments[idx - 1].trim()
 }
 
 export function getSuffix(name: string) {
@@ -147,10 +99,6 @@ export function formatId(id: string) {
   return id.toLocaleLowerCase().replace(WhiteSpaceRegx, '-')
 }
 
-export function isPromise<T extends any>(x: unknown): x is Promise<T> {
-  return x instanceof Promise
-}
-
 export function removeFrontmatter(md: string) {
   const startIdx = md.indexOf(FrontmatterWrapStr)
   if (startIdx !== 0) {
@@ -158,4 +106,8 @@ export function removeFrontmatter(md: string) {
   }
   const endIndex = md.indexOf(FrontmatterWrapStr, 1)
   return md.slice(endIndex + FrontmatterWrapStr.length)
+}
+
+export function joinFormatPaths(...args: string[]) {
+  return args.join('/')
 }

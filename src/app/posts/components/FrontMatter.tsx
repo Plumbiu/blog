@@ -1,5 +1,5 @@
+import { monthArr } from '@/constants'
 import styles from './FrontMatter.module.css'
-import { monthArr } from '@/utils'
 
 interface Props {
   title: string

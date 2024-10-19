@@ -1,7 +1,13 @@
-import fsp from 'node:fs/promises'
+import fsp from 'fs/promises'
 import yaml from 'js-yaml'
-import stripMarkdown from './strip-markdown'
-import { getLineContent, isLikeNum, getCategory, removeFrontmatter } from '.'
+import stripMarkdown from '../strip-markdown'
+import {
+  isLikeNum,
+  getCategory,
+  removeMdSuffix,
+  joinFormatPaths,
+} from '../index'
+import { FrontmatterWrapStr } from '@/constants'
 
 export interface FrontMatterItem {
   title: string
@@ -12,16 +18,12 @@ export interface FrontMatterItem {
 
 export type FrontmatterKey = 'note' | 'life' | 'blog' | 'summary'
 
-function join(a: string, b: string) {
-  return `${a}/${b}`
-}
-
 export async function traverse(dirPath: string) {
   const results: string[] = []
   const dirs = await fsp.readdir(dirPath, { withFileTypes: true })
   await Promise.all(
     dirs.map(async (info) => {
-      const p = join(dirPath, info.name)
+      const p = joinFormatPaths(dirPath, info.name)
       if (info.isFile()) {
         if (p.endsWith('.md')) {
           results.push(p)
@@ -39,7 +41,6 @@ export function getMarkdownPath() {
   return traverse('posts')
 }
 
-export const FrontmatterWrapStr = '---'
 export function getFrontmatter(content: string) {
   const startIdx = content.indexOf(FrontmatterWrapStr)
   if (startIdx !== 0) {
@@ -49,18 +50,20 @@ export function getFrontmatter(content: string) {
   const parseString = content.slice(FrontmatterWrapStr.length, endIndex)
   const frontmatter = yaml.load(parseString) as FrontMatterItem
   const desc = frontmatter.desc
+  const mdContent = content.slice(endIndex + 3)
   if (desc && isLikeNum(desc)) {
-    frontmatter.desc = getLineContent(
-      stripMarkdown(content.slice(endIndex + 3)),
-      +desc,
-    )
+    const segments = stripMarkdown(mdContent)
+      .trim()
+      .split(/\r?\n/g)
+      .filter((s) => s.trim())
+    frontmatter.desc = segments[+desc - 1]
   }
   if (frontmatter.date) {
     frontmatter.date = new Date(frontmatter.date).valueOf()
   }
   return {
     frontmatter,
-    mdContent: removeFrontmatter(content),
+    mdContent,
   }
 }
 
@@ -71,7 +74,6 @@ export interface PostInfo {
   path: string
 }
 
-const RemoveMdSuffixRegx = /\.md$/
 export async function getPostsInfo(id?: string) {
   const result: PostInfo[] = []
   const mds = await getMarkdownPath()
@@ -94,7 +96,7 @@ export async function getPostsInfo(id?: string) {
         type,
         frontmatter,
         content: mdContent,
-        path: mdPath.replace(RemoveMdSuffixRegx, ''),
+        path: removeMdSuffix(mdPath),
       }
       result.push(data)
     }),

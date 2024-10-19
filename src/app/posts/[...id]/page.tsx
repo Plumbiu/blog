@@ -4,7 +4,12 @@ import React from 'react'
 import Markdown from '../components/Markdown'
 import Toc from '../components/Toc'
 import FrontMatter from '../components/FrontMatter'
-import { getCategory, removeFrontmatter, upperFirstChar } from '@/utils'
+import {
+  getCategory,
+  joinFormatPaths,
+  removeFrontmatter,
+  upperFirstChar,
+} from '@/utils'
 import fmJsons from '@/front_matter.json'
 
 interface PostContent {
@@ -18,22 +23,21 @@ interface PostContent {
 export async function getPostContent(
   id: string[],
 ): Promise<PostContent | undefined> {
-  const pathSuffix = `posts/${decodeURI(id.join('/'))}`
-  const url = `${process.cwd()}/${pathSuffix}}`
-  let file = ''
+  const relaivePath = joinFormatPaths('posts', decodeURI(id.join('/')))
+  const url = joinFormatPaths(process.cwd(), relaivePath)
   try {
-    file = await fsp.readFile(`${url}.md`, 'utf-8')
+    const file = await fsp.readFile(`${url}.md`, 'utf-8')
+    const mdContent = removeFrontmatter(file)
+    // @ts-ignore
+    const frontmatter = fmJsons[relaivePath]
+    if (!frontmatter || !mdContent) {
+      return
+    }
+    return {
+      frontmatter,
+      content: mdContent,
+    }
   } catch (error) {}
-  const mdContent = removeFrontmatter(file)
-  // @ts-ignore
-  const frontmatter = fmJsons[pathSuffix]
-  if (!frontmatter || !mdContent) {
-    return
-  }
-  return {
-    frontmatter,
-    content: mdContent,
-  }
 }
 
 interface PostProps {

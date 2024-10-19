@@ -1,7 +1,6 @@
 {
   "name": "blog-next",
   "version": "0.1.0",
-  "type": "module",
   "scripts": {
     "prepare": "simple-git-hooks",
     "dev": "next dev",
@@ -36,7 +35,7 @@
     "@types/js-yaml": "^4.0.9",
     "@types/jstoxml": "^2.0.4",
     "@types/mdast": "^4.0.4",
-    "@types/node": "^22.7.7",
+    "@types/node": "^20",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
     "autoprefixer": "^10.4.20",
@@ -44,7 +43,6 @@
     "es-toolkit": "^1.25.2",
     "eslint": "^9.13.0",
     "esno": "^4.8.0",
-    "execa": "^9.4.1",
     "fontmin": "^1.1.0",
     "image-meta": "^0.2.1",
     "js-yaml": "^4.1.0",

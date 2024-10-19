@@ -2,7 +2,7 @@ import fsp from 'node:fs/promises'
 import { getPostsInfo } from '@/utils/node'
 import generateRss from './rss'
 import generateFrontMatter from './front-matter'
-import { gitadd } from './utils'
+import { gitadd } from './utils.js'
 
 export type FileMap = Record<string, string>
 

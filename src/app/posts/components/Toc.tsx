@@ -3,7 +3,6 @@
 import { memo, useEffect, useRef, useState } from 'react'
 import { clsx } from 'clsx'
 import { Link } from 'next-view-transitions'
-import { useRouter } from 'next/navigation'
 import styles from './Toc.module.css'
 import { throttle } from '@//utils'
 
@@ -35,7 +34,6 @@ function Toc() {
   const [activeIndex, setActiveIndex] = useState<number>()
   const nodes = useRef<NodeListOf<Element>>()
   const tocRef = useRef<HTMLDivElement>(null)
-  const router = useRouter()
 
   const handler = throttle(() => {
     const tocHeight = tocRef.current?.clientHeight ?? 0

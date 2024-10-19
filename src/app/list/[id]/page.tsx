@@ -1,8 +1,9 @@
 import { Link } from 'next-view-transitions'
 import { Metadata } from 'next'
 import styles from './page.module.css'
-import { monthArr, upperFirstChar } from '@/utils'
+import { upperFirstChar } from '@/utils'
 import { getPostsInfo, type FrontmatterKey } from '@/utils/node'
+import { monthArr } from '@/constants'
 
 const ids = ['note', 'life', 'blog', 'summary'] as const
 export function generateStaticParams() {
@@ -31,7 +32,9 @@ async function ArtlistAll({ params }: ListProps) {
   const lists = await getPosts(params.id)
   return (
     <div className={styles.artlist}>
-      {lists.length === 0 && <div className={styles.empty}>这里空空如也.......</div>}
+      {lists.length === 0 && (
+        <div className={styles.empty}>这里空空如也.......</div>
+      )}
       {lists.map(({ frontmatter: { title, date, desc, subtitle }, path }) => (
         <Link href={'/' + path} className={styles.link} key={path}>
           <div className={styles.top}>

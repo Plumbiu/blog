@@ -1,5 +1,5 @@
-import { $ } from 'execa'
+import { spawnSync } from 'child_process'
 
 export function gitadd(path: string) {
-  $`git add ${path}`
+  spawnSync('git add', [path])
 }

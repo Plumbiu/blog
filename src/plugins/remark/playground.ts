@@ -55,14 +55,15 @@ function remarkPlayground(): RemarkReturn {
       if (!lang || !meta?.includes(PlaygroundName)) {
         return
       }
-      const { str: firstLine, endIdx } = getFirstLine(code)
+      const firstLine = getFirstLine(code)
+      const endIndex = firstLine.length
       const myBeAppFile = firstLine.startsWith('///')
         ? firstLine.replace('///', '').trim()
         : undefined
       const setNode = (selector: string) => {
         props[ComponentKey] = PlaygroundName
         props[DefaultSelectorKey] = selector
-        props[CodeKey] = myBeAppFile ? code.slice(endIdx) : code
+        props[CodeKey] = myBeAppFile ? code.slice(endIndex) : code
         props[ComponentMetaKey] = meta
         // @ts-ignore
         node.type = 'root'
