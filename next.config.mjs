@@ -8,7 +8,9 @@ const withBundleAnalyzer = Analyzer({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   cleanDistDir: true,
-  experimental: {},
+  experimental: {
+    instrumentationHook: true,
+  },
   eslint: {
     ignoreDuringBuilds: true,
   },

@@ -3,8 +3,9 @@
 import { memo, useEffect, useRef, useState } from 'react'
 import { clsx } from 'clsx'
 import { Link } from 'next-view-transitions'
+import { useRouter } from 'next/navigation'
 import styles from './Toc.module.css'
-import { formatId, throttle } from '@//utils'
+import { throttle } from '@//utils'
 
 interface ITocList {
   title: string
@@ -29,11 +30,12 @@ const TocLink = memo(
   ),
 )
 
-function Toc({ title }: { title: string }) {
+function Toc() {
   const [list, setList] = useState<ITocList[]>([])
   const [activeIndex, setActiveIndex] = useState<number>()
   const nodes = useRef<NodeListOf<Element>>()
   const tocRef = useRef<HTMLDivElement>(null)
+  const router = useRouter()
 
   const handler = throttle(() => {
     const tocHeight = tocRef.current?.clientHeight ?? 0
@@ -57,18 +59,13 @@ function Toc({ title }: { title: string }) {
   useEffect(() => {
     nodes.current = document.querySelectorAll('.md > h1,h2,h3')
     handler()
-    setList([
-      {
-        title,
-        id: formatId(title),
-        pl: 16,
-      },
-      ...Array.from(nodes.current!).map((node) => ({
+    setList(
+      Array.from(nodes.current!).map((node) => ({
         title: node.textContent!,
         id: node.id!,
         pl: +node.tagName[1] * 16,
       })),
-    ])
+    )
     window.addEventListener('scroll', handler)
 
     return () => window.removeEventListener('scroll', handler)

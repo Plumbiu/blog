@@ -65,11 +65,11 @@
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: thin;
+  color: var(--p-text-3);
+  white-space: nowrap;
 
   & > div {
     padding: 10px 12px;
-    color: var(--p-text-2);
-    white-space: nowrap;
     cursor: pointer;
     transition: color 150ms;
     &:hover {
@@ -79,18 +79,7 @@
 }
 
 .tab_active {
-  position: relative;
   color: var(--p-pure-text) !important;
-  &::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -1px;
-    border-radius: 2px;
-    width: 100%;
-    height: 1px;
-    background-color: var(--p-pure-text);
-  }
 }
 
 .preview {
@@ -99,8 +88,5 @@
   overflow: auto;
   & * {
     all: revert;
-  }
-  & iframe {
-    all: initial !important;
   }
 }

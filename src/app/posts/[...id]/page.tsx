@@ -1,18 +1,12 @@
 import fsp from 'node:fs/promises'
 import path from 'node:path'
 import { Metadata } from 'next'
+import React from 'react'
 import Markdown from '../components/Markdown'
 import Toc from '../components/Toc'
 import FrontMatter from '../components/FrontMatter'
 import { getCategory, upperFirstChar } from '@/utils'
 import { getFrontmatter, getMarkdownPath } from '@/utils/node'
-
-export async function generateStaticParams() {
-  const posts = await getMarkdownPath()
-  return posts.map((path) => ({
-    id: path.split('/').slice(1),
-  }))
-}
 
 interface PostContent {
   frontmatter: {
@@ -61,7 +55,7 @@ async function Post({ params }: PostProps) {
         <FrontMatter {...info.frontmatter} />
         <Markdown content={info.content} />
       </div>
-      <Toc title={info.frontmatter.title} />
+      <Toc />
     </div>
   )
 }

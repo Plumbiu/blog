@@ -46,5 +46,24 @@
 
 .active {
   color: var(--p-hover-text);
-  border-color: var(--p-blockquote-before);
+  border-color: var(--p-purple-2);
+}
+
+.title {
+  font-weight: 700;
+  color: var(--p-pure-text);
+}
+
+.action {
+  font-size: 24px;
+  margin-top: 12px;
+  padding-left: 16px;
+
+  & > div {
+    cursor: pointer;
+    transition: color 150ms ease-in-out;
+    &:hover {
+      color: var(--p-pure-text);
+    }
+  }
 }

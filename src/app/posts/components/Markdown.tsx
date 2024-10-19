@@ -3,9 +3,6 @@ import ReactMarkdown from 'react-markdown'
 import React, { isValidElement, ReactNode } from 'react'
 import remarkDirective from 'remark-directive'
 import remarkGfm from 'remark-gfm'
-import { createHighlighterCore, HighlighterCore } from 'shiki/core'
-import { createOnigurumaEngine } from 'shiki/engine/oniguruma'
-import getWasm from 'shiki/wasm'
 import Copy from '../components/Copy'
 import CustomComponent, { CustomComponentProp } from '../custom'
 import './Markdown.css'
@@ -29,7 +26,7 @@ import remarkPlayground, { getLangFromProps } from '@/plugins/remark/playground'
 import { remarkSlug } from '@/plugins/remark/slug'
 import rehypeElementPlugin from '@/plugins/rehype/element'
 import rehypePrismGenerator from '@/plugins/rehype/hightlight'
-import { isPromise } from '@/utils'
+import { getShiki } from '@/shiki'
 
 const iconMap: Record<string, ReactNode> = {
   javascript: <JavaScriptIcon />,
@@ -44,72 +41,8 @@ const iconMap: Record<string, ReactNode> = {
   bash: <BashIcon />,
 }
 
-type Highlighter = Promise<HighlighterCore> | HighlighterCore | null
-
-class ShikiOperation {
-  static highlighter: Highlighter = null
-
-  static async init() {
-    const shiki = this.highlighter
-    const isShikiPromise = isPromise<Highlighter>(shiki)
-    if (shiki !== null && !isShikiPromise) {
-      return shiki
-    }
-    this.highlighter = await createHighlighterCore({
-      themes: [
-        // 传入导入的包，而不是字符串
-        // 如果你需要进行块分割（chunk splitting），请使用动态导入
-        import('shiki/themes/vitesse-dark.mjs'),
-        import('shiki/themes/vitesse-light.mjs'),
-      ],
-      engine: createOnigurumaEngine(getWasm),
-      langs: [
-        import('shiki/langs/js.mjs'),
-        import('shiki/langs/jsx.mjs'),
-        import('shiki/langs/tsx.mjs'),
-        import('shiki/langs/ts.mjs'),
-        import('shiki/langs/css.mjs'),
-        import('shiki/langs/rust.mjs'),
-        import('shiki/langs/vue.mjs'),
-        import('shiki/langs/json.mjs'),
-        import('shiki/langs/json5.mjs'),
-        import('shiki/langs/yaml.mjs'),
-        import('shiki/langs/go.mjs'),
-        import('shiki/langs/html.mjs'),
-        import('shiki/langs/html-derivative.mjs'),
-        import('shiki/langs/vue-html.mjs'),
-        import('shiki/langs/markdown.mjs'),
-        import('shiki/langs/xml.mjs'),
-        import('shiki/langs/regex.mjs'),
-        import('shiki/langs/less.mjs'),
-        import('shiki/langs/c.mjs'),
-        import('shiki/langs/cpp.mjs'),
-        import('shiki/langs/cmake.mjs'),
-        import('shiki/langs/csharp.mjs'),
-        import('shiki/langs/cs.mjs'),
-        import('shiki/langs/docker.mjs'),
-        import('shiki/langs/shell.mjs'),
-        import('shiki/langs/bash.mjs'),
-        import('shiki/langs/git-commit.mjs'),
-        import('shiki/langs/git-rebase.mjs'),
-      ],
-    })
-    return this.highlighter
-  }
-
-  static async getShiki() {
-    let shiki = this.highlighter
-    if (shiki === null) {
-      shiki = await this.init()
-    } else if (isPromise(shiki)) {
-      shiki = await shiki
-    }
-    return shiki
-  }
-}
-
 async function Markdown({ content }: { content: string }) {
-  const highlighter = await ShikiOperation.getShiki()
+  const shiki = await getShiki()
   return (
     <ReactMarkdown
       className="md"
@@ -122,7 +55,7 @@ async function Markdown({ content }: { content: string }) {
       ]}
       rehypePlugins={[
         rehypeElementPlugin,
-        rehypePrismGenerator(highlighter),
+        rehypePrismGenerator(shiki),
         // [rehypePrism, { ignoreMissing: true }],
       ]}
       components={{

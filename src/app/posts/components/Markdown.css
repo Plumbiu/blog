@@ -56,13 +56,10 @@
     font-family: inherit !important;
   }
   code:not([class]) {
-    display: inline-flex;
     color: var(--p-pure-text);
     font-size: 0.85rem;
-    clear: both;
-    line-height: 1.7;
-    background-color: var(--p-indigo-soft);
-    padding: 0 6px;
+    background-color: var(--p-purple-soft);
+    padding: 2px 6px;
     border-radius: 4px;
   }
 
@@ -171,13 +168,18 @@
     border-width: 0;
     border-bottom-width: 1px;
     border-style: solid;
-    border-color: var(--p-text-3);
+    border-color: var(--p-divider);
     font-weight: 600;
     padding: 1px 0;
     transition: border-color 250ms ease-in-out;
 
     &:hover {
       border-color: var(--p-pure-text);
+    }
+
+    & > code {
+      border-bottom-left-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
     }
   }
 

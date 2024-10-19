@@ -32,6 +32,7 @@
 
 .left {
   padding-left: 64px;
+  font-weight: 700;
 }
 
 @media screen and (max-width: 1024px) {

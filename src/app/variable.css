@@ -34,19 +34,18 @@
   --p-red-3: #e0575b;
   --p-red-soft: rgba(244, 63, 94, 0.14);
   --p-background: #fff;
-  --p-scrollbar: hsl(180, 3%, 77%);
 
   --p-hover-text: rgb(33, 33, 35);
   --p-text-1: rgb(60, 60, 68);
   --p-text-2: rgba(60, 60, 67, 0.78);
   --p-text-3: rgba(60, 60, 67, 0.56);
-  --p-divider: #e2e2e3;
+  --p-divider: #e2e2e5;
   --p-hover-bg: rgba(0, 0, 0, 0.06);
   --p-cude-bg: #999;
 
   --p-highlight-line: rgba(218, 230, 240, 0.5);
 
-  --p-header-h: 86px;
+  --p-header-h: 76px;
   --p-max-center-w: 800px;
   --p-center-w: 50%;
 
@@ -87,8 +86,6 @@ html[data-theme='dark'] {
   --p-red-2: #f14158;
   --p-red-3: #b62a3c;
   --p-red-soft: rgba(244, 63, 94, 0.16);
-  --p-blockquote-before: #296892;
-  --p-scrollbar: #3e26c5;
   --p-background: #000;
 
   --p-hover-text: rgb(255, 255, 255);
