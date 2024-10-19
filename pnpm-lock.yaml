@@ -34,7 +34,13 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      hast-util-to-jsx-runtime:
+        specifier: ^2.3.2
+        version: 2.3.2
       hast-util-to-string:
+        specifier: ^3.0.1
+        version: 3.0.1
+      html-url-attributes:
         specifier: ^3.0.1
         version: 3.0.1
       next:
@@ -67,6 +73,12 @@ importers:
       remark-gfm:
         specifier: ^4.0.0
         version: 4.0.0
+      remark-parse:
+        specifier: ^11.0.0
+        version: 11.0.0
+      remark-rehype:
+        specifier: ^11.1.1
+        version: 11.1.1
       sharp:
         specifier: ^0.33.5
         version: 0.33.5
@@ -76,6 +88,9 @@ importers:
       sucrase:
         specifier: ^3.35.0
         version: 3.35.0(patch_hash=3ff4rc6w67wckr2dwxzemqoraa)
+      unified:
+        specifier: ^11.0.5
+        version: 11.0.5
       unist-util-filter:
         specifier: ^5.0.1
         version: 5.0.1
