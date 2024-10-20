@@ -202,19 +202,20 @@
     }
   }
 
-  .code-line {
-    padding-top: 2px;
-    padding-bottom: 2px;
-    display: block;
+  .line {
+    display: inline-block;
+    padding: 2px 0;
+    width: 100%;
   }
-  .code-line[line]::before {
+  .line[line]::before {
     content: attr(line);
     min-width: 26px;
     display: inline-block;
   }
   .highlight-line {
-    margin-left: -16px;
+    box-sizing: content-box;
     padding-left: 16px;
+    margin-left: -16px;
     background-color: var(--p-highlight-line); /* Set highlight bg color */
   }
 

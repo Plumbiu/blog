@@ -1,11 +1,36 @@
-// Modified by https://github.com/timlrx/rehype-prism-plus/blob/main/LICENSE
+// Modified by https://github.com/timlrx/rehype-prism-plus/blob/main/src/generator.js
+
+// LICENSE: https://github.com/timlrx/rehype-prism-plus/blob/main/LICENSE
+/*
+  MIT License
+
+  Copyright (c) 2021 Timothy
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+*/
 import { visit } from 'unist-util-visit'
 import { toString } from 'hast-util-to-string'
-import { filter } from 'unist-util-filter'
 import rangeParser from 'parse-numeric-range'
 import type { Element, Root } from 'hast'
 import { HighlighterCore, HighlighterGeneric } from 'shiki/core'
-import { getCodeFromProps, getLangFromProps } from '../remark/playground'
+import { getCodeFromProps } from '../remark/playground'
+import { isString } from '@/utils'
 
 const getLanguage = (className: string[]) => {
   for (const classListItem of className) {
@@ -21,7 +46,6 @@ const getLanguage = (className: string[]) => {
  */
 const NumRangeRegx = /{([\d,-]+)}/
 const calculateLinesToHighlight = (meta: string) => {
-  // Remove space between {} e.g. {1, 3}
   const parsed = NumRangeRegx.exec(meta)
   if (parsed === null) {
     return () => false
@@ -30,93 +54,6 @@ const calculateLinesToHighlight = (meta: string) => {
   const lineNumbers = rangeParser(strlineNumbers)
   // @ts-ignore has patched to Set<number>
   return (index: number) => lineNumbers.has(index + 1)
-}
-
-/**
- * Check if we want to start the line numbering from a given number or 1
- * showLineNumbers=5, will start the numbering from 5
- */
-const LineRegx = /showLineNumbers=(?<lines>\d+)/i
-const calculateStartingLine = (meta: string) => {
-  // pick the line number after = using a named capturing group
-  const parsed = LineRegx.exec(meta)
-  if (parsed === null) {
-    return 1
-  }
-  return Number(parsed.groups?.lines)
-}
-
-/**
- * Create container AST for node lines
- */
-const createLineNodes = (number: number) => {
-  const a: any[] = []
-  for (let i = 0; i < number; i++) {
-    a.push({
-      type: 'element',
-      tagName: 'span',
-      properties: { className: [] },
-      children: [],
-    })
-  }
-  return a
-}
-
-/**
- * Split multiline text nodes into individual nodes with positioning
- * Add a node start and end line position information for each text node
- */
-const addNodePositionClosure = () => {
-  let startLineNum = 1
-
-  const addNodePosition = (ast: Element['children']) => {
-    return ast.reduce((result: Element['children'], node) => {
-      if (node.type === 'text') {
-        const value = /** @type {string} */ node.value
-        const numLines = (value.match(/\n/g) || '').length
-        if (numLines === 0) {
-          node.position = {
-            // column: 1 is needed to avoid error with @next/mdx
-            // https://github.com/timlrx/rehype-prism-plus/issues/44
-            start: { line: startLineNum, column: 1 },
-            end: { line: startLineNum, column: 1 },
-          }
-          result.push(node)
-        } else {
-          const lines = value.split('\n')
-          for (const [i, line] of lines.entries()) {
-            result.push({
-              type: 'text',
-              value: i === lines.length - 1 ? line : line + '\n',
-              position: {
-                start: { line: startLineNum + i, column: 1 },
-                end: { line: startLineNum + i, column: 1 },
-              },
-            })
-          }
-        }
-        startLineNum = startLineNum + numLines
-
-        return result
-      }
-
-      if (Object.prototype.hasOwnProperty.call(node, 'children')) {
-        const initialLineNum = startLineNum
-        // @ts-ignore
-        node.children = addNodePosition(node.children, startLineNum)
-        result.push(node)
-        node.position = {
-          start: { line: initialLineNum, column: 1 },
-          end: { line: startLineNum, column: 1 },
-        }
-        return result
-      }
-
-      result.push(node)
-      return result
-    }, [])
-  }
-  return addNodePosition
 }
 
 /**
@@ -136,8 +73,7 @@ const rehypePrismGenerator = (
     return (tree: Root) => {
       visit(tree, 'element', function visitor(node, index, parent) {
         const props = node.properties
-        let code = getCodeFromProps(props)
-
+        let code = getCodeFromProps(props)?.trim()
         if (
           !parent ||
           parent.type !== 'element' ||
@@ -147,7 +83,7 @@ const rehypePrismGenerator = (
           return
         }
         if (!code) {
-          code = toString(node)
+          code = toString(node).trim()
         }
         // @ts-ignore meta is a custom code block property
         const meta: string = node.data?.meta ?? props?.metastring ?? ''
@@ -174,66 +110,33 @@ const rehypePrismGenerator = (
             }).children?.[0]?.children[0] ?? node
         } catch (error) {}
 
-        shikiRoot.children = addNodePositionClosure()(shikiRoot.children)
-        // Add position info to root
-        if (shikiRoot.children.length > 0) {
-          shikiRoot.position = {
-            start: {
-              line: shikiRoot.children[0].position!.start.line,
-              column: 0,
-            },
-            end: {
-              line: shikiRoot.children[shikiRoot.children.length - 1].position!
-                .end.line,
-              column: 0,
-            },
-          }
-        } else {
-          shikiRoot.position = {
-            start: { line: 0, column: 0 },
-            end: { line: 0, column: 0 },
-          }
-        }
-
         const shouldHighlightLine = calculateLinesToHighlight(meta)
-        const startingLineNumber = calculateStartingLine(meta)
-        const codeLineArray = createLineNodes(shikiRoot.position.end.line)
-        for (let i = 0; i < codeLineArray.length; i++) {
-          const line = codeLineArray[i]
-          // Default class name for each line
-          line.properties.className = ['code-line']
 
-          // Syntax highlight
-          const treeExtract = filter(
-            shikiRoot,
-            (node) =>
-              node.position &&
-              node.position.start.line <= i + 1 &&
-              node.position.end.line >= i + 1,
-          )
-          if (!treeExtract?.children) {
-            continue
+        const elementChildren = shikiRoot.children.filter(
+          (elm) => elm.type === 'element' && isString(elm.properties.class),
+        )
+        const shouldAddNumber = meta
+          .toLowerCase()
+          .includes('showLineNumbers'.toLowerCase())
+        for (let i = 0; i < elementChildren.length; i++) {
+          const line = elementChildren[i] as Element
+          const lineProps = line.properties
+          const className = lineProps.class as string
+          lineProps.class = [className]
+
+          if (shouldAddNumber) {
+            lineProps.line = [(i + 1).toString()]
           }
-          line.children = treeExtract.children
-
-          // Line number
-          if (meta.toLowerCase().includes('showLineNumbers'.toLowerCase())) {
-            line.properties.line = [(i + startingLineNumber).toString()]
-            line.properties.className.push('line-number')
-          }
-
-          // Line highlight
           if (shouldHighlightLine(i)) {
-            line.properties.className.push('highlight-line')
+            lineProps.class.push('highlight-line')
           }
-
           // Diff classes
           if (lang === 'diff' || lang.includes('diff-')) {
             const ch = toString(line).substring(0, 1)
-            line.properties.className.push(ch === '-' ? 'deleted' : 'inserted')
+            lineProps.class.push(ch === '-' ? 'deleted' : 'inserted')
           }
         }
-        node.children = codeLineArray
+        node.children = shikiRoot.children
       })
     }
   }
