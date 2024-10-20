@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { ThemeProvider } from 'next-themes'
 import Header from './components/Header'
 import Modal from './posts/components/Modal'
 import './globals.css'
@@ -8,8 +7,6 @@ import Footer from './components/Footer'
 import Float from './components/Float'
 import { noto } from './fonts'
 import { Suspense } from 'react'
-import Head from 'next/head'
-import Script from 'next/script'
 import ThemeWrap from './components/ThemeWrap'
 
 export const metadata: Metadata = {
