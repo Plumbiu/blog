@@ -15,7 +15,6 @@
     "hast-util-to-jsx-runtime": "^2.3.2",
     "hast-util-to-string": "^3.0.1",
     "next": "14.2.15",
-    "next-themes": "^0.3.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-markdown": "^9.0.1",

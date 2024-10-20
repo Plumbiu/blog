@@ -118,7 +118,6 @@ const calculateLinesToHighlight = (meta: string) => {
   }
   const strlineNumbers = parsed[1]
   const lineNumbers = parsePart(strlineNumbers)
-  // @ts-ignore has patched to Set<number>
   return (index: number) => lineNumbers.has(index + 1)
 }
 
@@ -149,8 +148,7 @@ const rehypePrismGenerator = (shiki: HighlighterCore) => {
         if (!code) {
           code = toString(node).trim()
         }
-        // @ts-ignore meta is a custom code block property
-        const meta: string = node.data?.meta ?? props?.metastring ?? ''
+        const meta = (node.data?.meta ?? props?.metastring ?? '') as string
         // Coerce className to array
         if (props.className) {
           if (typeof props.className === 'boolean') {
@@ -175,7 +173,6 @@ const rehypePrismGenerator = (shiki: HighlighterCore) => {
         } catch (error) {}
 
         const shouldHighlightLine = calculateLinesToHighlight(meta)
-
         const elementChildren = shikiRoot.children.filter(
           (elm) => elm.type === 'element' && isString(elm.properties.class),
         )

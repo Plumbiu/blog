@@ -8,6 +8,9 @@ import Footer from './components/Footer'
 import Float from './components/Float'
 import { noto } from './fonts'
 import { Suspense } from 'react'
+import Head from 'next/head'
+import Script from 'next/script'
+import ThemeWrap from './components/ThemeWrap'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -28,13 +31,13 @@ export default function RootLayout({
         type="image/x-icon"
       />
       <body className={noto.className}>
-        <ThemeProvider>
+        <ThemeWrap>
           <Header />
           <Suspense>{children}</Suspense>
           <Footer />
           <Float />
           <Modal />
-        </ThemeProvider>
+        </ThemeWrap>
       </body>
     </html>
   )
