@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './Float.module.css'
-import { MoonIcon, SunIcon } from '@/components/Icons'
+import { MoonIcon, SunIcon } from '@/app/components/Icons'
 import useMounted from '@/hooks/useMounted'
 import { getLocalTheme, toggleDataTheme, Dark } from '@/utils/client/theme'
 import { useLayoutEffect, useState } from 'react'

@@ -1,7 +1,5 @@
-import { redirect } from 'next/navigation'
-
 function App() {
-  redirect('/list/blog')
+  return <div>me</div>
 }
 
 export default App

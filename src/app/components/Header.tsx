@@ -1,20 +1,23 @@
-import Link from 'next/link'
+import { Link } from 'next-view-transitions'
 import styles from './Header.module.css'
-import { GithubIcon, RssIcon } from '@/components/Icons'
+import { GithubIcon, RssIcon } from '@/app/components/Icons'
+import clsx from 'clsx'
 
-function Header() {
+async function Header() {
   return (
-    <header className={styles.header}>
-      <div className={styles.left}>
-        <Link href="/list/blog">Home</Link>
-      </div>
-      <div className={styles.right}>
-        <a target="_blank" href="/rss.xml">
-          <RssIcon />
-        </a>
-        <Link target="_blank" href="https://github.com/Plumbiu/blog">
-          <GithubIcon />
-        </Link>
+    <header className={styles.wrap}>
+      <div className={clsx("center", styles.header)}>
+        <div className={styles.left}>
+          <Link href="/list/blog">Home</Link>
+        </div>
+        <div className={styles.right}>
+          <a target="_blank" href="/rss.xml">
+            <RssIcon />
+          </a>
+          <Link target="_blank" href="https://github.com/Plumbiu/blog">
+            <GithubIcon />
+          </Link>
+        </div>
       </div>
     </header>
   )

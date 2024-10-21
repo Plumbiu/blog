@@ -21,7 +21,7 @@ import {
   getDefaultSelectorFromProps,
 } from '@/plugins/remark/playground'
 import useMounted from '@/hooks/useMounted'
-import ReactShadowRoot from '@/components/Shadow'
+import ReactShadowRoot from '@/app/components/Shadow'
 
 interface LogInfo {
   date: number

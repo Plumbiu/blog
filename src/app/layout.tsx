@@ -3,10 +3,11 @@ import Header from './components/Header'
 import Modal from './posts/components/Modal'
 import './globals.css'
 import './variable.css'
+// import '@pigment-css/react/styles.css'
 import Footer from './components/Footer'
 import Float from './components/Float'
 import { noto } from './fonts'
-import ThemeWrap from './components/ThemeWrap'
+import LayoutWrap from './components/LayoutWrap'
 
 export const metadata: Metadata = {
   title: 'Plumbiuの博客',
@@ -27,13 +28,13 @@ export default function RootLayout({
         type="image/x-icon"
       />
       <body className={noto.className}>
-        <ThemeWrap>
+        <LayoutWrap>
           <Header />
           {children}
           <Footer />
           <Float />
           <Modal />
-        </ThemeWrap>
+        </LayoutWrap>
       </body>
     </html>
   )

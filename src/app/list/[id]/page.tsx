@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from 'next-view-transitions'
 import { Metadata } from 'next'
 import styles from './page.module.css'
 import { upperFirstChar } from '@/utils'
@@ -36,7 +36,7 @@ async function ArtlistAll({ params }: ListProps) {
         <div className={styles.empty}>这里空空如也.......</div>
       )}
       {lists.map(({ frontmatter: { title, date, desc, subtitle }, path }) => (
-        <Link href={'/' + path} className={styles.link} key={path}>
+        <Link prefetch href={'/' + path} className={styles.link} key={path}>
           <div className={styles.top}>
             <span className={styles.title}>{title}</span>
             <span className={styles.date}>{formatTime(date)}</span>

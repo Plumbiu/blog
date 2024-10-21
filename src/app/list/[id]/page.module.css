@@ -4,7 +4,7 @@
 
 .link {
   display: block;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
 .top {
@@ -28,13 +28,13 @@
 
 .desc {
   font-size: 14px;
-  line-height: 1.65;
+  line-height: 1.5;
 }
 
 .subtitle {
   color: var(--p-text-3);
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .empty {

@@ -1,15 +1,10 @@
-.header {
+.wrap {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 999999;
-  display: flex;
-  padding-right: 32px;
-  align-items: center;
-  justify-content: space-between;
-  height: var(--p-header-h);
-  gap: 24px;
+  background-color: var(--p-gray-3);
 
   & a {
     color: var(--p-text-2);
@@ -18,6 +13,16 @@
       color: var(--p-text-1);
     }
   }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--p-header-h);
+  gap: 24px;
+  padding: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .header svg {
@@ -36,28 +41,11 @@
 }
 
 .left {
-  padding-left: 64px;
   font-weight: 700;
-}
-
-@media screen and (max-width: 1024px) {
-  .left {
-    padding-left: 24px;
-  }
 }
 
 .right {
   display: flex;
   gap: 24px;
   align-items: center;
-}
-
-.star {
-  fill: var(--p-text-3);
-  width: 36px;
-  transition: fill 200ms;
-
-  &:hover {
-    fill: var(--hue-2);
-  }
 }

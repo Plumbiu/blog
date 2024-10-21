@@ -1,7 +1,7 @@
 import { clsx } from 'clsx'
 import styles from './Footer.module.css'
 
-function Footer() {
+async function Footer() {
   return (
     <div className={clsx(styles.wrap, 'center')}>
       <a

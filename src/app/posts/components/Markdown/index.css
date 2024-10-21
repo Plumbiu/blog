@@ -37,7 +37,7 @@
     th,
     td {
       padding: 8px 12px;
-      border: 1px solid var(--p-border);
+      border: 1px solid var(--p-divider);
     }
     td > :last-child {
       margin-bottom: 0;
