@@ -56,8 +56,8 @@ h6 {
   width: var(--p-center-w);
   max-width: var(--p-max-center-w);
   margin: auto;
-  gap: 24px;
   margin-bottom: 36px;
+  padding: 0 32px;
 }
 
 @media screen and (max-width: 1024px) {

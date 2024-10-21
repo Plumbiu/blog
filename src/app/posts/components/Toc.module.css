@@ -2,21 +2,19 @@
   height: 100%;
   color: var(--p-text-2);
   overflow-x: hidden;
-  position: fixed;
-  right: 32px;
+  position: sticky;
   top: 120px;
   z-index: 99;
-  padding-left: 64px;
   font-size: 14px;
-  width: calc((100% - var(--p-center-w)) / 2 - 32px);
+  width: calc((100% - var(--p-center-w)) / 2);
   max-height: 50vh;
   overflow-y: auto;
   scrollbar-width: none;
 }
 
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1680px) {
   .toc {
-    width: calc((100% - var(--p-max-center-w)) / 2 - 32px);
+    width: calc((100% - var(--p-max-center-w)) / 2);
   }
 }
 

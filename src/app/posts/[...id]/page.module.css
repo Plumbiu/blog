@@ -1,0 +1,6 @@
+.wrap {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  margin-top: var(--p-header-h);
+}

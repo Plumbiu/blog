@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@plumbiu/react-store": "^0.9.3",
-    "@shikijs/rehype": "^1.22.0",
     "clsx": "^2.1.1",
     "hast-util-to-jsx-runtime": "^2.3.2",
     "hast-util-to-string": "^3.0.1",
@@ -26,7 +25,6 @@
     "shiki": "^1.22.0",
     "sucrase": "^3.35.0",
     "unified": "^11.0.5",
-    "unist-util-filter": "^5.0.1",
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {

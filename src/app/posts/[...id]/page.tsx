@@ -1,6 +1,7 @@
 import fsp from 'node:fs/promises'
 import { Metadata } from 'next'
 import React from 'react'
+import styles from './page.module.css'
 import Markdown from '../components/Markdown'
 import Toc from '../components/Toc'
 import FrontMatter from '../components/FrontMatter'
@@ -62,8 +63,13 @@ async function Post({ params }: PostProps) {
     return null
   }
   return (
-    <div>
-      <div className="center">
+    <div className={styles.wrap}>
+      <div
+        className="center"
+        style={{
+          margin: 0,
+        }}
+      >
         <FrontMatter {...info.frontmatter} />
         <Markdown content={info.content} />
       </div>
