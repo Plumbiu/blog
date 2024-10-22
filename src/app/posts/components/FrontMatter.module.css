@@ -3,11 +3,11 @@
 }
 
 .title {
-  color: var(--p-pure-text);
+  color: var(--text);
   margin-bottom: 6px;
 }
 
 .date {
-  color: var(--p-text-2);
+  color: var(--text-2);
   font-size: 14px;
 }

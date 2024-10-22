@@ -3,14 +3,15 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 999999;
-  background-color: var(--p-gray-3);
-
-  & a {
-    color: var(--p-text-2);
+  z-index: 99;
+  background-color: var(--bg-body);
+  & a,
+  div {
+    color: var(--text-2);
     transition: color 125ms ease-in-out;
+    cursor: pointer;
     &:hover {
-      color: var(--p-text-1);
+      color: var(--text-1);
     }
   }
 }
@@ -19,10 +20,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: var(--p-header-h);
+  height: var(--header-h);
   gap: 24px;
-  padding: 0 !important;
   margin-bottom: 0 !important;
+}
+
+.shadow {
+  box-shadow: var(--shadow-header);
 }
 
 .header svg {
@@ -37,7 +41,7 @@
 }
 
 .item:hover {
-  color: var(--p-hover-text);
+  color: var(--text);
 }
 
 .left {

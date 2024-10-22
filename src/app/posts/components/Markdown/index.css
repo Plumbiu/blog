@@ -1,6 +1,6 @@
 .md {
   font-size: 16px;
-  color: var(--p-text-1);
+  color: var(--text-1);
   width: 100%;
   margin: 0;
   & > * {
@@ -37,17 +37,17 @@
     th,
     td {
       padding: 8px 12px;
-      border: 1px solid var(--p-divider);
+      border: 1px solid var(--divider);
     }
     td > :last-child {
       margin-bottom: 0;
     }
     tr {
-      background-color: var(--p-canvas-default);
+      background-color: var(--c-gray-1);
       border-top: 1px solid var(--color-border-muted);
     }
     tr:nth-child(2n) {
-      background-color: var(--p-canvas-subtle);
+      background-color: var(--c-gray-2);
     }
   }
 
@@ -56,9 +56,9 @@
     font-family: inherit !important;
   }
   code:not([class]) {
-    color: var(--p-pure-text);
+    color: var(--text);
     font-size: 0.85rem;
-    background-color: var(--p-purple-soft);
+    background-color: var(--c-purple-soft);
     padding: 2px 6px;
     border-radius: 4px;
   }
@@ -66,15 +66,15 @@
   pre {
     margin: 0;
     font-size: 14px;
-    color: var(--p-text-1);
+    color: var(--text-1);
     word-break: break-word;
     white-space: pre-wrap;
     overflow: auto;
     tab-size: 2;
     line-height: 1.3;
-    border-radius: 0 0 var(--p-pre-radius) var(--p-pre-radius);
+    border-radius: 0 0 var(--pre-radius) var(--pre-radius);
     padding: 8px 0 8px 12px;
-    background-color: var(--p-pre-bg);
+    background-color: var(--bg-md-pre);
     code {
       color: inherit;
       background-color: inherit;
@@ -84,7 +84,7 @@
   .pre-wrap {
     overflow: hidden;
     & pre {
-      border: 1px solid var(--p-divider);
+      border: 1px solid var(--divider);
       border-top: none;
     }
   }
@@ -92,12 +92,12 @@
   .pre-bar {
     font-size: 14px;
     display: flex;
-    border: 1px solid var(--p-divider);
+    border: 1px solid var(--divider);
     font-weight: 600;
     justify-content: space-between;
-    border-radius: var(--p-pre-radius) var(--p-pre-radius) 0 0;
+    border-radius: var(--pre-radius) var(--pre-radius) 0 0;
     align-items: center;
-    border-bottom: 1px solid var(--p-divider);
+    border-bottom: 1px solid var(--divider);
     padding: 6px 0;
   }
 
@@ -111,7 +111,7 @@
   }
 
   .pre-copy {
-    color: var(--p-text-2);
+    color: var(--text-2);
     cursor: pointer;
     padding: 4px;
     margin-right: 20px;
@@ -120,12 +120,12 @@
   }
 
   .pre-copy:hover {
-    color: var(--p-pure-text);
+    color: var(--text);
   }
   /* blockquote */
   blockquote {
     font-size: 14px;
-    background-color: var(--p-quote-info-bg);
+    background-color: var(--bg-md-quote-info);
     margin: 0;
     margin-bottom: 12px;
     padding: 12px 16px;
@@ -140,18 +140,18 @@
     margin-bottom: 4px;
   }
   .blockquote-warn {
-    background-color: var(--p-quote-warn-bg);
+    background-color: var(--bg-md-quote-warn);
 
     code {
-      color: var(--p-yellow-1);
-      background-color: var(--p-yellow-soft);
+      color: var(--c-yellow-1);
+      background-color: var(--c-yellow-soft);
     }
   }
   .blockquote-danger {
-    background-color: var(--p-quote-danger-bg);
+    background-color: var(--bg-md-quote-danger);
     code {
-      color: var(--p-red-1);
-      background-color: var(--p-red-soft);
+      color: var(--c-red-1);
+      background-color: var(--c-red-soft);
     }
   }
   /* Image */
@@ -164,17 +164,17 @@
 
   /* Link */
   a {
-    color: var(--p-pure-text);
+    color: var(--text);
     border-width: 0;
     border-bottom-width: 1px;
     border-style: solid;
-    border-color: var(--p-divider);
+    border-color: var(--divider);
     font-weight: 600;
     padding: 1px 0;
     transition: border-color 250ms ease-in-out;
 
     &:hover {
-      border-color: var(--p-pure-text);
+      border-color: var(--text);
     }
 
     & > code {
@@ -188,7 +188,7 @@
     font-size: 14px;
     padding: 16px 16px 8px;
     border-radius: 2px;
-    background-color: var(--p-gray-soft);
+    background-color: var(--c-gray-soft);
     margin-bottom: 8px;
 
     summary {
@@ -216,13 +216,13 @@
     box-sizing: content-box;
     padding-left: 16px;
     margin-left: -16px;
-    background-color: var(--p-highlight-line); /* Set highlight bg color */
+    background-color: var(--bg-md-highlight-line); /* Set highlight bg color */
   }
 
   /* strong,italic */
   strong,
   em {
-    color: var(--p-pure-text);
+    color: var(--text);
   }
 }
 

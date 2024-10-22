@@ -2,5 +2,5 @@
   display: flex;
   justify-content: flex-end;
   position: relative;
-  margin-top: var(--p-header-h);
+  margin-top: var(--header-h);
 }

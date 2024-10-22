@@ -7,9 +7,9 @@
 
 body {
   margin: 0;
-  color: var(--p-text-1);
+  color: var(--text-1);
   overflow-x: hidden;
-  background-color: var(--p-background);
+  background-color: var(--bg-body);
   text-rendering: optimizeLegibility;
   transition: background-color 100ms;
   scrollbar-width: thin;
@@ -26,7 +26,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--p-pure-text);
+  color: var(--text);
   font-weight: 700;
   code {
     font-size: inherit !important;
@@ -53,8 +53,8 @@ h6 {
 }
 
 .center {
-  width: var(--p-center-w);
-  max-width: var(--p-max-center-w);
+  width: var(--center-w);
+  max-width: var(--center-max-w);
   margin: auto;
   margin-bottom: 36px;
   padding: 0 32px;
@@ -63,7 +63,7 @@ h6 {
 @media screen and (max-width: 1024px) {
   .center {
     width: 100%;
-    padding: 0 16px;
+    padding: 0 20px;
     max-width: 100%;
   }
 }

@@ -42,7 +42,9 @@ async function ArtlistAll({ params }: ListProps) {
             <span className={styles.date}>{formatTime(date)}</span>
           </div>
           <div className={styles.subtitle}>{subtitle}</div>
-          <div className={styles.desc}>{desc}</div>
+          <div className={styles.desc}>
+            {desc.length > 150 ? desc.slice(0, 150) + '...' : desc}
+          </div>
         </Link>
       ))}
     </div>

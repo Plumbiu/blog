@@ -4,7 +4,7 @@
 
 .link {
   display: block;
-  margin-bottom: 32px;
+  margin-bottom: 48px;
 }
 
 .top {
@@ -18,11 +18,11 @@
   font-weight: 600;
   margin-top: 0;
   padding: 4px 0;
-  color: var(--p-pure-text);
+  color: var(--text);
 }
 
 .date {
-  color: var(--p-text-3);
+  color: var(--text-3);
   font-size: 14px;
 }
 
@@ -32,12 +32,12 @@
 }
 
 .subtitle {
-  color: var(--p-text-3);
+  color: var(--text-3);
   font-weight: 600;
   margin-bottom: 6px;
 }
 
 .empty {
-  color: var(--p-text-2);
+  color: var(--text-2);
   font-size: 16px;
 }

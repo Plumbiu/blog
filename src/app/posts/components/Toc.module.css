@@ -1,12 +1,12 @@
 .toc {
   height: 100%;
-  color: var(--p-text-2);
+  color: var(--text-2);
   overflow-x: hidden;
   position: sticky;
   top: 120px;
   z-index: 99;
   font-size: 14px;
-  width: calc((100% - var(--p-center-w)) / 2);
+  width: calc((100% - var(--center-w)) / 2);
   max-height: 50vh;
   overflow-y: auto;
   scrollbar-width: none;
@@ -14,7 +14,7 @@
 
 @media screen and (min-width: 1680px) {
   .toc {
-    width: calc((100% - var(--p-max-center-w)) / 2);
+    width: calc((100% - var(--center-max-w)) / 2);
   }
 }
 
@@ -33,23 +33,23 @@
   border-width: 0;
   border-left-width: 1px;
   border-style: solid;
-  border-color: var(--p-divider);
+  border-color: var(--divider);
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
 .link:hover {
-  color: var(--p-hover-text);
+  color: var(--c-text-hover);
 }
 
 .active {
-  color: var(--p-hover-text);
-  border-color: var(--p-purple-2);
+  color: var(--c-text-hover);
+  border-color: var(--c-purple-2);
 }
 
 .title {
   font-weight: 700;
-  color: var(--p-pure-text);
+  color: var(--text);
 }
 
 .action {
@@ -61,7 +61,7 @@
     cursor: pointer;
     transition: color 150ms ease-in-out;
     &:hover {
-      color: var(--p-pure-text);
+      color: var(--text);
     }
   }
 }

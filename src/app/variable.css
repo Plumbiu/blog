@@ -1,103 +1,55 @@
 :root {
-  --p-canvas-default: #ffffff;
-  --p-canvas-subtle: #f6f8fa;
-  --p-border: #d0d7de;
-  --p-pre-bg: #fafafa;
-  --p-code-bg: #ddeef8;
-  --p-quote-info-bg: #e9eaff;
-  --p-quote-warn-bg: #fcf4dc;
-  --p-quote-danger-bg: rgba(244, 63, 94, 0.14);
-  --p-pure-text: #000;
-  /* copy from vitepress */
-  --p-gray-1: #dddde3;
-  --p-gray-2: #e4e4e9;
-  --p-gray-3: #ebebef;
-  --p-gray-soft: rgba(142, 150, 170, 0.14);
-  --p-indigo-1: #3451b2;
-  --p-indigo-2: #3a5ccc;
-  --p-indigo-3: #5672cd;
-  --p-indigo-soft: rgba(100, 108, 255, 0.14);
-  --p-purple-1: #6f42c1;
-  --p-purple-2: #7e4cc9;
-  --p-purple-3: #8e5cd9;
-  --p-purple-soft: rgba(159, 122, 234, 0.14);
-  --p-green-1: #18794e;
-  --p-green-2: #299764;
-  --p-green-3: #30a46c;
-  --p-green-soft: rgba(16, 185, 129, 0.14);
-  --p-yellow-1: #915930;
-  --p-yellow-2: #946300;
-  --p-yellow-3: #9f6a00;
-  --p-yellow-soft: rgba(234, 179, 8, 0.14);
-  --p-red-1: #b8272c;
-  --p-red-2: #d5393e;
-  --p-red-3: #e0575b;
-  --p-red-soft: rgba(244, 63, 94, 0.14);
-  --p-background: #fff;
-
-  --p-hover-text: rgb(33, 33, 35);
-  --p-text-1: rgb(60, 60, 68);
-  --p-text-2: rgba(60, 60, 67, 0.78);
-  --p-text-3: rgba(60, 60, 67, 0.56);
-  --p-divider: #e2e2e5;
-  --p-hover-bg: rgba(0, 0, 0, 0.06);
-  --p-cude-bg: #999;
-
-  --p-highlight-line: rgba(218, 230, 240, 0.5);
-
-  --p-header-h: 76px;
-  --p-max-center-w: 840px;
-  --p-center-w: 50%;
-
-  --p-pre-radius: 6px;
-  --p-pre-bg: #fafafa;
+  /* text */
+  --text: #000;
+  --text-3: rgba(60, 60, 67, 0.56);
+  --text-2: rgba(60, 60, 67, 0.78);
+  --text-1: rgb(60, 60, 68);
+  /* border */
+  --divider: #e2e2e5;
+  /* color */
+  --c-yellow-soft: rgba(234, 179, 8, 0.14);
+  --c-yellow-3: #9f6a00;
+  --c-yellow-2: #946300;
+  --c-yellow-1: #915930;
+  --c-text-hover: rgb(33, 33, 35);
+  --c-red-soft: rgba(244, 63, 94, 0.14);
+  --c-red-3: #e0575b;
+  --c-red-2: #d5393e;
+  --c-red-1: #b8272c;
+  --c-purple-soft: rgba(159, 122, 234, 0.14);
+  --c-purple-3: #8e5cd9;
+  --c-purple-2: #7e4cc9;
+  --c-purple-1: #6f42c1;
+  --c-indigo-soft: rgba(100, 108, 255, 0.14);
+  --c-indigo-3: #5672cd;
+  --c-indigo-2: #3a5ccc;
+  --c-indigo-1: #3451b2;
+  --c-green-soft: rgba(5, 185, 129, 0.14);
+  --c-green-3: #30a46c;
+  --c-green-2: #299764;
+  --c-green-1: #18794e;
+  --c-gray-soft: rgba(142, 150, 170, 0.14);
+  --c-gray-3: #ebebef;
+  --c-gray-2: #e4e4e9;
+  --c-gray-1: #dddde3;
+  /* background */
+  --bg-md-quote-warn: #fcf4dc;
+  --bg-md-quote-info: #e9eaff;
+  --bg-md-quote-danger: rgba(244, 63, 94, 0.14);
+  --bg-md-pre: #fafafa;
+  --bg-md-highlight-line: rgba(218, 230, 240, 0.5);
+  --bg-md-code: #ddeef8;
+  --bg-hover: rgba(0, 0, 0, 0.06);
+  --bg-header: #f8f8f8;
+  --bg-body: #fff;
+  /* shadow */
+  --shadow-header: 5px 5px 16px #e2e2e2, -5px -5px 16px #fefefe;
 }
 
-html[data-theme='dark'] {
-  --p-border: #30363d;
-  --p-canvas-default: #101010;
-  --p-canvas-subtle: #222;
-  --p-code-bg: #272e35;
-  --p-quote-info-bg: #272843;
-  --p-quote-warn-bg: #3d341b;
-  --p-quote-danger-bg: rgba(244, 63, 94, 0.16);
-  --p-pure-text: #fff;
-  --p-gray-1: #515c67;
-  --p-gray-2: #414853;
-  --p-gray-3: #32363f;
-  --p-gray-soft: rgba(101, 117, 133, 0.16);
-  --p-indigo-1: #a8b1ff;
-  --p-indigo-2: #5c73e7;
-  --p-indigo-3: #3e63dd;
-  --p-indigo-soft: rgba(100, 108, 255, 0.16);
-  --p-purple-1: #c8abfa;
-  --p-purple-2: #a879e6;
-  --p-purple-3: #8e5cd9;
-  --p-purple-soft: rgba(159, 122, 234, 0.16);
-  --p-green-1: #3dd68c;
-  --p-green-2: #30a46c;
-  --p-green-3: #298459;
-  --p-green-soft: rgba(16, 185, 129, 0.16);
-  --p-yellow-1: #f9b44e;
-  --p-yellow-2: #da8b17;
-  --p-yellow-3: #a46a0a;
-  --p-yellow-soft: rgba(234, 179, 8, 0.16);
-  --p-red-1: #f66f81;
-  --p-red-2: #f14158;
-  --p-red-3: #b62a3c;
-  --p-red-soft: rgba(244, 63, 94, 0.16);
-  --p-background: #000;
-
-  --p-hover-text: rgb(255, 255, 255);
-  --p-text-1: rgba(245, 245, 245, 0.86);
-  --p-text-2: rgba(235, 235, 245, 0.6);
-  --p-text-3: rgba(235, 235, 245, 0.38);
-  --p-divider: #2e2e32;
-  --p-hover-bg: rgba(255, 255, 255, 0.08);
-
-  --p-cude-bg: #444;
-
-  --p-highlight-line: rgba(47, 55, 68, 0.5);
-  --p-header-bg: #000;
-  --p-pre-bg: #0e0e0e;
+/* constant */
+:root {
+  --header-h: 56px;
+  --center-max-w: 840px;
+  --center-w: 50%;
+  --pre-radius: 6px;
 }

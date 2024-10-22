@@ -1,19 +1,19 @@
 .action {
-  margin-top: calc(var(--p-header-h) + 32px);
   display: flex;
   gap: 24px;
   font-size: 24px;
-  color: var(--p-text-3);
+  color: var(--text-3);
+  margin-top: calc(var(--header-h) + 86px);
   margin-bottom: 32px;
 }
 
 .action a {
   transition: color 150ms;
   &:hover {
-    color: var(--p-text-1);
+    color: var(--text-1);
   }
 }
 
 .active {
-  color: var(--p-text-1);
+  color: var(--text-1);
 }

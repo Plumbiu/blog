@@ -3,14 +3,14 @@
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: stretch;
   overflow: hidden;
-  border-radius: 0 0 var(--p-pre-radius) var(--p-pre-radius);
-  border: 1px solid var(--p-divider);
+  border-radius: 0 0 var(--pre-radius) var(--pre-radius);
+  border: 1px solid var(--divider);
   border-top: none;
-  background-color: var(--p-pre-bg);
+  background-color: var(--bg-md-pre);
 }
 
 .code {
-  border-right: 1px solid var(--p-divider);
+  border-right: 1px solid var(--divider);
   & pre {
     max-height: 70vh;
   }
@@ -24,7 +24,7 @@
   }
   .code {
     border-right: none;
-    border-bottom: 1px solid var(--p-divider);
+    border-bottom: 1px solid var(--divider);
   }
 }
 
@@ -32,8 +32,8 @@
   padding: 8px 12px;
   font-size: 14px;
   font-weight: 600;
-  border-radius: var(--p-pre-radius) var(--p-pre-radius) 0 0;
-  border: 1px solid var(--p-divider);
+  border-radius: var(--pre-radius) var(--pre-radius) 0 0;
+  border: 1px solid var(--divider);
 }
 
 .hide {
@@ -47,7 +47,7 @@
   overflow: auto;
   & > div {
     padding: 8px 12px;
-    border-bottom: 1px solid var(--p-divider);
+    border-bottom: 1px solid var(--divider);
     display: flex;
     gap: 12px;
     justify-content: space-between;
@@ -55,17 +55,17 @@
 }
 
 .console_date {
-  color: var(--p-text-3);
+  color: var(--text-3);
 }
 
 .tab {
   display: flex;
   font-size: 14px;
-  border-bottom: 1px solid var(--p-divider);
+  border-bottom: 1px solid var(--divider);
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: thin;
-  color: var(--p-text-3);
+  color: var(--text-3);
   white-space: nowrap;
 
   & > div {
@@ -73,13 +73,13 @@
     cursor: pointer;
     transition: color 150ms;
     &:hover {
-      color: var(--p-pure-text);
+      color: var(--text);
     }
   }
 }
 
 .tab_active {
-  color: var(--p-pure-text) !important;
+  color: var(--text) !important;
 }
 
 .preview {

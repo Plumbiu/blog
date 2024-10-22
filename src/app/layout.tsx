@@ -3,9 +3,9 @@ import Header from './components/Header'
 import Modal from './posts/components/Modal'
 import './globals.css'
 import './variable.css'
+import './dark-variable.css'
 // import '@pigment-css/react/styles.css'
 import Footer from './components/Footer'
-import Float from './components/Float'
 import { noto } from './fonts'
 import LayoutWrap from './components/LayoutWrap'
 
@@ -32,7 +32,6 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
-          <Float />
           <Modal />
         </LayoutWrap>
       </body>
