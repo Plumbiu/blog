@@ -32,7 +32,7 @@
 
 .shadow {
   box-shadow: var(--shadow-header);
-  height: calc((var(--header-h) - 42px));
+  height: calc((var(--header-h) - 32px));
 }
 
 .hide {

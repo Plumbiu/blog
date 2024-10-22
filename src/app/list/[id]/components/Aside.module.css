@@ -1,7 +1,7 @@
 .content {
   position: fixed;
-  left: 48px;
-  top: calc(var(--header-h) + 24px);
+  left: 32px;
+  top: calc(var(--header-h) + 36px);
   z-index: 9;
   width: var(--center-rest);
   overflow-y: auto;

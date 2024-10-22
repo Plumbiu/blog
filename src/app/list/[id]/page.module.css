@@ -1,6 +1,5 @@
 .wrap {
-  --my: calc(var(--header-h));
-  margin-top: calc(var(--my) + 48px);
+  margin-top: calc(var(--header-h) + 48px);
 }
 
 .action {
@@ -29,7 +28,7 @@
 
 .link {
   display: block;
-  margin-bottom: 48px;
+  margin-bottom: 36px;
 }
 
 .top {
