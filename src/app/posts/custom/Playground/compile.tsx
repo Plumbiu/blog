@@ -2,6 +2,7 @@
 import React, { createElement } from 'react'
 import clsx from 'clsx'
 import { transform, Options } from 'sucrase'
+import ReactShadowRoot from '@/app/components/Shadow'
 
 type Scope = Record<string, any>
 
@@ -71,11 +72,17 @@ function formatPathKey(p: string) {
   return './' + p
 }
 
-export function complie(
-  files: Record<string, string>,
-  selector: string,
-  logMethod: (value: any) => void,
-) {
+interface PlaygroundPreviewProps {
+  files: Record<string, string>
+  defaultSelector: string
+  logMethod: (value: any) => void
+}
+
+export function PlaygroundPreview({
+  files,
+  defaultSelector,
+  logMethod,
+}: PlaygroundPreviewProps) {
   const scope: Scope = {
     ...baseScope,
   }
@@ -87,13 +94,13 @@ export function complie(
       scope[formatPathKey(scopeKey)] = value
     }
   }
-  const main = files[selector]
+  const main = files[defaultSelector]
   const jsKyes = Object.keys(files).filter((key) => {
     if (key.endsWith('.css')) {
       nodeStyles.push(files[key])
       return false
     }
-    return key !== selector && isLikeJSX(key)
+    return key !== defaultSelector && isLikeJSX(key)
   })
   const loop = () => {
     for (const key of jsKyes) {
@@ -114,29 +121,35 @@ export function complie(
   loop()
 
   const mainCode = transform(main, transfromOptions).code
-  return {
-    node: createElement(evalCode(mainCode, scope, logMethod)),
-    nodeStyles,
-  }
+  return (
+    <>
+      {nodeStyles.map((css, key) => (
+        <style key={key}>{css}</style>
+      ))}
+      {createElement(evalCode(mainCode, scope, logMethod))}
+    </>
+  )
 }
-export function complileStatic(
-  files: Record<string, string>,
-  defaultSelector: string,
-) {
+export function StaticPlaygroundPreview({
+  files,
+  defaultSelector,
+}: PlaygroundPreviewProps) {
   let nodeStyles = []
   for (const key in files) {
     if (key.endsWith('.css')) {
       nodeStyles.push(files[key])
     }
   }
-  return {
-    node: (
+  return (
+    <>
+      {nodeStyles.map((css, key) => (
+        <style key={key}>{css}</style>
+      ))}
       <div
         dangerouslySetInnerHTML={{
           __html: files[defaultSelector],
         }}
       />
-    ),
-    nodeStyles,
-  }
+    </>
+  )
 }

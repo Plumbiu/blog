@@ -2,13 +2,13 @@ import process from 'node:process'
 import Analyzer from '@next/bundle-analyzer'
 import { withPigment, extendTheme } from '@pigment-css/nextjs-plugin'
 import variable from './theme-variable.mjs'
-import { NextConfig } from 'next'
 
 const withBundleAnalyzer = Analyzer({
   enabled: !!process.env.ANALYZE,
 })
 
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   cleanDistDir: true,
   experimental: {},
   eslint: {

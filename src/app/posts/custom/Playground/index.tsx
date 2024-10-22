@@ -2,17 +2,9 @@
 'use client'
 
 // It could be running at server, but doesn't support onClick or other props
-import React, {
-  createElement,
-  memo,
-  ReactNode,
-  useCallback,
-  useMemo,
-  useState,
-} from 'react'
+import React, { memo, ReactNode, useCallback, useMemo, useState } from 'react'
 import clsx from 'clsx'
 import styles from './index.module.css'
-import { complileStatic, complie } from './compile'
 import { buildFiles, padStartZero } from '@/utils'
 import { mono } from '@/app/fonts'
 import { getFileKeyFromProps } from '@/plugins/rehype/playground-pre'
@@ -22,7 +14,15 @@ import {
 } from '@/plugins/remark/playground'
 import useMounted from '@/hooks/useMounted'
 import ReactShadowRoot from '@/app/components/Shadow'
+import dynamic from 'next/dynamic'
 
+const PlaygroundPreview = dynamic(() =>
+  import('./compile').then((res) => res.PlaygroundPreview),
+)
+
+const StaticPlaygroundPreview = dynamic(() =>
+  import('./compile').then((res) => res.StaticPlaygroundPreview),
+)
 interface LogInfo {
   date: number
   value: any
@@ -102,11 +102,18 @@ const Playground = (props: any) => {
     },
     [isMounted],
   )
-  const { node, nodeStyles } = useMemo(() => {
-    if (isStatic) {
-      return complileStatic(files, defaultSelector)
+
+  const node = useMemo(() => {
+    const playgroundProps = {
+      files,
+      defaultSelector,
+      logMethod,
     }
-    return complie(files, defaultSelector, logMethod)
+
+    if (isStatic) {
+      return <StaticPlaygroundPreview {...playgroundProps} />
+    }
+    return <PlaygroundPreview {...playgroundProps} />
   }, [])
 
   return (
@@ -144,9 +151,6 @@ const Playground = (props: any) => {
               [styles.hide]: isConsoleVisible,
             })}
           >
-            {nodeStyles.map((css, key) => (
-              <style key={key}>{css}</style>
-            ))}
             {node}
           </ReactShadowRoot>
           {isConsoleVisible && (

@@ -14,7 +14,7 @@
     "clsx": "^2.1.1",
     "hast-util-to-jsx-runtime": "^2.3.2",
     "hast-util-to-string": "^3.0.1",
-    "next": "^15.0.0",
+    "next": "^14",
     "next-view-transitions": "^0.3.2",
     "react": "18.3.1",
     "react-dom": "18.3.1",
@@ -30,7 +30,7 @@
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^15.0.0",
+    "@next/bundle-analyzer": "^14",
     "@pigment-css/nextjs-plugin": "^0.0.24",
     "@plumbiu/eslint-config": "^0.3.0",
     "@types/hast": "^3.0.4",
