@@ -1,10 +1,23 @@
 .wrap {
+  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 99;
   background-color: var(--bg-body);
+  height: var(--header-h);
+  transition: height 200ms;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 0 !important;
+  height: 100%;
+
   & a,
   div {
     color: var(--text-2);
@@ -16,17 +29,14 @@
   }
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: var(--header-h);
-  gap: 24px;
-  margin-bottom: 0 !important;
-}
-
 .shadow {
   box-shadow: var(--shadow-header);
+  height: calc((var(--header-h) - 42px));
+}
+
+.hide {
+  height: 0;
+  overflow: hidden;
 }
 
 .header svg {

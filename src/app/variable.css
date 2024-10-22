@@ -48,7 +48,7 @@
 
 /* constant */
 :root {
-  --header-h: 56px;
+  --header-h: 100px;
   --center-max-w: 840px;
   --center-w: 50%;
   --pre-radius: 6px;

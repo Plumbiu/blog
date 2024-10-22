@@ -27,6 +27,7 @@ export function toggleDataTheme() {
   const theme = getDataTheme()
   const nextTheme = theme === Dark ? Light : Dark
   applyTheme(nextTheme)
+  return nextTheme
 }
 
 export function applyTheme(theme: string) {
