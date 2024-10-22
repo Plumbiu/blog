@@ -1,9 +1,10 @@
 :root {
   /* text */
   --text: #000;
-  --text-3: rgba(60, 60, 67, 0.56);
-  --text-2: rgba(60, 60, 67, 0.78);
-  --text-1: rgb(60, 60, 68);
+  --text-4: rgba(60, 60, 60, 0.32);
+  --text-3: rgba(60, 60, 60, 0.56);
+  --text-2: rgba(60, 60, 60, 0.78);
+  --text-1: rgb(60, 60, 60);
   /* border */
   --divider: #e2e2e5;
   /* color */
@@ -32,6 +33,7 @@
   --c-gray-3: #ebebef;
   --c-gray-2: #e4e4e9;
   --c-gray-1: #dddde3;
+  --c-md-toc-active: #8aeeff;
   /* background */
   --bg-md-quote-warn: #fcf4dc;
   --bg-md-quote-info: #e9eaff;
@@ -48,8 +50,15 @@
 
 /* constant */
 :root {
-  --header-h: 100px;
+  --header-h: 90px;
   --center-max-w: 840px;
   --center-w: 50%;
+  --center-rest: calc((100% - var(--center-w)) / 2);
   --pre-radius: 6px;
+}
+
+@media screen and (min-width: 1680px) {
+  :root {
+    --center-rest: calc((100% - var(--center-max-w)) / 2);
+  }
 }

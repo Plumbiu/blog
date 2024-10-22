@@ -1,3 +1,28 @@
+.wrap {
+  --my: calc(var(--header-h));
+  margin-top: calc(var(--my) + 48px);
+}
+
+.action {
+  display: flex;
+  color: var(--text-4);
+  margin-bottom: 42px;
+  gap: 24px;
+
+  & > a {
+    transition: color 150ms;
+    font-size: 24px;
+
+    &:hover {
+      color: var(--text-1);
+    }
+  }
+}
+
+.active {
+  color: var(--text);
+}
+
 .artlist {
   min-height: 80vh;
 }

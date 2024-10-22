@@ -111,3 +111,7 @@ export function removeFrontmatter(md: string) {
 export function joinFormatPaths(...args: string[]) {
   return args.join('/')
 }
+
+export function getYear(date: number) {
+  return String(new Date(date).getFullYear())
+}

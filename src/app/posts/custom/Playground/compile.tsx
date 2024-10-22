@@ -2,7 +2,6 @@
 import React, { createElement } from 'react'
 import clsx from 'clsx'
 import { transform, Options } from 'sucrase'
-import ReactShadowRoot from '@/app/components/Shadow'
 
 type Scope = Record<string, any>
 
@@ -68,10 +67,6 @@ function getBasename(p: string) {
   return null
 }
 
-function formatPathKey(p: string) {
-  return './' + p
-}
-
 interface PlaygroundPreviewProps {
   files: Record<string, string>
   defaultSelector: string
@@ -86,20 +81,14 @@ export function PlaygroundPreview({
   const scope: Scope = {
     ...baseScope,
   }
-  const nodeStyles: string[] = []
-
   function addScope(key: string, value: any) {
     const scopeKey = getBasename(key)
     if (scopeKey) {
-      scope[formatPathKey(scopeKey)] = value
+      scope['./' + scopeKey] = value
     }
   }
   const main = files[defaultSelector]
   const jsKyes = Object.keys(files).filter((key) => {
-    if (key.endsWith('.css')) {
-      nodeStyles.push(files[key])
-      return false
-    }
     return key !== defaultSelector && isLikeJSX(key)
   })
   const loop = () => {
@@ -121,35 +110,17 @@ export function PlaygroundPreview({
   loop()
 
   const mainCode = transform(main, transfromOptions).code
-  return (
-    <>
-      {nodeStyles.map((css, key) => (
-        <style key={key}>{css}</style>
-      ))}
-      {createElement(evalCode(mainCode, scope, logMethod))}
-    </>
-  )
+  return createElement(evalCode(mainCode, scope, logMethod))
 }
 export function StaticPlaygroundPreview({
   files,
   defaultSelector,
 }: PlaygroundPreviewProps) {
-  let nodeStyles = []
-  for (const key in files) {
-    if (key.endsWith('.css')) {
-      nodeStyles.push(files[key])
-    }
-  }
   return (
-    <>
-      {nodeStyles.map((css, key) => (
-        <style key={key}>{css}</style>
-      ))}
-      <div
-        dangerouslySetInnerHTML={{
-          __html: files[defaultSelector],
-        }}
-      />
-    </>
+    <div
+      dangerouslySetInnerHTML={{
+        __html: files[defaultSelector],
+      }}
+    />
   )
 }

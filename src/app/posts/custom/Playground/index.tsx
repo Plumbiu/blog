@@ -103,17 +103,29 @@ const Playground = (props: any) => {
     [isMounted],
   )
 
-  const node = useMemo(() => {
+  const { node, nodeStyles } = useMemo(() => {
     const playgroundProps = {
       files,
       defaultSelector,
       logMethod,
     }
+    const nodeStyles = []
 
-    if (isStatic) {
-      return <StaticPlaygroundPreview {...playgroundProps} />
+    for (const key in files) {
+      if (key.endsWith('.css')) {
+        nodeStyles.push(files[key])
+      }
     }
-    return <PlaygroundPreview {...playgroundProps} />
+    let node: ReactNode = null
+    if (isStatic) {
+      node = <StaticPlaygroundPreview {...playgroundProps} />
+    } else {
+      node = <PlaygroundPreview {...playgroundProps} />
+    }
+    return {
+      node,
+      nodeStyles,
+    }
   }, [])
 
   return (
@@ -151,6 +163,9 @@ const Playground = (props: any) => {
               [styles.hide]: isConsoleVisible,
             })}
           >
+            {nodeStyles.map((css, key) => (
+              <style key={key}>{css}</style>
+            ))}
             {node}
           </ReactShadowRoot>
           {isConsoleVisible && (

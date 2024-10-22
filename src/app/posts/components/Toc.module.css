@@ -6,16 +6,10 @@
   top: 120px;
   z-index: 99;
   font-size: 14px;
-  width: calc((100% - var(--center-w)) / 2);
+  width: var(--center-rest);
   max-height: 50vh;
   overflow-y: auto;
   scrollbar-width: none;
-}
-
-@media screen and (min-width: 1680px) {
-  .toc {
-    width: calc((100% - var(--center-max-w)) / 2);
-  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -39,12 +33,12 @@
 }
 
 .link:hover {
-  color: var(--c-text-hover);
+  color: var(--text);
 }
 
 .active {
-  color: var(--c-text-hover);
-  border-color: var(--c-purple-2);
+  color: var(--text);
+  border-color: var(--c-md-toc-active);
 }
 
 .title {

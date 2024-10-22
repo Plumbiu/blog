@@ -6,6 +6,7 @@ import {
   getCategory,
   removeMdSuffix,
   joinFormatPaths,
+  getYear,
 } from '../index'
 import { FrontmatterWrapStr } from '@/constants'
 

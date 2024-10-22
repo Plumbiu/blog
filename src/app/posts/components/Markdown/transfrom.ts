@@ -81,7 +81,6 @@ async function transfromCode2Jsx(
   code: string,
   components: Partial<Components>,
 ) {
-  const start = Date.now()
   const shiki = await getSingletonHighlighterCore(shikiOptions)
   const processor = unified()
     .use(remarkParse)
@@ -94,10 +93,8 @@ async function transfromCode2Jsx(
     ])
     .use(remarkRehype)
     .use([rehypeElementPlugin, rehypePrismGenerator(shiki)])
-  const parseStart = Date.now()
   const mdastTree = processor.parse(code)
   const hastTree = await processor.run(mdastTree)
-  const parseEnd = Date.now()
 
   const node = toJsxRuntime(hastTree, {
     Fragment,
@@ -109,10 +106,6 @@ async function transfromCode2Jsx(
     passNode: true,
   })
   const end = Date.now()
-  console.log(`
-    parse: ${parseEnd - parseStart}ms
-    finish ${end - start}ms
-  `)
   return node
 }
 

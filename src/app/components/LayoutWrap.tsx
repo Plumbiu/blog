@@ -1,8 +1,7 @@
 'use client'
 
 import { applyCurrentTheme } from '@/utils/client/theme'
-import { ReactNode, useEffect, useLayoutEffect, useState } from 'react'
-import { usePathname } from 'next/navigation'
+import { ReactNode, useLayoutEffect, useState } from 'react'
 import { ViewTransitions } from 'next-view-transitions'
 
 interface ThemeWrap {
@@ -11,7 +10,6 @@ interface ThemeWrap {
 
 function LayoutWrap(props: ThemeWrap) {
   const [mounted, setMounted] = useState(false)
-  const pathname = usePathname()
   useLayoutEffect(() => {
     applyCurrentTheme()
     setMounted(true)
@@ -21,15 +19,7 @@ function LayoutWrap(props: ThemeWrap) {
     }
   }, [])
 
-  useEffect(() => {
-    console.log(pathname)
-  }, [pathname])
-
-  return (
-    <ViewTransitions>
-      {mounted && props.children}
-    </ViewTransitions>
-  )
+  return <ViewTransitions>{mounted && props.children}</ViewTransitions>
 }
 
 export default LayoutWrap

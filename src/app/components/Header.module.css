@@ -8,6 +8,7 @@
   background-color: var(--bg-body);
   height: var(--header-h);
   transition: height 200ms;
+  overflow: hidden;
 }
 
 .header {
@@ -36,7 +37,7 @@
 
 .hide {
   height: 0;
-  overflow: hidden;
+  box-shadow: none;
 }
 
 .header svg {

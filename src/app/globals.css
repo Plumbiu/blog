@@ -79,3 +79,19 @@ h6 {
 ::view-transition-new(root) {
   z-index: 9999;
 }
+
+.not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  height: calc(100vh - var(--header-h) - 64px);
+
+  & > h1 {
+    font-size: 32px;
+  }
+  & > div {
+    font-size: 20px;
+  }
+}
