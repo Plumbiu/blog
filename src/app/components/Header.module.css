@@ -5,6 +5,7 @@
   left: 0;
   right: 0;
   z-index: 99;
+  padding: 0 32px;
   background-color: var(--bg-body);
   height: var(--header-h);
   transition: height 200ms;

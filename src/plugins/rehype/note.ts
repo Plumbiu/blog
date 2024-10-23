@@ -1,9 +1,8 @@
 import { type ContainerDirective } from 'mdast-util-directive'
-import { makeProperties, addNodeClassName } from '../utils'
+import { addNodeClassName } from '../utils'
 
 function noteContainerDirective(node: ContainerDirective) {
   if (node.name === 'Note') {
-    makeProperties(node)
     const data = node.data!
     const props = data.hProperties!
     data.hName = 'blockquote'

@@ -64,7 +64,6 @@
   border-bottom: 1px solid var(--divider);
   overflow-x: auto;
   overflow-y: hidden;
-  scrollbar-width: thin;
   color: var(--text-3);
   white-space: nowrap;
 

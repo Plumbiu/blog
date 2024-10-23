@@ -45,6 +45,7 @@
   --bg-hover: rgba(0, 0, 0, 0.06);
   --bg-header: #f8f8f8;
   --bg-body: #fff;
+  --bg-scrollbar: #c8c8c8;
   /* shadow */
   --shadow-header: 5px 5px 16px #e2e2e2, -5px -5px 16px #fefefe;
 }

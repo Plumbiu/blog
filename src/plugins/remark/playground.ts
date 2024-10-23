@@ -3,12 +3,12 @@ import { getFirstLine, upperFirstChar } from '@/utils'
 import { ComponentKey, RemarkReturn } from '../constant'
 import { makeProperties } from '../utils'
 
-export const PlaygroundPrefix = `${ComponentKey}-playground`
-const CodeKey = `${PlaygroundPrefix}-code`
-const DefaultSelectorKey = `${PlaygroundPrefix}-selector`
-const ComponentIDKey = `${PlaygroundPrefix}-id`
-const ComponentLangKey = `${PlaygroundPrefix}-lang`
-const ComponentMetaKey = `${PlaygroundPrefix}-meta`
+export const PlaygroundPrefix = `${ComponentKey}-playground-`
+const CodeKey = `${PlaygroundPrefix}code`
+const DefaultSelectorKey = `${PlaygroundPrefix}selector`
+const ComponentIDKey = `${PlaygroundPrefix}id`
+const ComponentLangKey = `${PlaygroundPrefix}lang`
+const ComponentMetaKey = `${PlaygroundPrefix}meta`
 export function getCodeFromProps(props: any): string {
   return props[CodeKey]
 }

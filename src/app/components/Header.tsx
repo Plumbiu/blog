@@ -1,7 +1,6 @@
 'use client'
 
 import { Link } from 'next-view-transitions'
-import { clsx } from 'clsx'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { GithubIcon, MoonIcon, RssIcon, SunIcon } from '@/app/components/Icons'
 import { Dark, getLocalTheme, toggleDataTheme } from '@/utils/client/theme'
@@ -47,11 +46,12 @@ function Header() {
 
   return (
     <header ref={ref} className={styles.wrap}>
-      <div className={clsx('center', styles.header)}>
+      <div className={styles.header}>
         <div className={styles.left}>
-          <Link href="/list/blog">Home</Link>
+          <Link href="/">Home</Link>
         </div>
         <div className={styles.right}>
+          <Link href="/list/blog">Blog</Link>
           <a target="_blank" href="/rss.xml">
             <RssIcon />
           </a>

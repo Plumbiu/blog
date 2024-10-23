@@ -3,7 +3,6 @@ import { makeProperties } from '../utils'
 
 function detailContainerDirective(node: ContainerDirective) {
   if (node.name === 'Details') {
-    makeProperties(node)
     node.data!.hName = 'details'
     const summary = node.children[0]
     if (summary.type === 'paragraph') {

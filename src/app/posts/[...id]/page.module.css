@@ -2,5 +2,4 @@
   display: flex;
   justify-content: flex-end;
   position: relative;
-  margin-top: var(--header-h);
 }

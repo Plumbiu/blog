@@ -119,3 +119,17 @@ h6 {
     border-bottom-right-radius: 0 !important;
   }
 }
+
+*::-webkit-scrollbar {
+  width: 6px !important;
+  height: 4px !important;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--bg-scrollbar) !important;
+  border-radius: 4px !important;
+}
