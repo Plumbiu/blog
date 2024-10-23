@@ -52,6 +52,10 @@ h6 {
   font-size: 1rem;
 }
 
+.main_children {
+  margin-top: calc(var(--header-h) + 32px);
+}
+
 .center {
   width: var(--center-w);
   max-width: var(--center-max-w);
@@ -93,5 +97,25 @@ h6 {
   }
   & > div {
     font-size: 20px;
+  }
+}
+
+.link {
+  color: var(--text);
+  border-width: 0;
+  border-bottom-width: 1px;
+  border-style: solid;
+  border-color: var(--divider);
+  font-weight: 600;
+  padding: 1px 0;
+  transition: border-color 250ms ease-in-out;
+
+  &:hover {
+    border-color: var(--text);
+  }
+
+  & > code {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
   }
 }

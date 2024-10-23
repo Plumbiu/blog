@@ -30,7 +30,7 @@ export default function RootLayout({
       <body className={noto.className}>
         <LayoutWrap>
           <Header />
-          {children}
+          <div className="main_children">{children}</div>
           <Footer />
           <Modal />
         </LayoutWrap>
