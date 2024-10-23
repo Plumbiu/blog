@@ -90,6 +90,12 @@ export default Test
 
 # Tip
 
+> Normal Tip
+>
+> This is some description. This is some description.This is some description.
+>
+> `console.log('info')`
+
 :::Note[This is Info]{.info}
 
 This is some description. This is some description. This is some description.
@@ -136,3 +142,9 @@ This is some description. This is some description. This is some description.
 Hello World
 `console.log('details')`
 :::
+
+# Image
+
+![image-20240310213919215](https://plumbiu.github.io/blogImg/image-20240310213919215.png)
+![image-20240310213930618](https://plumbiu.github.io/blogImg/image-20240310213930618.png)
+![image-20240310213919215](https://plumbiu.github.io/blogImg/image-20240310213919215.png)

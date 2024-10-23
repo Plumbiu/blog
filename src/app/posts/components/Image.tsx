@@ -1,7 +1,7 @@
 'use client'
 
 import NextImage from 'next/image'
-import { ReactNode } from 'react'
+import { CSSProperties, ReactNode } from 'react'
 import useModalStore from '@/store/modal'
 import imageinfo from '@/image-info.json'
 
@@ -26,10 +26,11 @@ function MarkdownImage(props: IImage) {
     alt,
     style: {
       position: undefined,
-    },
+    } as CSSProperties,
     onClick: clickHandler,
   }
   if (size) {
+    commonProps.style.aspectRatio = size.w / size.h
     node = <NextImage {...commonProps} width={size.w} height={size.h} />
   } else {
     node = <NextImage {...commonProps} fill />
