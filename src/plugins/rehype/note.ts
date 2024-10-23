@@ -1,4 +1,4 @@
-import type { ContainerDirective } from 'mdast-util-directive'
+import { type ContainerDirective } from 'mdast-util-directive'
 import { makeProperties, addNodeClassName } from '../utils'
 
 function noteContainerDirective(node: ContainerDirective) {

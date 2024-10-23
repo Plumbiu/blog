@@ -1,8 +1,8 @@
 import { visit } from 'unist-util-visit'
-import { RehypePlugin } from '../constant'
+import { isNumber } from '@/utils'
 import markPlaygroundPre from './playground-pre'
 import blankTargetPlugin from './blank-link'
-import { isNumber } from '@/utils'
+import { RehypePlugin } from '../constant'
 
 function rehypeElementPlugin(): RehypePlugin {
   return (tree) => {

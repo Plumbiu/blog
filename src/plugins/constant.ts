@@ -1,6 +1,6 @@
 /// <reference types="mdast-util-directive" />
-import type { Root } from 'hast'
-import type { Root as RemarkRoot } from 'mdast'
+import { type Root } from 'hast'
+import { type Root as RemarkRoot } from 'mdast'
 
 export const ComponentKey = 'data-component'
 export function getComponentFromProps(props: any) {

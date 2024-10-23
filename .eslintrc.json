@@ -1,7 +1,0 @@
-{
-  "extends": ["@plumbiu"],
-  "ignorePatterns": ["/assets"],
-  "rules": {
-    "@stylistic/linebreak-style": 0
-  }
-}

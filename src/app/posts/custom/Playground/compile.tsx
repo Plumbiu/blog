@@ -1,6 +1,5 @@
-/* eslint-disable import/no-named-as-default */
 import React, { createElement } from 'react'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { transform, Options } from 'sucrase'
 
 type Scope = Record<string, any>

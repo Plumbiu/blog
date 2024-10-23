@@ -1,7 +1,7 @@
 import Link from 'next/link'
+import { MenuIcon } from '@/app/components/Icons'
 import styles from './Aside.module.css'
 import { FloatItem } from '../types'
-import { MenuIcon } from '@/app/components/Icons'
 
 interface ListFloatProps {
   items: [string, FloatItem[]][]

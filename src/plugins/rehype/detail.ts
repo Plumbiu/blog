@@ -1,5 +1,5 @@
-import type { ContainerDirective } from 'mdast-util-directive'
-import { makeProperties, addNodeClassName } from '../utils'
+import { type ContainerDirective } from 'mdast-util-directive'
+import { makeProperties } from '../utils'
 
 function detailContainerDirective(node: ContainerDirective) {
   if (node.name === 'Details') {

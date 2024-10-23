@@ -3,9 +3,8 @@
 import { memo, useEffect, useRef, useState } from 'react'
 import { clsx } from 'clsx'
 import { Link } from 'next-view-transitions'
+import { throttle } from '@/utils'
 import styles from './Toc.module.css'
-import { throttle } from '@//utils'
-import { css } from '@pigment-css/react'
 
 interface ITocList {
   title: string

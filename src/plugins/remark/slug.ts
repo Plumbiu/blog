@@ -1,7 +1,7 @@
 import { visit } from 'unist-util-visit'
+import { formatId } from '@/utils'
 import { RemarkReturn } from '../constant'
 import { makeProperties } from '../utils'
-import { formatId } from '@/utils'
 
 export function remarkSlug(): RemarkReturn {
   return (tree) => {

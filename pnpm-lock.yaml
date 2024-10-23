@@ -90,8 +90,8 @@ importers:
         specifier: ^0.0.24
         version: 0.0.24(@types/react@18.3.11)(next@14.2.15(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(typescript@5.6.3)
       '@plumbiu/eslint-config':
-        specifier: ^0.3.2
-        version: 0.3.2(eslint-plugin-import@2.31.0(eslint@9.13.0))(eslint@9.13.0)(typescript@5.6.3)
+        specifier: ^0.3.8
+        version: 0.3.8(eslint-plugin-import@2.31.0(eslint@9.13.0))(eslint@9.13.0)(typescript@5.6.3)
       '@types/hast':
         specifier: ^3.0.4
         version: 3.0.4
@@ -1049,8 +1049,8 @@ packages:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
 
-  '@plumbiu/eslint-config@0.3.2':
-    resolution: {integrity: sha512-SDFClVb/+nrUiJlLAO/nP+SEXOKbvfKhd18TFyS3hCHyMMKyGBuGpgzpnYKa0lcftvSMxr1Bz4mYogcXb2Yd7Q==}
+  '@plumbiu/eslint-config@0.3.8':
+    resolution: {integrity: sha512-WXutwF8v6vyquKUK1fkE2yCbPVdIT3aATzU2Po2O3nklyHAft2a5w/+PfFT38Zkd16uomnYd6niyz/6Ozr0+Hw==}
     peerDependencies:
       eslint: ^9
 
@@ -4706,9 +4706,8 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@plumbiu/eslint-config@0.3.2(eslint-plugin-import@2.31.0(eslint@9.13.0))(eslint@9.13.0)(typescript@5.6.3)':
+  '@plumbiu/eslint-config@0.3.8(eslint-plugin-import@2.31.0(eslint@9.13.0))(eslint@9.13.0)(typescript@5.6.3)':
     dependencies:
-      '@eslint/js': 9.13.0
       '@stylistic/eslint-plugin': 2.9.0(eslint@9.13.0)(typescript@5.6.3)
       '@typescript-eslint/parser': 8.11.0(eslint@9.13.0)(typescript@5.6.3)
       eslint: 9.13.0

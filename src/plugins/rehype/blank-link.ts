@@ -1,4 +1,4 @@
-import type { Element } from 'hast'
+import { type Element } from 'hast'
 
 function blankTargetPlugin(node: Element) {
   if (node.tagName === 'a') {

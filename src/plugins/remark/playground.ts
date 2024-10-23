@@ -1,7 +1,7 @@
 import { visit } from 'unist-util-visit'
+import { getFirstLine, upperFirstChar } from '@/utils'
 import { ComponentKey, RemarkReturn } from '../constant'
 import { makeProperties } from '../utils'
-import { getFirstLine, upperFirstChar } from '@/utils'
 
 export const PlaygroundPrefix = `${ComponentKey}-playground`
 const CodeKey = `${PlaygroundPrefix}-code`

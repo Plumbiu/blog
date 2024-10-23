@@ -1,7 +1,7 @@
 'use client'
 
-import styles from './Modal.module.css'
 import useModalStore from '@/store/modal'
+import styles from './Modal.module.css'
 
 function Modal() {
   const { children, hidden } = useModalStore()

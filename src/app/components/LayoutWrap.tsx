@@ -1,8 +1,8 @@
 'use client'
 
-import { applyCurrentTheme } from '@/utils/client/theme'
 import { ReactNode, useLayoutEffect, useState } from 'react'
 import { ViewTransitions } from 'next-view-transitions'
+import { applyCurrentTheme } from '@/utils/client/theme'
 
 interface ThemeWrap {
   children: ReactNode

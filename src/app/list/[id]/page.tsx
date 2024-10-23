@@ -1,10 +1,10 @@
 import { Link } from 'next-view-transitions'
 import { Metadata } from 'next'
-import styles from './page.module.css'
+import { clsx } from 'clsx'
 import { getYear, upperFirstChar } from '@/utils'
 import { getPostsInfo, type FrontmatterKey } from '@/utils/node'
 import { monthArr } from '@/constants'
-import clsx from 'clsx'
+import styles from './page.module.css'
 import { FloatType } from './types'
 import ListFloat from './components/Aside'
 

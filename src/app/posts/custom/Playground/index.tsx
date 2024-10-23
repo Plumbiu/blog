@@ -1,10 +1,10 @@
-/* eslint-disable import/no-named-as-default */
+/* eslint-disable @stylistic/function-paren-newline */
 'use client'
 
 // It could be running at server, but doesn't support onClick or other props
 import React, { memo, ReactNode, useCallback, useMemo, useState } from 'react'
-import clsx from 'clsx'
-import styles from './index.module.css'
+import { clsx } from 'clsx'
+import dynamic from 'next/dynamic'
 import { buildFiles, padStartZero } from '@/utils'
 import { mono } from '@/app/fonts'
 import { getFileKeyFromProps } from '@/plugins/rehype/playground-pre'
@@ -14,7 +14,7 @@ import {
 } from '@/plugins/remark/playground'
 import useMounted from '@/hooks/useMounted'
 import ReactShadowRoot from '@/app/components/Shadow'
-import dynamic from 'next/dynamic'
+import styles from './index.module.css'
 
 const PlaygroundPreview = dynamic(() =>
   import('./compile').then((res) => res.PlaygroundPreview),

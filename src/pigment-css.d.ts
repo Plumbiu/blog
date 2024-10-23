@@ -1,4 +1,4 @@
-import type { ExtendTheme } from '@pigment-css/react/theme'
+import { type ExtendTheme } from '@pigment-css/react/theme'
 import { configColors } from '../theme-variable.mjs'
 
 type tokenType = typeof configColors

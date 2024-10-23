@@ -1,11 +1,11 @@
 'use client'
 
 import { Link } from 'next-view-transitions'
-import styles from './Header.module.css'
-import { GithubIcon, MoonIcon, RssIcon, SunIcon } from '@/app/components/Icons'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { GithubIcon, MoonIcon, RssIcon, SunIcon } from '@/app/components/Icons'
 import { Dark, getLocalTheme, toggleDataTheme } from '@/utils/client/theme'
+import styles from './Header.module.css'
 
 function Header() {
   const ref = useRef<HTMLHeadingElement>(null)

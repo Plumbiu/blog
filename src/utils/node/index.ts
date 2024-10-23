@@ -1,14 +1,13 @@
 import fsp from 'fs/promises'
 import yaml from 'js-yaml'
+import { FrontmatterWrapStr } from '@/constants'
 import stripMarkdown from '../strip-markdown'
 import {
   isLikeNum,
   getCategory,
   removeMdSuffix,
   joinFormatPaths,
-  getYear,
 } from '../index'
-import { FrontmatterWrapStr } from '@/constants'
 
 export interface FrontMatterItem {
   title: string

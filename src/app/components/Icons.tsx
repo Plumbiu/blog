@@ -1,4 +1,3 @@
-/* eslint-disable @stylistic/jsx-max-props-per-line */
 /* eslint-disable @stylistic/max-len */
 import React, { type SVGProps } from 'react'
 
@@ -494,7 +493,7 @@ export function MenuIcon(props: SVGProps<SVGSVGElement>) {
           attributeName="d"
           dur="0.4s"
           values="M5 5L12 12L19 5M12 12H12M5 19L12 12L19 19;M5 5L12 5L19 5M5 12H19M5 19L12 19L19 19"
-        ></animate>
+        />
       </path>
     </svg>
   )

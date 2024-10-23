@@ -1,13 +1,13 @@
-import React from 'react'
-import './index.css'
+import { type Components } from 'hast-util-to-jsx-runtime'
+import React, { isValidElement } from 'react'
 import { getLangFromProps } from '@/plugins/remark/playground'
-import { Components } from 'hast-util-to-jsx-runtime'
 import { mono } from '@/app/fonts'
 import Copy from '@/app/posts/components/Copy'
 import MarkdownImage from '@/app/posts/components/Image'
 import CustomComponent, { CustomComponentProp } from '@/app/posts/custom'
 import { getComponentFromProps } from '@/plugins/constant'
-import { isValidElement } from 'react'
+import './index.css'
+
 import transfromCode2Jsx from './transfrom'
 
 const components: Partial<Components> = {

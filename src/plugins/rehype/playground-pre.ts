@@ -1,5 +1,5 @@
-/* eslint-disable @stylistic/indent */
-import type { Element } from 'hast'
+import { type Element } from 'hast'
+import { buildFiles, getSuffix } from '@/utils'
 import {
   isPlayground,
   getCodeFromProps,
@@ -8,7 +8,6 @@ import {
   PlaygroundName,
   PlaygroundPrefix,
 } from '../remark/playground'
-import { buildFiles, getSuffix } from '@/utils'
 
 const PlaygroundFileKey = `${PlaygroundPrefix}-file-key`
 export function getFileKeyFromProps(props: any) {
