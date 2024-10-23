@@ -94,11 +94,19 @@ function App() {
       <div>
         <div className={styles.links}>
           <span>Often appears in </span>
-          <Link className="link" href="https://github.com/Plumbiu">
+          <Link
+            target="_blank"
+            className="link"
+            href="https://github.com/Plumbiu"
+          >
             <GithubIcon />
             Github
           </Link>
-          <Link className="link" href="https://github.com/Plumbiu">
+          <Link
+            target="_blank"
+            className="link"
+            href="https://github.com/Plumbiu"
+          >
             <BiliBiliIcon />
             哔哩哔哩
           </Link>
@@ -107,7 +115,11 @@ function App() {
       <div>
         Connect me at <strong>`plumbiuzz@gmail.com`</strong>. Or add an issue to
         my{' '}
-        <Link className="link" href="https://github.com/Plumbiu/blog">
+        <Link
+          target="_blank"
+          className="link"
+          href="https://github.com/Plumbiu/blog"
+        >
           Blog repo
         </Link>{' '}
         so I can see it faster.
