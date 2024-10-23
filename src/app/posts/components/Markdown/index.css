@@ -128,8 +128,9 @@
 
     margin: 0;
     margin-bottom: 12px;
-    padding: 8px 16px;
+    padding: 8px 0;
     margin-left: calc(var(--extend-x) / 2);
+    padding-left: 18px;
     border-left: 4px solid var(--bg-md-quote-before);
     p {
       margin: 0;
@@ -140,6 +141,7 @@
     border-radius: 2px;
     border-left: none;
     margin-left: 0;
+    padding-left: 16px;
   }
   blockquote[data-title] p:first-child {
     font-weight: 600;

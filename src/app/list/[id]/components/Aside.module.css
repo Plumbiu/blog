@@ -1,22 +1,37 @@
-.content {
+.wrap {
   position: fixed;
   left: 32px;
   top: calc(var(--header-h) + 36px);
   z-index: 9;
-  width: var(--center-rest);
+  max-width: calc(var(--center-rest) / 1.8);
   overflow-y: auto;
-  overflow-x: hidden;
+  line-height: 1.5;
   height: calc(100vh - var(--header-h));
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
 
 @media screen and (max-width: 1024px) {
-  .content {
+  .wrap {
     display: none;
   }
 }
 
+.btn {
+  cursor: pointer;
+  font-size: 22px;
+  color: var(--text-3);
+  transition: color 250ms;
+}
+
+.content {
+  opacity: 0;
+  transition: opacity 250ms;
+}
+.wrap:hover .btn {
+  color: var(--text-1);
+}
+.wrap:hover .content {
+  opacity: 1;
+}
 .year {
   font-weight: 600;
   font-size: 14px;
@@ -39,7 +54,6 @@
   & > li {
     list-style: none;
     & > a {
-      padding-bottom: 2px;
       border-width: 0;
       border-bottom-width: 1px;
       border-style: dashed;

@@ -35,7 +35,7 @@
   --c-gray-1: #dddde3;
   --c-md-toc-active: #8aeeff;
   /* background */
-  --bg-md-quote-before: rgba(66, 66, 66, 0.4);
+  --bg-md-quote-before: #d5d5d5;
   --bg-md-quote-warn: #fcf4dc;
   --bg-md-quote-info: #e9eaff;
   --bg-md-quote-danger: rgba(244, 63, 94, 0.14);

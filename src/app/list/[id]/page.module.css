@@ -1,11 +1,11 @@
 .wrap {
-  margin-top: calc(var(--header-h) + 48px);
+  margin-top: calc(var(--header-h) + 36px);
 }
 
 .action {
   display: flex;
   color: var(--text-4);
-  margin-bottom: 42px;
+  margin-bottom: 36px;
   gap: 24px;
 
   & > a {
@@ -19,7 +19,7 @@
 }
 
 .active {
-  color: var(--text);
+  color: var(--text-1);
 }
 
 .artlist {
@@ -28,7 +28,7 @@
 
 .link {
   display: block;
-  margin-bottom: 36px;
+  margin-bottom: 28px;
 }
 
 .top {
@@ -38,7 +38,6 @@
 }
 
 .title {
-  font-size: 18px;
   font-weight: 600;
   margin-top: 0;
   padding: 4px 0;
@@ -47,11 +46,11 @@
 
 .date {
   color: var(--text-3);
-  font-size: 14px;
+  font-size: 0.725rem;
 }
 
 .desc {
-  font-size: 14px;
+  font-size: 0.75rem;
   line-height: 1.5;
 }
 

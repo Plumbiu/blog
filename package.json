@@ -32,7 +32,7 @@
   "devDependencies": {
     "@next/bundle-analyzer": "^14",
     "@pigment-css/nextjs-plugin": "^0.0.24",
-    "@plumbiu/eslint-config": "^0.3.0",
+    "@plumbiu/eslint-config": "^0.3.2",
     "@types/hast": "^3.0.4",
     "@types/js-yaml": "^4.0.9",
     "@types/jstoxml": "^2.0.4",
