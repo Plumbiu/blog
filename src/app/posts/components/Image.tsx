@@ -38,15 +38,7 @@ function MarkdownImage(props: IImage) {
 
   function clickHandler(e: any) {
     e.stopPropagation()
-    const imgNode = (
-      <img
-        onError={() => {
-          setChildren(node)
-        }}
-        src={props.src}
-      />
-    )
-    setChildren(imgNode)
+    setChildren(node)
   }
   return node
 }
