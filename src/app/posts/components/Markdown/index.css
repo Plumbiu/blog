@@ -6,21 +6,6 @@
     margin-bottom: 12px;
   }
 
-  p {
-    margin: 12px 0;
-    line-height: 26px;
-    overflow-wrap: break-word;
-  }
-
-  /* list */
-  ol,
-  ul {
-    margin-top: 6px;
-    line-height: 28px;
-    li {
-      padding-left: 4px;
-    }
-  }
   /* table */
   table {
     border-spacing: 0;

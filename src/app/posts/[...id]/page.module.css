@@ -1,5 +1,6 @@
 .wrap {
   display: flex;
+  align-items: flex-start;
   justify-content: flex-end;
   position: relative;
 }

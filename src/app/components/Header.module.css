@@ -12,6 +12,12 @@
   overflow: hidden;
 }
 
+@media screen and (max-width: 1024px) {
+  .wrap {
+    padding: 0 12px;
+  }
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -21,7 +27,7 @@
   height: 100%;
 
   & a,
-  div {
+  svg {
     color: var(--text-2);
     transition: color 125ms ease-in-out;
     cursor: pointer;
@@ -44,12 +50,6 @@
 .header svg {
   display: block;
   font-size: 24px;
-}
-
-.item {
-  cursor: pointer;
-  border-radius: 4px;
-  padding: 4px;
 }
 
 .item:hover {

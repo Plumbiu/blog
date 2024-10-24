@@ -2,16 +2,10 @@
   font-size: 14px;
   color: var(--text-3);
   margin-top: 86px !important;
+  white-space: nowrap;
 
   & > a {
-    border-width: 0;
-    border-bottom-width: 1px;
-    border-style: solid;
+    color: inherit;
     margin-right: 8px;
-    border-color: var(--divider);
-    transition: border-color 250ms ease-in-out;
-    &:hover {
-      border-color: var(--text-1);
-    }
   }
 }

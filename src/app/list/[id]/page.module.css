@@ -18,6 +18,12 @@
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .action {
+    gap: 12px;
+  }
+}
+
 .active {
   color: var(--text-1);
 }
@@ -46,11 +52,11 @@
 
 .date {
   color: var(--text-3);
-  font-size: 0.725rem;
+  font-size: 12px;
 }
 
 .desc {
-  font-size: 0.75rem;
+  font-size: 14px;
   line-height: 1.5;
 }
 

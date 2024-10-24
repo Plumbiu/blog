@@ -121,15 +121,36 @@ h6 {
 }
 
 *::-webkit-scrollbar {
-  width: 6px !important;
-  height: 4px !important;
+  width: 6px;
+  height: 4px;
 }
 
 *::-webkit-scrollbar-track {
-  background-color: transparent !important;
+  background-color: transparent;
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: var(--bg-scrollbar) !important;
-  border-radius: 4px !important;
+  background-color: var(--bg-scrollbar);
+  border-radius: 4px;
+}
+
+/* list */
+ol,
+ul {
+  margin-top: 6px;
+  padding-inline-start: 28px;
+  line-height: 24px;
+  li {
+    padding-left: 4px;
+  }
+}
+
+p {
+  margin: 12px 0;
+  line-height: 26px;
+  overflow-wrap: break-word;
+}
+
+strong {
+  color: var(--text);
 }

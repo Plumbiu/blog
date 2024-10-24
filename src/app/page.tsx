@@ -23,10 +23,6 @@ import {
 } from './components/Icons'
 import styles from './page.module.css'
 
-function Item(props: { children: ReactNode }) {
-  return <div>{props.children}</div>
-}
-
 const languages = [
   <JavaScriptIcon />,
   <TypeScriptIcon />,
@@ -124,16 +120,37 @@ function App() {
         </Link>{' '}
         so I can see it faster.
       </div>
-      <div>
-        How this blog works:{' '}
-        <Link
-          className="link"
-          target="_blank"
-          href="/posts/blog/我是如何构建自己的博客的"
-        >
-          How I build my blog
-        </Link>
-      </div>
+      <h2>You may interested</h2>
+      <ul>
+        <li>
+          How this blog works:{' '}
+          <Link
+            className="link"
+            target="_blank"
+            href="/posts/blog/How-I-Build-My-Blog"
+          >
+            How I build my blog
+          </Link>
+        </li>
+        <li>
+          Record some interesting tech:{' '}
+          <Link className="link" target="_blank" href="/list/blog">
+            Blog
+          </Link>
+        </li>
+        <li>
+          Learn/Review tech:{' '}
+          <Link className="link" target="_blank" href="/list/blog">
+            Note
+          </Link>
+        </li>
+        <li>
+          The annual summary:{' '}
+          <Link className="link" target="_blank" href="/list/blog">
+            Summary
+          </Link>
+        </li>
+      </ul>
     </div>
   )
 }
