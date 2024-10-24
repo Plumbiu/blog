@@ -1,15 +1,17 @@
+/* eslint-disable import-x/no-named-as-default */
 /* eslint-disable @stylistic/function-paren-newline */
 'use client'
 
 // It could be running at server, but doesn't support onClick or other props
 import React, { memo, ReactNode, useCallback, useMemo, useState } from 'react'
-import { clsx } from 'clsx'
+import clsx from 'clsx'
 import dynamic from 'next/dynamic'
 import { buildFiles, padStartZero } from '@/utils'
 import { mono } from '@/app/fonts'
 import { getFileKeyFromProps } from '@/plugins/rehype/playground-pre'
 import {
   getCodeFromProps,
+  getComponentShowConsoleKey,
   getDefaultSelectorFromProps,
 } from '@/plugins/remark/playground'
 import useMounted from '@/hooks/useMounted'
@@ -68,7 +70,9 @@ function formatTime(date: number) {
 
 const Playground = (props: any) => {
   const code = getCodeFromProps(props)
-  const children = props.children
+  const children = Array.isArray(props.children)
+    ? props.children
+    : [props.children]
   const defaultSelector = getDefaultSelectorFromProps(props)
   const nodes = useMemo(
     () =>
@@ -84,12 +88,17 @@ const Playground = (props: any) => {
   const tabs = useMemo(() => Object.keys(files), [files])
   const isStatic = defaultSelector.endsWith('.html')
   const isMounted = useMounted()
-  const [isConsoleVisible, setIsConsoleVisible] = useState(false)
+  const [isConsoleVisible, setIsConsoleVisible] = useState(
+    getComponentShowConsoleKey(props) ?? false,
+  )
   const [logs, setLogs] = useState<LogInfo[]>([])
 
   const logMethod = useCallback(
     (value: any) => {
       const now = Date.now()
+      if (typeof value === 'object') {
+        value = value.toString()
+      }
       const info = { date: now, value }
       const lastLog = logs[logs.length - 1]
       if (lastLog == null || lastLog.date !== now) {
@@ -129,7 +138,7 @@ const Playground = (props: any) => {
   }, [])
 
   return (
-    <div>
+    <div className={styles.wrap}>
       <div className={styles.bar}>Code Playground</div>
       <div className={styles.container}>
         <CodePreview

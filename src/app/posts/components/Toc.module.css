@@ -1,9 +1,10 @@
 .toc {
+  --top: 140px;
   height: 100%;
   color: var(--text-2);
   overflow-x: hidden;
   position: sticky;
-  top: 120px;
+  top: var(--top);
   z-index: 99;
   font-size: 14px;
   padding-left: 32px;
@@ -39,7 +40,7 @@
 
 .active {
   color: var(--text);
-  border-color: var(--c-md-toc-active);
+  border-color: var(--text-3);
 }
 
 .title {

@@ -6,7 +6,7 @@ desc: 1
 
 之前书写博客时，总会想着展示一个 React 组件，当时的实现是写一段代码，然后再贴一张图片预览，但是图片毕竟总是静态的，缺乏了交互性，后续了解到了 [MDX](https://github.com/MDX-js/MDX)，MDX 是一个很棒的方案，允许我们导入 React 组件，同时也可以执行一些 JavaScript 代码，但是最终我没有使用它，因为它并不像 JavaScript 那样“动态化”，例如我想使用 Nextjs 的 `dynamic` 功能，我不能确定它是否能完整的运行，同时相比于使用规则，我更喜欢**创造规则**。
 
-另外，如果你喜欢 MDX，或者更成熟的方案，你可以用 [sandpack](https://github.com/codesandbox/sandpack)，，由于我对产物体积以及性能的追求，这里选择自己实现。
+另外，如果你喜欢 MDX，或者更成熟的方案，你可以用 [sandpack](https://github.com/codesandbox/sandpack)，由于我对产物体积以及性能的追求，这里选择自己实现。
 
 先看一下效果：
 

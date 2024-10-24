@@ -12,7 +12,6 @@ html[data-theme='dark'] {
   --c-yellow-3: #a46a0a;
   --c-yellow-2: #da8b17;
   --c-yellow-1: #f9b44e;
-  --c-text-hover: rgb(255, 255, 255);
   --c-red-soft: rgba(244, 63, 94, 0.16);
   --c-red-3: #b62a3c;
   --c-red-2: #f14158;
@@ -40,7 +39,7 @@ html[data-theme='dark'] {
   --bg-md-quote-info: #272843;
   --bg-md-quote-danger: rgba(244, 63, 94, 0.16);
   --bg-md-pre: #0e0e0e;
-  --bg-md-highlight-line: rgba(47, 55, 68, 0.5);
+  --bg-md-highlight-line: rgba(47, 55, 58, 0.5);
   --bg-md-code: #272e35;
   --bg-hover: rgba(255, 255, 255, 0.08);
   --bg-header: #050505;

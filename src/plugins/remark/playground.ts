@@ -9,6 +9,8 @@ const DefaultSelectorKey = `${PlaygroundPrefix}selector`
 const ComponentIDKey = `${PlaygroundPrefix}id`
 const ComponentLangKey = `${PlaygroundPrefix}lang`
 const ComponentMetaKey = `${PlaygroundPrefix}meta`
+const ComponentShowConsoleKey = `${PlaygroundPrefix}console`
+
 export function getCodeFromProps(props: any): string {
   return props[CodeKey]
 }
@@ -23,6 +25,9 @@ export function getComponentIdFromProps(props: any): string {
 }
 export function getComponentMetaFromProps(props: any): string {
   return props[ComponentMetaKey]
+}
+export function getComponentShowConsoleKey(props: any): boolean | undefined {
+  return props[ComponentShowConsoleKey]
 }
 const SupportPlaygroundLang = new Set(['jsx', 'tsx', 'react', 'js', 'ts'])
 const SupportStaticPlaygroundLang = new Set(['html', 'css', 'js', 'txt'])
@@ -67,6 +72,9 @@ function remarkPlayground(): RemarkReturn {
         props[DefaultSelectorKey] = selector
         props[CodeKey] = myBeAppFile ? code.slice(endIndex) : code
         props[ComponentMetaKey] = meta
+        if (meta.includes('console')) {
+          props[ComponentShowConsoleKey] = true
+        }
         // @ts-ignore
         node.type = 'root'
         node.data!.hName = 'div'

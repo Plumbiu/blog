@@ -1,3 +1,7 @@
+.wrap {
+  margin: 24px var(--extend-x);
+}
+
 .container {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);

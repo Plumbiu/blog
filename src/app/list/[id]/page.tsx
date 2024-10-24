@@ -75,7 +75,7 @@ async function ArtlistAll({ params }: ListProps) {
             </div>
             <div className={styles.subtitle}>{subtitle}</div>
             <div className={styles.desc}>
-              {desc.length > 150 ? desc.slice(0, 150) + '...' : desc}
+              {desc}
             </div>
           </Link>
         ))}

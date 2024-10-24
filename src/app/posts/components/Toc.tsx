@@ -15,7 +15,6 @@ interface ITocList {
 const TocLink = memo(
   ({ id, pl, title, active }: ITocList & { active: boolean }) => (
     <Link
-      key={id}
       style={{
         paddingLeft: pl,
       }}
@@ -36,16 +35,17 @@ function Toc() {
   const tocRef = useRef<HTMLDivElement>(null)
 
   const handler = throttle(() => {
-    const tocHeight = tocRef.current?.clientHeight ?? 0
     const viewHeight = window.innerHeight
     for (let i = 0; i < nodes.current!.length; i++) {
       const node = nodes.current![i]
       const rect = node.getBoundingClientRect()
       if (rect.bottom >= 0 && rect.top < viewHeight) {
         setActiveIndex(i)
-        const top = (tocRef.current?.children[i] as any)?.offsetTop
+        const tocDom = tocRef.current
+        const top = (tocDom?.children[i] as any)?.offsetTop
         if (top) {
-          tocRef.current?.scrollTo({
+          const tocHeight = tocDom?.clientHeight ?? 0
+          tocDom?.scrollTo({
             top: top - Math.floor(tocHeight / 2) - 16,
           })
         }

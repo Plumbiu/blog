@@ -13,7 +13,17 @@ import transfromCode2Jsx from './transfrom'
 const components: Partial<Components> = {
   pre(props) {
     const children = props.children
-    const defaultnode = <pre className={mono.className}>{props.children}</pre>
+    const defaultnode = <pre className={mono.className}>{children}</pre>
+    const component = getComponentFromProps(props)
+    if (component) {
+      return (
+        <CustomComponent
+          {...props}
+          defaultnode={defaultnode}
+          component={component}
+        />
+      )
+    }
     if (isValidElement(children)) {
       const code = children.props.children
       const lang = getLangFromProps(children.props)
@@ -27,16 +37,7 @@ const components: Partial<Components> = {
         </div>
       )
     }
-    const component = getComponentFromProps(props)
-    if (component) {
-      return (
-        <CustomComponent
-          {...props}
-          defaultnode={defaultnode}
-          component={component}
-        />
-      )
-    }
+
     return defaultnode
   },
   img(props) {

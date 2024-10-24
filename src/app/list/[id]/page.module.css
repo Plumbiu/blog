@@ -1,5 +1,5 @@
 .wrap {
-  margin-top: calc(var(--header-h) + 36px);
+  margin-top: 36px;
 }
 
 .action {
@@ -29,7 +29,7 @@
 }
 
 .artlist {
-  min-height: 80vh;
+  min-height: 60vh;
 }
 
 .link {

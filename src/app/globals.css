@@ -122,7 +122,7 @@ h6 {
 
 *::-webkit-scrollbar {
   width: 6px;
-  height: 4px;
+  height: 6px;
 }
 
 *::-webkit-scrollbar-track {
@@ -153,4 +153,9 @@ p {
 
 strong {
   color: var(--text);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

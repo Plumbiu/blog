@@ -25,6 +25,7 @@ function evalCode(
   scope = baseScope,
   logMethod?: (value: string) => void,
 ) {
+  console.log(code)
   const _require = (k: keyof Scope) => {
     return scope[k]
   }
