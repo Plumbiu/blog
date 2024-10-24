@@ -1,4 +1,3 @@
-/* eslint-disable @stylistic/indent */
 module.exports = {
   plugins: [
     'postcss-flexbugs-fixes',
