@@ -51,15 +51,18 @@
   }
 
   /* Code blocks and inline Code */
-  code {
-    font-family: inherit !important;
+
+  code:not([class]),
+  kbd,
+  samp {
+    font-weight: 500;
   }
   code:not([class]) {
-    color: var(--text);
     font-size: 0.85rem;
-    background-color: var(--c-purple-soft);
     padding: 2px 6px;
     border-radius: 4px;
+    color: var(--text);
+    background-color: var(--c-gray-soft);
   }
 
   pre {

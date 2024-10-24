@@ -59,6 +59,8 @@
   --pre-radius: 6px;
   --extend-x: -36px;
   --image-item-w: 50%;
+  --code-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    Liberation Mono, Courier New, monospace;
 }
 
 @media screen and (min-width: 1680px) {
