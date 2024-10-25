@@ -52,6 +52,7 @@
   margin: 0;
 
   & > li {
+    line-height: 1.25;
     list-style: none;
     & > a {
       border-width: 0;

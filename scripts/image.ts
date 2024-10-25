@@ -17,7 +17,7 @@ async function generateImageInfo(fileMap: FileMap) {
   const regx =
     /(http(s?):)([/|.|\w|\s|-])*\.(?:png|jpg|jpeg|gif|png|svg|webp)/gi
   const urls = []
-  const localRegx = /\!\[[^\]]*\]\((\/assets\/[^\)]*)\)/gi
+  const localRegx = /\!\[[^\]]*\]\((\/assets\/images\/[^\)]*)\)/gi
   let m
   for (const p in fileMap) {
     const content = fileMap[p]

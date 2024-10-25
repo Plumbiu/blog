@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "scripts": {
     "prepare": "simple-git-hooks",
-    "generate-fm": "esno ./scripts/index.ts",
-    "predev": "pnpm generate-fm",
+    "generate": "esno ./scripts/index.ts",
+    "predev": "pnpm generate",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -71,6 +71,6 @@
     }
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm generate-fm"
+    "pre-commit": "pnpm generate"
   }
 }

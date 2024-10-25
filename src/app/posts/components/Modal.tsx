@@ -5,6 +5,7 @@ import styles from './Modal.module.css'
 
 function Modal() {
   const { children, hidden } = useModalStore()
+
   return (
     <div
       className={styles.mask}
