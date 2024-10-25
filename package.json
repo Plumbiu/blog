@@ -44,6 +44,7 @@
     "autoprefixer": "^10.4.20",
     "cross-env": "^7.0.3",
     "cssnano": "^7.0.6",
+    "cssnano-preset-advanced": "^7.0.6",
     "es-toolkit": "^1.25.2",
     "eslint": "^9.13.0",
     "esno": "^4.8.0",
