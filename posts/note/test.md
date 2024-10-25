@@ -145,9 +145,9 @@ Hello World
 
 # Image
 
-![image-20240310213919215](https://plumbiu.github.io/blogImg/image-20240310213919215.png)
-![image-20240310213930618](https://plumbiu.github.io/blogImg/image-20240310213930618.png)
-![image-20240310213919215](https://plumbiu.github.io/blogImg/image-20240310213919215.png)
+![image-20240310213919215](/assets/images/2023-1.png)
+![image-20240310213930618](/assets/images/2023-2.png)
+![image-20240310213919215](/assets/images/2023-3.png)
 
 # Table
 

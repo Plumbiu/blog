@@ -1,3 +1,11 @@
+const cssnano = [
+  'cssnano',
+  {
+    preset: 'advanced',
+    discardComments: { removeAll: true },
+  },
+]
+
 module.exports = {
   plugins: [
     'postcss-flexbugs-fixes',
@@ -14,6 +22,6 @@ module.exports = {
       },
     ],
     'postcss-nested',
-    'postcss-minify-params',
+    ...(process.env.NODE_ENV === 'production' ? [cssnano] : []),
   ],
 }
