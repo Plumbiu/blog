@@ -121,7 +121,7 @@ export default function App() {
 
 我们可以调用 `dom.scrollTo` 方法实现滚动，继续补充上述的 `scrollHandler` 函数（高亮部分）
 
-```jsx {9-10,21-27,48} showLineNumbers
+```jsx {9-10,20-27,48} showLineNumbers
 import { useEffect, useState, useRef } from 'react'
 import clsx from 'clsx'
 

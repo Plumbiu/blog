@@ -6,7 +6,7 @@
 import React, { memo, ReactNode, useCallback, useMemo, useState } from 'react'
 import clsx from 'clsx'
 import dynamic from 'next/dynamic'
-import { buildFiles, padStartZero } from '@/utils'
+import { buildFiles, isNumber, isString, padStartZero } from '@/utils'
 import { mono } from '@/app/fonts'
 import { getFileKeyFromProps } from '@/plugins/rehype/playground-pre'
 import {
@@ -96,7 +96,7 @@ const Playground = (props: any) => {
   const logMethod = useCallback(
     (value: any) => {
       const now = Date.now()
-      if (typeof value === 'object') {
+      if (!isString(value) || !isNumber(value)) {
         value = value.toString()
       }
       const info = { date: now, value }

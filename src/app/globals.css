@@ -53,7 +53,7 @@ h6 {
 }
 
 .main_children {
-  margin-top: calc(var(--header-h) + 32px);
+  margin-top: calc(var(--header-h) + 24px);
 }
 
 .center {

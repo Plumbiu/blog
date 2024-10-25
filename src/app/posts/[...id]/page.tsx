@@ -10,6 +10,7 @@ import {
   upperFirstChar,
 } from '@/utils'
 import fmJsons from '@/front_matter.json'
+import NotFound from '@/app/components/NotFound'
 import styles from './page.module.css'
 import Markdown from '../components/Markdown'
 import Toc from '../components/Toc'
@@ -61,7 +62,7 @@ interface PostProps {
 async function Post({ params }: PostProps) {
   const info = await getPostContent(params.id)
   if (!info) {
-    return null
+    return <NotFound />
   }
   return (
     <div className={styles.wrap}>

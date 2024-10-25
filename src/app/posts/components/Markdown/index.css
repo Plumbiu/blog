@@ -18,6 +18,7 @@
 
     th {
       font-weight: 700;
+      background-color: var(--c-gray-soft);
     }
     th,
     td {
@@ -28,11 +29,11 @@
       margin-bottom: 0;
     }
     tr {
-      background-color: var(--c-gray-1);
-      border-top: 1px solid var(--color-border-muted);
+      background-color: var(--c-gray-soft);
+      border-top: 1px solid var(--divider);
     }
     tr:nth-child(2n) {
-      background-color: var(--c-gray-2);
+      background-color: var(--background);
     }
   }
 

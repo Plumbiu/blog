@@ -148,3 +148,17 @@ Hello World
 ![image-20240310213919215](https://plumbiu.github.io/blogImg/image-20240310213919215.png)
 ![image-20240310213930618](https://plumbiu.github.io/blogImg/image-20240310213930618.png)
 ![image-20240310213919215](https://plumbiu.github.io/blogImg/image-20240310213919215.png)
+
+# Table
+
+常见的转换：
+
+| 类型      | 转换为数字(`Number` 方法) | 转换为字符串(`String` 方法) |
+| --------- | ------------------------- | --------------------------- |
+| null      | 0                         | null                        |
+| undefined | NaN                       | undefined                   |
+| false     | 0                         | false                       |
+| true      | 1                         | true                        |
+| Array     | NaN                       | 运行 `.join('')` 拼接       |
+| Object    | NaN                       | [object Object]             |
+| Symbol    | 报错                      | Symbol('xxx')               |
