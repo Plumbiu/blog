@@ -1,7 +1,7 @@
 'use client'
 
-import NextImage from 'next/image'
-import { CSSProperties, ReactNode } from 'react'
+import NextImage, { ImageProps } from 'next/image'
+import { ReactNode } from 'react'
 import useModalStore from '@/store/modal'
 import imageinfo from '@/image-info.json'
 
@@ -20,17 +20,18 @@ function MarkdownImage(props: IImage) {
   const setChildren = useModalStore('setChildren')
   let node: ReactNode = null
 
-  const commonProps = {
+  const commonProps: ImageProps = {
     ...rest,
     src,
     alt,
     style: {
       position: undefined,
-    } as CSSProperties,
+    },
     onClick: clickHandler,
+    unoptimized: src.endsWith('.gif'),
   }
   if (size) {
-    commonProps.style.aspectRatio = size.w / size.h
+    commonProps.style!.aspectRatio = size.w / size.h
     node = <NextImage {...commonProps} width={size.w} height={size.h} />
   } else {
     node = <NextImage {...commonProps} fill />

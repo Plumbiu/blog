@@ -17,7 +17,7 @@ async function generate() {
       fileMap[mdPath] = file
     }),
   )
-  gitadd(await generateFrontMatter(fileMap))
+  // gitadd(await generateFrontMatter(fileMap))
   gitadd(await generateImageInfo(fileMap))
   gitadd(await generateRss(posts))
 }

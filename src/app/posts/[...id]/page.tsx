@@ -3,14 +3,9 @@ import path from 'node:path'
 import process from 'node:process'
 import { Metadata } from 'next'
 import React from 'react'
-import {
-  getCategory,
-  joinFormatPaths,
-  removeFrontmatter,
-  upperFirstChar,
-} from '@/utils'
-import fmJsons from '@/front_matter.json'
+import { getCategory, joinFormatPaths, upperFirstChar } from '@/utils'
 import NotFound from '@/app/components/NotFound'
+import { getFrontmatter, getMarkdownPath } from '@/utils/node'
 import styles from './page.module.css'
 import Markdown from '../components/Markdown'
 import Toc from '../components/Toc'
@@ -24,9 +19,9 @@ interface PostContent {
   content: string
 }
 
-export function generateStaticParams() {
-  const paths = Object.keys(fmJsons)
-  return paths.map((id) => ({
+export async function generateStaticParams() {
+  const mds = await getMarkdownPath()
+  return mds.map((id) => ({
     id: id.split('/').slice(1),
   }))
 }
@@ -40,9 +35,7 @@ export async function getPostContent(
       path.join(process.cwd(), `${relaivePath}.md`),
       'utf-8',
     )
-    const mdContent = removeFrontmatter(file)
-    // @ts-ignore
-    const frontmatter = fmJsons[relaivePath]
+    const { frontmatter, mdContent } = getFrontmatter(file)
     if (!frontmatter || !mdContent) {
       return
     }

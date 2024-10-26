@@ -59,11 +59,14 @@
     word-break: break-word;
     overflow: auto;
     tab-size: 2;
-    line-height: 1.2;
+    line-height: 1.5;
     border-radius: 0 0 var(--pre-radius) var(--pre-radius);
     padding: 8px 0 8px 12px;
     background-color: var(--bg-md-pre);
     code {
+      box-sizing: content-box;
+      display: inline-flex;
+      flex-wrap: wrap;
       color: inherit;
       background-color: inherit;
     }
@@ -205,7 +208,6 @@
 
   .line {
     display: inline-block;
-    padding: 2px 0;
     width: 100%;
   }
   .line[line]::before {

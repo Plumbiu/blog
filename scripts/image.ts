@@ -2,18 +2,18 @@ import fsp from 'node:fs/promises'
 import path from 'node:path'
 import { imageMeta } from 'image-meta'
 import pc from 'picocolors'
+import _imageInfo from '@/image-info.json'
 import { FileMap } from '.'
 
 interface IIMage {
   w: number
   h: number
 }
+const imageInfo: Record<string, IIMage> = _imageInfo
 
 const MediaRegx = /.png|jpg|jpeg|gif|png|svg|webp$/
 
 async function generateImageInfo(fileMap: FileMap) {
-  const result: Record<string, IIMage> = {}
-
   const regx =
     /(http(s?):)([/|.|\w|\s|-])*\.(?:png|jpg|jpeg|gif|png|svg|webp)/gi
   const urls = []
@@ -23,14 +23,14 @@ async function generateImageInfo(fileMap: FileMap) {
     const content = fileMap[p]
     while ((m = regx.exec(content))) {
       const url = m[0]
-      if (url) {
+      if (url && !imageInfo[url]) {
         urls.push({ url, isLocal: false, key: url })
       }
     }
 
     while ((m = localRegx.exec(content))) {
       const url = m[1]
-      if (url && MediaRegx.test(url)) {
+      if (url && MediaRegx.test(url) && !imageInfo[url]) {
         const filePath = path.join(process.cwd(), 'public', url)
         urls.push({ url: filePath, isLocal: true, key: url })
       }
@@ -48,7 +48,7 @@ async function generateImageInfo(fileMap: FileMap) {
         }
         const { width, height } = imageMeta(new Uint8Array(buffer))
         if (width && height) {
-          result[key] = { w: width, h: height }
+          imageInfo[key] = { w: width, h: height }
           console.log(pc.green('Successful: ') + url)
         }
       } catch (error: any) {
@@ -57,7 +57,7 @@ async function generateImageInfo(fileMap: FileMap) {
     }),
   )
   const imageInfoPath = './src/image-info.json'
-  await fsp.writeFile('./src/image-info.json', JSON.stringify(result))
+  await fsp.writeFile('./src/image-info.json', JSON.stringify(imageInfo))
   return imageInfoPath
 }
 
