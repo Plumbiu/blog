@@ -24,12 +24,11 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 */
-import { type Element, type Root } from 'hast'
+import { type Root } from 'hast'
 import { visit } from 'unist-util-visit'
 import { toString } from 'hast-util-to-string'
 import { HighlighterCore } from 'shiki/core'
-import { isString } from '@/utils'
-import { getCodeFromProps } from '../remark/playground'
+import { isNumber, isString } from '@/utils'
 
 // This code is modified based on
 // https://github.com/euank/node-parse-numeric-range/blob/master/index.js
@@ -102,14 +101,7 @@ function parsePart(s: string) {
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 */
-const getLanguage = (className: string[]) => {
-  for (const classListItem of className) {
-    if (classListItem.slice(0, 9) === 'language-') {
-      return classListItem.slice(9).toLowerCase()
-    }
-  }
-  return 'txt'
-}
+
 const NumRangeRegx = /{([\d,-]+)}/
 const calculateLinesToHighlight = (meta: string) => {
   const parsed = NumRangeRegx.exec(meta)
@@ -119,6 +111,17 @@ const calculateLinesToHighlight = (meta: string) => {
   const strlineNumbers = parsed[1]
   const lineNumbers = parsePart(strlineNumbers)
   return (index: number) => lineNumbers.has(index + 1)
+}
+
+const getLanguage = (className: (string | number)[]) => {
+  for (const classListItem of className) {
+    if (isString(classListItem)) {
+      if (classListItem.slice(0, 9) === 'language-') {
+        return classListItem.slice(9).toLowerCase()
+      }
+    }
+  }
+  return 'txt'
 }
 
 /**
@@ -135,8 +138,6 @@ const rehypePrismGenerator = (shiki: HighlighterCore) => {
   return () => {
     return (tree: Root) => {
       visit(tree, 'element', function visitor(node, index, parent) {
-        const props = node.properties
-        let code = getCodeFromProps(props)?.trim()
         if (
           !parent ||
           parent.type !== 'element' ||
@@ -145,22 +146,19 @@ const rehypePrismGenerator = (shiki: HighlighterCore) => {
         ) {
           return
         }
-        if (!code) {
-          code = toString(node).trim()
-        }
-        const meta = (node.data?.meta ?? props?.metastring ?? '') as string
-        // Coerce className to array
-        if (props.className) {
-          if (typeof props.className === 'boolean') {
-            props.className = []
-          } else if (!Array.isArray(props.className)) {
-            props.className = [props.className]
-          }
-        } else {
+        const props = node.properties
+        const data = node.data
+        const code = toString(node)
+        const meta = (data?.meta ?? '').toLocaleString() as string
+        if (!props.className || typeof props.className === 'boolean') {
           props.className = []
+        } else if (isString(props.className) || isNumber(props.className)) {
+          props.className = [props.className]
         }
-        const lang = getLanguage(props.className as string[])
+        const lang = getLanguage(props.className)
         props.className.push('shiki')
+        const shouldHighlightLine = calculateLinesToHighlight(meta)
+        const shouldAddNumber = meta.includes('line')
         // Syntax highlight
         let shikiRoot = node
         try {
@@ -168,35 +166,29 @@ const rehypePrismGenerator = (shiki: HighlighterCore) => {
             shiki.codeToHast(code, {
               themes: themeOptions,
               lang,
+              transformers: [
+                {
+                  line(node, line) {
+                    if (shouldAddNumber) {
+                      node.properties['data-line'] = line
+                    }
+                    if (shouldHighlightLine(line - 1)) {
+                      this.addClassToHast(node, 'highlight-line')
+                    }
+                    if (lang === 'diff' || lang.includes('diff-')) {
+                      const ch = toString(node).substring(0, 1)
+                      this.addClassToHast(
+                        node,
+                        ch === '-' ? 'deleted' : 'inserted',
+                      )
+                    }
+                  },
+                },
+              ],
               // @ts-ignore
             }).children?.[0]?.children[0] ?? node
         } catch (error) {}
 
-        const shouldHighlightLine = calculateLinesToHighlight(meta)
-        const elementChildren = shikiRoot.children.filter(
-          (elm) => elm.type === 'element' && isString(elm.properties.class),
-        )
-        const shouldAddNumber = meta
-          .toLowerCase()
-          .includes('showLineNumbers'.toLowerCase())
-        for (let i = 0; i < elementChildren.length; i++) {
-          const line = elementChildren[i] as Element
-          const lineProps = line.properties
-          const className = lineProps.class as string
-          lineProps.class = [className]
-
-          if (shouldAddNumber) {
-            lineProps.line = [(i + 1).toString()]
-          }
-          if (shouldHighlightLine(i)) {
-            lineProps.class.push('highlight-line')
-          }
-          // Diff classes
-          if (lang === 'diff' || lang.includes('diff-')) {
-            const ch = toString(line).substring(0, 1)
-            lineProps.class.push(ch === '-' ? 'deleted' : 'inserted')
-          }
-        }
         node.children = shikiRoot.children
       })
     }

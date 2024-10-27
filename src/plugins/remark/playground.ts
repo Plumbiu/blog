@@ -4,30 +4,26 @@ import { ComponentKey, RemarkReturn } from '../constant'
 import { makeProperties } from '../utils'
 
 export const PlaygroundPrefix = `${ComponentKey}-playground-`
-const CodeKey = `${PlaygroundPrefix}code`
-const DefaultSelectorKey = `${PlaygroundPrefix}selector`
-const ComponentIDKey = `${PlaygroundPrefix}id`
-const ComponentLangKey = `${PlaygroundPrefix}lang`
-const ComponentMetaKey = `${PlaygroundPrefix}meta`
-const ComponentShowConsoleKey = `${PlaygroundPrefix}console`
+export const PlaygroundCodeKey = `${PlaygroundPrefix}code`
+export const DefaultSelectorKey = `${PlaygroundPrefix}selector`
+export const PlaygroundLangKey = `${PlaygroundPrefix}lang`
+export const PlaygroundMetaKey = `${PlaygroundPrefix}meta`
+export const PlaygroundShowConsoleKey = `${PlaygroundPrefix}console`
 
 export function getCodeFromProps(props: any): string {
-  return props[CodeKey]
+  return props[PlaygroundCodeKey]
 }
 export function getLangFromProps(props: any): string {
-  return props[ComponentLangKey]
+  return props[PlaygroundLangKey]
 }
 export function getDefaultSelectorFromProps(props: any): string {
   return props[DefaultSelectorKey]
 }
-export function getComponentIdFromProps(props: any): string {
-  return props[ComponentIDKey]
-}
 export function getComponentMetaFromProps(props: any): string {
-  return props[ComponentMetaKey]
+  return props[PlaygroundMetaKey]
 }
 export function getComponentShowConsoleKey(props: any): boolean | undefined {
-  return props[ComponentShowConsoleKey]
+  return props[PlaygroundShowConsoleKey]
 }
 const SupportPlaygroundLang = new Set(['jsx', 'tsx', 'react', 'js', 'ts'])
 const SupportStaticPlaygroundLang = new Set(['html', 'css', 'js', 'txt'])
@@ -58,7 +54,8 @@ function remarkPlayground(): RemarkReturn {
       if (!alias) {
         alias = DefaultLang
       }
-      props[ComponentLangKey] = upperFirstChar(alias)
+      props[PlaygroundLangKey] = upperFirstChar(alias)
+
       if (!lang || !meta?.includes(PlaygroundName)) {
         return
       }
@@ -70,10 +67,10 @@ function remarkPlayground(): RemarkReturn {
       const setNode = (selector: string) => {
         props[ComponentKey] = PlaygroundName
         props[DefaultSelectorKey] = selector
-        props[CodeKey] = myBeAppFile ? code.slice(endIndex) : code
-        props[ComponentMetaKey] = meta
+        props[PlaygroundCodeKey] = myBeAppFile ? code.slice(endIndex) : code
+        props[PlaygroundMetaKey] = meta
         if (meta.includes('console')) {
-          props[ComponentShowConsoleKey] = true
+          props[PlaygroundShowConsoleKey] = true
         }
         // @ts-ignore
         node.type = 'root'

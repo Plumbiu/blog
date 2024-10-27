@@ -5,11 +5,10 @@ import {
   getCodeFromProps,
   getDefaultSelectorFromProps,
   getComponentMetaFromProps,
-  PlaygroundName,
   PlaygroundPrefix,
 } from '../remark/playground'
 
-const PlaygroundFileKey = `${PlaygroundPrefix}-file-key`
+const PlaygroundFileKey = `${PlaygroundPrefix}file-key`
 export function getFileKeyFromProps(props: any) {
   return props[PlaygroundFileKey]
 }
@@ -29,7 +28,6 @@ function markPlaygroundPre(node: Element) {
     node.data = {}
   }
   node.data!.meta = meta
-  const parsedMeta = meta.replace(PlaygroundName, '')
   node.children = Object.keys(files).map((key, i) => {
     const lang = getSuffix(key).toLocaleLowerCase()
     const props: Record<string, string> = {
@@ -41,12 +39,7 @@ function markPlaygroundPre(node: Element) {
       tagName: 'code',
       properties: props,
       data: {
-        meta:
-          i === 0
-            ? parsedMeta
-            : meta.includes('showLineNumbers')
-            ? 'showLineNumbers'
-            : undefined,
+        meta: i === 0 ? meta : undefined,
       },
       children: [{ type: 'text', value: files[key] }],
     }
