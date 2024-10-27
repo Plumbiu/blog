@@ -4,6 +4,7 @@ import NextImage, { ImageProps } from 'next/image'
 import { ReactNode } from 'react'
 import useModalStore from '@/store/modal'
 import imageinfo from '@/image-info.json'
+import { getPathInfo } from '@/utils'
 
 interface IImage {
   src?: string
@@ -16,10 +17,11 @@ function MarkdownImage(props: IImage) {
   if (!src || !alt) {
     return null
   }
-  const size = (imageinfo as any)[src]
+  const { dirname, basename } = getPathInfo(src)
+  const size = (imageinfo as any)[basename]
+
   const setChildren = useModalStore('setChildren')
   let node: ReactNode = null
-
   const commonProps: ImageProps = {
     ...rest,
     src,
@@ -29,10 +31,13 @@ function MarkdownImage(props: IImage) {
     },
     onClick: clickHandler,
     unoptimized: src.endsWith('.gif'),
+    placeholder: 'blur',
+    blurDataURL: `${dirname}/blur${src[0] === '/' ? src : '/' + src}`,
   }
   if (size) {
-    commonProps.style!.aspectRatio = size.w / size.h
-    node = <NextImage {...commonProps} width={size.w} height={size.h} />
+    const [w, h] = size
+    commonProps.style!.aspectRatio = w / h
+    node = <NextImage {...commonProps} width={w} height={h} />
   } else {
     node = <NextImage {...commonProps} fill />
   }

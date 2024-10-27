@@ -119,3 +119,8 @@ export function joinFormatPaths(...args: string[]) {
 export function getYear(date: number) {
   return String(new Date(date).getFullYear())
 }
+
+export function getPathInfo(path: string) {
+  const idx = path.lastIndexOf('/')
+  return { dirname: path.slice(0, idx), basename: path.slice(idx + 1) }
+}

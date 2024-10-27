@@ -145,8 +145,8 @@ Hello World
 
 # Image
 
-![image-20240310213919215](/assets/images/2023-1.png)
-![image-20240310213930618](/assets/images/2023-2.png)
+![image-20240310213919215](/assets/images/2023-1.webp)
+![image-20240310213930618](/assets/images/2023-2.webp)
 ![image-20240310213919215](/assets/images/2023-3.png)
 
 # Table

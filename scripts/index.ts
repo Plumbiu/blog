@@ -3,7 +3,7 @@ import { getPostsInfo } from '@/utils/node'
 import generateRss from './rss'
 import generateFrontMatter from './front-matter'
 import { gitadd } from './utils.js'
-import generateImageInfo from './image'
+import generateImageInfo, { generateImageSize } from './image'
 
 export type FileMap = Record<string, string>
 
@@ -20,6 +20,7 @@ async function generate() {
   // gitadd(await generateFrontMatter(fileMap))
   gitadd(await generateImageInfo(fileMap))
   gitadd(await generateRss(posts))
+  await generateImageSize()
 }
 
 generate()

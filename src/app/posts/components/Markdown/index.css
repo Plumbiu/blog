@@ -166,7 +166,6 @@
   img {
     width: 100%;
     height: auto;
-    max-height: 45vh;
     cursor: pointer;
     object-fit: contain;
   }
@@ -174,17 +173,12 @@
     --gap: 4px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    grid-template-columns: 1fr 1fr;
-    grid-auto-flow: row dense;
+    justify-content: flex-start;
+    gap: var(--gap);
     & > img {
       width: calc(var(--image-item-w) - var(--gap));
       margin-bottom: 8px;
     }
-  }
-
-  .image-wrap[data-odd] > img:last-child {
-    width: 100%;
   }
 
   /* Details */
