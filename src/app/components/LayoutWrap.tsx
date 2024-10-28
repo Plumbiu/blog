@@ -11,7 +11,7 @@ import { ViewTransitions } from 'next-view-transitions'
 import { usePathname } from 'next/navigation'
 import { applyCurrentTheme } from '@/utils/client/theme'
 import useModalStore from '@/store/modal'
-import { runMicrotask } from '@/utils'
+import { runMicrotask, runTask } from '@/utils'
 
 interface ThemeWrap {
   children: ReactNode
@@ -32,7 +32,7 @@ function LayoutWrap(props: ThemeWrap) {
   }, [])
 
   useEffect(() => {
-    runMicrotask(() => {
+    runTask(() => {
       const imgs = document.querySelectorAll('img')
       for (let i = 0; i < imgs.length; i++) {
         const img = imgs[i]
