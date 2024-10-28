@@ -5,7 +5,7 @@
   overflow-x: hidden;
   position: sticky;
   top: var(--top);
-  z-index: 99;
+  z-index: 9;
   font-size: 14px;
   padding-left: 32px;
   width: var(--center-rest);

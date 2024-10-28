@@ -177,7 +177,6 @@
     gap: var(--gap);
     & > img {
       width: calc(var(--image-item-w) - var(--gap));
-      margin-bottom: 8px;
     }
   }
 

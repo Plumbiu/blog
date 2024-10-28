@@ -159,3 +159,18 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+.mask {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  overflow: auto;
+  text-align: center;
+  background-color: #27272779;
+  &::after {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+  }
+}

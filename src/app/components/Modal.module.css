@@ -4,12 +4,21 @@
   z-index: 99999;
   overflow: auto;
   text-align: center;
-  background-color: #27272779;
+  background-color: var(--bg-modal);
   &::after {
     content: '';
     display: inline-block;
     vertical-align: middle;
     height: 100%;
+  }
+}
+
+@keyframes imgscale {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 
@@ -25,6 +34,7 @@
 
 .mask img {
   object-fit: cover;
+  animation: imgscale 0.3s cubic-bezier(0.2, 0, 0.2, 1) forwards;
   max-width: 95%;
   height: auto;
   max-height: 80vh;

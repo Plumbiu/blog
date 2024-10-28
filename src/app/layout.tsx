@@ -1,6 +1,6 @@
 import { type Metadata } from 'next'
 import Header from './components/Header'
-import Modal from './posts/components/Modal'
+import Modal from './components/Modal'
 import './globals.css'
 import './variable.css'
 import './dark-variable.css'
@@ -28,11 +28,11 @@ export default function RootLayout({
         type="image/x-icon"
       />
       <body className={noto.className}>
+        <Modal />
         <LayoutWrap>
           <Header />
           <div className="main_children">{children}</div>
           <Footer />
-          <Modal />
         </LayoutWrap>
       </body>
     </html>

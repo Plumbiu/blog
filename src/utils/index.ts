@@ -124,3 +124,7 @@ export function getPathInfo(path: string) {
   const idx = path.lastIndexOf('/')
   return { dirname: path.slice(0, idx), basename: path.slice(idx + 1) }
 }
+
+export function runMicrotask(fn: () => any) {
+  Promise.resolve().then(fn)
+}

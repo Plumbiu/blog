@@ -3,8 +3,6 @@
 import { createStore } from '@plumbiu/react-store'
 import { ReactNode } from 'react'
 
-function handleWheel() {}
-
 const useModalStore = createStore({
   children: null as ReactNode,
   hidden() {

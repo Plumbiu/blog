@@ -44,6 +44,7 @@
   --bg-header: #f8f8f8;
   --bg-body: #fff;
   --bg-scrollbar: #c8c8c8;
+  --bg-modal: #272727a9;
   /* shadow */
   --shadow-header: 5px 5px 16px #e2e2e2, -5px -5px 16px #fefefe;
 }
