@@ -3,6 +3,7 @@ const cssnano = [
   {
     preset: 'advanced',
     discardComments: { removeAll: true },
+    zindex: false,
   },
 ]
 
