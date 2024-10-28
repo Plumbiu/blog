@@ -164,8 +164,8 @@
   }
   /* Image */
   img {
-    width: 100%;
     height: auto;
+    max-height: 50vh;
     cursor: pointer;
     object-fit: contain;
   }

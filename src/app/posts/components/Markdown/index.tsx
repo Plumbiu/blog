@@ -41,8 +41,11 @@ const components: Partial<Components> = {
     return defaultnode
   },
   img(props) {
-    const { node, ...rest } = props
-    return <MarkdownImage {...rest} />
+    const { node, src, alt, ...rest } = props
+    if (!src || !alt) {
+      return null
+    }
+    return <MarkdownImage {...rest} src={src} alt={alt} />
   },
   div(props) {
     const { children, node, ...rest } = props

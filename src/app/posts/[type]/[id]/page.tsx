@@ -3,13 +3,19 @@ import path from 'node:path'
 import process from 'node:process'
 import { Metadata } from 'next'
 import React from 'react'
-import { getCategory, joinFormatPaths, upperFirstChar } from '@/utils'
+import {
+  FrontMatterKey,
+  getCategory,
+  joinFormatPaths,
+  removeMdSuffix,
+  upperFirstChar,
+} from '@/utils'
 import NotFound from '@/app/components/NotFound'
 import { getFrontmatter, getMarkdownPath } from '@/utils/node'
 import styles from './page.module.css'
-import Markdown from '../components/Markdown'
-import Toc from '../components/Toc'
-import FrontMatter from '../components/FrontMatter'
+import Markdown from '../../components/Markdown'
+import Toc from '../../components/Toc'
+import FrontMatter from '../../components/FrontMatter'
 
 interface PostContent {
   frontmatter: {
@@ -21,18 +27,22 @@ interface PostContent {
 
 export async function generateStaticParams() {
   const mds = await getMarkdownPath()
-  return mds.map((id) => ({
-    id: id.split('/').slice(1),
-  }))
+  return mds.map((id) => {
+    const tokens = id.split('/')
+    return {
+      id: removeMdSuffix(tokens[2]),
+      type: tokens[1],
+    }
+  })
 }
 
 export async function getPostContent(
-  id: string[],
+  type: string,
+  id: string,
 ): Promise<PostContent | undefined> {
-  const relaivePath = joinFormatPaths('posts', decodeURI(id.join('/')))
   try {
     const file = await fsp.readFile(
-      path.join(process.cwd(), `${relaivePath}.md`),
+      path.join(process.cwd(), 'posts', type, `${decodeURI(id)}.md`),
       'utf-8',
     )
     const { frontmatter, mdContent } = getFrontmatter(file)
@@ -48,12 +58,13 @@ export async function getPostContent(
 
 interface PostProps {
   params: {
-    id: string[]
+    id: string
+    type: FrontMatterKey
   }
 }
 
 async function Post({ params }: PostProps) {
-  const info = await getPostContent(params.id)
+  const info = await getPostContent(params.type, params.id)
   if (!info) {
     return <NotFound />
   }
@@ -76,7 +87,7 @@ async function Post({ params }: PostProps) {
 export async function generateMetadata({
   params,
 }: PostProps): Promise<Metadata> {
-  const info = await getPostContent(params.id)
+  const info = await getPostContent(params.type, params.id)
   const category = getCategory(params.id)
   return {
     title: `${upperFirstChar(category)} - ${info?.frontmatter.title}`,

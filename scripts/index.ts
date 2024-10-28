@@ -18,9 +18,9 @@ async function generate() {
     }),
   )
   // gitadd(await generateFrontMatter(fileMap))
-  gitadd(await generateImageInfo(fileMap))
+  // gitadd(await generateImageInfo(fileMap))
   gitadd(await generateRss(posts))
-  await generateImageSize()
+  // await generateImageSize()
 }
 
 generate()

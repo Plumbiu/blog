@@ -75,10 +75,10 @@ export async function generateImageSize() {
         const imagePath = path.join(rootPath, filename)
         console.log(imagePath)
         const buffer = await fsp.readFile(imagePath)
-        const byte = buffer.length / 1024
+        const byte = buffer.length / 1000
         const data = await sharp(buffer)
           .webp({ quality: 40 })
-          .blur(byte / 1.5)
+          .blur(byte > 1000 ? 1000 : byte)
           .toBuffer()
         await fsp.writeFile(path.join(rootPath, 'blur', filename), data)
       }
@@ -87,3 +87,5 @@ export async function generateImageSize() {
 }
 
 export default generateImageInfo
+
+generateImageSize()

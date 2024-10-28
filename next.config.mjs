@@ -17,18 +17,18 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-      {
-        protocol: 'http',
-        hostname: '**',
-      },
-    ],
-  },
+  // images: {
+  //   remotePatterns: [
+  //     {
+  //       protocol: 'https',
+  //       hostname: '**',
+  //     },
+  //     {
+  //       protocol: 'http',
+  //       hostname: '**',
+  //     },
+  //   ],
+  // },
 }
 
 export default withBundleAnalyzer(nextConfig)
