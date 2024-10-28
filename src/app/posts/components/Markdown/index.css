@@ -2,7 +2,7 @@
   color: var(--text-1);
   width: 100%;
   margin: 0;
-  word-break: break-all;
+  word-break: break-word;
   & > * {
     margin-bottom: 12px;
   }
@@ -56,7 +56,6 @@
     margin: 0;
     font-size: 14px;
     color: var(--text-1);
-    word-break: break-word;
     overflow: auto;
     tab-size: 2;
     line-height: 1.5;
@@ -164,6 +163,7 @@
   }
   /* Image */
   img {
+    max-width: 100%;
     height: auto;
     max-height: 50vh;
     cursor: pointer;

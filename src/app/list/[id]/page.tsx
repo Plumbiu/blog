@@ -21,10 +21,6 @@ interface ListProps {
   }
 }
 
-export async function getPosts(id: FrontmatterKey) {
-  const posts = await getPostsInfo(id)
-  return posts
-}
 function formatTime(time: string | number) {
   const d = new Date(time)
   const month = monthArr[d.getMonth()]
@@ -32,7 +28,7 @@ function formatTime(time: string | number) {
 }
 
 async function ArtlistAll({ params }: ListProps) {
-  const lists = await getPosts(params.id)
+  const lists = await getPostsInfo(params.id)
 
   const floatMap: FloatType = {}
   for (const list of lists) {
@@ -74,9 +70,7 @@ async function ArtlistAll({ params }: ListProps) {
               <span className={styles.date}>{formatTime(date)}</span>
             </div>
             <div className={styles.subtitle}>{subtitle}</div>
-            <div className={styles.desc}>
-              {desc}
-            </div>
+            <div className={styles.desc}>{desc}</div>
           </Link>
         ))}
       </div>

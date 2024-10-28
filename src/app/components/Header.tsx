@@ -2,7 +2,13 @@
 
 import { Link } from 'next-view-transitions'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { GithubIcon, MoonIcon, RssIcon, SunIcon } from '@/app/components/Icons'
+import {
+  GithubIcon,
+  MoonIcon,
+  RssIcon,
+  SearchIcon,
+  SunIcon,
+} from '@/app/components/Icons'
 import { Dark, getLocalTheme, toggleDataTheme } from '@/utils/client/theme'
 import styles from './Header.module.css'
 
@@ -52,6 +58,9 @@ function Header() {
         </div>
         <div className={styles.right}>
           <Link href="/list/blog">Blog</Link>
+          <div>
+            <SearchIcon />
+          </div>
           <a target="_blank" href="/rss.xml">
             <RssIcon />
           </a>

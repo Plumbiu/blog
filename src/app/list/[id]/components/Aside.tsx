@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from 'next-view-transitions'
 import { MenuIcon } from '@/app/components/Icons'
 import styles from './Aside.module.css'
 import { FloatItem } from '../types'

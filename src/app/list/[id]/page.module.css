@@ -29,12 +29,13 @@
 }
 
 .artlist {
+  margin-top: 48px;
   min-height: 60vh;
 }
 
 .link {
   display: block;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 
 .top {
@@ -56,7 +57,7 @@
 }
 
 .desc {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.5;
 }
 

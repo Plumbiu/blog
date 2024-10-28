@@ -123,17 +123,16 @@ function App() {
       <h2>You may interested</h2>
       <ul>
         <li>
-          How this blog works:{' '}
           <Link
             className="link"
             target="_blank"
             href="/posts/blog/How-I-Build-My-Blog"
           >
-            How I build my blog
+            How this blog works
           </Link>
         </li>
         <li>
-          Record some interesting tech:{' '}
+          Some interesting tech:{' '}
           <Link className="link" target="_blank" href="/list/blog">
             Blog
           </Link>

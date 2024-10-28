@@ -19,6 +19,7 @@ async function MarkdownImage(props: IImage) {
     style: {
       position: undefined,
       aspectRatio: metadata.originalWidth / metadata.originalHeight,
+      width: metadata.originalHeight > 900 ? undefined : 'auto',
     },
     unoptimized: src.endsWith('.gif'),
     placeholder: 'blur',

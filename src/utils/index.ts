@@ -128,3 +128,7 @@ export function getPathInfo(path: string) {
 export function runMicrotask(fn: () => any) {
   Promise.resolve().then(fn)
 }
+
+export function runTask(fn: () => any) {
+  setTimeout(fn, 0)
+}
