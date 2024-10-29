@@ -15,7 +15,6 @@ import transfromCode2Jsx from './transfrom'
 const components: Partial<Components> = {
   pre(props) {
     const children = props.children
-    // console.log(props, '\n----------------\n')
     const defaultnode = <pre className={mono.className}>{children}</pre>
     const component = getComponentFromProps(props)
     if (component) {
@@ -33,7 +32,7 @@ const components: Partial<Components> = {
       return (
         <div className="pre-wrap">
           <div className="pre-bar">
-            <div className="pre-lang">{lang}</div>
+            {lang}
             <Copy text={code} />
           </div>
           {defaultnode}

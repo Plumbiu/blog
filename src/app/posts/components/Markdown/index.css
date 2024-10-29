@@ -88,11 +88,7 @@
     border-radius: var(--pre-radius) var(--pre-radius) 0 0;
     align-items: center;
     border-bottom: 1px solid var(--divider);
-    padding: 6px 0;
-  }
-
-  .pre-lang {
-    padding-left: 16px;
+    padding: 8px 20px 8px 16px;
   }
 
   .pre-wrap svg {
@@ -103,14 +99,12 @@
   .pre-copy {
     color: var(--text-2);
     cursor: pointer;
-    padding: 4px;
-    margin-right: 20px;
     transition: color 150ms ease-out;
     border-radius: 8px;
-  }
 
-  .pre-copy:hover {
-    color: var(--text);
+    &:hover {
+      color: var(--text);
+    }
   }
   /* blockquote */
   blockquote {

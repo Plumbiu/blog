@@ -138,7 +138,7 @@ const Playground = (props: any) => {
   }, [])
 
   return (
-    <div className={styles.wrap}>
+    <div>
       <div className={styles.bar}>Code Playground</div>
       <div className={styles.container}>
         <CodePreview

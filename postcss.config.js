@@ -13,7 +13,6 @@ module.exports = {
     'postcss-nested',
     ...(process.env.NODE_ENV === 'production'
       ? [
-          cssnano,
           'postcss-flexbugs-fixes',
           [
             'postcss-preset-env',
@@ -27,6 +26,7 @@ module.exports = {
               },
             },
           ],
+          cssnano,
         ]
       : []),
   ],
