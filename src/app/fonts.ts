@@ -1,11 +1,4 @@
-import {
-  PT_Mono,
-  Fira_Mono,
-  Roboto_Mono,
-  Inter,
-  Noto_Sans_Mono,
-} from 'next/font/google'
-import localfont from 'next/font/local'
+import { Fira_Mono, Inter } from 'next/font/google'
 
 export const noto = Inter({
   subsets: ['latin'],

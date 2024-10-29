@@ -1,0 +1,35 @@
+.wrap {
+  margin-top: calc(var(--header-h) + 64px);
+  min-height: 80vh;
+}
+
+.top_title {
+  margin-bottom: 4px;
+}
+
+.main_content {
+  margin-top: 36px;
+  margin-bottom: 64px;
+}
+
+.link {
+  margin-bottom: 32px;
+  display: block;
+  display: flex;
+  gap: 16px;
+}
+
+.image {
+  border-radius: 4px;
+}
+
+.title {
+  font-size: 18px;
+}
+
+.subtitle {
+  margin-top: 4px;
+  color: var(--text-3);
+  font-size: 16px;
+  font-weight: 600;
+}

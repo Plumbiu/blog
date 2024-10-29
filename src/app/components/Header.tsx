@@ -58,6 +58,7 @@ function Header() {
         </div>
         <div className={styles.right}>
           <Link href="/list/blog">Blog</Link>
+          <Link href="/links">Links</Link>
           <div>
             <SearchIcon />
           </div>
