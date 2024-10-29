@@ -14,7 +14,7 @@ const useModalStore = createStore({
         document.body.style.overflowY = 'auto'
         this.$set({ children: null })
         maskDom.classList.remove(modalStyle.hide)
-      }, 300)
+      }, 150)
     }
   },
   setChildren(children: ReactNode) {

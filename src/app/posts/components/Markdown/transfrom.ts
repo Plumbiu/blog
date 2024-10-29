@@ -106,7 +106,6 @@ async function transfromCode2Jsx(
     passKeys: true,
     passNode: true,
   })
-  const end = Date.now()
   return node
 }
 

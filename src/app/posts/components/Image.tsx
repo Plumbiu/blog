@@ -1,34 +1,21 @@
-import path from 'node:path'
+'use client'
+
 import NextImage, { ImageProps } from 'next/image'
-import lqip from 'lqip-modern'
+import useModalStore from '@/store/modal'
 
-interface IImage {
-  src: string
-  alt: string
-  [key: string]: any
-}
+function MarkdownImage(props: ImageProps) {
+  const setChildren = useModalStore('setChildren')
 
-async function MarkdownImage(props: IImage) {
-  const { src, alt, ...rest } = props
-  const imagePath = path.join('public', src)
-  const { metadata } = await lqip(imagePath)
-  const commonProps: ImageProps = {
-    ...rest,
-    src,
-    alt,
-    style: {
-      position: undefined,
-      aspectRatio: metadata.originalWidth / metadata.originalHeight,
-      width: metadata.originalHeight > 900 ? undefined : 'auto',
-    },
-    unoptimized: src.endsWith('.gif'),
-    placeholder: 'blur',
-    blurDataURL: metadata.dataURIBase64,
-    width: metadata.originalWidth,
-    height: metadata.originalWidth,
-  }
+  const node = (
+    <NextImage
+      {...props}
+      onClick={() => {
+        setChildren(node)
+      }}
+    />
+  )
 
-  return <NextImage {...commonProps} />
+  return node
 }
 
 export default MarkdownImage

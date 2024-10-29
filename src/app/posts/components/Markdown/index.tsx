@@ -1,5 +1,8 @@
+import path from 'node:path'
 import { type Components } from 'hast-util-to-jsx-runtime'
+import lqip from 'lqip-modern'
 import React, { isValidElement } from 'react'
+import { ImageProps } from 'next/image'
 import { getLangFromProps } from '@/plugins/remark/playground'
 import { mono } from '@/app/fonts'
 import Copy from '@/app/posts/components/Copy'
@@ -7,12 +10,12 @@ import MarkdownImage from '@/app/posts/components/Image'
 import CustomComponent, { CustomComponentProp } from '@/app/posts/custom'
 import { getComponentFromProps } from '@/plugins/constant'
 import './index.css'
-
 import transfromCode2Jsx from './transfrom'
 
 const components: Partial<Components> = {
   pre(props) {
     const children = props.children
+    // console.log(props, '\n----------------\n')
     const defaultnode = <pre className={mono.className}>{children}</pre>
     const component = getComponentFromProps(props)
     if (component) {
@@ -40,12 +43,30 @@ const components: Partial<Components> = {
 
     return defaultnode
   },
-  img(props) {
+  // @ts-ignore
+  async img(props) {
     const { node, src, alt, ...rest } = props
     if (!src || !alt) {
       return null
     }
-    return <MarkdownImage {...rest} src={src} alt={alt} />
+    const imagePath = path.join('public', src)
+    const { metadata } = await lqip(imagePath)
+    const commonProps: ImageProps = {
+      ...rest,
+      src,
+      alt,
+      style: {
+        position: undefined,
+        aspectRatio: metadata.originalWidth / metadata.originalHeight,
+        width: metadata.originalHeight > 900 ? undefined : 'auto',
+      },
+      unoptimized: src.endsWith('.gif'),
+      placeholder: 'blur',
+      blurDataURL: metadata.dataURIBase64,
+      width: metadata.originalWidth,
+      height: metadata.originalWidth,
+    }
+    return <MarkdownImage {...commonProps} />
   },
   div(props) {
     const { children, node, ...rest } = props

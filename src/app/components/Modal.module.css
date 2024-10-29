@@ -6,7 +6,7 @@
   text-align: center;
   background-color: var(--bg-modal);
   cursor: zoom-out;
-  transition: opacity 0.3s cubic-bezier(0.2, 0, 0.2, 1),
+  transition: opacity 0.15s cubic-bezier(0.2, 0, 0.2, 1),
     transfrom 0.15s cubic-bezier(0.2, 0, 0.2, 1);
   &::after {
     content: '';
