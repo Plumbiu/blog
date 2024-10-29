@@ -173,7 +173,6 @@
     --gap: 4px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
     gap: var(--gap);
     & > img {
       width: calc(var(--image-item-w) - var(--gap));

@@ -52,17 +52,17 @@
 /* constant */
 :root {
   --header-h: 90px;
-  --center-max-w: 840px;
+  --center-max-w: 800px;
   --center-w: 50%;
   --center-rest: calc((100% - var(--center-w)) / 2);
   --pre-radius: 4px;
-  --extend-x: -24px;
+  --extend-x: -36px;
   --image-item-w: 50%;
   --code-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     Liberation Mono, Courier New, monospace;
 }
 
-@media screen and (min-width: 1680px) {
+@media screen and (min-width: 1600px) {
   :root {
     --center-rest: calc((100% - var(--center-max-w)) / 2);
   }
