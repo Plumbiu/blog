@@ -120,6 +120,17 @@ h6 {
   }
 }
 
+.art {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+html[data-theme='dark'] .art {
+  filter: invert(1);
+}
+
 *::-webkit-scrollbar {
   width: 6px;
   height: 6px;

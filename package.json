@@ -19,6 +19,7 @@
     "lqip-modern": "^2.1.0",
     "next": "^14",
     "next-view-transitions": "^0.3.2",
+    "p5i": "^0.5.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "remark-directive": "^3.0.0",

@@ -2,6 +2,8 @@
 
 import { Link } from 'next-view-transitions'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { usePathname } from 'next/navigation'
+import { clsx } from 'clsx'
 import {
   GithubIcon,
   MoonIcon,
@@ -14,6 +16,7 @@ import styles from './Header.module.css'
 
 function Header() {
   const ref = useRef<HTMLHeadingElement>(null)
+  const pathname = usePathname()
   const [themeState, setThemeState] = useState<string>()
   const prevScrollTop = useRef(0)
   useLayoutEffect(() => {
@@ -51,7 +54,12 @@ function Header() {
   }, [])
 
   return (
-    <header ref={ref} className={styles.wrap}>
+    <header
+      ref={ref}
+      className={clsx(styles.wrap, {
+        [styles.wrap_bg]: pathname.includes('/posts'),
+      })}
+    >
       <div className={styles.header}>
         <div className={styles.left}>
           <Link href="/">Home</Link>

@@ -196,8 +196,9 @@
     display: inline-block;
     width: 100%;
   }
-  .line[line]::before {
-    content: attr(line);
+  .line[data-line]::before {
+    content: attr(data-line);
+    color: var(--text-2);
     min-width: 26px;
     display: inline-block;
   }

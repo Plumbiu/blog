@@ -6,10 +6,13 @@
   right: 0;
   z-index: 99;
   padding: 0 32px;
-  background-color: var(--bg-body);
   height: var(--header-h);
   transition: height 200ms;
   overflow: hidden;
+}
+
+.wrap_bg {
+  background-color: var(--bg-body);
 }
 
 @media screen and (max-width: 1024px) {

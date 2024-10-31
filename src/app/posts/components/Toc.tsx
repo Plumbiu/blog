@@ -28,27 +28,42 @@ const TocLink = memo(
   ),
 )
 
+const maxViewHeight = 300
+const minViewHeight = 0
+
 function Toc() {
   const [list, setList] = useState<ITocList[]>([])
   const [activeIndex, setActiveIndex] = useState<number>()
   const nodes = useRef<NodeListOf<Element>>()
   const tocRef = useRef<HTMLDivElement>(null)
 
+  function highlight(i: number) {
+    setActiveIndex(i)
+    const tocDom = tocRef.current
+    const top = (tocDom?.children[i] as any)?.offsetTop
+    if (top) {
+      const tocHeight = tocDom?.clientHeight ?? 0
+      tocDom?.scrollTo({
+        top: top - Math.floor(tocHeight / 2) - 16,
+      })
+    }
+  }
+
   const handler = throttle(() => {
-    const viewHeight = window.innerHeight
     for (let i = 0; i < nodes.current!.length; i++) {
       const node = nodes.current![i]
       const rect = node.getBoundingClientRect()
-      if (rect.bottom >= 0 && rect.top < viewHeight) {
-        setActiveIndex(i)
-        const tocDom = tocRef.current
-        const top = (tocDom?.children[i] as any)?.offsetTop
-        if (top) {
-          const tocHeight = tocDom?.clientHeight ?? 0
-          tocDom?.scrollTo({
-            top: top - Math.floor(tocHeight / 2) - 16,
-          })
-        }
+      if (rect.bottom >= minViewHeight && rect.top < maxViewHeight) {
+        highlight(i)
+        break
+      }
+      const nextRect = nodes.current![i + 1]?.getBoundingClientRect()
+      if (
+        rect.bottom < minViewHeight &&
+        nextRect &&
+        nextRect.top > window.innerHeight
+      ) {
+        highlight(i)
         break
       }
     }

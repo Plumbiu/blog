@@ -2,7 +2,9 @@
 
 import { ReactNode, useLayoutEffect, useState } from 'react'
 import { ViewTransitions } from 'next-view-transitions'
+import { usePathname } from 'next/navigation'
 import { applyCurrentTheme } from '@/utils/client/theme'
+import ArtStar from './ArtStar'
 
 interface ThemeWrap {
   children: ReactNode
@@ -10,6 +12,8 @@ interface ThemeWrap {
 
 function LayoutWrap(props: ThemeWrap) {
   const [mounted, setMounted] = useState(false)
+  // const pathname = usePathname()
+  // const isPost = pathname.includes('/posts/')
 
   useLayoutEffect(() => {
     applyCurrentTheme()
@@ -20,7 +24,12 @@ function LayoutWrap(props: ThemeWrap) {
     }
   }, [])
 
-  return <ViewTransitions>{mounted && props.children}</ViewTransitions>
+  return (
+    <>
+      {/* {!isPost && <ArtStar />} */}
+      <ViewTransitions>{mounted && props.children}</ViewTransitions>
+    </>
+  )
 }
 
 export default LayoutWrap

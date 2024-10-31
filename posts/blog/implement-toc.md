@@ -189,3 +189,40 @@ export default function App() {
 ```
 
 完结
+
+# 后续的补充
+
+在后续开发中，我发现，如果下滑的过程中“刚好”碰到一个标题（A），这时候上滑，那么高亮的应该是 A 之前的标题，这一点上面代码没体现到，我们稍微补充一下 `scrollHandler` 函数：
+
+```js line {23-28}
+function highlight(i) {
+  setActiveIndex(i)
+  // 包括可滚动区域的 top 值
+  const top = tocRef.current?.children[i]?.offsetTop
+  if (top) {
+    // 获取 TOC DOM 的高度
+    const tocHeight = tocRef.current?.clientHeight ?? 0
+    // 使用 scrollTo 滚动到 TOC DOM 当前视图高度一半的位置
+    tocRef.current?.scrollTo({ top: top - tocHeight / 2 })
+  }
+}
+
+function scrollHandler() {
+  const viewHeight = window.innerHeight
+  // 注意：nodes 和 list 其实是一一对应的，所以我们可以设置一个索引判断哪个目录高亮了
+  for (let i = 0; i < nodes.current.length; i++) {
+    const node = nodes.current[i]
+    const rect = node.getBoundingClientRect()
+    if (rect.bottom >= 0 && rect.top < viewHeight) {
+      hightlight(i)
+      break
+    }
+    // 按照之前描述的场景，这个 nextRect 是标题 A
+    const nextRect = nodes.current[i + 1]?.getBoundingClientRect()
+    if (rect.bottom < 0 && nextRect && nextRect.top > window.innerHeight) {
+      highlight(i)
+      break
+    }
+  }
+}
+```
