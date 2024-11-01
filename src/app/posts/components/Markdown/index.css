@@ -60,8 +60,8 @@
     tab-size: 2;
     line-height: 1.5;
     border-radius: 0 0 var(--pre-radius) var(--pre-radius);
-    padding: 8px 0 8px 12px;
     background-color: var(--bg-md-pre);
+    padding: 8px 0 8px 12px;
     code {
       box-sizing: content-box;
       display: inline-flex;
@@ -89,6 +89,7 @@
     align-items: center;
     border-bottom: 1px solid var(--divider);
     padding: 8px 20px 8px 16px;
+    background-color: var(--bg-md-pre);
   }
 
   .pre-wrap svg {
@@ -207,12 +208,6 @@
     padding-left: 16px;
     margin-left: -16px;
     background-color: var(--bg-md-highlight-line); /* Set highlight bg color */
-  }
-
-  /* strong,italic */
-  strong,
-  em {
-    color: var(--text);
   }
 }
 

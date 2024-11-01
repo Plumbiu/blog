@@ -5,8 +5,8 @@
   overflow: hidden;
   border-radius: 0 0 var(--pre-radius) var(--pre-radius);
   border: 1px solid var(--divider);
-  border-top: none;
   background-color: var(--bg-md-pre);
+  border-top: none;
 }
 
 .code {
@@ -31,6 +31,7 @@
 .bar {
   padding: 8px 12px;
   font-size: 14px;
+  background-color: var(--bg-md-pre);
   font-weight: 600;
   border-radius: var(--pre-radius) var(--pre-radius) 0 0;
   border: 1px solid var(--divider);

@@ -11,10 +11,6 @@ import vitesseDark from 'shiki/themes/vitesse-dark.mjs'
 import vitesseLight from 'shiki/themes/vitesse-light.mjs'
 import getWasm from 'shiki/wasm'
 import { getSingletonHighlighterCore } from 'shiki/core'
-import langJS from 'shiki/langs/js.mjs'
-import langJSX from 'shiki/langs/jsx.mjs'
-import langTSX from 'shiki/langs/tsx.mjs'
-import langTS from 'shiki/langs/ts.mjs'
 import rehypePrismGenerator from '@/plugins/rehype/hightlight'
 import rehypeElementPlugin from '@/plugins/rehype/element'
 import { remarkSlug } from '@/plugins/remark/slug'
@@ -26,10 +22,11 @@ const shikiOptions = {
   themes: [vitesseDark, vitesseLight],
   engine: createOnigurumaEngine(getWasm),
   langs: [
-    langJS,
-    langJSX,
-    langTSX,
-    langTS,
+    import('shiki/langs/js.mjs'),
+    import('shiki/langs/jsx.mjs'),
+    import('shiki/langs/tsx.mjs'),
+    import('shiki/langs/ts.mjs'),
+    import('shiki/langs/css.mjs'),
     import('shiki/langs/css.mjs'),
     import('shiki/langs/rust.mjs'),
     import('shiki/langs/vue.mjs'),
@@ -47,6 +44,8 @@ const shikiOptions = {
     import('shiki/langs/git-commit.mjs'),
     import('shiki/langs/git-rebase.mjs'),
     import('shiki/langs/regexp.mjs'),
+    import('shiki/langs/markdown.mjs'),
+    import('shiki/langs/markdown-vue.mjs'),
   ],
 }
 
