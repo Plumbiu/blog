@@ -21,7 +21,7 @@
 }
 
 .link {
-  display: block;
+  display: inline-flex;
   height: 28px;
   line-height: 28px;
   transition: color 150ms;
