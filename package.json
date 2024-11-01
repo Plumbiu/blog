@@ -4,7 +4,6 @@
   "scripts": {
     "prepare": "simple-git-hooks",
     "generate": "esno ./scripts/index.ts",
-    "predev": "pnpm generate",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -60,7 +59,7 @@
     "postcss": "^8.4.47",
     "postcss-cli": "^11.0.0",
     "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-nested": "^7.0.1",
+    "postcss-nested": "^6",
     "postcss-preset-env": "^10.0.8",
     "rimraf": "^6.0.1",
     "simple-git-hooks": "^2.11.1",

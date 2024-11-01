@@ -171,8 +171,8 @@ importers:
         specifier: ^5.0.2
         version: 5.0.2(postcss@8.4.47)
       postcss-nested:
-        specifier: ^7.0.1
-        version: 7.0.1(postcss@8.4.47)
+        specifier: ^6
+        version: 6.2.0(postcss@8.4.47)
       postcss-preset-env:
         specifier: ^10.0.8
         version: 10.0.8(postcss@8.4.47)
@@ -3354,9 +3354,9 @@ packages:
     peerDependencies:
       postcss: ^8.4.31
 
-  postcss-nested@7.0.1:
-    resolution: {integrity: sha512-4CDBQTsPHZL+cPpPAeDD5cvHe9mIJKiIffnsHC7Nx4oMGPu27aqrYSuGZyRlp1cv1Ms1koF2lO9QYLRdmUhAFw==}
-    engines: {node: '>=18.0'}
+  postcss-nested@6.2.0:
+    resolution: {integrity: sha512-HQbt28KulC5AJzG+cZtj9kvKB93CFCdLvog1WFLf1D+xmMvPGlBstkpTEZfK5+AN9hfJocyBFCNiqyS48bpgzQ==}
+    engines: {node: '>=12.0'}
     peerDependencies:
       postcss: ^8.2.14
 
@@ -8031,10 +8031,10 @@ snapshots:
       postcss: 8.4.47
       postcss-selector-parser: 6.1.2
 
-  postcss-nested@7.0.1(postcss@8.4.47):
+  postcss-nested@6.2.0(postcss@8.4.47):
     dependencies:
       postcss: 8.4.47
-      postcss-selector-parser: 7.0.0
+      postcss-selector-parser: 6.1.2
 
   postcss-nesting@13.0.1(postcss@8.4.47):
     dependencies:
