@@ -41,6 +41,8 @@
   --bg-md-pre: #fafafa;
   --bg-md-highlight-line: rgba(218, 230, 240, 0.5);
   --bg-md-code: #ddeef8;
+  --bg-md-table-header: #efefef;
+  --bg-md-table-th: #f6f6f6;
   --bg-header: #f8f8f8;
   --bg-body: #fff;
   --bg-scrollbar: #c8c8c8;

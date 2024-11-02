@@ -18,7 +18,7 @@
 
     th {
       font-weight: 700;
-      background-color: var(--c-gray-soft);
+      background-color: var(--bg-md-table-header);
     }
     th,
     td {
@@ -28,12 +28,16 @@
     td > :last-child {
       margin-bottom: 0;
     }
-    tr {
-      background-color: var(--c-gray-soft);
-      border-top: 1px solid var(--divider);
-    }
     tr:nth-child(2n) {
       background-color: var(--background);
+    }
+    tr {
+      transition: background-color 125ms;
+      background-color: var(--bg-md-table-th);
+      border-top: 1px solid var(--divider);
+      &:hover {
+        background-color: var(--c-gray-soft);
+      }
     }
   }
 

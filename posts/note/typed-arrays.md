@@ -1,8 +1,10 @@
 ---
 title: 类型化数组
 date: 2024-10-31
-desc: 1
+desc: 2
 ---
+
+学习 webgl/three.js 之前（主要是完成毕设），准备去 MDN 学习一下类型化数组。
 
 类型化数组是一种类似数组的对象，但是跟我们常说的“伪数组”不同，它的主要作用是提供了一种在内存缓存中访问二进制数据的机制。JavaScript 引入它主要是为了操作一些音视频以及 webgl 的原始数据。
 
@@ -61,3 +63,134 @@ JavaScript 将类型化数组拆分为**缓冲**和**视图**两部分：
 | [Float64Array](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Float64Array)           | `-1.8E308` 到 `1.8E308` 并且 `5E-324` 是最小的正数 | 8    | 64 位 IEEE 浮点数（16 位有效数字，例如 `1.23456789012345`） | `unrestricted double` | `double`                        |
 | [BigInt64Array](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/BigInt64Array)         | -2^63 到 2^63 - 1                                  | 8    | 64 位有符号整型（补码）                                     | `bigint`              | `int64_t (signed long long)`    |
 | [BigUint64Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigUint64Array)       | 0 到 2^64 - 1                                      | 8    | 64 位无符号整型                                             | `bigint`              | `uint64_t (unsigned long long)` |
+
+**类型化数组原则上时固定长度的**，因此不存在改变数组长度的方法，例如 `pop`、`push`、`shift`、`unshift` 和 `splice` 等
+
+# DataView
+
+[`DataVier`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/DataView) 是一种底层接口，提供可以操作缓冲中任意数据的 `getter/setter` API，例如使用 `DataView` 获取任意数字的二进制表示：
+
+```js
+function toBinary(x, options = {}) {
+  const {
+    type = 'Float64',
+    littleEndian = false,
+    separator = ' ',
+    radix = 16,
+  } = options
+
+  const bytesNeeded = globalThis[`${type}Array`].BYTES_PER_ELEMENT
+  const dv = new DataView(new ArrayBuffer(byteNeeded))
+
+  dv[`set${type}`](0, x, littleEndian)
+
+  const bytes = Array.from({ length: bytesNeeded }, (_, i) =>
+    dv
+      .getUnit8(i)
+      .toString(radix)
+      .padStart(8 / Math.log2(radix), '0'),
+  )
+
+  return bytes.join(separator)
+}
+```
+
+# 示例
+
+一段简单的示例：
+
+```js
+// 创建“缓冲”
+const buffer = new ArrayBuffer(16)
+// 打印字节长度
+console.log(buffer.byteLength) // 16
+// 创建“视图”
+const int32View = new Int32Array(buffer)
+// 操作试图
+for (let i = 0; i < int32View.length; i++) {
+  int32View[i] = i * 2
+}
+// 创建另一个视图
+const int16View = new Int16Array(buffer)
+// 打印一下
+for (let i = 0; i < int16View.length; i++) {
+  console.log(`索引 ${i}：${int16View[i]}`)
+}
+// 索引 0：0
+// 索引 1：0
+// 索引 2：2
+// 索引 3：0
+// 索引 4：4
+// 索引 5：0
+// 索引 6：6
+// 索引 7：0
+```
+
+一张“图”解释：
+
+```txt
+Int16Array  |   0  |  0   |   2  |  0   |   4  |  0   |   6  |  0   |
+Int32Array  |      0      |      2      |      4      |      6      |
+ArrayBuffer | 00 00 00 00 | 02 00 00 00 | 04 00 00 00 | 06 00 00 00 |
+```
+
+## 缓冲中读取文本
+
+缓冲不总是代表数字，可以使用文本缓冲读取 UTF-8 文本：
+
+```js
+const buffer = new ArrayBuffer(8)
+contt uint8 = new Uint8Array(buffer)
+// 手动写入数据，模拟一下读文件操作
+uint8.set([228, 189, 160, 229, 165, 189])
+const text = new TextDecorder().decode(uint8)
+console.log(text) // 你好
+```
+
+读取 UTF-16 文本可以使用 [`String.fromCharCode()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode) 方法
+
+```js
+const buffer = new ArrayBuffer(8)
+const uint16 = new Uint16Array(buffer)
+// 手动写入数据，模拟一下读文件操作
+uint16.set([0x4f60, 0x597d])
+const text = String.fromCharCode(...uint16)
+console.log(text) // "你好"
+```
+
+## 复杂的数据结构
+
+通过修改内存访问的的偏移量，可以操作很多复杂数据结构的数据，例如 C 语言结构体：
+
+```c
+struct someStruct {
+  unsigned long id;
+  char username[16];
+  float amountDue;
+};
+```
+
+在 js 中可以如下代码访问一个包含结构体的缓冲
+
+```js
+const buffer = new ArrayBuffer(24)
+
+// ......数据写入缓冲......
+
+// new 视图构造函数(Buffer, ByteOffset, length)
+const idView = new Uint32Array(buffer, 0, 1)
+const usernameView = new Uint8Array(buffer, 4, 16)
+const amountDueView = new Float32Array(buffer, 20, 1)
+```
+
+## 转化为普通数组
+
+使用 [`Array.from`] 方法实现数组转换：
+
+```js
+const typedArray = new Uint8Array([1, 2, 3, 4])
+const normalArray = Array.from(typedArray)
+// 或者展开语法
+
+[...typedArray]
+```
