@@ -6,11 +6,12 @@
 import React, { memo, ReactNode, useCallback, useMemo, useState } from 'react'
 import clsx from 'clsx'
 import dynamic from 'next/dynamic'
-import { buildFiles, isNumber, isString, padStartZero } from '@/utils'
+import { isNumber, isString, padStartZero } from '@/utils'
 import { mono } from '@/app/fonts'
 import { getFileKeyFromProps } from '@/plugins/rehype/playground-pre'
 import {
   getCodeFromProps,
+  getComponentFileMapKey,
   getComponentShowConsoleKey,
   getDefaultSelectorFromProps,
 } from '@/plugins/remark/playground'
@@ -82,9 +83,10 @@ const Playground = (props: any) => {
     [children],
   )
   const files = useMemo(
-    () => buildFiles(code, defaultSelector),
+    () => getComponentFileMapKey(props),
     [code, defaultSelector],
   )
+
   const tabs = useMemo(() => Object.keys(files), [files])
   const isStatic = defaultSelector.endsWith('.html')
   const isMounted = useMounted()

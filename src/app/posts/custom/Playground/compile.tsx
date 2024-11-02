@@ -1,6 +1,6 @@
 import React, { createElement } from 'react'
 import { clsx } from 'clsx'
-import { transform, Options } from 'sucrase'
+import { isLikeJSX } from '@/utils'
 
 type Scope = Record<string, any>
 
@@ -8,13 +8,6 @@ const baseScope: Scope = {
   react: React,
   React,
   clsx,
-  sucrase: {
-    transform,
-  },
-}
-
-const transfromOptions: Options = {
-  transforms: ['jsx', 'flow', 'imports'],
 }
 
 const baseScopeKeys = Object.keys(baseScope)
@@ -45,15 +38,6 @@ function evalCode(
     ...baseScopeValues,
   )
   return _exports.default
-}
-
-function isLikeJSX(p: string) {
-  return (
-    p.endsWith('.js') ||
-    p.endsWith('.jsx') ||
-    p.endsWith('.ts') ||
-    p.endsWith('.tsx')
-  )
 }
 
 function getBasename(p: string) {
@@ -92,8 +76,7 @@ export function PlaygroundPreview({
   })
   const loop = () => {
     for (const key of jsKyes) {
-      const code = transform(files[key], transfromOptions).code
-      const value = evalCode(code, scope, logMethod)
+      const value = evalCode(files[key], scope, logMethod)
       addScope(key, value)
     }
   }
@@ -108,8 +91,7 @@ export function PlaygroundPreview({
   loop()
   loop()
 
-  const mainCode = transform(main, transfromOptions).code
-  return createElement(evalCode(mainCode, scope, logMethod))
+  return createElement(evalCode(main, scope, logMethod))
 }
 export function StaticPlaygroundPreview({
   files,

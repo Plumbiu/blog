@@ -1,7 +1,13 @@
 import { visit } from 'unist-util-visit'
-import { getFirstLine, upperFirstChar } from '@/utils'
+import { transform, Options } from 'sucrase'
+import { buildFiles, getFirstLine, isLikeJSX, upperFirstChar } from '@/utils'
+import { StringValueObj } from '@/types/base'
 import { ComponentKey, RemarkReturn } from '../constant'
 import { makeProperties } from '../utils'
+
+const transfromOptions: Options = {
+  transforms: ['jsx', 'flow', 'imports'],
+}
 
 export const PlaygroundPrefix = `${ComponentKey}-playground-`
 export const PlaygroundCodeKey = `${PlaygroundPrefix}code`
@@ -9,6 +15,7 @@ export const DefaultSelectorKey = `${PlaygroundPrefix}selector`
 export const PlaygroundLangKey = `${PlaygroundPrefix}lang`
 export const PlaygroundMetaKey = `${PlaygroundPrefix}meta`
 export const PlaygroundShowConsoleKey = `${PlaygroundPrefix}console`
+export const PlaygroundFileMapKey = `${PlaygroundPrefix}file`
 
 export function getCodeFromProps(props: any): string {
   return props[PlaygroundCodeKey]
@@ -24,6 +31,9 @@ export function getComponentMetaFromProps(props: any): string {
 }
 export function getComponentShowConsoleKey(props: any): boolean | undefined {
   return props[PlaygroundShowConsoleKey]
+}
+export function getComponentFileMapKey(props: any): StringValueObj {
+  return JSON.parse(props[PlaygroundFileMapKey])
 }
 const SupportPlaygroundLang = new Set(['jsx', 'tsx', 'react', 'js', 'ts'])
 const SupportStaticPlaygroundLang = new Set(['html', 'css', 'js', 'txt'])
@@ -69,6 +79,13 @@ function remarkPlayground(): RemarkReturn {
         props[DefaultSelectorKey] = selector
         props[PlaygroundCodeKey] = myBeAppFile ? code.slice(endIndex) : code
         props[PlaygroundMetaKey] = meta
+        const files: StringValueObj = buildFiles(code, selector)
+        for (const key in files) {
+          if (isLikeJSX(key)) {
+            files[key] = transform(files[key], transfromOptions).code
+          }
+        }
+        props[PlaygroundFileMapKey] = JSON.stringify(files)
         if (meta.includes('console')) {
           props[PlaygroundShowConsoleKey] = true
         }
