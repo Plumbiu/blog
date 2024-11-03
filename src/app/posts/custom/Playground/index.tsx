@@ -1,47 +1,43 @@
 /* eslint-disable import-x/no-named-as-default */
-/* eslint-disable @stylistic/function-paren-newline */
 'use client'
 
 // It could be running at server, but doesn't support onClick or other props
-import React, { memo, ReactNode, useCallback, useMemo, useState } from 'react'
+import React, { memo, ReactNode, useMemo, useState } from 'react'
 import clsx from 'clsx'
-import dynamic from 'next/dynamic'
-import { isNumber, isString, padStartZero } from '@/utils'
 import { mono } from '@/app/fonts'
 import { getFileKeyFromProps } from '@/plugins/rehype/playground-pre'
 import {
-  getCodeFromProps,
   getComponentFileMapKey,
   getComponentShowConsoleKey,
   getDefaultSelectorFromProps,
+  getPlaygroundHideConsoleKey,
+  getPlaygroundHidePreviewKey,
+  getPlaygroundHideTabsKey,
 } from '@/plugins/remark/playground'
-import useMounted from '@/hooks/useMounted'
 import ReactShadowRoot from '@/app/components/Shadow'
+import useConsole from '@/hooks/useConsole'
 import styles from './index.module.css'
-
-const PlaygroundPreview = dynamic(() =>
-  import('./compile').then((res) => res.PlaygroundPreview),
-)
-
-const StaticPlaygroundPreview = dynamic(() =>
-  import('./compile').then((res) => res.StaticPlaygroundPreview),
-)
-interface LogInfo {
-  date: number
-  value: any
-}
+import { StaticPlaygroundPreview, PlaygroundPreview } from './compile'
+import CodeWrap from '../components/CodeWrap'
+import Console from '../components/Console'
 
 interface CodePreviewProps {
   defaultSelector: string
   nodes: Record<string, ReactNode>
   tabs: string[]
+  hide: boolean
 }
 
-const CodePreview = memo(
-  ({ defaultSelector, nodes, tabs }: CodePreviewProps) => {
-    const [selector, setSelector] = useState(defaultSelector)
-    return (
-      <div className={styles.code}>
+const CodePreview = ({
+  defaultSelector,
+  nodes,
+  tabs,
+  hide,
+}: CodePreviewProps) => {
+  const [selector, setSelector] = useState(defaultSelector)
+  return (
+    <div>
+      {!hide && (
         <div className={styles.tab}>
           {tabs.map((tab) => (
             <div
@@ -55,78 +51,52 @@ const CodePreview = memo(
             </div>
           ))}
         </div>
-        <pre className={mono.className}>{nodes[selector]}</pre>
-      </div>
-    )
-  },
-)
-
-function formatTime(date: number) {
-  const d = new Date(date)
-  const hh = padStartZero(d.getHours())
-  const mm = padStartZero(d.getMinutes())
-  const ss = padStartZero(d.getSeconds())
-  return `${hh}:${mm}:${ss}`
+      )}
+      <pre className={mono.className}>{nodes[selector]}</pre>
+    </div>
+  )
 }
 
-const Playground = (props: any) => {
-  const code = getCodeFromProps(props)
+const Playground = memo((props: any) => {
   const children = Array.isArray(props.children)
     ? props.children
     : [props.children]
   const defaultSelector = getDefaultSelectorFromProps(props)
-  const nodes = useMemo(
-    () =>
-      Object.fromEntries(
-        children.map((node: any) => [getFileKeyFromProps(node.props), node]),
-      ),
-    [children],
+  const nodes = Object.fromEntries(
+    children.map((node: any) => [getFileKeyFromProps(node.props), node]),
   )
-  const files = useMemo(
-    () => getComponentFileMapKey(props),
-    [code, defaultSelector],
-  )
-
-  const tabs = useMemo(() => Object.keys(files), [files])
+  const files = getComponentFileMapKey(props)
+  const tabs = Object.keys(files)
   const isStatic = defaultSelector.endsWith('.html')
-  const isMounted = useMounted()
-  const [isConsoleVisible, setIsConsoleVisible] = useState(
-    getComponentShowConsoleKey(props) ?? false,
-  )
-  const [logs, setLogs] = useState<LogInfo[]>([])
+  const isPreviewHide = getPlaygroundHidePreviewKey(props)
+  const isConsoleHide = getPlaygroundHideConsoleKey(props)
+  const isTabsHide = getPlaygroundHideTabsKey(props)
+  const { logFn, logs } = useConsole()
 
-  const logMethod = useCallback(
-    (value: any) => {
-      const now = Date.now()
-      if (!isString(value) || !isNumber(value)) {
-        value = value.toString()
-      }
-      const info = { date: now, value }
-      const lastLog = logs[logs.length - 1]
-      if (lastLog == null || lastLog.date !== now) {
-        if (!isMounted) {
-          logs.push(info)
-        } else {
-          setLogs((prev) => [...prev, info])
-        }
-      }
-    },
-    [isMounted],
-  )
-
-  const { node, nodeStyles } = useMemo(() => {
-    const playgroundProps = {
-      files,
-      defaultSelector,
-      logMethod,
+  let defaultRenderConsole = false
+  if (isConsoleHide) {
+    defaultRenderConsole = false
+  } else {
+    if (isPreviewHide || getComponentShowConsoleKey(props)) {
+      defaultRenderConsole = true
     }
-    const nodeStyles = []
+  }
 
-    for (const key in files) {
-      if (key.endsWith('.css')) {
-        nodeStyles.push(files[key])
-      }
+  const [isConsoleDefaultRender, setIsConsoleDefaultRender] =
+    useState(defaultRenderConsole)
+  const nodeStyles: string[] = []
+
+  for (const key in files) {
+    if (key.endsWith('.css')) {
+      nodeStyles.push(files[key])
     }
+  }
+  const playgroundProps = {
+    files,
+    defaultSelector,
+    logFn,
+  }
+  const { node } = useMemo(() => {
     let node: ReactNode = null
     if (isStatic) {
       node = <StaticPlaygroundPreview {...playgroundProps} />
@@ -135,43 +105,46 @@ const Playground = (props: any) => {
     }
     return {
       node,
-      nodeStyles,
     }
   }, [])
 
   return (
-    <div>
-      <div className={styles.bar}>Code Playground</div>
-      <div className={styles.container}>
-        <CodePreview
-          tabs={tabs}
-          nodes={nodes}
-          defaultSelector={defaultSelector}
-        />
-        <div>
-          {!isStatic && (
-            <div className={styles.tab}>
+    <CodeWrap barText="Code Playground">
+      <CodePreview
+        tabs={tabs}
+        nodes={nodes}
+        defaultSelector={defaultSelector}
+        hide={!!isTabsHide}
+      />
+      <div>
+        {!isStatic && !isTabsHide && (
+          <div className={styles.tab}>
+            {!isPreviewHide && (
               <div
-                onClick={() => setIsConsoleVisible(false)}
+                onClick={() => setIsConsoleDefaultRender(false)}
                 className={clsx({
-                  [styles.tab_active]: !isConsoleVisible,
+                  [styles.tab_active]: !isConsoleDefaultRender,
                 })}
               >
                 Preview
               </div>
+            )}
+            {!isConsoleHide && (
               <div
                 className={clsx({
-                  [styles.tab_active]: isConsoleVisible,
+                  [styles.tab_active]: isConsoleDefaultRender,
                 })}
-                onClick={() => setIsConsoleVisible(true)}
+                onClick={() => setIsConsoleDefaultRender(true)}
               >
                 Console
               </div>
-            </div>
-          )}
+            )}
+          </div>
+        )}
+        {!isPreviewHide && (
           <ReactShadowRoot
             className={clsx(styles.preview, {
-              [styles.hide]: isConsoleVisible,
+              [styles.hide]: isConsoleDefaultRender,
             })}
           >
             {nodeStyles.map((css, key) => (
@@ -179,22 +152,11 @@ const Playground = (props: any) => {
             ))}
             {node}
           </ReactShadowRoot>
-          {isConsoleVisible && (
-            <div className={styles.console}>
-              {logs.map((info) => (
-                <div key={info.date.valueOf()}>
-                  <span>{info.value}</span>
-                  <span className={styles.console_date}>
-                    {formatTime(info.date)}
-                  </span>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
+        )}
+        {isConsoleDefaultRender && <Console logs={logs} />}
       </div>
-    </div>
+    </CodeWrap>
   )
-}
+})
 
 export default Playground

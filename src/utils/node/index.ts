@@ -1,4 +1,4 @@
-import fsp from 'fs/promises'
+import fsp from 'node:fs/promises'
 import yaml from 'js-yaml'
 import { FrontmatterWrapStr } from '@/constants'
 import stripMarkdown from '../strip-markdown'
@@ -18,27 +18,17 @@ export interface FrontMatterItem {
 
 export type FrontmatterKey = 'note' | 'life' | 'blog' | 'summary'
 
-export async function traverse(dirPath: string) {
+export async function getMarkdownPath() {
   const results: string[] = []
-  const dirs = await fsp.readdir(dirPath, { withFileTypes: true })
+  const postsDir = await fsp.readdir('posts')
   await Promise.all(
-    dirs.map(async (info) => {
-      const p = joinFormatPaths(dirPath, info.name)
-      if (info.isFile()) {
-        if (p.endsWith('.md')) {
-          results.push(p)
-        }
-      } else if (info.isDirectory()) {
-        const newR = await traverse(p)
-        results.push(...newR)
-      }
+    postsDir.map(async (dir) => {
+      const postsPath = joinFormatPaths('posts', dir)
+      const posts = await fsp.readdir(postsPath)
+      results.push(...posts.map((p) => joinFormatPaths(postsPath, p)))
     }),
   )
   return results
-}
-
-export function getMarkdownPath() {
-  return traverse('posts')
 }
 
 export function getFrontmatter(content: string) {

@@ -1,0 +1,16 @@
+.console {
+  font-size: 13px;
+  max-height: 70vh;
+  overflow: auto;
+  & > div {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--divider);
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+  }
+}
+
+.console_date {
+  color: var(--text-3);
+}

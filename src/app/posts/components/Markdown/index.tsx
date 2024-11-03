@@ -69,6 +69,7 @@ const components: Partial<Components> = {
   },
   div(props) {
     const { children, node, ...rest } = props
+    console.log(props)
     let component = getComponentFromProps(props)
     let defaultnode: any = <div {...rest}>{children}</div>
     const componentProps: CustomComponentProp = {

@@ -8,7 +8,7 @@ desc: 这是用来测试博客上的一些自定义组件，持续更新....
 
 ## jsx
 
-```jsx showLineNumbers Playground
+```jsx Playground
 import Test from './Test'
 import './App.css'
 
@@ -162,3 +162,30 @@ Hello World
 | Array     | NaN                       | 运行 `.join('')` 拼接       |
 | Object    | NaN                       | [object Object]             |
 | Symbol    | 报错                      | Symbol('xxx')               |
+
+# Code Runner
+
+```js Run
+function fn(n) {
+  console.log(n)
+}
+
+fn(1)
+fn('ch')
+fn({ obj: 1 })
+```
+
+**long time:**
+
+```js Run
+function fn(n) {
+  console.log(n)
+}
+
+const start = Date.now()
+while (Date.now() - start < 3000) {}
+
+fn(1)
+fn('ch')
+fn({ obj: 1 })
+```

@@ -1,0 +1,16 @@
+.run {
+  display: inline-block;
+  margin: auto;
+  font-size: 14px;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: color 150ms;
+
+  & > svg {
+    font-size: 24px;
+  }
+
+  &:hover {
+    color: var(--text);
+  }
+}

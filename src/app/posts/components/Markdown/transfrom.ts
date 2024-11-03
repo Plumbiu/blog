@@ -17,6 +17,7 @@ import { remarkSlug } from '@/plugins/remark/slug'
 import remarkPlayground from '@/plugins/remark/playground'
 import { remarkContainerDirectivePlugin } from '@/plugins/rehype/container-directive'
 import './index.css'
+import remarkRunner from '@/plugins/remark/runner'
 
 const shikiOptions = {
   themes: [vitesseDark, vitesseLight],
@@ -90,6 +91,7 @@ async function transfromCode2Jsx(
       remarkContainerDirectivePlugin,
       remarkSlug,
       remarkPlayground,
+      remarkRunner,
     ])
     .use(remarkRehype)
     .use([rehypeElementPlugin, rehypePrismGenerator(shiki)])

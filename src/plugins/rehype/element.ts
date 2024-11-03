@@ -1,5 +1,6 @@
-import { visit } from 'unist-util-visit'
+import { SKIP, visit } from 'unist-util-visit'
 import { isNumber } from '@/utils'
+import markRunnerPre from './runner-pre'
 import markPlaygroundPre from './playground-pre'
 import blankTargetPlugin from './blank-link'
 import { RehypePlugin } from '../constant'
@@ -9,6 +10,7 @@ function rehypeElementPlugin(): RehypePlugin {
     visit(tree, 'element', (node, index, parent) => {
       blankTargetPlugin(node)
       markPlaygroundPre(node)
+      markRunnerPre(node)
 
       if (
         node.tagName === 'img' &&

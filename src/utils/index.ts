@@ -32,6 +32,10 @@ export function isNumber(x: unknown): x is number {
   return typeof x === 'number'
 }
 
+export function isFunction(x: unknown): x is Function {
+  return typeof x === 'function'
+}
+
 export type FrontMatterKey = 'note' | 'life' | 'blog' | 'summary'
 const frontmatterSet = new Set(['note', 'life', 'blog', 'summary'])
 export function getCategory(urls: string | string[]) {

@@ -4,6 +4,10 @@ import { isLikeJSX } from '@/utils'
 
 type Scope = Record<string, any>
 
+interface LogFn {
+  log: (value: string) => void
+}
+
 const baseScope: Scope = {
   react: React,
   React,
@@ -11,13 +15,9 @@ const baseScope: Scope = {
 }
 
 const baseScopeKeys = Object.keys(baseScope)
-const baseScopeValues = Object.values(baseScope)
+const baseScopeValues = baseScopeKeys.map((key) => baseScope[key])
 
-function evalCode(
-  code: string,
-  scope = baseScope,
-  logMethod?: (value: string) => void,
-) {
+function evalCode(code: string, scope = baseScope, logFn?: LogFn) {
   const _require = (k: keyof Scope) => {
     return scope[k]
   }
@@ -29,14 +29,7 @@ function evalCode(
     ...baseScopeKeys,
     code,
   )
-  fn(
-    _exports,
-    _require,
-    {
-      log: logMethod || (() => {}),
-    },
-    ...baseScopeValues,
-  )
+  fn(_exports, _require, logFn ?? (() => {}), ...baseScopeValues)
   return _exports.default
 }
 
@@ -53,13 +46,13 @@ function getBasename(p: string) {
 interface PlaygroundPreviewProps {
   files: Record<string, string>
   defaultSelector: string
-  logMethod: (value: any) => void
+  logFn: LogFn
 }
 
 export function PlaygroundPreview({
   files,
   defaultSelector,
-  logMethod,
+  logFn,
 }: PlaygroundPreviewProps) {
   const scope: Scope = {
     ...baseScope,
@@ -76,7 +69,7 @@ export function PlaygroundPreview({
   })
   const loop = () => {
     for (const key of jsKyes) {
-      const value = evalCode(files[key], scope, logMethod)
+      const value = evalCode(files[key], scope, logFn)
       addScope(key, value)
     }
   }
@@ -91,7 +84,7 @@ export function PlaygroundPreview({
   loop()
   loop()
 
-  return createElement(evalCode(main, scope, logMethod))
+  return createElement(evalCode(main, scope, logFn))
 }
 export function StaticPlaygroundPreview({
   files,

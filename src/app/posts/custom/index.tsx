@@ -2,6 +2,7 @@
 
 import { createElement, ReactNode } from 'react'
 import Playground from './Playground'
+import CodeRunner from './CodeRunner'
 
 // const Playground = dynamic(() => import('./Playground'), {
 //   loading: () => <Loading />,
@@ -15,6 +16,7 @@ export interface CustomComponentProp {
 
 const ComponentMap: Record<string, any> = {
   Playground,
+  Run: CodeRunner,
 }
 
 function CustomComponent(props: CustomComponentProp) {

@@ -128,7 +128,7 @@ function App() {
             target="_blank"
             href="/posts/blog/How-I-Build-My-Blog"
           >
-            How this blog works
+            How I build my blog
           </Link>
         </li>
         <li>
