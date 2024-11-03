@@ -99,7 +99,7 @@ function toBinary(x, options = {}) {
 
 一段简单的示例：
 
-```js
+```js Run
 // 创建“缓冲”
 const buffer = new ArrayBuffer(16)
 // 打印字节长度
@@ -116,14 +116,6 @@ const int16View = new Int16Array(buffer)
 for (let i = 0; i < int16View.length; i++) {
   console.log(`索引 ${i}：${int16View[i]}`)
 }
-// 索引 0：0
-// 索引 1：0
-// 索引 2：2
-// 索引 3：0
-// 索引 4：4
-// 索引 5：0
-// 索引 6：6
-// 索引 7：0
 ```
 
 一张“图”解释：
@@ -138,23 +130,23 @@ ArrayBuffer | 00 00 00 00 | 02 00 00 00 | 04 00 00 00 | 06 00 00 00 |
 
 缓冲不总是代表数字，可以使用文本缓冲读取 UTF-8 文本：
 
-```js
+```js Run
 const buffer = new ArrayBuffer(8)
-contt uint8 = new Uint8Array(buffer)
+const uint8View = new Uint8Array(buffer)
 // 手动写入数据，模拟一下读文件操作
-uint8.set([228, 189, 160, 229, 165, 189])
-const text = new TextDecorder().decode(uint8)
+uint8View.set([228, 189, 160, 229, 165, 189])
+const text = new TextDecoder().decode(uint8View)
 console.log(text) // 你好
 ```
 
 读取 UTF-16 文本可以使用 [`String.fromCharCode()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode) 方法
 
-```js
+```js Run
 const buffer = new ArrayBuffer(8)
-const uint16 = new Uint16Array(buffer)
+const uint16View = new Uint16Array(buffer)
 // 手动写入数据，模拟一下读文件操作
-uint16.set([0x4f60, 0x597d])
-const text = String.fromCharCode(...uint16)
+uint16View.set([0x4f60, 0x597d])
+const text = String.fromCharCode(...uint16View)
 console.log(text) // "你好"
 ```
 
