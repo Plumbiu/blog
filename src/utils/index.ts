@@ -36,6 +36,10 @@ export function isFunction(x: unknown): x is Function {
   return typeof x === 'function'
 }
 
+export function isSymbol(x: unknown): x is Symbol {
+  return typeof x === 'symbol'
+}
+
 export type FrontMatterKey = 'note' | 'life' | 'blog' | 'summary'
 const frontmatterSet = new Set(['note', 'life', 'blog', 'summary'])
 export function getCategory(urls: string | string[]) {
@@ -144,4 +148,26 @@ export function isLikeJSX(p: string) {
     p.endsWith('.ts') ||
     p.endsWith('.tsx')
   )
+}
+
+export function transfromNoneLogValue(value: any) {
+  if (value === undefined) {
+    return 'undefined'
+  }
+  return 'null'
+}
+
+export function transfromLogValue(value: any) {
+  if (isString(value) || isNumber(value)) {
+    return value
+  }
+  if (isFunction(value)) {
+    return value.toString()
+  }
+
+  if (value == null) {
+    return transfromLogValue(value)
+  }
+
+  return JSON.stringify(value)
 }

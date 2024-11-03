@@ -3,7 +3,7 @@
   max-height: 70vh;
   overflow: auto;
   & > div {
-    padding: 8px 12px;
+    padding: 8px 10px;
     border-bottom: 1px solid var(--divider);
     display: flex;
     gap: 12px;
@@ -11,6 +11,41 @@
   }
 }
 
+.value {
+  padding: 0 1px;
+}
+
 .console_date {
   color: var(--text-3);
+}
+
+.num {
+  color: rgb(47, 121, 138);
+}
+
+.string {
+  color: rgb(181, 105, 89);
+}
+
+.quote {
+  color: rgba(181, 105, 89, 0.467);
+}
+
+.none {
+  color: rgb(171, 89, 89);
+}
+
+html[data-theme='dark'] {
+  .num {
+    color: #4c9a91;
+  }
+  .string {
+    color: #c98a7d;
+  }
+  .quote {
+    color: #c98a7d77;
+  }
+  .none {
+    color: #cb7676;
+  }
 }

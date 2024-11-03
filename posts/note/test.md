@@ -173,6 +173,10 @@ function fn(n) {
 fn(1)
 fn('ch')
 fn({ obj: 1 })
+fn(function () {})
+fn(Symbol('foo'))
+fn(undefined)
+fn(null)
 ```
 
 **long time:**
@@ -188,4 +192,5 @@ while (Date.now() - start < 3000) {}
 fn(1)
 fn('ch')
 fn({ obj: 1 })
+fn(function () {})
 ```
