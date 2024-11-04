@@ -181,6 +181,8 @@ fn(() => {
 fn(Symbol('foo'))
 fn(undefined)
 fn(null)
+fn(true)
+fn(new Date(Date.now()))
 ```
 
 **long time:**
@@ -210,4 +212,11 @@ function fn(n: Foo) {
 }
 
 fn({ text: 'Hello' })
+```
+
+# code diff
+
+```diff-js
+- console.log('hewwo')
++ console.log('hello')
 ```

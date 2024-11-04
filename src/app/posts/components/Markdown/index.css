@@ -64,12 +64,12 @@
     tab-size: 2;
     line-height: 1.5;
     border-radius: 0 0 var(--pre-radius) var(--pre-radius);
-    background-color: var(--bg-md-pre);
     padding: 8px 0 8px 12px;
     code {
       box-sizing: content-box;
       display: inline-flex;
       flex-wrap: wrap;
+      width: 100%;
       color: inherit;
       background-color: inherit;
     }
@@ -77,6 +77,7 @@
 
   .pre-wrap {
     overflow: hidden;
+    background-color: var(--bg-md-pre);
     & pre {
       border: 1px solid var(--divider);
       border-top: none;
@@ -93,7 +94,6 @@
     align-items: center;
     border-bottom: 1px solid var(--divider);
     padding: 8px 20px 8px 16px;
-    background-color: var(--bg-md-pre);
   }
 
   .pre-wrap svg {
@@ -203,20 +203,30 @@
   }
   .line[data-line]::before {
     content: attr(data-line);
+    display: inline-block;
     color: var(--text-2);
     min-width: 26px;
-    display: inline-block;
   }
-  .highlight-line {
+  .highlight-line,
+  .deleted,
+  .inserted {
     box-sizing: content-box;
     padding-left: 16px;
     margin-left: -16px;
+  }
+  .highlight-line {
     background-color: var(--bg-md-highlight-line); /* Set highlight bg color */
+  }
+  .deleted {
+    background-color: var(--c-red-soft);
+  }
+  .inserted {
+    background-color: var(--c-green-soft);
   }
 }
 
 html[data-theme='dark'] .shiki,
-html[data-theme='dark'] .shiki span:not(.highlight-line) {
+html[data-theme='dark'] .shiki span:not(.highlight-line, .deleted, .inserted) {
   color: var(--shiki-dark) !important;
   background-color: var(--shiki-dark-bg) !important;
   /* 可选，用于定义字体样式 */

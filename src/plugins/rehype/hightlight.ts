@@ -137,7 +137,7 @@ const themeOptions = {
 const rehypePrismGenerator = (shiki: HighlighterCore) => {
   return () => {
     return (tree: Root) => {
-      visit(tree, 'element', function visitor(node, index, parent) {
+      visit(tree, 'element', (node, index, parent) => {
         if (
           !parent ||
           parent.type !== 'element' ||
@@ -149,7 +149,7 @@ const rehypePrismGenerator = (shiki: HighlighterCore) => {
         const props = node.properties
         const data = node.data
         const code = toString(node)
-        const meta = (data?.meta ?? '').toLocaleString() as string
+        const meta = (data?.meta ?? '') as string
         if (!props.className || typeof props.className === 'boolean') {
           props.className = []
         } else if (isString(props.className) || isNumber(props.className)) {
@@ -165,7 +165,7 @@ const rehypePrismGenerator = (shiki: HighlighterCore) => {
           shikiRoot =
             shiki.codeToHast(code, {
               themes: themeOptions,
-              lang,
+              lang: lang.replace('diff-', ''),
               transformers: [
                 {
                   line(node, line) {
@@ -175,7 +175,7 @@ const rehypePrismGenerator = (shiki: HighlighterCore) => {
                     if (shouldHighlightLine(line - 1)) {
                       this.addClassToHast(node, 'highlight-line')
                     }
-                    if (lang === 'diff' || lang.includes('diff-')) {
+                    if (lang.startsWith('diff-')) {
                       const ch = toString(node).substring(0, 1)
                       this.addClassToHast(
                         node,

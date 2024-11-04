@@ -10,7 +10,10 @@ export function padStartZero(str: number | string, num = 2) {
   return str.padStart(num, '0')
 }
 
-function formatTime(date: number) {
+function formatTime(date: number | null | undefined) {
+  if (date == null) {
+    return ''
+  }
   const d = new Date(date)
   const hh = padStartZero(d.getHours())
   const mm = padStartZero(d.getMinutes())
@@ -26,27 +29,27 @@ interface ConsoleProps {
 const Console = ({ logs, showType = false }: ConsoleProps) => {
   return (
     <div className={styles.console}>
-      {logs.map(({ value, date, valueType }, i) => {
-        const isNone = value === 'null' || value === 'undefined'
-        const isValueString = isString(value) && !isNone
-
-        return (
-          <div key={i}>
-            <div
-              className={clsx(styles.right, {
-                [styles.num]: isNumber(value),
-                [styles.string]: isValueString,
-                [styles.none]: isNone,
-              })}
-            >
-              {transfromLogValue(value)}
-            </div>
-            <div className={styles.left}>
-              {showType ? valueType : formatTime(date)}
-            </div>
+      {logs.map(({ value, date, valueType }, i) => (
+        <div key={i}>
+          <div
+            className={clsx(styles.right, {
+              [styles.num]: valueType === 'Number',
+              [styles.string]: valueType === 'String',
+              [styles.none]:
+                valueType === 'Null' ||
+                valueType === 'Undefined' ||
+                valueType === 'Function',
+              [styles.bool]: valueType === 'Boolean',
+              [styles.symbol]: valueType === 'Symbol',
+            })}
+          >
+            {transfromLogValue(value)}
           </div>
-        )
-      })}
+          <div className={styles.left}>
+            {showType ? valueType : formatTime(date)}
+          </div>
+        </div>
+      ))}
     </div>
   )
 }

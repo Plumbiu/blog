@@ -37,15 +37,17 @@ const components: Partial<Components> = {
     }
     if (isValidElement(children)) {
       const code = children.props.children
-      const lang = getLangFromProps(children.props)
-      let alias = lang ? langAlias[lang] || lang : DefaultLang
-      if (!alias) {
-        alias = DefaultLang
+      let lang = getLangFromProps(children.props)
+      if (!lang) {
+        lang = 'txt'
+      } else {
+        const key = lang.replace('diff-', '')
+        lang = langAlias[key] || key
       }
       return (
         <div className="pre-wrap">
           <div className="pre-bar">
-            {alias}
+            {lang}
             <Copy text={code} />
           </div>
           {defaultnode}

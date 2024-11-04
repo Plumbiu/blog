@@ -32,6 +32,14 @@
   color: rgb(171, 89, 89);
 }
 
+.bool {
+  color: rgb(30, 117, 79);
+}
+
+.symbol {
+  color: rgb(89, 135, 58);
+}
+
 html[data-theme='dark'] {
   .num {
     color: #4c9a91;
@@ -41,5 +49,11 @@ html[data-theme='dark'] {
   }
   .none {
     color: #cb7676;
+  }
+  .bool {
+    color: #4d9375;
+  }
+  .symbol {
+    color: #80a665;
   }
 }
