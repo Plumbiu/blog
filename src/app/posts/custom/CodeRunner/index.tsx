@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
 import { LogInfo } from '@/hooks/useConsole'
+import { getRunCode } from '@/plugins/remark/runner'
 import { LoadingIcon } from '@/app/components/Icons'
-import { getCodeFromProps } from '@/plugins/constant'
 import styles from './index.module.css'
 import CodeWrap from '../components/CodeWrap'
 import Console from '../components/Console'
 
 function CodeRunner(props: any) {
-  const code = getCodeFromProps(props)
+  const code = getRunCode(props)
   const [logs, setLogs] = useState<LogInfo[]>([])
   const workerRef = useRef<Worker>()
 
@@ -29,7 +29,7 @@ function CodeRunner(props: any) {
       ) : (
         <div className={styles.run}>
           {<LoadingIcon />}
-          <div>{'Running...'}</div>
+          <div>Running...</div>
         </div>
       )}
     </CodeWrap>

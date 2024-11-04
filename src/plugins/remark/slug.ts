@@ -1,7 +1,11 @@
 import { visit } from 'unist-util-visit'
-import { formatId } from '@/utils'
 import { RemarkReturn } from '../constant'
 import { makeProperties } from '../utils'
+
+const WhiteSpaceRegx = /\s/g
+export function formatId(id: string) {
+  return id.toLocaleLowerCase().replace(WhiteSpaceRegx, '-')
+}
 
 export function remarkSlug(): RemarkReturn {
   return (tree) => {

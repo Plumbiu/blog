@@ -4,8 +4,12 @@ import { imageMeta } from 'image-meta'
 import pc from 'picocolors'
 import sharp from 'sharp'
 import _imageInfo from '@/image-info.json'
-import { getPathInfo } from '@/utils'
 import { FileMap } from '.'
+
+function getPathInfo(path: string) {
+  const idx = path.lastIndexOf('/')
+  return { dirname: path.slice(0, idx), basename: path.slice(idx + 1) }
+}
 
 type ImageInfo = Record<string, number[]>
 

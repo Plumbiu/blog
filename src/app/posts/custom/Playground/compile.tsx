@@ -1,6 +1,6 @@
 import React, { createElement } from 'react'
 import { clsx } from 'clsx'
-import { isJSXLike } from '@/utils'
+import { isJsxFileLike } from '@/utils'
 
 type Scope = Record<string, any>
 
@@ -65,7 +65,7 @@ export function PlaygroundPreview({
   }
   const main = files[defaultSelector]
   const jsKyes = Object.keys(files).filter((key) => {
-    return key !== defaultSelector && isJSXLike(key)
+    return key !== defaultSelector && isJsxFileLike(key)
   })
   const loop = () => {
     for (const key of jsKyes) {

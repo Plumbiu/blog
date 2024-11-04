@@ -1,17 +1,15 @@
 import { transform, Options } from 'sucrase'
 import { visit } from 'unist-util-visit'
-import {
-  ComponentCodeKey,
-  ComponentKey,
-  ComponentMetaKey,
-  RemarkReturn,
-} from '../constant'
-import { makeProperties } from '../utils'
+import { isJavaScript, isTypeScript } from '@/utils'
+import { ComponentCodeKey, ComponentKey, RemarkReturn } from '../constant'
+import { buildGetFunction, makeProperties } from '../utils'
 
 export const RunnerName = 'Run'
 const transfromOptions: Options = {
   transforms: ['flow'],
 }
+const RunCodeKey = `${ComponentKey}run-code`
+export const getRunCode = buildGetFunction(RunCodeKey)
 export function isRuner(props: any) {
   return props[ComponentKey] === RunnerName
 }
@@ -22,22 +20,26 @@ function remarkRunner(): RemarkReturn {
       const props = node.data!.hProperties!
       let code = node.value.trim()
       const meta = node.meta
-      const lang = node.lang?.toLowerCase()
-      if (lang !== 'js' && lang !== 'ts') {
-        return
-      }
-      if (lang === 'ts') {
-        code = transform(code, transfromOptions).code
-      }
       if (!meta?.includes(RunnerName)) {
         return
       }
+      props[ComponentCodeKey] = code
+      const lang = node.lang?.toLowerCase()
+      if (!lang) {
+        return
+      }
+      if (!isJavaScript(lang) && !isTypeScript(lang)) {
+        return
+      }
+      if (isTypeScript(lang)) {
+        code = transform(code, transfromOptions).code
+      }
+
       // @ts-ignore
       node.type = 'root'
       node.data!.hName = 'div'
       props[ComponentKey] = RunnerName
-      props[ComponentCodeKey] = code
-      props[ComponentMetaKey] = meta
+      props[RunCodeKey] = code
     })
   }
 }

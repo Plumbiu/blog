@@ -1,7 +1,14 @@
 import { clsx } from 'clsx'
 import { LogInfo } from '@/hooks/useConsole'
-import { isNumber, isString, padStartZero, transfromLogValue } from '@/utils'
+import { isNumber, isString, transfromLogValue } from '@/utils'
 import styles from './Console.module.css'
+
+export function padStartZero(str: number | string, num = 2) {
+  if (!isString(str)) {
+    str = String(str)
+  }
+  return str.padStart(num, '0')
+}
 
 function formatTime(date: number) {
   const d = new Date(date)

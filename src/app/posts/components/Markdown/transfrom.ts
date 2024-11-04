@@ -18,6 +18,7 @@ import remarkPlayground from '@/plugins/remark/playground'
 import { remarkContainerDirectivePlugin } from '@/plugins/rehype/container-directive'
 import './index.css'
 import remarkRunner from '@/plugins/remark/runner'
+import remarkCodeConfig from '@/plugins/remark/code'
 
 const shikiOptions = {
   themes: [vitesseDark, vitesseLight],
@@ -47,6 +48,8 @@ const shikiOptions = {
     import('shiki/langs/regexp.mjs'),
     import('shiki/langs/markdown.mjs'),
     import('shiki/langs/markdown-vue.mjs'),
+    import('shiki/langs/c.mjs'),
+    import('shiki/langs/cpp.mjs'),
   ],
 }
 
@@ -90,6 +93,7 @@ async function transfromCode2Jsx(
       remarkDirective,
       remarkContainerDirectivePlugin,
       remarkSlug,
+      remarkCodeConfig,
       remarkPlayground,
       remarkRunner,
     ])

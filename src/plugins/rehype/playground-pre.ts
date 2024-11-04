@@ -1,5 +1,5 @@
 import { type Element } from 'hast'
-import { buildFiles, getSuffix } from '@/utils'
+import { buildFiles } from '@/utils'
 import {
   isPlayground,
   getDefaultSelectorFromProps,
@@ -10,6 +10,14 @@ import { buildGetFunction } from '../utils'
 
 const PlaygroundFileKey = `${PlaygroundPrefix}file-key`
 export const getFileKeyFromProps = buildGetFunction(PlaygroundFileKey)
+
+function getSuffix(name: string) {
+  const index = name.lastIndexOf('.')
+  if (index === -1) {
+    return ''
+  }
+  return name.slice(index + 1)
+}
 
 function markPlaygroundPre(node: Element) {
   const props = node.properties

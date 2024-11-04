@@ -91,26 +91,6 @@ export function isLikeNum(s: string) {
   return DescNumRegx.test(s)
 }
 
-export function getSuffix(name: string) {
-  const index = name.lastIndexOf('.')
-  if (index === -1) {
-    return ''
-  }
-  return name.slice(index + 1)
-}
-
-export function padStartZero(str: number | string, num = 2) {
-  if (!isString(str)) {
-    str = String(str)
-  }
-  return str.padStart(num, '0')
-}
-
-const WhiteSpaceRegx = /\s/g
-export function formatId(id: string) {
-  return id.toLocaleLowerCase().replace(WhiteSpaceRegx, '-')
-}
-
 export function removeFrontmatter(md: string) {
   const startIdx = md.indexOf(FrontmatterWrapStr)
   if (startIdx !== 0) {
@@ -128,20 +108,7 @@ export function getYear(date: number) {
   return String(new Date(date).getFullYear())
 }
 
-export function getPathInfo(path: string) {
-  const idx = path.lastIndexOf('/')
-  return { dirname: path.slice(0, idx), basename: path.slice(idx + 1) }
-}
-
-export function runMicrotask(fn: () => any) {
-  Promise.resolve().then(fn)
-}
-
-export function runTask(fn: () => any) {
-  setTimeout(fn, 0)
-}
-
-export function isJSXLike(p: string) {
+export function isJsxFileLike(p: string) {
   return (
     p.endsWith('.js') ||
     p.endsWith('.jsx') ||
@@ -177,4 +144,14 @@ export function transfromLogValue(value: any) {
 export function getType(value: any) {
   const type = Object.prototype.toString.call(value)
   return type.slice(8, type.length - 1)
+}
+
+export function isTypeScript(lang: string) {
+  lang = lang.toLowerCase()
+  return lang === 'ts' || lang === 'typescript'
+}
+
+export function isJavaScript(lang: string) {
+  lang = lang.toLowerCase()
+  return lang === 'js' || lang === 'javascript'
 }

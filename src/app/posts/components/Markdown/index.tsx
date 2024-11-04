@@ -3,14 +3,23 @@ import { type Components } from 'hast-util-to-jsx-runtime'
 import lqip from 'lqip-modern'
 import React, { isValidElement } from 'react'
 import { ImageProps } from 'next/image'
-import { getLangFromProps } from '@/plugins/remark/playground'
 import { mono } from '@/app/fonts'
 import Copy from '@/app/posts/components/Copy'
 import MarkdownImage from '@/app/posts/components/Image'
 import CustomComponent, { CustomComponentProp } from '@/app/posts/custom'
-import { getComponentFromProps } from '@/plugins/constant'
+import { getComponentFromProps, getLangFromProps } from '@/plugins/constant'
 import './index.css'
 import transfromCode2Jsx from './transfrom'
+
+const langAlias: Record<string, string> = {
+  js: 'JavaScript',
+  javascript: 'JavaScript',
+  ts: 'TypeScript',
+  typescript: 'TypeScript',
+  jsx: 'JSX',
+  tsx: 'TSX',
+}
+const DefaultLang = 'Txt'
 
 const components: Partial<Components> = {
   pre(props) {
@@ -29,10 +38,14 @@ const components: Partial<Components> = {
     if (isValidElement(children)) {
       const code = children.props.children
       const lang = getLangFromProps(children.props)
+      let alias = lang ? langAlias[lang] || lang : DefaultLang
+      if (!alias) {
+        alias = DefaultLang
+      }
       return (
         <div className="pre-wrap">
           <div className="pre-bar">
-            {lang}
+            {alias}
             <Copy text={code} />
           </div>
           {defaultnode}
@@ -69,7 +82,6 @@ const components: Partial<Components> = {
   },
   div(props) {
     const { children, node, ...rest } = props
-    console.log(props)
     let component = getComponentFromProps(props)
     let defaultnode: any = <div {...rest}>{children}</div>
     const componentProps: CustomComponentProp = {
