@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { LogInfo } from '@/hooks/useConsole'
-import { getCodeFromProps } from '@/plugins/remark/playground'
 import { LoadingIcon } from '@/app/components/Icons'
+import { getCodeFromProps } from '@/plugins/constant'
 import styles from './index.module.css'
 import CodeWrap from '../components/CodeWrap'
 import Console from '../components/Console'

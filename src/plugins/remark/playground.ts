@@ -1,52 +1,49 @@
 import { visit } from 'unist-util-visit'
 import { transform, Options } from 'sucrase'
-import { buildFiles, getFirstLine, isLikeJSX, upperFirstChar } from '@/utils'
+import { buildFiles, getFirstLine, isJSXLike, upperFirstChar } from '@/utils'
 import { StringValueObj } from '@/types/base'
-import { ComponentKey, RemarkReturn } from '../constant'
-import { makeProperties } from '../utils'
+import {
+  ComponentCodeKey,
+  ComponentKey,
+  ComponentMetaKey,
+  RemarkReturn,
+} from '../constant'
+import { buildGetFunction, makeProperties } from '../utils'
 
 const transfromOptions: Options = {
   transforms: ['jsx', 'flow', 'imports'],
 }
 
-export const PlaygroundPrefix = `${ComponentKey}-playground-`
-export const ComponentCodeKey = `${PlaygroundPrefix}code`
-export const DefaultSelectorKey = `${PlaygroundPrefix}selector`
+export const PlaygroundPrefix = `${ComponentKey}playground-`
+export const PlaygroundDefaultSelectorKey = `${PlaygroundPrefix}selector`
 export const PlaygroundLangKey = `${PlaygroundPrefix}lang`
-export const ComponentMetaKey = `${PlaygroundPrefix}meta`
 export const PlaygroundShowDefaultConsoleKey = `${PlaygroundPrefix}console`
 export const PlaygroundHidePreviewKey = `${PlaygroundPrefix}no-preview`
 export const PlaygroundHideTabsKey = `${PlaygroundPrefix}no-tabs`
 export const PlaygroundHideConsoleKey = `${PlaygroundPrefix}no-console`
 export const PlaygroundFileMapKey = `${PlaygroundPrefix}file`
 
-export function getCodeFromProps(props: any): string {
-  return props[ComponentCodeKey]
-}
-export function getLangFromProps(props: any): string {
-  return props[PlaygroundLangKey]
-}
-export function getDefaultSelectorFromProps(props: any): string {
-  return props[DefaultSelectorKey]
-}
-export function getComponentMetaFromProps(props: any): string {
-  return props[ComponentMetaKey]
-}
-export function getComponentShowConsoleKey(props: any): boolean | undefined {
-  return props[PlaygroundShowDefaultConsoleKey]
-}
-export function getComponentFileMapKey(props: any): StringValueObj {
-  return JSON.parse(props[PlaygroundFileMapKey])
-}
-export function getPlaygroundHidePreviewKey(props: any): boolean | undefined {
-  return props[PlaygroundHidePreviewKey]
-}
-export function getPlaygroundHideTabsKey(props: any): boolean | undefined {
-  return props[PlaygroundHideTabsKey]
-}
-export function getPlaygroundHideConsoleKey(props: any): boolean | undefined {
-  return props[PlaygroundHideConsoleKey]
-}
+export const getLangFromProps = buildGetFunction<string>(PlaygroundLangKey)
+export const getDefaultSelectorFromProps = buildGetFunction<string>(
+  PlaygroundDefaultSelectorKey,
+)
+export const getComponentShowConsoleKey = buildGetFunction<boolean | undefined>(
+  PlaygroundShowDefaultConsoleKey,
+)
+export const getComponentFileMapKey = buildGetFunction<string>(
+  PlaygroundFileMapKey,
+  JSON.parse,
+)
+export const getPlaygroundHidePreviewKey = buildGetFunction<
+  boolean | undefined
+>(PlaygroundHidePreviewKey)
+export const getPlaygroundHideTabsKey = buildGetFunction<boolean | undefined>(
+  PlaygroundHideTabsKey,
+)
+export const getPlaygroundHideConsoleKey = buildGetFunction<
+  boolean | undefined
+>(PlaygroundHideConsoleKey)
+
 const SupportPlaygroundLang = new Set(['jsx', 'tsx', 'react', 'js', 'ts'])
 const SupportStaticPlaygroundLang = new Set(['html', 'css', 'js', 'txt'])
 export const PlaygroundName = 'Playground'
@@ -88,7 +85,7 @@ function remarkPlayground(): RemarkReturn {
         : undefined
       const setNode = (selector: string) => {
         props[ComponentKey] = PlaygroundName
-        props[DefaultSelectorKey] = selector
+        props[PlaygroundDefaultSelectorKey] = selector
         props[ComponentCodeKey] = myBeAppFile ? code.slice(endIndex) : code
         props[ComponentMetaKey] = meta
         if (meta.includes('no-view')) {
@@ -102,7 +99,7 @@ function remarkPlayground(): RemarkReturn {
         }
         const files: StringValueObj = buildFiles(code, selector)
         for (const key in files) {
-          if (isLikeJSX(key)) {
+          if (isJSXLike(key)) {
             files[key] = transform(files[key], transfromOptions).code
           }
         }

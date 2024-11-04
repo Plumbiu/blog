@@ -21,3 +21,13 @@ export function makeProperties(node: CommonReamrkNode) {
     node.data.hProperties = {}
   }
 }
+
+export function buildGetFunction<T>(key: string, handler?: Function) {
+  return (props: any): T => {
+    const value = props[key]
+    if (handler) {
+      return handler(value)
+    }
+    return value
+  }
+}

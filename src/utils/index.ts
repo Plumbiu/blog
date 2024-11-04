@@ -141,7 +141,7 @@ export function runTask(fn: () => any) {
   setTimeout(fn, 0)
 }
 
-export function isLikeJSX(p: string) {
+export function isJSXLike(p: string) {
   return (
     p.endsWith('.js') ||
     p.endsWith('.jsx') ||

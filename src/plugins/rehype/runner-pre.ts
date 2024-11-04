@@ -1,15 +1,6 @@
 import { type Element } from 'hast'
-import {
-  getCodeFromProps,
-  getComponentMetaFromProps,
-  PlaygroundPrefix,
-} from '../remark/playground'
 import { isRuner } from '../remark/runner'
-
-const PlaygroundFileKey = `${PlaygroundPrefix}file-key`
-export function getFileKeyFromProps(props: any) {
-  return props[PlaygroundFileKey]
-}
+import { getCodeFromProps, getComponentMetaFromProps } from '../constant'
 
 function markRunnerPre(node: Element) {
   const props = node.properties

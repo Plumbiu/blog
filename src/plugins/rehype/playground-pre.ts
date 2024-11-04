@@ -2,16 +2,14 @@ import { type Element } from 'hast'
 import { buildFiles, getSuffix } from '@/utils'
 import {
   isPlayground,
-  getCodeFromProps,
   getDefaultSelectorFromProps,
-  getComponentMetaFromProps,
   PlaygroundPrefix,
 } from '../remark/playground'
+import { getCodeFromProps, getComponentMetaFromProps } from '../constant'
+import { buildGetFunction } from '../utils'
 
 const PlaygroundFileKey = `${PlaygroundPrefix}file-key`
-export function getFileKeyFromProps(props: any) {
-  return props[PlaygroundFileKey]
-}
+export const getFileKeyFromProps = buildGetFunction(PlaygroundFileKey)
 
 function markPlaygroundPre(node: Element) {
   const props = node.properties

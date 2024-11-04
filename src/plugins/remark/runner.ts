@@ -1,7 +1,11 @@
 import { transform, Options } from 'sucrase'
 import { visit } from 'unist-util-visit'
-import { ComponentCodeKey, ComponentMetaKey } from './playground'
-import { ComponentKey, RemarkReturn } from '../constant'
+import {
+  ComponentCodeKey,
+  ComponentKey,
+  ComponentMetaKey,
+  RemarkReturn,
+} from '../constant'
 import { makeProperties } from '../utils'
 
 export const RunnerName = 'Run'
