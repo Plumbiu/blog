@@ -1,10 +1,12 @@
 ---
-title: 自定义组件测试
+title: 自定义组件
 date: 2024-10-03
-desc: 这是用来测试博客上的一些自定义组件，持续更新....
+desc: 一篇用于测试/查看博客上的一些自定义组件的文章
 ---
 
 # Playground
+
+用于展示 react 组件或者原生 HTML
 
 ## jsx
 
@@ -90,6 +92,8 @@ export default Test
 
 # Tip
 
+一些提示组件
+
 > Normal Tip
 >
 > This is some description. This is some description.This is some description.
@@ -138,6 +142,8 @@ This is some description. This is some description. This is some description.
 
 # Details
 
+模拟原生 `detail` 组件
+
 :::Details[Detail 测试]
 Hello World
 `console.log('details')`
@@ -145,13 +151,15 @@ Hello World
 
 # Image
 
+图片组件，类名用 `image-wrap` 包裹
+
 ![image-20240310213919215](/images/2023-1.webp)
 ![image-20240310213930618](/images/2023-2.webp)
 ![image-20240310213919215](/images/2023-3.png)
 
 # Table
 
-常见的转换：
+`remark-gfm` 提供的 table 组件
 
 | 类型      | 转换为数字(`Number` 方法) | 转换为字符串(`String` 方法) |
 | --------- | ------------------------- | --------------------------- |
@@ -164,6 +172,10 @@ Hello World
 | Symbol    | 报错                      | Symbol('xxx')               |
 
 # Code Runner
+
+执行 JavaScript/TypesSript 代码，运行在 web worker 中
+
+## js
 
 ```js Run
 function fn(n) {
@@ -185,7 +197,21 @@ fn(true)
 fn(new Date(Date.now()))
 ```
 
-**long time:**
+## ts
+
+```ts Run
+interface Foo {
+  text: string
+}
+
+function fn(n: Foo) {
+  console.log(n.text)
+}
+
+fn({ text: 'Hello' })
+```
+
+## long time
 
 ```js Run
 function fn(n) {
@@ -200,21 +226,9 @@ fn('ch')
 fn({ obj: 1 })
 ```
 
-**Typescript**
-
-```ts Run
-interface Foo {
-  text: string
-}
-
-function fn(n: Foo) {
-  console.log(n.text)
-}
-
-fn({ text: 'Hello' })
-```
-
 # code diff
+
+代码中的删除添加
 
 ```diff-js
 - console.log('hewwo')
