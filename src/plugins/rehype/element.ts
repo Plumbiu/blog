@@ -1,8 +1,8 @@
-import { SKIP, visit } from 'unist-util-visit'
+import { type Element } from 'hast'
+import { visit } from 'unist-util-visit'
 import { isNumber } from '@/utils'
 import markRunnerPre from './runner-pre'
 import markPlaygroundPre from './playground-pre'
-import blankTargetPlugin from './blank-link'
 import { RehypePlugin } from '../constant'
 
 function rehypeElementPlugin(): RehypePlugin {
@@ -38,3 +38,10 @@ function rehypeElementPlugin(): RehypePlugin {
 }
 
 export default rehypeElementPlugin
+
+function blankTargetPlugin(node: Element) {
+  if (node.tagName === 'a') {
+    node.properties.target = '_blank'
+    node.properties.className = 'link'
+  }
+}

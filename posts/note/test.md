@@ -173,7 +173,11 @@ function fn(n) {
 fn(1)
 fn('ch')
 fn({ obj: 1 })
-fn(function () {})
+fn(function t() {})
+fn(() => {
+  console.log(2)
+  console.log(1)
+})
 fn(Symbol('foo'))
 fn(undefined)
 fn(null)
@@ -192,5 +196,18 @@ while (Date.now() - start < 3000) {}
 fn(1)
 fn('ch')
 fn({ obj: 1 })
-fn(function () {})
+```
+
+**Typescript**
+
+```ts Run
+interface Foo {
+  text: string
+}
+
+function fn(n: Foo) {
+  console.log(n.text)
+}
+
+fn({ text: 'Hello' })
 ```

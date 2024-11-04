@@ -150,11 +150,13 @@ export function isJSXLike(p: string) {
   )
 }
 
+const Undefined = 'undefined'
+const Null = 'null'
 export function transfromNoneLogValue(value: any) {
   if (value === undefined) {
-    return 'undefined'
+    return Undefined
   }
-  return 'null'
+  return Null
 }
 
 export function transfromLogValue(value: any) {
@@ -170,4 +172,9 @@ export function transfromLogValue(value: any) {
   }
 
   return JSON.stringify(value)
+}
+
+export function getType(value: any) {
+  const type = Object.prototype.toString.call(value)
+  return type.slice(8, type.length - 1)
 }

@@ -30,7 +30,7 @@ export const getDefaultSelectorFromProps = buildGetFunction<string>(
 export const getComponentShowConsoleKey = buildGetFunction<boolean | undefined>(
   PlaygroundShowDefaultConsoleKey,
 )
-export const getComponentFileMapKey = buildGetFunction<string>(
+export const getComponentFileMapKey = buildGetFunction<StringValueObj>(
   PlaygroundFileMapKey,
   JSON.parse,
 )

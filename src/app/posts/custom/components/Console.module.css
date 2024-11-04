@@ -11,12 +11,13 @@
   }
 }
 
-.value {
-  padding: 0 1px;
+.right {
+  white-space: pre-wrap;
 }
 
-.console_date {
+.left {
   color: var(--text-3);
+  white-space: nowrap;
 }
 
 .num {
@@ -25,10 +26,6 @@
 
 .string {
   color: rgb(181, 105, 89);
-}
-
-.quote {
-  color: rgba(181, 105, 89, 0.467);
 }
 
 .none {
@@ -41,9 +38,6 @@ html[data-theme='dark'] {
   }
   .string {
     color: #c98a7d;
-  }
-  .quote {
-    color: #c98a7d77;
   }
   .none {
     color: #cb7676;

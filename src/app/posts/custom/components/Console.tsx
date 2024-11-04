@@ -13,32 +13,30 @@ function formatTime(date: number) {
 
 interface ConsoleProps {
   logs: LogInfo[]
+  showType?: boolean
 }
 
-const Console = ({ logs }: ConsoleProps) => {
+const Console = ({ logs, showType = false }: ConsoleProps) => {
   return (
     <div className={styles.console}>
-      {logs.map(({ value, date }, i) => {
+      {logs.map(({ value, date, valueType }, i) => {
         const isNone = value === 'null' || value === 'undefined'
         const isValueString = isString(value) && !isNone
 
-        const quote = isValueString && <span className={styles.quote}>'</span>
         return (
           <div key={i}>
-            <div>
-              {quote}
-              <span
-                className={clsx(styles.value, {
-                  [styles.num]: isNumber(value),
-                  [styles.string]: isValueString,
-                  [styles.none]: isNone,
-                })}
-              >
-                {transfromLogValue(value)}
-              </span>
-              {quote}
+            <div
+              className={clsx(styles.right, {
+                [styles.num]: isNumber(value),
+                [styles.string]: isValueString,
+                [styles.none]: isNone,
+              })}
+            >
+              {transfromLogValue(value)}
             </div>
-            <span className={styles.console_date}>{formatTime(date)}</span>
+            <div className={styles.left}>
+              {showType ? valueType : formatTime(date)}
+            </div>
           </div>
         )
       })}

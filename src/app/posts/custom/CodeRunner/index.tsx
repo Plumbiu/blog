@@ -25,7 +25,7 @@ function CodeRunner(props: any) {
     <CodeWrap barText="Code Runner">
       <div>{props.defaultnode}</div>
       {logs.length ? (
-        <Console logs={logs} />
+        <Console showType logs={logs} />
       ) : (
         <div className={styles.run}>
           {<LoadingIcon />}
