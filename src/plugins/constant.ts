@@ -3,7 +3,7 @@ import { type Root } from 'hast'
 import { type Root as RemarkRoot } from 'mdast'
 import { buildGetFunction } from './utils'
 
-export const ComponentKey = 'dc'
+export const ComponentKey = 'dc-'
 export const getComponentFromProps = buildGetFunction<string>(ComponentKey)
 
 export type RehypePlugin = (tree: Root) => void

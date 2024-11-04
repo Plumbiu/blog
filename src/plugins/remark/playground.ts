@@ -9,11 +9,11 @@ const transfromOptions: Options = {
   transforms: ['jsx', 'flow', 'imports'],
 }
 
-export const PlaygroundPrefix = `${ComponentKey}playground-`
-export const PlaygroundDefaultSelectorKey = `${PlaygroundPrefix}selector`
+export const PlaygroundPrefix = `${ComponentKey}p-`
+export const PlaygroundDefaultSelectorKey = `${PlaygroundPrefix}select`
 export const PlaygroundShowDefaultConsoleKey = `${PlaygroundPrefix}console`
-export const PlaygroundHidePreviewKey = `${PlaygroundPrefix}no-preview`
-export const PlaygroundHideTabsKey = `${PlaygroundPrefix}no-tabs`
+export const PlaygroundHidePreviewKey = `${PlaygroundPrefix}no-view`
+export const PlaygroundHideTabsKey = `${PlaygroundPrefix}no-tab`
 export const PlaygroundHideConsoleKey = `${PlaygroundPrefix}no-console`
 export const PlaygroundFileMapKey = `${PlaygroundPrefix}file`
 
