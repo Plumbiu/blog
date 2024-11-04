@@ -39,7 +39,7 @@ const components: Partial<Components> = {
       const code = children.props.children
       let lang = getLangFromProps(children.props)
       if (!lang) {
-        lang = 'txt'
+        lang = DefaultLang
       } else {
         const key = lang.replace('diff-', '')
         lang = langAlias[key] || key

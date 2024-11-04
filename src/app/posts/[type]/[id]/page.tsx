@@ -57,13 +57,14 @@ export async function getPostContent(
 }
 
 interface PostProps {
-  params: {
+  params: Promise<{
     id: string
     type: FrontMatterKey
-  }
+  }>
 }
 
-async function Post({ params }: PostProps) {
+async function Post(props: PostProps) {
+  const params = await props.params
   const info = await getPostContent(params.type, params.id)
   if (!info) {
     return <NotFound />
@@ -84,9 +85,8 @@ async function Post({ params }: PostProps) {
   )
 }
 
-export async function generateMetadata({
-  params,
-}: PostProps): Promise<Metadata> {
+export async function generateMetadata(props: PostProps): Promise<Metadata> {
+  const params = await props.params
   const info = await getPostContent(params.type, params.id)
   const category = getCategory(params.id)
   return {

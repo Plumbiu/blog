@@ -16,9 +16,9 @@ export function generateStaticParams() {
 }
 
 interface ListProps {
-  params: {
+  params: Promise<{
     id: FrontmatterKey
-  }
+  }>
 }
 
 function formatTime(time: string | number) {
@@ -27,7 +27,8 @@ function formatTime(time: string | number) {
   return month + String(d.getDate()).padStart(3, ' 0')
 }
 
-async function ArtlistAll({ params }: ListProps) {
+async function ArtlistAll(props: ListProps) {
+  const params = await props.params
   const lists = await getPostsInfo(params.id)
 
   const floatMap: FloatType = {}
@@ -80,9 +81,8 @@ async function ArtlistAll({ params }: ListProps) {
 
 export default ArtlistAll
 
-export async function generateMetadata({
-  params,
-}: ListProps): Promise<Metadata> {
+export async function generateMetadata(props: ListProps): Promise<Metadata> {
+  const params = await props.params
   return {
     title: `${upperFirstChar(params.id)} - 文章`,
   }

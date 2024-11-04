@@ -4,7 +4,11 @@
   margin: 0;
   word-break: break-word;
   & > * {
-    margin-bottom: 12px;
+    margin-bottom: 18px;
+  }
+
+  & > p {
+    line-height: 26px;
   }
 
   /* table */
@@ -114,8 +118,8 @@
   /* blockquote */
   blockquote {
     position: relative;
-    font-size: 14px;
-
+    font-size: 14.5px;
+    color: var(--text-2);
     margin: 0;
     margin-bottom: 12px;
     padding: 8px 0;
@@ -128,6 +132,7 @@
     }
   }
   blockquote[class] {
+    color: var(--text-1);
     border-radius: 2px;
     border-left: none;
     margin-left: 0;

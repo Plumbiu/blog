@@ -80,9 +80,9 @@ export const configColors = {
   border: { divider: ['#e2e2e5', '#2e2e32'] },
 }
 
-function makeThemeColors(colors) {
-  const light = {}
-  const dark = {}
+function makeThemeColors(colors: Record<string, any>) {
+  const light: Record<string, any> = {}
+  const dark: Record<string, any> = {}
   for (const key in colors) {
     if (!light[key]) {
       light[key] = {}
@@ -122,6 +122,6 @@ const result = {
 
 export default result
 
-function isPlainArr(arr) {
+function isPlainArr(arr: Array<any>) {
   return arr.flat(1).length === arr.length
 }

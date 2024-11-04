@@ -27,8 +27,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "theme-variable.mjs",
-    "next.config.mjs"
+    "theme-variable.ts",
+    "next.config.ts"
   ],
   "exclude": ["node_modules"]
 }
