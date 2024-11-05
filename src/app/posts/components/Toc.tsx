@@ -28,9 +28,6 @@ const TocLink = memo(
   ),
 )
 
-const maxViewHeight = 300
-const minViewHeight = 0
-
 function Toc() {
   const [list, setList] = useState<ITocList[]>([])
   const [activeIndex, setActiveIndex] = useState<number>()
@@ -49,25 +46,27 @@ function Toc() {
     }
   }
 
-  const handler = throttle(() => {
-    for (let i = 0; i < nodes.current!.length; i++) {
-      const node = nodes.current![i]
-      const rect = node.getBoundingClientRect()
-      if (rect.bottom >= minViewHeight && rect.top < maxViewHeight) {
-        highlight(i)
-        break
+  const handler = throttle(
+    () => {
+      const viewHeight = window.innerHeight / 2
+      console.log(viewHeight)
+      for (let i = 0; i < nodes.current!.length; i++) {
+        const node = nodes.current![i]
+        const rect = node.getBoundingClientRect()
+        if (rect.bottom >= 0 && rect.top < viewHeight) {
+          highlight(i)
+          break
+        }
+        const nextRect = nodes.current![i + 1]?.getBoundingClientRect()
+        if (rect.bottom < 0 && nextRect && nextRect.top > viewHeight) {
+          highlight(i)
+          break
+        }
       }
-      const nextRect = nodes.current![i + 1]?.getBoundingClientRect()
-      if (
-        rect.bottom < minViewHeight &&
-        nextRect &&
-        nextRect.top > window.innerHeight
-      ) {
-        highlight(i)
-        break
-      }
-    }
-  }, 100)
+    },
+    100,
+    { ignoreFirst: true },
+  )
 
   useEffect(() => {
     nodes.current = document.querySelectorAll('.md > h1,h2,h3')

@@ -57,7 +57,7 @@
   --center-max-w: 800px;
   --center-w: 50%;
   --center-rest: calc((100% - var(--center-w)) / 2);
-  --pre-radius: 4px;
+  --pre-radius: 6px;
   --extend-x: -36px;
   --image-item-w: 50%;
   --code-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,

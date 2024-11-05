@@ -10,16 +10,28 @@ export const upperFirstChar = (s: string) => {
   return s[0].toUpperCase() + s.slice(1)
 }
 
-export function throttle(fn: Function, wait = 300) {
+interface ThrottleOptions {
+  ignoreFirst: boolean
+}
+
+export function throttle(
+  fn: Function,
+  wait = 300,
+  { ignoreFirst = false }: ThrottleOptions,
+) {
   let start = Date.now()
 
   return function (this: any, ...args: any[]) {
     const now = Date.now()
     if (now - start < wait) {
-      return
+      if (ignoreFirst === true) {
+        ignoreFirst = false
+      } else {
+        return
+      }
     }
-
     start = now
+
     fn.apply(this, args)
   }
 }
