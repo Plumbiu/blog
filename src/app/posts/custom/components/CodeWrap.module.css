@@ -5,13 +5,14 @@
   overflow: hidden;
   border-radius: 0 0 var(--pre-radius) var(--pre-radius);
   border: 1px solid var(--divider);
-  background-color: var(--bg-md-pre);
   border-top: none;
+  background-color: var(--bg-md-pre);
 
   & > div:first-child {
     border-right: 1px solid var(--divider);
     & pre {
       max-height: 70vh;
+      border: none;
     }
   }
 }

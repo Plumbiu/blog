@@ -6,7 +6,7 @@ desc: 1
 
 在我的博客文章页面，随着页面滚动，右边的目录也会跟着发生变化，几乎所有静态网站生成的框架，例如 [vitepress](https://github.com/vuejs/vitepress)，都支持这种功能，这篇文章是讲解我实现 TOC 的思路，以及如何做到比 `vitepress` 更好的效果。
 
-![toc](/images/toc.gif)
+![toc](toc.gif)
 
 # 思路
 
@@ -117,7 +117,7 @@ export default function App() {
 
 你可能遇到过很长的目录，超过整个屏幕高度的那种，如果是上面的写法，那么当你翻阅到文章最下面时，目录组件高亮的部分可能在视区之外，用户需要手动滚动目录组件才行，因此目录组件也需要有个**滚动关联**功能：
 
-![toc-optimize](/images/toc-optimize.gif)
+![toc-optimize](toc-optimize.gif)
 
 我们可以调用 `dom.scrollTo` 方法实现滚动，继续补充上述的 `scrollHandler` 函数（高亮部分）
 

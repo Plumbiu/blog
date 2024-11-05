@@ -67,8 +67,10 @@
     overflow: auto;
     tab-size: 2;
     line-height: 1.5;
-    border-radius: 0 0 var(--pre-radius) var(--pre-radius);
-    padding: 8px 0 8px 12px;
+    border-radius: var(--pre-radius);
+    background-color: var(--bg-md-pre);
+    border: 1px solid var(--divider);
+    padding: 12px 0 8px 12px;
     code {
       box-sizing: content-box;
       display: inline-flex;
@@ -79,42 +81,6 @@
     }
   }
 
-  .pre-wrap {
-    overflow: hidden;
-    background-color: var(--bg-md-pre);
-    & pre {
-      border: 1px solid var(--divider);
-      border-top: none;
-    }
-  }
-
-  .pre-bar {
-    font-size: 14px;
-    display: flex;
-    border: 1px solid var(--divider);
-    font-weight: 600;
-    justify-content: space-between;
-    border-radius: var(--pre-radius) var(--pre-radius) 0 0;
-    align-items: center;
-    border-bottom: 1px solid var(--divider);
-    padding: 8px 20px 8px 16px;
-  }
-
-  .pre-wrap svg {
-    font-size: 18px;
-    display: block;
-  }
-
-  .pre-copy {
-    color: var(--text-2);
-    cursor: pointer;
-    transition: color 150ms ease-out;
-    border-radius: 8px;
-
-    &:hover {
-      color: var(--text);
-    }
-  }
   /* blockquote */
   blockquote {
     position: relative;
@@ -174,10 +140,11 @@
     object-fit: contain;
   }
   .image-wrap {
-    --gap: 4px;
+    --gap: 6px;
     display: flex;
     flex-wrap: wrap;
-    gap: var(--gap);
+    column-gap: var(--gap);
+    row-gap: calc(var(--gap) * 1.25);
     & > img {
       width: calc(var(--image-item-w) - var(--gap));
     }

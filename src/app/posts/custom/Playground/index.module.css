@@ -1,12 +1,3 @@
-.bar {
-  padding: 8px 12px;
-  font-size: 14px;
-  background-color: var(--bg-md-pre);
-  font-weight: 600;
-  border-radius: var(--pre-radius) var(--pre-radius) 0 0;
-  border: 1px solid var(--divider);
-}
-
 .hide {
   position: absolute;
   left: 99999px;

@@ -3,28 +3,17 @@ import { type Components } from 'hast-util-to-jsx-runtime'
 import lqip from 'lqip-modern'
 import React, { isValidElement } from 'react'
 import { ImageProps } from 'next/image'
-import { mono } from '@/app/fonts'
-import Copy from '@/app/posts/components/Copy'
 import MarkdownImage from '@/app/posts/components/Image'
 import CustomComponent, { CustomComponentProp } from '@/app/posts/custom'
 import { getComponentFromProps, getLangFromProps } from '@/plugins/constant'
 import './index.css'
 import transfromCode2Jsx from './transfrom'
-
-const langAlias: Record<string, string> = {
-  js: 'JavaScript',
-  javascript: 'JavaScript',
-  ts: 'TypeScript',
-  typescript: 'TypeScript',
-  jsx: 'JSX',
-  tsx: 'TSX',
-}
-const DefaultLang = 'Txt'
+import PreComponent from '../Pre'
 
 const components: Partial<Components> = {
   pre(props) {
     const children = props.children
-    const defaultnode = <pre className={mono.className}>{children}</pre>
+    const defaultnode = <PreComponent>{children}</PreComponent>
     const component = getComponentFromProps(props)
     if (component) {
       return (
@@ -37,22 +26,7 @@ const components: Partial<Components> = {
     }
     if (isValidElement(children)) {
       const code = children.props.children
-      let lang = getLangFromProps(children.props)
-      if (!lang) {
-        lang = DefaultLang
-      } else {
-        const key = lang.replace('diff-', '')
-        lang = langAlias[key] || key
-      }
-      return (
-        <div className="pre-wrap">
-          <div className="pre-bar">
-            {lang}
-            <Copy text={code} />
-          </div>
-          {defaultnode}
-        </div>
-      )
+      return <PreComponent code={code}>{children}</PreComponent>
     }
 
     return defaultnode
@@ -63,11 +37,11 @@ const components: Partial<Components> = {
     if (!src || !alt) {
       return null
     }
-    const imagePath = path.join('public', src)
+    const imagePath = path.join('public', 'images', src)
     const { metadata } = await lqip(imagePath)
     const commonProps: ImageProps = {
       ...rest,
-      src,
+      src: `/images/${src}`,
       alt,
       style: {
         position: undefined,
