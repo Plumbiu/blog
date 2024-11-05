@@ -11,7 +11,12 @@ import {
   SearchIcon,
   SunIcon,
 } from '@/app/components/Icons'
-import { Dark, getLocalTheme, toggleDataTheme } from '@/utils/client/theme'
+import {
+  Dark,
+  getLocalTheme,
+  handleLightMediaChange,
+  toggleDataTheme,
+} from '@/utils/client/theme'
 import styles from './Header.module.css'
 
 function Header() {
@@ -20,8 +25,12 @@ function Header() {
   const [themeState, setThemeState] = useState<string>()
   const prevScrollTop = useRef(0)
   useLayoutEffect(() => {
-    const theme = getLocalTheme()
+    const { theme, lightMedia } = getLocalTheme()
     setThemeState(theme)
+    lightMedia.addEventListener('change', handleLightMediaChange)
+    return () => {
+      lightMedia.removeEventListener('change', handleLightMediaChange)
+    }
   }, [])
 
   function addShadowClassName() {
