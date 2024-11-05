@@ -1,11 +1,11 @@
 import path from 'node:path'
 import { type Components } from 'hast-util-to-jsx-runtime'
 import lqip from 'lqip-modern'
-import React, { isValidElement } from 'react'
+import React from 'react'
 import { ImageProps } from 'next/image'
 import MarkdownImage from '@/app/posts/components/Image'
 import CustomComponent, { CustomComponentProp } from '@/app/posts/custom'
-import { getComponentFromProps, getLangFromProps } from '@/plugins/constant'
+import { getComponentFromProps } from '@/plugins/constant'
 import './index.css'
 import transfromCode2Jsx from './transfrom'
 import PreComponent from '../Pre'
@@ -13,23 +13,17 @@ import PreComponent from '../Pre'
 const components: Partial<Components> = {
   pre(props) {
     const children = props.children
-    const defaultnode = <PreComponent>{children}</PreComponent>
     const component = getComponentFromProps(props)
     if (component) {
       return (
         <CustomComponent
           {...props}
-          defaultnode={defaultnode}
+          defaultnode={<PreComponent>{children}</PreComponent>}
           component={component}
         />
       )
     }
-    if (isValidElement(children)) {
-      const code = children.props.children
-      return <PreComponent code={code}>{children}</PreComponent>
-    }
-
-    return defaultnode
+    return <PreComponent node={props.node}>{children}</PreComponent>
   },
   // @ts-ignore
   async img(props) {

@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import styles from './page.module.css'
-import info from '@/links.json'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import Image from 'next/image'
+import info from '@/links.json'
+import styles from './page.module.css'
 
 function Links() {
   return (

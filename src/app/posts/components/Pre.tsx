@@ -1,36 +1,22 @@
 'use client'
 
-import { FC, ReactNode, useState } from 'react'
-import { clsx } from 'clsx'
+import { ReactNode, useState } from 'react'
+import { toString } from 'hast-util-to-string'
+import { Nodes } from 'hast'
 import { CopyCheckIcon, CopyErrorIcon, CopyIcon } from '@/app/components/Icons'
 import { mono } from '@/app/fonts'
 import styles from './Pre.module.css'
 
 interface PreComponentProps {
   children: ReactNode
-  code?: string
+  node?: Nodes
 }
 
-function PreComponent({ children, code }: PreComponentProps) {
-  return (
-    <pre className={clsx(mono.className, styles.wrap)}>
-      {!!code && (
-        <div className={styles.action}>
-          <Copy code={code} />
-        </div>
-      )}
-      {children}
-    </pre>
-  )
-}
-
-const Copy: FC<{
-  code: string
-}> = ({ code }) => {
+function PreComponent({ children, node }: PreComponentProps) {
   const [icon, setIcon] = useState(<CopyIcon />)
   function copy() {
     navigator.clipboard
-      .writeText(code)
+      .writeText(toString(node!))
       .then(() => {
         setIcon(<CopyCheckIcon />)
       })
@@ -43,10 +29,14 @@ const Copy: FC<{
         }, 750)
       })
   }
-
   return (
-    <div className={styles.copy} onClick={copy}>
-      {icon}
+    <div className={styles.wrap}>
+      {!!node && (
+        <div className={styles.action} onClick={copy}>
+          {icon}
+        </div>
+      )}
+      <pre className={mono.className}>{children}</pre>
     </div>
   )
 }

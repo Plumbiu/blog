@@ -12,22 +12,27 @@
 
 .action {
   position: absolute;
+  top: 12px;
+  right: 12px;
   opacity: 0;
   display: flex;
   align-items: center;
-  right: 16px;
-  top: 12px;
-  z-index: 3;
+  justify-content: flex-end;
   pointer-events: none;
-  transition: opacity 300ms ease-out;
   overflow: hidden;
-  svg {
-    font-size: 20px;
-  }
-}
-
-.copy {
   color: var(--text-2);
-  cursor: pointer;
-  border-radius: 8px;
+  transition: opacity 300ms ease-out, color 150ms;
+
+  svg {
+    display: inline-block;
+    box-sizing: content-box;
+    border-radius: 6px;
+    font-size: 18px;
+    padding: 8px;
+    cursor: pointer;
+    border: 1px solid var(--divider);
+  }
+  &:hover {
+    color: var(--text-1);
+  }
 }
