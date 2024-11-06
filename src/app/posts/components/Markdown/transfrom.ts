@@ -1,4 +1,3 @@
-/* eslint-disable @stylistic/max-len */
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
@@ -15,7 +14,7 @@ import rehypePrismGenerator from '@/plugins/rehype/hightlight'
 import rehypeElementPlugin from '@/plugins/rehype/element'
 import { remarkSlug } from '@/plugins/remark/slug'
 import remarkPlayground from '@/plugins/remark/playground'
-import { remarkContainerDirectivePlugin } from '@/plugins/rehype/container-directive'
+import { remarkContainerDirectivePlugin } from '@/plugins/rehype/directive'
 import './index.css'
 import remarkRunner from '@/plugins/remark/runner'
 import remarkCodeConfig from '@/plugins/remark/code'

@@ -1,7 +1,7 @@
 import { type ContainerDirective } from 'mdast-util-directive'
 import { visit } from 'unist-util-visit'
 import { addNodeClassName, makeProperties } from '../utils'
-import { RemarkReturn } from '../constant'
+import { ComponentKey, RemarkReturn } from '../constant'
 
 export function remarkContainerDirectivePlugin(): RemarkReturn {
   return (tree) => {
@@ -9,6 +9,15 @@ export function remarkContainerDirectivePlugin(): RemarkReturn {
       makeProperties(node)
       noteContainerDirective(node)
       detailContainerDirective(node)
+    })
+    visit(tree, 'textDirective', (node, index, parent) => {
+      if (!parent) {
+        return
+      }
+      parent.type = 'root'
+      makeProperties(node)
+      node.data!.hName = 'div'
+      node.data!.hProperties![ComponentKey] = node.name
     })
   }
 }

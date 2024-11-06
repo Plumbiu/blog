@@ -14,7 +14,7 @@ export const getCodeFromProps = buildGetFunction<string>(ComponentCodeKey)
 
 export const ComponentMetaKey = `${ComponentKey}meta`
 export const getComponentMetaFromProps =
-  buildGetFunction<string>(ComponentCodeKey)
+  buildGetFunction<string>(ComponentMetaKey)
 
 export const ComponentLangKey = `${ComponentKey}lang`
 export const getLangFromProps = buildGetFunction<string>(ComponentLangKey)

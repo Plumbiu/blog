@@ -4,7 +4,7 @@ import {
   isPlayground,
   getDefaultSelectorFromProps,
   PlaygroundPrefix,
-} from '../remark/playground'
+} from '../remark/playground-client'
 import { getCodeFromProps, getComponentMetaFromProps } from '../constant'
 import { buildGetFunction } from '../utils'
 
@@ -45,7 +45,7 @@ function markPlaygroundPre(node: Element) {
       tagName: 'code',
       properties: props,
       data: {
-        meta: i === 0 ? meta : undefined,
+        meta,
       },
       children: [{ type: 'text', value: files[key] }],
     }

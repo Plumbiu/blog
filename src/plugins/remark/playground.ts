@@ -1,41 +1,24 @@
+import fs from 'node:fs'
+import path from 'node:path'
 import { visit } from 'unist-util-visit'
 import { transform, Options } from 'sucrase'
 import { buildFiles, getFirstLine, isJsxFileLike } from '@/utils'
 import { StringValueObj } from '@/types/base'
+import {
+  PlaygroundCustomPreivew,
+  PlaygroundDefaultSelectorKey,
+  PlaygroundFileMapKey,
+  PlaygroundHideConsoleKey,
+  PlaygroundHidePreviewKey,
+  PlaygroundHideTabsKey,
+  PlaygroundShowDefaultConsoleKey,
+} from './playground-client'
 import { ComponentCodeKey, ComponentKey, RemarkReturn } from '../constant'
-import { buildGetFunction, makeProperties } from '../utils'
+import { makeProperties } from '../utils'
 
 const transfromOptions: Options = {
   transforms: ['jsx', 'flow', 'imports'],
 }
-
-export const PlaygroundPrefix = `${ComponentKey}p-`
-export const PlaygroundDefaultSelectorKey = `${PlaygroundPrefix}select`
-export const PlaygroundShowDefaultConsoleKey = `${PlaygroundPrefix}console`
-export const PlaygroundHidePreviewKey = `${PlaygroundPrefix}no-view`
-export const PlaygroundHideTabsKey = `${PlaygroundPrefix}no-tab`
-export const PlaygroundHideConsoleKey = `${PlaygroundPrefix}no-console`
-export const PlaygroundFileMapKey = `${PlaygroundPrefix}file`
-
-export const getDefaultSelectorFromProps = buildGetFunction<string>(
-  PlaygroundDefaultSelectorKey,
-)
-export const getComponentShowConsoleKey = buildGetFunction<boolean | undefined>(
-  PlaygroundShowDefaultConsoleKey,
-)
-export const getComponentFileMapKey = buildGetFunction<StringValueObj>(
-  PlaygroundFileMapKey,
-  JSON.parse,
-)
-export const getPlaygroundHidePreviewKey = buildGetFunction<
-  boolean | undefined
->(PlaygroundHidePreviewKey)
-export const getPlaygroundHideTabsKey = buildGetFunction<boolean | undefined>(
-  PlaygroundHideTabsKey,
-)
-export const getPlaygroundHideConsoleKey = buildGetFunction<
-  boolean | undefined
->(PlaygroundHideConsoleKey)
 
 const SupportPlaygroundLang = new Set(['jsx', 'tsx', 'react', 'js', 'ts'])
 const SupportStaticPlaygroundLang = new Set(['html', 'css', 'js', 'txt'])
@@ -46,6 +29,8 @@ export function isPlayground(props: any) {
 }
 
 const SplitKey = '///'
+const PlaygroundNameCustomPreviewRegx = /Playground=(\w+)/
+const PlaygroundPathRegx = /path=['"]([^'"]+)['"]/
 function remarkPlayground(): RemarkReturn {
   return (tree) => {
     visit(tree, 'code', (node) => {
@@ -70,6 +55,26 @@ function remarkPlayground(): RemarkReturn {
         props[PlaygroundHidePreviewKey] = meta.includes('no-view')
         props[PlaygroundHideTabsKey] = meta.includes('no-tabs')
         props[PlaygroundHideConsoleKey] = meta.includes('no-console')
+        if (
+          PlaygroundNameCustomPreviewRegx.test(meta) &&
+          PlaygroundPathRegx.test(meta)
+        ) {
+          const [_, component] =
+            PlaygroundNameCustomPreviewRegx.exec(meta) ?? []
+          const [__, p] = PlaygroundPathRegx.exec(meta) ?? []
+          if (component && p) {
+            let content = ''
+            try {
+              content = fs.readFileSync(
+                path.join(process.cwd(), 'src', 'components', p),
+                'utf-8',
+              )
+            } catch (error) {}
+            props[PlaygroundCustomPreivew] = component
+            props[ComponentCodeKey] = content
+            props[PlaygroundHideTabsKey] = true
+          }
+        }
         const files: StringValueObj = buildFiles(code, selector)
         for (const key in files) {
           if (isJsxFileLike(key)) {

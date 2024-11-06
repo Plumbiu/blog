@@ -49,7 +49,6 @@ function Toc() {
   const handler = throttle(
     () => {
       const viewHeight = window.innerHeight / 2
-      console.log(viewHeight)
       for (let i = 0; i < nodes.current!.length; i++) {
         const node = nodes.current![i]
         const rect = node.getBoundingClientRect()

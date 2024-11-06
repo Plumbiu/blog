@@ -12,6 +12,7 @@
   "dependencies": {
     "@pigment-css/react": "^0.0.24",
     "@plumbiu/react-store": "^0.9.3",
+    "@react-three/fiber": "9.0.0-alpha.8",
     "clsx": "^2.1.1",
     "hast-util-to-jsx-runtime": "^2.3.2",
     "hast-util-to-string": "^3.0.1",
@@ -28,6 +29,7 @@
     "sharp": "^0.33.5",
     "shiki": "^1.22.2",
     "sucrase": "^3.35.0",
+    "three": "^0.170.0",
     "unified": "^11.0.5",
     "unist-util-visit": "^5.0.0"
   },
@@ -43,6 +45,7 @@
     "@types/node": "^20",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
+    "@types/three": "^0.169.0",
     "autoprefixer": "^10.4.20",
     "cross-env": "^7.0.3",
     "cssnano": "^7.0.6",

@@ -90,6 +90,12 @@ function Test(props: TestProps) {
 export default Test
 ```
 
+## custom preview
+
+```js Playground=ThreeBasic path='three/Basic.tsx'
+
+```
+
 # Tip
 
 一些提示组件
@@ -226,7 +232,7 @@ fn('ch')
 fn({ obj: 1 })
 ```
 
-# code diff
+# Code Diff
 
 代码中的删除添加
 
@@ -234,3 +240,11 @@ fn({ obj: 1 })
 - console.log('hewwo')
 + console.log('hello')
 ```
+
+# Custom Component
+
+自定义组件，仅用于展示
+
+## TreeBasic
+
+:ThreeBasic

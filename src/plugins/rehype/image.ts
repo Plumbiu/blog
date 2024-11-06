@@ -58,7 +58,6 @@ function rehypeImage(): RehypePlugin {
               children: right,
             },
           ]
-          console.log(parent.children)
           return SKIP
         }
       }

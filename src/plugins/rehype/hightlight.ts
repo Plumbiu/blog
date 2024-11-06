@@ -108,6 +108,7 @@ const calculateLinesToHighlight = (meta: string) => {
   if (parsed === null) {
     return () => false
   }
+  console.log({ meta })
   const strlineNumbers = parsed[1]
   const lineNumbers = parsePart(strlineNumbers)
   return (index: number) => lineNumbers.has(index + 1)

@@ -1,12 +1,11 @@
 'use client'
 
 import { createElement, ReactNode } from 'react'
-import Playground from './Playground'
-import CodeRunner from './CodeRunner'
+import dynamic from 'next/dynamic'
+import Playground from './playground'
+import CodeRunner from './code-runner'
 
-// const Playground = dynamic(() => import('./Playground'), {
-//   loading: () => <Loading />,
-// })
+const ThreeBasic = dynamic(() => import('@/components/three/Basic'))
 
 export interface CustomComponentProp {
   [key: string]: any
@@ -14,9 +13,10 @@ export interface CustomComponentProp {
   defaultnode: ReactNode
 }
 
-const ComponentMap: Record<string, any> = {
+export const ComponentMap: Record<string, any> = {
   Playground,
   Run: CodeRunner,
+  ThreeBasic,
 }
 
 function CustomComponent(props: CustomComponentProp) {

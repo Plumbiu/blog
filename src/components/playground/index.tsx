@@ -2,7 +2,7 @@
 'use client'
 
 // It could be running at server, but doesn't support onClick or other props
-import React, { memo, ReactNode, useMemo, useState } from 'react'
+import React, { createElement, memo, ReactNode, useMemo, useState } from 'react'
 import clsx from 'clsx'
 import { mono } from '@/app/fonts'
 import { getFileKeyFromProps } from '@/plugins/rehype/playground-pre'
@@ -10,16 +10,18 @@ import {
   getComponentFileMapKey,
   getComponentShowConsoleKey,
   getDefaultSelectorFromProps,
+  getPlaygroundCustomPreivew,
   getPlaygroundHideConsoleKey,
   getPlaygroundHidePreviewKey,
   getPlaygroundHideTabsKey,
-} from '@/plugins/remark/playground'
+} from '@/plugins/remark/playground-client'
 import ReactShadowRoot from '@/app/components/Shadow'
 import useConsole from '@/hooks/useConsole'
 import styles from './index.module.css'
 import { StaticPlaygroundPreview, PlaygroundPreview } from './compile'
-import CodeWrap from '../components/CodeWrap'
-import Console from '../components/Console'
+import CodeWrap from '../_common/CodeWrap'
+import Console from '../_common/Console'
+import { ComponentMap } from '..'
 
 interface CodePreviewProps {
   defaultSelector: string
@@ -71,6 +73,7 @@ const Playground = memo((props: any) => {
   const isPreviewHide = getPlaygroundHidePreviewKey(props)
   const isConsoleHide = getPlaygroundHideConsoleKey(props)
   const isTabsHide = getPlaygroundHideTabsKey(props)
+  const customPreviewName = getPlaygroundCustomPreivew(props)
   const { logFn, logs } = useConsole()
 
   let defaultRenderConsole = false
@@ -84,20 +87,29 @@ const Playground = memo((props: any) => {
 
   const [isConsoleDefaultRender, setIsConsoleDefaultRender] =
     useState(defaultRenderConsole)
-  const nodeStyles: string[] = []
 
-  for (const key in files) {
-    if (key.endsWith('.css')) {
-      nodeStyles.push(files[key])
-    }
-  }
-  const playgroundProps = {
-    files,
-    defaultSelector,
-    logFn,
-  }
-  const { node } = useMemo(() => {
+  const { node, nodeStyles } = useMemo(() => {
     let node: ReactNode = null
+    const styles: string[] = []
+
+    if (customPreviewName && ComponentMap[customPreviewName]) {
+      console.log(customPreviewName, ComponentMap[customPreviewName])
+
+      return {
+        node: createElement(ComponentMap[customPreviewName]),
+        nodeStyles: styles,
+      }
+    }
+    for (const key in files) {
+      if (key.endsWith('.css')) {
+        styles.push(files[key])
+      }
+    }
+    const playgroundProps = {
+      files,
+      defaultSelector,
+      logFn,
+    }
     if (isStatic) {
       node = <StaticPlaygroundPreview {...playgroundProps} />
     } else {
@@ -105,6 +117,7 @@ const Playground = memo((props: any) => {
     }
     return {
       node,
+      nodeStyles: styles,
     }
   }, [])
 
