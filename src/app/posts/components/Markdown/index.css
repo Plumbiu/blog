@@ -50,7 +50,7 @@
   code:not([class]),
   kbd,
   samp {
-    font-weight: 500;
+    font-weight: 600;
   }
   code:not([class]) {
     font-size: 0.85rem;

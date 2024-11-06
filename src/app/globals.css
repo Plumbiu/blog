@@ -106,7 +106,6 @@ h6 {
   border-bottom-width: 1px;
   border-style: solid;
   border-color: var(--divider);
-  font-weight: 500;
   padding-bottom: 1px;
   transition: border-color 250ms ease-in-out;
   word-break: break-all;
