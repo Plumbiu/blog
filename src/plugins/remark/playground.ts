@@ -5,22 +5,27 @@ import { transform, Options } from 'sucrase'
 import { buildFiles, getFirstLine, isJsxFileLike } from '@/utils'
 import { StringValueObj } from '@/types/base'
 import {
-  PlaygroundCustomPreivew,
-  PlaygroundDefaultSelectorKey,
-  PlaygroundFileMapKey,
-  PlaygroundHideConsoleKey,
-  PlaygroundHidePreviewKey,
-  PlaygroundHideTabsKey,
-  PlaygroundShowDefaultConsoleKey,
-} from './playground-client'
-import { ComponentCodeKey, ComponentKey, RemarkReturn } from '../constant'
+  handlePlaygroundCustomPreivew,
+  handlePlaygroundHideConsoleKey,
+  handlePlaygroundHidePreviewKey,
+  handlePlaygroundHideTabsKey,
+  handlePlaygroundSelector,
+  handlePlaygroundDefaultShowConsoleKey,
+  handlePlaygroundFileMapKey,
+} from './playground-utils'
+import {
+  ComponentKey,
+  handleComponentCode,
+  handleComponentName,
+  RemarkReturn,
+} from '../constant'
 import { makeProperties } from '../utils'
 
 const transfromOptions: Options = {
   transforms: ['jsx', 'flow', 'imports'],
 }
 
-const SupportPlaygroundLang = new Set(['jsx', 'tsx', 'react', 'js', 'ts'])
+const SupportPlaygroundLang = new Set(['jsx', 'tsx', 'js', 'ts'])
 const SupportStaticPlaygroundLang = new Set(['html', 'css', 'js', 'txt'])
 
 export const PlaygroundName = 'Playground'
@@ -49,31 +54,26 @@ function remarkPlayground(): RemarkReturn {
         ? firstLine.replace(SplitKey, '').trim()
         : undefined
       const setNode = (selector: string) => {
-        props[ComponentKey] = PlaygroundName
-        props[PlaygroundDefaultSelectorKey] = selector
-        props[ComponentCodeKey] = myBeAppFile ? code.slice(endIndex) : code
-        props[PlaygroundHidePreviewKey] = meta.includes('no-view')
-        props[PlaygroundHideTabsKey] = meta.includes('no-tabs')
-        props[PlaygroundHideConsoleKey] = meta.includes('no-console')
-        if (
-          PlaygroundNameCustomPreviewRegx.test(meta) &&
-          PlaygroundPathRegx.test(meta)
-        ) {
-          const [_, component] =
-            PlaygroundNameCustomPreviewRegx.exec(meta) ?? []
-          const [__, p] = PlaygroundPathRegx.exec(meta) ?? []
-          if (component && p) {
-            let content = ''
-            try {
-              content = fs.readFileSync(
-                path.join(process.cwd(), 'src', 'components', p),
-                'utf-8',
-              )
-            } catch (error) {}
-            props[PlaygroundCustomPreivew] = component
-            props[ComponentCodeKey] = content
-            props[PlaygroundHideTabsKey] = true
-          }
+        handleComponentName(props, PlaygroundName)
+        handlePlaygroundSelector(props, selector)
+        handleComponentCode(props, myBeAppFile ? code.slice(endIndex) : code)
+        handlePlaygroundHidePreviewKey(props, meta.includes('no-view'))
+        handlePlaygroundHideTabsKey(props, meta.includes('no-tab'))
+        handlePlaygroundHideConsoleKey(props, meta.includes('no-console'))
+
+        const previewName = PlaygroundNameCustomPreviewRegx.exec(meta)?.[1]
+        const previewFilePath = PlaygroundPathRegx.exec(meta)?.[1]
+        if (previewName && previewFilePath) {
+          let content = ''
+          try {
+            content = fs.readFileSync(
+              path.join(process.cwd(), 'src', 'components', previewFilePath),
+              'utf-8',
+            )
+          } catch (error) {}
+          handlePlaygroundCustomPreivew(props, previewName)
+          handleComponentCode(props, content.trim())
+          handlePlaygroundHideTabsKey(props, true)
         }
         const files: StringValueObj = buildFiles(code, selector)
         for (const key in files) {
@@ -81,10 +81,8 @@ function remarkPlayground(): RemarkReturn {
             files[key] = transform(files[key], transfromOptions).code
           }
         }
-        props[PlaygroundFileMapKey] = JSON.stringify(files)
-        if (meta.includes('console')) {
-          props[PlaygroundShowDefaultConsoleKey] = true
-        }
+        handlePlaygroundFileMapKey(props, JSON.stringify(files))
+        handlePlaygroundDefaultShowConsoleKey(props, true)
         // @ts-ignore
         node.type = 'root'
         node.data!.hName = 'div'

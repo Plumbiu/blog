@@ -1,17 +1,17 @@
 import { type Element } from 'hast'
 import { isRuner } from '../remark/runner'
 import {
-  getCodeFromProps,
-  getComponentMetaFromProps,
-  getLangFromProps,
+  handleComponentCode,
+  handleComponentMetaFromProps,
+  handleLangFromProps,
 } from '../constant'
 
 function markRunnerPre(node: Element) {
   const props = node.properties
   if (isRuner(props)) {
-    const meta = getComponentMetaFromProps(props)
-    const code = getCodeFromProps(props)
-    const lang = getLangFromProps(props)
+    const meta = handleComponentMetaFromProps(props)
+    const code = handleComponentCode(props)
+    const lang = handleLangFromProps(props)
     node.tagName = 'pre'
     if (!node.data) {
       node.data = {}

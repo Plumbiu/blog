@@ -5,7 +5,7 @@ import React from 'react'
 import { ImageProps } from 'next/image'
 import MarkdownImage from '@/app/posts/components/Image'
 import CustomComponent, { CustomComponentProp } from '@/components'
-import { getComponentFromProps } from '@/plugins/constant'
+import { handleComponentName } from '@/plugins/constant'
 import './index.css'
 import transfromCode2Jsx from './transfrom'
 import PreComponent from '../Pre'
@@ -13,7 +13,7 @@ import PreComponent from '../Pre'
 const components: Partial<Components> = {
   pre(props) {
     const children = props.children
-    const component = getComponentFromProps(props)
+    const component = handleComponentName(props)
     if (component) {
       return (
         <CustomComponent
@@ -52,7 +52,7 @@ const components: Partial<Components> = {
   },
   div(props) {
     const { children, node, ...rest } = props
-    let component = getComponentFromProps(props)
+    let component = handleComponentName(props)
     let defaultnode: any = <div {...rest}>{children}</div>
     const componentProps: CustomComponentProp = {
       ...rest,

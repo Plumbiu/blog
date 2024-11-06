@@ -2,14 +2,14 @@ import { transform, Options } from 'sucrase'
 import { visit } from 'unist-util-visit'
 import { isJavaScript, isTypeScript } from '@/utils'
 import { ComponentCodeKey, ComponentKey, RemarkReturn } from '../constant'
-import { buildGetFunction, makeProperties } from '../utils'
+import { buildPlaygroundHandlerFunction, makeProperties } from '../utils'
 
 export const RunnerName = 'Run'
 const transfromOptions: Options = {
   transforms: ['flow'],
 }
 const RunCodeKey = `${ComponentKey}run-code`
-export const getRunCode = buildGetFunction(RunCodeKey)
+export const getRunCode = buildPlaygroundHandlerFunction(RunCodeKey)
 export function isRuner(props: any) {
   return props[ComponentKey] === RunnerName
 }

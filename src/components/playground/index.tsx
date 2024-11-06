@@ -5,18 +5,19 @@
 import React, { createElement, memo, ReactNode, useMemo, useState } from 'react'
 import clsx from 'clsx'
 import { mono } from '@/app/fonts'
-import { getFileKeyFromProps } from '@/plugins/rehype/playground-pre'
+import { handlePlaygroundFileKey } from '@/plugins/rehype/playground-pre'
 import {
-  getComponentFileMapKey,
-  getComponentShowConsoleKey,
-  getDefaultSelectorFromProps,
-  getPlaygroundCustomPreivew,
-  getPlaygroundHideConsoleKey,
-  getPlaygroundHidePreviewKey,
-  getPlaygroundHideTabsKey,
-} from '@/plugins/remark/playground-client'
+  handlePlaygroundFileMapKey,
+  handlePlaygroundDefaultShowConsoleKey,
+  handlePlaygroundSelector,
+  handlePlaygroundCustomPreivew,
+  handlePlaygroundHideConsoleKey,
+  handlePlaygroundHidePreviewKey,
+  handlePlaygroundHideTabsKey,
+} from '@/plugins/remark/playground-utils'
 import ReactShadowRoot from '@/app/components/Shadow'
 import useConsole from '@/hooks/useConsole'
+import { StringValueObj } from '@/types/base'
 import styles from './index.module.css'
 import { StaticPlaygroundPreview, PlaygroundPreview } from './compile'
 import CodeWrap from '../_common/CodeWrap'
@@ -63,24 +64,24 @@ const Playground = memo((props: any) => {
   const children = Array.isArray(props.children)
     ? props.children
     : [props.children]
-  const defaultSelector = getDefaultSelectorFromProps(props)
+  const defaultSelector = handlePlaygroundSelector(props)
   const nodes = Object.fromEntries(
-    children.map((node: any) => [getFileKeyFromProps(node.props), node]),
+    children.map((node: any) => [handlePlaygroundFileKey(node.props), node]),
   )
-  const files = getComponentFileMapKey(props)
+  const files = handlePlaygroundFileMapKey(props) as StringValueObj
   const tabs = Object.keys(files)
   const isStatic = defaultSelector.endsWith('.html')
-  const isPreviewHide = getPlaygroundHidePreviewKey(props)
-  const isConsoleHide = getPlaygroundHideConsoleKey(props)
-  const isTabsHide = getPlaygroundHideTabsKey(props)
-  const customPreviewName = getPlaygroundCustomPreivew(props)
+  const isPreviewHide = handlePlaygroundHidePreviewKey(props)
+  const isConsoleHide = handlePlaygroundHideConsoleKey(props)
+  const isTabsHide = handlePlaygroundHideTabsKey(props)
+  const customPreviewName = handlePlaygroundCustomPreivew(props)
   const { logFn, logs } = useConsole()
 
   let defaultRenderConsole = false
   if (isConsoleHide) {
     defaultRenderConsole = false
   } else {
-    if (isPreviewHide || getComponentShowConsoleKey(props)) {
+    if (isPreviewHide || handlePlaygroundDefaultShowConsoleKey(props)) {
       defaultRenderConsole = true
     }
   }

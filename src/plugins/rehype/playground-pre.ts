@@ -2,14 +2,15 @@ import { type Element } from 'hast'
 import { buildFiles } from '@/utils'
 import {
   isPlayground,
-  getDefaultSelectorFromProps,
+  handlePlaygroundSelector,
   PlaygroundPrefix,
-} from '../remark/playground-client'
-import { getCodeFromProps, getComponentMetaFromProps } from '../constant'
-import { buildGetFunction } from '../utils'
+} from '../remark/playground-utils'
+import { handleComponentCode, handleComponentMetaFromProps } from '../constant'
+import { buildPlaygroundHandlerFunction } from '../utils'
 
 const PlaygroundFileKey = `${PlaygroundPrefix}file-key`
-export const getFileKeyFromProps = buildGetFunction(PlaygroundFileKey)
+export const handlePlaygroundFileKey =
+  buildPlaygroundHandlerFunction(PlaygroundFileKey)
 
 function getSuffix(name: string) {
   const index = name.lastIndexOf('.')
@@ -24,10 +25,10 @@ function markPlaygroundPre(node: Element) {
   if (!isPlayground(props)) {
     return
   }
-  const code = getCodeFromProps(props)
-  const selector = getDefaultSelectorFromProps(props)
+  const code = handleComponentCode(props)
+  const selector = handlePlaygroundSelector(props)
   const files = buildFiles(code, selector)
-  const meta = getComponentMetaFromProps(props)
+  const meta = handleComponentMetaFromProps(props)
 
   node.tagName = 'pre'
   if (!node.data) {

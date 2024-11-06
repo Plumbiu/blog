@@ -22,12 +22,16 @@ export function makeProperties(node: CommonReamrkNode) {
   }
 }
 
-export function buildGetFunction<T>(key: string, handler?: Function) {
-  return (props: any): T => {
-    const value = props[key]
-    if (handler) {
-      return handler(value)
+export function buildPlaygroundHandlerFunction<T>(key: string, fn?: Function) {
+  return (props: any, value?: T): T => {
+    const v = props[key]
+    if (value == null) {
+      if (fn) {
+        return fn(v)
+      }
+    } else {
+      props[key] = value
     }
-    return value
+    return v
   }
 }
