@@ -1,22 +1,20 @@
 'use client'
 
 import { ReactNode, useState } from 'react'
-import { toString } from 'hast-util-to-string'
-import { Nodes } from 'hast'
 import { CopyCheckIcon, CopyErrorIcon, CopyIcon } from '@/app/components/Icons'
 import { mono } from '@/app/fonts'
 import styles from './Pre.module.css'
 
 interface PreComponentProps {
   children: ReactNode
-  node?: Nodes
+  code?: string
 }
 
-function PreComponent({ children, node }: PreComponentProps) {
+function PreComponent({ children, code }: PreComponentProps) {
   const [icon, setIcon] = useState(<CopyIcon />)
   function copy() {
     navigator.clipboard
-      .writeText(toString(node!))
+      .writeText(code!)
       .then(() => {
         setIcon(<CopyCheckIcon />)
       })
@@ -31,7 +29,7 @@ function PreComponent({ children, node }: PreComponentProps) {
   }
   return (
     <div className={styles.wrap}>
-      {!!node && (
+      {!!code && (
         <div className={styles.action} onClick={copy}>
           {icon}
         </div>

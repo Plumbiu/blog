@@ -3,6 +3,7 @@ import { type Components } from 'hast-util-to-jsx-runtime'
 import lqip from 'lqip-modern'
 import React from 'react'
 import { ImageProps } from 'next/image'
+import { toString } from 'hast-util-to-string'
 import MarkdownImage from '@/app/posts/components/Image'
 import CustomComponent, { CustomComponentProp } from '@/components'
 import { handleComponentName } from '@/plugins/constant'
@@ -23,7 +24,8 @@ const components: Partial<Components> = {
         />
       )
     }
-    return <PreComponent node={props.node}>{children}</PreComponent>
+    const code = props.node ? toString(props.node!) : undefined
+    return <PreComponent code={code}>{children}</PreComponent>
   },
   // @ts-ignore
   async img(props) {

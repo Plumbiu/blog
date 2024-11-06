@@ -94,8 +94,6 @@ const Playground = memo((props: any) => {
     const styles: string[] = []
 
     if (customPreviewName && ComponentMap[customPreviewName]) {
-      console.log(customPreviewName, ComponentMap[customPreviewName])
-
       return {
         node: createElement(ComponentMap[customPreviewName]),
         nodeStyles: styles,
