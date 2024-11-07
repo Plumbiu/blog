@@ -74,7 +74,6 @@
       "extend": "patches/extend.patch",
       "jstoxml": "patches/jstoxml.patch",
       "devlop": "patches/devlop.patch",
-      "sucrase": "patches/sucrase.patch",
       "cssnano-preset-advanced": "patches/cssnano-preset-advanced.patch"
     }
   },

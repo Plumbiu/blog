@@ -1,6 +1,5 @@
 'use client'
 
-import { ReactNode } from 'react'
 import dynamic from 'next/dynamic'
 import { jsx } from 'react/jsx-runtime'
 import { handleComponentName } from '@/plugins/constant'
@@ -13,7 +12,6 @@ const ThreeBasic = dynamic(() => import('@/components/three/Basic'), {
 
 export interface CustomComponentProp {
   [key: string]: any
-  defaultnode: ReactNode
 }
 
 export const componentMap: Record<string, any> = {
@@ -28,7 +26,7 @@ function CustomComponent(props: CustomComponentProp) {
   if (value) {
     return jsx(value, props)
   }
-  return props.defaultnode
+  return props.children
 }
 
 export default CustomComponent

@@ -20,9 +20,6 @@ patchedDependencies:
   space-separated-tokens:
     hash: 6ai2fufzdwpp2bzjvmlbwslpxm
     path: patches/space-separated-tokens.patch
-  sucrase:
-    hash: 3ff4rc6w67wckr2dwxzemqoraa
-    path: patches/sucrase.patch
 
 importers:
 
@@ -84,7 +81,7 @@ importers:
         version: 1.22.2
       sucrase:
         specifier: ^3.35.0
-        version: 3.35.0(patch_hash=3ff4rc6w67wckr2dwxzemqoraa)
+        version: 3.35.0
       three:
         specifier: ^0.170.0
         version: 0.170.0
@@ -8913,7 +8910,7 @@ snapshots:
 
   stylis@4.3.4: {}
 
-  sucrase@3.35.0(patch_hash=3ff4rc6w67wckr2dwxzemqoraa):
+  sucrase@3.35.0:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.5
       commander: 4.1.1

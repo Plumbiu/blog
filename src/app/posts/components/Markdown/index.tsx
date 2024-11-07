@@ -1,7 +1,6 @@
 import path from 'node:path'
 import { type Components } from 'hast-util-to-jsx-runtime'
 import lqip from 'lqip-modern'
-import React from 'react'
 import { ImageProps } from 'next/image'
 import { toString } from 'hast-util-to-string'
 import MarkdownImage from '@/app/posts/components/Image'
@@ -13,19 +12,15 @@ import PreComponent from '../Pre'
 
 const components: Partial<Components> = {
   pre(props) {
+    const { node, ...rest } = props
     const component = handleComponentName(props)
     const children = props.children
     // reduce bundle size, {...props} is too large, if it's not CustromComponent
     // the pre element will contain too many information
     if (component) {
-      return (
-        <CustomComponent
-          defaultnode={<PreComponent>{children}</PreComponent>}
-          {...props}
-        />
-      )
+      return <CustomComponent {...rest} />
     }
-    const code = props.node ? toString(props.node!) : undefined
+    const code = props.node ? toString(props.node) : undefined
     return <PreComponent code={code}>{children}</PreComponent>
   },
   // @ts-ignore
@@ -48,8 +43,8 @@ const components: Partial<Components> = {
     return <MarkdownImage {...commonProps} />
   },
   div(props) {
-    const defaultnode = <div>{props.children}</div>
-    return <CustomComponent {...props} defaultnode={defaultnode} />
+    const { node, ...rest } = props
+    return <CustomComponent {...rest} />
   },
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { jsx } from 'react/jsx-runtime'
+import { jsx, jsxs } from 'react/jsx-runtime'
 import { clsx } from 'clsx'
 import { isJsxFileLike } from '@/utils'
 
@@ -58,12 +58,6 @@ export function PlaygroundPreview({
   const scope: Scope = {
     ...baseScope,
   }
-  function addScope(key: string, value: any) {
-    const scopeKey = getBasename(key)
-    if (scopeKey) {
-      scope['./' + scopeKey] = value
-    }
-  }
   const main = files[defaultSelector]
   const jsKyes = Object.keys(files).filter((key) => {
     return key !== defaultSelector && isJsxFileLike(key)
@@ -71,7 +65,10 @@ export function PlaygroundPreview({
   const loop = () => {
     for (const key of jsKyes) {
       const value = evalCode(files[key], scope, logFn)
-      addScope(key, value)
+      const scopeKey = getBasename(key)
+      if (scopeKey) {
+        scope['./' + scopeKey] = value
+      }
     }
   }
   // loop twice for the order

@@ -19,7 +19,8 @@ import {
 import { makeProperties } from '../utils'
 
 const transfromOptions: Options = {
-  transforms: ['jsx', 'flow', 'imports'],
+  transforms: ['jsx', 'typescript', 'imports'],
+  production: true,
 }
 
 const SupportPlaygroundLang = new Set(['jsx', 'tsx', 'js', 'ts'])
