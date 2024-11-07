@@ -4,7 +4,6 @@ import { buildPlaygroundHandlerFunction } from '../utils'
 
 export const PlaygroundPrefix = `${ComponentKey}p-`
 const PlaygroundDefaultSelectorKey = `${PlaygroundPrefix}select`
-const PlaygroundShowDefaultConsoleKey = `${PlaygroundPrefix}console`
 const PlaygroundHidePreviewKey = `${PlaygroundPrefix}no-view`
 const PlaygroundHideTabsKey = `${PlaygroundPrefix}no-tab`
 const PlaygroundHideConsoleKey = `${PlaygroundPrefix}no-console`
@@ -15,16 +14,9 @@ export const handlePlaygroundSelector = buildPlaygroundHandlerFunction<string>(
   PlaygroundDefaultSelectorKey,
 )
 
-export const handlePlaygroundDefaultShowConsoleKey =
-  buildPlaygroundHandlerFunction<boolean | undefined>(
-    PlaygroundShowDefaultConsoleKey,
-  )
-
-export const handlePlaygroundFileMapKey =
-  buildPlaygroundHandlerFunction<StringValueObj | string>(
-    PlaygroundFileMapKey,
-    JSON.parse,
-  )
+export const handlePlaygroundFileMapKey = buildPlaygroundHandlerFunction<
+  StringValueObj | string
+>(PlaygroundFileMapKey, JSON.parse)
 
 export const handlePlaygroundHidePreviewKey = buildPlaygroundHandlerFunction<
   boolean | undefined

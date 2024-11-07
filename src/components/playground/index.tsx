@@ -2,17 +2,16 @@
 'use client'
 
 // It could be running at server, but doesn't support onClick or other props
-import React, { createElement, memo, ReactNode, useMemo, useState } from 'react'
+import React, { memo, ReactNode, useMemo, useState } from 'react'
+import { jsx } from 'react/jsx-runtime'
 import clsx from 'clsx'
 import { mono } from '@/app/fonts'
 import { handlePlaygroundFileKey } from '@/plugins/rehype/playground-pre'
 import {
   handlePlaygroundFileMapKey,
-  handlePlaygroundDefaultShowConsoleKey,
   handlePlaygroundSelector,
   handlePlaygroundCustomPreivew,
   handlePlaygroundHideConsoleKey,
-  handlePlaygroundHidePreviewKey,
   handlePlaygroundHideTabsKey,
 } from '@/plugins/remark/playground-utils'
 import ReactShadowRoot from '@/app/components/Shadow'
@@ -22,7 +21,7 @@ import styles from './index.module.css'
 import { StaticPlaygroundPreview, PlaygroundPreview } from './compile'
 import CodeWrap from '../_common/CodeWrap'
 import Console from '../_common/Console'
-import { ComponentMap } from '..'
+import { componentMap } from '..'
 
 interface CodePreviewProps {
   defaultSelector: string
@@ -71,31 +70,20 @@ const Playground = memo((props: any) => {
   const files = handlePlaygroundFileMapKey(props) as StringValueObj
   const tabs = Object.keys(files)
   const isStatic = defaultSelector.endsWith('.html')
-  const isPreviewHide = handlePlaygroundHidePreviewKey(props)
   const isConsoleHide = handlePlaygroundHideConsoleKey(props)
   const isTabsHide = handlePlaygroundHideTabsKey(props)
   const customPreviewName = handlePlaygroundCustomPreivew(props)
   const { logFn, logs } = useConsole()
 
-  let defaultRenderConsole = false
-  if (isConsoleHide) {
-    defaultRenderConsole = false
-  } else {
-    if (isPreviewHide || handlePlaygroundDefaultShowConsoleKey(props)) {
-      defaultRenderConsole = true
-    }
-  }
-
-  const [isConsoleDefaultRender, setIsConsoleDefaultRender] =
-    useState(defaultRenderConsole)
+  const [isConsoleVisible, setIsConsoleVisible] = useState(!!isConsoleHide)
 
   const { node, nodeStyles } = useMemo(() => {
-    let node: ReactNode = null
     const styles: string[] = []
 
-    if (customPreviewName && ComponentMap[customPreviewName]) {
+    const customPreviewNode = componentMap[customPreviewName]
+    if (!isStatic && customPreviewNode) {
       return {
-        node: createElement(ComponentMap[customPreviewName]),
+        node: jsx(customPreviewNode, props),
         nodeStyles: styles,
       }
     }
@@ -104,6 +92,7 @@ const Playground = memo((props: any) => {
         styles.push(files[key])
       }
     }
+    let node: ReactNode = null
     const playgroundProps = {
       files,
       defaultSelector,
@@ -131,41 +120,37 @@ const Playground = memo((props: any) => {
       <div>
         {!isStatic && !isTabsHide && (
           <div className={styles.tab}>
-            {!isPreviewHide && (
-              <div
-                onClick={() => setIsConsoleDefaultRender(false)}
-                className={clsx({
-                  [styles.tab_active]: !isConsoleDefaultRender,
-                })}
-              >
-                Preview
-              </div>
-            )}
+            <div
+              onClick={() => setIsConsoleVisible(false)}
+              className={clsx({
+                [styles.tab_active]: !isConsoleVisible,
+              })}
+            >
+              Preview
+            </div>
             {!isConsoleHide && (
               <div
                 className={clsx({
-                  [styles.tab_active]: isConsoleDefaultRender,
+                  [styles.tab_active]: isConsoleVisible,
                 })}
-                onClick={() => setIsConsoleDefaultRender(true)}
+                onClick={() => setIsConsoleVisible(true)}
               >
                 Console
               </div>
             )}
           </div>
         )}
-        {!isPreviewHide && (
-          <ReactShadowRoot
-            className={clsx(styles.preview, {
-              [styles.hide]: isConsoleDefaultRender,
-            })}
-          >
-            {nodeStyles.map((css, key) => (
-              <style key={key}>{css}</style>
-            ))}
-            {node}
-          </ReactShadowRoot>
-        )}
-        {isConsoleDefaultRender && <Console logs={logs} />}
+        <ReactShadowRoot
+          className={clsx(styles.preview, {
+            [styles.hide]: isConsoleVisible,
+          })}
+        >
+          {nodeStyles.map((css, key) => (
+            <style key={key}>{css}</style>
+          ))}
+          {node}
+        </ReactShadowRoot>
+        {isConsoleVisible && <Console logs={logs} />}
       </div>
     </CodeWrap>
   )

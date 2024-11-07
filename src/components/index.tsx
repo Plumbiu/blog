@@ -1,30 +1,34 @@
 'use client'
 
-import { createElement, ReactNode } from 'react'
+import { ReactNode } from 'react'
 import dynamic from 'next/dynamic'
+import { jsx } from 'react/jsx-runtime'
+import { handleComponentName } from '@/plugins/constant'
 import Playground from './playground'
 import CodeRunner from './code-runner'
 
-const ThreeBasic = dynamic(() => import('@/components/three/Basic'))
+const ThreeBasic = dynamic(() => import('@/components/three/Basic'), {
+  ssr: false,
+})
 
 export interface CustomComponentProp {
   [key: string]: any
-  component: string
   defaultnode: ReactNode
 }
 
-export const ComponentMap: Record<string, any> = {
+export const componentMap: Record<string, any> = {
   Playground,
   Run: CodeRunner,
   ThreeBasic,
 }
 
 function CustomComponent(props: CustomComponentProp) {
-  const value = ComponentMap[props.component]
+  const componentName = handleComponentName(props)
+  const value = componentMap[componentName]
   if (value) {
-    return <div>{createElement(value, props)}</div>
+    return jsx(value, props)
   }
-  return <div>{props.defaultnode}</div>
+  return props.defaultnode
 }
 
 export default CustomComponent

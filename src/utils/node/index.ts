@@ -1,3 +1,4 @@
+import fs from 'node:fs'
 import fsp from 'node:fs/promises'
 import yaml from 'js-yaml'
 import { FrontmatterWrapStr } from '@/constants'
@@ -95,4 +96,13 @@ export async function getPostsInfo(id?: string) {
   return result.sort(
     (prev, next) => next.frontmatter.date - prev.frontmatter.date,
   )
+}
+
+export function tryReadFileSync(p: string) {
+  let content = ''
+  try {
+    content = fs.readFileSync(p, 'utf-8')
+  } catch (error) {}
+
+  return content
 }

@@ -3,7 +3,7 @@ import { type Root } from 'hast'
 import { type Root as RemarkRoot } from 'mdast'
 import { buildPlaygroundHandlerFunction } from './utils'
 
-export const ComponentKey = 'dc-'
+export const ComponentKey = 'dc'
 export const handleComponentName =
   buildPlaygroundHandlerFunction<string>(ComponentKey)
 
