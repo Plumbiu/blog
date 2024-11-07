@@ -7,16 +7,26 @@ import { toString } from 'hast-util-to-string'
 import MarkdownImage from '@/app/posts/components/Image'
 import CustomComponent from '@/components'
 import './index.css'
+import { handleComponentName } from '@/plugins/constant'
 import transfromCode2Jsx from './transfrom'
 import PreComponent from '../Pre'
 
 const components: Partial<Components> = {
   pre(props) {
+    const component = handleComponentName(props)
+    const children = props.children
+    // reduce bundle size, {...props} is too large, if it's not CustromComponent
+    // the pre element will contain too many information
+    if (component) {
+      return (
+        <CustomComponent
+          defaultnode={<PreComponent>{children}</PreComponent>}
+          {...props}
+        />
+      )
+    }
     const code = props.node ? toString(props.node!) : undefined
-    const defaultnode = (
-      <PreComponent code={code}>{props.children}</PreComponent>
-    )
-    return <CustomComponent {...props} defaultnode={defaultnode} />
+    return <PreComponent code={code}>{children}</PreComponent>
   },
   // @ts-ignore
   async img(props) {
