@@ -22,12 +22,15 @@ function LightPureFirstScence() {
     const scene = new Three.Scene()
     const geometry = new Three.BoxGeometry(4, 4, 4)
     const material = new Three.MeshStandardMaterial({ color: 0xff0000 })
+    material.emissive = new Three.Color(0x48211a)
     const cube = new Three.Mesh(geometry, material)
     cube.castShadow = true
 
     // 平面几何，可以接受阴影
     const planeGeometry = new Three.PlaneGeometry(20, 20)
     const planeMaterial = new Three.MeshStandardMaterial({ color: White })
+    planeMaterial.emissive = new Three.Color(0x444444)
+
     const planeMesh = new Three.Mesh(planeGeometry, planeMaterial)
     planeMesh.rotation.x = -0.5 * Math.PI
     planeMesh.position.set(0, -6, 0)
@@ -36,7 +39,7 @@ function LightPureFirstScence() {
     // 方向光
     const directionalLight = new Three.DirectionalLight(White, 0.5)
     // 设置方向（根据源点设置）
-    directionalLight.position.set(1, 2, 1)
+    directionalLight.position.set(15, 15, 15)
     // 表示该方向会投射阴影效果
     directionalLight.castShadow = true
 
