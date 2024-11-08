@@ -1,5 +1,5 @@
 import React from 'react'
-import { jsx, jsxs } from 'react/jsx-runtime'
+import { jsx } from 'react/jsx-runtime'
 import { clsx } from 'clsx'
 import { isJsxFileLike } from '@/utils'
 
@@ -18,7 +18,7 @@ const baseScope: Scope = {
 const baseScopeKeys = Object.keys(baseScope)
 const baseScopeValues = baseScopeKeys.map((key) => baseScope[key])
 
-function evalCode(code: string, scope = baseScope, logFn?: LogFn) {
+function evalCode(code: string, scope: Scope, logFn?: LogFn) {
   const _require = (k: keyof Scope) => {
     return scope[k]
   }

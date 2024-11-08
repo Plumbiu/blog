@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useRef, useState } from 'react'
 import { LogInfo } from '@/hooks/useConsole'
 import { getRunCode } from '@/plugins/remark/runner'
