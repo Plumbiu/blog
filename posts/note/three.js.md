@@ -6,9 +6,6 @@ desc: 1
 
 Three.js 是基于 [`canvas`](https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API) 的一个开源应用级依赖，，它屏蔽了 [`WebGL`](https://developer.mozilla.org/zh-CN/docs/Glossary/WebGL) 底层的调用细节，可以使我们快速在网页创建 3D 效果。此文章是在学习 [@react-three/fiber](https://github.com/pmndrs/react-three-fiber) 是 [three.js](https://github.com/mrdoob/three.js) 之前，我需要了解 [three.js](https://github.com/mrdoob/three.js) 的一些基本概念，这些概念可以帮助我更好的理解 threejs 的设计理念和编程艺术。
 
-# What
-
-
 # 概念
 
 ## 一些元素名词
