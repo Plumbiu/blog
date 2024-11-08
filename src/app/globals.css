@@ -36,7 +36,7 @@ h6 {
   }
 }
 h1 {
-  font-size: 1.65rem;
+  font-size: 2rem;
 }
 h2 {
   font-size: 1.45rem;
@@ -44,9 +44,7 @@ h2 {
 h3 {
   font-size: 1.25rem;
 }
-h4 {
-  font-size: 1.1rem;
-}
+h4,
 h5,
 h6 {
   font-size: 1rem;
@@ -165,7 +163,8 @@ p {
   overflow-wrap: break-word;
 }
 
-strong, em {
+strong,
+em {
   color: var(--text);
 }
 

@@ -20,7 +20,7 @@ const components: Partial<Components> = {
     if (component) {
       return <CustomComponent {...rest} />
     }
-    const code = props.node ? toString(props.node) : undefined
+    const code = props.node ? toString(props.node).trim() : undefined
     return <PreComponent code={code}>{children}</PreComponent>
   },
   // @ts-ignore

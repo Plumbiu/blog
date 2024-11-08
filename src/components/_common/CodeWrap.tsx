@@ -11,7 +11,7 @@ interface CodeWrapProps {
 
 const CodeWrap = memo((props: CodeWrapProps) => {
   return (
-    <div>
+    <div className={styles.wrap}>
       <div className={styles.bar}>{props.barText}</div>
       <div className={styles.container}>{props.children}</div>
     </div>

@@ -95,6 +95,11 @@ export const buildFiles = (code: string, startStr: string) => {
   return attrs
 }
 
+export const getBaseName = (p: string) => {
+  const idx = p.lastIndexOf('/')
+  return p.slice(idx + 1)
+}
+
 const DescNumRegx = /^\d+$/
 export function isLikeNum(s: string) {
   if (!s) {

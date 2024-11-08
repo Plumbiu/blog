@@ -1,7 +1,7 @@
 import path from 'node:path'
 import { visit } from 'unist-util-visit'
 import { transform, Options } from 'sucrase'
-import { buildFiles, getFirstLine, isJsxFileLike } from '@/utils'
+import { buildFiles, getBaseName, getFirstLine, isJsxFileLike } from '@/utils'
 import { tryReadFileSync } from '@/utils/node'
 import {
   handlePlaygroundCustomPreivew,
@@ -27,8 +27,7 @@ const SupportPlaygroundLang = new Set(['jsx', 'tsx', 'js', 'ts'])
 const SupportStaticPlaygroundLang = new Set(['html', 'css', 'js', 'txt'])
 
 const SplitKey = '///'
-const PlaygroundNameCustomPreviewRegx = /Playground=(\w+)/
-const PlaygroundPathRegx = /path=['"]([^'"]+)['"]/
+const PlaygroundNameCustomPreviewRegx = /Playground=['"]([^'"]+)['"]/
 function remarkPlayground(): RemarkReturn {
   return (tree) => {
     visit(tree, 'code', (node) => {
@@ -54,12 +53,12 @@ function remarkPlayground(): RemarkReturn {
         handlePlaygroundHideConsoleKey(props, meta.includes('no-console'))
 
         const previewName = PlaygroundNameCustomPreviewRegx.exec(meta)?.[1]
-        const previewFilePath = PlaygroundPathRegx.exec(meta)?.[1]
-        if (previewName && previewFilePath) {
+        if (previewName) {
+          console.log(previewName)
           const content = tryReadFileSync(
-            path.join('src', 'components', previewFilePath),
+            path.join('src', 'components', `${previewName}.tsx`),
           )
-          handlePlaygroundCustomPreivew(props, previewName)
+          handlePlaygroundCustomPreivew(props, getBaseName(previewName))
           handleComponentCode(props, content.trim())
           handlePlaygroundHideTabsKey(props, true)
         }

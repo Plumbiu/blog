@@ -4,7 +4,7 @@
   margin: 0;
   word-break: break-word;
   & > * {
-    margin-bottom: 18px;
+    margin-bottom: 12px;
   }
 
   & > p {
@@ -66,16 +66,15 @@
     color: var(--text-1);
     overflow: auto;
     tab-size: 2;
-    line-height: 1.5;
+    line-height: 1.45;
     border-radius: var(--pre-radius);
     background-color: var(--bg-md-pre);
     border: 1px solid var(--divider);
-    padding: 10px 12px;
+    padding: 10px 0px 10px 12px;
     code {
       box-sizing: content-box;
       display: inline-flex;
       flex-wrap: wrap;
-      width: 100%;
       color: inherit;
       background-color: inherit;
     }
@@ -138,6 +137,11 @@
     max-height: 50vh;
     cursor: pointer;
     object-fit: contain;
+    border-radius: 4px;
+    transition: border-radius 250ms;
+    &:hover {
+      border-radius: 0;
+    }
   }
   .image-wrap {
     --gap: 6px;
@@ -147,6 +151,9 @@
     row-gap: calc(var(--gap) * 1.25);
     & > img {
       width: calc(var(--image-item-w) - var(--gap));
+      &:last-child {
+        width: auto;
+      }
     }
   }
 
@@ -171,6 +178,7 @@
 
   .line {
     display: inline-block;
+    min-height: 16px;
     width: 100%;
   }
   .line[data-line]::before {

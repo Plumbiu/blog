@@ -12,7 +12,7 @@
 
 .action {
   position: absolute;
-  top: 12px;
+  top: 8px;
   right: 12px;
   opacity: 0;
   display: flex;
@@ -27,8 +27,8 @@
     display: inline-block;
     box-sizing: content-box;
     border-radius: 6px;
-    font-size: 18px;
-    padding: 8px;
+    font-size: 16px;
+    padding: 6px;
     cursor: pointer;
     border: 1px solid var(--divider);
   }

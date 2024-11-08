@@ -148,7 +148,7 @@ const rehypePrismGenerator = (shiki: HighlighterCore) => {
         }
         const props = node.properties
         const data = node.data
-        const code = toString(node)
+        const code = toString(node).trim()
         const meta = (data?.meta ?? '') as string
         if (!props.className || typeof props.className === 'boolean') {
           props.className = []

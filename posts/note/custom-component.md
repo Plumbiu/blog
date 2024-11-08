@@ -92,7 +92,7 @@ export default Test
 
 ## custom preview
 
-```js Playground=ThreeBasic path='three/Basic.tsx'
+```js Playground='three/ThreeBasic'
 
 ```
 
