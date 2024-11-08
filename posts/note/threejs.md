@@ -47,7 +47,7 @@ Three.js 中三种光源：
 - **方向光（Directional Light）**：方向光是一种平行光源，具有确定的方向和强度，类似太阳光
 - **点光源（Point Light**）：点光源是一种位于特定位置的光源，向所有方向发射光线，类似于灯泡
 
-# Example
+# Examples
 
 ## Rotating cube
 
@@ -89,5 +89,11 @@ function animate() {
 ## Drawing lines
 
 ```jsx Playground='three/ThreePureLine'
+
+```
+
+## Render Text
+
+```jsx Playground='three/ThreePureText'
 
 ```
