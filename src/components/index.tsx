@@ -7,25 +7,32 @@ import Playground from './playground'
 import CodeRunner from './code-runner'
 
 const ThreeBasic = dynamic(() => import('@/components/three/ThreeBasic'))
-const FirstScene = dynamic(() => import('@/components/three/FirstScene'))
-const PureFirstScene = dynamic(
-  () => import('@/components/three/PureFirstScene'),
+const ThreeFirstScene = dynamic(
+  () => import('@/components/three/ThreeFirstScene'),
 )
-const ControlPureFirstScene = dynamic(
-  () => import('@/components/three/ControlPureFirstScene'),
+const ThreePureFirstScene = dynamic(
+  () => import('@/components/three/ThreePureFirstScene'),
 )
-const LightPureFirstScene = dynamic(
-  () => import('@/components/three/LightPureFirstScene'),
+const ThreeControlPureFirstScene = dynamic(
+  () => import('@/components/three/ThreeControlPureFirstScene'),
 )
+const ThreeLightPureFirstScene = dynamic(
+  () => import('@/components/three/ThreeLightPureFirstScene'),
+)
+const ThreePureLine = dynamic(() => import('@/components/three/ThreePureLine'))
+const ThreePureText = dynamic(() => import('@/components/three/ThreePureText'))
 
 export const componentMap: Record<string, any> = {
   Playground,
   Run: CodeRunner,
+  // Three.js
   ThreeBasic,
-  FirstScene,
-  PureFirstScene,
-  ControlPureFirstScene,
-  LightPureFirstScene,
+  ThreeFirstScene,
+  ThreePureFirstScene,
+  ThreeControlPureFirstScene,
+  ThreeLightPureFirstScene,
+  ThreePureLine,
+  ThreePureText,
 }
 
 function CustomComponent(props: any) {

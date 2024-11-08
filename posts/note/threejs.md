@@ -51,7 +51,7 @@ Three.js 中三种光源：
 
 ## Rotating cube
 
-```jsx Playground='three/PureFirstScene'
+```jsx Playground='three/ThreePureFirstScene'
 
 ```
 
@@ -68,20 +68,26 @@ function animate() {
 }
 ```
 
-## 添加交互
+### 添加交互
 
 `OrbitControls` 允许我们对场景内容进行旋转、放大缩小等操作
 
 > 注意，这里也是需要 `animate` 函数不断调用渲染器的 `render` 方法渲染的，不然只会渲染一次，导致交互失效
 
-```jsx Playground='three/ControlPureFirstScene' {30,31}
+```jsx Playground='three/ThreeControlPureFirstScene' {30,31}
 
 ```
 
-## 添加光源
+### 添加光源
 
 `MeshBasicMaterial` 不受光源影响，需要设置为 `MeshStandardMaterial`
 
-```jsx Playground='three/LightPureFirstScene' {15,16,28-41,43}
+```jsx Playground='three/ThreeLightPureFirstScene' {14-15,26-43}
+
+```
+
+## Drawing lines
+
+```jsx Playground='three/ThreePureLine'
 
 ```
