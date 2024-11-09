@@ -1,5 +1,5 @@
 ---
-title: 初始 Threejs
+title: Threejs
 date: 2024-11-07
 desc: 1
 ---
