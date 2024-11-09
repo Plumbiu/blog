@@ -2,22 +2,15 @@ import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { TextGeometry } from 'three/addons/geometries/TextGeometry.js'
 import { FontLoader, OrbitControls } from 'three/examples/jsm/Addons.js'
+import { buildRenderer } from './utils'
 
 function PureText() {
-  const conatinerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const fontLoadr = new FontLoader()
     fontLoadr.load('/threejs/fonts/gentilis_regular.typeface.json', (font) => {
-      const container = conatinerRef.current!
-      const size = container.clientWidth
-      const renderer = new THREE.WebGLRenderer({ antialias: true })
-      renderer.setSize(size, size)
-      renderer.pixelRatio = window.devicePixelRatio
-      renderer.shadowMap.enabled = true
-
-      container.appendChild(renderer.domElement)
-
+      const renderer = buildRenderer(containerRef)
       const scene = new THREE.Scene()
       const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000)
       camera.position.set(0, 0, 10)
@@ -55,7 +48,7 @@ function PureText() {
     })
   }, [])
 
-  return <div ref={conatinerRef} />
+  return <div ref={containerRef} />
 }
 
 export default PureText

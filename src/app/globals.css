@@ -160,7 +160,7 @@ ul {
 p {
   margin: 12px 0;
   line-height: 28px;
-  overflow-wrap: break-word;
+  word-break: break-all;
 }
 
 strong,

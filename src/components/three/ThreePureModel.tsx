@@ -5,20 +5,14 @@ import {
   OrbitControls,
   RGBELoader,
 } from 'three/examples/jsm/Addons.js'
+import { buildRenderer } from './utils'
 
 function ThreePureModel() {
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    const renderer = buildRenderer(containerRef)
     const scene = new THREE.Scene()
-    const container = containerRef.current!
-    const size = container.clientWidth
-
-    const renderer = new THREE.WebGLRenderer({ antialias: true })
-    renderer.setSize(size, size)
-    renderer.pixelRatio = window.devicePixelRatio
-    renderer.outputColorSpace = THREE.SRGBColorSpace
-    container.appendChild(renderer.domElement)
     const camera = new THREE.PerspectiveCamera(45, 1, 0.25, 20)
     camera.position.set(-1.8, 0.6, 2.7)
 

@@ -1,18 +1,12 @@
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/Addons.js'
+import { buildRenderer } from './utils'
 
 function PureLine() {
   const containerRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
-    const container = containerRef.current!
-    const size = container.clientWidth
-
-    const renderer = new THREE.WebGLRenderer({ antialias: true })
-    renderer.pixelRatio = window.devicePixelRatio
-    renderer.setSize(size, size)
-    container.appendChild(renderer.domElement)
-
+    const renderer = buildRenderer(containerRef)
     const material = new THREE.LineBasicMaterial({ color: 0xff0000 })
     const points = []
     points.push(

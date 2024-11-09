@@ -21,8 +21,15 @@ function rehypeElementPlugin(): RehypePlugin {
         const children = parent.children
         let imageCount = 0
         for (const elm of children) {
-          if (elm.type === 'element' && elm.tagName === 'img') {
+          const type = elm.type
+          if (type === 'element' && elm.tagName === 'img') {
             imageCount++
+          } else if (type === 'text') {
+            if (elm.value.trim()) {
+              return
+            }
+          } else {
+            return
           }
         }
 

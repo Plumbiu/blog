@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/Addons.js'
+import { buildRenderer } from './utils'
 
 const White = 0xffffff
 
@@ -8,15 +9,9 @@ function LightPureFirstScence() {
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const container = containerRef.current!
-    const size = container.clientWidth
-    const renderer = new THREE.WebGLRenderer({ antialias: true })
+    const renderer = buildRenderer(containerRef)
     // 设置渲染器渲染阴影
     renderer.shadowMap.enabled = true
-
-    renderer.pixelRatio = window.devicePixelRatio
-    renderer.setSize(size, size)
-    container.appendChild(renderer.domElement)
 
     const scene = new THREE.Scene()
     const geometry = new THREE.BoxGeometry(4, 4, 4)

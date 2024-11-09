@@ -23,11 +23,18 @@ const ThreePureText = dynamic(() => import('@/components/three/ThreePureText'))
 const ThreePureModel = dynamic(
   () => import('@/components/three/ThreePureModel'),
 )
+const ThreeLearnPrimitivesBox = dynamic(
+  () => import('@/components/three/ThreeLearnPrimitivesBox'),
+)
+const ThreeSunEarthMoon = dynamic(
+  () => import('@/components/three/ThreeSunEarthMoon'),
+)
 
 export const componentMap: Record<string, any> = {
   Playground,
   Run: CodeRunner,
   // Three.js
+  ThreeLearnPrimitivesBox,
   ThreeFirstScene,
   ThreePureFirstScene,
   ThreeControlPureFirstScene,
@@ -35,6 +42,7 @@ export const componentMap: Record<string, any> = {
   ThreePureLine,
   ThreePureText,
   ThreePureModel,
+  ThreeSunEarthMoon,
 }
 
 function CustomComponent(props: any) {

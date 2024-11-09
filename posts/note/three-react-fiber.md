@@ -10,6 +10,6 @@ desc: 1
 
 在 `<Canvas>` 标签内，我们可以自定义 `Object`，任何 `Object` 都应该被 `<Canvas>` 标签包裹，否则会被报错
 
-```jsx Playground='three/FirstScene'
+```jsx Playground='three/ThreeFirstScene'
 
 ```
