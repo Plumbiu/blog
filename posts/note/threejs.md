@@ -195,7 +195,7 @@ three.js 内置了 [`GLTFLoader`](https://threejs.org/docs/index.html#examples/z
 
 ## Sun Earth and moon
 
-这个 demo 的关键是了解 three,js 的**场景图**。场景图在 D# 引擎是一个图中节点的层次结构，每个节点代表了一个局部空间（local space）：
+这个 demo 的关键是了解 three,js 的**场景图**。场景图在 3D 引擎是一个图中节点的层次结构，每个节点代表了一个局部空间（local space）：
 
 例如下面系统的场景图：
 
