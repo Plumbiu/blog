@@ -18,8 +18,7 @@ function ControlFirstScence() {
     const material = new THREE.MeshBasicMaterial({ color: 0xff0000 })
     const cube = new THREE.Mesh(geometry, material)
     scene.add(cube)
-    function animate() {
-      requestAnimationFrame(animate)
+    function render() {
       renderer.render(scene, camera)
     }
     const camera = new THREE.PerspectiveCamera(75, 1 / 1, 0.1, 1000)
@@ -28,11 +27,10 @@ function ControlFirstScence() {
 
     const controls = new OrbitControls(camera, renderer.domElement)
     controls.update()
+    controls.addEventListener('change', render)
     const axis = new THREE.AxesHelper(5)
     scene.add(axis)
-    const cancleFaf = animate()
-
-    return cancleFaf
+    render()
   }, [])
 
   return <div ref={containerRef} />

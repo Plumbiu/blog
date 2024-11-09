@@ -175,7 +175,9 @@
       margin: 8px 0;
     }
   }
-
+  a {
+    font-size: 15px;
+  }
   .line {
     display: inline-block;
     min-height: 16px;

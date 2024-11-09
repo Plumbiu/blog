@@ -8,10 +8,10 @@ function PureText() {
 
   useEffect(() => {
     const fontLoadr = new FontLoader()
-    fontLoadr.load('/fonts/gentilis_regular.typeface.json', (font) => {
+    fontLoadr.load('/threejs/fonts/gentilis_regular.typeface.json', (font) => {
       const container = conatinerRef.current!
       const size = container.clientWidth
-      const renderer = new THREE.WebGLRenderer()
+      const renderer = new THREE.WebGLRenderer({ antialias: true })
       renderer.setSize(size, size)
       renderer.pixelRatio = window.devicePixelRatio
       renderer.shadowMap.enabled = true

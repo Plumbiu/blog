@@ -46,8 +46,7 @@ function LightPureFirstScence() {
     scene.add(planeMesh)
     scene.add(cube)
 
-    function animate() {
-      requestAnimationFrame(animate)
+    function render() {
       renderer.render(scene, camera)
     }
     const axis = new THREE.AxesHelper(5)
@@ -57,10 +56,9 @@ function LightPureFirstScence() {
     camera.lookAt(0, 0, 0)
 
     const controls = new OrbitControls(camera, renderer.domElement)
+    controls.addEventListener('change', render)
     controls.update()
-    const cancleFaf = animate()
-
-    return cancleFaf
+    render()
   }, [])
 
   return <div ref={containerRef}></div>

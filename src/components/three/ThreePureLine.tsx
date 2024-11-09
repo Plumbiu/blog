@@ -8,7 +8,7 @@ function PureLine() {
     const container = containerRef.current!
     const size = container.clientWidth
 
-    const renderer = new THREE.WebGLRenderer()
+    const renderer = new THREE.WebGLRenderer({ antialias: true })
     renderer.pixelRatio = window.devicePixelRatio
     renderer.setSize(size, size)
     container.appendChild(renderer.domElement)
@@ -30,15 +30,14 @@ function PureLine() {
     const scene = new THREE.Scene()
 
     const controls = new OrbitControls(camera, renderer.domElement)
+    controls.addEventListener('change', render)
     controls.update()
 
     scene.add(line)
-    function animate() {
-      requestAnimationFrame(animate)
+    function render() {
       renderer.render(scene, camera)
     }
-    const cancelRaf = animate()
-    return cancelRaf
+    render()
   }, [])
 
   return <div ref={containerRef} />

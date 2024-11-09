@@ -17,6 +17,39 @@ Three.js 是基于 [`canvas`](https://developer.mozilla.org/zh-CN/docs/Web/API/C
 - `camera` 相机：相机类似于我们的视角，相机也可以做 `scene` 的一部分，但是在页面是不可见的
 - `renderer` 渲染器：从 `camera` 的角度渲染，结果绘制到 canvas 中
 
+**通用的模板**
+
+```jsx
+import * as THREE from 'three'
+// 1. 创建渲染器
+const renderer = new THREE.WebGLRenderer({ antialias: true }) // 抗锯齿
+renderer.setSize(window.innerWidth, window.innerHeight) // 设置大小
+rebderer.pixelRatio = window.devicePixelRatio // 设置像素密度
+document.body.appendChild(renerer.domElement) // 将渲染器 dom 加入 body 节点下
+
+// 2. 创建场景
+const scene = new THREE.Scene()
+
+// 3. 创建物体
+const geomerty = new THREE.BoxGeometry(4, 4, 4) // 物体的几何形状
+const material = new THREE.MeshStandardMaterial({ color: 0xff0000 }) // 物体的材质
+const object = new THREE.Mesh(geometry, material) // 物体
+
+scene.add(object) // 将物体加入场景
+// 4. 创建相机
+const camera = new THREE.PerspectiveCamera(
+  75,
+  window.innerWidth / window.innerHeight,
+  0.1,
+  1000,
+)
+camera.position.set(15, 15, 15) // 设置相机的位置
+camera.lookAt(0, 0, 0) // 相机看向远点
+
+// 5. 调用渲染器 rendr 方法渲染
+renderer.render(scene, camera)
+```
+
 ## 透视相机 Perspective Camera
 
 透视相机模拟的是人的视角，人观察物体时，物体近大远小：
@@ -47,6 +80,22 @@ Three.js 中三种光源：
 - **方向光（Directional Light）**：方向光是一种平行光源，具有确定的方向和强度，类似太阳光
 - **点光源（Point Light**）：点光源是一种位于特定位置的光源，向所有方向发射光线，类似于灯泡
 
+# Before
+
+虽然目前大多数设备以及浏览器都支持 [WebGL2](https://developer.mozilla.org/zh-CN/docs/Web/API/WebGL2RenderingContext)，但是依旧少部分不支持，我们需要给用户提示信息
+
+```js
+import WebGL from 'three/addons/capabilities/WebGL.js'
+
+if (WebGL.isWebGL2Available()) {
+  // Initiate function or other initializations here
+  animate()
+} else {
+  const warning = WebGL.getWebGL2ErrorMessage()
+  document.getElementById('container').appendChild(warning)
+}
+```
+
 # Examples
 
 ## Rotating cube
@@ -72,9 +121,9 @@ function animate() {
 
 `OrbitControls` 允许我们对场景内容进行旋转、放大缩小等操作
 
-> 注意，这里也是需要 `animate` 函数不断调用渲染器的 `render` 方法渲染的，不然只会渲染一次，导致交互失效
+> 注意，如果使用之前的 `animate` 函数不断调用渲染器的 `render` 方法渲染的，是不需要为 `OrbitControls` 添加 `change` 事件的
 
-```jsx Playground='three/ThreeControlPureFirstScene' {30,31}
+```jsx Playground='three/ThreeControlPureFirstScene' {28-30}
 
 ```
 
@@ -95,5 +144,21 @@ function animate() {
 ## Render Text
 
 ```jsx Playground='three/ThreePureText'
+
+```
+
+## Loading 3D modales
+
+Three.js 支持很多[导入工具](https://github.com/mrdoob/three.js/tree/dev/examples/jsm/loaders)，官网推荐 [glTF](https://zh.wikipedia.org/wiki/GlTF)（gl 传输格式），这种格式传输效率和加载速度都非常优秀，而且也包括了网格、材质、纹理、皮肤、骨骼、变形目标、动画、灯光和摄像机等，很多工具都包含了 glTF 导出功能：
+
+- [Blender](https://www.blender.org/)
+- [Substance](https://www.allegorithmic.com/products/substance-painter) Painter by Allegorithmic
+- [还有更多](http://github.khronos.org/glTF-Project-Explorer/)
+
+three.js 内置了 [`GLTFLoader`](https://threejs.org/docs/index.html#examples/zh/loaders/GLTFLoader)，可以载入 `glTF` 模型。
+
+另外一些环境贴图加载器也是必须的，例如 [`RGBELoader`](https://threejs.org/docs/index.html?q=DataTextureLoader#api/zh/loaders/DataTextureLoader) 可以加载高动态范围（HDR）环境贴图，通常用于创建更逼真的光照和反射效果，详见 [wiki](https://en.wikipedia.org/wiki/RGBE_image_format)。
+
+```jsx Playground='three/ThreePureModel'
 
 ```

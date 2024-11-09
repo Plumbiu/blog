@@ -6,7 +6,6 @@ import { handleComponentName } from '@/plugins/constant'
 import Playground from './playground'
 import CodeRunner from './code-runner'
 
-const ThreeBasic = dynamic(() => import('@/components/three/ThreeBasic'))
 const ThreeFirstScene = dynamic(
   () => import('@/components/three/ThreeFirstScene'),
 )
@@ -21,18 +20,21 @@ const ThreeLightPureFirstScene = dynamic(
 )
 const ThreePureLine = dynamic(() => import('@/components/three/ThreePureLine'))
 const ThreePureText = dynamic(() => import('@/components/three/ThreePureText'))
+const ThreePureModel = dynamic(
+  () => import('@/components/three/ThreePureModel'),
+)
 
 export const componentMap: Record<string, any> = {
   Playground,
   Run: CodeRunner,
   // Three.js
-  ThreeBasic,
   ThreeFirstScene,
   ThreePureFirstScene,
   ThreeControlPureFirstScene,
   ThreeLightPureFirstScene,
   ThreePureLine,
   ThreePureText,
+  ThreePureModel,
 }
 
 function CustomComponent(props: any) {

@@ -54,7 +54,6 @@ function remarkPlayground(): RemarkReturn {
 
         const previewName = PlaygroundNameCustomPreviewRegx.exec(meta)?.[1]
         if (previewName) {
-          console.log(previewName)
           const content = tryReadFileSync(
             path.join('src', 'components', `${previewName}.tsx`),
           )
