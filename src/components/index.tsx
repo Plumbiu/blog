@@ -90,9 +90,17 @@ function IntersectionCustomComponent({
   const [isIntersecting, setIsIntersecting] = useState(false)
 
   useEffect(() => {
-    const observerDom = observerRef.current!
-    const observer = new IntersectionObserver((entries) => {
-      setIsIntersecting(entries[0].isIntersecting)
+    const observerDom = observerRef.current
+    // dom is not null, but in dev, run twice will case error
+    if (!observerDom) {
+      return
+    }
+    const observer = new IntersectionObserver((entries, self) => {
+      const isIntersecting = entries[0].isIntersecting
+      if (isIntersecting) {
+        setIsIntersecting(true)
+        self.unobserve(observerDom)
+      }
     })
     observer.observe(observerDom)
     return () => observer.unobserve(observerDom)

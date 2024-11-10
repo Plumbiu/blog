@@ -167,8 +167,15 @@ function IntersectionCustomComponent({ component, props }) {
 
   useEffect(() => {
     const observerDom = observerRef.current
-    const observer = new IntersectionObserver((entries) => {
-      setIsIntersecting(entries[0].isIntersecting)
+    if (!observerDom) {
+      return
+    }
+    const observer = new IntersectionObserver((entries, self) => {
+      const isIntersecting = entries[0].isIntersecting
+      if (isIntersecting) {
+        setIsIntersecting(true)
+        self.unobserve(observerDom)
+      }
     })
     observer.observe(observerDom)
     return () => observer.unobserve(observerDom)
