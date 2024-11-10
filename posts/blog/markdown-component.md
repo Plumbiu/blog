@@ -134,7 +134,7 @@ function Markdown({ text }) {
 
 ## 动态加载
 
-假设你配置了一万个自定义组件，那么就算一篇博客一篇也没用到，那么这些组件也会加载出来，编译器并不知道你有没有用到。如果你使用 nextjs，它提供了 [`dynamic`](https://nextjs.org/docs/app/building-your-application/optimizing/lazy-loading#nextdynamic) 功能，只有引用了这个组件，页面才会加载，当然你也可以尝试 [`动态导入 import()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import)
+假设你配置了一万个自定义组件，那么就算一篇博客一个也没用到，那么这些组件也会加入到网络请求中，编译器并不知道你有没有用到。如果你使用 nextjs，它提供了 [`dynamic`](https://nextjs.org/docs/app/building-your-application/optimizing/lazy-loading#nextdynamic) 功能，只有引用了这个组件，页面才会加载，当然你也可以尝试 [`动态导入 import()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import)
 
 ```jsx
 import dynamic from 'next/dynamic'
