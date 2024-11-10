@@ -92,7 +92,7 @@ export default Test
 
 ## custom preview
 
-```js Playground='three/ThreeBasic'
+```js Playground='three/ThreeLearnPrimitivesBox'
 
 ```
 

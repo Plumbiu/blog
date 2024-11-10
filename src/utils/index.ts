@@ -1,4 +1,3 @@
-import { FrontmatterWrapStr } from '@/constants'
 import { StringValueObj } from '@/types/base'
 
 const RemoveMdSuffixRegx = /\.md$/
@@ -108,15 +107,6 @@ export function isLikeNum(s: string) {
   return DescNumRegx.test(s)
 }
 
-export function removeFrontmatter(md: string) {
-  const startIdx = md.indexOf(FrontmatterWrapStr)
-  if (startIdx !== 0) {
-    return md
-  }
-  const endIndex = md.indexOf(FrontmatterWrapStr, 1)
-  return md.slice(endIndex + FrontmatterWrapStr.length)
-}
-
 export function joinFormatPaths(...args: string[]) {
   return args.join('/')
 }
@@ -134,25 +124,12 @@ export function isJsxFileLike(p: string) {
   )
 }
 
-const Undefined = 'undefined'
-const Null = 'null'
-export function transfromNoneLogValue(value: any) {
-  if (value === undefined) {
-    return Undefined
-  }
-  return Null
-}
-
 export function transfromLogValue(value: any) {
   if (isString(value) || isNumber(value)) {
     return value
   }
-  if (isFunction(value)) {
-    return value.toString()
-  }
-
-  if (value == null) {
-    return transfromLogValue(value)
+  if (isFunction(value) || value == null) {
+    return String(value)
   }
 
   return JSON.stringify(value)

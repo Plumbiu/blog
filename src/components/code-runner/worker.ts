@@ -1,17 +1,17 @@
 import { LogInfo } from '@/hooks/useConsole'
-import { getType, isFunction, isSymbol, transfromNoneLogValue } from '@/utils'
+import { getType } from '@/utils'
 
 addEventListener('message', (event: MessageEvent<string>) => {
   const result: LogInfo[] = []
   const logFn = (value: any) => {
     const now = Date.now()
     const valueType = getType(value)
-    if (isFunction(value) || isSymbol(value)) {
-      value = value.toString()
-    } else if (value == null) {
-      value = transfromNoneLogValue(value)
+    if (typeof value !== 'object' || value == null) {
+      value = String(value)
+    } else {
+      value = JSON.stringify(value)
     }
-    const info = { date: now, value, valueType }
+    const info = { date: now, value: String(value), valueType }
     result.push(info)
   }
   const fn = new Function('console', event.data)

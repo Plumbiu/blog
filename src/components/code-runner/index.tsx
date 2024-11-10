@@ -31,7 +31,7 @@ function CodeRunner(props: any) {
         <Console showType logs={logs} />
       ) : (
         <div className={styles.run}>
-          {<LoadingIcon />}
+          <LoadingIcon />
           <div>Running...</div>
         </div>
       )}
