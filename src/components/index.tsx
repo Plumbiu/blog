@@ -88,20 +88,14 @@ function IntersectionCustomComponent({
 }: IntersectionCustomComponentProps) {
   const observerRef = useRef<HTMLDivElement>(null)
   const [isIntersecting, setIsIntersecting] = useState(false)
+
   useEffect(() => {
-    const observerDom = observerRef.current
-    if (!observerDom) {
-      return
-    }
+    const observerDom = observerRef.current!
     const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        setIsIntersecting(true)
-      }
+      setIsIntersecting(entries[0].isIntersecting)
     })
     observer.observe(observerDom)
-    return () => {
-      observer.unobserve(observerDom)
-    }
+    return () => observer.unobserve(observerDom)
   }, [])
 
   return (

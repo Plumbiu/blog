@@ -12,3 +12,4 @@ desc: 1
 
 - [在 Markdown 中实现 Playground](/posts/blog/implement-playground)
 - [一个优雅的文章目录组件](/posts/blog/implement-toc)
+- [Markdown 中展示 React 组件](/posts/blog/markdown-component)

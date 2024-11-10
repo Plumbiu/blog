@@ -6,10 +6,6 @@ desc: 1
 
 之前书写博客时，总会想着展示一个 React 组件，当时的实现是写一段代码，然后再贴一张图片预览，但是图片毕竟总是静态的，缺乏了交互性，后续了解到了 [MDX](https://github.com/MDX-js/MDX)，MDX 是一个很棒的方案，允许我们导入 React 组件，同时也可以执行一些 JavaScript 代码，但是最终我没有使用它，因为它并不像 JavaScript 那样“动态化”，例如我想使用 Nextjs 的 `dynamic` 功能，我不能确定它是否能完整的运行，同时相比于使用规则，我更喜欢**创造规则**。
 
-> 如果你想直接使用 Playground，而不是在 markdown 文件中，你可以试试 [@plumbiu/react-live](https://github.com/Plumbiu/react-live)，不算依赖只有 30 多行代码
-
-另外，如果你喜欢 MDX，或者更成熟的方案，你可以用 [sandpack](https://github.com/codesandbox/sandpack)，由于我对产物体积以及性能的追求，这里选择自己实现。
-
 先看一下效果：
 
 ```jsx Playground
@@ -57,11 +53,21 @@ export default Test
 ```
 ````
 
+# 开始之前
+
+> 如果你想直接使用 Playground，而不是在 markdown 文件中，你可以试试 [@plumbiu/react-live](https://github.com/Plumbiu/react-live)，不算依赖只有 30 多行代码
+>
+> 另外，如果你喜欢 MDX，或者更成熟的方案，你可以用 [sandpack](https://github.com/codesandbox/sandpack)，由于我对产物体积以及性能的追求，这里选择自己实现。
+
+**如果你只是想要“展示”组件，而不是动态执行 React，参考这篇文章 [markdown-component](/posts/blog/markdown-component)**
+
 # 我的方案
 
 最终的方案是使用 [remark](https://github.com/remarkjs/remark)、[rehype](https://github.com/rehypejs/rehype) 插件，加上 [sucrase](https://github.com/alangpierce/sucrase) 解析 JSX 语法。
 
-`react-markdown` 中通过 `unified` 转换语法树，最后通过 `hast-util-to-jsx-runtime` 转换为 React 组件，通过语法树转化，这是一个很棒的想法，因为我可以把 Markdown 本身的标签替换为我的自定义标签，如下图 `6-10` 行代码：
+[`react-markdown`](https://github.com/remarkjs/react-markdown) 中通过 `unified` 转换语法树，最后通过 `hast-util-to-jsx-runtime` 转换为 React 组件，通过语法树转化，这是一个很棒的想法，因为我可以把 Markdown 本身的标签替换为我的自定义标签。
+
+**Markdown 本身不会生产 `<div />` 标签，所以用自定义组件替换 div 是一个不错的选择**
 
 ```jsx {6-10} showLineNumbers
 import ReactMarkdown from 'react-markdown'
@@ -70,7 +76,7 @@ async function Markdown(props) {
   return (
     <ReactMarkdown
       components={{
-        pre(props) {
+        div(props) {
           return <MyCustomComponent {...props} />
         },
       }}
