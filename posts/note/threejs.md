@@ -250,8 +250,8 @@ three.js 内置了 [`GLTFLoader`](https://threejs.org/docs/index.html#examples/z
 
 ![scenegraph-solarsystem](scenegraph-solarsystem.svg)
 
-这里的重点在于**局部空间**，参考下面第 22、25、28 行代码，如果我们将 `sun` 放大五倍，作为子节点的 `earth` 也会放大五倍，同理 `moon` 也会放大五倍，为了避免缩放之间互相影响，我们使用了 [`Object3D`](https://threejs.org/docs/index.html?q=Object3D#api/zh/core/Object3D)将对象进行了**组合**，这样每个图元就不会互相影响了
+这里的重点在于**局部空间**，参考下面第 22、25 行代码，如果我们将 `sun` 放大五倍，作为子节点的 `earth` 也会放大五倍，同理 `moon` 也会放大五倍，为了避免缩放之间互相影响，我们使用了 [`Object3D`](https://threejs.org/docs/index.html?q=Object3D#api/zh/core/Object3D)将对象进行了**组合**，这样每个图元就不会互相影响了
 
-```tsx Playground='three/ThreeSunEarthMoon' line {22,25,28}
+```tsx Playground='three/ThreeSunEarthMoon' line {22,25}
 
 ```

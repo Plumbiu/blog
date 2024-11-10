@@ -9,6 +9,8 @@ function FirstScence() {
     const size = container.clientWidth
     // 1. 创建渲染器
     const renderer = new THREE.WebGLRenderer({ antialias: true })
+    // 设置背景色透明
+    renderer.setClearAlpha(0)
     // 指定设备像素密度
     renderer.pixelRatio = window.devicePixelRatio
     // 设置大小
