@@ -1,5 +1,4 @@
-import React from 'react'
-import { jsx } from 'react/jsx-runtime'
+import React, { createElement } from 'react'
 import { clsx } from 'clsx'
 import { isJsxFileLike } from '@/utils'
 
@@ -82,7 +81,7 @@ export function PlaygroundPreview({
   loop()
   loop()
 
-  return jsx(evalCode(main, scope, logFn), {})
+  return createElement(evalCode(main, scope, logFn))
 }
 export function StaticPlaygroundPreview({
   files,

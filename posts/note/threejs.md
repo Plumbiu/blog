@@ -147,7 +147,7 @@ function animate() {
 
 > 注意，如果使用之前的 `animate` 函数不断调用渲染器的 `render` 方法渲染的，是不需要为 `OrbitControls` 添加 `change` 事件的
 
-```jsx Playground='three/ThreeControlPureFirstScene' {28-30}
+```jsx Playground='three/ThreeControlPureFirstScene' {23-25}
 
 ```
 
@@ -155,7 +155,7 @@ function animate() {
 
 `MeshBasicMaterial` 不受光源影响，需要设置为 `MeshStandardMaterial`
 
-```jsx Playground='three/ThreeLightPureFirstScene' {14-15,26-43}
+```jsx Playground='three/ThreeLightPureFirstScene' {14,26-43}
 
 ```
 
@@ -205,8 +205,8 @@ three.js 内置了 [`GLTFLoader`](https://threejs.org/docs/index.html#examples/z
 
 ![scenegraph-solarsystem](scenegraph-solarsystem.svg)
 
-这里的重点在于**局部空间**，参考下面第 28、31、34 行代码，如果我们将 `sun` 放大五倍，作为子节点的 `earth` 也会放大五倍，同理 `moon` 也会放大五倍，为了避免缩放之间互相影响，我们使用了 [`Object3D`](https://threejs.org/docs/index.html?q=Object3D#api/zh/core/Object3D)将对象进行了**组合**，这样每个图元就不会互相影响了
+这里的重点在于**局部空间**，参考下面第 32、35、38 行代码，如果我们将 `sun` 放大五倍，作为子节点的 `earth` 也会放大五倍，同理 `moon` 也会放大五倍，为了避免缩放之间互相影响，我们使用了 [`Object3D`](https://threejs.org/docs/index.html?q=Object3D#api/zh/core/Object3D)将对象进行了**组合**，这样每个图元就不会互相影响了
 
-```jsx Playground='three/ThreeSunEarthMoon' line {28,31，34}
+```jsx Playground='three/ThreeSunEarthMoon' line {32,35,38}
 
 ```

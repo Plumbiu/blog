@@ -7,11 +7,12 @@ function ThreeSunEarthMoon() {
   useEffect(() => {
     const renderer = buildRenderer(containerRef)
     const radius = 1
-    const widthSegments = 4
-    const heightSegments = 4
+    const widthSegments = 6
+    const heightSegments = 6
 
     const camera = new THREE.PerspectiveCamera()
-    camera.position.set(0, 0, 20)
+    camera.position.set(0, 20, 0)
+    camera.up.set(0, 0, 1)
     camera.lookAt(0, 0, 0)
     // 参数：https://threejs.org/manual/#zh/primitives#Diagram-SphereGeometry
     const sphereGeometry = new THREE.SphereGeometry(
@@ -21,7 +22,10 @@ function ThreeSunEarthMoon() {
     )
 
     const sunMaterial = new THREE.MeshPhongMaterial({ emissive: 0xffff00 })
-    const earthMaterial = new THREE.MeshPhongMaterial({ emissive: 0x000ff })
+    const earthMaterial = new THREE.MeshPhongMaterial({
+      emissive: 0x000ff,
+      color: 0x2233ff,
+    })
     const moonMaterial = new THREE.MeshPhongMaterial({ emissive: 0x888888 })
 
     const sunMesh = new THREE.Mesh(sphereGeometry, sunMaterial)
@@ -37,9 +41,9 @@ function ThreeSunEarthMoon() {
     const solarSystem = new THREE.Object3D()
     const earthOrbit = new THREE.Object3D()
     const moonOrbit = new THREE.Object3D()
-
+    const light = new THREE.PointLight(0xffffff, 1500)
+    scene.add(light)
     scene.add(solarSystem)
-
     solarSystem.add(sunMesh)
     solarSystem.add(earthOrbit)
 
@@ -52,11 +56,12 @@ function ThreeSunEarthMoon() {
     function animate() {
       requestAnimationFrame(animate)
       points.forEach((point) => {
-        point.rotation.z += 0.01
+        point.rotation.y += 0.01
       })
       renderer.render(scene, camera)
     }
-    animate()
+    const cancelRaf = animate()
+    return cancelRaf
   }, [])
 
   return <div ref={containerRef} />

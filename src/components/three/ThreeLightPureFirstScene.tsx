@@ -54,6 +54,10 @@ function LightPureFirstScence() {
     controls.addEventListener('change', render)
     controls.update()
     render()
+
+    return () => {
+      controls.removeEventListener('change', render)
+    }
   }, [])
 
   return <div ref={containerRef}></div>

@@ -26,6 +26,10 @@ function ControlFirstScence() {
     const axis = new THREE.AxesHelper(5)
     scene.add(axis)
     render()
+
+    return () => {
+      controls.removeEventListener('change', render)
+    }
   }, [])
 
   return <div ref={containerRef} />

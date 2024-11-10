@@ -2,8 +2,7 @@
 'use client'
 
 // It could be running at server, but doesn't support onClick or other props
-import React, { memo, ReactNode, useMemo, useState } from 'react'
-import { jsx } from 'react/jsx-runtime'
+import React, { createElement, memo, ReactNode, useMemo, useState } from 'react'
 import clsx from 'clsx'
 import { mono } from '@/app/fonts'
 import { handlePlaygroundFileKey } from '@/plugins/rehype/playground-pre'
@@ -83,7 +82,7 @@ const Playground = memo((props: any) => {
     const customPreviewNode = componentMap[customPreviewName]
     if (!isStatic && customPreviewNode) {
       return {
-        node: jsx(customPreviewNode, props),
+        node: createElement(customPreviewNode, props),
         nodeStyles: styles,
       }
     }

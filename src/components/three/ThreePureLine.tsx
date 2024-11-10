@@ -32,6 +32,10 @@ function PureLine() {
       renderer.render(scene, camera)
     }
     render()
+
+    return () => {
+      controls.removeEventListener('change', render)
+    }
   }, [])
 
   return <div ref={containerRef} />

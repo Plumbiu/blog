@@ -51,6 +51,10 @@ function ThreePureModel() {
     const controls = new OrbitControls(camera, renderer.domElement)
     controls.addEventListener('change', render)
     controls.update()
+
+    return () => {
+      controls.removeEventListener('change', render)
+    }
   }, [])
 
   return <div ref={containerRef} />
