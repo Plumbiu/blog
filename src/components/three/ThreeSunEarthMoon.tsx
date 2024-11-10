@@ -47,7 +47,7 @@ function ThreeSunEarthMoon() {
     function animate() {
       requestAnimationFrame(animate)
       points.forEach((point) => {
-        point.rotation.y += 0.01
+        point.rotation.y += 0.015
       })
       renderer.render(scene, camera)
     }

@@ -8,6 +8,7 @@ const flexStyles: CSSProperties = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-around',
+  width: '50%',
 }
 
 interface ThreeItemProps {
@@ -39,7 +40,6 @@ function ThreeItem({
   const ref = useRef<HTMLDivElement>(null)
   useEffect(() => {
     const renderer = buildRenderer(ref)
-    renderer.setClearColor(0xffffff, 0)
     const camera = buildCamera(0, 0, 10)
 
     const sphereGeometry = new THREE.SphereGeometry(2, 16, 16)
@@ -112,13 +112,7 @@ export function ThreeMaterialKinds() {
 
 export function ThreeMaterialKindsShininess() {
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-around',
-      }}
-    >
+    <div style={flexStyles}>
       <ThreeItem materialType="phong" color="#4280BF" shininess={0} />
       <ThreeItem materialType="phong" color="#4280BF" shininess={30} />
       <ThreeItem materialType="phong" color="#4280BF" shininess={150} />

@@ -7,7 +7,6 @@ function ThreeLearnPrimitivesBox() {
 
   useEffect(() => {
     const renderer = buildRenderer(containerRef)
-    renderer.setClearColor(0xffffff, 0)
 
     const scene = new THREE.Scene()
     const camera = buildCamera(10, 10, 10)
