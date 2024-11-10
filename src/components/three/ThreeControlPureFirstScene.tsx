@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/Addons.js'
-import { buildRenderer } from './utils'
+import { buildCamera, buildRenderer } from './utils'
 
 function ControlFirstScence() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -16,9 +16,7 @@ function ControlFirstScence() {
     function render() {
       renderer.render(scene, camera)
     }
-    const camera = new THREE.PerspectiveCamera(75, 1 / 1, 0.1, 1000)
-    camera.position.set(5, 5, 10)
-    camera.lookAt(0, 0, 0)
+    const camera = buildCamera(5, 5, 10)
 
     const controls = new OrbitControls(camera, renderer.domElement)
     controls.update()

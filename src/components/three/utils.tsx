@@ -11,3 +11,14 @@ export function buildRenderer(ref: RefObject<HTMLDivElement>) {
 
   return renderer
 }
+
+export function buildCamera(x: number, y: number, z: number) {
+  const fov = 45
+  const aspect = 1
+  const near = 0.1
+  const far = 1000
+  const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
+  camera.position.set(x, y, z)
+  camera.lookAt(0, 0, 0)
+  return camera
+}

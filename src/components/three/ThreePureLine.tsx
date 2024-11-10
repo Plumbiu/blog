@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/Addons.js'
-import { buildRenderer } from './utils'
+import { buildCamera, buildRenderer } from './utils'
 
 function PureLine() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -18,9 +18,7 @@ function PureLine() {
     )
     const geometry = new THREE.BufferGeometry().setFromPoints(points)
     const line = new THREE.Line(geometry, material)
-    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000)
-    camera.position.set(10, 10, 10)
-    camera.lookAt(0, 0, 0)
+    const camera = buildCamera(10, 10, 10)
     const scene = new THREE.Scene()
 
     const controls = new OrbitControls(camera, renderer.domElement)

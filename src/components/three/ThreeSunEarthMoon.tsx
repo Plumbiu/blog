@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
-import { buildRenderer } from './utils'
+import { buildCamera, buildRenderer } from './utils'
 
 function ThreeSunEarthMoon() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -10,10 +10,7 @@ function ThreeSunEarthMoon() {
     const widthSegments = 6
     const heightSegments = 6
 
-    const camera = new THREE.PerspectiveCamera()
-    camera.position.set(0, 20, 0)
-    camera.up.set(0, 0, 1)
-    camera.lookAt(0, 0, 0)
+    const camera = buildCamera(0, 20, 0)
     // 参数：https://threejs.org/manual/#zh/primitives#Diagram-SphereGeometry
     const sphereGeometry = new THREE.SphereGeometry(
       radius, // 球体半径,

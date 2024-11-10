@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { TextGeometry } from 'three/addons/geometries/TextGeometry.js'
 import { FontLoader, OrbitControls } from 'three/examples/jsm/Addons.js'
-import { buildRenderer } from './utils'
+import { buildCamera, buildRenderer } from './utils'
 
 function PureText() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -12,9 +12,7 @@ function PureText() {
     fontLoadr.load('/threejs/fonts/gentilis_regular.typeface.json', (font) => {
       const renderer = buildRenderer(containerRef)
       const scene = new THREE.Scene()
-      const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000)
-      camera.position.set(0, 0, 10)
-      camera.lookAt(0, 0, 0)
+      const camera = buildCamera(0, 0, 10)
 
       const material = new THREE.MeshStandardMaterial({
         color: 0xff0000,

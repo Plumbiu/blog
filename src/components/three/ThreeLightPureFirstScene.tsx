@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/Addons.js'
-import { buildRenderer } from './utils'
+import { buildCamera, buildRenderer } from './utils'
 
 const White = 0xffffff
 
@@ -46,9 +46,7 @@ function LightPureFirstScence() {
     }
     const axis = new THREE.AxesHelper(5)
     scene.add(axis)
-    const camera = new THREE.PerspectiveCamera(75, 1 / 1, 0.1, 1000)
-    camera.position.set(15, 15, 15)
-    camera.lookAt(0, 0, 0)
+    const camera = buildCamera(15, 15, 15)
 
     const controls = new OrbitControls(camera, renderer.domElement)
     controls.addEventListener('change', render)

@@ -102,7 +102,7 @@ if (WebGL.isWebGL2Available()) {
 
 # Examples
 
-为了方便创建渲染器，这里写了一个 `buildRenderer` 函数：
+为了方便创建渲染器，这里写了一个 `buildRenderer`、`buildCamera` 函数：
 
 > 第一个例子没有使用这个函数，因为我觉得注释对理解很有必要
 
@@ -119,6 +119,17 @@ export function buildRenderer(ref: RefObject<HTMLDivElement>) {
   container.appendChild(renderer.domElement)
 
   return renderer
+}
+
+export function buildCamera(x: number, y: number, z: number) {
+  const fov = 45
+  const aspect = 1
+  const near = 0.1
+  const far = 1000
+  const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
+  camera.position.set(x, y, z)
+  camera.lookAt(0, 0, 0)
+  return camera
 }
 ```
 
