@@ -93,7 +93,7 @@ function ThreeItem({
       {noBottom ? null : (
         <>
           <div>{upperFirstChar(materialType)}</div>
-          {shininess !== null && <div>shininess: {shininess}</div>}
+          {shininess != null && <div>shininess: {shininess}</div>}
         </>
       )}
     </div>
