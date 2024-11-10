@@ -19,7 +19,7 @@ Three.js 是基于 [`canvas`](https://developer.mozilla.org/zh-CN/docs/Web/API/C
 
 **通用的模板**
 
-```jsx
+```tsx
 import * as THREE from 'three'
 // 1. 创建渲染器
 const renderer = new THREE.WebGLRenderer({ antialias: true }) // 抗锯齿
@@ -84,6 +84,40 @@ Three.js 中三种光源：
 - **方向光（Directional Light）**：方向光是一种平行光源，具有确定的方向和强度，类似太阳光
 - **点光源（Point Light**）：点光源是一种位于特定位置的光源，向所有方向发射光线，类似于灯泡
 
+## 材质 material
+
+材质定义了对象在场景中的外形：
+
+```js
+const material = new THREE.MeshPhongMaterial({
+  color: 0xff0000,
+  flatShading: true, // 定义材质是否使用平面着色进行渲染
+})
+```
+
+几种材质：
+
+- `MeshBasicMaterial`：不受光照影响
+- `MeshLamertMaterial`：只在顶点计算光照
+- `MeshPhongMaterial`：每个像素计算光照，还支持镜面高光
+
+:ThreeMaterialKinds
+
+另外 `MeshPhongMaterial` 的 `shininess` 属性决定了镜面高光的光泽度，默认 30
+
+:ThreeMaterialKindsShininess
+
+另外一种材质 `MeshToonMaterial`，它与 `MeshPhongMaterial`，但是它不是平滑地着色，而是使用一种渐变图（一个 X 乘 1 的纹理）来决定如何着色
+
+:ThreeMaterialToonKind
+
+上面的材质是使用简单的数学来制作，看起来是 3D 的，但并不是现实世界存在的，下面 2 中是基于物理引擎（_Physically Based Rendering_，简称 PBR）的材质：
+
+- `MeshStandardMaterial`：有两个参数设置材质，分别是 `roughness` 和 `metalness` 属性，代表粗糙度和金属度
+- `MeshPhysicalMaterial`：与 `MeshStandardMaterial` 相同，但是增加了一个 `clearcoat` 参数，表示清漆光亮层的成都，和另一个 `clearCoatRoughness` 参数，指定光泽层的粗糙程度
+
+[例子](https://threejs.org/manual/#zh/materials)，搜索关键字**MeshPhysicalMaterial**，这个例子写的不太好，就不展示了
+
 # Before
 
 虽然目前大多数设备以及浏览器都支持 [WebGL2](https://developer.mozilla.org/zh-CN/docs/Web/API/WebGL2RenderingContext)，但是依旧少部分不支持，我们需要给用户提示信息
@@ -135,7 +169,7 @@ export function buildCamera(x: number, y: number, z: number) {
 
 ## Rotating cube
 
-```jsx Playground='three/ThreePureFirstScene'
+```tsx Playground='three/ThreePureFirstScene'
 
 ```
 
@@ -158,7 +192,7 @@ function animate() {
 
 > 注意，如果使用之前的 `animate` 函数不断调用渲染器的 `render` 方法渲染的，是不需要为 `OrbitControls` 添加 `change` 事件的
 
-```jsx Playground='three/ThreeControlPureFirstScene' {23-25}
+```tsx Playground='three/ThreeControlPureFirstScene' {23-25}
 
 ```
 
@@ -166,25 +200,25 @@ function animate() {
 
 `MeshBasicMaterial` 不受光源影响，需要设置为 `MeshStandardMaterial`
 
-```jsx Playground='three/ThreeLightPureFirstScene' {14,26-43}
+```tsx Playground='three/ThreeLightPureFirstScene' {14,26-43}
 
 ```
 
 ## Drawing lines
 
-```jsx Playground='three/ThreePureLine'
+```tsx Playground='three/ThreePureLine'
 
 ```
 
 ## Box with edge
 
-```jsx Playground='three/ThreeLearnPrimitivesBox'
+```tsx Playground='three/ThreeLearnPrimitivesBox'
 
 ```
 
 ## Render Text
 
-```jsx Playground='three/ThreePureText'
+```tsx Playground='three/ThreePureText'
 
 ```
 
@@ -200,7 +234,7 @@ three.js 内置了 [`GLTFLoader`](https://threejs.org/docs/index.html#examples/z
 
 另外一些环境贴图加载器也是必须的，例如 [`RGBELoader`](https://threejs.org/docs/index.html#api/zh/loaders/DataTextureLoader) 可以加载高动态范围（HDR）环境贴图，通常用于创建更逼真的光照和反射效果，详见 [wiki](https://en.wikipedia.org/wiki/RGBE_image_format)。
 
-```jsx Playground='three/ThreePureModel'
+```tsx Playground='three/ThreePureModel'
 
 ```
 
@@ -216,8 +250,8 @@ three.js 内置了 [`GLTFLoader`](https://threejs.org/docs/index.html#examples/z
 
 ![scenegraph-solarsystem](scenegraph-solarsystem.svg)
 
-这里的重点在于**局部空间**，参考下面第 32、35、38 行代码，如果我们将 `sun` 放大五倍，作为子节点的 `earth` 也会放大五倍，同理 `moon` 也会放大五倍，为了避免缩放之间互相影响，我们使用了 [`Object3D`](https://threejs.org/docs/index.html?q=Object3D#api/zh/core/Object3D)将对象进行了**组合**，这样每个图元就不会互相影响了
+这里的重点在于**局部空间**，参考下面第 22、25、28 行代码，如果我们将 `sun` 放大五倍，作为子节点的 `earth` 也会放大五倍，同理 `moon` 也会放大五倍，为了避免缩放之间互相影响，我们使用了 [`Object3D`](https://threejs.org/docs/index.html?q=Object3D#api/zh/core/Object3D)将对象进行了**组合**，这样每个图元就不会互相影响了
 
-```jsx Playground='three/ThreeSunEarthMoon' line {32,35,38}
+```tsx Playground='three/ThreeSunEarthMoon' line {22,25,28}
 
 ```

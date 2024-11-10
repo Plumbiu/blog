@@ -6,17 +6,10 @@ function ThreeSunEarthMoon() {
   const containerRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
     const renderer = buildRenderer(containerRef)
-    const radius = 1
-    const widthSegments = 6
-    const heightSegments = 6
 
     const camera = buildCamera(0, 20, 0)
     // 参数：https://threejs.org/manual/#zh/primitives#Diagram-SphereGeometry
-    const sphereGeometry = new THREE.SphereGeometry(
-      radius, // 球体半径,
-      widthSegments,
-      heightSegments,
-    )
+    const sphereGeometry = new THREE.SphereGeometry(1, 6, 6)
 
     const sunMaterial = new THREE.MeshPhongMaterial({ emissive: 0xffff00 })
     const earthMaterial = new THREE.MeshPhongMaterial({
@@ -39,6 +32,7 @@ function ThreeSunEarthMoon() {
     const earthOrbit = new THREE.Object3D()
     const moonOrbit = new THREE.Object3D()
     const light = new THREE.PointLight(0xffffff, 1500)
+
     scene.add(light)
     scene.add(solarSystem)
     solarSystem.add(sunMesh)

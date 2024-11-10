@@ -62,6 +62,36 @@ const ThreeSunEarthMoon = dynamic(
   },
 )
 
+const ThreeMaterialKinds = dynamic(
+  () =>
+    import('@/components/three/ThreeMaterialKinds').then(
+      (res) => res.ThreeMaterialKinds,
+    ),
+  {
+    loading: () => <Loading />,
+  },
+)
+
+const ThreeMaterialKindsShininess = dynamic(
+  () =>
+    import('@/components/three/ThreeMaterialKinds').then(
+      (res) => res.ThreeMaterialKindsShininess,
+    ),
+  {
+    loading: () => <Loading />,
+  },
+)
+
+const ThreeMaterialToonKind = dynamic(
+  () =>
+    import('@/components/three/ThreeMaterialKinds').then(
+      (res) => res.ThreeMaterialToonKind,
+    ),
+  {
+    loading: () => <Loading />,
+  },
+)
+
 export const componentMap: Record<string, any> = {
   Playground,
   Run: CodeRunner,
@@ -75,6 +105,9 @@ export const componentMap: Record<string, any> = {
   ThreePureText,
   ThreePureModel,
   ThreeSunEarthMoon,
+  ThreeMaterialKinds,
+  ThreeMaterialKindsShininess,
+  ThreeMaterialToonKind,
 }
 
 interface IntersectionCustomComponentProps {

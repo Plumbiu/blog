@@ -7,6 +7,7 @@ const LoadingStyles: CSSProperties = {
   alignItems: 'center',
   flexDirection: 'column',
   height: '100%',
+  minHeight: 200,
   textAlign: 'center',
   gap: 4,
 }
