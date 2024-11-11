@@ -177,6 +177,9 @@ const rehypePrismGenerator = (shiki: HighlighterCore) => {
                     }
                     if (lang.startsWith('diff-')) {
                       const ch = toString(node).substring(0, 1)
+                      if (ch !== '-' && ch !== '+') {
+                        return
+                      }
                       this.addClassToHast(
                         node,
                         ch === '-' ? 'deleted' : 'inserted',

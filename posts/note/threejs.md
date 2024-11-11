@@ -130,6 +130,72 @@ const material = new THREE.MeshPhongMaterial({
 
 最后，大多数材质都是共享一堆由 [`Material`](https://threejs.org/docs/#api/zh/materials/Material) 定义的设置，所有设置可参考[文档](https://threejs.org/docs/#api/zh/materials/Material)
 
+## 纹理 [texture](https://threejs.org/manual/#zh/textures)
+
+纹理可以理解为图片“贴”在我们的物体上，只需要在 `material` 上设置 `map` 属性即可：
+
+```diff-js
+const loader = new THREE.TextureLoader()
+loader.load('/threejs/images/wall.jpg', (texture) => {
+  texture.colorSpace = THREE.SRGBColorSpace
+  const material = new THREE.MeshBasicMaterial({
+-    color: 0xff0000,
++    map: texture,
+  })
+})
+```
+
+例如：
+
+:ThreeTexture
+
+另外，我们可以指定多种纹理，例如每个立方体面都有不同纹理：
+
+:ThreeTextureMulti
+
+**只需要定义 `materials` 数组即可**
+
+```js {10-21}
+import * as THREE from 'three'
+
+const loader = new THREE.TextureLoader()
+function loadTexture(path) {
+  return new Promise((resolve) => {
+    loader.load(path, rsolve)
+  })
+}
+
+async function loaMaterials(paths: string[]) {
+  const textures = await Promise.all(
+    paths.map(async (path) => {
+      const texture = await loadTexture(path)
+      texture.colorSpace = THREE.SRGBColorSpace
+      return texture
+    }),
+  )
+}
+const materials = await loadMaterials([
+  // ...paths
+])
+
+const geometry = new THREE.BoxGeometry(4, 4, 4)
+const mesh = new Mesh(geometry, materials)
+```
+
+> [`BoxGeometry`](https://threejs.org/docs/#api/zh/geometries/BoxGeometry) 每个面都可以有一种材质，但是像 [`GoneGeometry`](https://threejs.org/docs/#api/zh/geometries/ConeGeometry) 能用两种材料（底部和侧面），[`CylinderGeometry`](https://threejs.org/docs/#api/zh/geometries/CylinderGeometry) 可以使用三种（底部、顶部和侧面）
+
+### 内存管理
+
+纹理在 threejs 中占的内存往往非常多，一般计算公式，纹理会占 `宽度 * 高度 * 4 * 1.33` 字节的内存
+
+有个有意思的现象，虽然有些图片大小可能很小，但是它的分辨率会很高，例如 `threejs` 官网中的这个例子：
+
+![texture-memory](threejs/texture-memory.webp)
+
+为了让 three.js 使用成本，必须把纹理交给 GPU 处理，但 GPU 一般要求纹理数据不被压缩，因此要合理处理纹理的文件：
+
+**文件大小小，网络下载快；分辨率小，占用的内存少**
+
 # Before
 
 虽然目前大多数设备以及浏览器都支持 [WebGL2](https://developer.mozilla.org/zh-CN/docs/Web/API/WebGL2RenderingContext)，但是依旧少部分不支持，我们需要给用户提示信息
