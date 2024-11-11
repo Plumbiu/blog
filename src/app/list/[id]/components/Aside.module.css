@@ -3,8 +3,9 @@
   left: 32px;
   top: calc(var(--header-h) + 36px);
   z-index: 9;
-  max-width: calc(var(--center-rest) / 1.8);
+  width: var(--center-rest);
   overflow-y: auto;
+  transition: opacity 250ms;
   line-height: 1.5;
   height: calc(100vh - var(--header-h));
 }
@@ -15,23 +16,6 @@
   }
 }
 
-.btn {
-  cursor: pointer;
-  font-size: 22px;
-  color: var(--text-3);
-  transition: color 250ms;
-}
-
-.content {
-  opacity: 0;
-  transition: opacity 250ms;
-}
-.wrap:hover .btn {
-  color: var(--text-1);
-}
-.wrap:hover .content {
-  opacity: 1;
-}
 .year {
   font-weight: 600;
   font-size: 14px;

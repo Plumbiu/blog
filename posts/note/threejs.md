@@ -78,15 +78,17 @@ Three.js 使用的是右手坐标系（伸出右手，大拇指指向 Z 轴，�
 
 ## 光源
 
-Three.js 中三种光源：
+Three.js 中三种基本光源：
 
 - **环境光（Ambient Light）**：均匀光照，会均匀照亮场景中所有物体，不考虑光照源的位置和方向
 - **方向光（Directional Light）**：方向光是一种平行光源，具有确定的方向和强度，类似太阳光
 - **点光源（Point Light**）：点光源是一种位于特定位置的光源，向所有方向发射光线，类似于灯泡
 
-## 材质 material
+## 材质 [material](https://threejs.org/docs/#api/zh/materials/Material)
 
-材质定义了对象在场景中的外形：
+材质定义了对象在场景中的外形
+
+> 越精细的材质，构建速度往往更加慢，但是场景会更加逼真。因为在移动设备这种低功率设备上，要选择合适的材质
 
 ```js
 const material = new THREE.MeshPhongMaterial({
@@ -116,7 +118,17 @@ const material = new THREE.MeshPhongMaterial({
 - `MeshStandardMaterial`：有两个参数设置材质，分别是 `roughness` 和 `metalness` 属性，代表粗糙度和金属度
 - `MeshPhysicalMaterial`：与 `MeshStandardMaterial` 相同，但是增加了一个 `clearcoat` 参数，表示清漆光亮层的成都，和另一个 `clearCoatRoughness` 参数，指定光泽层的粗糙程度
 
-[例子](https://threejs.org/manual/#zh/materials)，搜索关键字**MeshPhysicalMaterial**，这个例子写的不太好，就不展示了
+[例子](https://threejs.org/manual/#zh/materials)，搜索关键字**MeshPhysicalMaterial**，这个例子自己写的不太好，就不展示了
+
+另外几种特殊用处的材质：
+
+- [`ShadowMaterial`](https://threejs.org/docs/#api/zh/materials/ShadowMaterial)：获取阴影创建的数据
+- [`MeshdepthMeterial`](https://threejs.org/docs/#api/zh/materials/MeshDepthMaterial)：渲染每个像素的深度
+- [`MeshNormalMaterial`](https://threejs.org/docs/#api/zh/materials/MeshNormalMaterial)：显示几何体的法线
+- [`ShaderMaterial`](https://threejs.org/docs/#api/zh/materials/ShaderMaterial)：通过 three.js 制作的自定义材质
+- `RawShaderMaterial`：用来制作完全自定义的着色器，不需要 three.js 的帮助（这个涉及的东西太多了，这里不细讲）
+
+最后，大多数材质都是共享一堆由 [`Material`](https://threejs.org/docs/#api/zh/materials/Material) 定义的设置，所有设置可参考[文档](https://threejs.org/docs/#api/zh/materials/Material)
 
 # Before
 
