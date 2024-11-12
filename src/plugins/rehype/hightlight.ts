@@ -29,6 +29,9 @@ import { visit } from 'unist-util-visit'
 import { toString } from 'hast-util-to-string'
 import { HighlighterCore } from 'shiki/core'
 import { isNumber, isString } from '@/utils'
+import shikiMap from '@/shiki-map.json'
+
+type ShikiMapKeyType = keyof typeof shikiMap
 
 // This code is modified based on
 // https://github.com/euank/node-parse-numeric-range/blob/master/index.js
@@ -184,6 +187,26 @@ const rehypePrismGenerator = (shiki: HighlighterCore) => {
                         node,
                         ch === '-' ? 'deleted' : 'inserted',
                       )
+                    }
+                  },
+                  tokens(tokens) {
+                    for (const items of tokens) {
+                      for (const token of items) {
+                        const htmlStyle = token.htmlStyle
+                        if (!htmlStyle || isString(htmlStyle)) {
+                          continue
+                        }
+                        const color =
+                          htmlStyle.color.toLocaleLowerCase() as ShikiMapKeyType
+                        const className = shikiMap[color]
+                        if (color && className) {
+                          if (!token.htmlAttrs) {
+                            token.htmlAttrs = {}
+                          }
+                          token.htmlAttrs.className = className
+                          token.htmlStyle = {}
+                        }
+                      }
                     }
                   },
                 },

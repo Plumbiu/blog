@@ -1,0 +1,371 @@
+html[data-theme='dark'] {
+  .s0 {
+    color: #758575dd;
+  }
+  .s1 {
+    color: #666666;
+  }
+  .s2 {
+    color: #c99076;
+  }
+  .s3 {
+    color: #80a665;
+  }
+  .s4 {
+    color: #dbd7caee;
+  }
+  .s5 {
+    color: #4d9375;
+  }
+  .s6 {
+    color: #cb7676;
+  }
+  .s7 {
+    color: #c98a7d;
+  }
+  .s8 {
+    color: #c98a7d77;
+  }
+  .s9 {
+    color: #b8a96577;
+  }
+  .s10 {
+    color: #b8a965;
+  }
+  .s11 {
+    color: #bd976a;
+  }
+  .s12 {
+    color: #5da994;
+  }
+  .s13 {
+    color: #db889a;
+  }
+  .s14 {
+    color: #fdaeb7;
+  }
+  .s15 {
+    color: #24292e;
+  }
+  .s16 {
+    color: #c4704f;
+  }
+  .s17 {
+    color: #e6cc77;
+  }
+  .s18 {
+    color: #4c9a91;
+  }
+  .s19 {
+    color: #d4976c;
+  }
+  .s20 {
+    color: #5d99a9;
+  }
+  .s21 {
+    color: #85e89d;
+  }
+  .s22 {
+    color: #ffab70;
+  }
+  .s23 {
+    color: #2f363d;
+  }
+  .s24 {
+    color: #b392f0;
+  }
+  .s25 {
+    color: #79b8ff;
+  }
+  .s26 {
+    color: #d1d5da;
+  }
+  .s27 {
+    color: #dedcd590;
+  }
+  .s28 {
+    color: #6872ab;
+  }
+  .s29 {
+    color: #121212;
+  }
+  .s30 {
+    color: #191919;
+  }
+  .s31 {
+    color: #dedcd550;
+  }
+  .s32 {
+    color: #bfbaaa;
+  }
+  .s33 {
+    color: #eeeeee18;
+  }
+  .s34 {
+    color: #181818;
+  }
+  .s35 {
+    color: #959da5;
+  }
+  .s36 {
+    color: #4d937550;
+  }
+  .s37 {
+    color: #ab595950;
+  }
+  .s38 {
+    color: #e6cc7722;
+  }
+  .s39 {
+    color: #e6cc7744;
+  }
+  .s40 {
+    color: #b808;
+  }
+  .s41 {
+    color: #eeeeee10;
+  }
+  .s42 {
+    color: #a707;
+  }
+  .s43 {
+    color: #1c6b4805;
+  }
+  .s44 {
+    color: #1c6b4810;
+  }
+  .s45 {
+    color: #5eaab5;
+  }
+  .s46 {
+    color: #d9739f;
+  }
+  .s47 {
+    color: #6394bf;
+  }
+  .s48 {
+    color: #4d937520;
+  }
+  .s49 {
+    color: #ffffff30;
+  }
+  .s50 {
+    color: #ffffff15;
+  }
+  .s51 {
+    color: #111;
+  }
+  .s52 {
+    color: #00000000;
+  }
+  .s53 {
+    color: #ffd33d33;
+  }
+  .s54 {
+    color: #0000;
+  }
+  .s55 {
+    color: #dedcd510;
+  }
+  .s56 {
+    color: #393a34;
+  }
+  .s57 {
+    color: #777777;
+  }
+  .s58 {
+    color: #ffffff;
+  }
+  .s59 {
+    color: #dbd7ca;
+  }
+  .s60 {
+    color: #586069;
+  }
+  .s61 {
+    color: #444d56;
+  }
+}
+.s0 {
+  color: #a0ada0;
+}
+.s1 {
+  color: #999999;
+}
+.s2 {
+  color: #a65e2b;
+}
+.s3 {
+  color: #59873a;
+}
+.s4 {
+  color: #393a34;
+}
+.s5 {
+  color: #1e754f;
+}
+.s6 {
+  color: #ab5959;
+}
+.s7 {
+  color: #b56959;
+}
+.s8 {
+  color: #b5695977;
+}
+.s9 {
+  color: #99841877;
+}
+.s10 {
+  color: #998418;
+}
+.s11 {
+  color: #b07d48;
+}
+.s12 {
+  color: #2e8f82;
+}
+.s13 {
+  color: #b05a78;
+}
+.s14 {
+  color: #b31d28;
+}
+.s15 {
+  color: #fafbfc;
+}
+.s16 {
+  color: #ab5e3f;
+}
+.s17 {
+  color: #bda437;
+}
+.s18 {
+  color: #2f798a;
+}
+.s19 {
+  color: #1c6b48;
+}
+.s20 {
+  color: #2e808f;
+}
+.s21 {
+  color: #22863a;
+}
+.s22 {
+  color: #e36209;
+}
+.s23 {
+  color: #f6f8fa;
+}
+.s24 {
+  color: #6f42c1;
+}
+.s25 {
+  color: #005cc5;
+}
+.s26 {
+  color: #586069;
+}
+.s27 {
+  color: #393a3490;
+}
+.s28 {
+  color: #5a6aa6;
+}
+.s29 {
+  color: #ffffff;
+}
+.s30 {
+  color: #f0f0f0;
+}
+.s31 {
+  color: #393a3450;
+}
+.s32 {
+  color: #4e4f47;
+}
+.s33 {
+  color: #22222218;
+}
+.s34 {
+  color: #f7f7f7;
+}
+.s35 {
+  color: #6a737d;
+}
+.s36 {
+  color: #d1d5da;
+}
+.s37 {
+  color: #1c6b4830;
+}
+.s38 {
+  color: #ab595940;
+}
+.s39 {
+  color: #e6cc7744;
+}
+.s40 {
+  color: #e6cc7766;
+}
+.s41 {
+  color: #fff5b1;
+}
+.s42 {
+  color: #22222210;
+}
+.s43 {
+  color: #fffbdd;
+}
+.s44 {
+  color: #1c6b4805;
+}
+.s45 {
+  color: #1c6b4810;
+}
+.s46 {
+  color: #2993a3;
+}
+.s47 {
+  color: #a13865;
+}
+.s48 {
+  color: #296aa3;
+}
+.s49 {
+  color: #1c6b4820;
+}
+.s50 {
+  color: #00000030;
+}
+.s51 {
+  color: #00000015;
+}
+.s52 {
+  color: #fff;
+}
+.s53 {
+  color: #00000000;
+}
+.s54 {
+  color: #e1e4e8;
+}
+.s55 {
+  color: #6a737d33;
+}
+.s56 {
+  color: #393a3410;
+}
+.s57 {
+  color: #121212;
+}
+.s58 {
+  color: #aaaaaa;
+}
+.s59 {
+  color: #dddddd;
+}
+.s60 {
+  color: #dbd7ca;
+}

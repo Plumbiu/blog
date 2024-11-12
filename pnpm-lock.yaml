@@ -188,6 +188,9 @@ importers:
       simple-git-hooks:
         specifier: ^2.11.1
         version: 2.11.1
+      tm-themes:
+        specifier: ^1.9.3
+        version: 1.9.3
       typescript:
         specifier: ^5.6.3
         version: 5.6.3
@@ -4080,6 +4083,9 @@ packages:
 
   through@2.3.8:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
+
+  tm-themes@1.9.3:
+    resolution: {integrity: sha512-zcHyfj7bgEKkU9JJI/hTjxVbAsK5LBNwO25vb9fX8OmPYvWifJKAhxI6QZtXLwRVFa6XgMsDFIvfF87ycLytOQ==}
 
   to-absolute-glob@2.0.2:
     resolution: {integrity: sha512-rtwLUQEwT8ZeKQbyFJyomBRYXyE16U5VKuy0ftxLMK/PZb2fkOsg5r9kHdauuVDbsNdIBoC/HCthpidamQFXYA==}
@@ -8984,6 +8990,8 @@ snapshots:
       readable-stream: 3.6.2
 
   through@2.3.8: {}
+
+  tm-themes@1.9.3: {}
 
   to-absolute-glob@2.0.2:
     dependencies:
