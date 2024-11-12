@@ -171,7 +171,6 @@ const rehypePrismGenerator = (shiki: HighlighterCore) => {
               lang: lang.replace('diff-', ''),
               transformers: [
                 shikiClassTransformer({ map: shikiMap, dev: true }),
-
                 {
                   line(node, line) {
                     if (shouldAddNumber) {
@@ -191,29 +190,6 @@ const rehypePrismGenerator = (shiki: HighlighterCore) => {
                       )
                     }
                   },
-                  // tokens(tokens) {
-                  //   for (const items of tokens) {
-                  //     for (const token of items) {
-                  //       const htmlStyle = token.htmlStyle
-                  //       if (!htmlStyle || isString(htmlStyle)) {
-                  //         continue
-                  //       }
-                  //       let color = htmlStyle.color as ShikiMapKeyType
-                  //       if (!color) {
-                  //         continue
-                  //       }
-                  //       color = color.toLocaleLowerCase() as ShikiMapKeyType
-                  //       const className = shikiMap[color]
-                  //       if (color && className) {
-                  //         if (!token.htmlAttrs) {
-                  //           token.htmlAttrs = {}
-                  //         }
-                  //         token.htmlAttrs.class = className
-                  //         token.htmlStyle = {}
-                  //       }
-                  //     }
-                  //   }
-                  // },
                 },
               ],
               // @ts-ignore
