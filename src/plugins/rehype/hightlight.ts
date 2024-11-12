@@ -28,10 +28,10 @@ import { type Root } from 'hast'
 import { visit } from 'unist-util-visit'
 import { toString } from 'hast-util-to-string'
 import { HighlighterCore } from 'shiki/core'
+// import shikiMap from '@/shiki-map.json'
+import { shikiClassTransformer } from 'shiki-class-transformer'
+import shikiMap from 'shiki-class-transformer/themes/vitesse-light.json'
 import { isNumber, isString } from '@/utils'
-import shikiMap from '@/shiki-map.json'
-
-type ShikiMapKeyType = keyof typeof shikiMap
 
 // This code is modified based on
 // https://github.com/euank/node-parse-numeric-range/blob/master/index.js
@@ -170,6 +170,8 @@ const rehypePrismGenerator = (shiki: HighlighterCore) => {
               themes: themeOptions,
               lang: lang.replace('diff-', ''),
               transformers: [
+                shikiClassTransformer({ map: shikiMap, dev: true }),
+
                 {
                   line(node, line) {
                     if (shouldAddNumber) {
@@ -189,26 +191,29 @@ const rehypePrismGenerator = (shiki: HighlighterCore) => {
                       )
                     }
                   },
-                  tokens(tokens) {
-                    for (const items of tokens) {
-                      for (const token of items) {
-                        const htmlStyle = token.htmlStyle
-                        if (!htmlStyle || isString(htmlStyle)) {
-                          continue
-                        }
-                        const color =
-                          htmlStyle.color.toLocaleLowerCase() as ShikiMapKeyType
-                        const className = shikiMap[color]
-                        if (color && className) {
-                          if (!token.htmlAttrs) {
-                            token.htmlAttrs = {}
-                          }
-                          token.htmlAttrs.className = className
-                          token.htmlStyle = {}
-                        }
-                      }
-                    }
-                  },
+                  // tokens(tokens) {
+                  //   for (const items of tokens) {
+                  //     for (const token of items) {
+                  //       const htmlStyle = token.htmlStyle
+                  //       if (!htmlStyle || isString(htmlStyle)) {
+                  //         continue
+                  //       }
+                  //       let color = htmlStyle.color as ShikiMapKeyType
+                  //       if (!color) {
+                  //         continue
+                  //       }
+                  //       color = color.toLocaleLowerCase() as ShikiMapKeyType
+                  //       const className = shikiMap[color]
+                  //       if (color && className) {
+                  //         if (!token.htmlAttrs) {
+                  //           token.htmlAttrs = {}
+                  //         }
+                  //         token.htmlAttrs.class = className
+                  //         token.htmlStyle = {}
+                  //       }
+                  //     }
+                  //   }
+                  // },
                 },
               ],
               // @ts-ignore

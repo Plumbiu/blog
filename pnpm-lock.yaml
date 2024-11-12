@@ -79,6 +79,9 @@ importers:
       shiki:
         specifier: ^1.22.2
         version: 1.22.2
+      shiki-class-transformer:
+        specifier: ^0.0.1
+        version: 0.0.1
       sucrase:
         specifier: ^3.35.0
         version: 3.35.0
@@ -3848,6 +3851,9 @@ packages:
   shebang-regex@3.0.0:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
+
+  shiki-class-transformer@0.0.1:
+    resolution: {integrity: sha512-J+/Eq8vEl4wFyDfouF5gEw3lz6LuydJ5JS7Z0iIBDFR+krntwvCvD8PfuQwdRiubbHa/+xW+V3+UNcujpdgNKg==}
 
   shiki@1.22.2:
     resolution: {integrity: sha512-3IZau0NdGKXhH2bBlUk4w1IHNxPh6A5B2sUpyY+8utLu2j/h1QpFkAaUA1bAMxOWWGtTWcAh531vnS4NJKS/lA==}
@@ -8734,6 +8740,8 @@ snapshots:
       shebang-regex: 3.0.0
 
   shebang-regex@3.0.0: {}
+
+  shiki-class-transformer@0.0.1: {}
 
   shiki@1.22.2:
     dependencies:
