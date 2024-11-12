@@ -170,7 +170,7 @@ const rehypePrismGenerator = (shiki: HighlighterCore) => {
               themes: themeOptions,
               lang: lang.replace('diff-', ''),
               transformers: [
-                shikiClassTransformer({ map: shikiMap, dev: true }),
+                shikiClassTransformer({ map: shikiMap }),
                 {
                   line(node, line) {
                     if (shouldAddNumber) {
