@@ -29,7 +29,7 @@ function css(map: Record<string, string>, { prefix = '', suffix = '' }) {
   let style = prefix
   for (const [color, className] of Object.entries(map)) {
     style += `
-.${className.toLocaleLowerCase()} {
+.${className.toLowerCase()} {
   color: ${color};
 }`
   }
