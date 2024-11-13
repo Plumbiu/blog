@@ -28,10 +28,9 @@ import { type Root } from 'hast'
 import { visit } from 'unist-util-visit'
 import { toString } from 'hast-util-to-string'
 import { HighlighterCore } from 'shiki/core'
-// import shikiMap from '@/shiki-map.json'
 import { shikiClassTransformer } from 'shiki-class-transformer'
 import shikiMap from 'shiki-class-transformer/themes/vitesse-light.json'
-import { isNumber, isString } from '@/utils'
+import { isString } from '@/utils'
 
 // This code is modified based on
 // https://github.com/euank/node-parse-numeric-range/blob/master/index.js
@@ -116,7 +115,10 @@ const calculateLinesToHighlight = (meta: string) => {
   return (index: number) => lineNumbers.has(index + 1)
 }
 
-const getLanguage = (className: (string | number)[]) => {
+const getLanguage = (className: any) => {
+  if (!Array.isArray(className)) {
+    className = [className]
+  }
   for (const classListItem of className) {
     if (isString(classListItem)) {
       if (classListItem.slice(0, 9) === 'language-') {
@@ -153,13 +155,8 @@ const rehypePrismGenerator = (shiki: HighlighterCore) => {
         const data = node.data
         const code = toString(node).trim()
         const meta = (data?.meta ?? '') as string
-        if (!props.className || typeof props.className === 'boolean') {
-          props.className = []
-        } else if (isString(props.className) || isNumber(props.className)) {
-          props.className = [props.className]
-        }
+
         const lang = getLanguage(props.className)
-        props.className.push('shiki')
         const shouldHighlightLine = calculateLinesToHighlight(meta)
         const shouldAddNumber = meta.includes('line')
         // Syntax highlight
@@ -170,7 +167,10 @@ const rehypePrismGenerator = (shiki: HighlighterCore) => {
               themes: themeOptions,
               lang: lang.replace('diff-', ''),
               transformers: [
-                shikiClassTransformer({ map: shikiMap }),
+                shikiClassTransformer({
+                  map: shikiMap,
+                  deletedKeys: ['--shiki-dark'],
+                }),
                 {
                   line(node, line) {
                     if (shouldAddNumber) {

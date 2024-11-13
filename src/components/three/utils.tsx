@@ -1,12 +1,22 @@
-import { type RefObject } from 'react'
+import { useRef, type RefObject } from 'react'
+import { GUI } from 'lil-gui'
 import * as THREE from 'three'
 
-export function buildRenderer(ref: RefObject<HTMLDivElement>) {
+interface RendererProps {
+  width?: number
+  height?: number
+}
+
+export function buildRenderer(
+  ref: RefObject<HTMLDivElement>,
+  options: RendererProps = {},
+) {
+  const { width, height } = options
   const container = ref.current!
   const size = container.clientWidth
   const renderer = new THREE.WebGLRenderer({ antialias: true })
   renderer.setClearAlpha(0)
-  renderer.setSize(size, size)
+  renderer.setSize(width ?? size, height ?? size)
   renderer.pixelRatio = window.devicePixelRatio
   container.appendChild(renderer.domElement)
 
@@ -22,4 +32,13 @@ export function buildCamera(x: number, y: number, z: number) {
   camera.position.set(x, y, z)
   camera.lookAt(0, 0, 0)
   return camera
+}
+
+export function buildGUI(ref: RefObject<HTMLDivElement>, width = 250) {
+  const gui = new GUI({
+    autoPlace: false,
+    container: ref.current!,
+    width,
+  })
+  return gui
 }

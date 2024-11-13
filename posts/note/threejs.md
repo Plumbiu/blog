@@ -4,7 +4,7 @@ date: 2024-11-07
 desc: 1
 ---
 
-Three.js 是基于 [`canvas`](https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API) 的一个开源应用级依赖，，它屏蔽了 [`WebGL`](https://developer.mozilla.org/zh-CN/docs/Glossary/WebGL) 底层的调用细节，可以使我们快速在网页创建 3D 效果。此文章是在学习 [@react-three/fiber](https://github.com/pmndrs/react-three-fiber) 是 [three.js](https://github.com/mrdoob/three.js) 之前，我需要了解 [three.js](https://github.com/mrdoob/three.js) 的一些基本概念，这些概念可以帮助我更好的理解 threejs 的设计理念和编程艺术。
+Three.js 是基于 [`canvas`](https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API) 的一个开源应用级依赖，它屏蔽了 [`WebGL`](https://developer.mozilla.org/zh-CN/docs/Glossary/WebGL) 底层的调用细节，可以使我们快速在网页创建 3D 效果。此文章是在学习 [@react-three/fiber](https://github.com/pmndrs/react-three-fiber) 是 [three.js](https://github.com/mrdoob/three.js) 之前，我需要了解 [three.js](https://github.com/mrdoob/three.js) 的一些基本概念，这些概念可以帮助我更好的理解 threejs 的设计理念和编程艺术。
 
 # 概念
 
@@ -195,6 +195,45 @@ const mesh = new Mesh(geometry, materials)
 为了让 three.js 使用成本，必须把纹理交给 GPU 处理，但 GPU 一般要求纹理数据不被压缩，因此要合理处理纹理的文件：
 
 **文件大小小，网络下载快；分辨率小，占用的内存少**
+
+## 光照 [Light](https://threejs.org/manual/#zh/lights)
+
+### [lil-gui](https://github.com/georgealways/lil-gui)
+
+学习光照之前，我们可以尝试一下 `lil-gui`，它是一个悬浮的可以控制 threejs 参数的面板，方便我们观察不同参数的 3D 效果，例如：
+
+:ThreeLilGuiFirst
+
+核心代码：
+
+```js
+export export function buildGUI(ref: RefObject<HTMLDivElement>, width = 250) {
+  const gui = new GUI({
+    autoPlace: false,
+    container: ref.current!,
+    width,
+  })
+  return gui
+}
+
+const gui = buildGUI(ref)
+function render() {
+  renderer.render(scene, camera)
+}
+const controls = new OrbitControls(camera, renderer.domElement)
+controls.addEventListener('change', render)
+controls.update()
+
+gui.add(mesh.scale, 'x', 0, 4, 0.1).name('x').onChange(render)
+gui.add(mesh.scale, 'y', 0, 4, 0.1).name('y').onChange(render)
+gui.add(mesh.scale, 'z', 0, 4, 0.1).name('z').onChange(render)
+```
+
+## 环境光 AmbientLight
+
+```tsx Playground='three/ThreePureLight'
+
+```
 
 # Before
 

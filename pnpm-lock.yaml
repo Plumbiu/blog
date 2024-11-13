@@ -43,6 +43,9 @@ importers:
       hast-util-to-string:
         specifier: ^3.0.1
         version: 3.0.1
+      lil-gui:
+        specifier: ^0.20.0
+        version: 0.20.0
       lqip-modern:
         specifier: ^2.1.0
         version: 2.1.0
@@ -80,8 +83,8 @@ importers:
         specifier: ^1.22.2
         version: 1.22.2
       shiki-class-transformer:
-        specifier: ^0.0.3
-        version: 0.0.3
+        specifier: ^0.2.0
+        version: 0.2.0
       sucrase:
         specifier: ^3.35.0
         version: 3.35.0
@@ -2665,6 +2668,9 @@ packages:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
 
+  lil-gui@0.20.0:
+    resolution: {integrity: sha512-k7Ipr0ztqslMA2XvM5z5ZaWhxQtnEOwJBfI/hmSuRh6q4iMG9L0boqqrnZSzBR1jzyJ28OMl47l65ILzRe1TdA==}
+
   lilconfig@3.1.2:
     resolution: {integrity: sha512-eop+wDAvpItUys0FWkHIKeC9ybYrTGbU41U5K7+bttZZeohvnY7M9dZ5kB21GNWiFT2q1OoPTvncPCgSOVO5ow==}
     engines: {node: '>=14'}
@@ -3852,8 +3858,8 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
-  shiki-class-transformer@0.0.3:
-    resolution: {integrity: sha512-QJHEutGMo9keAsWf7Q/qSI9ZbNxY9BXeQH7JYhL0ZRLlLk/2mmN9P4GDgJkXQLEaWCnww+eUIDhBQjkC0F+pfg==}
+  shiki-class-transformer@0.2.0:
+    resolution: {integrity: sha512-BtXe5HY+YPsdGW18ISVBADCL/SkV6lpTbRPNWCGzCCq+1acQ4XSrxc/7fNZN6xsUAzBbgo6ypHOyV7YIF1Br7Q==}
 
   shiki@1.22.2:
     resolution: {integrity: sha512-3IZau0NdGKXhH2bBlUk4w1IHNxPh6A5B2sUpyY+8utLu2j/h1QpFkAaUA1bAMxOWWGtTWcAh531vnS4NJKS/lA==}
@@ -7203,6 +7209,8 @@ snapshots:
       prelude-ls: 1.2.1
       type-check: 0.4.0
 
+  lil-gui@0.20.0: {}
+
   lilconfig@3.1.2: {}
 
   lines-and-columns@1.2.4: {}
@@ -8741,7 +8749,9 @@ snapshots:
 
   shebang-regex@3.0.0: {}
 
-  shiki-class-transformer@0.0.3: {}
+  shiki-class-transformer@0.2.0:
+    dependencies:
+      style-to-object: 1.0.8
 
   shiki@1.22.2:
     dependencies:

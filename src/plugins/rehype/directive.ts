@@ -3,8 +3,6 @@ import { visit } from 'unist-util-visit'
 import { addNodeClassName, makeProperties } from '../utils'
 import { ComponentKey, RemarkReturn } from '../constant'
 
-const FlexDirective = /Flex-(\d+)/
-
 export function remarkContainerDirectivePlugin(): RemarkReturn {
   return (tree) => {
     visit(tree, 'containerDirective', (node, index, parent) => {

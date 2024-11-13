@@ -1,6 +1,6 @@
 import { clsx } from 'clsx'
 import { LogInfo } from '@/hooks/useConsole'
-import { isNumber, isString, transfromLogValue } from '@/utils'
+import { isString, transfromLogValue } from '@/utils'
 import styles from './Console.module.css'
 
 export function padStartZero(str: number | string, num = 2) {

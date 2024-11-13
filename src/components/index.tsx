@@ -107,6 +107,22 @@ const ThreeTextureMulti = dynamic(
     loading: () => <Loading />,
   },
 )
+const ThreeLilGuiFirst = dynamic(
+  () => import('@/components/three/ThreeLilGuiFirst'),
+  {
+    loading: () => <Loading />,
+  },
+)
+
+const ThreePureLight = dynamic(
+  () =>
+    import('@/components/three/ThreePureLight').then(
+      (res) => res.ThreePureLight,
+    ),
+  {
+    loading: () => <Loading />,
+  },
+)
 
 export const componentMap: Record<string, any> = {
   Playground,
@@ -126,6 +142,8 @@ export const componentMap: Record<string, any> = {
   ThreeMaterialToonKind,
   ThreeTexture,
   ThreeTextureMulti,
+  ThreeLilGuiFirst,
+  ThreePureLight,
 }
 
 interface IntersectionCustomComponentProps {

@@ -12,4 +12,5 @@ export const mono = Fira_Mono({
   style: ['normal'],
   display: 'swap',
   weight: '400',
+  fallback: ['Consolas'],
 })

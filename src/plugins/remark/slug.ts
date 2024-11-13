@@ -26,10 +26,6 @@ export function remarkSlug(): RemarkReturn {
       makeProperties(node)
       const data = node.data!
       const props = data.hProperties!
-      const child = node.children[0]
-      if (child.type !== 'text') {
-        return
-      }
       const value = getElementText(node)
       if (value) {
         props.id = formatId(value)

@@ -140,6 +140,7 @@ const Playground = memo((props: any) => {
           </div>
         )}
         <ReactShadowRoot
+          shadow={!!nodeStyles.length}
           className={clsx(styles.preview, {
             [styles.hide]: isConsoleVisible,
           })}
