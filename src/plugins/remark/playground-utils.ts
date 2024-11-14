@@ -9,14 +9,17 @@ const PlaygroundHideTabsKey = `${PlaygroundPrefix}no-tab`
 const PlaygroundHideConsoleKey = `${PlaygroundPrefix}no-console`
 const PlaygroundFileMapKey = `${PlaygroundPrefix}file`
 const PlaygroundCustomPreivew = `${PlaygroundPrefix}cus-view`
+const PlaygroundStyles = `${PlaygroundPrefix}css`
 
 export const handlePlaygroundSelector = buildPlaygroundHandlerFunction<string>(
   PlaygroundDefaultSelectorKey,
 )
 
-export const handlePlaygroundFileMapKey = buildPlaygroundHandlerFunction<
-  StringValueObj | string
->(PlaygroundFileMapKey, JSON.parse)
+export const handlePlaygroundFileMapKey =
+  buildPlaygroundHandlerFunction<StringValueObj>(
+    PlaygroundFileMapKey,
+    JSON.parse,
+  )
 
 export const handlePlaygroundHidePreviewKey = buildPlaygroundHandlerFunction<
   boolean | undefined
@@ -32,6 +35,11 @@ export const handlePlaygroundHideConsoleKey = buildPlaygroundHandlerFunction<
 
 export const handlePlaygroundCustomPreivew =
   buildPlaygroundHandlerFunction<string>(PlaygroundCustomPreivew)
+
+export const handlePlaygroundStyles = buildPlaygroundHandlerFunction<string[]>(
+  PlaygroundStyles,
+  JSON.parse,
+)
 
 export const PlaygroundName = 'Playground'
 export function isPlayground(props: any) {

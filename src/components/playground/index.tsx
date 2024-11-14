@@ -12,6 +12,7 @@ import {
   handlePlaygroundCustomPreivew,
   handlePlaygroundHideConsoleKey,
   handlePlaygroundHideTabsKey,
+  handlePlaygroundStyles,
 } from '@/plugins/remark/playground-utils'
 import ReactShadowRoot from '@/app/components/Shadow'
 import useConsole from '@/hooks/useConsole'
@@ -66,6 +67,7 @@ const Playground = memo((props: any) => {
   const nodes = Object.fromEntries(
     children.map((node: any) => [handlePlaygroundFileKey(node.props), node]),
   )
+  const nodeStyles = handlePlaygroundStyles(props) ?? []
   const files = handlePlaygroundFileMapKey(props) as StringValueObj
   const tabs = Object.keys(files)
   const isStatic = defaultSelector.endsWith('.html')
@@ -73,39 +75,23 @@ const Playground = memo((props: any) => {
   const isTabsHide = handlePlaygroundHideTabsKey(props)
   const customPreviewName = handlePlaygroundCustomPreivew(props)
   const { logFn, logs } = useConsole()
-
   const [isConsoleVisible, setIsConsoleVisible] = useState(!!isConsoleHide)
 
-  const { node, nodeStyles } = useMemo(() => {
-    const styles: string[] = []
-
+  const node = useMemo(() => {
     const customPreviewNode = componentMap[customPreviewName]
-    if (!isStatic && customPreviewNode) {
-      return {
-        node: createElement(customPreviewNode, props),
-        nodeStyles: styles,
-      }
-    }
-    for (const key in files) {
-      if (key.endsWith('.css')) {
-        styles.push(files[key])
-      }
-    }
-    let node: ReactNode = null
     const playgroundProps = {
       files,
       defaultSelector,
       logFn,
     }
-    if (isStatic) {
-      node = <StaticPlaygroundPreview {...playgroundProps} />
-    } else {
-      node = <PlaygroundPreview {...playgroundProps} />
+    if (!isStatic) {
+      return customPreviewNode ? (
+        createElement(customPreviewNode, props)
+      ) : (
+        <PlaygroundPreview {...playgroundProps} />
+      )
     }
-    return {
-      node,
-      nodeStyles: styles,
-    }
+    return <StaticPlaygroundPreview {...playgroundProps} />
   }, [])
 
   return (

@@ -10,6 +10,7 @@ import {
   handlePlaygroundSelector,
   handlePlaygroundFileMapKey,
   PlaygroundName,
+  handlePlaygroundStyles,
 } from './playground-utils'
 import {
   handleComponentCode,
@@ -62,12 +63,17 @@ function remarkPlayground(): RemarkReturn {
           handlePlaygroundHideTabsKey(props, true)
         }
         const files = buildFiles(code, selector)
+        const styles: string[] = []
         for (const key in files) {
+          const code = files[key]
           if (isJsxFileLike(key)) {
-            files[key] = transform(files[key], transfromOptions).code
+            files[key] = transform(code, transfromOptions).code
+          } else if (key.endsWith('.css')) {
+            styles.push(code)
           }
         }
         handlePlaygroundFileMapKey(props, JSON.stringify(files))
+        handlePlaygroundStyles(props, JSON.stringify(styles))
         // @ts-ignore
         node.type = 'root'
         node.data!.hName = 'div'
