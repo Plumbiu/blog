@@ -10,7 +10,7 @@
   height: calc(100vh - var(--header-h));
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 960px) {
   .wrap {
     display: none;
   }

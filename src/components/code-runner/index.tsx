@@ -5,18 +5,20 @@ import { LogInfo } from '@/hooks/useConsole'
 import { getRunCode } from '@/plugins/remark/runner'
 import { LoadingIcon } from '@/app/components/Icons'
 import PreComponent from '@/app/posts/components/Pre'
+import { handleComponentCode } from '@/plugins/constant'
 import styles from './index.module.css'
 import CodeWrap from '../_common/CodeWrap'
 import Console from '../_common/Console'
 
 function CodeRunner(props: any) {
-  const code = getRunCode(props)
+  const runCode = getRunCode(props)
+  const code = handleComponentCode(props)
   const [logs, setLogs] = useState<LogInfo[]>([])
   const workerRef = useRef<Worker>()
 
   useEffect(() => {
     workerRef.current = new Worker(new URL('./worker.ts', import.meta.url))
-    workerRef.current?.postMessage(code)
+    workerRef.current?.postMessage(runCode)
     workerRef.current.onmessage = (event: MessageEvent<LogInfo[]>) => {
       setLogs(event.data)
     }
@@ -29,10 +31,10 @@ function CodeRunner(props: any) {
       barText="Code Runner"
       forceUpdate={() => {
         setLogs([])
-        workerRef.current?.postMessage(code)
+        workerRef.current?.postMessage(runCode)
       }}
     >
-      <PreComponent>{props.children}</PreComponent>
+      <PreComponent code={code}>{props.children}</PreComponent>
       {logs.length ? (
         <Console showType logs={logs} />
       ) : (

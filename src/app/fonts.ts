@@ -1,4 +1,4 @@
-import { Fira_Mono, Inter } from 'next/font/google'
+import { Fira_Mono, Inter, DM_Mono } from 'next/font/google'
 
 export const noto = Inter({
   subsets: ['latin'],
@@ -7,7 +7,7 @@ export const noto = Inter({
   weight: ['400', '500', '600'],
 })
 
-export const mono = Fira_Mono({
+export const mono = DM_Mono({
   subsets: ['latin'],
   style: ['normal'],
   display: 'swap',

@@ -2,7 +2,14 @@
 'use client'
 
 // It could be running at server, but doesn't support onClick or other props
-import { createElement, memo, ReactNode, useMemo, useState } from 'react'
+import {
+  createElement,
+  memo,
+  ReactNode,
+  useMemo,
+  useReducer,
+  useState,
+} from 'react'
 import clsx from 'clsx'
 import { mono } from '@/app/fonts'
 import { handlePlaygroundFileKey } from '@/plugins/rehype/playground-pre'
@@ -17,7 +24,6 @@ import {
 import ReactShadowRoot from '@/app/components/Shadow'
 import useConsole from '@/hooks/useConsole'
 import { StringValueObj } from '@/types/base'
-import useForceUpdate from '@/hooks/useForceUpdate'
 import styles from './index.module.css'
 import { renderStaticPlayground, renerPlayground } from './compile'
 import CodeWrap from '../_common/CodeWrap'
@@ -36,7 +42,7 @@ const CodePreview = memo(
     const [selector, setSelector] = useState(defaultSelector)
     return (
       <div>
-        {!hide && (
+        {!hide && tabs.length > 1 && (
           <div className={styles.tab}>
             {tabs.map((tab) => (
               <div
@@ -114,7 +120,7 @@ const Playground = memo((props: any) => {
     return renderStaticPlayground(playgroundProps)
   }, [])
 
-  const [singal, forceUpdate] = useForceUpdate()
+  const [singal, forceUpdate] = useReducer(() => Math.random(), 1)
   const [isConsoleVisible, setIsConsoleVisible] = useState(!!isConsoleHide)
 
   return (

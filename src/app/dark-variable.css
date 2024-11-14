@@ -38,7 +38,8 @@ html[data-theme='dark'] {
   --bg-md-quote-warn: #3d341b;
   --bg-md-quote-info: #272843;
   --bg-md-quote-danger: rgba(244, 63, 94, 0.16);
-  --bg-md-pre: #0f0f0f;
+  --bg-md-pre: #0e0e0e;
+  --bg-md-playground-bar: #181818;
   --bg-md-highlight-line: rgba(47, 55, 58, 0.5);
   --bg-md-code: #272e35;
   --bg-md-table-header: #161618;

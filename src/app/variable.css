@@ -54,8 +54,7 @@
 /* constant */
 :root {
   --header-h: 90px;
-  --center-max-w: 800px;
-  --center-w: 50%;
+  --center-w: 700px;
   --center-rest: calc((100% - var(--center-w)) / 2);
   --pre-radius: 6px;
   --extend-x: -24px;
@@ -64,15 +63,10 @@
     Liberation Mono, Courier New, monospace;
 }
 
-@media screen and (min-width: 1600px) {
-  :root {
-    --center-rest: calc((100% - var(--center-max-w)) / 2);
-  }
-}
-
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 960px) {
   :root {
     --extend-x: 0;
     --image-item-w: 100%;
+    --center-w: 100%;
   }
 }

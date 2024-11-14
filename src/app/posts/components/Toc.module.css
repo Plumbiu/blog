@@ -14,7 +14,7 @@
   scrollbar-width: none;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 960px) {
   .toc {
     display: none;
   }

@@ -56,14 +56,12 @@ h6 {
 
 .center {
   width: var(--center-w);
-  max-width: var(--center-max-w);
   overflow-x: hidden;
   margin: auto;
   margin-bottom: 36px;
-  padding: 0 32px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 960px) {
   .center {
     width: 100%;
     padding: 0 20px;

@@ -62,7 +62,7 @@
 
   pre {
     margin: 0;
-    font-size: 14px;
+    font-size: 14.75px;
     color: var(--text-1);
     overflow: auto;
     tab-size: 2;
@@ -70,7 +70,7 @@
     border-radius: var(--pre-radius);
     background-color: var(--bg-md-pre);
     border: 1px solid var(--divider);
-    padding: 10px 0px 10px 12px;
+    padding: 16px 0px 16px 14px;
     code {
       box-sizing: content-box;
       display: inline-flex;
