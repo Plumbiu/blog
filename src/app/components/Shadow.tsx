@@ -15,24 +15,27 @@ function ReactShadowRoot({
   ...rest
 }: ShadowRootProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const [root, setRoot] = useState<ShadowRoot | HTMLDivElement>()
+  const [shadowRoot, setShadowRoot] = useState<ShadowRoot | HTMLDivElement>()
   useEffect(() => {
+    if (!shadow) {
+      return
+    }
     try {
       const dom = ref.current!
       let root: any
-      if (shadow) {
-        root = dom.attachShadow({
-          mode,
-        })
-        setRoot(root)
-      } else {
-        setRoot(dom)
-      }
+      root = dom.attachShadow({
+        mode,
+      })
+      setShadowRoot(root)
     } catch (error) {}
-  }, [])
+  }, [shadow])
   return (
     <div ref={ref} {...rest}>
-      {!!root && createPortal(children, root)}
+      {shadow
+        ? shadowRoot
+          ? createPortal(children, shadowRoot)
+          : null
+        : children}
     </div>
   )
 }
