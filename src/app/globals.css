@@ -129,21 +129,20 @@ html[data-theme='dark'] .art {
   filter: invert(1);
 }
 
-*::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
 }
 
-*::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background-color: transparent;
 }
 
-*::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background-color: var(--bg-scrollbar);
-  border-radius: 4px;
 }
 
-*::-webkit-scrollbar-corner {
+::-webkit-scrollbar-corner {
   background-color: transparent;
 }
 

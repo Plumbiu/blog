@@ -33,10 +33,22 @@
 .bar {
   display: flex;
   justify-content: space-between;
-  padding: 8px 12px;
-  font-size: 14px;
+  padding: 9px 10px;
+  font-size: 13px;
   background-color: var(--bg-md-pre);
   font-weight: 600;
   border-radius: var(--pre-radius) var(--pre-radius) 0 0;
   border: 1px solid var(--divider);
+}
+
+.btn {
+  cursor: pointer;
+  transition: color 150ms;
+  &:hover {
+    color: var(--text);
+  }
+  & svg {
+    font-size: 16px;
+    display: block;
+  }
 }

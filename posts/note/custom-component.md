@@ -64,6 +64,19 @@ export default Test2
 }
 ```
 
+## random
+
+```jsx Playground
+function App() {
+  return (
+    <div>
+      <h1>Random App - {Math.random()}</h1>
+    </div>
+  )
+}
+export default App
+```
+
 ## tsx
 
 ```tsx Playground

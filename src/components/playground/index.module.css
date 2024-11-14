@@ -4,18 +4,25 @@
 }
 
 .tab {
+  box-sizing: content-box;
   display: flex;
-  font-size: 14px;
-  border-bottom: 1px solid var(--divider);
+  font-size: 13px;
   overflow-x: auto;
   overflow-y: hidden;
   color: var(--text-3);
   white-space: nowrap;
 
   & > div {
-    padding: 10px 12px;
+    padding: 8px 8px 9px 8px;
     cursor: pointer;
+    border-width: 0;
+    border-color: var(--divider);
+    border-bottom-width: 1px;
+    border-style: solid;
     transition: color 150ms;
+    &:last-child {
+      width: 100%;
+    }
     &:hover {
       color: var(--text);
     }
@@ -24,6 +31,7 @@
 
 .tab_active {
   color: var(--text) !important;
+  border-color: var(--c-yellow-1) !important;
 }
 
 .preview {

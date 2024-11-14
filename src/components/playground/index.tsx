@@ -2,7 +2,14 @@
 'use client'
 
 // It could be running at server, but doesn't support onClick or other props
-import React, { createElement, memo, ReactNode, useMemo, useState } from 'react'
+import React, {
+  createElement,
+  memo,
+  ReactNode,
+  useCallback,
+  useMemo,
+  useState,
+} from 'react'
 import clsx from 'clsx'
 import { mono } from '@/app/fonts'
 import { handlePlaygroundFileKey } from '@/plugins/rehype/playground-pre'
@@ -18,7 +25,7 @@ import ReactShadowRoot from '@/app/components/Shadow'
 import useConsole from '@/hooks/useConsole'
 import { StringValueObj } from '@/types/base'
 import styles from './index.module.css'
-import { StaticPlaygroundPreview, PlaygroundPreview } from './compile'
+import { renderStaticPlayground, renerPlayground } from './compile'
 import CodeWrap from '../_common/CodeWrap'
 import Console from '../_common/Console'
 import { componentMap } from '..'
@@ -52,6 +59,7 @@ const CodePreview = ({
               {tab}
             </div>
           ))}
+          <div />
         </div>
       )}
       <pre className={mono.className}>{nodes[selector]}</pre>
@@ -60,24 +68,49 @@ const CodePreview = ({
 }
 
 const Playground = memo((props: any) => {
-  const children = Array.isArray(props.children)
-    ? props.children
-    : [props.children]
-  const defaultSelector = handlePlaygroundSelector(props)
-  const nodes = Object.fromEntries(
-    children.map((node: any) => [handlePlaygroundFileKey(node.props), node]),
-  )
-  const css = handlePlaygroundStyles(props) ?? ''
-  const files = handlePlaygroundFileMapKey(props) as StringValueObj
-  const tabs = Object.keys(files)
-  const isStatic = defaultSelector.endsWith('.html')
-  const isConsoleHide = handlePlaygroundHideConsoleKey(props)
-  const isTabsHide = handlePlaygroundHideTabsKey(props)
-  const customPreviewName = handlePlaygroundCustomPreivew(props)
+  const {
+    defaultSelector,
+    nodes,
+    css,
+    files,
+    tabs,
+    isStatic,
+    isConsoleHide,
+    isTabsHide,
+    customPreviewName,
+  } = useMemo(() => {
+    const children = Array.isArray(props.children)
+      ? props.children
+      : [props.children]
+    const defaultSelector = handlePlaygroundSelector(props)
+    const nodes = Object.fromEntries(
+      children.map((node: any) => [handlePlaygroundFileKey(node.props), node]),
+    )
+    const css = handlePlaygroundStyles(props) ?? ''
+    const files = handlePlaygroundFileMapKey(props) as StringValueObj
+    const tabs = Object.keys(files)
+    const isStatic = defaultSelector.endsWith('.html')
+    const isConsoleHide = handlePlaygroundHideConsoleKey(props)
+    const isTabsHide = handlePlaygroundHideTabsKey(props)
+    const customPreviewName = handlePlaygroundCustomPreivew(props)
+    console.log(123)
+    return {
+      defaultSelector,
+      nodes,
+      css,
+      files,
+      tabs,
+      isStatic,
+      isConsoleHide,
+      isTabsHide,
+      customPreviewName,
+    }
+  }, [props])
+
   const { logFn, logs } = useConsole()
   const [isConsoleVisible, setIsConsoleVisible] = useState(!!isConsoleHide)
 
-  const node = useMemo(() => {
+  const renderNode = useCallback(() => {
     const customPreviewNode = componentMap[customPreviewName]
     const playgroundProps = {
       files,
@@ -85,17 +118,19 @@ const Playground = memo((props: any) => {
       logFn,
     }
     if (!isStatic) {
-      return customPreviewNode ? (
-        createElement(customPreviewNode, props)
-      ) : (
-        <PlaygroundPreview {...playgroundProps} />
-      )
+      return customPreviewNode
+        ? createElement(customPreviewNode, props)
+        : renerPlayground(playgroundProps)
     }
-    return <StaticPlaygroundPreview {...playgroundProps} />
+    return renderStaticPlayground(playgroundProps)
   }, [])
+  const [node, setNode] = useState(renderNode)
 
   return (
-    <CodeWrap barText="Code Playground">
+    <CodeWrap
+      barText="Code Playground"
+      runFunction={() => setNode(renderNode())}
+    >
       <CodePreview
         tabs={tabs}
         nodes={nodes}
@@ -123,6 +158,7 @@ const Playground = memo((props: any) => {
                 Console
               </div>
             )}
+            <div />
           </div>
         )}
         <ReactShadowRoot

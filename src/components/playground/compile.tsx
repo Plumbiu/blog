@@ -49,7 +49,7 @@ interface PlaygroundPreviewProps {
   logFn: LogFn
 }
 
-export function PlaygroundPreview({
+export function renerPlayground({
   files,
   defaultSelector,
   logFn,
@@ -83,7 +83,7 @@ export function PlaygroundPreview({
 
   return createElement(evalCode(main, scope, logFn))
 }
-export function StaticPlaygroundPreview({
+export function renderStaticPlayground({
   files,
   defaultSelector,
 }: PlaygroundPreviewProps) {

@@ -25,7 +25,13 @@ function CodeRunner(props: any) {
     }
   }, [])
   return (
-    <CodeWrap barText="Code Runner">
+    <CodeWrap
+      barText="Code Runner"
+      runFunction={() => {
+        setLogs([])
+        workerRef.current?.postMessage(code)
+      }}
+    >
       <PreComponent>{props.children}</PreComponent>
       {logs.length ? (
         <Console showType logs={logs} />
