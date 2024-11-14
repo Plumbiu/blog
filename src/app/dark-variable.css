@@ -1,10 +1,10 @@
 html[data-theme='dark'] {
   /* text */
   --text: #fff;
-  --text-4: rgba(220, 220, 220, 0.2);
-  --text-3: rgba(235, 235, 245, 0.38);
+  --text-4: rgba(220, 220, 220, 0.15);
+  --text-3: rgba(235, 235, 245, 0.2);
   --text-2: rgba(235, 235, 245, 0.6);
-  --text-1: rgba(245, 245, 245, 0.86);
+  --text-1: rgba(245, 245, 245, 0.8);
   /* border */
   --divider: #2e2e32;
   /* color */

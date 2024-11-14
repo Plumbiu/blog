@@ -1,11 +1,12 @@
 .wrap {
   margin-top: 36px;
+  width: var(--list-w);
 }
 
 .action {
   display: flex;
   color: var(--text-4);
-  margin-bottom: 36px;
+  margin-bottom: 48px;
   gap: 24px;
 
   & > a {
@@ -35,7 +36,7 @@
 
 .link {
   display: block;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
 }
 
 .top {
@@ -44,11 +45,21 @@
   column-gap: 12px;
 }
 
+.link:hover .title {
+  border-color: var(--text-1);
+}
+
 .title {
   font-weight: 600;
-  margin-top: 0;
-  padding: 4px 0;
+  margin-top: 4px;
+  margin-bottom: 2px;
+  padding-bottom: 2px;
   color: var(--text);
+  border-width: 0;
+  border-bottom-width: 2px;
+  border-bottom-color: transparent;
+  border-style: solid;
+  transition: border 125ms;
 }
 
 .date {

@@ -1,10 +1,10 @@
 :root {
   /* text */
   --text: #000;
-  --text-4: rgba(60, 60, 60, 0.32);
-  --text-3: rgba(60, 60, 60, 0.56);
-  --text-2: rgba(60, 60, 60, 0.78);
-  --text-1: rgb(60, 60, 60);
+  --text-4: rgba(70, 70, 70, 0.32);
+  --text-3: rgba(70, 70, 70, 0.56);
+  --text-2: rgba(70, 70, 70, 0.78);
+  --text-1: rgb(70, 70, 70);
   /* border */
   --divider: #e2e2e5;
   /* color */
@@ -53,9 +53,10 @@
 
 /* constant */
 :root {
-  --header-h: 90px;
-  --center-w: 700px;
-  --center-rest: calc((100% - var(--center-w)) / 2);
+  --header-h: 100px;
+  --post-w: 700px;
+  --list-w: 650px;
+  --center-rest: calc((100% - var(--post-w)) / 2);
   --pre-radius: 6px;
   --extend-x: -24px;
   --image-item-w: 50%;
@@ -67,6 +68,6 @@
   :root {
     --extend-x: 0;
     --image-item-w: 100%;
-    --center-w: 100%;
+    --post-w: 100%;
   }
 }

@@ -50,11 +50,11 @@ h6 {
 }
 
 .main_children {
-  margin-top: calc(var(--header-h) + 12px);
+  margin-top: var(--header-h);
 }
 
 .center {
-  width: var(--center-w);
+  width: var(--post-w);
   margin: auto;
   margin-bottom: 36px;
 }
@@ -167,6 +167,7 @@ em {
 a {
   text-decoration: none;
   color: inherit;
+  font-weight: 500;
 }
 
 img {

@@ -65,7 +65,7 @@ async function ArtlistAll(props: ListProps) {
           <div className={styles.empty}>这里空空如也.......</div>
         )}
         {lists.map(({ frontmatter: { title, date, desc, subtitle }, path }) => (
-          <Link prefetch href={'/' + path} className={styles.link} key={path}>
+          <Link href={'/' + path} className={styles.link} key={path}>
             <div className={styles.top}>
               <span className={styles.title}>{title}</span>
               <span className={styles.date}>{formatTime(date)}</span>
