@@ -27,7 +27,7 @@ function CodeRunner(props: any) {
   return (
     <CodeWrap
       barText="Code Runner"
-      runFunction={() => {
+      forceUpdate={() => {
         setLogs([])
         workerRef.current?.postMessage(code)
       }}

@@ -7,16 +7,16 @@ import styles from './CodeWrap.module.css'
 interface CodeWrapProps {
   barText: string
   children: ReactNode
-  runFunction?: () => void
+  forceUpdate?: () => void
 }
 
-const CodeWrap = memo(({ barText, children, runFunction }: CodeWrapProps) => {
+const CodeWrap = memo(({ barText, children, forceUpdate }: CodeWrapProps) => {
   return (
     <div>
       <div className={styles.bar}>
         <div>{barText}</div>
-        {runFunction && (
-          <div className={styles.btn} onClick={runFunction}>
+        {forceUpdate && (
+          <div className={styles.btn} onClick={forceUpdate}>
             <RestartIcon />
           </div>
         )}

@@ -2,14 +2,7 @@
 'use client'
 
 // It could be running at server, but doesn't support onClick or other props
-import React, {
-  createElement,
-  memo,
-  ReactNode,
-  useCallback,
-  useMemo,
-  useState,
-} from 'react'
+import { createElement, memo, ReactNode, useMemo, useState } from 'react'
 import clsx from 'clsx'
 import { mono } from '@/app/fonts'
 import { handlePlaygroundFileKey } from '@/plugins/rehype/playground-pre'
@@ -24,6 +17,7 @@ import {
 import ReactShadowRoot from '@/app/components/Shadow'
 import useConsole from '@/hooks/useConsole'
 import { StringValueObj } from '@/types/base'
+import useForceUpdate from '@/hooks/useForceUpdate'
 import styles from './index.module.css'
 import { renderStaticPlayground, renerPlayground } from './compile'
 import CodeWrap from '../_common/CodeWrap'
@@ -37,35 +31,32 @@ interface CodePreviewProps {
   hide: boolean
 }
 
-const CodePreview = ({
-  defaultSelector,
-  nodes,
-  tabs,
-  hide,
-}: CodePreviewProps) => {
-  const [selector, setSelector] = useState(defaultSelector)
-  return (
-    <div>
-      {!hide && (
-        <div className={styles.tab}>
-          {tabs.map((tab) => (
-            <div
-              key={tab}
-              onClick={() => setSelector(tab)}
-              className={clsx({
-                [styles['tab_active']]: tab === selector,
-              })}
-            >
-              {tab}
-            </div>
-          ))}
-          <div />
-        </div>
-      )}
-      <pre className={mono.className}>{nodes[selector]}</pre>
-    </div>
-  )
-}
+const CodePreview = memo(
+  ({ defaultSelector, nodes, tabs, hide }: CodePreviewProps) => {
+    const [selector, setSelector] = useState(defaultSelector)
+    return (
+      <div>
+        {!hide && (
+          <div className={styles.tab}>
+            {tabs.map((tab) => (
+              <div
+                key={tab}
+                onClick={() => setSelector(tab)}
+                className={clsx({
+                  [styles['tab_active']]: tab === selector,
+                })}
+              >
+                {tab}
+              </div>
+            ))}
+            <div />
+          </div>
+        )}
+        <pre className={mono.className}>{nodes[selector]}</pre>
+      </div>
+    )
+  },
+)
 
 const Playground = memo((props: any) => {
   const {
@@ -107,7 +98,8 @@ const Playground = memo((props: any) => {
   }, [props])
 
   const { logFn, logs } = useConsole()
-  const renderNode = useCallback(() => {
+
+  const node = useMemo(() => {
     const customPreviewNode = componentMap[customPreviewName]
     const playgroundProps = {
       files,
@@ -122,11 +114,11 @@ const Playground = memo((props: any) => {
     return renderStaticPlayground(playgroundProps)
   }, [])
 
-  const [node, setNode] = useState(renderNode)
+  const [singal, forceUpdate] = useForceUpdate()
   const [isConsoleVisible, setIsConsoleVisible] = useState(!!isConsoleHide)
 
   return (
-    <CodeWrap barText="Code Playground" runFunction={() => setNode(renderNode)}>
+    <CodeWrap barText="Code Playground" forceUpdate={forceUpdate}>
       <CodePreview
         tabs={tabs}
         nodes={nodes}
@@ -158,6 +150,7 @@ const Playground = memo((props: any) => {
           </div>
         )}
         <ReactShadowRoot
+          key={singal}
           shadow={!!css}
           className={clsx(styles.preview, {
             [styles.hide]: isConsoleVisible,
