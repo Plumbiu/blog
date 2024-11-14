@@ -7,7 +7,7 @@
   top: var(--top);
   z-index: 9;
   font-size: 14px;
-  padding-left: 32px;
+  padding-left: 64px;
   width: var(--center-rest);
   max-height: 50vh;
   overflow-y: auto;
@@ -22,7 +22,7 @@
 
 .link {
   display: block;
-  width: max-content;
+  max-width: 160px;
   height: 28px;
   line-height: 28px;
   transition: color 150ms;

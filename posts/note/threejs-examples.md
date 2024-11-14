@@ -37,7 +37,7 @@ export function buildCamera(x: number, y: number, z: number) {
 }
 ```
 
-## Rotating cube
+# Rotating cube
 
 ```tsx Playground='three/ThreePureFirstScene'
 
@@ -56,7 +56,7 @@ function animate() {
 }
 ```
 
-## Controls
+# Controls
 
 `OrbitControls` 允许我们对场景内容进行旋转、放大缩小等操作
 
@@ -66,7 +66,7 @@ function animate() {
 
 ```
 
-## Light
+# Light
 
 `MeshBasicMaterial` 不受光源影响，需要设置为 `MeshStandardMaterial`
 
@@ -74,25 +74,25 @@ function animate() {
 
 ```
 
-## Drawing lines
+# Drawing lines
 
 ```tsx Playground='three/ThreePureLine'
 
 ```
 
-## Box with edge
+# Box with edge
 
 ```tsx Playground='three/ThreeLearnPrimitivesBox'
 
 ```
 
-## Render Text
+# Render Text
 
 ```tsx Playground='three/ThreePureText'
 
 ```
 
-## Loading 3D modales
+# Loading 3D modales
 
 Three.js 支持很多[导入工具](https://github.com/mrdoob/three.js/tree/dev/examples/jsm/loaders)，官网推荐 [glTF](https://zh.wikipedia.org/wiki/GlTF)（gl 传输格式），这种格式传输效率和加载速度都非常优秀，而且也包括了网格、材质、纹理、皮肤、骨骼、变形目标、动画、灯光和摄像机等，很多工具都包含了 glTF 导出功能：
 
@@ -108,7 +108,7 @@ three.js 内置了 [`GLTFLoader`](https://threejs.org/docs/index.html#examples/z
 
 ```
 
-## Sun Earth and moon
+# Sun Earth and moon
 
 这个 demo 的关键是了解 three,js 的**场景图**。场景图在 3D 引擎是一个图中节点的层次结构，每个节点代表了一个局部空间（local space）：
 
