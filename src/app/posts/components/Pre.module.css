@@ -12,8 +12,8 @@
 
 .action {
   position: absolute;
-  top: 8px;
-  right: 12px;
+  top: 16px;
+  right: 16px;
   opacity: 0;
   display: flex;
   align-items: center;
@@ -27,8 +27,8 @@
     display: inline-block;
     box-sizing: content-box;
     border-radius: 6px;
-    font-size: 16px;
-    padding: 6px;
+    font-size: 20px;
+    padding: 10px;
     cursor: pointer;
     border: 1px solid var(--divider);
   }

@@ -62,7 +62,7 @@
 
   pre {
     margin: 0;
-    font-size: 14.75px;
+    font-size: 14px;
     color: var(--text-1);
     overflow: auto;
     tab-size: 2;
@@ -180,7 +180,7 @@
   }
   .line {
     display: inline-block;
-    min-height: 16px;
+    min-height: 10px;
     width: 100%;
   }
   .line[data-line]::before {

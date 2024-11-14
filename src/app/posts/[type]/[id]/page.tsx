@@ -6,7 +6,6 @@ import React from 'react'
 import {
   FrontMatterKey,
   getCategory,
-  joinFormatPaths,
   removeMdSuffix,
   upperFirstChar,
 } from '@/utils'

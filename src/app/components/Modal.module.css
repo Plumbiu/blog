@@ -6,8 +6,7 @@
   text-align: center;
   background-color: var(--bg-modal);
   cursor: zoom-out;
-  transition: opacity 0.15s cubic-bezier(0.2, 0, 0.2, 1),
-    transfrom 0.15s cubic-bezier(0.2, 0, 0.2, 1);
+  transition: opacity 0.25s cubic-bezier(0.2, 0, 0.2, 1);
   &::after {
     content: '';
     display: inline-block;
@@ -18,10 +17,10 @@
 
 @keyframes scaleup {
   0% {
-    transform: scale(0.25);
+    opacity: 0;
   }
   100% {
-    transform: scale(1);
+    opacity: 1;
   }
 }
 
@@ -40,9 +39,9 @@
 }
 
 .mask img {
-  animation: scaleup 0.15s cubic-bezier(0.2, 0, 0.2, 1) forwards;
+  animation: scaleup 0.3s cubic-bezier(0, 0, 0.25, 1) forwards;
   width: auto;
-  transform-origin: bottom;
+  transform-origin: top left;
   max-width: 95%;
   height: auto;
   max-height: 80vh;

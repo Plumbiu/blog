@@ -12,7 +12,7 @@ function Modal() {
     <div
       ref={maskRef}
       className={styles.mask}
-      onClick={hidden.bind(null, maskRef)}
+      onClick={() => hidden(maskRef)}
       style={{
         display: children == null ? 'none' : 'block',
       }}

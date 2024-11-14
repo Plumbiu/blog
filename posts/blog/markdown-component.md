@@ -1,5 +1,5 @@
 ---
-title: 如果在 Markdown 中展示 React 组件
+title: 在 Markdown 中展示 React 组件
 date: 2024-11-10
 desc: 1
 ---

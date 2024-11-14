@@ -29,10 +29,6 @@ export const handlePlaygroundHideTabsKey = buildPlaygroundHandlerFunction<
   boolean | undefined
 >(PlaygroundHideTabsKey)
 
-export const handlePlaygroundHideConsoleKey = buildPlaygroundHandlerFunction<
-  boolean | undefined
->(PlaygroundHideConsoleKey)
-
 export const handlePlaygroundCustomPreivew =
   buildPlaygroundHandlerFunction<string>(PlaygroundCustomPreivew)
 

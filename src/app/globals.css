@@ -12,7 +12,6 @@ body {
   background-color: var(--bg-body);
   text-rendering: optimizeLegibility;
   transition: background-color 100ms;
-  scrollbar-width: thin;
 }
 
 a {
@@ -51,7 +50,7 @@ h6 {
 }
 
 .main_children {
-  margin-top: calc(var(--header-h) + 24px);
+  margin-top: calc(var(--header-h) + 12px);
 }
 
 .center {

@@ -5,7 +5,6 @@ import { buildFiles, getBaseName, getFirstLine, isJsxFileLike } from '@/utils'
 import { tryReadFileSync } from '@/utils/node'
 import {
   handlePlaygroundCustomPreivew,
-  handlePlaygroundHideConsoleKey,
   handlePlaygroundHideTabsKey,
   handlePlaygroundSelector,
   handlePlaygroundFileMapKey,
@@ -51,7 +50,6 @@ function remarkPlayground(): RemarkReturn {
         handlePlaygroundSelector(props, selector)
         handleComponentCode(props, myBeAppFile ? code.slice(endIndex) : code)
         handlePlaygroundHideTabsKey(props, meta.includes('no-tab'))
-        handlePlaygroundHideConsoleKey(props, meta.includes('no-console'))
 
         const previewName = PlaygroundNameCustomPreviewRegx.exec(meta)?.[1]
         if (previewName) {
@@ -60,20 +58,25 @@ function remarkPlayground(): RemarkReturn {
           )
           handlePlaygroundCustomPreivew(props, getBaseName(previewName))
           handleComponentCode(props, content.trim())
-          handlePlaygroundHideTabsKey(props, true)
         }
+        let hideTabs = true
         const files = buildFiles(code, selector)
         let styles: string = ''
         for (const key in files) {
           const code = files[key]
           if (isJsxFileLike(key)) {
             files[key] = transform(code, transfromOptions).code
+            if (code.includes('console.log(')) {
+              hideTabs = false
+            }
           } else if (key.endsWith('.css')) {
             styles += ' ' + code
           }
         }
+        handlePlaygroundHideTabsKey(props, hideTabs)
         handlePlaygroundFileMapKey(props, JSON.stringify(files))
         handlePlaygroundStyles(props, styles)
+
         // @ts-ignore
         node.type = 'root'
         node.data!.hName = 'div'

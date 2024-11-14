@@ -5,7 +5,6 @@ import useModalStore from '@/store/modal'
 
 function MarkdownImage(props: ImageProps) {
   const setChildren = useModalStore('setChildren')
-
   const node = (
     <NextImage
       {...props}

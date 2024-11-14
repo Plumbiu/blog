@@ -17,7 +17,6 @@ import {
   handlePlaygroundFileMapKey,
   handlePlaygroundSelector,
   handlePlaygroundCustomPreivew,
-  handlePlaygroundHideConsoleKey,
   handlePlaygroundHideTabsKey,
   handlePlaygroundStyles,
 } from '@/plugins/remark/playground-utils'
@@ -49,7 +48,7 @@ interface TabProps extends TabItem {
 const Tab = memo((props: TabProps) => {
   const { name, onClick, hidden = false, isActive } = props
   if (hidden) {
-    return name
+    return null
   }
   return (
     <div
@@ -103,8 +102,7 @@ const Playground = memo((props: any) => {
     files,
     codeTabs,
     isStatic,
-    isConsoleHidden,
-    isTabsHide,
+    isTabsHidden,
     customPreviewName,
   } = useMemo(() => {
     const children = Array.isArray(props.children)
@@ -118,8 +116,8 @@ const Playground = memo((props: any) => {
     const files = handlePlaygroundFileMapKey(props)
     const codeTabs = Object.keys(files).map((name) => ({ name }))
     const isStatic = defaultSelector.endsWith('.html')
-    const isConsoleHidden = handlePlaygroundHideConsoleKey(props)
-    const isTabsHide = handlePlaygroundHideTabsKey(props)
+    const isTabsHidden = handlePlaygroundHideTabsKey(props)
+    console.log(isTabsHidden)
     const customPreviewName = handlePlaygroundCustomPreivew(props)
     return {
       defaultSelector,
@@ -128,8 +126,7 @@ const Playground = memo((props: any) => {
       files,
       codeTabs,
       isStatic,
-      isConsoleHidden,
-      isTabsHide,
+      isTabsHidden,
       customPreviewName,
     }
   }, [props])
@@ -152,7 +149,7 @@ const Playground = memo((props: any) => {
   }, [])
 
   const [singal, forceUpdate] = useReducer(() => Math.random(), 1)
-  const [isConsoleVisible, setIsConsoleVisible] = useState(!!isConsoleHidden)
+  const [isConsoleVisible, setIsConsoleVisible] = useState(false)
 
   return (
     <CodeWrap barText="Code Playground" forceUpdate={forceUpdate}>
@@ -160,7 +157,7 @@ const Playground = memo((props: any) => {
         tabs={codeTabs}
         nodeMap={codeNodeMap}
         defaultSelector={defaultSelector}
-        hide={!!isTabsHide}
+        hide={!!isTabsHidden}
         isCode={true}
       />
       <PreviewItem
@@ -173,7 +170,6 @@ const Playground = memo((props: any) => {
           },
           {
             name: ConsoleTabName,
-            hidden: isConsoleHidden,
             onClick() {
               setIsConsoleVisible(true)
             },
@@ -195,7 +191,7 @@ const Playground = memo((props: any) => {
           [ConsoleTabName]: isConsoleVisible ? <Console logs={logs} /> : null,
         }}
         defaultSelector={PreviewTabName}
-        hide={!!(isStatic || isTabsHide)}
+        hide={!!(isStatic || isTabsHidden)}
         isCode={false}
       />
     </CodeWrap>
