@@ -56,7 +56,6 @@ h6 {
 
 .center {
   width: var(--center-w);
-  overflow-x: hidden;
   margin: auto;
   margin-bottom: 36px;
 }

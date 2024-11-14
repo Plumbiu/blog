@@ -23,56 +23,87 @@ import {
 } from '@/plugins/remark/playground-utils'
 import ReactShadowRoot from '@/app/components/Shadow'
 import useConsole from '@/hooks/useConsole'
-import { StringValueObj } from '@/types/base'
 import styles from './index.module.css'
 import { renderStaticPlayground, renerPlayground } from './compile'
 import CodeWrap from '../_common/CodeWrap'
 import Console from '../_common/Console'
 import { componentMap } from '..'
 
-interface CodePreviewProps {
-  defaultSelector: string
-  nodes: Record<string, ReactNode>
-  tabs: string[]
-  hide: boolean
+interface TabItem {
+  name: string
+  onClick?: () => void
+  hidden?: boolean
 }
 
-const CodePreview = memo(
-  ({ defaultSelector, nodes, tabs, hide }: CodePreviewProps) => {
+interface CodePreviewProps {
+  defaultSelector: string
+  nodeMap: Record<string, ReactNode>
+  tabs: TabItem[]
+  hide: boolean
+  isCode: boolean
+}
+
+interface TabProps extends TabItem {
+  isActive: boolean
+}
+const Tab = memo((props: TabProps) => {
+  const { name, onClick, hidden = false, isActive } = props
+  if (hidden) {
+    return name
+  }
+  return (
+    <div
+      key={name}
+      onClick={onClick}
+      className={clsx({
+        [styles['tab_active']]: isActive,
+      })}
+    >
+      {name}
+    </div>
+  )
+})
+
+const PreviewItem = memo(
+  ({ defaultSelector, nodeMap, tabs, hide, isCode }: CodePreviewProps) => {
     const [selector, setSelector] = useState(defaultSelector)
+    const node = nodeMap[selector]
     return (
       <div>
         {!hide && tabs.length > 1 && (
           <div className={styles.tab}>
-            {tabs.map((tab) => (
-              <div
-                key={tab}
-                onClick={() => setSelector(tab)}
-                className={clsx({
-                  [styles['tab_active']]: tab === selector,
-                })}
-              >
-                {tab}
-              </div>
+            {tabs.map((tabProps) => (
+              <Tab
+                key={tabProps.name}
+                {...tabProps}
+                isActive={tabProps.name === selector}
+                onClick={() => {
+                  tabProps.onClick?.()
+                  setSelector(tabProps.name)
+                }}
+              />
             ))}
             <div />
           </div>
         )}
-        <pre className={mono.className}>{nodes[selector]}</pre>
+        {isCode ? <pre className={mono.className}>{node}</pre> : node}
       </div>
     )
   },
 )
 
+const PreviewTabName = 'Preview'
+const ConsoleTabName = 'Console'
+
 const Playground = memo((props: any) => {
   const {
     defaultSelector,
-    nodes,
+    codeNodeMap,
     css,
     files,
-    tabs,
+    codeTabs,
     isStatic,
-    isConsoleHide,
+    isConsoleHidden,
     isTabsHide,
     customPreviewName,
   } = useMemo(() => {
@@ -80,24 +111,24 @@ const Playground = memo((props: any) => {
       ? props.children
       : [props.children]
     const defaultSelector = handlePlaygroundSelector(props)
-    const nodes = Object.fromEntries(
+    const codeNodeMap = Object.fromEntries(
       children.map((node: any) => [handlePlaygroundFileKey(node.props), node]),
     )
     const css = handlePlaygroundStyles(props) ?? ''
-    const files = handlePlaygroundFileMapKey(props) as StringValueObj
-    const tabs = Object.keys(files)
+    const files = handlePlaygroundFileMapKey(props)
+    const codeTabs = Object.keys(files).map((name) => ({ name }))
     const isStatic = defaultSelector.endsWith('.html')
-    const isConsoleHide = handlePlaygroundHideConsoleKey(props)
+    const isConsoleHidden = handlePlaygroundHideConsoleKey(props)
     const isTabsHide = handlePlaygroundHideTabsKey(props)
     const customPreviewName = handlePlaygroundCustomPreivew(props)
     return {
       defaultSelector,
-      nodes,
+      codeNodeMap,
       css,
       files,
-      tabs,
+      codeTabs,
       isStatic,
-      isConsoleHide,
+      isConsoleHidden,
       isTabsHide,
       customPreviewName,
     }
@@ -121,52 +152,52 @@ const Playground = memo((props: any) => {
   }, [])
 
   const [singal, forceUpdate] = useReducer(() => Math.random(), 1)
-  const [isConsoleVisible, setIsConsoleVisible] = useState(!!isConsoleHide)
+  const [isConsoleVisible, setIsConsoleVisible] = useState(!!isConsoleHidden)
 
   return (
     <CodeWrap barText="Code Playground" forceUpdate={forceUpdate}>
-      <CodePreview
-        tabs={tabs}
-        nodes={nodes}
+      <PreviewItem
+        tabs={codeTabs}
+        nodeMap={codeNodeMap}
         defaultSelector={defaultSelector}
         hide={!!isTabsHide}
+        isCode={true}
       />
-      <div>
-        {!isStatic && !isTabsHide && (
-          <div className={styles.tab}>
-            <div
-              onClick={() => setIsConsoleVisible(false)}
-              className={clsx({
-                [styles.tab_active]: !isConsoleVisible,
+      <PreviewItem
+        tabs={[
+          {
+            name: PreviewTabName,
+            onClick() {
+              setIsConsoleVisible(false)
+            },
+          },
+          {
+            name: ConsoleTabName,
+            hidden: isConsoleHidden,
+            onClick() {
+              setIsConsoleVisible(true)
+            },
+          },
+        ]}
+        nodeMap={{
+          [PreviewTabName]: (
+            <ReactShadowRoot
+              key={singal}
+              shadow={!!css}
+              className={clsx(styles.preview, {
+                [styles.hide]: isConsoleVisible,
               })}
             >
-              Preview
-            </div>
-            {!isConsoleHide && (
-              <div
-                className={clsx({
-                  [styles.tab_active]: isConsoleVisible,
-                })}
-                onClick={() => setIsConsoleVisible(true)}
-              >
-                Console
-              </div>
-            )}
-            <div />
-          </div>
-        )}
-        <ReactShadowRoot
-          key={singal}
-          shadow={!!css}
-          className={clsx(styles.preview, {
-            [styles.hide]: isConsoleVisible,
-          })}
-        >
-          {!!css && <style>{css}</style>}
-          {node}
-        </ReactShadowRoot>
-        {isConsoleVisible && <Console logs={logs} />}
-      </div>
+              {!!css && <style>{css}</style>}
+              {node}
+            </ReactShadowRoot>
+          ),
+          [ConsoleTabName]: isConsoleVisible ? <Console logs={logs} /> : null,
+        }}
+        defaultSelector={PreviewTabName}
+        hide={!!(isStatic || isTabsHide)}
+        isCode={false}
+      />
     </CodeWrap>
   )
 })
