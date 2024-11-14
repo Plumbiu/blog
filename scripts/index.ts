@@ -1,9 +1,7 @@
 import fsp from 'node:fs/promises'
 import { getPostsInfo } from '@/utils/node'
 import generateRss from './rss'
-import generateFrontMatter from './front-matter'
 import { gitadd } from './utils.js'
-import generateImageInfo, { generateImageSize } from './image'
 
 export type FileMap = Record<string, string>
 
@@ -17,10 +15,7 @@ async function generate() {
       fileMap[mdPath] = file
     }),
   )
-  // gitadd(await generateFrontMatter(fileMap))
-  // gitadd(await generateImageInfo(fileMap))
   gitadd(await generateRss(posts))
-  // await generateImageSize()
 }
 
 generate()

@@ -93,7 +93,6 @@ const Playground = memo((props: any) => {
     const isConsoleHide = handlePlaygroundHideConsoleKey(props)
     const isTabsHide = handlePlaygroundHideTabsKey(props)
     const customPreviewName = handlePlaygroundCustomPreivew(props)
-    console.log(123)
     return {
       defaultSelector,
       nodes,
@@ -108,8 +107,6 @@ const Playground = memo((props: any) => {
   }, [props])
 
   const { logFn, logs } = useConsole()
-  const [isConsoleVisible, setIsConsoleVisible] = useState(!!isConsoleHide)
-
   const renderNode = useCallback(() => {
     const customPreviewNode = componentMap[customPreviewName]
     const playgroundProps = {
@@ -124,13 +121,12 @@ const Playground = memo((props: any) => {
     }
     return renderStaticPlayground(playgroundProps)
   }, [])
+
   const [node, setNode] = useState(renderNode)
+  const [isConsoleVisible, setIsConsoleVisible] = useState(!!isConsoleHide)
 
   return (
-    <CodeWrap
-      barText="Code Playground"
-      runFunction={() => setNode(renderNode())}
-    >
+    <CodeWrap barText="Code Playground" runFunction={() => setNode(renderNode)}>
       <CodePreview
         tabs={tabs}
         nodes={nodes}
@@ -167,7 +163,7 @@ const Playground = memo((props: any) => {
             [styles.hide]: isConsoleVisible,
           })}
         >
-          <style>{css}</style>
+          {!!css && <style>{css}</style>}
           {node}
         </ReactShadowRoot>
         {isConsoleVisible && <Console logs={logs} />}
