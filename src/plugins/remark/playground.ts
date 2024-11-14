@@ -63,17 +63,17 @@ function remarkPlayground(): RemarkReturn {
           handlePlaygroundHideTabsKey(props, true)
         }
         const files = buildFiles(code, selector)
-        const styles: string[] = []
+        let styles: string = ''
         for (const key in files) {
           const code = files[key]
           if (isJsxFileLike(key)) {
             files[key] = transform(code, transfromOptions).code
           } else if (key.endsWith('.css')) {
-            styles.push(code)
+            styles += ' ' + code
           }
         }
         handlePlaygroundFileMapKey(props, JSON.stringify(files))
-        handlePlaygroundStyles(props, JSON.stringify(styles))
+        handlePlaygroundStyles(props, styles)
         // @ts-ignore
         node.type = 'root'
         node.data!.hName = 'div'

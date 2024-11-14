@@ -36,10 +36,8 @@ export const handlePlaygroundHideConsoleKey = buildPlaygroundHandlerFunction<
 export const handlePlaygroundCustomPreivew =
   buildPlaygroundHandlerFunction<string>(PlaygroundCustomPreivew)
 
-export const handlePlaygroundStyles = buildPlaygroundHandlerFunction<string[]>(
-  PlaygroundStyles,
-  JSON.parse,
-)
+export const handlePlaygroundStyles =
+  buildPlaygroundHandlerFunction<string[]>(PlaygroundStyles)
 
 export const PlaygroundName = 'Playground'
 export function isPlayground(props: any) {

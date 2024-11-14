@@ -67,7 +67,7 @@ const Playground = memo((props: any) => {
   const nodes = Object.fromEntries(
     children.map((node: any) => [handlePlaygroundFileKey(node.props), node]),
   )
-  const nodeStyles = handlePlaygroundStyles(props) ?? []
+  const css = handlePlaygroundStyles(props) ?? ''
   const files = handlePlaygroundFileMapKey(props) as StringValueObj
   const tabs = Object.keys(files)
   const isStatic = defaultSelector.endsWith('.html')
@@ -126,14 +126,12 @@ const Playground = memo((props: any) => {
           </div>
         )}
         <ReactShadowRoot
-          shadow={!!nodeStyles.length}
+          shadow={!!css}
           className={clsx(styles.preview, {
             [styles.hide]: isConsoleVisible,
           })}
         >
-          {nodeStyles.map((css, key) => (
-            <style key={key}>{css}</style>
-          ))}
+          <style>{css}</style>
           {node}
         </ReactShadowRoot>
         {isConsoleVisible && <Console logs={logs} />}
