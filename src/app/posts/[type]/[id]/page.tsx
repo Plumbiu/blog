@@ -45,7 +45,7 @@ export async function getPostContent(
       'utf-8',
     )
     const { frontmatter, mdContent } = getFrontmatter(file)
-    if (!frontmatter || !mdContent) {
+    if (!frontmatter || !mdContent || frontmatter.hidden) {
       return
     }
     return {

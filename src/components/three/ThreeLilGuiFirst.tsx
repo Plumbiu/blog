@@ -37,7 +37,7 @@ function ThreeLilGuiFirst() {
     }
   }, [])
 
-  return <div style={{ display: 'flex' }} ref={ref} />
+  return <div className="fcc" ref={ref} />
 }
 
 export default ThreeLilGuiFirst

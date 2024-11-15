@@ -15,6 +15,7 @@ export interface FrontMatterItem {
   date: number
   desc: string
   subtitle: string
+  hidden?: boolean
 }
 
 export type FrontmatterKey = 'note' | 'life' | 'blog' | 'summary'
@@ -80,7 +81,7 @@ export async function getPostsInfo(id?: string) {
         return
       }
       const { frontmatter, mdContent } = getFrontmatter(file)
-      if (!frontmatter || !mdContent) {
+      if (!frontmatter || !mdContent || frontmatter.hidden) {
         return
       }
       const data = {

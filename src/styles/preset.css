@@ -1,0 +1,46 @@
+.art {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+html[data-theme='dark'] .art {
+  filter: invert(1);
+}
+
+.main_children {
+  margin-top: var(--header-h);
+}
+
+.center {
+  width: var(--post-w);
+  margin: auto;
+  margin-bottom: 36px;
+}
+
+.link {
+  color: var(--text);
+  border-width: 0;
+  border-bottom-width: 1px;
+  border-style: solid;
+  border-color: var(--divider);
+  padding-bottom: 1px;
+  transition: border-color 250ms ease-in-out;
+  word-break: break-all;
+  &:hover {
+    border-color: var(--text);
+  }
+
+  & > code {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+}
+
+.fcc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}

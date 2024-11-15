@@ -5,8 +5,6 @@ import { upperFirstChar } from '@/utils'
 import { buildCamera, buildRenderer } from './utils'
 
 const flexStyles: CSSProperties = {
-  display: 'flex',
-  alignItems: 'center',
   justifyContent: 'space-around',
   width: '50%',
 }
@@ -102,7 +100,7 @@ function ThreeItem({
 
 export function ThreeMaterialKinds() {
   return (
-    <div style={flexStyles}>
+    <div className="fcc" style={flexStyles}>
       <ThreeItem materialType="basic" color="#4280BF" />
       <ThreeItem materialType="lambert" color="#4280BF" />
       <ThreeItem materialType="phong" color="#4280BF" />
@@ -112,7 +110,7 @@ export function ThreeMaterialKinds() {
 
 export function ThreeMaterialKindsShininess() {
   return (
-    <div style={flexStyles}>
+    <div className="fcc" style={flexStyles}>
       <ThreeItem materialType="phong" color="#4280BF" shininess={0} />
       <ThreeItem materialType="phong" color="#4280BF" shininess={30} />
       <ThreeItem materialType="phong" color="#4280BF" shininess={150} />

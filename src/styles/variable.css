@@ -55,7 +55,6 @@
 :root {
   --header-h: 100px;
   --post-w: 700px;
-  --list-w: 650px;
   --center-rest: calc((100% - var(--post-w)) / 2);
   --pre-radius: 6px;
   --pre-p: 12px;
