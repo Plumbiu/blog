@@ -4,7 +4,7 @@ date: 2024-11-15
 desc: 1
 ---
 
-[`Shiki`](https://github.com/shikijs/shiki) 是一个基于 TextMate 语法的代码语法高亮器，它与 VS Code 的语法高亮引擎 [`onIguruma`](https://github.com/kkos/oniguruma) 一致，几乎所有主流编程语言提供非常准确且快速的语法高亮，然而 `Shiki` 并不关注于 CSS，它的语法高亮都是通过 HTML 的 `style` 属性实现的，这会导致很多样式无法得到复用，产生体积更大的 `HTML` 体积，本文实现**内敛样式**到**类名**
+[`Shiki`](https://github.com/shikijs/shiki) 是一个基于 TextMate 语法的代码语法高亮器，它与 VS Code 的语法高亮引擎 [`onIguruma`](https://github.com/kkos/oniguruma) 一致，几乎所有主流编程语言提供非常准确且快速的语法高亮，然而 `Shiki` 并不关注于 CSS，它的语法高亮都是通过 HTML 的 `style` 属性实现的，这会导致很多样式无法得到复用，产生体积更大的 `HTML` 体积，本文实现**内敛样式**到**类名**的转换
 
 ![shiki-inline-styles](shiki-inline-styles.webp)
 
