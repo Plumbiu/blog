@@ -46,20 +46,19 @@
 }
 
 .link:hover .title {
-  border-color: var(--text-1);
+  border-color: var(--c-indigo-1);
 }
 
 .title {
   font-weight: 600;
   margin-top: 4px;
-  margin-bottom: 2px;
-  padding-bottom: 2px;
+  margin-bottom: 3px;
+  padding-bottom: 1px;
   color: var(--text);
   border-width: 0;
-  border-bottom-width: 2px;
+  border-bottom-width: 1px;
   border-bottom-color: transparent;
   border-style: solid;
-  transition: border 125ms;
 }
 
 .date {

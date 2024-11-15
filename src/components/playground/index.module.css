@@ -22,6 +22,7 @@
     transition: color 150ms;
     &:last-child {
       width: 100%;
+      cursor: auto;
     }
     &:hover {
       color: var(--text);

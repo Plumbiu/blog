@@ -1,9 +1,10 @@
 import { type Metadata } from 'next'
+import { ViewTransitions } from 'next-view-transitions'
 import Header from './components/Header'
 import Modal from './components/Modal'
-import './globals.css'
-import './variable.css'
-import './dark-variable.css'
+import '../styles/globals.css'
+import '../styles/variable.css'
+import '../styles/dark-variable.css'
 // import '@pigment-css/react/styles.css'
 import Footer from './components/Footer'
 import { noto } from './fonts'
@@ -28,12 +29,14 @@ export default function RootLayout({
         type="image/x-icon"
       />
       <body className={noto.className}>
+        <ViewTransitions>
+          <LayoutWrap>
+            <Header />
+            <div className="main_children">{children}</div>
+            <Footer />
+          </LayoutWrap>
+        </ViewTransitions>
         <Modal />
-        <LayoutWrap>
-          <Header />
-          <div className="main_children">{children}</div>
-          <Footer />
-        </LayoutWrap>
       </body>
     </html>
   )

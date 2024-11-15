@@ -63,7 +63,7 @@ const Tab = memo((props: TabProps) => {
   )
 })
 
-const PreviewItem = memo(
+const CodePreview = memo(
   ({ defaultSelector, nodeMap, tabs, hide, isCode }: CodePreviewProps) => {
     const [selector, setSelector] = useState(defaultSelector)
     const node = nodeMap[selector]
@@ -117,7 +117,6 @@ const Playground = memo((props: any) => {
     const codeTabs = Object.keys(files).map((name) => ({ name }))
     const isStatic = defaultSelector.endsWith('.html')
     const isTabsHidden = handlePlaygroundHideTabsKey(props)
-    console.log(isTabsHidden)
     const customPreviewName = handlePlaygroundCustomPreivew(props)
     return {
       defaultSelector,
@@ -153,47 +152,47 @@ const Playground = memo((props: any) => {
 
   return (
     <CodeWrap barText="Code Playground" forceUpdate={forceUpdate}>
-      <PreviewItem
+      <CodePreview
         tabs={codeTabs}
         nodeMap={codeNodeMap}
         defaultSelector={defaultSelector}
         hide={!!isTabsHidden}
         isCode={true}
       />
-      <PreviewItem
-        tabs={[
-          {
-            name: PreviewTabName,
-            onClick() {
-              setIsConsoleVisible(false)
-            },
-          },
-          {
-            name: ConsoleTabName,
-            onClick() {
-              setIsConsoleVisible(true)
-            },
-          },
-        ]}
-        nodeMap={{
-          [PreviewTabName]: (
-            <ReactShadowRoot
-              key={singal}
-              shadow={!!css}
-              className={clsx(styles.preview, {
-                [styles.hide]: isConsoleVisible,
+      <div>
+        {!(isStatic || isTabsHidden) && (
+          <div className={styles.tab}>
+            <div
+              className={clsx({
+                [styles['tab_active']]: !isConsoleVisible,
               })}
+              onClick={() => setIsConsoleVisible(false)}
             >
-              {!!css && <style>{css}</style>}
-              {node}
-            </ReactShadowRoot>
-          ),
-          [ConsoleTabName]: isConsoleVisible ? <Console logs={logs} /> : null,
-        }}
-        defaultSelector={PreviewTabName}
-        hide={!!(isStatic || isTabsHidden)}
-        isCode={false}
-      />
+              {PreviewTabName}
+            </div>
+            <div
+              className={clsx({
+                [styles['tab_active']]: isConsoleVisible,
+              })}
+              onClick={() => setIsConsoleVisible(true)}
+            >
+              {ConsoleTabName}
+            </div>
+            <div />
+          </div>
+        )}
+        <ReactShadowRoot
+          key={singal}
+          shadow={!!css}
+          className={clsx(styles.preview, {
+            [styles.hide]: isConsoleVisible,
+          })}
+        >
+          {!!css && <style>{css}</style>}
+          {node}
+        </ReactShadowRoot>
+        {isConsoleVisible && <Console logs={logs} />}
+      </div>
     </CodeWrap>
   )
 })

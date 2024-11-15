@@ -1,7 +1,6 @@
 'use client'
 
 import { ReactNode, useLayoutEffect, useState } from 'react'
-import { ViewTransitions } from 'next-view-transitions'
 import { usePathname } from 'next/navigation'
 import { applyCurrentTheme } from '@/utils/client/theme'
 import ArtStar from './ArtStar'
@@ -27,7 +26,7 @@ function LayoutWrap(props: ThemeWrap) {
   return (
     <>
       {/* {!isPost && <ArtStar />} */}
-      <ViewTransitions>{mounted && props.children}</ViewTransitions>
+      {mounted && props.children}
     </>
   )
 }
