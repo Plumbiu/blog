@@ -16,10 +16,10 @@ interface ThrottleOptions {
 export function throttle(
   fn: Function,
   wait = 300,
-  { ignoreFirst = false }: ThrottleOptions,
+  options: ThrottleOptions = { ignoreFirst: false },
 ) {
   let start = Date.now()
-
+  let { ignoreFirst } = options
   return function (this: any, ...args: any[]) {
     const now = Date.now()
     if (now - start < wait) {

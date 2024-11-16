@@ -744,3 +744,48 @@ export function RestartIcon(props: SVGProps<SVGSVGElement>) {
     </svg>
   )
 }
+
+export function LucideZoomIn(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <g
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      >
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21l-4.35-4.35M11 8v6m-3-3h6"></path>
+      </g>
+    </svg>
+  )
+}
+export function LucideZoomOut(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <g
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      >
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21l-4.35-4.35M8 11h6"></path>
+      </g>
+    </svg>
+  )
+}

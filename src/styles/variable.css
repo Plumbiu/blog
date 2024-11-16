@@ -46,7 +46,6 @@
   --bg-header: #f8f8f8;
   --bg-body: #fff;
   --bg-scrollbar: #c8c8c8;
-  --bg-modal: #272727a9;
   /* shadow */
   --shadow-header: 5px 5px 16px #e2e2e2, -5px -5px 16px #fefefe;
 }
@@ -62,6 +61,7 @@
   --image-item-w: 50%;
   --code-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     Liberation Mono, Courier New, monospace;
+  --bg-modal: #00000073;
 }
 
 @media screen and (max-width: 960px) {

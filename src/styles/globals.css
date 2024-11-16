@@ -12,6 +12,7 @@ body {
   background-color: var(--bg-body);
   text-rendering: optimizeLegibility;
   transition: background-color 100ms;
+  scrollbar-color: var(--bg-scrollbar);
 }
 
 a {
@@ -85,11 +86,6 @@ h6 {
   }
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-  height: 8px;
-}
-
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
@@ -100,6 +96,11 @@ h6 {
 
 ::-webkit-scrollbar-corner {
   background-color: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
 }
 
 /* list */

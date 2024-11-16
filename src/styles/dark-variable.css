@@ -47,7 +47,6 @@ html[data-theme='dark'] {
   --bg-header: #050505;
   --bg-body: #000;
   --bg-scrollbar: #212123;
-  --bg-modal: #0f0f0fe5;
   /* shadow */
   --shadow-header: 5px 5px 16px #111, -5px -5px 16px #222;
 }
