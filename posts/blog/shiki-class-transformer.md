@@ -4,7 +4,7 @@ date: 2024-11-15
 desc: 1
 ---
 
-[`Shiki`](https://github.com/shikijs/shiki) 是一个基于 TextMate 语法的代码语法高亮器，它与 VS Code 的语法高亮引擎 [`onIguruma`](https://github.com/kkos/oniguruma) 一致，几乎所有主流编程语言提供非常准确且快速的语法高亮，然而 `Shiki` 并不关注于 CSS，它的语法高亮都是通过 HTML 的 `style` 属性实现的，这会导致很多样式无法得到复用，产生体积更大的 `HTML` 体积，本文实现**内敛样式**到**类名**的转换
+[`Shiki`](https://github.com/shikijs/shiki) 是一个基于 TextMate 语法的代码语法高亮器，它与 VS Code 的语法高亮引擎 [`onIguruma`](https://github.com/kkos/oniguruma) 一致，几乎所有主流编程语言提供非常准确且快速的语法高亮，然而 `Shiki` 并不关注于 CSS，它的语法高亮都是通过 HTML 的 `style` 属性实现的，这会导致很多样式无法得到复用，产生体积更大的 `HTML` 体积，本文实现**内联样式**到**类名**的转换
 
 ![shiki-inline-styles](shiki-inline-styles.webp)
 
@@ -37,7 +37,7 @@ desc: 1
 
 可以看到代码颜色是基于 `scope` 字段决定的，而配置颜色的字段在 `settings.forground` 中，我在看到这段配置的时候，也是在想，**为什么 `settings` 不能直接写一个类名？**
 
-原因之一在于有时候 `scope` 会过长，如果我们像 [`prism`](https://github.com/PrismJS/prism) 一样，将类名分为 `keyword`、`variable` 等等，会导致类名比内敛样式还长的情况：
+原因之一在于有时候 `scope` 会过长，如果我们像 [`prism`](https://github.com/PrismJS/prism) 一样，将类名分为 `keyword`、`variable` 等等，会导致类名比内联样式还长的情况：
 
 ```json
 {
