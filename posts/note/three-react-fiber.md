@@ -1,6 +1,7 @@
 ---
 title: Threejs in React
 date: 2024-11-07
+tags: ['threejs', 'react']
 desc: 1
 hidden: true
 ---

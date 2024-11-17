@@ -1,6 +1,7 @@
 ---
 title: Threejs
 date: 2024-11-07
+tags: ['threejs']
 desc: 1
 ---
 

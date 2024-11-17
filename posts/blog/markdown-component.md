@@ -1,6 +1,7 @@
 ---
 title: 在 Markdown 中展示 React 组件
 date: 2024-11-10
+tags: ['react', 'markdown']
 desc: 1
 ---
 

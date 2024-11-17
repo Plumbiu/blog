@@ -44,15 +44,14 @@
   column-gap: 12px;
 }
 
-.link:hover .title {
+.title:hover {
   border-color: var(--c-indigo-1);
 }
 
 .title {
   font-weight: 600;
   margin-top: 4px;
-  margin-bottom: 3px;
-  padding-bottom: 1px;
+  margin-bottom: 4px;
   color: var(--text);
   border-width: 0;
   border-bottom-width: 1px;
@@ -79,4 +78,19 @@
 .empty {
   color: var(--text-2);
   font-size: 16px;
+}
+
+.tagwrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  margin-top: 2px;
+}
+
+.tag {
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 13px;
+  background-color: var(--c-gray-soft);
 }

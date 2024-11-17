@@ -27,6 +27,8 @@ function formatTime(time: string | number) {
   return month + String(d.getDate()).padStart(3, ' 0')
 }
 
+function TagItem() {}
+
 async function ArtlistAll(props: ListProps) {
   const params = await props.params
   const lists = await getPostsInfo(params.id)
@@ -64,16 +66,30 @@ async function ArtlistAll(props: ListProps) {
         {lists.length === 0 && (
           <div className={styles.empty}>这里空空如也.......</div>
         )}
-        {lists.map(({ frontmatter: { title, date, desc, subtitle }, path }) => (
-          <Link href={'/' + path} className={styles.link} key={path}>
-            <div className={styles.top}>
-              <span className={styles.title}>{title}</span>
-              <span className={styles.date}>{formatTime(date)}</span>
+        {lists.map(
+          ({ frontmatter: { title, date, desc, subtitle, tags }, path }) => (
+            <div className={styles.link} key={path}>
+              <Link href={'/' + path} prefetch className={styles.top}>
+                <span className={styles.title}>{title}</span>
+                {tags && tags.length === 1 && (
+                  <div className={styles.tag}>#{tags[0]}</div>
+                )}
+                <span className={styles.date}>{formatTime(date)}</span>
+              </Link>
+              {tags && tags.length > 1 && (
+                <div className={styles.tagwrap}>
+                  {tags.map((tag) => (
+                    <div className={styles.tag} key={tag}>
+                      #{tag}
+                    </div>
+                  ))}
+                </div>
+              )}
+              <div className={styles.subtitle}>{subtitle}</div>
+              <div className={styles.desc}>{desc}</div>
             </div>
-            <div className={styles.subtitle}>{subtitle}</div>
-            <div className={styles.desc}>{desc}</div>
-          </Link>
-        ))}
+          ),
+        )}
       </div>
     </div>
   )

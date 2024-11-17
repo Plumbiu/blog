@@ -16,6 +16,7 @@ export interface FrontMatterItem {
   desc: string
   subtitle: string
   hidden?: boolean
+  tags?: string[]
 }
 
 export type FrontmatterKey = 'note' | 'life' | 'blog' | 'summary'

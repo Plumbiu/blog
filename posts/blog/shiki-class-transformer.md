@@ -1,6 +1,7 @@
 ---
 title: 转换 Shiki 的内联样式
 date: 2024-11-15
+tags: ['shiki', 'transformer', 'css']
 desc: 1
 ---
 

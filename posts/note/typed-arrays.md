@@ -1,6 +1,7 @@
 ---
 title: 类型化数组
 date: 2024-10-31
+tags: ['js']
 desc: 2
 ---
 
