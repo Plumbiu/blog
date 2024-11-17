@@ -206,13 +206,13 @@ function ImagePreview() {
       <div ref={actionRef} className={clsx(styles.action, 'fcc')}>
         <LucideZoomOut
           onClick={() => {
-            scaleUp()
+            scaleDown()
             updateDOM()
           }}
         />
         <LucideZoomIn
           onClick={() => {
-            scaleDown()
+            scaleUp()
             updateDOM()
           }}
         />
