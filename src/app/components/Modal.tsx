@@ -1,12 +1,15 @@
 'use client'
 
-import { useRef, useState } from 'react'
 import { clsx } from 'clsx'
+import { useRef } from 'react'
+import { LucideZoomOut, LucideZoomIn } from '@/app/components/Icons'
 import useModalStore from '@/store/modal'
 import styles from './Modal.module.css'
-import { LucideZoomIn, LucideZoomOut } from './Icons'
 
-const Max_Scale_Step = 0.15
+interface Position {
+  x: number
+  y: number
+}
 
 function isImage(node: HTMLElement) {
   return node.tagName.toLowerCase() === 'img'
@@ -23,58 +26,51 @@ function getImgViewInfo(node: HTMLElement, scale: number) {
   return { all: wLarge && hLarge, one: wLarge || hLarge, wLarge, hLarge }
 }
 
-interface Position {
-  x: number
-  y: number
-}
-
-const initialTranslate: Position = {
-  x: 0,
-  y: 0,
-}
-
-function Modal() {
+function ImagePreview() {
   const { children, hidden } = useModalStore()
   const maskRef = useRef<HTMLDivElement>(null)
   const modalRef = useRef<HTMLDivElement>(null)
   const actionRef = useRef<HTMLDivElement>(null)
   const isMouseDown = useRef(false)
-  const [scale, setScale] = useState(1)
-  const [translate, setTranslate] = useState(initialTranslate)
+  const scale = useRef(1)
+  const preScale = useRef(1)
+  const translate = useRef({
+    x: 0,
+    y: 0,
+  })
   const isDoubleClicked = useRef(false)
   const mousePosition = useRef<Position | null>(null)
-
-  function clear() {
-    mousePosition.current = null
-    isDoubleClicked.current = false
-    setScale(1)
-    setTranslate(initialTranslate)
-  }
-
   function preventComplexEvent(e: any) {
     e.stopPropagation()
     e.preventDefault()
   }
 
-  function zoom(step: number) {
-    const nextScale = scale + step
-    if (nextScale < 0) {
-      return
-    }
-    const finalScale = nextScale <= 1 ? 1 : nextScale
-    if (finalScale === 1) {
-      setTranslate(initialTranslate)
-    }
-    setScale(finalScale)
-    return finalScale
+  function scaleDown() {
+    scale.current /= 1.1
+  }
+  function scaleUp() {
+    scale.current *= 1.1
   }
 
-  if (children == null) {
-    return null
+  function updateDOM() {
+    if (scale.current < 1) {
+      scale.current = 1
+      preScale.current = 1
+      translate.current = {
+        x: 0,
+        y: 0,
+      }
+    }
+    // eslint-disable-next-line @stylistic/max-len
+    modalRef.current!.style.transform = `matrix(${scale.current},0,0,${scale.current},${translate.current.x},${translate.current.y})`
   }
 
   return (
-    <div>
+    <div
+      style={{
+        display: children ? undefined : 'none',
+      }}
+    >
       <div ref={maskRef} className={styles.mask} />
       <div
         ref={modalRef}
@@ -85,38 +81,44 @@ function Modal() {
             return
           }
           hidden(maskRef)
-          clear()
         }}
-        className={styles.modal}
-        style={{
-          transform: `scale(${scale}) translate(${translate.x / scale}px, ${
-            translate.y / scale
-          }px)`,
-        }}
+        className={clsx(styles.modal, styles.anim)}
         onWheel={(e) => {
+          modalRef.current?.classList.remove(styles.anim)
           e.stopPropagation()
-          const step = Math.abs(e.deltaY)
-          const deltaStep = step > 1 ? Max_Scale_Step : step
           const target = e.target as HTMLImageElement
           if (!isImage(target)) {
             return
           }
-          if (e.deltaY < 0) {
-            zoom(deltaStep)
-          } else if (scale >= 1) {
-            zoom(-deltaStep)
+          let nextScale =
+            e.deltaY < 0 ? scale.current * 1.1 : scale.current / 1.1
+          if (nextScale < 1) {
+            nextScale = 1
           }
+          preScale.current = scale.current
+          if (e.deltaY < 0) {
+            scaleUp()
+          } else {
+            scaleDown()
+          }
+          const { x, y, width, height } = target.getBoundingClientRect()
+          const { clientX, clientY } = e
+          const n = scale.current / preScale.current
+          translate.current.x -= (1 - n) * (width / 2 - clientX + x)
+          translate.current.y -= (1 - n) * (height / 2 - clientY + y)
+          updateDOM()
+          modalRef.current?.classList.add(styles.anim)
         }}
         onMouseDown={(e) => {
           preventComplexEvent(e)
           if (!isImage(e.target as HTMLElement)) {
             return
           }
-          isMouseDown.current = true
           mousePosition.current = {
-            x: e.clientX - translate.x,
-            y: e.clientY - translate.y,
+            x: e.clientX - translate.current.x,
+            y: e.clientY - translate.current.y,
           }
+          isMouseDown.current = true
         }}
         onMouseMove={(e) => {
           preventComplexEvent(e)
@@ -129,23 +131,25 @@ function Modal() {
             return
           }
           const { clientX, clientY } = e
-
           const { x, y } = mousePosition.current
-          const newTranslate = {
+          translate.current = {
             x: clientX - x,
             y: clientY - y,
           }
-          setTranslate(newTranslate)
+          updateDOM()
         }}
         onMouseUp={(e) => {
-          const target = e.target as HTMLElement
           preventComplexEvent(e)
+          const target = e.target as HTMLElement
           if (!isImage(target) || !mousePosition.current) {
             return
           }
-          const imageViewInfo = getImgViewInfo(target, scale)
+          const imageViewInfo = getImgViewInfo(target, scale.current)
           if (!imageViewInfo.one) {
-            setTranslate(initialTranslate)
+            translate.current = {
+              x: 0,
+              y: 0,
+            }
           } else {
             const { clientX, clientY } = e
             const { x, y } = mousePosition.current
@@ -158,45 +162,63 @@ function Modal() {
             }
 
             if (imageViewInfo.wLarge) {
-              const xDistance = clientWidth * scale - window.innerWidth
-              const xTranslatedDistance = xDistance - Math.abs(translate.x * 2)
-              let one = translate.x < 0 ? -1 : 1
+              const xDistance = clientWidth * scale.current - window.innerWidth
+              const xTranslatedDistance =
+                xDistance - Math.abs(translate.current.x * 2)
+              let one = translate.current.x < 0 ? -1 : 1
               if (xTranslatedDistance < 0) {
                 newTranslate.x = (one * xDistance) / 2
               }
             }
             if (imageViewInfo.hLarge) {
-              const yDistance = clientHeight * scale - window.innerHeight
-              const yTranslatedDistance = yDistance + Math.abs(translate.y * 2)
-              const one = translate.y < 0 ? -1 : 1
+              const yDistance =
+                clientHeight * scale.current - window.innerHeight
+              const yTranslatedDistance =
+                yDistance + Math.abs(translate.current.y * 2)
+              const one = translate.current.y < 0 ? -1 : 1
               if (yTranslatedDistance > 0) {
                 newTranslate.y = (one * yDistance) / 2
               }
             }
-
-            setTranslate(newTranslate)
+            translate.current = newTranslate
           }
-
+          updateDOM()
           isMouseDown.current = false
           mousePosition.current = null
         }}
         onDoubleClick={(e) => {
           preventComplexEvent(e)
           const target = e.target as HTMLElement
-          if (isImage(target)) {
-            zoom(isDoubleClicked.current ? -0.25 : 0.25)
-            isDoubleClicked.current = !isDoubleClicked.current
+          if (!isImage(target)) {
+            return
           }
+          if (isDoubleClicked.current) {
+            scaleUp()
+          } else {
+            scaleDown()
+          }
+          updateDOM()
+          isDoubleClicked.current = !isDoubleClicked.current
         }}
       >
         {children}
       </div>
       <div ref={actionRef} className={clsx(styles.action, 'fcc')}>
-        <LucideZoomOut onClick={() => zoom(-0.25)} />
-        <LucideZoomIn onClick={() => zoom(0.25)} />
+        <LucideZoomOut
+          onClick={() => {
+            scaleUp()
+            updateDOM()
+          }}
+        />
+        <LucideZoomIn
+          onClick={() => {
+            scaleDown()
+            updateDOM()
+          }}
+        />
       </div>
     </div>
   )
 }
 
-export default Modal
+export default ImagePreview

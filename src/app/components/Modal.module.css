@@ -30,12 +30,16 @@
   align-items: center;
   z-index: 999;
   justify-content: center;
-  transition: transform 0.25s cubic-bezier(0, 0, 0.25, 1) 0s;
   vertical-align: middle;
   overflow: hidden;
   width: 100%;
   height: 100%;
   max-width: 100vw;
+}
+
+
+.anim {
+  transition: transform 0.25s cubic-bezier(0, 0, 0.25, 1) 0s;
 }
 
 .modal img {

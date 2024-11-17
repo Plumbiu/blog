@@ -1,7 +1,7 @@
 'use client'
 
 import { createStore } from '@plumbiu/react-store'
-import React, { ReactNode, RefObject } from 'react'
+import React, { RefObject } from 'react'
 import modalStyle from '@/app/components/Modal.module.css'
 
 function preventBodyScroll(e: WindowEventMap['wheel']) {
