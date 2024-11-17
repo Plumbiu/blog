@@ -1,7 +1,7 @@
 'use client'
 
 import { createStore } from '@plumbiu/react-store'
-import { ReactNode, RefObject } from 'react'
+import React, { ReactNode, RefObject } from 'react'
 import modalStyle from '@/app/components/Modal.module.css'
 
 function preventBodyScroll(e: WindowEventMap['wheel']) {
@@ -9,7 +9,7 @@ function preventBodyScroll(e: WindowEventMap['wheel']) {
 }
 
 const useModalStore = createStore({
-  children: null as ReactNode,
+  children: null as React.ReactElement | null,
   hidden(maskRef: RefObject<HTMLDivElement>) {
     const maskDom = maskRef.current
     if (maskDom) {
@@ -21,7 +21,7 @@ const useModalStore = createStore({
       }, 150)
     }
   },
-  setChildren(children: ReactNode) {
+  setChildren(children: React.ReactElement) {
     document.body.addEventListener('wheel', preventBodyScroll, {
       passive: false,
     })

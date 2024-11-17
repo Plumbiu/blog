@@ -76,10 +76,6 @@ export async function getPostsInfo(id?: string) {
         return
       }
       const file = await fsp.readFile(mdPath, 'utf-8')
-      const startIdx = file.indexOf(FrontmatterWrapStr)
-      if (startIdx !== 0) {
-        return
-      }
       const { frontmatter, mdContent } = getFrontmatter(file)
       if (!frontmatter || !mdContent || frontmatter.hidden) {
         return
