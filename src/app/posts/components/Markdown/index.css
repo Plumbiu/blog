@@ -16,10 +16,15 @@
     border-spacing: 0;
     border-collapse: collapse;
     display: block;
-    width: max-content;
-    max-width: 100%;
     overflow: auto;
+    border-spacing: 0;
+    width: 100%;
+    table-layout: fixed;
 
+    tbody,
+    thead {
+      overflow: auto;
+    }
     th {
       font-weight: 700;
       background-color: var(--bg-md-table-header);

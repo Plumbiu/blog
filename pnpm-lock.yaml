@@ -8,9 +8,6 @@ patchedDependencies:
   cssnano-preset-advanced:
     hash: wo7qhdyew5ts2ooeuohpdvg5sq
     path: patches/cssnano-preset-advanced.patch
-  devlop:
-    hash: ipgxaimseet7f2nmjql3zgtsxu
-    path: patches/devlop.patch
   extend:
     hash: mlpudnuf6dw6tiwzpnu6kexrfe
     path: patches/extend.patch
@@ -4612,7 +4609,7 @@ snapshots:
 
   detect-libc@2.0.3: {}
 
-  devlop@1.1.0(patch_hash=ipgxaimseet7f2nmjql3zgtsxu):
+  devlop@1.1.0:
     dependencies:
       dequal: 2.0.3
 
@@ -5175,7 +5172,7 @@ snapshots:
       '@types/hast': 3.0.4
       '@types/unist': 3.0.3
       comma-separated-tokens: 2.0.3
-      devlop: 1.1.0(patch_hash=ipgxaimseet7f2nmjql3zgtsxu)
+      devlop: 1.1.0
       estree-util-is-identifier-name: 3.0.0
       hast-util-whitespace: 3.0.0
       mdast-util-mdx-expression: 2.0.1
@@ -5456,7 +5453,7 @@ snapshots:
     dependencies:
       '@types/mdast': 4.0.4
       '@types/unist': 3.0.3
-      devlop: 1.1.0(patch_hash=ipgxaimseet7f2nmjql3zgtsxu)
+      devlop: 1.1.0
       mdast-util-from-markdown: 2.0.1
       mdast-util-to-markdown: 2.1.0
       parse-entities: 4.0.1
@@ -5477,7 +5474,7 @@ snapshots:
       '@types/mdast': 4.0.4
       '@types/unist': 3.0.3
       decode-named-character-reference: 1.0.2
-      devlop: 1.1.0(patch_hash=ipgxaimseet7f2nmjql3zgtsxu)
+      devlop: 1.1.0
       mdast-util-to-string: 4.0.0
       micromark: 4.0.0
       micromark-util-decode-numeric-character-reference: 2.0.1
@@ -5493,14 +5490,14 @@ snapshots:
     dependencies:
       '@types/mdast': 4.0.4
       ccount: 2.0.1
-      devlop: 1.1.0(patch_hash=ipgxaimseet7f2nmjql3zgtsxu)
+      devlop: 1.1.0
       mdast-util-find-and-replace: 3.0.1
       micromark-util-character: 2.1.0
 
   mdast-util-gfm-footnote@2.0.0:
     dependencies:
       '@types/mdast': 4.0.4
-      devlop: 1.1.0(patch_hash=ipgxaimseet7f2nmjql3zgtsxu)
+      devlop: 1.1.0
       mdast-util-from-markdown: 2.0.1
       mdast-util-to-markdown: 2.1.0
       micromark-util-normalize-identifier: 2.0.0
@@ -5518,7 +5515,7 @@ snapshots:
   mdast-util-gfm-table@2.0.0:
     dependencies:
       '@types/mdast': 4.0.4
-      devlop: 1.1.0(patch_hash=ipgxaimseet7f2nmjql3zgtsxu)
+      devlop: 1.1.0
       markdown-table: 3.0.3
       mdast-util-from-markdown: 2.0.1
       mdast-util-to-markdown: 2.1.0
@@ -5528,7 +5525,7 @@ snapshots:
   mdast-util-gfm-task-list-item@2.0.0:
     dependencies:
       '@types/mdast': 4.0.4
-      devlop: 1.1.0(patch_hash=ipgxaimseet7f2nmjql3zgtsxu)
+      devlop: 1.1.0
       mdast-util-from-markdown: 2.0.1
       mdast-util-to-markdown: 2.1.0
     transitivePeerDependencies:
@@ -5551,7 +5548,7 @@ snapshots:
       '@types/estree-jsx': 1.0.5
       '@types/hast': 3.0.4
       '@types/mdast': 4.0.4
-      devlop: 1.1.0(patch_hash=ipgxaimseet7f2nmjql3zgtsxu)
+      devlop: 1.1.0
       mdast-util-from-markdown: 2.0.1
       mdast-util-to-markdown: 2.1.0
     transitivePeerDependencies:
@@ -5564,7 +5561,7 @@ snapshots:
       '@types/mdast': 4.0.4
       '@types/unist': 3.0.3
       ccount: 2.0.1
-      devlop: 1.1.0(patch_hash=ipgxaimseet7f2nmjql3zgtsxu)
+      devlop: 1.1.0
       mdast-util-from-markdown: 2.0.1
       mdast-util-to-markdown: 2.1.0
       parse-entities: 4.0.1
@@ -5579,7 +5576,7 @@ snapshots:
       '@types/estree-jsx': 1.0.5
       '@types/hast': 3.0.4
       '@types/mdast': 4.0.4
-      devlop: 1.1.0(patch_hash=ipgxaimseet7f2nmjql3zgtsxu)
+      devlop: 1.1.0
       mdast-util-from-markdown: 2.0.1
       mdast-util-to-markdown: 2.1.0
     transitivePeerDependencies:
@@ -5595,7 +5592,7 @@ snapshots:
       '@types/hast': 3.0.4
       '@types/mdast': 4.0.4
       '@ungap/structured-clone': 1.2.0
-      devlop: 1.1.0(patch_hash=ipgxaimseet7f2nmjql3zgtsxu)
+      devlop: 1.1.0
       micromark-util-sanitize-uri: 2.0.0
       trim-lines: 3.0.1
       unist-util-position: 5.0.0
@@ -5628,7 +5625,7 @@ snapshots:
   micromark-core-commonmark@2.0.1:
     dependencies:
       decode-named-character-reference: 1.0.2
-      devlop: 1.1.0(patch_hash=ipgxaimseet7f2nmjql3zgtsxu)
+      devlop: 1.1.0
       micromark-factory-destination: 2.0.0
       micromark-factory-label: 2.0.0
       micromark-factory-space: 2.0.0
@@ -5646,7 +5643,7 @@ snapshots:
 
   micromark-extension-directive@3.0.2:
     dependencies:
-      devlop: 1.1.0(patch_hash=ipgxaimseet7f2nmjql3zgtsxu)
+      devlop: 1.1.0
       micromark-factory-space: 2.0.0
       micromark-factory-whitespace: 2.0.0
       micromark-util-character: 2.1.0
@@ -5663,7 +5660,7 @@ snapshots:
 
   micromark-extension-gfm-footnote@2.1.0:
     dependencies:
-      devlop: 1.1.0(patch_hash=ipgxaimseet7f2nmjql3zgtsxu)
+      devlop: 1.1.0
       micromark-core-commonmark: 2.0.1
       micromark-factory-space: 2.0.0
       micromark-util-character: 2.1.0
@@ -5674,7 +5671,7 @@ snapshots:
 
   micromark-extension-gfm-strikethrough@2.1.0:
     dependencies:
-      devlop: 1.1.0(patch_hash=ipgxaimseet7f2nmjql3zgtsxu)
+      devlop: 1.1.0
       micromark-util-chunked: 2.0.0
       micromark-util-classify-character: 2.0.0
       micromark-util-resolve-all: 2.0.0
@@ -5683,7 +5680,7 @@ snapshots:
 
   micromark-extension-gfm-table@2.1.0:
     dependencies:
-      devlop: 1.1.0(patch_hash=ipgxaimseet7f2nmjql3zgtsxu)
+      devlop: 1.1.0
       micromark-factory-space: 2.0.0
       micromark-util-character: 2.1.0
       micromark-util-symbol: 2.0.0
@@ -5695,7 +5692,7 @@ snapshots:
 
   micromark-extension-gfm-task-list-item@2.1.0:
     dependencies:
-      devlop: 1.1.0(patch_hash=ipgxaimseet7f2nmjql3zgtsxu)
+      devlop: 1.1.0
       micromark-factory-space: 2.0.0
       micromark-util-character: 2.1.0
       micromark-util-symbol: 2.0.0
@@ -5720,7 +5717,7 @@ snapshots:
 
   micromark-factory-label@2.0.0:
     dependencies:
-      devlop: 1.1.0(patch_hash=ipgxaimseet7f2nmjql3zgtsxu)
+      devlop: 1.1.0
       micromark-util-character: 2.1.0
       micromark-util-symbol: 2.0.0
       micromark-util-types: 2.0.0
@@ -5795,7 +5792,7 @@ snapshots:
 
   micromark-util-subtokenize@2.0.1:
     dependencies:
-      devlop: 1.1.0(patch_hash=ipgxaimseet7f2nmjql3zgtsxu)
+      devlop: 1.1.0
       micromark-util-chunked: 2.0.0
       micromark-util-symbol: 2.0.0
       micromark-util-types: 2.0.0
@@ -5809,7 +5806,7 @@ snapshots:
       '@types/debug': 4.1.12
       debug: 4.3.7
       decode-named-character-reference: 1.0.2
-      devlop: 1.1.0(patch_hash=ipgxaimseet7f2nmjql3zgtsxu)
+      devlop: 1.1.0
       micromark-core-commonmark: 2.0.1
       micromark-factory-space: 2.0.0
       micromark-util-character: 2.1.0
@@ -6753,7 +6750,7 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
       bail: 2.0.2
-      devlop: 1.1.0(patch_hash=ipgxaimseet7f2nmjql3zgtsxu)
+      devlop: 1.1.0
       extend: 3.0.2(patch_hash=mlpudnuf6dw6tiwzpnu6kexrfe)
       is-plain-obj: 4.1.0
       trough: 2.2.0

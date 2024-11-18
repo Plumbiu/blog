@@ -69,13 +69,15 @@ async function ArtlistAll(props: ListProps) {
         {lists.map(
           ({ frontmatter: { title, date, desc, subtitle, tags }, path }) => (
             <div className={styles.link} key={path}>
-              <Link href={'/' + path} prefetch className={styles.top}>
-                <span className={styles.title}>{title}</span>
+              <div className={styles.top}>
+                <Link prefetch href={'/' + path} className={styles.title}>
+                  {title}
+                </Link>
                 {tags && tags.length === 1 && (
                   <div className={styles.tag}>#{tags[0]}</div>
                 )}
                 <span className={styles.date}>{formatTime(date)}</span>
-              </Link>
+              </div>
               {tags && tags.length > 1 && (
                 <div className={styles.tagwrap}>
                   {tags.map((tag) => (

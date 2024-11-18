@@ -3,10 +3,10 @@
   left: 32px;
   top: calc(var(--header-h) + 36px);
   z-index: 9;
-  width: var(--center-rest);
   overflow-y: auto;
   transition: opacity 250ms;
   line-height: 1.5;
+  width: calc(var(--center-rest) - 64px);
   height: calc(100vh - var(--header-h));
 }
 

@@ -8,12 +8,15 @@ export function formatId(id: string) {
   return id.toLowerCase().replace(WhiteSpaceRegx, '-')
 }
 
-function getElementText(node: Heading | Link) {
+function getElementText(node: { children?: any[] }) {
+  if (!node.children) {
+    return ''
+  }
   let text = ''
   for (const child of node.children) {
     if (child.type === 'text') {
       text += child.value
-    } else if (child.type === 'link' && child.children) {
+    } else if ('children' in child) {
       text += getElementText(child)
     }
   }

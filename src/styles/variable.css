@@ -47,7 +47,7 @@
   --bg-body: #fff;
   --bg-scrollbar: #c8c8c8;
   /* shadow */
-  --shadow-header: 5px 5px 16px #e2e2e2, -5px -5px 16px #fefefe;
+  --shadow-header: 3px 3px 16px #f2f2f2, -3px -3px 16px #fefefe;
 }
 
 /* constant */
@@ -57,12 +57,19 @@
   --center-rest: calc((100% - var(--post-w)) / 2);
   --pre-radius: 6px;
   --pre-p: 12px;
-  --extend-x: -24px;
+  --extend-x: -36px;
   --image-item-w: 50%;
   --code-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     Liberation Mono, Courier New, monospace;
   --bg-modal: #00000073;
 }
+
+@media screen and (max-width: 1240px) {
+  :root {
+    --post-w: 580px;
+  }
+}
+
 
 @media screen and (max-width: 960px) {
   :root {

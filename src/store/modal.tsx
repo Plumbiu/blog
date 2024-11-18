@@ -10,6 +10,10 @@ function preventBodyScroll(e: WindowEventMap['wheel']) {
 
 const useModalStore = createStore({
   children: null as React.ReactElement | null,
+  size: {
+    w: 0,
+    h: 0,
+  },
   hidden(maskRef: RefObject<HTMLDivElement>) {
     const maskDom = maskRef.current
     if (maskDom) {
@@ -21,7 +25,7 @@ const useModalStore = createStore({
       }, 150)
     }
   },
-  setChildren(children: React.ReactElement) {
+  set(children: React.ReactElement) {
     document.body.addEventListener('wheel', preventBodyScroll, {
       passive: false,
     })

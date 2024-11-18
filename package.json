@@ -70,7 +70,6 @@
       "space-separated-tokens": "patches/space-separated-tokens.patch",
       "extend": "patches/extend.patch",
       "jstoxml": "patches/jstoxml.patch",
-      "devlop": "patches/devlop.patch",
       "cssnano-preset-advanced": "patches/cssnano-preset-advanced.patch"
     }
   },

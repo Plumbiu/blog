@@ -4,12 +4,12 @@ import NextImage, { ImageProps } from 'next/image'
 import useModalStore from '@/store/modal'
 
 function MarkdownImage(props: ImageProps) {
-  const setChildren = useModalStore('setChildren')
+  const set = useModalStore('set')
   const node = (
     <NextImage
       {...props}
       onClick={() => {
-        setChildren(node)
+        set(node)
       }}
     />
   )
