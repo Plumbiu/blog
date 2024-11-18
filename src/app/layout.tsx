@@ -35,9 +35,9 @@ export default function RootLayout({
             <Header />
             <div className="main_children">{children}</div>
             <Footer />
+            <Modal />
           </LayoutWrap>
         </ViewTransitions>
-        <Modal />
       </body>
     </html>
   )

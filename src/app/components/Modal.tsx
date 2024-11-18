@@ -193,7 +193,10 @@ function ImagePreview() {
         onClick={(e) => {
           preventComplexEvent(e)
           const target = e.target as HTMLElement
-          if (isImage(target) || actionRef.current!.contains(target)) {
+          if (
+            isImage(target) ||
+            (actionRef.current && actionRef.current.contains(target))
+          ) {
             return
           }
           hidden(maskRef)
