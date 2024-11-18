@@ -31,7 +31,6 @@ function ImagePreview() {
   const maskRef = useRef<HTMLDivElement>(null)
   const modalRef = useRef<HTMLDivElement>(null)
   const actionRef = useRef<HTMLDivElement>(null)
-  const isMouseDown = useRef(false)
   const scale = useRef(1)
   const preScale = useRef(1)
   const translate = useRef({
@@ -40,6 +39,7 @@ function ImagePreview() {
   })
   const isDoubleClicked = useRef(false)
   const mousePosition = useRef<Position | null>(null)
+
   function preventComplexEvent(e: any) {
     e.stopPropagation()
     e.preventDefault()
@@ -100,13 +100,12 @@ function ImagePreview() {
       x: e.clientX - translate.current.x,
       y: e.clientY - translate.current.y,
     }
-    isMouseDown.current = true
   }
 
   const onMouseMove: MouseEventHandler<HTMLDivElement> = (e) => {
     preventComplexEvent(e)
     const target = e.target as HTMLElement
-    if (!isMouseDown.current || !mousePosition.current || !isImage(target)) {
+    if (!mousePosition.current || !isImage(target)) {
       return
     }
     const { clientX, clientY } = e
@@ -162,7 +161,6 @@ function ImagePreview() {
       translate.current = newTranslate
     }
     updateDOM()
-    isMouseDown.current = false
     mousePosition.current = null
   }
 
@@ -180,13 +178,12 @@ function ImagePreview() {
     updateDOM()
     isDoubleClicked.current = !isDoubleClicked.current
   }
+  if (!children) {
+    return
+  }
 
   return (
-    <div
-      style={{
-        display: children ? undefined : 'none',
-      }}
-    >
+    <div>
       <div ref={maskRef} className={styles.mask} />
       <div
         ref={modalRef}
