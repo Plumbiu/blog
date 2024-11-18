@@ -2,9 +2,8 @@
   position: sticky;
   top: var(--header-h);
   width: calc(var(--center-rest) - 64px);
-  padding-right: calc(var(--center-rest) / 4);
+  padding-right: calc(var(--center-rest) / 3);
   margin-left: 64px;
-  position: sticky;
   & svg {
     font-size: 16px;
   }

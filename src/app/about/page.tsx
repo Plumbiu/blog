@@ -2,9 +2,9 @@ import { clsx } from 'clsx'
 import Link from 'next/link'
 import { BiliBiliIcon, CodeIcon, GithubIcon } from '@/app/components/Icons'
 import IconCard from '@/app/components/IconCard'
-import styles from './Introduce.module.css'
+import styles from './page.module.css'
 
-function Introduce() {
+function About() {
   return (
     <div className={clsx(styles.wrap, 'center')}>
       <div className={styles.left}>
@@ -56,4 +56,4 @@ function Introduce() {
   )
 }
 
-export default Introduce
+export default About
