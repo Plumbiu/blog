@@ -26,6 +26,11 @@ function getImgViewInfo(node: HTMLElement, scale: number) {
   return { all: wLarge && hLarge, one: wLarge || hLarge, wLarge, hLarge }
 }
 
+function preventComplexEvent(e: any) {
+  e.stopPropagation()
+  e.preventDefault()
+}
+
 function ImagePreview() {
   const { children, hidden } = useModalStore()
   const maskRef = useRef<HTMLDivElement>(null)
@@ -39,11 +44,6 @@ function ImagePreview() {
   })
   const isDoubleClicked = useRef(false)
   const mousePosition = useRef<Position | null>(null)
-
-  function preventComplexEvent(e: any) {
-    e.stopPropagation()
-    e.preventDefault()
-  }
 
   function scaleDown() {
     scale.current /= 1.1

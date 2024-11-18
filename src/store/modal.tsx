@@ -4,7 +4,7 @@ import { createStore } from '@plumbiu/react-store'
 import React, { RefObject } from 'react'
 import modalStyle from '@/app/components/Modal.module.css'
 
-function preventBodyScroll(e: WindowEventMap['wheel']) {
+function preventBodyScroll(e: Event) {
   e.preventDefault()
 }
 
@@ -20,6 +20,7 @@ const useModalStore = createStore({
       maskDom.classList.add(modalStyle.hide)
       setTimeout(() => {
         document.body.removeEventListener('wheel', preventBodyScroll)
+        document.body.removeEventListener('touchmove', preventBodyScroll)
         this.$set({ children: null })
         maskDom.classList.remove(modalStyle.hide)
       }, 150)
@@ -27,6 +28,9 @@ const useModalStore = createStore({
   },
   set(children: React.ReactElement) {
     document.body.addEventListener('wheel', preventBodyScroll, {
+      passive: false,
+    })
+    document.body.addEventListener('touchmove', preventBodyScroll, {
       passive: false,
     })
     this.$set({ children })
