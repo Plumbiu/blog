@@ -10,6 +10,7 @@ const withBundleAnalyzer = Analyzer({
 
 const nextConfig: NextConfig = {
   experimental: {
+    useLightningcss: true,
     turbo: {
       // ...
     },
