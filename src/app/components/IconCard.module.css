@@ -1,0 +1,16 @@
+.card {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background-color: var(--c-gray-soft);
+  padding: 4px 6px;
+  border-radius: 2px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 150ms, color 150ms;
+
+  &:hover {
+    background-color: var(--c-gray-3);
+    color: var(--text);
+  }
+}

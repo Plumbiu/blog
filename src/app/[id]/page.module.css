@@ -1,16 +1,38 @@
 .wrap {
-  margin-top: 36px;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+
+  & > div {
+    margin-top: 36px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .wrap {
+    width: 100%;
+  }
+}
+
+.list_title {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.left {
+  width: var(--post-w);
+  margin-right: 16px;
 }
 
 .action {
   display: flex;
   color: var(--text-4);
-  margin-bottom: 48px;
-  gap: 24px;
+  margin-bottom: 64px;
+  gap: 32px;
 
   & > a {
     transition: color 150ms;
-    font-size: 24px;
+    font-size: 32px;
 
     &:hover {
       color: var(--text-1);
@@ -29,13 +51,12 @@
 }
 
 .artlist {
-  margin-top: 48px;
-  min-height: 70vh;
+  margin-top: 24px;
 }
 
 .link {
   display: block;
-  margin-bottom: 40px;
+  margin-bottom: 64px;
 }
 
 .top {
@@ -49,9 +70,9 @@
 }
 
 .title {
+  font-size: 18px;
   font-weight: 600;
-  margin-top: 4px;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   color: var(--text);
   border-width: 0;
   border-bottom-width: 1px;
@@ -61,11 +82,10 @@
 
 .date {
   color: var(--text-3);
-  font-size: 14px;
 }
 
 .desc {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.65;
 }
 
@@ -90,7 +110,7 @@
 
 .tag {
   padding: 2px 6px;
+  font-size: 14px;
   border-radius: 6px;
-  font-size: 13px;
   background-color: var(--c-gray-soft);
 }

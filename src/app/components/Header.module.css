@@ -28,6 +28,7 @@
 
   & a,
   svg {
+    font-size: 18px;
     color: var(--text-2);
     transition: color 125ms ease-in-out;
     cursor: pointer;
@@ -49,7 +50,7 @@
 
 .header svg {
   display: block;
-  font-size: 24px;
+  font-size: 26px;
 }
 
 .item:hover {

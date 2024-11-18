@@ -1,0 +1,44 @@
+.wrap {
+  width: var(--post-w);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+
+  & .left > div {
+    margin-bottom: 28px;
+  }
+}
+
+.hi {
+  font-size: 48px;
+}
+
+.tag {
+  & > div {
+    margin-right: 12px;
+    font-size: 18px !important;
+  }
+}
+
+.desc {
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.exp {
+  line-height: 1.85;
+}
+
+.links {
+  font-size: 28px;
+  display: flex;
+  gap: 24px;
+
+  & > a {
+    transition: color 150ms;
+
+    &:hover {
+      color: var(--text);
+    }
+  }
+}

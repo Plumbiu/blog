@@ -1,7 +1,6 @@
 .wrap {
   font-size: 14px;
   color: var(--text-3);
-  margin-top: 86px !important;
   white-space: nowrap;
 
   & > a {

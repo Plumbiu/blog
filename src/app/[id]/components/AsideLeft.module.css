@@ -1,7 +1,9 @@
 .wrap {
-  position: fixed;
-  left: 32px;
-  top: calc(var(--header-h) + 36px);
+  position: sticky;
+  margin-top: 36px;
+  margin-left: 32px;
+  margin-right: 16px;
+  top: var(--header-h);
   z-index: 9;
   overflow-y: auto;
   transition: opacity 250ms;
@@ -19,7 +21,6 @@
 .year {
   font-weight: 600;
   padding-bottom: 8px;
-  margin-top: 12px;
 }
 
 .item + .item {

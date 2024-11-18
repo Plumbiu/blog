@@ -1,12 +1,12 @@
 import { Link } from 'next-view-transitions'
-import styles from './Aside.module.css'
+import styles from './AsideLeft.module.css'
 import { FloatItem } from '../types'
 
 interface ListFloatProps {
   items: [string, FloatItem[]][]
 }
 
-const ListFloat = ({ items }: ListFloatProps) => {
+const AsideLeft = ({ items }: ListFloatProps) => {
   return (
     <aside className={styles.wrap}>
       {items.map(([year, items]) => (
@@ -25,4 +25,4 @@ const ListFloat = ({ items }: ListFloatProps) => {
   )
 }
 
-export default ListFloat
+export default AsideLeft
