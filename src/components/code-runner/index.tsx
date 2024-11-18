@@ -1,11 +1,9 @@
-'use client'
-
 import { useEffect, useRef, useState } from 'react'
 import { LogInfo } from '@/hooks/useConsole'
-import { getRunCode } from '@/plugins/remark/runner'
 import { LoadingIcon } from '@/app/components/Icons'
 import PreComponent from '@/app/posts/components/Pre'
 import { handleComponentCode } from '@/plugins/constant'
+import { getRunCode } from '@/plugins/remark/runner-utils'
 import styles from './index.module.css'
 import CodeWrap from '../_common/CodeWrap'
 import Console from '../_common/Console'

@@ -20,6 +20,7 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  serverExternalPackages: ['three', '@react-three/fiber'],
 }
 
 export default withBundleAnalyzer(nextConfig)

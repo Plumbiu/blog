@@ -27,8 +27,6 @@ function formatTime(time: string | number) {
   return month + String(d.getDate()).padStart(3, ' 0')
 }
 
-function TagItem() {}
-
 async function ArtlistAll(props: ListProps) {
   const params = await props.params
   const lists = await getPostsInfo(params.id)
