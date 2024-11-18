@@ -14,16 +14,6 @@
   }
 }
 
-.list_title {
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-
-.left {
-  width: var(--post-w);
-  margin-right: 16px;
-}
-
 .action {
   display: flex;
   color: var(--text-4);
@@ -56,7 +46,7 @@
 
 .link {
   display: block;
-  margin-bottom: 64px;
+  margin-bottom: 48px;
 }
 
 .top {
@@ -70,9 +60,8 @@
 }
 
 .title {
-  font-size: 18px;
   font-weight: 600;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   color: var(--text);
   border-width: 0;
   border-bottom-width: 1px;
@@ -81,11 +70,12 @@
 }
 
 .date {
+  font-size: 13.25px;
   color: var(--text-3);
 }
 
 .desc {
-  font-size: 14px;
+  font-size: 13.25px;
   line-height: 1.65;
 }
 

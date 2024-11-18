@@ -1,9 +1,10 @@
 .wrap {
-  position: sticky;
+  position: fixed;
   margin-top: 36px;
   margin-left: 32px;
   margin-right: 16px;
   top: var(--header-h);
+  left: 0;
   z-index: 9;
   overflow-y: auto;
   transition: opacity 250ms;
