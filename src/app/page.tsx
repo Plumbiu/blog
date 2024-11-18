@@ -1,9 +1,7 @@
-'use server'
+import ArtlistAll from './[id]/page'
 
-import { redirect } from 'next/navigation'
-
-function Home(id: string) {
-  redirect('blog')
+function Home() {
+  return <ArtlistAll params={Promise.resolve({ id: 'blog' })} />
 }
 
 export default Home

@@ -1,28 +1,9 @@
 import { Link } from 'next-view-transitions'
 import { Metadata } from 'next'
 import { clsx } from 'clsx'
-import { Fragment } from 'react'
 import { getYear, upperFirstChar } from '@/utils'
 import { getPostsInfo, type FrontmatterKey } from '@/utils/node'
 import { monthArr } from '@/constants'
-import {
-  JavaScriptIcon,
-  TypeScriptIcon,
-  CssIcon,
-  HTMLIcon,
-  GoIcon,
-  VueIcon,
-  ReactIcon,
-  NodejsIcon,
-  NextjsIcon,
-  NuxtjsIcon,
-  TauriIcon,
-  ViteIcon,
-  WebpackIcon,
-  MarkdownIcon,
-  PnpmIcon,
-  YarnIcon,
-} from '@/app/components/Icons'
 import Divider from '@/app/components/Divider'
 import styles from './page.module.css'
 import { FloatType } from './types'
@@ -42,31 +23,6 @@ interface ListProps {
     id: FrontmatterKey
   }>
 }
-
-const languages = [
-  <JavaScriptIcon />,
-  <TypeScriptIcon />,
-  <CssIcon />,
-  <HTMLIcon />,
-  <GoIcon />,
-]
-
-const frameworks = [
-  <VueIcon />,
-  <ReactIcon />,
-  <NodejsIcon />,
-  <NextjsIcon />,
-  <NuxtjsIcon />,
-  <TauriIcon />,
-]
-
-const tools = [
-  <ViteIcon />,
-  <WebpackIcon />,
-  <MarkdownIcon />,
-  <PnpmIcon />,
-  <YarnIcon />,
-]
 
 function formatTime(time: string | number) {
   const d = new Date(time)
