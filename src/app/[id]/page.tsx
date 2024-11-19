@@ -82,7 +82,7 @@ async function ArtlistAll(props: ListProps) {
               {tags && tags.length > 1 && (
                 <div className={styles.tagwrap}>
                   {tags.map((tag) => (
-                    <IconCard icon="#" text={tag} />
+                    <IconCard key={tag} icon="#" text={tag} />
                   ))}
                 </div>
               )}

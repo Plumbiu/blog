@@ -63,11 +63,15 @@ function Header() {
     <header ref={ref} className={styles.wrap}>
       <div className={styles.header}>
         <div className={styles.left}>
-          <Link href="/">Home</Link>
+          <Link href="/">Plumbiu's Blog</Link>
         </div>
         <div className={styles.right}>
-          <Link href="/blog">Blog</Link>
-          <Link href="/links">Links</Link>
+          <Link className={styles.mobile} href="/about">
+            About
+          </Link>
+          <Link className={styles.mobile} href="/links">
+            Links
+          </Link>
           <div>
             <SearchIcon />
           </div>

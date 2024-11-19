@@ -18,6 +18,16 @@
   }
 }
 
+@media screen and (max-width: 480px) {
+  .wrap {
+    padding: 0 24px;
+  }
+
+  .mobile {
+    display: none;
+  }
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -28,7 +38,7 @@
 
   & a,
   svg {
-    font-size: 18px;
+    font-size: 16px;
     color: var(--text-2);
     transition: color 125ms ease-in-out;
     cursor: pointer;
@@ -59,6 +69,7 @@
 
 .left {
   font-weight: 700;
+  font-style: italic;
 }
 
 .right {

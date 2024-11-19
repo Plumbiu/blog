@@ -17,6 +17,7 @@
 .action {
   display: flex;
   color: var(--text-4);
+  padding-top: 32px;
   margin-bottom: 48px;
   gap: 32px;
 
