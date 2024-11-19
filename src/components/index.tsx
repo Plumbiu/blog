@@ -61,7 +61,6 @@ const ThreeSunEarthMoon = dynamic(
     loading: () => <Loading />,
   },
 )
-
 const ThreeMaterialKinds = dynamic(
   () =>
     import('@/components/three/ThreeMaterialKinds').then(
@@ -71,7 +70,6 @@ const ThreeMaterialKinds = dynamic(
     loading: () => <Loading />,
   },
 )
-
 const ThreeMaterialKindsShininess = dynamic(
   () =>
     import('@/components/three/ThreeMaterialKinds').then(
@@ -81,7 +79,6 @@ const ThreeMaterialKindsShininess = dynamic(
     loading: () => <Loading />,
   },
 )
-
 const ThreeMaterialToonKind = dynamic(
   () =>
     import('@/components/three/ThreeMaterialKinds').then(
@@ -113,7 +110,6 @@ const ThreeLilGuiFirst = dynamic(
     loading: () => <Loading />,
   },
 )
-
 const ThreePureLight = dynamic(
   () =>
     import('@/components/three/ThreePureLight').then(

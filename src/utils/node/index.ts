@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import fsp from 'node:fs/promises'
 import yaml from 'js-yaml'
+import { minify_sync } from 'terser'
 import { FrontmatterWrapStr } from '@/constants'
 import stripMarkdown from '../strip-markdown'
 import {
@@ -103,4 +104,12 @@ export function tryReadFileSync(p: string) {
   } catch (error) {}
 
   return content
+}
+
+export function minify(code: string) {
+  const mini = minify_sync(code).code
+  if (!mini) {
+    return code
+  }
+  return mini
 }

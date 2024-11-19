@@ -31,6 +31,7 @@
     "shiki": "^1.23.0",
     "shiki-class-transformer": "^0.2.0",
     "sucrase": "^3.35.0",
+    "terser": "^5.36.0",
     "three": "^0.170.0",
     "unified": "^11.0.5",
     "unist-util-visit": "^5.0.0"
