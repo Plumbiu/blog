@@ -107,7 +107,14 @@ export function tryReadFileSync(p: string) {
 }
 
 export function minify(code: string) {
-  const mini = minify_sync(code).code
+  code = code.replace('"use strict";', '')
+  const mini = minify_sync(code, {
+    compress: {
+      ecma: 2018,
+      ie8: false,
+    },
+    mangle: { toplevel: true },
+  }).code
   if (!mini) {
     return code
   }

@@ -118,6 +118,7 @@ const Playground = memo((props: any) => {
     const isStatic = defaultSelector.endsWith('.html')
     const isTabsHidden = handlePlaygroundHideTabsKey(props)
     const customPreviewName = handlePlaygroundCustomPreivew(props)
+    console.log(files)
     return {
       defaultSelector,
       codeNodeMap,
