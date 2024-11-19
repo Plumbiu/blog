@@ -8,6 +8,7 @@ import styles from './page.module.css'
 import { FloatType } from './types'
 import AsideLeft from './components/AsideLeft'
 import AsideRight from './components/AsideRight'
+import IconCard from '../components/IconCard'
 
 const ids = ['blog', 'life', 'summary', 'note']
 export function generateStaticParams() {
@@ -74,21 +75,21 @@ async function ArtlistAll(props: ListProps) {
                   {title}
                 </Link>
                 {tags && tags.length === 1 && (
-                  <div className={styles.tag}>#{tags[0]}</div>
+                  <IconCard icon="#" text={tags[0]} />
                 )}
                 <span className={styles.date}>{formatTime(date)}</span>
               </div>
               {tags && tags.length > 1 && (
                 <div className={styles.tagwrap}>
                   {tags.map((tag) => (
-                    <div className={styles.tag} key={tag}>
-                      #{tag}
-                    </div>
+                    <IconCard icon="#" text={tag} />
                   ))}
                 </div>
               )}
               <div className={styles.subtitle}>{subtitle}</div>
-              <div className={styles.desc}>{desc}</div>
+              <div className={styles.desc}>
+                {desc.length > 120 ? desc.slice(0, 117) + '...' : desc}
+              </div>
             </div>
           ),
         )}

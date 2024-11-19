@@ -1,0 +1,7 @@
+.wrap {
+  margin-bottom: 64px;
+
+  & > div {
+    margin-bottom: 32px;
+  }
+}
