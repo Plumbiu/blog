@@ -35,7 +35,7 @@ function markPlaygroundPre(node: Element) {
     node.data = {}
   }
   node.data!.meta = meta
-  node.children = Object.keys(files).map((key, i) => {
+  node.children = Object.keys(files).map((key) => {
     const lang = getSuffix(key).toLowerCase()
     const props: Record<string, string> = {
       className: `language-${lang}`,

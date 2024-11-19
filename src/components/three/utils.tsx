@@ -1,4 +1,4 @@
-import { useRef, type RefObject } from 'react'
+import { type RefObject } from 'react'
 import { GUI } from 'lil-gui'
 import * as THREE from 'three'
 

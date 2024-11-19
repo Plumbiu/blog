@@ -1,3 +1,4 @@
+import { PostDir, type FrontmatterKey } from '@/constants'
 import { StringValueObj } from '@/types/base'
 
 const RemoveMdSuffixRegx = /\.md$/
@@ -51,15 +52,14 @@ export function isSymbol(x: unknown): x is Symbol {
   return typeof x === 'symbol'
 }
 
-export type FrontMatterKey = 'note' | 'life' | 'blog' | 'summary'
-const frontmatterSet = new Set(['note', 'life', 'blog', 'summary'])
+const frontmatterSet: Set<string> = new Set(PostDir)
 export function getCategory(urls: string | string[]) {
   if (isString(urls)) {
     urls = urls.split('/')
   }
   for (const url of urls) {
     if (frontmatterSet.has(url)) {
-      return url as FrontMatterKey
+      return url as FrontmatterKey
     }
   }
   return 'blog'

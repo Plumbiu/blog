@@ -16,7 +16,7 @@ function CodeRunner(props: any) {
 
   useEffect(() => {
     workerRef.current = new Worker(new URL('./worker.ts', import.meta.url))
-    workerRef.current?.postMessage(runCode)
+    workerRef.current.postMessage(runCode)
     workerRef.current.onmessage = (event: MessageEvent<LogInfo[]>) => {
       setLogs(event.data)
     }

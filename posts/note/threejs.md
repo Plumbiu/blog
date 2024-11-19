@@ -232,9 +232,13 @@ gui.add(mesh.scale, 'z', 0, 4, 0.1).name('z').onChange(render)
 
 ## 环境光 AmbientLight
 
-```tsx Playground='three/ThreePureLight'
+环境光没有反向，也无法产生阴影，场景内任何一点受到的光照强度都是相通的。环境光看起来并不是真正意义上的光照，通常用于**提高亮度**
+
+```tsx Playground='three/ThreePureAmbientLight'
 
 ```
+
+## 半球光 HemisphereLight
 
 # Before
 

@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import fsp from 'node:fs/promises'
 import yaml from 'js-yaml'
 import { minify_sync } from 'terser'
-import { FrontmatterWrapStr } from '@/constants'
+import { FrontmatterKey, FrontmatterWrapStr, PostDir } from '@/constants'
 import stripMarkdown from '../strip-markdown'
 import {
   isLikeNum,
@@ -20,13 +20,10 @@ export interface FrontMatterItem {
   tags?: string[]
 }
 
-export type FrontmatterKey = 'note' | 'life' | 'blog' | 'summary'
-
 export async function getMarkdownPath() {
   const results: string[] = []
-  const postsDir = await fsp.readdir('posts')
   await Promise.all(
-    postsDir.map(async (dir) => {
+    PostDir.map(async (dir) => {
       const postsPath = joinFormatPaths('posts', dir)
       const posts = await fsp.readdir(postsPath)
       results.push(...posts.map((p) => joinFormatPaths(postsPath, p)))

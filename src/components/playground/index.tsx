@@ -39,7 +39,6 @@ interface CodePreviewProps {
   nodeMap: Record<string, ReactNode>
   tabs: TabItem[]
   hide: boolean
-  isCode: boolean
 }
 
 interface TabProps extends TabItem {
@@ -64,7 +63,7 @@ const Tab = memo((props: TabProps) => {
 })
 
 const CodePreview = memo(
-  ({ defaultSelector, nodeMap, tabs, hide, isCode }: CodePreviewProps) => {
+  ({ defaultSelector, nodeMap, tabs, hide }: CodePreviewProps) => {
     const [selector, setSelector] = useState(defaultSelector)
     const node = nodeMap[selector]
     return (
@@ -85,7 +84,7 @@ const CodePreview = memo(
             <div />
           </div>
         )}
-        {isCode ? <pre className={mono.className}>{node}</pre> : node}
+        <pre className={mono.className}>{node}</pre>
       </div>
     )
   },
@@ -118,7 +117,6 @@ const Playground = memo((props: any) => {
     const isStatic = defaultSelector.endsWith('.html')
     const isTabsHidden = handlePlaygroundHideTabsKey(props)
     const customPreviewName = handlePlaygroundCustomPreivew(props)
-    console.log(files)
     return {
       defaultSelector,
       codeNodeMap,
@@ -158,7 +156,6 @@ const Playground = memo((props: any) => {
         nodeMap={codeNodeMap}
         defaultSelector={defaultSelector}
         hide={!!isTabsHidden}
-        isCode={true}
       />
       <div>
         {!(isStatic || isTabsHidden) && (

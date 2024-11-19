@@ -14,3 +14,6 @@ export const monthArr = [
 ]
 
 export const FrontmatterWrapStr = '---'
+
+export const PostDir = ['note', 'life', 'blog', 'summary'] as const
+export type FrontmatterKey = (typeof PostDir)[number]

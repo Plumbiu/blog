@@ -110,11 +110,8 @@ const ThreeLilGuiFirst = dynamic(
     loading: () => <Loading />,
   },
 )
-const ThreePureLight = dynamic(
-  () =>
-    import('@/components/three/ThreePureLight').then(
-      (res) => res.ThreePureLight,
-    ),
+const ThreePureAmbientLight = dynamic(
+  () => import('@/components/three/ThreePureAmbientLight'),
   {
     loading: () => <Loading />,
   },
@@ -139,7 +136,7 @@ export const componentMap: Record<string, any> = {
   ThreeTexture,
   ThreeTextureMulti,
   ThreeLilGuiFirst,
-  ThreePureLight,
+  ThreePureAmbientLight,
 }
 
 interface IntersectionCustomComponentProps {

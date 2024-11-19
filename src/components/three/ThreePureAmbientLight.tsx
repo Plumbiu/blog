@@ -3,7 +3,7 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/Addons.js'
 import { buildCamera, buildGUI, buildRenderer } from './utils'
 
-export function ThreePureLight() {
+export default function ThreePureAmbientLight() {
   const ref = useRef(null)
 
   useEffect(() => {
@@ -37,5 +37,5 @@ export function ThreePureLight() {
     }
   }, [])
 
-  return <div ref={ref} />
+  return <div className="fcc" ref={ref} />
 }

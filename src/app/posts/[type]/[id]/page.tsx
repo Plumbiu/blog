@@ -3,14 +3,10 @@ import path from 'node:path'
 import process from 'node:process'
 import { Metadata } from 'next'
 import React from 'react'
-import {
-  FrontMatterKey,
-  getCategory,
-  removeMdSuffix,
-  upperFirstChar,
-} from '@/utils'
+import { getCategory, removeMdSuffix, upperFirstChar } from '@/utils'
 import NotFound from '@/app/components/NotFound'
 import { getFrontmatter, getMarkdownPath } from '@/utils/node'
+import { FrontmatterKey } from '@/constants'
 import styles from './page.module.css'
 import Markdown from '../../components/Markdown'
 import Toc from '../../components/Toc'
@@ -58,7 +54,7 @@ export async function getPostContent(
 interface PostProps {
   params: Promise<{
     id: string
-    type: FrontMatterKey
+    type: FrontmatterKey
   }>
 }
 
