@@ -148,9 +148,6 @@
       border-radius: 0;
     }
   }
-  .image-wrap[data-one] > img {
-    min-width: calc(var(--post-w) - 200px);
-  }
   .image-wrap {
     --gap: 6px;
     display: flex;
@@ -159,6 +156,11 @@
     row-gap: calc(var(--gap) * 1.25);
     & > img {
       width: calc(var(--image-item-w) - var(--gap));
+    }
+    &[data-one] > img {
+      min-width: calc(var(--post-w) - 200px);
+    }
+    &[data-odd] > img {
       &:last-child {
         width: auto;
       }
