@@ -53,7 +53,7 @@
 /* constant */
 :root {
   --header-h: 100px;
-  --post-w: 700px;
+  --post-w: 640px;
   --center-rest: calc((100% - var(--post-w)) / 2);
   --pre-radius: 6px;
   --pre-p: 12px;
@@ -64,9 +64,15 @@
   --bg-modal: #00000073;
 }
 
-@media screen and (max-width: 1360px) {
+@media screen and (min-width: 1920px) {
   :root {
-    --post-w: 640px;
+    --post-w: 760px;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  :root {
+    --post-w: 580px;
   }
 }
 
