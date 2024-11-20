@@ -138,6 +138,7 @@
   /* Image */
   img {
     max-width: 100%;
+    min-width: calc(var(--post-w) - 200px);
     height: auto;
     max-height: 50vh;
     cursor: pointer;
