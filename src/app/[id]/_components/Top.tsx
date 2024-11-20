@@ -1,4 +1,4 @@
-import IconCard from '@/app/components/IconCard'
+import IconCard from '@/app/_components/IconCard'
 import styles from './Top.module.css'
 
 function ArtlistTop() {

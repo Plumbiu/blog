@@ -1,15 +1,15 @@
 import { type Metadata } from 'next'
 import { ViewTransitions } from 'next-view-transitions'
-import Header from './components/Header'
-import Modal from './components/Modal'
-import '../styles/globals.css'
-import '../styles/variable.css'
-import '../styles/dark-variable.css'
-import '../styles/preset.css'
+import Header from './_components/Header'
+import Modal from './_components/Modal'
+import './_styles/globals.css'
+import './_styles/variable.css'
+import './_styles/dark-variable.css'
+import './_styles/preset.css'
 // import '@pigment-css/react/styles.css'
-import Footer from './components/Footer'
+import Footer from './_components/Footer'
 import { noto } from './fonts'
-import LayoutWrap from './components/LayoutWrap'
+import LayoutWrap from './_components/LayoutWrap'
 
 export const metadata: Metadata = {
   title: 'Plumbiuの博客',

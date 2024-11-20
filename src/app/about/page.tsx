@@ -1,7 +1,7 @@
 import { clsx } from 'clsx'
 import Link from 'next/link'
-import { BiliBiliIcon, CodeIcon, GithubIcon } from '@/app/components/Icons'
-import IconCard from '@/app/components/IconCard'
+import { BiliBiliIcon, CodeIcon, GithubIcon } from '@/app/_components/Icons'
+import IconCard from '@/app/_components/IconCard'
 import styles from './page.module.css'
 
 function About() {

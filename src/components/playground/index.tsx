@@ -12,16 +12,16 @@ import {
 } from 'react'
 import clsx from 'clsx'
 import { mono } from '@/app/fonts'
-import { handlePlaygroundFileKey } from '@/plugins/rehype/playground-pre'
+import { handlePlaygroundFileKey } from '@/app/posts/_plugins/rehype/playground-pre'
 import {
   handlePlaygroundFileMapKey,
   handlePlaygroundSelector,
   handlePlaygroundCustomPreivew,
   handlePlaygroundHideTabsKey,
   handlePlaygroundStyles,
-} from '@/plugins/remark/playground-utils'
-import ReactShadowRoot from '@/app/components/Shadow'
-import useConsole from '@/hooks/useConsole'
+} from '@/app/posts/_plugins/remark/playground-utils'
+import ReactShadowRoot from '@/app/_components/Shadow'
+import useConsole from '@/app/_hooks/useConsole'
 import styles from './index.module.css'
 import { renderStaticPlayground, renerPlayground } from './compile'
 import CodeWrap from '../_common/CodeWrap'

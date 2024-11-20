@@ -1,7 +1,7 @@
 'use client'
 
 import { memo, ReactNode } from 'react'
-import { RestartIcon } from '@/app/components/Icons'
+import { RestartIcon } from '@/app/_components/Icons'
 import styles from './CodeWrap.module.css'
 
 interface CodeWrapProps {

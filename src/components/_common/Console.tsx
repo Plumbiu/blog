@@ -1,5 +1,5 @@
 import { clsx } from 'clsx'
-import { LogInfo } from '@/hooks/useConsole'
+import { LogInfo } from '@/app/_hooks/useConsole'
 import { isString, transfromLogValue } from '@/utils'
 import styles from './Console.module.css'
 

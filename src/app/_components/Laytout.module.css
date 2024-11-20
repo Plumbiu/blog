@@ -1,0 +1,10 @@
+.dot {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+html[data-theme='dark'] .dot {
+  filter: invert(1);
+}

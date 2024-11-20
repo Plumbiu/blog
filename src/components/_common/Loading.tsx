@@ -1,5 +1,5 @@
 import { type CSSProperties } from 'react'
-import { LoadingIcon } from '@/app/components/Icons'
+import { LoadingIcon } from '@/app/_components/Icons'
 
 const LoadingStyles: CSSProperties = {
   display: 'flex',

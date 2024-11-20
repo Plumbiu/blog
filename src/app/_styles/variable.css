@@ -53,7 +53,7 @@
 /* constant */
 :root {
   --header-h: 100px;
-  --post-w: 740px;
+  --post-w: 700px;
   --center-rest: calc((100% - var(--post-w)) / 2);
   --pre-radius: 6px;
   --pre-p: 12px;
@@ -66,7 +66,7 @@
 
 @media screen and (max-width: 1360px) {
   :root {
-    --post-w: 560px;
+    --post-w: 640px;
   }
 }
 

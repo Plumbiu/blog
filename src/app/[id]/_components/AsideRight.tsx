@@ -19,8 +19,8 @@ import {
   YarnIcon,
   BiliBiliIcon,
   GithubIcon,
-} from '@/app/components/Icons'
-import IconCard from '@/app/components/IconCard'
+} from '@/app/_components/Icons'
+import IconCard from '@/app/_components/IconCard'
 import styles from './AsideRight.module.css'
 
 const languages = [

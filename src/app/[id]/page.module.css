@@ -19,7 +19,13 @@
   color: var(--text-4);
   padding-top: 32px;
   margin-bottom: 48px;
+  overflow-x: auto;
+  scrollbar-width: none;
   gap: 32px;
+
+  &::-webkit-scrollbar {
+    height: 0;
+  }
 
   & > a {
     transition: color 150ms;

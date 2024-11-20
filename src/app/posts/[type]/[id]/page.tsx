@@ -4,13 +4,13 @@ import process from 'node:process'
 import { Metadata } from 'next'
 import React from 'react'
 import { getCategory, removeMdSuffix, upperFirstChar } from '@/utils'
-import NotFound from '@/app/components/NotFound'
+import NotFound from '@/app/_components/NotFound'
 import { getFrontmatter, getMarkdownPath } from '@/utils/node'
 import { FrontmatterKey } from '@/constants'
 import styles from './page.module.css'
-import Markdown from '../../components/Markdown'
-import Toc from '../../components/Toc'
-import FrontMatter from '../../components/FrontMatter'
+import Markdown from '../../_components/Markdown'
+import Toc from '../../_components/Toc'
+import FrontMatter from '../../_components/FrontMatter'
 
 interface PostContent {
   frontmatter: {

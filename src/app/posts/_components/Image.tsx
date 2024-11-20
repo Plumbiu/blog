@@ -1,7 +1,7 @@
 'use client'
 
 import NextImage, { ImageProps } from 'next/image'
-import useModalStore from '@/store/modal'
+import useModalStore from '@/app/_store/modal'
 
 function MarkdownImage(props: ImageProps) {
   const set = useModalStore('set')

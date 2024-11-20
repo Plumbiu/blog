@@ -8,7 +8,7 @@ import {
   RssIcon,
   SearchIcon,
   SunIcon,
-} from '@/app/components/Icons'
+} from '@/app/_components/Icons'
 import {
   Dark,
   getLocalTheme,

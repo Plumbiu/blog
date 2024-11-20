@@ -2,13 +2,13 @@ import { Link } from 'next-view-transitions'
 import { Metadata } from 'next'
 import { clsx } from 'clsx'
 import { getYear, upperFirstChar } from '@/utils'
-import { getPostsInfo, type FrontmatterKey } from '@/utils/node'
-import { monthArr } from '@/constants'
+import { getPostsInfo } from '@/utils/node'
+import { FrontmatterKey, monthArr } from '@/constants'
 import styles from './page.module.css'
 import { FloatType } from './types'
-import AsideLeft from './components/AsideLeft'
-import AsideRight from './components/AsideRight'
-import IconCard from '../components/IconCard'
+import AsideLeft from './_components/AsideLeft'
+import AsideRight from './_components/AsideRight'
+import IconCard from '../_components/IconCard'
 
 const ids = ['blog', 'life', 'summary', 'note']
 export function generateStaticParams() {
@@ -49,7 +49,7 @@ async function ArtlistAll(props: ListProps) {
   return (
     <div className="center">
       <AsideLeft items={floatItems} />
-      <div className={clsx(styles.action)}>
+      <div className={styles.action}>
         {ids.map((p) => (
           <Link
             className={clsx({

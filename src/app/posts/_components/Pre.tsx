@@ -2,7 +2,7 @@
 
 import { Fragment, ReactNode, useState } from 'react'
 import { clsx } from 'clsx'
-import { CopyCheckIcon, CopyErrorIcon, CopyIcon } from '@/app/components/Icons'
+import { CopyCheckIcon, CopyErrorIcon, CopyIcon } from '@/app/_components/Icons'
 import { mono } from '@/app/fonts'
 import styles from './Pre.module.css'
 

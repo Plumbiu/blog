@@ -2,7 +2,7 @@
 
 import { createStore } from '@plumbiu/react-store'
 import React, { RefObject } from 'react'
-import modalStyle from '@/app/components/Modal.module.css'
+import modalStyle from '../_components/Modal.module.css'
 
 function preventBodyScroll(e: Event) {
   e.preventDefault()

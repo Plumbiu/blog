@@ -2,8 +2,8 @@
 
 import { clsx } from 'clsx'
 import { MouseEventHandler, useRef, WheelEventHandler } from 'react'
-import { LucideZoomOut, LucideZoomIn } from '@/app/components/Icons'
-import useModalStore from '@/store/modal'
+import { LucideZoomOut, LucideZoomIn } from '@/app/_components/Icons'
+import useModalStore from '@/app/_store/modal'
 import styles from './Modal.module.css'
 
 interface Position {

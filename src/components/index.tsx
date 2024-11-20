@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic'
 import { createElement, useEffect, useRef, useState } from 'react'
-import { handleComponentName } from '@/plugins/constant'
+import { handleComponentName } from '@/app/posts/_plugins/constant'
 import Playground from './playground'
 import CodeRunner from './code-runner'
 import Loading from './_common/Loading'
