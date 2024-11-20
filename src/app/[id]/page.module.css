@@ -29,7 +29,7 @@
 
   & > a {
     transition: color 150ms;
-    font-size: 24px;
+    font-size: 22px;
 
     &:hover {
       color: var(--text-1);
