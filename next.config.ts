@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
   experimental: {
     useLightningcss: true,
     turbo: {
+      treeShaking: process.env.NODE_ENV === 'production',
       // ...
     },
   },

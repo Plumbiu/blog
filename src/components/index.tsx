@@ -1,120 +1,68 @@
+/* eslint-disable @stylistic/function-paren-newline */
 'use client'
 
-import dynamic from 'next/dynamic'
-import { createElement, useEffect, useRef, useState } from 'react'
+import {
+  createElement,
+  lazy,
+  Suspense,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import { handleComponentName } from '@/app/posts/_plugins/constant'
 import Playground from './playground'
 import CodeRunner from './code-runner'
 import Loading from './_common/Loading'
 
-const ThreeFirstScene = dynamic(
-  () => import('@/components/three/ThreeFirstScene'),
-  {
-    loading: () => <Loading />,
-  },
-)
-const ThreePureFirstScene = dynamic(
+const ThreeFirstScene = lazy(() => import('@/components/three/ThreeFirstScene'))
+const ThreePureFirstScene = lazy(
   () => import('@/components/three/ThreePureFirstScene'),
-  {
-    loading: () => <Loading />,
-  },
 )
-const ThreeControlPureFirstScene = dynamic(
+const ThreeControlPureFirstScene = lazy(
   () => import('@/components/three/ThreeControlPureFirstScene'),
-  {
-    loading: () => <Loading />,
-  },
 )
-const ThreeLightPureFirstScene = dynamic(
+const ThreeLightPureFirstScene = lazy(
   () => import('@/components/three/ThreeLightPureFirstScene'),
-  {
-    loading: () => <Loading />,
-  },
 )
-const ThreePureLine = dynamic(
-  () => import('@/components/three/ThreePureLine'),
-  {
-    loading: () => <Loading />,
-  },
-)
-const ThreePureText = dynamic(
-  () => import('@/components/three/ThreePureText'),
-  {
-    loading: () => <Loading />,
-  },
-)
-const ThreePureModel = dynamic(
-  () => import('@/components/three/ThreePureModel'),
-  {
-    loading: () => <Loading />,
-  },
-)
-const ThreeLearnPrimitivesBox = dynamic(
+const ThreePureLine = lazy(() => import('@/components/three/ThreePureLine'))
+const ThreePureText = lazy(() => import('@/components/three/ThreePureText'))
+const ThreePureModel = lazy(() => import('@/components/three/ThreePureModel'))
+const ThreeLearnPrimitivesBox = lazy(
   () => import('@/components/three/ThreeLearnPrimitivesBox'),
-  {
-    loading: () => <Loading />,
-  },
 )
-const ThreeSunEarthMoon = dynamic(
+const ThreeSunEarthMoon = lazy(
   () => import('@/components/three/ThreeSunEarthMoon'),
-  {
-    loading: () => <Loading />,
-  },
 )
-const ThreeMaterialKinds = dynamic(
-  () =>
-    import('@/components/three/ThreeMaterialKinds').then(
-      (res) => res.ThreeMaterialKinds,
-    ),
-  {
-    loading: () => <Loading />,
-  },
+const ThreeMaterialKinds = lazy(() =>
+  import('@/components/three/ThreeMaterialKinds').then((res) => ({
+    default: res.ThreeMaterialKinds,
+  })),
 )
-const ThreeMaterialKindsShininess = dynamic(
-  () =>
-    import('@/components/three/ThreeMaterialKinds').then(
-      (res) => res.ThreeMaterialKindsShininess,
-    ),
-  {
-    loading: () => <Loading />,
-  },
+const ThreeMaterialKindsShininess = lazy(() =>
+  import('@/components/three/ThreeMaterialKinds').then((res) => ({
+    default: res.ThreeMaterialKindsShininess,
+  })),
 )
-const ThreeMaterialToonKind = dynamic(
-  () =>
-    import('@/components/three/ThreeMaterialKinds').then(
-      (res) => res.ThreeMaterialToonKind,
-    ),
-  {
-    loading: () => <Loading />,
-  },
+const ThreeMaterialToonKind = lazy(() =>
+  import('@/components/three/ThreeMaterialKinds').then((res) => ({
+    default: res.ThreeMaterialToonKind,
+  })),
 )
-const ThreeTexture = dynamic(
-  () =>
-    import('@/components/three/ThreeTexture').then((res) => res.ThreeTexture),
-  {
-    loading: () => <Loading />,
-  },
+const ThreeTexture = lazy(() =>
+  import('@/components/three/ThreeTexture').then((res) => ({
+    default: res.ThreeTexture,
+  })),
 )
-const ThreeTextureMulti = dynamic(
-  () =>
-    import('@/components/three/ThreeTexture').then(
-      (res) => res.ThreeTextureMulti,
-    ),
-  {
-    loading: () => <Loading />,
-  },
+const ThreeTextureMulti = lazy(() =>
+  import('@/components/three/ThreeTexture').then((res) => ({
+    default: res.ThreeTextureMulti,
+  })),
 )
-const ThreeLilGuiFirst = dynamic(
+const ThreeLilGuiFirst = lazy(
   () => import('@/components/three/ThreeLilGuiFirst'),
-  {
-    loading: () => <Loading />,
-  },
 )
-const ThreePureAmbientLight = dynamic(
+const ThreePureAmbientLight = lazy(
   () => import('@/components/three/ThreePureAmbientLight'),
-  {
-    loading: () => <Loading />,
-  },
 )
 
 export const componentMap: Record<string, any> = {
@@ -170,7 +118,9 @@ function IntersectionCustomComponent({
 
   return (
     <div ref={observerRef}>
-      {isIntersecting ? createElement(value, props) : <Loading />}
+      <Suspense fallback={<Loading />}>
+        {isIntersecting ? createElement(value, props) : null}
+      </Suspense>
     </div>
   )
 }

@@ -1,3 +1,4 @@
+/* eslint-disable @stylistic/max-len */
 /* eslint-disable import-x/no-named-as-default */
 'use client'
 

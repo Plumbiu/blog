@@ -1,6 +1,6 @@
 'use client'
 
-import { ReactNode, useLayoutEffect, useState } from 'react'
+import { ReactNode, Suspense, useLayoutEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { applyCurrentTheme } from '@/utils/client/theme'
 import ArtStar from './ArtStar'

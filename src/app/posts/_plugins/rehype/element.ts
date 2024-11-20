@@ -35,6 +35,9 @@ function rehypeElementPlugin(): RehypePlugin {
 
         if (imageCount > 0) {
           parent.properties.className = 'image-wrap'
+          if (imageCount === 1) {
+            parent.properties['data-one'] = true
+          }
           if (imageCount % 2 === 1) {
             parent.properties['data-odd'] = true
           }

@@ -138,7 +138,6 @@
   /* Image */
   img {
     max-width: 100%;
-    min-width: calc(var(--post-w) - 200px);
     height: auto;
     max-height: 50vh;
     cursor: pointer;
@@ -148,6 +147,9 @@
     &:hover {
       border-radius: 0;
     }
+  }
+  .image-wrap[data-one] > img {
+    min-width: calc(var(--post-w) - 200px);
   }
   .image-wrap {
     --gap: 6px;
