@@ -36,7 +36,6 @@
   max-width: 100vw;
 }
 
-
 .anim {
   transition: transform 0.25s cubic-bezier(0, 0, 0.25, 1) 0s;
 }
@@ -44,9 +43,10 @@
 .modal img {
   user-select: none;
   animation: scaleup 0.3s cubic-bezier(0, 0, 0.25, 1) forwards;
-  width: auto;
   cursor: grab;
-  max-width: 95%;
+  min-width: 50vw;
+  max-width: 95vw;
+  width: auto;
   height: auto;
   max-height: calc(90vh - 104px);
   box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08),
