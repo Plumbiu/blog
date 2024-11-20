@@ -1,28 +1,17 @@
 .wrap {
-  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 99;
-  padding: 0 32px;
+  width: 100%;
   background-color: var(--bg-body);
   height: var(--header-h);
   transition: height 200ms;
   overflow: hidden;
 }
 
-@media screen and (max-width: 960px) {
-  .wrap {
-    padding: 0 24px;
-  }
-}
-
 @media screen and (max-width: 480px) {
-  .wrap {
-    padding: 0 24px;
-  }
-
   .mobile {
     display: none;
   }
@@ -32,19 +21,26 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
   margin-bottom: 0 !important;
+  width: calc(var(--post-w) + 32px);
   height: 100%;
+  margin: auto;
 
   & a,
   svg {
-    font-size: 16px;
+    font-size: 18px;
     color: var(--text-2);
     transition: color 125ms ease-in-out;
     cursor: pointer;
     &:hover {
       color: var(--text-1);
     }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .header {
+    width: 100%;
   }
 }
 
@@ -60,7 +56,7 @@
 
 .header svg {
   display: block;
-  font-size: 26px;
+  font-size: 28px;
 }
 
 .item:hover {
@@ -78,7 +74,7 @@
   align-items: center;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 780px) {
   .right {
     gap: 16px;
   }

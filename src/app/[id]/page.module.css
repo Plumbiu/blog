@@ -17,7 +17,7 @@
 .action {
   display: flex;
   color: var(--text-4);
-  padding-top: 32px;
+  padding-top: 24px;
   margin-bottom: 48px;
   overflow-x: auto;
   scrollbar-width: none;
@@ -29,7 +29,7 @@
 
   & > a {
     transition: color 150ms;
-    font-size: 28px;
+    font-size: 24px;
 
     &:hover {
       color: var(--text-1);
