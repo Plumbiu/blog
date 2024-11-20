@@ -65,8 +65,16 @@ function ImagePreview() {
     modalRef.current!.style.transform = `matrix(${scale.current},0,0,${scale.current},${translate.current.x},${translate.current.y})`
   }
 
-  const onWheel: WheelEventHandler<HTMLDivElement> = (e) => {
+  function addAnimation() {
+    modalRef.current?.classList.add(styles.anim)
+  }
+
+  function removeAnimation() {
     modalRef.current?.classList.remove(styles.anim)
+  }
+
+  const onWheel: WheelEventHandler<HTMLDivElement> = (e) => {
+    removeAnimation()
     e.stopPropagation()
     const target = e.target as HTMLImageElement
     if (!isImage(target)) {
@@ -75,6 +83,9 @@ function ImagePreview() {
     let nextScale = e.deltaY < 0 ? scale.current * 1.1 : scale.current / 1.1
     if (nextScale < 1) {
       nextScale = 1
+    }
+    if (nextScale === 1) {
+      addAnimation()
     }
     preScale.current = scale.current
     if (e.deltaY < 0) {
@@ -88,7 +99,7 @@ function ImagePreview() {
     translate.current.x -= (1 - n) * (width / 2 - clientX + x)
     translate.current.y -= (1 - n) * (height / 2 - clientY + y)
     updateDOM()
-    modalRef.current?.classList.add(styles.anim)
+    addAnimation()
   }
 
   const onMouseDown: MouseEventHandler<HTMLDivElement> = (e) => {
