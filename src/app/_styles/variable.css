@@ -38,7 +38,8 @@
   --bg-md-quote-warn: #fcf4dc;
   --bg-md-quote-info: #e9eaff;
   --bg-md-quote-danger: rgba(244, 63, 94, 0.14);
-  --bg-md-pre: #fafafb;
+  --bg-md-pre: #fbfbfe;
+  --bg-md-pre-bar: #f9f9f9;
   --bg-md-highlight-line: rgba(225, 225, 220, 0.5);
   --bg-md-code: #ddeef8;
   --bg-md-table-header: #efefef;

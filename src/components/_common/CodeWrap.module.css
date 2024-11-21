@@ -35,7 +35,7 @@
   justify-content: space-between;
   padding: 8px 16px;
   font-size: 14px;
-  background-color: var(--bg-md-playground-bar);
+  background-color: var(--bg-md-pre-bar);
   font-weight: 600;
   border-radius: var(--pre-radius) var(--pre-radius) 0 0;
   border: 1px solid var(--divider);
