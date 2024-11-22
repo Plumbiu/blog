@@ -29,6 +29,8 @@ function formatTime(time: string | number) {
   return month + String(d.getDate()).padStart(3, ' 0')
 }
 
+const MAX_LEN = 135
+
 async function ArtlistAll(props: ListProps) {
   const params = await props.params
   const lists = await getPostsInfo(params.id)
@@ -88,7 +90,9 @@ async function ArtlistAll(props: ListProps) {
               )}
               <div className={styles.subtitle}>{subtitle}</div>
               <div className={styles.desc}>
-                {desc.length > 120 ? desc.slice(0, 117) + '...' : desc}
+                {desc.length > MAX_LEN
+                  ? desc.slice(0, MAX_LEN - 3) + '...'
+                  : desc}
               </div>
             </div>
           ),

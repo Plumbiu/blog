@@ -88,7 +88,6 @@
   /* blockquote */
   blockquote {
     position: relative;
-    font-size: 14.5px;
     color: var(--text-2);
     margin: 0;
     margin-bottom: 12px;

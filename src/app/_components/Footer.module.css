@@ -2,6 +2,7 @@
   font-size: 14px;
   color: var(--text-3);
   white-space: nowrap;
+  margin-top: 100px;
 
   & > a {
     color: inherit;
