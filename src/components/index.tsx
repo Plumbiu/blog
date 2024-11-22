@@ -1,18 +1,11 @@
 /* eslint-disable @stylistic/function-paren-newline */
 'use client'
 
-import {
-  createElement,
-  lazy,
-  Suspense,
-  useEffect,
-  useRef,
-  useState,
-} from 'react'
+import { createElement, lazy } from 'react'
 import { handleComponentName } from '@/app/posts/_plugins/constant'
+import IntersectionComponent from '@/app/_components/IntersectionComponent'
 import Playground from './playground'
 import CodeRunner from './code-runner'
-import Loading from './_common/Loading'
 
 const ThreeFirstScene = lazy(() => import('@/components/three/ThreeFirstScene'))
 const ThreePureFirstScene = lazy(
@@ -87,50 +80,15 @@ export const componentMap: Record<string, any> = {
   ThreePureAmbientLight,
 }
 
-interface IntersectionCustomComponentProps {
-  value: any
-  props: any
-}
-
-function IntersectionCustomComponent({
-  value,
-  props,
-}: IntersectionCustomComponentProps) {
-  const observerRef = useRef<HTMLDivElement>(null)
-  const [isIntersecting, setIsIntersecting] = useState(false)
-
-  useEffect(() => {
-    const observerDom = observerRef.current
-    // dom is not null, but in dev, run twice will case error
-    if (!observerDom) {
-      return
-    }
-    const observer = new IntersectionObserver((entries, self) => {
-      const isIntersecting = entries[0].isIntersecting
-      if (isIntersecting) {
-        setIsIntersecting(true)
-        self.unobserve(observerDom)
-      }
-    })
-    observer.observe(observerDom)
-    return () => observer.unobserve(observerDom)
-  }, [])
-
-  return (
-    <div ref={observerRef}>
-      <Suspense fallback={<Loading />}>
-        {isIntersecting ? createElement(value, props) : null}
-      </Suspense>
-    </div>
-  )
-}
-
 function CustomComponent(props: any) {
   const componentName = handleComponentName(props)
   const value = componentMap[componentName]
 
   if (value) {
-    return <IntersectionCustomComponent value={value} props={props} />
+    if (componentName === 'Playground' || componentName === 'Run') {
+      return createElement(value, props)
+    }
+    return <IntersectionComponent props={props}>{value}</IntersectionComponent>
   }
   return props.children
 }

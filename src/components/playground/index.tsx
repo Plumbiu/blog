@@ -23,6 +23,7 @@ import {
 } from '@/app/posts/_plugins/remark/playground-utils'
 import ReactShadowRoot from '@/app/_components/Shadow'
 import useConsole from '@/app/_hooks/useConsole'
+import IntersectionComponent from '@/app/_components/IntersectionComponent'
 import styles from './index.module.css'
 import { renderStaticPlayground, renerPlayground } from './compile'
 import CodeWrap from '../_common/CodeWrap'
@@ -180,17 +181,23 @@ const Playground = memo((props: any) => {
             <div />
           </div>
         )}
-        <ReactShadowRoot
-          key={singal}
-          shadow={!!css}
-          className={clsx(styles.preview, {
-            [styles.hide]: isConsoleVisible,
-          })}
-        >
-          {!!css && <style>{css}</style>}
-          {node}
-        </ReactShadowRoot>
-        {isConsoleVisible && <Console logs={logs} />}
+        <IntersectionComponent>
+          {() => (
+            <>
+              <ReactShadowRoot
+                key={singal}
+                shadow={!!css}
+                className={clsx(styles.preview, {
+                  [styles.hide]: isConsoleVisible,
+                })}
+              >
+                {!!css && <style>{css}</style>}
+                {node}
+              </ReactShadowRoot>
+              {isConsoleVisible && <Console logs={logs} />}
+            </>
+          )}
+        </IntersectionComponent>
       </div>
     </CodeWrap>
   )
