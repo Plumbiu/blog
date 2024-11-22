@@ -4,35 +4,32 @@ const Light = 'light'
 
 const media = window.matchMedia('(prefers-color-scheme: light)')
 
-function getLocalTheme() {
-  const localTheme = localStorage.getItem(ThemeKey)
+function getTheme() {
+  const localTheme = getLocalTheme()
   const theme = localTheme ? localTheme : media.matches ? Light : Dark
   return theme
+}
+function getLocalTheme() {
+  return localStorage.getItem(ThemeKey)
 }
 function setLocalTheme(theme) {
   localStorage.setItem(ThemeKey, theme)
 }
-function setDataTheme(theme) {
+function setHtmlTheme(theme) {
   document.documentElement.setAttribute(ThemeKey, theme)
 }
-
-function applyTheme(theme) {
-  setDataTheme(theme)
+function setTheme(theme) {
+  setHtmlTheme(theme)
   setLocalTheme(theme)
 }
 
-function getDataTheme() {
-  return document.documentElement.getAttribute(ThemeKey)
-}
+const theme = getTheme()
+setTheme(theme)
 
-function applyCurrentTheme() {
-  const theme = getLocalTheme()
-  applyTheme(theme)
-  window.theme = theme
-}
-
-applyCurrentTheme()
 media.addEventListener('change', (e) => {
-  applyTheme(e.matches ? Light : Dark)
+  setTheme(e.matches ? Light : Dark)
 })
-window.addEventListener('storage', applyCurrentTheme)
+window.addEventListener('storage', () => {
+  const theme = getLocalTheme()
+  setHtmlTheme(theme)
+})
