@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect, Suspense, createElement } from 'react'
 import Loading from '@/components/_common/Loading'
+import useObserver from '../_hooks/useObservser'
 
 interface IntersectionCustomComponentProps {
   children: any
@@ -11,24 +12,7 @@ function IntersectionComponent({
   props,
 }: IntersectionCustomComponentProps) {
   const observerRef = useRef<HTMLDivElement>(null)
-  const [isIntersecting, setIsIntersecting] = useState(false)
-
-  useEffect(() => {
-    const observerDom = observerRef.current
-    // dom is not null, but in dev, run twice will case error
-    if (!observerDom) {
-      return
-    }
-    const observer = new IntersectionObserver((entries, self) => {
-      const isIntersecting = entries[0].isIntersecting
-      if (isIntersecting) {
-        setIsIntersecting(true)
-        self.unobserve(observerDom)
-      }
-    })
-    observer.observe(observerDom)
-    return () => observer.unobserve(observerDom)
-  }, [])
+  const isIntersecting = useObserver(observerRef)
 
   return (
     <div ref={observerRef}>
