@@ -19,6 +19,15 @@ html[data-theme='dark'] .art {
   margin-bottom: 36px;
 }
 
+@media screen and (max-width: 960px) {
+  .center {
+    width: 100%;
+    padding: 0 16px;
+    max-width: 100%;
+  }
+}
+
+
 .link {
   color: var(--text);
   border-width: 0;

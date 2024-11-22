@@ -22,7 +22,7 @@
 
 .link {
   display: block;
-  max-width: 160px;
+  max-width: 200px;
   height: 28px;
   line-height: 28px;
   transition: color 150ms;
