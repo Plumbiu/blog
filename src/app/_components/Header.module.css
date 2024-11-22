@@ -8,12 +8,17 @@
   background-color: var(--bg-body);
   height: var(--header-h);
   transition: height 200ms;
-  overflow: hidden;
 }
 
 @media screen and (max-width: 480px) {
   .mobile {
     display: none;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .header {
+    padding: 0 20px;
   }
 }
 
@@ -76,5 +81,24 @@
 @media screen and (max-width: 780px) {
   .right {
     gap: 16px;
+  }
+}
+
+.select {
+  border: none;
+  appearance: none;
+  font-size: 18px;
+  outline: none;
+  background-color: var(--bg-body);
+  color: var(--text-2);
+  cursor: pointer;
+  width: 24px;
+
+  &:hover {
+    color: var(--text-1);
+  }
+
+  & > option {
+    font-size: 16px;
   }
 }

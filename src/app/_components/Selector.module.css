@@ -1,0 +1,36 @@
+.wrap {
+  position: relative;
+  z-index: 8;
+  font-size: 18px;
+}
+
+.title {
+  cursor: pointer;
+
+  & > svg {
+    font-size: 20px;
+  }
+}
+
+.panel {
+  position: absolute;
+  z-index: 100;
+  bottom: -8px;
+  left: 0;
+  transform: translate(-25%, 100%);
+  width: 98px;
+  padding: 4px 0;
+  border-radius: 6px;
+  border: 1px solid var(--divider);
+  font-size: 16px;
+  background-color: var(--bg-body);
+
+  & > div {
+    border-radius: 8px;
+    padding: 6px;
+    cursor: pointer;
+    &:hover {
+      background-color: var(--c-gray-soft);
+    }
+  }
+}

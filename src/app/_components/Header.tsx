@@ -1,34 +1,21 @@
 'use client'
 
 import { Link } from 'next-view-transitions'
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import {
   GithubIcon,
-  MoonIcon,
   RssIcon,
   SearchIcon,
-  SunIcon,
+  ThemeIcon,
 } from '@/app/_components/Icons'
-import {
-  Dark,
-  getLocalTheme,
-  handleLightMediaChange,
-  toggleDataTheme,
-} from '@/utils/client/theme'
+import { applyTheme, Dark, Light, toggleDataTheme } from '@/utils/client/theme'
 import styles from './Header.module.css'
+import Selector from './Selector'
 
 function Header() {
   const ref = useRef<HTMLHeadingElement>(null)
-  const [themeState, setThemeState] = useState<string>()
   const prevScrollTop = useRef(0)
-  useLayoutEffect(() => {
-    const { theme, lightMedia } = getLocalTheme()
-    setThemeState(theme)
-    lightMedia.addEventListener('change', handleLightMediaChange)
-    return () => {
-      lightMedia.removeEventListener('change', handleLightMediaChange)
-    }
-  }, [])
+  const systemTheme = useRef<string | null>(null)
 
   function addShadowClassName() {
     const header = ref.current
@@ -72,23 +59,46 @@ function Header() {
           <Link className={styles.mobile} href="/links">
             Links
           </Link>
+          <Selector
+            title={<ThemeIcon />}
+            items={[
+              {
+                value: 'system',
+                label: '⚙️ system',
+              },
+              {
+                value: Light,
+                label: `☀️ ${Light}`,
+              },
+              {
+                value: Dark,
+                label: `🌖 ${Dark}`,
+              },
+            ]}
+            onChange={(value) => {
+              if (value === 'system') {
+                if (!systemTheme.current) {
+                  systemTheme.current = window.matchMedia(
+                    '(prefers-color-scheme: light)',
+                  ).matches
+                    ? Light
+                    : Dark
+                }
+                applyTheme(systemTheme.current)
+              } else {
+                applyTheme(value)
+              }
+            }}
+          />
           <div>
             <SearchIcon />
           </div>
-          <a target="_blank" href="/rss.xml">
+          <Link target="_blank" href="/rss.xml">
             <RssIcon />
-          </a>
+          </Link>
           <Link target="_blank" href="https://github.com/Plumbiu/blog">
             <GithubIcon />
           </Link>
-          <div
-            onClick={() => {
-              const nextTheme = toggleDataTheme()
-              setThemeState(nextTheme)
-            }}
-          >
-            {themeState === Dark ? <SunIcon /> : <MoonIcon />}
-          </div>
         </div>
       </div>
     </header>

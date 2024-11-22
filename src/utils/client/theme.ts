@@ -2,16 +2,9 @@ const ThemeKey = 'data-theme'
 export const Dark = 'dark'
 export const Light = 'light'
 
-export function handleLightMediaChange(ev: MediaQueryListEventMap['change']) {
-  applyTheme(ev.matches ? Light : Dark)
-}
-
 export function getLocalTheme() {
   const localTheme = localStorage.getItem(ThemeKey)
-  const lightMedia = window.matchMedia('(prefers-color-scheme: light)')
-  const theme = localTheme ? localTheme : lightMedia.matches ? Light : Dark
-
-  return { theme, lightMedia }
+  return localTheme!
 }
 
 export function setLocalTheme(theme: string) {
@@ -39,6 +32,6 @@ export function applyTheme(theme: string) {
 }
 
 export function applyCurrentTheme() {
-  const { theme } = getLocalTheme()
+  const theme = getLocalTheme()
   applyTheme(theme)
 }

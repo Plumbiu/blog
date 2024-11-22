@@ -9,7 +9,6 @@ import './_styles/preset.css'
 // import '@pigment-css/react/styles.css'
 import Footer from './_components/Footer'
 import { noto } from './fonts'
-import LayoutWrap from './_components/LayoutWrap'
 
 export const metadata: Metadata = {
   title: 'Plumbiuの博客',
@@ -22,7 +21,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script src="/theme.js"></script>
+      </head>
       <link
         href="/icons/32x32.png"
         rel="icon"
@@ -31,12 +33,10 @@ export default function RootLayout({
       />
       <body className={noto.className}>
         <ViewTransitions>
-          <LayoutWrap>
-            <Header />
-            <div className="main_children">{children}</div>
-            <Footer />
-            <Modal />
-          </LayoutWrap>
+          <Header />
+          <div className="main_children">{children}</div>
+          <Footer />
+          <Modal />
         </ViewTransitions>
       </body>
     </html>
