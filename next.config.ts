@@ -15,12 +15,17 @@ const nextConfig: NextConfig = {
       treeShaking: process.env.NODE_ENV === 'production',
       // ...
     },
+    cssChunking: 'loose',
   },
+  poweredByHeader: false,
   eslint: {
     ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: true,
+  },
+  images: {
+    minimumCacheTTL: 31536000,
   },
   serverExternalPackages: ['three', '@react-three/fiber'],
 }

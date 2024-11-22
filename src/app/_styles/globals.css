@@ -28,10 +28,10 @@ h5,
 h6 {
   color: var(--text);
   font-weight: 700;
-  code {
+  & > code {
     font-size: inherit !important;
   }
-  a {
+  & > a {
     font-size: inherit !important;
   }
 }
@@ -99,9 +99,9 @@ h6 {
 ol,
 ul {
   margin-top: 6px;
-  padding-inline-start: 28px;
+  padding-left: 28px;
   line-height: 26px;
-  li {
+  & > li {
     padding-left: 4px;
   }
 }
