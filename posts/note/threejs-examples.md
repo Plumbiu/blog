@@ -9,7 +9,7 @@ desc: 1
 
 为了方便创建渲染器，这里写了一个 `buildRenderer`、`buildCamera` 函数：
 
-> 第一个例子没有使用这个函数，因为我觉得注释对理解很有必要
+> 第一个例子没有使用这个函数，因为我觉得注释对理解很有必要。
 
 ```js
 import { type RefObject } from 'react'
@@ -59,9 +59,9 @@ function animate() {
 
 # Controls
 
-`OrbitControls` 允许我们对场景内容进行旋转、放大缩小等操作
+`OrbitControls` 允许我们对场景内容进行旋转、放大缩小等操作。
 
-> 注意，如果使用之前的 `animate` 函数不断调用渲染器的 `render` 方法渲染的，是不需要为 `OrbitControls` 添加 `change` 事件的
+> 注意，如果使用之前的 `animate` 函数不断调用渲染器的 `render` 方法渲染的，是不需要为 `OrbitControls` 添加 `change` 事件的。
 
 ```tsx Playground='three/ThreeControlPureFirstScene' {23-25}
 
@@ -69,7 +69,7 @@ function animate() {
 
 # Light
 
-`MeshBasicMaterial` 不受光源影响，需要设置为 `MeshStandardMaterial`
+`MeshBasicMaterial` 不受光源影响，需要设置为 `MeshStandardMaterial`。
 
 ```tsx Playground='three/ThreeLightPureFirstScene' {14,26-43}
 
@@ -121,7 +121,7 @@ three.js 内置了 [`GLTFLoader`](https://threejs.org/docs/index.html#examples/z
 
 ![scenegraph-solarsystem](scenegraph-solarsystem.svg)
 
-这里的重点在于**局部空间**，参考下面第 22、25 行代码，如果我们将 `sun` 放大五倍，作为子节点的 `earth` 也会放大五倍，同理 `moon` 也会放大五倍，为了避免缩放之间互相影响，我们使用了 [`Object3D`](https://threejs.org/docs/index.html?q=Object3D#api/zh/core/Object3D)将对象进行了**组合**，这样每个图元就不会互相影响了
+这里的重点在于**局部空间**，参考下面第 22、25 行代码，如果我们将 `sun` 放大五倍，作为子节点的 `earth` 也会放大五倍，同理 `moon` 也会放大五倍，为了避免缩放之间互相影响，我们使用了 [`Object3D`](https://threejs.org/docs/index.html?q=Object3D#api/zh/core/Object3D)将对象进行了**组合**，这样每个图元就不会互相影响了。
 
 ```tsx Playground='three/ThreeSunEarthMoon' line {22,25}
 

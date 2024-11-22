@@ -120,7 +120,7 @@ export default function App() {
 
 ![toc-optimize](toc-optimize.gif)
 
-我们可以调用 `dom.scrollTo` 方法实现滚动，继续补充上述的 `scrollHandler` 函数（高亮部分）
+我们可以调用 `dom.scrollTo` 方法实现滚动，继续补充上述的 `scrollHandler` 函数（高亮部分）：
 
 ```jsx {9-10,20-27,48} showLineNumbers
 import { useEffect, useState, useRef } from 'react'
@@ -189,7 +189,7 @@ export default function App() {
 }
 ```
 
-完结
+完结。
 
 # 后续的补充
 

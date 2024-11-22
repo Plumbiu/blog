@@ -87,9 +87,9 @@ Three.js 中三种基本光源：
 
 ## 材质 [material](https://threejs.org/docs/#api/zh/materials/Material)
 
-材质定义了对象在场景中的外形
+材质定义了对象在场景中的外形。
 
-> 越精细的材质，构建速度往往更加慢，但是场景会更加逼真。因为在移动设备这种低功率设备上，要选择合适的材质
+> 越精细的材质，构建速度往往更加慢，但是场景会更加逼真。因为在移动设备这种低功率设备上，要选择合适的材质。
 
 ```js
 const material = new THREE.MeshPhongMaterial({
@@ -106,11 +106,11 @@ const material = new THREE.MeshPhongMaterial({
 
 :ThreeMaterialKinds
 
-另外 `MeshPhongMaterial` 的 `shininess` 属性决定了镜面高光的光泽度，默认 30
+另外 `MeshPhongMaterial` 的 `shininess` 属性决定了镜面高光的光泽度，默认 30。
 
 :ThreeMaterialKindsShininess
 
-另外一种材质 `MeshToonMaterial`，它与 `MeshPhongMaterial`，但是它不是平滑地着色，而是使用一种渐变图（一个 X 乘 1 的纹理）来决定如何着色
+另外一种材质 `MeshToonMaterial`，它与 `MeshPhongMaterial`，但是它不是平滑地着色，而是使用一种渐变图（一个 X 乘 1 的纹理）来决定如何着色。
 
 :ThreeMaterialToonKind
 
@@ -119,7 +119,7 @@ const material = new THREE.MeshPhongMaterial({
 - `MeshStandardMaterial`：有两个参数设置材质，分别是 `roughness` 和 `metalness` 属性，代表粗糙度和金属度
 - `MeshPhysicalMaterial`：与 `MeshStandardMaterial` 相同，但是增加了一个 `clearcoat` 参数，表示清漆光亮层的成都，和另一个 `clearCoatRoughness` 参数，指定光泽层的粗糙程度
 
-[例子](https://threejs.org/manual/#zh/materials)，搜索关键字**MeshPhysicalMaterial**，这个例子自己写的不太好，就不展示了
+[例子](https://threejs.org/manual/#zh/materials)，搜索关键字**MeshPhysicalMaterial**，这个例子自己写的不太好，就不展示了。
 
 另外几种特殊用处的材质：
 
@@ -183,11 +183,11 @@ const geometry = new THREE.BoxGeometry(4, 4, 4)
 const mesh = new Mesh(geometry, materials)
 ```
 
-> [`BoxGeometry`](https://threejs.org/docs/#api/zh/geometries/BoxGeometry) 每个面都可以有一种材质，但是像 [`GoneGeometry`](https://threejs.org/docs/#api/zh/geometries/ConeGeometry) 能用两种材料（底部和侧面），[`CylinderGeometry`](https://threejs.org/docs/#api/zh/geometries/CylinderGeometry) 可以使用三种（底部、顶部和侧面）
+> [`BoxGeometry`](https://threejs.org/docs/#api/zh/geometries/BoxGeometry) 每个面都可以有一种材质，但是像 [`GoneGeometry`](https://threejs.org/docs/#api/zh/geometries/ConeGeometry) 能用两种材料（底部和侧面），[`CylinderGeometry`](https://threejs.org/docs/#api/zh/geometries/CylinderGeometry) 可以使用三种（底部、顶部和侧面）。
 
 ### 内存管理
 
-纹理在 threejs 中占的内存往往非常多，一般计算公式，纹理会占 `宽度 * 高度 * 4 * 1.33` 字节的内存
+纹理在 threejs 中占的内存往往非常多，一般计算公式，纹理会占 `宽度 * 高度 * 4 * 1.33` 字节的内存。
 
 有个有意思的现象，虽然有些图片大小可能很小，但是它的分辨率会很高，例如 `threejs` 官网中的这个例子：
 
@@ -195,7 +195,7 @@ const mesh = new Mesh(geometry, materials)
 
 为了让 three.js 使用成本，必须把纹理交给 GPU 处理，但 GPU 一般要求纹理数据不被压缩，因此要合理处理纹理的文件：
 
-**文件大小小，网络下载快；分辨率小，占用的内存少**
+**文件大小小，网络下载快；分辨率小，占用的内存少。**
 
 ## 光照 [Light](https://threejs.org/manual/#zh/lights)
 
@@ -232,7 +232,7 @@ gui.add(mesh.scale, 'z', 0, 4, 0.1).name('z').onChange(render)
 
 ## 环境光 AmbientLight
 
-环境光没有反向，也无法产生阴影，场景内任何一点受到的光照强度都是相通的。环境光看起来并不是真正意义上的光照，通常用于**提高亮度**
+环境光没有反向，也无法产生阴影，场景内任何一点受到的光照强度都是相通的。环境光看起来并不是真正意义上的光照，通常用于**提高亮度**。
 
 ```tsx Playground='three/ThreePureAmbientLight'
 
@@ -242,7 +242,7 @@ gui.add(mesh.scale, 'z', 0, 4, 0.1).name('z').onChange(render)
 
 # Before
 
-虽然目前大多数设备以及浏览器都支持 [WebGL2](https://developer.mozilla.org/zh-CN/docs/Web/API/WebGL2RenderingContext)，但是依旧少部分不支持，我们需要给用户提示信息
+虽然目前大多数设备以及浏览器都支持 [WebGL2](https://developer.mozilla.org/zh-CN/docs/Web/API/WebGL2RenderingContext)，但是依旧少部分不支持，我们需要给用户提示信息。
 
 ```js
 import WebGL from 'three/addons/capabilities/WebGL.js'

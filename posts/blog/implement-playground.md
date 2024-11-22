@@ -56,11 +56,11 @@ export default Test
 
 # 开始之前
 
-> 如果你想直接使用 Playground，而不是在 markdown 文件中，你可以试试 [@plumbiu/react-live](https://github.com/Plumbiu/react-live)，不算依赖只有 30 多行代码
+> 如果你想直接使用 Playground，而不是在 markdown 文件中，你可以试试 [@plumbiu/react-live](https://github.com/Plumbiu/react-live)，不算依赖只有 30 多行代码。
 >
 > 另外，如果你喜欢 MDX，或者更成熟的方案，你可以用 [sandpack](https://github.com/codesandbox/sandpack)，由于我对产物体积以及性能的追求，这里选择自己实现。
 
-**如果你只是想要“展示”组件，而不是动态执行 React，参考这篇文章 [markdown-component](/posts/blog/markdown-component)**
+**如果你只是想要“展示”组件，而不是动态执行 React，参考这篇文章 [markdown-component](/posts/blog/markdown-component)**。
 
 # 我的方案
 

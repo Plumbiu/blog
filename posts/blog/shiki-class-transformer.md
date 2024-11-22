@@ -5,11 +5,11 @@ tags: ['shiki', 'transformer', 'css']
 desc: 1
 ---
 
-[`Shiki`](https://github.com/shikijs/shiki) 是一个基于 TextMate 语法的代码语法高亮器，它与 VS Code 的语法高亮引擎 [`onIguruma`](https://github.com/kkos/oniguruma) 一致，几乎所有主流编程语言提供非常准确且快速的语法高亮，然而 `Shiki` 并不关注于 CSS，它的语法高亮都是通过 HTML 的 `style` 属性实现的，这会导致很多样式无法得到复用，产生体积更大的 `HTML` 体积，本文实现**内联样式**到**类名**的转换
+[`Shiki`](https://github.com/shikijs/shiki) 是一个基于 TextMate 语法的代码语法高亮器，它与 VS Code 的语法高亮引擎 [`onIguruma`](https://github.com/kkos/oniguruma) 一致，几乎所有主流编程语言提供非常准确且快速的语法高亮，然而 `Shiki` 并不关注于 CSS，它的语法高亮都是通过 HTML 的 `style` 属性实现的，这会导致很多样式无法得到复用，产生体积更大的 `HTML` 体积，本文实现**内联样式**到**类名**的转换。
 
 ![shiki-inline-styles](shiki-inline-styles.webp)
 
-> **如果你有这方面的需求，可以使用 [`shiki-class-transformer`](https://github.com/Plumbiu/shiki-class-transformer)**，另外 `shiki` 也是有[自己的转换器](https://shiki.style/packages/transformers#transformerstyletoclass)的，但是它是 js 动态产生 css 片段，并不是直接导入 css
+> **如果你有这方面的需求，可以使用 [`shiki-class-transformer`](https://github.com/Plumbiu/shiki-class-transformer)**，另外 `shiki` 也是有[自己的转换器](https://shiki.style/packages/transformers#transformerstyletoclass)的，但是它是 js 动态产生 css 片段，并不是直接导入 css。
 
 # 为什么是内联样式？
 
@@ -34,7 +34,7 @@ desc: 1
 }
 ```
 
-> 如果你好奇为什么是 `scope` 和 `settings` 这种设计模式，你可以参考 [`vscode-textmate`](https://github.com/microsoft/vscode-textmate?tab=readme-ov-file#using) 官方的例子，在注释代码中可以看到打印结果
+> 如果你好奇为什么是 `scope` 和 `settings` 这种设计模式，你可以参考 [`vscode-textmate`](https://github.com/microsoft/vscode-textmate?tab=readme-ov-file#using) 官方的例子，在注释代码中可以看到打印结果。
 
 可以看到代码颜色是基于 `scope` 字段决定的，而配置颜色的字段在 `settings.forground` 中，我在看到这段配置的时候，也是在想，**为什么 `settings` 不能直接写一个类名？**
 
@@ -152,7 +152,7 @@ generateCss()
 
 接下来书写 `transformer`：
 
-> 完整代码请看 [`shiki-class-transformer`](https://github.com/Plumbiu/shiki-class-transformer/blob/main/src/index.ts)，这里实现的只是最基本的，很多情况没有考虑
+> 完整代码请看 [`shiki-class-transformer`](https://github.com/Plumbiu/shiki-class-transformer/blob/main/src/index.ts)，这里实现的只是最基本的，很多情况没有考虑。
 
 ```js
 // map 为之前我们生成的 json 文件

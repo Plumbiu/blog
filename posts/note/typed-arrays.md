@@ -9,7 +9,7 @@ desc: 2
 
 类型化数组是一种类似数组的对象，但是跟我们常说的“伪数组”不同，它的主要作用是提供了一种在内存缓存中访问二进制数据的机制。JavaScript 引入它主要是为了操作一些音视频以及 webgl 的原始数据。
 
-类型化数组与普通数组类似，但是类型化数组并不包括在数组里，体现在类型化数组调用 `Array.isArray` 会返回 `false`，另外，类型化数组不支持 `push` 和 `pop` 等方法
+类型化数组与普通数组类似，但是类型化数组并不包括在数组里，体现在类型化数组调用 `Array.isArray` 会返回 `false`，另外，类型化数组不支持 `push` 和 `pop` 等方法。
 
 JavaScript 将类型化数组拆分为**缓冲**和**视图**两部分：
 
@@ -18,7 +18,7 @@ JavaScript 将类型化数组拆分为**缓冲**和**视图**两部分：
 
 # 缓冲
 
-缓冲有两种类型：[`ArrayBuffer`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) 和 [`SharedArrayBuffer`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer)，它们都是内存块的低级表示
+缓冲有两种类型：[`ArrayBuffer`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) 和 [`SharedArrayBuffer`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer)，它们都是内存块的低级表示。
 
 缓冲支持的操作：
 
@@ -29,11 +29,11 @@ JavaScript 将类型化数组拆分为**缓冲**和**视图**两部分：
 
 **另：`ArrayBuffer` 与 `SharedArrayBuffer` 之间的区别：**
 
-`ArrayBuffer` 同一时刻只能属于单个执行上下文，如果将 `ArrayBuffer` 传递给另一个执行上下文，那么它将会被**转移**，原本的 `ArrayBuffer` 将不可用。而 `SharedArrayBuffer` 传递给另一个上下文不会被转移，因此可以被多个执行上下文同时访问，多线程访问避免竞争，可以使用 [`Atomics`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Atomics) 方法
+`ArrayBuffer` 同一时刻只能属于单个执行上下文，如果将 `ArrayBuffer` 传递给另一个执行上下文，那么它将会被**转移**，原本的 `ArrayBuffer` 将不可用。而 `SharedArrayBuffer` 传递给另一个上下文不会被转移，因此可以被多个执行上下文同时访问，多线程访问避免竞争，可以使用 [`Atomics`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Atomics) 方法。
 
 # 视图
 
-目前有两种视图：**类型化数组视图**和 [`DataView`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/DataView)。类型化数组提供了[实用方法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95)，而 DataView 提供的操作更底层，
+目前有两种视图：**类型化数组视图**和 [`DataView`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/DataView)。类型化数组提供了[实用方法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95)，而 DataView 提供的操作更底层。
 
 两种视图都会使 [`ArrayBuffer.isView`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer/isView) 方法返回 `true`，都具备以下属性：
 
@@ -140,7 +140,7 @@ const text = new TextDecoder().decode(uint8View)
 console.log(text) // 你好
 ```
 
-读取 UTF-16 文本可以使用 [`String.fromCharCode()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode) 方法
+读取 UTF-16 文本可以使用 [`String.fromCharCode()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode) 方法：
 
 ```js Run
 const buffer = new ArrayBuffer(8)
@@ -163,7 +163,7 @@ struct someStruct {
 };
 ```
 
-在 js 中可以如下代码访问一个包含结构体的缓冲
+在 js 中可以如下代码访问一个包含结构体的缓冲：
 
 ```js
 const buffer = new ArrayBuffer(24)
