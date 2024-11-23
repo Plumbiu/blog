@@ -7,6 +7,7 @@ import {
   createElement,
   memo,
   ReactNode,
+  Suspense,
   useCallback,
   useMemo,
   useRef,
@@ -32,6 +33,7 @@ import { renderStaticPlayground, renerPlayground } from './compile'
 import CodeWrap from '../_common/CodeWrap'
 import Console from '../_common/Console'
 import { componentMap } from '..'
+import Loading from '../_common/Loading'
 
 interface TabItem {
   name: string
@@ -165,7 +167,7 @@ const Playground = (props: any) => {
     root.current.render(
       <ReactShadowRoot shadow={!!css}>
         {!!css && <style>{css}</style>}
-        {node}
+        <Suspense fallback={<Loading />}>{node}</Suspense>
       </ReactShadowRoot>,
     )
 
