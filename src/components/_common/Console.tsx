@@ -24,11 +24,17 @@ function formatTime(date: number | null | undefined) {
 interface ConsoleProps {
   logs: LogInfo[]
   showType?: boolean
+  [key: string]: any
 }
 
-const Console = ({ logs, showType = false }: ConsoleProps) => {
+const Console = ({
+  logs,
+  showType = false,
+  className,
+  ...rest
+}: ConsoleProps) => {
   return (
-    <div className={styles.console}>
+    <div className={clsx(styles.console, className)} {...rest}>
       {logs.map(({ value, date, valueType }, i) => (
         <div key={i}>
           <div

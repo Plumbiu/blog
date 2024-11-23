@@ -9,6 +9,7 @@ import {
   ReactNode,
   useMemo,
   useReducer,
+  useRef,
   useState,
 } from 'react'
 import clsx from 'clsx'
@@ -24,7 +25,7 @@ import {
 } from '@/app/posts/_plugins/remark/playground-utils'
 import ReactShadowRoot from '@/app/_components/Shadow'
 import useConsole from '@/app/_hooks/useConsole'
-import IntersectionComponent from '@/app/_components/IntersectionComponent'
+import useObserver from '@/app/_hooks/useObservser'
 import styles from './index.module.css'
 import { renderStaticPlayground, renerPlayground } from './compile'
 import CodeWrap from '../_common/CodeWrap'
@@ -134,10 +135,11 @@ const Playground = memo((props: any) => {
       customPreviewName,
     }
   }, [props])
-
   const { logFn, logs } = useConsole()
+  const nodeRef = useRef<HTMLDivElement>(null)
+  const [node, setNode] = useState<JSX.Element | null>(null)
 
-  const node = useMemo(() => {
+  useObserver(nodeRef, () => {
     const customPreviewNode = componentMap[customPreviewName]
     const playgroundProps = {
       files,
@@ -145,12 +147,15 @@ const Playground = memo((props: any) => {
       logFn,
     }
     if (!isStatic) {
-      return customPreviewNode
-        ? createElement(customPreviewNode, props)
-        : renerPlayground(playgroundProps)
+      setNode(
+        customPreviewNode
+          ? createElement(customPreviewNode, props)
+          : renerPlayground(playgroundProps),
+      )
+    } else {
+      setNode(renderStaticPlayground(playgroundProps))
     }
-    return renderStaticPlayground(playgroundProps)
-  }, [])
+  })
 
   const [singal, forceUpdate] = useReducer(() => Math.random(), 1)
   const [isConsoleVisible, setIsConsoleVisible] = useState(false)
@@ -185,23 +190,19 @@ const Playground = memo((props: any) => {
             <div />
           </div>
         )}
-        <IntersectionComponent>
-          {() => (
-            <>
-              <ReactShadowRoot
-                key={singal}
-                shadow={!!css}
-                className={clsx(styles.preview, {
-                  [styles.hide]: isConsoleVisible,
-                })}
-              >
-                {!!css && <style>{css}</style>}
-                {node}
-              </ReactShadowRoot>
-              {isConsoleVisible && <Console logs={logs} />}
-            </>
-          )}
-        </IntersectionComponent>
+        <div ref={nodeRef}>
+          <ReactShadowRoot
+            key={singal}
+            shadow={!!css}
+            className={clsx(styles.preview, {
+              [styles.hide]: isConsoleVisible,
+            })}
+          >
+            {!!css && <style>{css}</style>}
+            {node}
+          </ReactShadowRoot>
+        </div>
+        {isConsoleVisible && <Console logs={logs} />}
       </div>
     </CodeWrap>
   )

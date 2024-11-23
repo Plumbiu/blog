@@ -1,6 +1,9 @@
 import { RefObject, useEffect, useState } from 'react'
 
-export default function useObserver(ref: RefObject<HTMLElement>) {
+export default function useObserver(
+  ref: RefObject<HTMLElement>,
+  callback?: () => void,
+) {
   const [isIntersecting, setIsIntersecting] = useState(false)
 
   useEffect(() => {
@@ -14,6 +17,7 @@ export default function useObserver(ref: RefObject<HTMLElement>) {
       if (isIntersecting) {
         setIsIntersecting(true)
         self.unobserve(observerDom)
+        callback?.()
       }
     })
     observer.observe(observerDom)
