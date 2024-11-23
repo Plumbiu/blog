@@ -17,8 +17,20 @@ const baseScope: Scope = {
 const baseScopeKeys = Object.keys(baseScope)
 const baseScopeValues = baseScopeKeys.map((key) => baseScope[key])
 
+const TestModule = new Proxy(
+  {},
+  {
+    get() {
+      return () => 'test-code'
+    },
+  },
+)
+
 function evalCode(code: string, scope: Scope, logFn?: LogFn) {
   const _require = (k: keyof Scope) => {
+    if (k.startsWith('test:')) {
+      return TestModule
+    }
     return scope[k]
   }
   const _exports: Record<string, any> = {}

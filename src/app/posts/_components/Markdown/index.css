@@ -4,7 +4,7 @@
   margin: 0;
   word-break: break-all;
   & > * {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
 
   & > p {
@@ -142,27 +142,10 @@
     cursor: pointer;
     object-fit: contain;
     border-radius: 4px;
+    min-width: calc(var(--post-w) / 2);
     transition: border-radius 250ms;
     &:hover {
       border-radius: 0;
-    }
-  }
-  .image-wrap {
-    --gap: 6px;
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: var(--gap);
-    row-gap: calc(var(--gap) * 1.25);
-    & > img {
-      width: calc(var(--image-item-w) - var(--gap));
-    }
-    &[data-one] > img {
-      min-width: calc(var(--post-w) - 200px);
-    }
-    &[data-odd] > img {
-      &:last-child {
-        width: auto;
-      }
     }
   }
 

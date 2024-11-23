@@ -1,14 +1,3 @@
-.art {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-}
-
-html[data-theme='dark'] .art {
-  filter: invert(1);
-}
-
 .main_children {
   margin-top: var(--header-h);
 }
@@ -26,7 +15,6 @@ html[data-theme='dark'] .art {
     max-width: 100%;
   }
 }
-
 
 .link {
   color: var(--text);

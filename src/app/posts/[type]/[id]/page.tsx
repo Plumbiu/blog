@@ -40,13 +40,13 @@ export async function getPostContent(
       path.join(process.cwd(), 'posts', type, `${decodeURI(id)}.md`),
       'utf-8',
     )
-    const { frontmatter, mdContent } = getFrontmatter(file)
-    if (!frontmatter || !mdContent || frontmatter.hidden) {
+    const { frontmatter, content } = getFrontmatter(file)
+    if (!frontmatter || !content || frontmatter.hidden) {
       return
     }
     return {
       frontmatter,
-      content: mdContent,
+      content,
     }
   } catch (error) {}
 }

@@ -32,29 +32,29 @@ export async function getMarkdownPath() {
   return results
 }
 
-export function getFrontmatter(content: string) {
-  const startIdx = content.indexOf(FrontmatterWrapStr)
+export function getFrontmatter(code: string) {
+  const startIdx = code.indexOf(FrontmatterWrapStr)
   if (startIdx !== 0) {
     return {}
   }
-  const endIndex = content.indexOf(FrontmatterWrapStr, 1)
-  const parseString = content.slice(FrontmatterWrapStr.length, endIndex)
+  const endIndex = code.indexOf(FrontmatterWrapStr, 1)
+  const parseString = code.slice(FrontmatterWrapStr.length, endIndex)
   const frontmatter = yaml.load(parseString) as FrontMatterItem
   const desc = frontmatter.desc
-  const mdContent = content.slice(endIndex + 3)
+  const content = code.slice(endIndex + 3)
   if (desc && isLikeNum(desc)) {
-    const segments = stripMarkdown(mdContent)
+    const segments = stripMarkdown(content)
       .trim()
       .split(/\r?\n/g)
       .filter((s) => s.trim())
-    frontmatter.desc = segments[+desc - 1]
+    frontmatter.desc = segments.length > 0 ? segments[+desc - 1] : ''
   }
   if (frontmatter.date) {
     frontmatter.date = new Date(frontmatter.date).valueOf()
   }
   return {
     frontmatter,
-    mdContent,
+    content,
   }
 }
 
@@ -75,14 +75,14 @@ export async function getPostsInfo(id?: string) {
         return
       }
       const file = await fsp.readFile(mdPath, 'utf-8')
-      const { frontmatter, mdContent } = getFrontmatter(file)
-      if (!frontmatter || !mdContent || frontmatter.hidden) {
+      const { frontmatter, content } = getFrontmatter(file)
+      if (!frontmatter || !content || frontmatter.hidden) {
         return
       }
       const data = {
         type,
         frontmatter,
-        content: mdContent,
+        content,
         path: removeMdSuffix(mdPath),
       }
       result.push(data)

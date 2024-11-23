@@ -90,9 +90,6 @@ function Header() {
               }
             }}
           />
-          <div>
-            <SearchIcon />
-          </div>
           <Link target="_blank" href="/rss.xml">
             <RssIcon />
           </Link>

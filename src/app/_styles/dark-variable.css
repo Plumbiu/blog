@@ -1,10 +1,10 @@
 html[data-theme='dark'] {
   /* text */
   --text: #fff;
-  --text-4: rgba(235, 235, 235, 0.15);
-  --text-3: rgba(235, 235, 245, 0.3);
-  --text-2: rgba(235, 235, 245, 0.6);
-  --text-1: rgba(235, 235, 235, 0.8);
+  --text-4: rgba(205, 205, 205, 0.2);
+  --text-3: rgba(205, 205, 205, 0.3);
+  --text-2: rgba(205, 205, 205, 0.6);
+  --text-1: rgba(205, 205, 205);
   /* border */
   --divider: #2e2e32;
   /* color */
@@ -32,7 +32,6 @@ html[data-theme='dark'] {
   --c-gray-3: #32363f;
   --c-gray-2: #414853;
   --c-gray-1: #515c67;
-  --c-md-toc-active: #3a5a68;
   /* background */
   --bg-md-quote-before: #222;
   --bg-md-quote-warn: #3d341b;

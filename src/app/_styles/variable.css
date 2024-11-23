@@ -1,10 +1,10 @@
 :root {
   /* text */
   --text: #000;
-  --text-4: rgba(70, 70, 70, 0.32);
-  --text-3: rgba(70, 70, 70, 0.56);
-  --text-2: rgba(70, 70, 70, 0.78);
-  --text-1: rgb(70, 70, 70);
+  --text-4: rgba(50, 50, 50, 0.4);
+  --text-3: rgba(50, 50, 50, 0.56);
+  --text-2: rgba(50, 50, 50, 0.78);
+  --text-1: rgb(50, 50, 50);
   /* border */
   --divider: #e2e2e5;
   /* color */
@@ -32,13 +32,12 @@
   --c-gray-3: #dfdfe6;
   --c-gray-2: #e4e4e9;
   --c-gray-1: #dddde3;
-  --c-md-toc-active: #8aeeff;
   /* background */
   --bg-md-quote-before: #d5d5d5;
   --bg-md-quote-warn: #fcf4dc;
   --bg-md-quote-info: #e9eaff;
   --bg-md-quote-danger: rgba(244, 63, 94, 0.14);
-  --bg-md-pre: #fbfbfe;
+  --bg-md-pre: #fbfbfb;
   --bg-md-pre-bar: #f9f9f9;
   --bg-md-highlight-line: rgba(220, 220, 225, 0.52);
   --bg-md-code: #ddeef8;

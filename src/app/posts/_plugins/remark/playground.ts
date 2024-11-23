@@ -5,11 +5,13 @@ import { buildFiles, getBaseName, getFirstLine, isJsxFileLike } from '@/utils'
 import { minify, tryReadFileSync } from '@/utils/node'
 import {
   handlePlaygroundCustomPreivew,
-  handlePlaygroundHideTabsKey,
+  handlePlaygroundHidePreviewTabsKey,
   handlePlaygroundSelector,
   handlePlaygroundFileMapKey,
   PlaygroundName,
   handlePlaygroundStyles,
+  PlaygroundHidePreviewTabsKeySuffix,
+  PlaygroundHideCodeTabsKeySuffix,
 } from './playground-utils'
 import {
   handleComponentCode,
@@ -49,7 +51,10 @@ function remarkPlayground(): RemarkReturn {
         handleComponentName(props, PlaygroundName)
         handlePlaygroundSelector(props, selector)
         handleComponentCode(props, myBeAppFile ? code.slice(endIndex) : code)
-        handlePlaygroundHideTabsKey(props, meta.includes('no-tab'))
+        handlePlaygroundHidePreviewTabsKey(
+          props,
+          meta.includes(PlaygroundHidePreviewTabsKeySuffix),
+        )
 
         const previewName = PlaygroundNameCustomPreviewRegx.exec(meta)?.[1]
         if (previewName) {
@@ -61,8 +66,9 @@ function remarkPlayground(): RemarkReturn {
         }
         let hideTabs = true
         const files = buildFiles(code, selector)
+        const fileKeys = Object.keys(files)
         let styles: string = ''
-        for (const key in files) {
+        for (const key of fileKeys) {
           const code = files[key]
           if (isJsxFileLike(key)) {
             files[key] = minify(transform(code, transfromOptions).code)
@@ -73,7 +79,11 @@ function remarkPlayground(): RemarkReturn {
             styles += ' ' + code
           }
         }
-        handlePlaygroundHideTabsKey(props, hideTabs)
+        handlePlaygroundHidePreviewTabsKey(
+          props,
+          meta.includes(PlaygroundHideCodeTabsKeySuffix),
+        )
+        handlePlaygroundHidePreviewTabsKey(props, hideTabs)
         handlePlaygroundFileMapKey(props, JSON.stringify(files))
         handlePlaygroundStyles(props, styles)
 

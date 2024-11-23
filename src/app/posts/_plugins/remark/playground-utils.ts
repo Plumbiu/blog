@@ -1,12 +1,16 @@
+/* eslint-disable @stylistic/max-len */
 import { StringValueObj } from '@/types/base'
 import { ComponentKey } from '../constant'
 import { buildPlaygroundHandlerFunction } from '../utils'
 
+export const PlaygroundHidePreviewTabsKeySuffix = 'no-v-tab'
+export const PlaygroundHideCodeTabsKeySuffix = 'no-c-tab'
+
 export const PlaygroundPrefix = `${ComponentKey}p-`
 const PlaygroundDefaultSelectorKey = `${PlaygroundPrefix}select`
 const PlaygroundHidePreviewKey = `${PlaygroundPrefix}no-view`
-const PlaygroundHideTabsKey = `${PlaygroundPrefix}no-tab`
-const PlaygroundHideConsoleKey = `${PlaygroundPrefix}no-console`
+const PlaygroundHidePreviewTabsKey = `${PlaygroundPrefix}${PlaygroundHidePreviewTabsKeySuffix}`
+const PlaygroundHideCodeTabsKey = `${PlaygroundPrefix}${PlaygroundHideCodeTabsKeySuffix}`
 const PlaygroundFileMapKey = `${PlaygroundPrefix}file`
 const PlaygroundCustomPreivew = `${PlaygroundPrefix}cus-view`
 const PlaygroundStyles = `${PlaygroundPrefix}css`
@@ -25,9 +29,14 @@ export const handlePlaygroundHidePreviewKey = buildPlaygroundHandlerFunction<
   boolean | undefined
 >(PlaygroundHidePreviewKey)
 
-export const handlePlaygroundHideTabsKey = buildPlaygroundHandlerFunction<
+export const handlePlaygroundHidePreviewTabsKey =
+  buildPlaygroundHandlerFunction<boolean | undefined>(
+    PlaygroundHidePreviewTabsKey,
+  )
+
+export const handlePlaygroundHideCodeTabsKey = buildPlaygroundHandlerFunction<
   boolean | undefined
->(PlaygroundHideTabsKey)
+>(PlaygroundHideCodeTabsKey)
 
 export const handlePlaygroundCustomPreivew =
   buildPlaygroundHandlerFunction<string>(PlaygroundCustomPreivew)

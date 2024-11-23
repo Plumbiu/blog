@@ -18,8 +18,9 @@ import {
   handlePlaygroundFileMapKey,
   handlePlaygroundSelector,
   handlePlaygroundCustomPreivew,
-  handlePlaygroundHideTabsKey,
+  handlePlaygroundHidePreviewTabsKey,
   handlePlaygroundStyles,
+  handlePlaygroundHideCodeTabsKey,
 } from '@/app/posts/_plugins/remark/playground-utils'
 import ReactShadowRoot from '@/app/_components/Shadow'
 import useConsole from '@/app/_hooks/useConsole'
@@ -103,7 +104,8 @@ const Playground = memo((props: any) => {
     files,
     codeTabs,
     isStatic,
-    isTabsHidden,
+    isPreviewTabsHidden,
+    isCodeTabsHidden,
     customPreviewName,
   } = useMemo(() => {
     const children = Array.isArray(props.children)
@@ -117,7 +119,8 @@ const Playground = memo((props: any) => {
     const files = handlePlaygroundFileMapKey(props)
     const codeTabs = Object.keys(files).map((name) => ({ name }))
     const isStatic = defaultSelector.endsWith('.html')
-    const isTabsHidden = handlePlaygroundHideTabsKey(props)
+    const isPreviewTabsHidden = handlePlaygroundHidePreviewTabsKey(props)
+    const isCodeTabsHidden = handlePlaygroundHideCodeTabsKey(props)
     const customPreviewName = handlePlaygroundCustomPreivew(props)
     return {
       defaultSelector,
@@ -126,7 +129,8 @@ const Playground = memo((props: any) => {
       files,
       codeTabs,
       isStatic,
-      isTabsHidden,
+      isPreviewTabsHidden,
+      isCodeTabsHidden,
       customPreviewName,
     }
   }, [props])
@@ -157,10 +161,10 @@ const Playground = memo((props: any) => {
         tabs={codeTabs}
         nodeMap={codeNodeMap}
         defaultSelector={defaultSelector}
-        hide={!!isTabsHidden}
+        hide={!!isCodeTabsHidden}
       />
       <div>
-        {!(isStatic || isTabsHidden) && (
+        {!(isStatic || isPreviewTabsHidden) && (
           <div className={styles.tab}>
             <div
               className={clsx({

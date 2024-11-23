@@ -91,7 +91,7 @@ function App() {
   )
 }
 export default App
-/// Test.jsx
+/// Test.tsx
 
 interface TestProps {
   logText: string
