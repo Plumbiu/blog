@@ -7,12 +7,13 @@ import {
   createElement,
   memo,
   ReactNode,
+  useCallback,
   useMemo,
-  useReducer,
   useRef,
   useState,
 } from 'react'
 import clsx from 'clsx'
+import { createRoot, type Root } from 'react-dom/client'
 import { mono } from '@/app/fonts'
 import { handlePlaygroundFileKey } from '@/app/posts/_plugins/rehype/playground-pre'
 import {
@@ -97,7 +98,7 @@ const CodePreview = memo(
 const PreviewTabName = 'Preview'
 const ConsoleTabName = 'Console'
 
-const Playground = memo((props: any) => {
+const Playground = (props: any) => {
   const {
     defaultSelector,
     codeNodeMap,
@@ -135,33 +136,50 @@ const Playground = memo((props: any) => {
       customPreviewName,
     }
   }, [props])
-  const { logFn, logs } = useConsole()
-  const nodeRef = useRef<HTMLDivElement>(null)
-  const [node, setNode] = useState<JSX.Element | null>(null)
 
-  useObserver(nodeRef, () => {
+  const { logFn, logs, setLogs } = useConsole()
+  const nodeRef = useRef<HTMLDivElement>(null)
+  const [isConsoleVisible, setIsConsoleVisible] = useState(false)
+  const root = useRef<Root>()
+  const renderNode = useCallback(() => {
+    setLogs(logs)
+    root.current?.unmount()
+    root.current = createRoot(nodeRef.current!)
     const customPreviewNode = componentMap[customPreviewName]
     const playgroundProps = {
       files,
       defaultSelector,
       logFn,
     }
-    if (!isStatic) {
-      setNode(
-        customPreviewNode
-          ? createElement(customPreviewNode, props)
-          : renerPlayground(playgroundProps),
-      )
-    } else {
-      setNode(renderStaticPlayground(playgroundProps))
+    if (!nodeRef.current) {
+      return
     }
-  })
+    let node = null
+    if (!isStatic) {
+      node = customPreviewNode
+        ? createElement(customPreviewNode, props)
+        : renerPlayground(playgroundProps)
+    } else {
+      node = renderStaticPlayground(playgroundProps)
+    }
+    root.current.render(
+      <ReactShadowRoot shadow={!!css}>
+        {!!css && <style>{css}</style>}
+        {node}
+      </ReactShadowRoot>,
+    )
 
-  const [singal, forceUpdate] = useReducer(() => Math.random(), 1)
-  const [isConsoleVisible, setIsConsoleVisible] = useState(false)
+    return () => {
+      setTimeout(() => {
+        root.current?.unmount()
+      })
+    }
+  }, [])
+
+  useObserver(nodeRef, renderNode)
 
   return (
-    <CodeWrap barText="Code Playground" forceUpdate={forceUpdate}>
+    <CodeWrap barText="Code Playground" forceUpdate={renderNode}>
       <CodePreview
         tabs={codeTabs}
         nodeMap={codeNodeMap}
@@ -190,22 +208,16 @@ const Playground = memo((props: any) => {
             <div />
           </div>
         )}
-        <div ref={nodeRef}>
-          <ReactShadowRoot
-            key={singal}
-            shadow={!!css}
-            className={clsx(styles.preview, {
-              [styles.hide]: isConsoleVisible,
-            })}
-          >
-            {!!css && <style>{css}</style>}
-            {node}
-          </ReactShadowRoot>
-        </div>
+        <div
+          className={clsx(styles.preview, {
+            [styles.hide]: isConsoleVisible,
+          })}
+          ref={nodeRef}
+        />
         {isConsoleVisible && <Console logs={logs} />}
       </div>
     </CodeWrap>
   )
-})
+}
 
 export default Playground

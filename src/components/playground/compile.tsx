@@ -74,15 +74,13 @@ export function renerPlayground({
     return key !== defaultSelector && isJsxFileLike(key)
   })
   const loop = () => {
-    try {
-      for (const key of jsKyes) {
-        const value = evalCode(files[key], scope, logFn)
-        const scopeKey = getBasename(key)
-        if (scopeKey) {
-          scope['./' + scopeKey] = value
-        }
+    for (const key of jsKyes) {
+      const value = evalCode(files[key], scope, logFn)
+      const scopeKey = getBasename(key)
+      if (scopeKey) {
+        scope['./' + scopeKey] = value
       }
-    } catch (error) {}
+    }
   }
   // loop twice for the order
   /**

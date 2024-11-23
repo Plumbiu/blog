@@ -1,11 +1,14 @@
-import { RefObject, useEffect, useState } from 'react'
+import { RefObject, useEffect, useRef, useState } from 'react'
+import { isFunction } from '@/utils'
+
+type VoidFn = () => void
 
 export default function useObserver(
   ref: RefObject<HTMLElement>,
-  callback?: () => void,
+  callback?: () => void | VoidFn,
 ) {
   const [isIntersecting, setIsIntersecting] = useState(false)
-
+  const callbackRef = useRef<VoidFn>()
   useEffect(() => {
     const observerDom = ref.current
     // dom is not null, but in dev, run twice will case error
@@ -17,11 +20,17 @@ export default function useObserver(
       if (isIntersecting) {
         setIsIntersecting(true)
         self.unobserve(observerDom)
-        callback?.()
+        const fn = callback?.()
+        if (isFunction(fn)) {
+          callbackRef.current = fn
+        }
       }
     })
     observer.observe(observerDom)
-    return () => observer.unobserve(observerDom)
+    return () => {
+      observer.unobserve(observerDom)
+      callbackRef.current?.()
+    }
   }, [])
 
   return isIntersecting

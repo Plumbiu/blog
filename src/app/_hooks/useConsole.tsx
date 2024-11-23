@@ -10,30 +10,19 @@ export interface LogInfo {
 
 export default function useConsole() {
   const [logs, setLogs] = useState<LogInfo[]>([])
-  const isMounted = useMounted()
-
-  const log = useCallback(
-    (value: any) => {
-      const now = Date.now()
-      const info = {
-        date: now,
-        value,
-        valueType: getType(value),
-      }
-      const lastLog = logs[logs.length - 1]
-      if (lastLog == null || lastLog.date !== now) {
-        if (!isMounted) {
-          logs.push(info)
-        } else {
-          setLogs((prev) => [...prev, info])
-        }
-      }
-    },
-    [isMounted],
-  )
+  const log = (value: any) => {
+    const now = Date.now()
+    const info = {
+      date: now,
+      value,
+      valueType: getType(value),
+    }
+    setLogs((prev) => [...prev, info])
+  }
 
   return {
     logs,
     logFn: { log },
+    setLogs,
   }
 }
