@@ -24,7 +24,6 @@ async function Links() {
       }
     }),
   )
-  console.log(123)
   return (
     <div className={clsx('center', styles.wrap)}>
       <div>
