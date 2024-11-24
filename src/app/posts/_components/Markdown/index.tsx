@@ -39,7 +39,7 @@ const components: Partial<Components> = {
       placeholder: 'blur',
       blurDataURL: metadata.dataURIBase64,
       width: metadata.originalWidth,
-      height: metadata.originalWidth,
+      height: metadata.originalHeight,
     }
     return <MarkdownImage {...commonProps} />
   },
