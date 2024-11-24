@@ -1,6 +1,5 @@
 import path from 'node:path'
 import { type Components } from 'hast-util-to-jsx-runtime'
-import sharp from 'sharp'
 import { ImageProps } from 'next/image'
 import { toString } from 'hast-util-to-string'
 import MarkdownImage from '@/app/posts/_components/Image'
@@ -8,10 +7,9 @@ import CustomComponent from '@/components'
 import './index.css'
 import './shiki.css'
 import { handleComponentName } from '@/app/posts/_plugins/constant'
+import { getBlurDataUrl } from '@/utils/node'
 import transfromCode2Jsx from './transfrom'
 import PreComponent from '../Pre'
-
-const Blur = 2
 
 const components: Partial<Components> = {
   pre(props) {
@@ -33,34 +31,18 @@ const components: Partial<Components> = {
       return null
     }
     const imagePath = path.join('public', 'images', src)
-    const image = sharp(imagePath)
-    const metadata = await image.metadata()
-    const originWidth = metadata.width
-    const originHeight = metadata.height
-    if (!originHeight || !originWidth) {
+    const { base64, metadata } = await getBlurDataUrl(imagePath)
+    if (!base64 || !metadata) {
       return null
     }
-    const resizedSize = 14
-    const resizedImage = image.resize({
-      width: Math.min(originWidth, resizedSize),
-      height: Math.min(originHeight, resizedSize),
-      fit: 'inside',
-    })
-    const output = resizedImage.webp({
-      quality: 20,
-      alphaQuality: 20,
-      smartSubsample: true,
-    })
-
-    const { data } = await output.toBuffer({ resolveWithObject: true })
     const commonProps: ImageProps = {
       src: `/images/${src}`,
       alt,
       unoptimized: src.endsWith('.gif') ? true : undefined,
-      blurDataURL: `data:image/webp;base64,${data.toString('base64')}`,
+      blurDataURL: base64,
       placeholder: 'blur',
-      width: originWidth,
-      height: originHeight,
+      width: metadata.width,
+      height: metadata.height,
     }
     return <MarkdownImage {...commonProps} />
   },
