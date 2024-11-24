@@ -136,13 +136,12 @@
   }
   /* Image */
   img {
+    position: relative;
     max-width: 100%;
     height: auto;
-    max-height: 50vh;
     cursor: pointer;
     object-fit: contain;
     border-radius: 4px;
-    min-width: calc(var(--post-w) / 2);
     transition: border-radius 250ms;
     &:hover {
       border-radius: 0;

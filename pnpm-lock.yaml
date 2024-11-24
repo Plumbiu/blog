@@ -8,6 +8,9 @@ patchedDependencies:
   jstoxml:
     hash: vuklsk3t2dpsarp3md24bvusmm
     path: patches/jstoxml.patch
+  next:
+    hash: 6gpwzncprggjf35kayb2wowy4y
+    path: patches/next.patch
 
 importers:
 
@@ -34,15 +37,12 @@ importers:
       lil-gui:
         specifier: ^0.20.0
         version: 0.20.0
-      lqip-modern:
-        specifier: ^2.1.0
-        version: 2.1.0
       next:
         specifier: 15.0.3
-        version: 15.0.3(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 15.0.3(patch_hash=6gpwzncprggjf35kayb2wowy4y)(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-view-transitions:
         specifier: ^0.3.2
-        version: 0.3.2(next@15.0.3(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 0.3.2(next@15.0.3(patch_hash=6gpwzncprggjf35kayb2wowy4y)(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       p5i:
         specifier: ^0.5.0
         version: 0.5.0
@@ -94,7 +94,7 @@ importers:
         version: 15.0.3
       '@pigment-css/nextjs-plugin':
         specifier: ^0.0.25
-        version: 0.0.25(@types/react@18.3.12)(next@15.0.3(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(typescript@5.6.3)
+        version: 0.0.25(@types/react@18.3.12)(next@15.0.3(patch_hash=6gpwzncprggjf35kayb2wowy4y)(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(typescript@5.6.3)
       '@plumbiu/eslint-config':
         specifier: ^0.3.8
         version: 0.3.8(eslint-plugin-import@2.31.0(eslint@9.14.0))(eslint@9.14.0)(typescript@5.6.3)
@@ -1018,10 +1018,6 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  aggregate-error@3.1.0:
-    resolution: {integrity: sha512-4I7Td01quW/RpocfNayFdFVk1qSuoh0E7JrbRJ16nH01HhKFQ88INq9Sd+nd72zqRySlr9BmDA8xlEJ6vJMrYA==}
-    engines: {node: '>=8'}
-
   ajv@6.12.6:
     resolution: {integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==}
 
@@ -1160,10 +1156,6 @@ packages:
 
   character-reference-invalid@2.0.1:
     resolution: {integrity: sha512-iBZ4F4wRbyORVsu0jPV7gXkOsGYjGHPmAyv+HiHG8gi5PtC9KI2j1+v8/tlibRvjoWX027ypmG/n0HtO5t7unw==}
-
-  clean-stack@2.2.0:
-    resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==}
-    engines: {node: '>=6'}
 
   client-only@0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
@@ -1699,10 +1691,6 @@ packages:
     resolution: {integrity: sha512-JmXMZ6wuvDmLiHEml9ykzqO6lwFbof0GG4IkcGaENdCRDDmMVnny7s5HsIgHCbaq0w2MyPhDqkhTUgS2LU2PHA==}
     engines: {node: '>=0.8.19'}
 
-  indent-string@4.0.0:
-    resolution: {integrity: sha512-EdDDZu4A2OyIK7Lr/2zG+w5jmbuk1DVBnEwREQvBzspBJkCEbRa8GxU1lghYcaGJCnRWibjDXlq779X1/y5xwg==}
-    engines: {node: '>=8'}
-
   inline-style-parser@0.2.4:
     resolution: {integrity: sha512-0aO8FkhNZlj/ZIbNi7Lxxr12obT7cL1moPfE4tg1LkX7LlLfC6DeX4l2ZEud1ukP9jNQyNnfzQVqwbwmAATY4Q==}
 
@@ -1904,10 +1892,6 @@ packages:
   loose-envify@1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
     hasBin: true
-
-  lqip-modern@2.1.0:
-    resolution: {integrity: sha512-7BiYRSy/3J5fsmQm01MxguIqZlu0wT+CoypQaUIxD7toVhLYAUqN9hrVsgoppStGwQ+f66uvu5W/Hf8UNTiJeQ==}
-    engines: {node: '>=14.15'}
 
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
@@ -2176,10 +2160,6 @@ packages:
 
   p-locate@5.0.0:
     resolution: {integrity: sha512-LaNjtRWUBY++zB5nE/NwcaoMylSPk+S+ZHNB1TzdbMJMny6dynpAGt7X/tl/QYq3TIeE6nxHppbo2LGymrG5Pw==}
-    engines: {node: '>=10'}
-
-  p-map@4.0.0:
-    resolution: {integrity: sha512-/bjOqmgETBYB5BoEeGVea8dmvHb2m9GLy1E9W43yeyfP6QQCZGFNa+XRceJEuDB6zqr+gKpIAmlLebMpykw/MQ==}
     engines: {node: '>=10'}
 
   p5@1.11.0:
@@ -3316,10 +3296,10 @@ snapshots:
 
   '@nolyfill/is-core-module@1.0.39': {}
 
-  '@pigment-css/nextjs-plugin@0.0.25(@types/react@18.3.12)(next@15.0.3(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(typescript@5.6.3)':
+  '@pigment-css/nextjs-plugin@0.0.25(@types/react@18.3.12)(next@15.0.3(patch_hash=6gpwzncprggjf35kayb2wowy4y)(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(typescript@5.6.3)':
     dependencies:
       '@pigment-css/unplugin': 0.0.25(@types/react@18.3.12)(react@18.3.1)(typescript@5.6.3)
-      next: 15.0.3(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next: 15.0.3(patch_hash=6gpwzncprggjf35kayb2wowy4y)(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     transitivePeerDependencies:
       - '@types/react'
       - react
@@ -3677,11 +3657,6 @@ snapshots:
 
   acorn@8.14.0: {}
 
-  aggregate-error@3.1.0:
-    dependencies:
-      clean-stack: 2.2.0
-      indent-string: 4.0.0
-
   ajv@6.12.6:
     dependencies:
       fast-deep-equal: 3.1.3
@@ -3850,8 +3825,6 @@ snapshots:
   character-entities@2.0.2: {}
 
   character-reference-invalid@2.0.1: {}
-
-  clean-stack@2.2.0: {}
 
   client-only@0.0.1: {}
 
@@ -4545,8 +4518,6 @@ snapshots:
 
   imurmurhash@0.1.4: {}
 
-  indent-string@4.0.0: {}
-
   inline-style-parser@0.2.4: {}
 
   internal-slot@1.0.7:
@@ -4739,11 +4710,6 @@ snapshots:
   loose-envify@1.4.0:
     dependencies:
       js-tokens: 4.0.0
-
-  lqip-modern@2.1.0:
-    dependencies:
-      p-map: 4.0.0
-      sharp: 0.33.5
 
   lru-cache@10.4.3: {}
 
@@ -5155,13 +5121,13 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  next-view-transitions@0.3.2(next@15.0.3(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  next-view-transitions@0.3.2(next@15.0.3(patch_hash=6gpwzncprggjf35kayb2wowy4y)(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      next: 15.0.3(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next: 15.0.3(patch_hash=6gpwzncprggjf35kayb2wowy4y)(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  next@15.0.3(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  next@15.0.3(patch_hash=6gpwzncprggjf35kayb2wowy4y)(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@next/env': 15.0.3
       '@swc/counter': 0.1.3
@@ -5254,10 +5220,6 @@ snapshots:
   p-locate@5.0.0:
     dependencies:
       p-limit: 3.1.0
-
-  p-map@4.0.0:
-    dependencies:
-      aggregate-error: 3.1.0
 
   p5@1.11.0: {}
 

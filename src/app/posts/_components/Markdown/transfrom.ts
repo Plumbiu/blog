@@ -14,6 +14,7 @@ import rehypePrismGenerator from '@/app/posts/_plugins/rehype/hightlight'
 import rehypeElementPlugin from '@/app/posts/_plugins/rehype/element'
 import { remarkSlug } from '@/app/posts/_plugins/remark/slug'
 import remarkPlayground from '@/app/posts/_plugins/remark/playground'
+// eslint-disable-next-line @stylistic/max-len
 import { remarkContainerDirectivePlugin } from '@/app/posts/_plugins/rehype/directive'
 import './index.css'
 import remarkRunner from '@/app/posts/_plugins/remark/runner'

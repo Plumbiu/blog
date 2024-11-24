@@ -1,0 +1,95 @@
+diff --git a/dist/client/image-component.js b/dist/client/image-component.js
+index b0241f1ba533e52a3e171bead69fbbeb89565090..4e60c90d791bd211e4a903b460105016646d702e 100644
+--- a/dist/client/image-component.js
++++ b/dist/client/image-component.js
+@@ -133,7 +133,7 @@ function getDynamicProps(fetchPriority) {
+     };
+ }
+ const ImageElement = /*#__PURE__*/ (0, _react.forwardRef)((param, forwardedRef)=>{
+-    let { src, srcSet, sizes, height, width, decoding, className, style, fetchPriority, placeholder, loading, unoptimized, fill, onLoadRef, onLoadingCompleteRef, setBlurComplete, setShowAltText, sizesInput, onLoad, onError, ...rest } = param;
++    let { src, srcSet, sizes, height, width, decoding, className, style, fetchPriority, placeholder, loading, unoptimized, fill, onLoadRef, onLoadingCompleteRef, setBlurComplete, sizesInput, onLoad, onError, ...rest } = param;
+     const ownRef = (0, _react.useCallback)((img)=>{
+         if (!img) {
+             return;
+@@ -196,7 +196,6 @@ const ImageElement = /*#__PURE__*/ (0, _react.forwardRef)((param, forwardedRef)=
+         },
+         onError: (event)=>{
+             // if the real image fails to load, this will ensure "alt" is visible
+-            setShowAltText(true);
+             if (placeholder !== 'empty') {
+                 // If the real image fails to load, this will still remove the placeholder.
+                 setBlurComplete(true);
+@@ -237,9 +236,6 @@ function ImagePreload(param) {
+     });
+ }
+ const Image = /*#__PURE__*/ (0, _react.forwardRef)((props, forwardedRef)=>{
+-    const pagesRouter = (0, _react.useContext)(_routercontextsharedruntime.RouterContext);
+-    // We're in the app directory if there is no pages router.
+-    const isAppRouter = !pagesRouter;
+     const configContext = (0, _react.useContext)(_imageconfigcontextsharedruntime.ImageConfigContext);
+     const config = (0, _react.useMemo)(()=>{
+         const c = configEnv || configContext || _imageconfig.imageConfigDefault;
+@@ -258,24 +254,13 @@ const Image = /*#__PURE__*/ (0, _react.forwardRef)((props, forwardedRef)=>{
+     ]);
+     const { onLoad, onLoadingComplete } = props;
+     const onLoadRef = (0, _react.useRef)(onLoad);
+-    (0, _react.useEffect)(()=>{
+-        onLoadRef.current = onLoad;
+-    }, [
+-        onLoad
+-    ]);
+     const onLoadingCompleteRef = (0, _react.useRef)(onLoadingComplete);
+-    (0, _react.useEffect)(()=>{
+-        onLoadingCompleteRef.current = onLoadingComplete;
+-    }, [
+-        onLoadingComplete
+-    ]);
+     const [blurComplete, setBlurComplete] = (0, _react.useState)(false);
+-    const [showAltText, setShowAltText] = (0, _react.useState)(false);
+     const { props: imgAttributes, meta: imgMeta } = (0, _getimgprops.getImgProps)(props, {
+         defaultLoader: _imageloader.default,
+         imgConf: config,
+         blurComplete,
+-        showAltText
++        showAltText: false
+     });
+     return /*#__PURE__*/ (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
+         children: [
+@@ -287,14 +272,9 @@ const Image = /*#__PURE__*/ (0, _react.forwardRef)((props, forwardedRef)=>{
+                 onLoadRef: onLoadRef,
+                 onLoadingCompleteRef: onLoadingCompleteRef,
+                 setBlurComplete: setBlurComplete,
+-                setShowAltText: setShowAltText,
+                 sizesInput: props.sizes,
+                 ref: forwardedRef
+             }),
+-            imgMeta.priority ? /*#__PURE__*/ (0, _jsxruntime.jsx)(ImagePreload, {
+-                isAppRouter: isAppRouter,
+-                imgAttributes: imgAttributes
+-            }) : null
+         ]
+     });
+ });
+diff --git a/dist/shared/lib/get-img-props.js b/dist/shared/lib/get-img-props.js
+index 99ad3535659e6c066de4d1676e942b5167ee1f55..0a757a2cf909a91c3689164f9ff87e0465188ec8 100644
+--- a/dist/shared/lib/get-img-props.js
++++ b/dist/shared/lib/get-img-props.js
+@@ -374,9 +374,7 @@ function getImgProps(param, _state) {
+         bottom: 0,
+         objectFit,
+         objectPosition
+-    } : {}, showAltText ? {} : {
+-        color: 'transparent'
+-    }, style);
++    } : {}, style);
+     const backgroundImage = !blurComplete && placeholder !== 'empty' ? placeholder === 'blur' ? 'url("data:image/svg+xml;charset=utf-8,' + (0, _imageblursvg.getImageBlurSvg)({
+         widthInt,
+         heightInt,
+@@ -424,6 +422,7 @@ function getImgProps(param, _state) {
+             });
+         }
+     }
++
+     const props = {
+         ...rest,
+         loading: isLazy ? 'lazy' : loading,
