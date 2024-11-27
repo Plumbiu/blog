@@ -32,6 +32,10 @@ function getTheme() {
   const theme = localTheme ? localTheme : media.matches ? Light : Dark
   return theme
 }
+// 获取 localStorage 保存的主题
+function getLocalTheme() {
+  return localStorage.getItem(ThemeKey)
+}
 // 设置 html 标签属性
 function setHtmlTheme(theme) {
   document.documentElement.setAttribute(ThemeKey, theme)
@@ -51,7 +55,8 @@ media.addEventListener('change', (e) => {
 })
 // localStorage 主题发生变化
 window.addEventListener('storage', (e) => {
-  setHtmlTheme(e.newValue[ThemeKey])
+  const theme = getLocalTheme()
+  setHtmlTheme(theme)
 })
 ```
 

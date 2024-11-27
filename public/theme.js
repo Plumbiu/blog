@@ -5,9 +5,12 @@ const Light = 'light'
 const media = window.matchMedia('(prefers-color-scheme: light)')
 
 function getTheme() {
-  const localTheme = localStorage.getItem(ThemeKey)
+  const localTheme = getLocalTheme()
   const theme = localTheme ? localTheme : media.matches ? Light : Dark
   return theme
+}
+function getLocalTheme() {
+  return localStorage.getItem(ThemeKey)
 }
 function setHtmlTheme(theme) {
   document.documentElement.setAttribute(ThemeKey, theme)
@@ -24,5 +27,6 @@ media.addEventListener('change', (e) => {
   setTheme(e.matches ? Light : Dark)
 })
 window.addEventListener('storage', (e) => {
-  setHtmlTheme(e.newValue[ThemeKey])
+  const theme = getLocalTheme()
+  setHtmlTheme(theme)
 })
