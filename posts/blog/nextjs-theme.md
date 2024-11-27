@@ -28,17 +28,9 @@ const media = window.matchMedia('(prefers-color-scheme: light)')
 
 // 获取 localStorage 保存的主题，如果没有，返回用户系统主题
 function getTheme() {
-  const localTheme = getLocalTheme()
+  const localTheme = localStorage.getItem(ThemeKey)
   const theme = localTheme ? localTheme : media.matches ? Light : Dark
   return theme
-}
-// 获取 localStorage 保存的主题
-function getLocalTheme() {
-  return localStorage.getItem(ThemeKey)
-}
-// 设置 localStorage 中的主题
-function setLocalTheme(theme) {
-  localStorage.setItem(ThemeKey, theme)
 }
 // 设置 html 标签属性
 function setHtmlTheme(theme) {
@@ -47,7 +39,7 @@ function setHtmlTheme(theme) {
 // 根据传参设置主题
 function setTheme(theme) {
   setHtmlTheme(theme)
-  setLocalTheme(theme)
+  localStorage.setItem(ThemeKey, theme)
 }
 // 应用当前主题
 const theme = getTheme()
@@ -58,9 +50,8 @@ media.addEventListener('change', (e) => {
   setTheme(e.matches ? Light : Dark)
 })
 // localStorage 主题发生变化
-window.addEventListener('storage', , () => {
-  const theme = getLocalTheme()
-  setHtmlTheme(theme)
+window.addEventListener('storage', (e) => {
+  setHtmlTheme(e.newValue[ThemeKey])
 })
 ```
 

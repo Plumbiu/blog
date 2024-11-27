@@ -26,6 +26,7 @@
   svg {
     display: inline-block;
     box-sizing: content-box;
+    background-color: var(--bg-md-pre);
     border-radius: 6px;
     font-size: 20px;
     padding: 10px;
