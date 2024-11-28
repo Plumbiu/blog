@@ -47,13 +47,13 @@
 .link {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
-  padding: 16px 48px 20px 20px;
-  margin-bottom: 24px;
+  gap: 8px;
+  padding: 16px 32px 16px 16px;
+  margin-bottom: 18px;
   border-width: 1px;
   border-style: solid;
   border-color: var(--divider);
-  border-radius: 12px;
+  border-radius: 10px;
   transition: background-color 0.15s ease-in-out;
   cursor: pointer;
 
@@ -71,7 +71,7 @@
 
 .title {
   font-weight: 600;
-  font-size: 16px;
+  font-size: 15px;
   color: var(--text);
 }
 
@@ -91,7 +91,7 @@
   font-size: 16px;
 }
 
-.tagwrap {
+.tags {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -104,8 +104,7 @@
 .info {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 0.25rem;
+  gap: 12px;
   font-size: 12px;
 }
 

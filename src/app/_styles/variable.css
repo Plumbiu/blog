@@ -47,6 +47,7 @@
   --bg-body: #fff;
   --bg-scrollbar: #c8c8c8;
   --bg-tag: #e9e9e9;
+  --bg-vertical-line: #bfbfbf;
   /* shadow */
   --shadow-header: 3px 3px 16px #f2f2f2, -3px -3px 16px #fefefe;
 }
@@ -54,7 +55,7 @@
 /* constant */
 :root {
   --header-h: 100px;
-  --post-w: 736px;
+  --post-w: 768px;
   --center-rest: calc((100% - var(--post-w)) / 2);
   --pre-radius: 6px;
   --pre-p: 12px;

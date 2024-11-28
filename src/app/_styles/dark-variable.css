@@ -6,7 +6,7 @@ html[data-theme='dark'] {
   --text-2: rgba(205, 205, 205, 0.78);
   --text-1: rgba(205, 205, 205);
   /* border */
-  --divider: #242426;
+  --divider: #262626;
   /* color */
   --c-yellow-soft: rgba(234, 179, 8, 0.16);
   --c-yellow-3: #a46a0a;
@@ -47,6 +47,7 @@ html[data-theme='dark'] {
   --bg-body: #000;
   --bg-scrollbar: #212123;
   --bg-tag: #181818;
+  --bg-vertical-line: #444;
   /* shadow */
   --shadow-header: 3px 3px 16px #080808, 3px 3px 16px #1a1a1a;
 }

@@ -8,6 +8,7 @@ import styles from './page.module.css'
 import { FloatType } from './types'
 import AsideLeft from './_components/AsideLeft'
 import IconCard from '../_components/IconCard'
+import { TimeWordInfo } from '../_components/PostInfo'
 
 const ids = ['blog', 'life', 'summary', 'note']
 export function generateStaticParams() {
@@ -65,31 +66,33 @@ async function ArtlistAll(props: ListProps) {
         ))}
       </div>
       <div className={styles.artlist}>
-        {lists.map(({ title, date, desc, subtitle, tags, readTime, path }) => (
-          <Link prefetch href={'/' + path} className={styles.link} key={path}>
-            <div className={styles.top}>
-              <div className={styles.title}>{title}</div>
-            </div>
-            <div className={styles.info}>
-              <div>{formatTime(date)}</div>
-              <div className="verticalLine" />
-              <div>{readTime} min</div>
-            </div>
-            {subtitle && <div className={styles.subtitle}>{subtitle}</div>}
-            <div className={styles.desc}>
-              {desc.length > MAX_LEN
-                ? desc.slice(0, MAX_LEN - 3) + '...'
-                : desc}
-            </div>
-            {tags && (
-              <div className={styles.tagwrap}>
-                {tags.map((tag) => (
-                  <IconCard key={tag} icon="#" text={tag} />
-                ))}
+        {lists.map(
+          ({ title, date, desc, subtitle, tags, wordLength, path }) => (
+            <Link prefetch href={'/' + path} className={styles.link} key={path}>
+              <div className={styles.top}>
+                <div className={styles.title}>{title}</div>
               </div>
-            )}
-          </Link>
-        ))}
+              <TimeWordInfo
+                className="text_sm"
+                wordLength={wordLength}
+                date={date}
+              />
+              {subtitle && <div className={styles.subtitle}>{subtitle}</div>}
+              <div className={styles.desc}>
+                {desc.length > MAX_LEN
+                  ? desc.slice(0, MAX_LEN - 3) + '...'
+                  : desc}
+              </div>
+              {tags && (
+                <div className={styles.tags}>
+                  {tags.map((tag) => (
+                    <IconCard key={tag} icon="#" text={tag} />
+                  ))}
+                </div>
+              )}
+            </Link>
+          ),
+        )}
       </div>
     </div>
   )

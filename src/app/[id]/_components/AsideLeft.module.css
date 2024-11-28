@@ -1,6 +1,6 @@
 .wrap {
   position: fixed;
-  margin-top: 36px;
+  margin-top: 16px;
   margin-left: 32px;
   margin-right: 16px;
   top: var(--header-h);

@@ -1,15 +1,26 @@
 .wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 36px;
+  gap: 8px;
   margin-bottom: 24px;
   text-align: center;
 }
 
 .title {
   font-size: 32px;
+  margin: 0;
   color: var(--text);
-  margin-bottom: 6px;
 }
 
 .date {
   color: var(--text-2);
   font-size: 16px;
+}
+
+.tags {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
 }

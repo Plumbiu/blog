@@ -138,5 +138,5 @@ svg {
 .verticalLine {
   height: 1em;
   width: 1px;
-  background-color: var(--bg-md-quote-before);
+  background-color: var(--bg-vertical-line);
 }

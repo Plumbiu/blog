@@ -40,3 +40,7 @@
   justify-content: center;
   gap: 6px;
 }
+
+.text_sm {
+  font-size: 12px;
+}

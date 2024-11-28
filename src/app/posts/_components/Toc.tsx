@@ -16,7 +16,7 @@ const TocLink = memo(
   ({ id, depth, title, active }: ITocList & { active: boolean }) => (
     <Link
       style={{
-        paddingLeft: depth * 16,
+        paddingLeft: (depth - 1) * 16,
       }}
       className={clsx(styles.link, {
         [styles.active]: active,
@@ -50,6 +50,7 @@ function Toc() {
     if (activeIndex == null) {
       return
     }
+    console.log(activeIndex)
     const indexSet = new Set([activeIndex])
     const currentDepth = lists[activeIndex].depth
     const depthSet = new Set([currentDepth])
@@ -63,30 +64,25 @@ function Toc() {
     return indexSet
   }, [activeIndex])
 
-  const handler = throttle(
-    () => {
-      const viewHeight = window.innerHeight / 2
-      for (let i = 0; i < nodes.current!.length; i++) {
-        const node = nodes.current![i]
-        const rect = node.getBoundingClientRect()
-        if (rect.bottom >= 0 && rect.top < viewHeight) {
-          highlight(i)
-          break
-        }
-        const nextRect = nodes.current![i + 1]?.getBoundingClientRect()
-        if (rect.bottom < 0 && nextRect && nextRect.top > viewHeight) {
-          highlight(i)
-          break
-        }
+  const handler = throttle(() => {
+    const viewHeight = 300
+    for (let i = 0; i < nodes.current!.length; i++) {
+      const node = nodes.current![i]
+      const rect = node.getBoundingClientRect()
+      if (rect.bottom >= 0 && rect.top < viewHeight) {
+        highlight(i)
+        break
       }
-    },
-    100,
-    { ignoreFirst: true },
-  )
+      const nextRect = nodes.current![i + 1]?.getBoundingClientRect()
+      if (rect.bottom < 0 && nextRect && nextRect.top > viewHeight) {
+        highlight(i)
+        break
+      }
+    }
+  }, 100)
 
   useEffect(() => {
     nodes.current = document.querySelectorAll('.md > h1,h2,h3')
-    handler()
     setLists(
       Array.from(nodes.current!).map((node) => ({
         title: node.textContent!,
@@ -101,6 +97,7 @@ function Toc() {
 
   return (
     <div ref={tocRef} className={styles.toc}>
+      <div className={styles.title}>Table of Contents</div>
       <div className={styles.inner}>
         {lists.map((list, i) => (
           <TocLink

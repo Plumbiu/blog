@@ -19,7 +19,7 @@ export interface FrontMatterItem {
   subtitle: string
   hidden?: boolean
   tags?: string[]
-  readTime: string
+  wordLength: number
 }
 
 export async function getMarkdownPath() {
@@ -52,7 +52,7 @@ export function getFrontmatter(code: string) {
   if (frontmatter.date) {
     frontmatter.date = new Date(frontmatter.date).valueOf()
   }
-  frontmatter.readTime = (rawText.length / 225).toFixed(0)
+  frontmatter.wordLength = rawText.length
   return {
     frontmatter,
     content,
@@ -85,7 +85,9 @@ export async function getPostList(id?: string) {
     }),
   )
 
-  return result.sort((prev, next) => next.date - prev.date)
+  const data = result.sort((prev, next) => next.date - prev.date)
+
+  return data
 }
 
 export function tryReadFileSync(p: string) {
