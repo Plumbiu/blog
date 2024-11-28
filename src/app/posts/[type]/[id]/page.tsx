@@ -66,6 +66,7 @@ async function Post(props: PostProps) {
   }
   return (
     <div className={styles.wrap}>
+      <Toc />
       <div
         className="center"
         style={{
@@ -75,7 +76,11 @@ async function Post(props: PostProps) {
         <FrontMatter {...info.frontmatter} />
         <Markdown content={info.content} />
       </div>
-      <Toc />
+      <div
+        style={{
+          width: 'var(--center-rest)',
+        }}
+      />
     </div>
   )
 }

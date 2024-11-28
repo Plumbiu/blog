@@ -2,10 +2,6 @@
   display: flex;
   flex-wrap: wrap;
   position: relative;
-
-  & > div {
-    margin-top: 36px;
-  }
 }
 
 @media screen and (max-width: 960px) {
@@ -18,7 +14,7 @@
   display: flex;
   color: var(--text-4);
   padding-top: 24px;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
   overflow-x: auto;
   scrollbar-width: none;
   gap: 32px;
@@ -48,13 +44,22 @@
   color: var(--text-1);
 }
 
-.artlist {
-  margin-top: 24px;
-}
-
 .link {
   display: block;
-  margin-bottom: 48px;
+  padding: 16px;
+  margin-bottom: 24px;
+  transform: translateX(-16px);
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--divider);
+  border-radius: 12px;
+  transition: background-color 0.15s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--c-gray-soft);
+    border-color: var(--c-indigo-soft);
+  }
 }
 
 .top {
@@ -63,34 +68,28 @@
   column-gap: 12px;
 }
 
-.title:hover {
-  border-color: var(--c-indigo-1);
-}
-
 .title {
   font-weight: 600;
-  margin-bottom: 4px;
+  font-size: 16px;
   color: var(--text);
-  border-width: 0;
-  border-bottom-width: 1px;
-  border-bottom-color: transparent;
-  border-style: solid;
+  margin-bottom: 0.65rem;
 }
 
 .date {
   font-size: 13.25px;
-  color: var(--text-3);
 }
 
 .desc {
-  font-size: 13.25px;
-  line-height: 1.65;
+  font-size: 13px;
+  line-height: 1.5rem;
+  color: var(--text-2);
+  margin-bottom: 0.65rem;
 }
 
 .subtitle {
   color: var(--text-3);
   font-weight: 600;
-  margin-bottom: 6px;
+  margin-bottom: 0.5rem;
 }
 
 .empty {
@@ -102,10 +101,19 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 8px;
-  margin-top: 2px;
 
   & > div {
-    font-size: 12px;
+    font-size: 14px;
   }
+}
+
+.info {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 0.25rem;
+}
+
+.split {
+  color: var(--text-4);
+  font-weight: 200;
 }

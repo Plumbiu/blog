@@ -13,6 +13,7 @@ body {
   text-rendering: optimizeLegibility;
   transition: background-color 100ms;
   scrollbar-color: var(--bg-scrollbar);
+  font-size: 14px;
 }
 
 a {
@@ -36,13 +37,13 @@ h6 {
   }
 }
 h1 {
-  font-size: 2rem;
+  font-size: 20px;
 }
 h2 {
-  font-size: 1.45rem;
+  font-size: 18px;
 }
 h3 {
-  font-size: 1.25rem;
+  font-size: 16px;
 }
 h4,
 h5,

@@ -53,9 +53,6 @@ function Header() {
           <Link href="/">Plumbiu's Blog</Link>
         </div>
         <div className={styles.right}>
-          <Link className={styles.mobile} href="/about">
-            About
-          </Link>
           <Link className={styles.mobile} href="/links">
             Links
           </Link>

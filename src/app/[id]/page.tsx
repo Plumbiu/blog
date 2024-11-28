@@ -7,7 +7,6 @@ import { FrontmatterKey, monthArr } from '@/constants'
 import styles from './page.module.css'
 import { FloatType } from './types'
 import AsideLeft from './_components/AsideLeft'
-import AsideRight from './_components/AsideRight'
 import IconCard from '../_components/IconCard'
 
 const ids = ['blog', 'life', 'summary', 'note']
@@ -26,7 +25,7 @@ interface ListProps {
 function formatTime(time: string | number) {
   const d = new Date(time)
   const month = monthArr[d.getMonth()]
-  return month + String(d.getDate()).padStart(3, ' 0')
+  return `${month} ${String(d.getDate()).padStart(3, ' 0')}, ${d.getFullYear()}`
 }
 
 const MAX_LEN = 135
@@ -66,35 +65,34 @@ async function ArtlistAll(props: ListProps) {
         ))}
       </div>
       <div className={styles.artlist}>
-        {lists.length === 0 && (
-          <div className={styles.empty}>这里空空如也.......</div>
-        )}
         {lists.map(
-          ({ frontmatter: { title, date, desc, subtitle, tags }, path }) => (
-            <div className={styles.link} key={path}>
+          ({
+            frontmatter: { title, date, desc, subtitle, tags, readTime },
+            path,
+          }) => (
+            <Link prefetch href={'/' + path} className={styles.link} key={path}>
               <div className={styles.top}>
-                <Link prefetch href={'/' + path} className={styles.title}>
-                  {title}
-                </Link>
-                {tags && tags.length === 1 && (
-                  <IconCard icon="#" text={tags[0]} />
-                )}
-                <span className={styles.date}>{formatTime(date)}</span>
+                <div className={styles.title}>{title}</div>
               </div>
-              {tags && tags.length > 1 && (
+              <div className={styles.info}>
+                <div className={styles.date}>{formatTime(date)}</div>
+                <div className={styles.split}>|</div>
+                <div>{readTime} min</div>
+              </div>
+              {subtitle && <div className={styles.subtitle}>{subtitle}</div>}
+              <div className={styles.desc}>
+                {desc.length > MAX_LEN
+                  ? desc.slice(0, MAX_LEN - 3) + '...'
+                  : desc}
+              </div>
+              {tags && (
                 <div className={styles.tagwrap}>
                   {tags.map((tag) => (
                     <IconCard key={tag} icon="#" text={tag} />
                   ))}
                 </div>
               )}
-              <div className={styles.subtitle}>{subtitle}</div>
-              <div className={styles.desc}>
-                {desc.length > MAX_LEN
-                  ? desc.slice(0, MAX_LEN - 3) + '...'
-                  : desc}
-              </div>
-            </div>
+            </Link>
           ),
         )}
       </div>

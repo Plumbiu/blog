@@ -2,15 +2,10 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  background-color: var(--c-gray-soft);
-  padding: 4px 6px;
-  border-radius: 2px;
-  font-size: 12px;
+  border-radius: 12px;
+  font-size: 14px;
   cursor: pointer;
-  transition: background-color 150ms, color 150ms;
-
-  &:hover {
-    background-color: var(--c-gray-3);
-    color: var(--text);
-  }
+  color: var(--text-1);
+  background-color: var(--bg-tag);
+  padding: 2px 8px;
 }

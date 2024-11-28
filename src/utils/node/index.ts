@@ -19,6 +19,7 @@ export interface FrontMatterItem {
   subtitle: string
   hidden?: boolean
   tags?: string[]
+  readTime: string
 }
 
 export async function getMarkdownPath() {
@@ -43,16 +44,15 @@ export function getFrontmatter(code: string) {
   const frontmatter = yaml.load(parseString) as FrontMatterItem
   const desc = frontmatter.desc
   const content = code.slice(endIndex + 3)
+  const rawText = stripMarkdown(content).trim()
   if (desc && isLikeNum(desc)) {
-    const segments = stripMarkdown(content)
-      .trim()
-      .split(/\r?\n/g)
-      .filter((s) => s.trim())
+    const segments = rawText.split(/\r?\n/g).filter((s) => s.trim())
     frontmatter.desc = segments.length > 0 ? segments[+desc - 1] : ''
   }
   if (frontmatter.date) {
     frontmatter.date = new Date(frontmatter.date).valueOf()
   }
+  frontmatter.readTime = (rawText.length / 225).toFixed(0)
   return {
     frontmatter,
     content,

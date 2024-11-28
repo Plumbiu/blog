@@ -15,7 +15,7 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 0 !important;
-  width: calc(var(--post-w) + 32px);
+  width: var(--post-w);
   height: 100%;
   margin: auto;
 
@@ -50,7 +50,7 @@
       font-size: 28px;
     }
   }
-  .left {
+  .left, .right {
     font-size: 18px;
   }
 }
