@@ -1,4 +1,5 @@
 .toc {
+  --w: 320px;
   --top: 140px;
   height: 100%;
   color: var(--text-2);
@@ -7,9 +8,8 @@
   right: 0;
   top: var(--top);
   z-index: 9;
-  font-size: 12px;
-  width: calc(200px);
-  margin-left: calc(var(--center-rest) - 200px);
+  width: var(--w);
+  margin-left: calc(var(--center-rest) - var(--w));
   max-height: 50vh;
   overflow-y: auto;
   scrollbar-width: none;
@@ -23,7 +23,7 @@
 
 .link {
   display: block;
-  max-width: 200px;
+  max-width: var(--w);
   height: 24px;
   line-height: 24px;
   transition: color 150ms;

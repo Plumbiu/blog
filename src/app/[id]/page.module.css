@@ -13,7 +13,7 @@
 .action {
   display: flex;
   color: var(--text-4);
-  padding-top: 24px;
+  padding-top: 16px;
   margin-bottom: 32px;
   overflow-x: auto;
   scrollbar-width: none;
@@ -46,7 +46,7 @@
 
 .link {
   display: block;
-  padding: 16px;
+  padding: 12px 32px 16px 16px;
   margin-bottom: 24px;
   border-width: 1px;
   border-style: solid;
@@ -69,9 +69,9 @@
 
 .title {
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--text);
-  margin-bottom: 0.65rem;
+  margin-bottom: 0.5rem;
 }
 
 .date {
@@ -79,10 +79,10 @@
 }
 
 .desc {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.5rem;
   color: var(--text-2);
-  margin-bottom: 0.65rem;
+  margin-bottom: 0.5rem;
 }
 
 .subtitle {
@@ -108,6 +108,7 @@
 
 .info {
   display: flex;
+  align-items: center;
   gap: 8px;
   margin-bottom: 0.25rem;
 }

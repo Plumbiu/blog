@@ -5,7 +5,6 @@
 .center {
   width: var(--post-w);
   margin: auto;
-  margin-bottom: 36px;
 }
 
 @media screen and (max-width: 960px) {
@@ -39,5 +38,5 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  gap: 6px;
 }

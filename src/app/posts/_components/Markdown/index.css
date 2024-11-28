@@ -3,12 +3,9 @@
   width: 100%;
   margin: 0;
   word-break: break-all;
+  line-height: 1.7142857;
   & > * {
     margin-bottom: 16px;
-  }
-
-  & > p {
-    line-height: 26px;
   }
 
   /* table */

@@ -1,0 +1,10 @@
+.wrap {
+  display: flex;
+  gap: 8px;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--text-2);
+  }
+}

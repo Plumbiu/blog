@@ -45,7 +45,11 @@ function Selector({ items, title, onChange }: SelectorProps) {
       {showPanel && (
         <div className={styles.panel}>
           {items.map(({ value, label }) => (
-            <div key={value} onClick={() => onChange(value)}>
+            <div
+              className={styles.panelItem}
+              key={value}
+              onClick={() => onChange(value)}
+            >
               {label}
             </div>
           ))}

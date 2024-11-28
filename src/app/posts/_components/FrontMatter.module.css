@@ -1,8 +1,10 @@
 .wrap {
   margin-bottom: 24px;
+  text-align: center;
 }
 
 .title {
+  font-size: 32px;
   color: var(--text);
   margin-bottom: 6px;
 }

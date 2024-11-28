@@ -127,3 +127,15 @@ a {
 img {
   -webkit-tap-highlight-color: transparent;
 }
+
+svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+}
+
+.verticalLine {
+  height: 1em;
+  width: 1px;
+  background-color: var(--bg-md-quote-before);
+}
