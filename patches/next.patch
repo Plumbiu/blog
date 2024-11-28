@@ -70,6 +70,20 @@ index b0241f1ba533e52a3e171bead69fbbeb89565090..4e60c90d791bd211e4a903b460105016
          ]
      });
  });
+diff --git a/dist/server/image-optimizer.js b/dist/server/image-optimizer.js
+index 3fbeb75219fd5f2c8a8e81bde707cecfdc53cc50..c5f5472c9bdd54af55384bcc4f26cec49d33cedf 100644
+--- a/dist/server/image-optimizer.js
++++ b/dist/server/image-optimizer.js
+@@ -582,7 +582,8 @@ async function optimizeImage({ buffer, contentType, quality, width, height, conc
+         });
+     } else if (contentType === WEBP) {
+         transformer.webp({
+-            quality
++            quality,
++            smartSubsample: true
+         });
+     } else if (contentType === PNG) {
+         transformer.png({
 diff --git a/dist/shared/lib/get-img-props.js b/dist/shared/lib/get-img-props.js
 index 99ad3535659e6c066de4d1676e942b5167ee1f55..0a757a2cf909a91c3689164f9ff87e0465188ec8 100644
 --- a/dist/shared/lib/get-img-props.js

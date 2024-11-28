@@ -9,7 +9,7 @@ patchedDependencies:
     hash: vuklsk3t2dpsarp3md24bvusmm
     path: patches/jstoxml.patch
   next:
-    hash: 6gpwzncprggjf35kayb2wowy4y
+    hash: x7ppivpqwhez72djzw22nnc5gi
     path: patches/next.patch
 
 importers:
@@ -39,10 +39,10 @@ importers:
         version: 0.20.0
       next:
         specifier: 15.0.3
-        version: 15.0.3(patch_hash=6gpwzncprggjf35kayb2wowy4y)(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 15.0.3(patch_hash=x7ppivpqwhez72djzw22nnc5gi)(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-view-transitions:
         specifier: ^0.3.2
-        version: 0.3.2(next@15.0.3(patch_hash=6gpwzncprggjf35kayb2wowy4y)(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 0.3.2(next@15.0.3(patch_hash=x7ppivpqwhez72djzw22nnc5gi)(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       p5i:
         specifier: ^0.5.0
         version: 0.5.0
@@ -94,7 +94,7 @@ importers:
         version: 15.0.3
       '@pigment-css/nextjs-plugin':
         specifier: ^0.0.25
-        version: 0.0.25(@types/react@18.3.12)(next@15.0.3(patch_hash=6gpwzncprggjf35kayb2wowy4y)(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(typescript@5.7.2)
+        version: 0.0.25(@types/react@18.3.12)(next@15.0.3(patch_hash=x7ppivpqwhez72djzw22nnc5gi)(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(typescript@5.7.2)
       '@plumbiu/eslint-config':
         specifier: ^0.3.8
         version: 0.3.8(eslint-plugin-import@2.31.0(eslint@9.15.0))(eslint@9.15.0)(typescript@5.7.2)
@@ -3297,10 +3297,10 @@ snapshots:
 
   '@nolyfill/is-core-module@1.0.39': {}
 
-  '@pigment-css/nextjs-plugin@0.0.25(@types/react@18.3.12)(next@15.0.3(patch_hash=6gpwzncprggjf35kayb2wowy4y)(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(typescript@5.7.2)':
+  '@pigment-css/nextjs-plugin@0.0.25(@types/react@18.3.12)(next@15.0.3(patch_hash=x7ppivpqwhez72djzw22nnc5gi)(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(typescript@5.7.2)':
     dependencies:
       '@pigment-css/unplugin': 0.0.25(@types/react@18.3.12)(react@18.3.1)(typescript@5.7.2)
-      next: 15.0.3(patch_hash=6gpwzncprggjf35kayb2wowy4y)(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next: 15.0.3(patch_hash=x7ppivpqwhez72djzw22nnc5gi)(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     transitivePeerDependencies:
       - '@types/react'
       - react
@@ -5127,13 +5127,13 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  next-view-transitions@0.3.2(next@15.0.3(patch_hash=6gpwzncprggjf35kayb2wowy4y)(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  next-view-transitions@0.3.2(next@15.0.3(patch_hash=x7ppivpqwhez72djzw22nnc5gi)(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      next: 15.0.3(patch_hash=6gpwzncprggjf35kayb2wowy4y)(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next: 15.0.3(patch_hash=x7ppivpqwhez72djzw22nnc5gi)(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  next@15.0.3(patch_hash=6gpwzncprggjf35kayb2wowy4y)(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  next@15.0.3(patch_hash=x7ppivpqwhez72djzw22nnc5gi)(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@next/env': 15.0.3
       '@swc/counter': 0.1.3

@@ -44,14 +44,11 @@
   user-select: none;
   animation: scaleup 0.3s cubic-bezier(0, 0, 0.25, 1) forwards;
   cursor: grab;
-  min-width: 50vw;
   max-width: 95vw;
   width: auto;
   height: auto;
   object-fit: contain;
   max-height: calc(90vh - 104px);
-  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08),
-    0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
 
   &:active {
     cursor: grabbing;
