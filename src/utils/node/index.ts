@@ -3,7 +3,7 @@ import fsp from 'node:fs/promises'
 import yaml from 'js-yaml'
 import { minify_sync } from 'terser'
 import sharp from 'sharp'
-import { FrontmatterKey, FrontmatterWrapStr, PostDir } from '@/constants'
+import { FrontmatterWrapStr, PostDir } from '@/constants'
 import stripMarkdown from '../strip-markdown'
 import {
   isLikeNum,
@@ -59,15 +59,12 @@ export function getFrontmatter(code: string) {
   }
 }
 
-export interface PostInfo {
-  type: FrontmatterKey
-  frontmatter: FrontMatterItem
-  content: string
+export interface PostList extends FrontMatterItem {
   path: string
 }
 
-export async function getPostsInfo(id?: string) {
-  const result: PostInfo[] = []
+export async function getPostList(id?: string) {
+  const result: PostList[] = []
   const mds = await getMarkdownPath()
   await Promise.all(
     mds.map(async (mdPath) => {
@@ -81,18 +78,14 @@ export async function getPostsInfo(id?: string) {
         return
       }
       const data = {
-        type,
-        frontmatter,
-        content,
+        ...frontmatter,
         path: removeMdSuffix(mdPath),
       }
       result.push(data)
     }),
   )
 
-  return result.sort(
-    (prev, next) => next.frontmatter.date - prev.frontmatter.date,
-  )
+  return result.sort((prev, next) => next.date - prev.date)
 }
 
 export function tryReadFileSync(p: string) {

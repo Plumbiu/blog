@@ -1,10 +1,10 @@
 import fsp from 'fs/promises'
 import { toXML } from 'jstoxml'
-import { PostInfo } from '@/utils/node'
+import { PostList } from '@/utils/node'
 
 const URL = 'https://blog.plumbiu.top'
 
-async function generateRss(posts: PostInfo[]) {
+async function generateRss(posts: PostList[]) {
   const json: Record<string, any> = {
     channel: [
       { title: 'Plumbiu の 小屋' },
@@ -24,11 +24,10 @@ async function generateRss(posts: PostInfo[]) {
   }
 
   json.channel.push({
-    lastBuildDate: posts[0].frontmatter.date,
+    lastBuildDate: posts[0].date,
   })
   for (const post of posts) {
-    const { frontmatter } = post
-    const { title, desc: description, date: pubDate } = frontmatter
+    const { title, desc: description, date: pubDate } = post
     json.channel.push({
       item: {
         title,

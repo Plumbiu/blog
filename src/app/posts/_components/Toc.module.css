@@ -8,8 +8,7 @@
   right: 0;
   top: var(--top);
   z-index: 9;
-  width: var(--w);
-  margin-left: calc(var(--center-rest) - var(--w));
+  width: var(--center-rest);
   max-height: 50vh;
   overflow-y: auto;
   scrollbar-width: none;
@@ -24,8 +23,8 @@
 .link {
   display: block;
   max-width: var(--w);
-  height: 24px;
-  line-height: 24px;
+  height: 26px;
+  line-height: 26px;
   transition: color 150ms;
   overflow: hidden;
   white-space: nowrap;

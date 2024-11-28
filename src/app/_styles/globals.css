@@ -84,6 +84,7 @@ h6 {
 }
 
 ::-webkit-scrollbar-thumb {
+  border-radius: 4px;
   background-color: var(--bg-scrollbar);
 }
 
@@ -93,7 +94,7 @@ h6 {
 
 ::-webkit-scrollbar {
   width: 10px;
-  height: 8px;
+  height: 6px;
 }
 
 /* list */

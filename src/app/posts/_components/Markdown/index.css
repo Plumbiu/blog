@@ -4,6 +4,7 @@
   margin: 0;
   word-break: break-all;
   line-height: 1.7142857;
+  padding: 0 16px;
   & > * {
     margin-bottom: 16px;
   }

@@ -2,7 +2,7 @@ import { Link } from 'next-view-transitions'
 import { Metadata } from 'next'
 import { clsx } from 'clsx'
 import { getYear, upperFirstChar } from '@/utils'
-import { getPostsInfo } from '@/utils/node'
+import { getPostList } from '@/utils/node'
 import { FrontmatterKey, monthArr } from '@/constants'
 import styles from './page.module.css'
 import { FloatType } from './types'
@@ -32,17 +32,17 @@ const MAX_LEN = 135
 
 async function ArtlistAll(props: ListProps) {
   const params = await props.params
-  const lists = await getPostsInfo(params.id)
+  const lists = await getPostList(params.id)
 
   const floatMap: FloatType = {}
   for (const list of lists) {
-    const year = getYear(list.frontmatter.date)
+    const year = getYear(list.date)
     if (!floatMap[year]) {
       floatMap[year] = []
     }
     floatMap[year].push({
       path: `/${list.path}`,
-      title: list.frontmatter.title,
+      title: list.title,
     })
   }
   const floatItems = Object.entries(floatMap).sort(([a], [b]) => +b - +a)
@@ -65,36 +65,31 @@ async function ArtlistAll(props: ListProps) {
         ))}
       </div>
       <div className={styles.artlist}>
-        {lists.map(
-          ({
-            frontmatter: { title, date, desc, subtitle, tags, readTime },
-            path,
-          }) => (
-            <Link prefetch href={'/' + path} className={styles.link} key={path}>
-              <div className={styles.top}>
-                <div className={styles.title}>{title}</div>
+        {lists.map(({ title, date, desc, subtitle, tags, readTime, path }) => (
+          <Link prefetch href={'/' + path} className={styles.link} key={path}>
+            <div className={styles.top}>
+              <div className={styles.title}>{title}</div>
+            </div>
+            <div className={styles.info}>
+              <div>{formatTime(date)}</div>
+              <div className="verticalLine" />
+              <div>{readTime} min</div>
+            </div>
+            {subtitle && <div className={styles.subtitle}>{subtitle}</div>}
+            <div className={styles.desc}>
+              {desc.length > MAX_LEN
+                ? desc.slice(0, MAX_LEN - 3) + '...'
+                : desc}
+            </div>
+            {tags && (
+              <div className={styles.tagwrap}>
+                {tags.map((tag) => (
+                  <IconCard key={tag} icon="#" text={tag} />
+                ))}
               </div>
-              <div className={styles.info}>
-                <div>{formatTime(date)}</div>
-                <div className="verticalLine" />
-                <div>{readTime} min</div>
-              </div>
-              {subtitle && <div className={styles.subtitle}>{subtitle}</div>}
-              <div className={styles.desc}>
-                {desc.length > MAX_LEN
-                  ? desc.slice(0, MAX_LEN - 3) + '...'
-                  : desc}
-              </div>
-              {tags && (
-                <div className={styles.tagwrap}>
-                  {tags.map((tag) => (
-                    <IconCard key={tag} icon="#" text={tag} />
-                  ))}
-                </div>
-              )}
-            </Link>
-          ),
-        )}
+            )}
+          </Link>
+        ))}
       </div>
     </div>
   )

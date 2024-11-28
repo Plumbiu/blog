@@ -1,6 +1,6 @@
 'use client'
 
-import { memo, useEffect, useRef, useState } from 'react'
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { clsx } from 'clsx'
 import { Link } from 'next-view-transitions'
 import { throttle } from '@/utils'
@@ -9,14 +9,14 @@ import styles from './Toc.module.css'
 interface ITocList {
   title: string
   id: string
-  pl: number
+  depth: number
 }
 
 const TocLink = memo(
-  ({ id, pl, title, active }: ITocList & { active: boolean }) => (
+  ({ id, depth, title, active }: ITocList & { active: boolean }) => (
     <Link
       style={{
-        paddingLeft: pl,
+        paddingLeft: depth * 16,
       }}
       className={clsx(styles.link, {
         [styles.active]: active,
@@ -29,7 +29,7 @@ const TocLink = memo(
 )
 
 function Toc() {
-  const [list, setList] = useState<ITocList[]>([])
+  const [lists, setLists] = useState<ITocList[]>([])
   const [activeIndex, setActiveIndex] = useState<number>()
   const nodes = useRef<NodeListOf<Element>>()
   const tocRef = useRef<HTMLDivElement>(null)
@@ -45,6 +45,23 @@ function Toc() {
       })
     }
   }
+
+  const highlightSet = useMemo(() => {
+    if (activeIndex == null) {
+      return
+    }
+    const indexSet = new Set([activeIndex])
+    const currentDepth = lists[activeIndex].depth
+    const depthSet = new Set([currentDepth])
+    for (let i = activeIndex - 1; i >= 0; i--) {
+      const list = lists[i]
+      if (list.depth < currentDepth && !depthSet.has(list.depth)) {
+        indexSet.add(i)
+        depthSet.add(list.depth)
+      }
+    }
+    return indexSet
+  }, [activeIndex])
 
   const handler = throttle(
     () => {
@@ -70,11 +87,11 @@ function Toc() {
   useEffect(() => {
     nodes.current = document.querySelectorAll('.md > h1,h2,h3')
     handler()
-    setList(
+    setLists(
       Array.from(nodes.current!).map((node) => ({
         title: node.textContent!,
         id: node.id!,
-        pl: +node.tagName[1] * 16,
+        depth: +node.tagName[1],
       })),
     )
     window.addEventListener('scroll', handler)
@@ -84,9 +101,17 @@ function Toc() {
 
   return (
     <div ref={tocRef} className={styles.toc}>
-      {list.map((list, i) => (
-        <TocLink key={i} {...list} active={i === activeIndex} />
-      ))}
+      <div className={styles.inner}>
+        {lists.map((list, i) => (
+          <TocLink
+            key={i}
+            {...list}
+            active={
+              activeIndex != null && highlightSet != null && highlightSet.has(i)
+            }
+          />
+        ))}
+      </div>
     </div>
   )
 }
