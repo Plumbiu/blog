@@ -8,6 +8,7 @@
   background-color: var(--bg-body);
   height: var(--header-h);
   transition: height 200ms;
+  font-size: 16px;
 }
 
 .header {
