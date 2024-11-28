@@ -45,8 +45,10 @@
 }
 
 .link {
-  display: block;
-  padding: 12px 32px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 16px 48px 20px 20px;
   margin-bottom: 24px;
   border-width: 1px;
   border-style: solid;
@@ -71,24 +73,17 @@
   font-weight: 600;
   font-size: 16px;
   color: var(--text);
-  margin-bottom: 0.5rem;
-}
-
-.date {
-  font-size: 12px;
 }
 
 .desc {
   font-size: 13px;
   line-height: 1.5rem;
   color: var(--text-2);
-  margin-bottom: 0.5rem;
 }
 
 .subtitle {
   color: var(--text-3);
   font-weight: 600;
-  margin-bottom: 0.5rem;
 }
 
 .empty {
@@ -111,6 +106,7 @@
   align-items: center;
   gap: 8px;
   margin-bottom: 0.25rem;
+  font-size: 12px;
 }
 
 .split {

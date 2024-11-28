@@ -75,7 +75,7 @@ async function ArtlistAll(props: ListProps) {
                 <div className={styles.title}>{title}</div>
               </div>
               <div className={styles.info}>
-                <div className={styles.date}>{formatTime(date)}</div>
+                <div>{formatTime(date)}</div>
                 <div className="verticalLine" />
                 <div>{readTime} min</div>
               </div>
