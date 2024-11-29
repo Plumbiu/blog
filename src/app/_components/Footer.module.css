@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--text-3);
   white-space: nowrap;
   margin: 36px auto;
@@ -15,5 +15,5 @@
 
 .right svg {
   color: var(--text);
-  font-size: 22px;
+  font-size: 26px;
 }

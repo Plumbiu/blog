@@ -3,7 +3,6 @@
   width: 100%;
   margin: 0;
   word-break: break-all;
-  line-height: 1.7;
   & > * {
     margin-bottom: 16px;
   }

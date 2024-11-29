@@ -9,7 +9,6 @@ import './_styles/preset.css'
 // import '@pigment-css/react/styles.css'
 import Footer from './_components/Footer'
 import { mono } from './fonts'
-import Navigator from './_components/Navigator'
 
 export const metadata: Metadata = {
   title: 'Plumbiuの博客',
@@ -35,9 +34,7 @@ export default function RootLayout({
       <body className={mono.className}>
         <ViewTransitions>
           <Header />
-          <div className="main_children">
-            {children}
-          </div>
+          <div className="main_children">{children}</div>
           <Footer />
           <Modal />
         </ViewTransitions>

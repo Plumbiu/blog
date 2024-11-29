@@ -22,10 +22,10 @@
 
 .link {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   max-width: 300px;
-  height: 26px;
-  line-height: 26px;
+  height: 30px;
+  line-height: 30px;
   transition: color 150ms;
   overflow: hidden;
   white-space: nowrap;

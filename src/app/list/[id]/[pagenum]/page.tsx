@@ -1,18 +1,32 @@
 import { Link } from 'next-view-transitions'
 import { Metadata } from 'next'
 import { clsx } from 'clsx'
+import { ReactNode } from 'react'
 import { getYear, upperFirstChar } from '@/utils'
 import { getPostList } from '@/utils/node'
 import IconCard from '@/app/_components/IconCard'
 import { TimeWordInfo } from '@/app/_components/PostInfo'
 import Card from '@/app/_components/Card'
+import {
+  BlogIcon,
+  LifeIcon,
+  NoteIcon,
+  SummaryIcon,
+} from '@/app/_components/Icons'
 import styles from './page.module.css'
 import { FloatType } from './types'
 import AsideLeft from './_components/AsideLeft'
 
 const MAX_PAGE_SIZE = 4
-
 const ids = ['blog', 'life', 'summary', 'note'] as const
+
+const iconMap: Record<(typeof ids)[number], ReactNode> = {
+  blog: <BlogIcon style={{ backgroundColor: 'var(--c-green-soft)' }} />,
+  life: <LifeIcon style={{ backgroundColor: 'var(--c-red-soft)' }} />,
+  summary: <SummaryIcon style={{ backgroundColor: 'var(--c-indigo-soft)' }} />,
+  note: <NoteIcon style={{ backgroundColor: 'var(--c-gray-soft)' }} />,
+}
+
 interface Params {
   id: string
   pagenum: string
@@ -78,6 +92,7 @@ async function ArtlistAll(props: ListProps) {
             href={`/list/${p}/1`}
           >
             {upperFirstChar(p)}
+            {iconMap[p]}
           </Link>
         ))}
       </div>
@@ -86,11 +101,7 @@ async function ArtlistAll(props: ListProps) {
           ({ title, date, desc, subtitle, tags, wordLength, path }) => (
             <Link prefetch href={'/' + path} className={styles.link} key={path}>
               <div className={styles.title}>{title}</div>
-              <TimeWordInfo
-                className="text_sm"
-                wordLength={wordLength}
-                date={date}
-              />
+              <TimeWordInfo wordLength={wordLength} date={date} />
               {subtitle && <div className={styles.subtitle}>{subtitle}</div>}
               <div className={styles.desc}>
                 {desc.length > MAX_LEN
@@ -166,6 +177,6 @@ export default ArtlistAll
 export async function generateMetadata(props: ListProps): Promise<Metadata> {
   const params = (await props.params).id
   return {
-    title: `${upperFirstChar(params[0] || 'blog')} | 文章`,
+    title: `${upperFirstChar(params || 'blog')} | 文章`,
   }
 }

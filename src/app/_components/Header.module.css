@@ -5,7 +5,7 @@
   right: 0;
   z-index: 99;
   width: 100%;
-  font-size: 16px;
+  font-size: 18px;
   background-color: var(--bg-body);
   height: var(--header-h);
   transition: height 200ms;
@@ -20,7 +20,7 @@
   height: 100%;
   margin: auto;
 
-  a {
+  a, svg {
     color: var(--text-2);
     transition: color 125ms ease-in-out;
     cursor: pointer;
@@ -30,22 +30,13 @@
   }
 
   svg {
-    font-size: 21px;
+    font-size: 22px;
   }
 }
 
 @media screen and (max-width: 960px) {
   .header {
-    width: 100%;
     padding: 0 16px;
-
-    & svg {
-      font-size: 28px;
-    }
-  }
-  .left,
-  .right {
-    font-size: 18px;
   }
 }
 
@@ -66,6 +57,14 @@
 .left {
   font-weight: 700;
   font-style: italic;
+  font-size: 24px;
+
+  svg {
+    margin-left: 4px;
+    font-size: 26px;
+    fill: var(--c-red-1);
+    transform: skewX(-16deg);
+  }
 }
 
 .right {
@@ -77,5 +76,16 @@
 @media screen and (max-width: 780px) {
   .right {
     gap: 18px;
+  }
+}
+
+.theme {
+  transition: background-color 150ms ease-in-out;
+  padding: 8px;
+  margin-right: -4px;
+  cursor: pointer;
+  border-radius: 50%;
+  &:hover {
+    background-color: var(--c-gray-soft);
   }
 }

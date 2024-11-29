@@ -6,9 +6,10 @@ interface CardProps {
   children: ReactNode
   active?: boolean
   disabled?: boolean
+  [key: string]: any
 }
 
-function Card({ children, active, disabled = false }: CardProps) {
+function Card({ children, active, disabled = false, ...rest }: CardProps) {
   return (
     <div
       className={clsx(styles.card, {
@@ -16,6 +17,7 @@ function Card({ children, active, disabled = false }: CardProps) {
         [styles.disabled]: disabled,
         [styles.transition]: !disabled,
       })}
+      {...rest}
     >
       {children}
     </div>

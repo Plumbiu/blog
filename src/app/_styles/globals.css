@@ -13,7 +13,6 @@ body {
   text-rendering: optimizeLegibility;
   transition: background-color 100ms;
   scrollbar-color: var(--bg-scrollbar);
-  font-size: 14px;
 }
 
 a {
