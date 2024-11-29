@@ -120,7 +120,7 @@ async function ArtlistAll(props: ListProps) {
         )}
       </div>
       <div className={styles.bottom}>
-        <Card disabled={pagenum === 1}>
+        <Card disabled={pagenum === 1 || allLists.length === 0}>
           <Link
             className="fcc"
             scroll={false}
@@ -147,7 +147,7 @@ async function ArtlistAll(props: ListProps) {
             </Link>
           </Card>
         ))}
-        <Card disabled={pagenum === pageEndIndex}>
+        <Card disabled={pagenum === pageEndIndex || allLists.length === 0}>
           <Link
             className="fcc"
             scroll={false}
