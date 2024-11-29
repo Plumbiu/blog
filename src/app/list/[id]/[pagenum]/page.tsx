@@ -15,7 +15,7 @@ const MAX_PAGE_SIZE = 4
 const ids = ['blog', 'life', 'summary', 'note'] as const
 interface Params {
   id: string
-  pagenum: number
+  pagenum: string
 }
 export async function generateStaticParams() {
   const result: Params[] = []
@@ -23,10 +23,10 @@ export async function generateStaticParams() {
   await Promise.all(
     ids.map(async (id) => {
       const post = await getPostList(id)
-      for (let i = 1; i <= post.length; i++) {
+      for (let i = 1; i <= Math.ceil(post.length / MAX_PAGE_SIZE); i++) {
         result.push({
           id,
-          pagenum: i,
+          pagenum: String(i),
         })
       }
     }),

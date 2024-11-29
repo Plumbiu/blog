@@ -5,7 +5,7 @@ export default function Art() {
     <ArtlistAll
       params={Promise.resolve({
         id: 'blog',
-        pagenum: 1,
+        pagenum: '1',
       })}
     />
   )
