@@ -3,7 +3,7 @@
   --text: #000;
   --text-4: rgba(33, 33, 33, 0.4);
   --text-3: rgba(33, 33, 33, 0.56);
-  --text-2: rgba(33, 33, 33, 0.78);
+  --text-2: rgba(33, 33, 33, 0.82);
   --text-1: rgb(33, 33, 33);
   /* border */
   --divider: #e2e2e5;
@@ -55,7 +55,7 @@
 /* constant */
 :root {
   --header-h: 120px;
-  --post-w: 768px;
+  --post-w: 740px;
   --center-rest: calc((100% - var(--post-w)) / 2);
   --pre-radius: 6px;
   --pre-p: 12px;

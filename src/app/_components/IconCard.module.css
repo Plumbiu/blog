@@ -7,5 +7,5 @@
   cursor: pointer;
   color: var(--text-1);
   background-color: var(--bg-tag);
-  padding: 2px 10px;
+  padding: 3px 10px;
 }

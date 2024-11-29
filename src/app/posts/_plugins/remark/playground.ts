@@ -30,6 +30,8 @@ const SupportStaticPlaygroundLang = new Set(['html', 'css', 'js', 'txt'])
 
 const SplitKey = '///'
 const PlaygroundNameCustomPreviewRegx = /Playground=['"]([^'"]+)['"]/
+const PlaygroundCustomComponentRegx = /component=['"]([^'"]+)['"]/
+const PlaygroundPathRegx = /path=['"]([^'"]+)['"]/
 function remarkPlayground(): RemarkReturn {
   return (tree) => {
     visit(tree, 'code', (node) => {
@@ -57,11 +59,20 @@ function remarkPlayground(): RemarkReturn {
         )
 
         const previewName = PlaygroundNameCustomPreviewRegx.exec(meta)?.[1]
+        const componentName = PlaygroundCustomComponentRegx.exec(meta)?.[1]
+        const componentPath = PlaygroundPathRegx.exec(meta)?.[1]
         if (previewName) {
           const content = tryReadFileSync(
             path.join('src', 'components', `${previewName}.tsx`),
           )
           handlePlaygroundCustomPreivew(props, getBaseName(previewName))
+          handleComponentCode(props, content.trim())
+        }
+        if (componentName && componentPath) {
+          const content = tryReadFileSync(
+            path.join('src', 'components', `${componentPath}.tsx`),
+          )
+          handlePlaygroundCustomPreivew(props, componentName)
           handleComponentCode(props, content.trim())
         }
         let hideTabs = true
