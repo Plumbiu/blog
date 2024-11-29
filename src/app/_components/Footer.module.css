@@ -1,11 +1,19 @@
 .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 14px;
   color: var(--text-3);
   white-space: nowrap;
-  margin-top: 100px;
+  margin: 36px auto;
 
   & > a {
     color: inherit;
-    margin-right: 8px;
+    margin-right: 6px;
   }
+}
+
+.right svg {
+  color: var(--text);
+  font-size: 22px;
 }

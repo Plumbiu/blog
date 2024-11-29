@@ -1,0 +1,31 @@
+.card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  min-width: 36px;
+  min-height: 36px;
+  font-weight: 700;
+  border-radius: 6px;
+
+  & + .card {
+    margin-left: 12px;
+  }
+}
+
+.transition {
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+  &:hover {
+    background-color: var(--c-gray-soft);
+  }
+}
+
+.active {
+  background-color: var(--c-gray-soft);
+}
+
+.disabled {
+  pointer-events: none;
+  color: var(--text-4);
+}

@@ -5,10 +5,10 @@
   right: 0;
   z-index: 99;
   width: 100%;
+  font-size: 16px;
   background-color: var(--bg-body);
   height: var(--header-h);
   transition: height 200ms;
-  font-size: 16px;
 }
 
 .header {
@@ -20,8 +20,7 @@
   height: 100%;
   margin: auto;
 
-  & a,
-  svg {
+  a {
     color: var(--text-2);
     transition: color 125ms ease-in-out;
     cursor: pointer;
@@ -30,15 +29,8 @@
     }
   }
 
-  & svg {
-    display: block;
-    font-size: 24px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .mobile {
-    display: none;
+  svg {
+    font-size: 21px;
   }
 }
 
@@ -51,14 +43,14 @@
       font-size: 28px;
     }
   }
-  .left, .right {
+  .left,
+  .right {
     font-size: 18px;
   }
 }
 
 .shadow {
-  box-shadow: var(--shadow-header);
-  height: calc((var(--header-h) - 32px));
+  height: calc((var(--header-h) - 48px));
 }
 
 .hide {

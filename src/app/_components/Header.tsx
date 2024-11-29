@@ -2,12 +2,7 @@
 
 import { Link } from 'next-view-transitions'
 import { useEffect, useRef } from 'react'
-import {
-  GithubIcon,
-  RssIcon,
-  SearchIcon,
-  ThemeIcon,
-} from '@/app/_components/Icons'
+import { ThemeIcon } from '@/app/_components/Icons'
 import { applyTheme, Dark, Light, toggleDataTheme } from '@/utils/client/theme'
 import styles from './Header.module.css'
 import Selector from './Selector'
@@ -50,12 +45,9 @@ function Header() {
     <header ref={ref} className={styles.wrap}>
       <div className={styles.header}>
         <div className={styles.left}>
-          <Link href="/">Plumbiu's Blog</Link>
+          <Link href="/list/blog/1">Plumbiu's Blog</Link>
         </div>
         <div className={styles.right}>
-          <Link className={styles.mobile} href="/links">
-            Links
-          </Link>
           <Selector
             title={<ThemeIcon />}
             items={[
@@ -87,12 +79,8 @@ function Header() {
               }
             }}
           />
-          <Link target="_blank" href="/rss.xml">
-            <RssIcon />
-          </Link>
-          <Link target="_blank" href="https://github.com/Plumbiu/blog">
-            <GithubIcon />
-          </Link>
+          <Link href="/links">Links</Link>
+          <Link href="/about">About</Link>
         </div>
       </div>
     </header>

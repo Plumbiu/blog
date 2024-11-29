@@ -13,11 +13,11 @@
 .action {
   display: flex;
   color: var(--text-4);
-  padding-top: 16px;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   overflow-x: auto;
   scrollbar-width: none;
   gap: 32px;
+  font-size: 20px;
 
   &::-webkit-scrollbar {
     height: 0;
@@ -25,7 +25,6 @@
 
   & > a {
     transition: color 150ms;
-    font-size: 22px;
 
     &:hover {
       color: var(--text-1);
@@ -63,12 +62,6 @@
   }
 }
 
-.top {
-  display: flex;
-  align-items: baseline;
-  column-gap: 12px;
-}
-
 .title {
   font-weight: 600;
   font-size: 15px;
@@ -77,18 +70,13 @@
 
 .desc {
   font-size: 13px;
-  line-height: 1.5rem;
+  line-height: 1.45rem;
   color: var(--text-2);
 }
 
 .subtitle {
   color: var(--text-3);
   font-weight: 600;
-}
-
-.empty {
-  color: var(--text-2);
-  font-size: 16px;
 }
 
 .tags {
@@ -101,14 +89,12 @@
   }
 }
 
-.info {
+.bottom {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 12px;
-}
-
-.split {
-  color: var(--text-4);
-  font-weight: 200;
+  justify-content: center;
+  margin-top: 36px;
+  svg {
+    font-size: 16px;
+  }
 }
