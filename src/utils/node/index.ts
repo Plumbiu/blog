@@ -52,7 +52,7 @@ export function getFrontmatter(code: string) {
   if (frontmatter.date) {
     frontmatter.date = new Date(frontmatter.date).valueOf()
   }
-  frontmatter.wordLength = rawText.length
+  frontmatter.wordLength = rawText.replace(/\s+/g, '').length
   return {
     frontmatter,
     content,
