@@ -6,6 +6,6 @@
   cursor: pointer;
   color: var(--text-1);
   background-color: var(--bg-tag);
-  padding: 3px 10px;
-  font-size: 14px;
+  padding: 3px 8px;
+  font-size: 12px;
 }

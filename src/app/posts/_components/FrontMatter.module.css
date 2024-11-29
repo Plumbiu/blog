@@ -22,4 +22,9 @@
   display: flex;
   gap: 12px;
   margin-top: 8px;
+
+  & > div {
+    font-size: 14px;
+    padding: 4px 10px;
+  }
 }
