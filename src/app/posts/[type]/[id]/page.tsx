@@ -5,12 +5,7 @@ import { Metadata } from 'next'
 import React from 'react'
 import { getCategory, removeMdSuffix, upperFirstChar } from '@/utils'
 import NotFound from '@/app/_components/NotFound'
-import {
-  FrontMatterItem,
-  getFrontmatter,
-  getMarkdownPath,
-  getPostList,
-} from '@/utils/node'
+import { FrontMatterItem, getFrontmatter, getMarkdownPath } from '@/utils/node'
 import { FrontmatterKey } from '@/constants'
 import styles from './page.module.css'
 import Markdown from '../../_components/Markdown'

@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import fsp from 'node:fs/promises'
+import path from 'node:path'
 import yaml from 'js-yaml'
 import { minify_sync } from 'terser'
 import sharp from 'sharp'
@@ -26,9 +27,9 @@ export async function getMarkdownPath() {
   const results: string[] = []
   await Promise.all(
     PostDir.map(async (dir) => {
-      const postsPath = joinFormatPaths('posts', dir)
+      const postsPath = path.join(process.cwd(), 'posts', dir)
       const posts = await fsp.readdir(postsPath)
-      results.push(...posts.map((p) => joinFormatPaths(postsPath, p)))
+      results.push(...posts.map((p) => joinFormatPaths('posts', dir, p)))
     }),
   )
   return results
