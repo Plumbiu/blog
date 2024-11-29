@@ -92,7 +92,23 @@ export default RootLayout
 
 ## 主题图标问题？
 
-在我之前的博客版本中，如果用户当前是暗色主题，主题图标会是 `<MoonIcon>`，亮色主题则是 `<SunIcon>`，这里是通过 react 中的 `useState` + `useLayoutEffect` 设置的，但是这样图标也会出现闪烁，唯一解决方案就是等待 React 的虚拟 DOM 全部 mount 后（hydrate 水和完成）重新渲染，但是这样就失去了 ssr/ssg 的优势。
+在我之前的博客版本中，如果用户当前是暗色主题，主题图标会是 `<MoonIcon>`，亮色主题则是 `<SunIcon>`，这里是通过 react 中的 `useState` + `useLayoutEffect` 设置的，但是这样图标也会出现闪烁，唯一解决方案就是等待 ~~React 的虚拟 DOM 全部 mount 后（hydrate 水和完成）重新渲染~~，但是这样就失去了 ssr/ssg 的优势。
+
+> 上述口述有误，应该是等到 HTML 加载完毕
+
+```js
+const [theme, setTheme] = useState(null)
+useEffect(() => {
+  setTheme(Your_Thme)
+}, [])
+
+// 没有 theme 返回 null，页面会显示空白
+if (!theme) {
+  return null
+}
+
+return theme === 'light' ? <MoonIcon /> : <SunIcon />
+```
 
 我的解决方案是图标替换为下拉框，你可以在我的博客头部尝试，这里给出一个简单的版本：
 
