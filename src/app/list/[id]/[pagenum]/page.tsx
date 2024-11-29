@@ -31,9 +31,7 @@ export async function generateStaticParams() {
       }
     }),
   )
-  return ids.map((id) => ({
-    id,
-  }))
+  return result
 }
 
 interface ListProps {
