@@ -40,7 +40,4 @@
   height: 100%;
   max-height: 70vh;
   overflow: auto;
-  & * {
-    all: revert;
-  }
 }

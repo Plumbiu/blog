@@ -1,9 +1,16 @@
+import { CSSProperties } from 'react'
 import { LoadingIcon } from '@/app/_components/Icons'
+
+const style: CSSProperties = {
+  minHeight: 300,
+  flexDirection: 'column',
+}
 
 function Loading() {
   return (
-    <div className="fcc">
+    <div style={style} className="fcc">
       <LoadingIcon fontSize={24} />
+      <div>Running...</div>
     </div>
   )
 }

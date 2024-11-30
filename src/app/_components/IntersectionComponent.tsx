@@ -1,11 +1,4 @@
-import {
-  useRef,
-  useState,
-  useEffect,
-  Suspense,
-  createElement,
-  memo,
-} from 'react'
+import { useRef, Suspense, createElement, memo } from 'react'
 import Loading from '@/components/_common/Loading'
 import useObserver from '../_hooks/useObservser'
 
