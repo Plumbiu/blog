@@ -1,13 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import { LogInfo } from '@/app/_hooks/useConsole'
-import { LoadingIcon } from '@/app/_components/Icons'
 import PreComponent from '@/app/posts/_components/Pre'
 import { handleComponentCode } from '@/app/posts/_plugins/constant'
 import { getRunCode } from '@/app/posts/_plugins/remark/runner-utils'
 import useObserver from '@/app/_hooks/useObservser'
-import styles from './index.module.css'
 import CodeWrap from '../_common/CodeWrap'
 import Console from '../_common/Console'
+import Loading from '../_common/Loading'
 
 function CodeRunner(props: any) {
   const runCode = getRunCode(props)
@@ -40,14 +39,7 @@ function CodeRunner(props: any) {
         }}
       >
         <PreComponent code={code}>{props.children}</PreComponent>
-        {logs.length ? (
-          <Console showType logs={logs} />
-        ) : (
-          <div className={styles.run}>
-            <LoadingIcon />
-            <div>Running...</div>
-          </div>
-        )}
+        {logs.length ? <Console showType logs={logs} /> : <Loading />}
       </CodeWrap>
     </div>
   )

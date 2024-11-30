@@ -7,7 +7,7 @@
 访问 [note/custom-component](https://blog.plumbiu.top/posts/note/custom-component) 查看所有自定义组件
 
 > [!WARNING]
-> 有一些规则可能对安全产生问题，所以请谨慎使用！！！
+> 有一些规则可能对安全产生问题，请谨慎使用！！！
 
 ## CodeRunner [预览](https://blog.plumbiu.top/posts/note/custom-component#code-runner)
 

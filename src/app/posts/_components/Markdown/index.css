@@ -89,8 +89,8 @@
     margin-bottom: 12px;
     font-size: 14px;
     padding: 8px 0;
+    padding-left: 16px;
     margin-left: calc(var(--extend-x) / 2);
-    padding-left: 18px;
     border-left: 4px solid var(--bg-md-quote-before);
     p {
       margin: 0;
@@ -100,9 +100,9 @@
   blockquote[class] {
     color: var(--text-1);
     border-radius: 2px;
+    padding-right: 16px;
     border-left: none;
     margin-left: 0;
-    padding-left: 16px;
   }
   blockquote[data-title] p:first-child {
     font-weight: 700;
