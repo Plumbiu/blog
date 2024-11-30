@@ -16,6 +16,7 @@ import {
 import styles from './page.module.css'
 import { FloatType } from './types'
 import AsideLeft from './_components/AsideLeft'
+import { formatPostByYear } from './utils'
 
 const MAX_PAGE_SIZE = 4
 const ids = ['blog', 'life', 'summary', 'note'] as const
@@ -59,28 +60,17 @@ async function ArtlistAll(props: ListProps) {
   const id = params.id
   const pagenum = +params.pagenum
   const allLists = await getPostList(id)
-  const floatMap: FloatType = {}
-  for (const list of allLists) {
-    const year = getYear(list.date)
-    if (!floatMap[year]) {
-      floatMap[year] = []
-    }
-    floatMap[year].push({
-      path: `/${list.path}`,
-      title: list.title,
-    })
-  }
-  const floatItems = Object.entries(floatMap).sort(([a], [b]) => +b - +a)
-  const startIndex = pagenum - 1
-  const showLists = allLists.slice(
-    startIndex * MAX_PAGE_SIZE,
-    (startIndex + 1) * MAX_PAGE_SIZE,
+  const floatLists = formatPostByYear(allLists)
+
+  const showLists = formatPostByYear(
+    allLists.slice((pagenum - 1) * MAX_PAGE_SIZE, pagenum * MAX_PAGE_SIZE),
   )
+  console.log(floatLists)
   const pageEndIndex = Math.ceil(allLists.length / MAX_PAGE_SIZE)
   const pages = new Array(pageEndIndex).fill(1).map((_, i) => i + 1)
   return (
     <div className="center">
-      <AsideLeft items={floatItems} />
+      <AsideLeft items={floatLists} />
       <div className={styles.action}>
         {ids.map((p) => (
           <Link
@@ -97,27 +87,39 @@ async function ArtlistAll(props: ListProps) {
         ))}
       </div>
       <div className={styles.artlist}>
-        {showLists.map(
-          ({ title, date, desc, subtitle, tags, wordLength, path }) => (
-            <Link prefetch href={'/' + path} className={styles.link} key={path}>
-              <div className={styles.title}>{title}</div>
-              <TimeWordInfo wordLength={wordLength} date={date} />
-              {subtitle && <div className={styles.subtitle}>{subtitle}</div>}
-              <div className={styles.desc}>
-                {desc.length > MAX_LEN
-                  ? desc.slice(0, MAX_LEN - 3) + '...'
-                  : desc}
-              </div>
-              {tags && (
-                <div className={styles.tags}>
-                  {tags.map((tag) => (
-                    <IconCard key={tag} icon="#" text={tag} />
-                  ))}
-                </div>
-              )}
-            </Link>
-          ),
-        )}
+        {showLists.map(([year, post]) => (
+          <div className={styles.linkwrap}>
+            <div className={styles.year}>{year}</div>
+            {post.map(
+              ({ title, date, desc, subtitle, tags, wordLength, path }) => (
+                <Link
+                  prefetch
+                  href={'/' + path}
+                  className={styles.link}
+                  key={path}
+                >
+                  <div className={styles.title}>{title}</div>
+                  <TimeWordInfo wordLength={wordLength} date={date} />
+                  {subtitle && (
+                    <div className={styles.subtitle}>{subtitle}</div>
+                  )}
+                  <div className={styles.desc}>
+                    {desc.length > MAX_LEN
+                      ? desc.slice(0, MAX_LEN - 3) + '...'
+                      : desc}
+                  </div>
+                  {tags && (
+                    <div className={styles.tags}>
+                      {tags.map((tag) => (
+                        <IconCard key={tag} icon="#" text={tag} />
+                      ))}
+                    </div>
+                  )}
+                </Link>
+              ),
+            )}
+          </div>
+        ))}
       </div>
       <div className={styles.bottom}>
         <Card disabled={pagenum === 1 || allLists.length === 0}>

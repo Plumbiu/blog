@@ -1,6 +1,3 @@
-export interface FloatItem {
-  path: string
-  title: string
-}
+import { PostList } from '@/utils/node'
 
-export type FloatType = Record<string, FloatItem[]>
+export type FloatType = Record<string, PostList[]>

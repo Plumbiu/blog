@@ -1,9 +1,9 @@
 import { Link } from 'next-view-transitions'
+import { PostList } from '@/utils/node'
 import styles from './AsideLeft.module.css'
-import { FloatItem } from '../types'
 
 interface ListFloatProps {
-  items: [string, FloatItem[]][]
+  items: [string, PostList[]][]
 }
 
 const AsideLeft = ({ items }: ListFloatProps) => {
