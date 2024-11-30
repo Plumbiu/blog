@@ -63,7 +63,6 @@ function Header() {
         <div className={styles.right}>
           {theme && (
             <div
-              className={styles.theme}
               onClick={() => {
                 const nextTheme = theme === Dark ? Light : Dark
                 setTheme(nextTheme)

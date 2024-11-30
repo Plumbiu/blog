@@ -20,12 +20,13 @@
   height: 100%;
   margin: auto;
 
-  a, svg {
+  a,
+  svg {
     color: var(--text-2);
     transition: color 125ms ease-in-out;
     cursor: pointer;
     &:hover {
-      color: var(--text-1);
+      color: var(--text);
     }
   }
 
@@ -57,12 +58,11 @@
 .left {
   font-weight: 700;
   font-style: italic;
-  font-size: 24px;
+  font-size: 20px;
 
   svg {
     margin-left: 4px;
-    font-size: 26px;
-    fill: var(--c-red-1);
+    font-size: 24px;
     transform: skewX(-16deg);
   }
 }
@@ -76,16 +76,5 @@
 @media screen and (max-width: 780px) {
   .right {
     gap: 18px;
-  }
-}
-
-.theme {
-  transition: background-color 150ms ease-in-out;
-  padding: 8px;
-  margin-right: -4px;
-  cursor: pointer;
-  border-radius: 50%;
-  &:hover {
-    background-color: var(--c-gray-soft);
   }
 }

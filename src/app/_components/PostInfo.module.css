@@ -1,6 +1,11 @@
 .tw_info {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   font-size: 14px;
+  overflow: hidden;
+
+  & > div {
+    white-space: nowrap;
+  }
 }

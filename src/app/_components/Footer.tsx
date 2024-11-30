@@ -18,16 +18,12 @@ async function Footer() {
         <span> 2024 © Plumbiu</span>
       </div>
       <div className={styles.right}>
-        <Card>
-          <Link target="_blank" href="/rss.xml">
-            <RssIcon />
-          </Link>
-        </Card>
-        <Card>
-          <Link target="_blank" href="https://github.com/Plumbiu/blog">
-            <GithubIcon />
-          </Link>
-        </Card>
+        <Link target="_blank" href="/rss.xml">
+          <RssIcon />
+        </Link>
+        <Link target="_blank" href="https://github.com/Plumbiu/blog">
+          <GithubIcon />
+        </Link>
       </div>
     </div>
   )
