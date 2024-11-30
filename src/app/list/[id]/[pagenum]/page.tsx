@@ -88,7 +88,7 @@ async function ArtlistAll(props: ListProps) {
       </div>
       <div className={styles.artlist}>
         {showLists.map(([year, post]) => (
-          <div className={styles.linkwrap}>
+          <div key={year} className={styles.linkwrap}>
             <div className={styles.year}>{year}</div>
             {post.map(
               ({ title, date, desc, subtitle, tags, wordLength, path }) => (
@@ -122,12 +122,12 @@ async function ArtlistAll(props: ListProps) {
         ))}
       </div>
       <div className={styles.bottom}>
-        <Card disabled={pagenum === 1 || allLists.length === 0}>
-          <Link
-            className="fcc"
-            scroll={false}
-            href={`/list/${id}/${pagenum - 1}`}
-          >
+        <Link
+          className="fcc"
+          scroll={false}
+          href={`/list/${id}/${pagenum - 1}`}
+        >
+          <Card disabled={pagenum === 1 || allLists.length === 0}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -140,21 +140,21 @@ async function ArtlistAll(props: ListProps) {
               <path d="m15 18-6-6 6-6"></path>
             </svg>
             Previous
-          </Link>
-        </Card>
-        {pages.map((n) => (
-          <Card key={n} active={n === pagenum}>
-            <Link scroll={false} href={`/list/${id}/${n}`}>
-              {n}
-            </Link>
           </Card>
+        </Link>
+        {pages.map((n) => (
+          <Link scroll={false} href={`/list/${id}/${n}`}>
+            <Card key={n} active={n === pagenum}>
+              {n}
+            </Card>
+          </Link>
         ))}
-        <Card disabled={pagenum === pageEndIndex || allLists.length === 0}>
-          <Link
-            className="fcc"
-            scroll={false}
-            href={`/list/${id}/${pagenum + 1}`}
-          >
+        <Link
+          className="fcc"
+          scroll={false}
+          href={`/list/${id}/${pagenum + 1}`}
+        >
+          <Card disabled={pagenum === pageEndIndex || allLists.length === 0}>
             Next
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -167,8 +167,8 @@ async function ArtlistAll(props: ListProps) {
             >
               <path d="m9 18 6-6-6-6"></path>
             </svg>
-          </Link>
-        </Card>
+          </Card>
+        </Link>
       </div>
     </div>
   )
