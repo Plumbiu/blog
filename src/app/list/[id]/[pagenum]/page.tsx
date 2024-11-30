@@ -65,7 +65,6 @@ async function ArtlistAll(props: ListProps) {
   const showLists = formatPostByYear(
     allLists.slice((pagenum - 1) * MAX_PAGE_SIZE, pagenum * MAX_PAGE_SIZE),
   )
-  console.log(floatLists)
   const pageEndIndex = Math.ceil(allLists.length / MAX_PAGE_SIZE)
   const pages = new Array(pageEndIndex).fill(1).map((_, i) => i + 1)
   return (
@@ -93,10 +92,10 @@ async function ArtlistAll(props: ListProps) {
             {post.map(
               ({ title, date, desc, subtitle, tags, wordLength, path }) => (
                 <Link
+                  key={path}
                   prefetch
                   href={'/' + path}
                   className={styles.link}
-                  key={path}
                 >
                   <div className={styles.title}>{title}</div>
                   <TimeWordInfo wordLength={wordLength} date={date} />
@@ -143,10 +142,8 @@ async function ArtlistAll(props: ListProps) {
           </Card>
         </Link>
         {pages.map((n) => (
-          <Link scroll={false} href={`/list/${id}/${n}`}>
-            <Card key={n} active={n === pagenum}>
-              {n}
-            </Card>
+          <Link key={n} scroll={false} href={`/list/${id}/${n}`}>
+            <Card active={n === pagenum}>{n}</Card>
           </Link>
         ))}
         <Link

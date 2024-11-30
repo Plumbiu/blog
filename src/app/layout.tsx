@@ -26,7 +26,7 @@ export default function RootLayout({
         <script src="/theme.js"></script>
       </head>
       <link
-        href="/icons/favicon-32x32.png"
+        href="/icons/icon.svg"
         rel="icon"
         sizes="32x32"
         type="image/x-icon"

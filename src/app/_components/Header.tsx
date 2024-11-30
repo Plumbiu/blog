@@ -50,6 +50,7 @@ function Header() {
         <div className={styles.left}>
           <Link href="/list/blog/1" className="fcc">
             Plumbiu
+
           </Link>
         </div>
         <div className={styles.right}>
