@@ -258,6 +258,6 @@ fn({ obj: 1 })
 
 自定义组件，仅用于展示：
 
-## TreeBasic
+## Three.js
 
-:ThreeBasic
+:ThreeSunEarthMoon
