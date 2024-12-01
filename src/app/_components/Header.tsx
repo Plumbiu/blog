@@ -2,7 +2,7 @@
 
 import { Link } from 'next-view-transitions'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { MoonIcon, SunIcon } from '@/app/_components/Icons'
+import { GithubIcon, MoonIcon, SunIcon } from '@/app/_components/Icons'
 import { applyTheme, Dark, Light } from '@/utils/client/theme'
 import styles from './Header.module.css'
 
@@ -63,6 +63,9 @@ function Header() {
               {theme === Dark ? <SunIcon /> : <MoonIcon />}
             </div>
           )}
+          <Link target="_blank" href="https://github.com/Plumbiu/blog">
+            <GithubIcon />
+          </Link>
           <Link href="/links">Links</Link>
           <Link href="/about">About</Link>
         </div>

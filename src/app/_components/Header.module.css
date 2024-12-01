@@ -59,12 +59,6 @@
   font-weight: 700;
   font-style: italic;
   font-size: 20px;
-
-  svg {
-    margin-left: 4px;
-    font-size: 24px;
-    transform: skewX(-16deg);
-  }
 }
 
 .right {

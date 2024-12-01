@@ -2,7 +2,6 @@ import { clsx } from 'clsx'
 import Link from 'next/link'
 import styles from './Footer.module.css'
 import { RssIcon, GithubIcon } from './Icons'
-import Card from './Card'
 
 async function Footer() {
   return (
@@ -20,9 +19,6 @@ async function Footer() {
       <div className={styles.right}>
         <Link target="_blank" href="/rss.xml">
           <RssIcon />
-        </Link>
-        <Link target="_blank" href="https://github.com/Plumbiu/blog">
-          <GithubIcon />
         </Link>
       </div>
     </div>
