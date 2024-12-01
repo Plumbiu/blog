@@ -8,6 +8,8 @@ import IconCard from '@/app/_components/IconCard'
 import { TimeWordInfo } from '@/app/_components/PostInfo'
 import Card from '@/app/_components/Card'
 import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
   BlogIcon,
   LifeIcon,
   NoteIcon,
@@ -126,17 +128,7 @@ async function ArtlistAll(props: ListProps) {
           href={`/list/${id}/${pagenum - 1}`}
         >
           <Card disabled={pagenum === 1 || allLists.length === 0}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="3"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="m15 18-6-6 6-6"></path>
-            </svg>
+            <ArrowLeftIcon />
             Previous
           </Card>
         </Link>
@@ -152,17 +144,7 @@ async function ArtlistAll(props: ListProps) {
         >
           <Card disabled={pagenum === pageEndIndex || allLists.length === 0}>
             Next
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="3"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="m9 18 6-6-6-6"></path>
-            </svg>
+            <ArrowRightIcon />
           </Card>
         </Link>
       </div>
