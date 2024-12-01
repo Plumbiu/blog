@@ -27,6 +27,8 @@ media.addEventListener('change', (e) => {
   setTheme(e.matches ? Light : Dark)
 })
 window.addEventListener('storage', (e) => {
-  const theme = getLocalTheme()
-  setHtmlTheme(theme)
+  if (e.key === ThemeKey) {
+    const theme = getLocalTheme()
+    setHtmlTheme(theme)
+  }
 })
