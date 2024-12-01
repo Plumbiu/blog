@@ -15,14 +15,14 @@ import {
   NoteIcon,
   SummaryIcon,
 } from '@/app/_components/Icons'
+import { PostDir } from '@/constants'
 import styles from './page.module.css'
 import AsideLeft from './_components/AsideLeft'
 import { formatPostByYear } from './utils'
 
 const MAX_PAGE_SIZE = 4
-const ids = ['blog', 'life', 'summary', 'note'] as const
 
-const iconMap: Record<(typeof ids)[number], ReactNode> = {
+const iconMap: Record<(typeof PostDir)[number], ReactNode> = {
   blog: <BlogIcon style={{ backgroundColor: 'var(--c-green-soft)' }} />,
   life: <LifeIcon style={{ backgroundColor: 'var(--c-red-soft)' }} />,
   summary: <SummaryIcon style={{ backgroundColor: 'var(--c-indigo-soft)' }} />,
@@ -37,7 +37,7 @@ export async function generateStaticParams() {
   const result: Params[] = []
 
   await Promise.all(
-    ids.map(async (id) => {
+    PostDir.map(async (id) => {
       const post = await getPostList(id)
       for (let i = 1; i <= Math.ceil(post.length / MAX_PAGE_SIZE); i++) {
         result.push({
@@ -72,7 +72,7 @@ async function ArtlistAll(props: ListProps) {
     <div className="center">
       <AsideLeft items={floatLists} />
       <div className={styles.action}>
-        {ids.map((p) => (
+        {PostDir.map((p) => (
           <Link
             className={clsx(styles.action_item, {
               [styles.active]: id === p,

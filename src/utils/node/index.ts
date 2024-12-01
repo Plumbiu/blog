@@ -28,7 +28,9 @@ export async function getMarkdownPath() {
   await Promise.all(
     PostDir.map(async (dir) => {
       const postsPath = path.join(process.cwd(), 'posts', dir)
-      const posts = await fsp.readdir(postsPath)
+      const posts = (await fsp.readdir(postsPath)).filter(
+        (p) => p !== '.gitkeep',
+      )
       results.push(...posts.map((p) => joinFormatPaths('posts', dir, p)))
     }),
   )
