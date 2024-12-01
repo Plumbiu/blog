@@ -1,5 +1,6 @@
 import { type Metadata } from 'next'
 import { ViewTransitions } from 'next-view-transitions'
+import { Analytics } from '@vercel/analytics/react'
 import Header from './_components/Header'
 import Modal from './_components/Modal'
 import './_styles/globals.css'
@@ -38,6 +39,7 @@ export default function RootLayout({
           <Footer />
           <Modal />
         </ViewTransitions>
+        <Analytics />
       </body>
     </html>
   )

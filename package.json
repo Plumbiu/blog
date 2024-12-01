@@ -12,6 +12,7 @@
   "dependencies": {
     "@plumbiu/react-store": "^0.9.3",
     "@react-three/fiber": "9.0.0-alpha.8",
+    "@vercel/analytics": "^1.4.1",
     "clsx": "^2.1.1",
     "hast-util-to-jsx-runtime": "^2.3.2",
     "hast-util-to-string": "^3.0.1",
