@@ -2,7 +2,7 @@ import { Link } from 'next-view-transitions'
 import { Metadata } from 'next'
 import { clsx } from 'clsx'
 import { ReactNode } from 'react'
-import { getYear, upperFirstChar } from '@/utils'
+import { upperFirstChar } from '@/utils'
 import { getPostList } from '@/utils/node'
 import IconCard from '@/app/_components/IconCard'
 import { TimeWordInfo } from '@/app/_components/PostInfo'
@@ -14,7 +14,6 @@ import {
   SummaryIcon,
 } from '@/app/_components/Icons'
 import styles from './page.module.css'
-import { FloatType } from './types'
 import AsideLeft from './_components/AsideLeft'
 import { formatPostByYear } from './utils'
 
@@ -73,7 +72,7 @@ async function ArtlistAll(props: ListProps) {
       <div className={styles.action}>
         {ids.map((p) => (
           <Link
-            className={clsx({
+            className={clsx(styles.action_item, {
               [styles.active]: id === p,
             })}
             scroll={false}

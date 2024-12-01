@@ -10,8 +10,7 @@
 @media screen and (max-width: 960px) {
   .center {
     width: 100%;
-    padding: 0 16px;
-    max-width: 100%;
+    padding: 0 12px;
   }
 }
 
@@ -25,7 +24,7 @@
   transition: border-color 250ms ease-in-out;
   word-break: break-all;
   &:hover {
-    border-color: var(--text);
+    border-color: var(--c-green-1);
   }
 
   & > code {

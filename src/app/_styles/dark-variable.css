@@ -1,6 +1,6 @@
 html[data-theme='dark'] {
   /* text */
-  --text: #fff;
+  --text: #fafafa;
   --text-4: rgba(205, 205, 205, 0.4);
   --text-3: rgba(205, 205, 205, 0.56);
   --text-2: rgba(205, 205, 205, 0.82);

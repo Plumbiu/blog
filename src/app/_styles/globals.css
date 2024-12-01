@@ -1,6 +1,6 @@
 *,
-::before,
-::after {
+*::before,
+*::after {
   box-sizing: border-box;
   font-family: inherit;
 }
@@ -15,11 +15,6 @@ body {
   scrollbar-color: var(--bg-scrollbar);
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
 h1,
 h2,
 h3,
@@ -27,7 +22,6 @@ h4,
 h5,
 h6 {
   color: var(--text);
-  font-weight: 700;
   & code {
     font-size: inherit !important;
   }
@@ -50,19 +44,18 @@ h6 {
   font-size: 1rem;
 }
 
-/* ::view-transition-old(root),
-::view-transition-new(root) {
+/* ::view-transition-new(root) {
   animation: none;
   mix-blend-mode: normal;
-} */
+}
 ::view-transition-old(root) {
   z-index: 1;
 }
 ::view-transition-new(root) {
   z-index: 9999;
-}
+} */
 
-.not-found {
+.not_found {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -132,7 +125,13 @@ svg {
   display: block;
   width: 1em;
   height: 1em;
+  fill: currentColor;
+
+  & > path {
+    fill: currentColor;
+  }
 }
+
 
 .verticalLine {
   height: 1em;

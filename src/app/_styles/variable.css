@@ -1,6 +1,6 @@
 :root {
   /* text */
-  --text: #000;
+  --text: #060606;
   --text-4: rgba(33, 33, 33, 0.4);
   --text-3: rgba(33, 33, 33, 0.56);
   --text-2: rgba(33, 33, 33, 0.82);
@@ -69,6 +69,12 @@
 @media screen and (max-width: 1240px) {
   :root {
     --post-w: 580px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  :root {
+    --post-w: 500px;
   }
 }
 

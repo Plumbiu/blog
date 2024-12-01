@@ -8,6 +8,7 @@
 }
 
 .title {
+  text-align: center;
   font-size: 32px;
   margin: 0;
   color: var(--text);
@@ -22,6 +23,7 @@
   display: flex;
   gap: 12px;
   margin-top: 8px;
+  flex-wrap: wrap;
 
   & > div {
     font-size: 14px;
