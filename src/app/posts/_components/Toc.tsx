@@ -50,7 +50,6 @@ function Toc() {
     if (activeIndex == null) {
       return
     }
-    console.log(activeIndex)
     const indexSet = new Set([activeIndex])
     const currentDepth = lists[activeIndex].depth
     const depthSet = new Set([currentDepth])

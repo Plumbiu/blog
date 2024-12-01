@@ -10,7 +10,6 @@ function Header() {
   const ref = useRef<HTMLHeadingElement>(null)
   const prevScrollTop = useRef(0)
   const [theme, setTheme] = useState<string>()
-
   useLayoutEffect(() => {
     setTheme(localStorage.getItem('data-theme')!)
   }, [])
@@ -50,7 +49,6 @@ function Header() {
         <div className={styles.left}>
           <Link href="/list/blog/1" className="fcc">
             Plumbiu
-
           </Link>
         </div>
         <div className={styles.right}>

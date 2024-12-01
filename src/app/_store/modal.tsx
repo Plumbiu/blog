@@ -8,25 +8,33 @@ function preventBodyScroll(e: Event) {
   e.preventDefault()
 }
 
+let isEventAdded = false
+
 const useModalStore = createStore({
   children: null as React.ReactElement | null,
-  size: {
-    w: 0,
-    h: 0,
-  },
-  hidden(maskRef: RefObject<HTMLDivElement>) {
-    const maskDom = maskRef.current
-    if (maskDom) {
-      maskDom.classList.add(modalStyle.hide)
+  hidden(maskRef?: RefObject<HTMLDivElement> | Event) {
+    if (maskRef && 'current' in maskRef) {
+      const dom = maskRef.current
+      if (!dom) {
+        return
+      }
+      dom.classList.add(modalStyle.hide)
       setTimeout(() => {
         document.body.removeEventListener('wheel', preventBodyScroll)
         document.body.removeEventListener('touchmove', preventBodyScroll)
         this.$set({ children: null })
-        maskDom.classList.remove(modalStyle.hide)
+        dom.classList.remove(modalStyle.hide)
       }, 150)
+    } else {
+      this.$set({ children: null })
     }
   },
   set(children: React.ReactElement) {
+    if (!isEventAdded) {
+      console.log(123)
+      window.addEventListener('popstate', this.hidden)
+      isEventAdded = true
+    }
     document.body.addEventListener('wheel', preventBodyScroll, {
       passive: false,
     })
