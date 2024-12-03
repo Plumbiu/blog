@@ -2,6 +2,7 @@
 
 import { Link } from 'next-view-transitions'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { clsx } from 'clsx'
 import { GithubIcon, MoonIcon, SunIcon } from '@/app/_components/Icons'
 import { applyTheme, Dark, Light } from '@/utils/client/theme'
 import styles from './Header.module.css'
@@ -46,7 +47,7 @@ function Header() {
   return (
     <header ref={ref} className={styles.wrap}>
       <div className={styles.header}>
-        <div className={styles.left}>
+        <div className={clsx(styles.left, styles.hover)}>
           <Link href="/list/blog/1" className="fcc">
             Plumbiu
           </Link>
@@ -54,6 +55,7 @@ function Header() {
         <div className={styles.right}>
           {theme && (
             <div
+              className={styles.hover}
               onClick={() => {
                 const nextTheme = theme === Dark ? Light : Dark
                 setTheme(nextTheme)
@@ -63,11 +65,19 @@ function Header() {
               {theme === Dark ? <SunIcon /> : <MoonIcon />}
             </div>
           )}
-          <Link target="_blank" href="https://github.com/Plumbiu/blog">
+          <Link
+            className={styles.hover}
+            target="_blank"
+            href="https://github.com/Plumbiu/blog"
+          >
             <GithubIcon />
           </Link>
-          <Link href="/links">Links</Link>
-          <Link href="/about">About</Link>
+          <Link className={styles.hover} href="/links">
+            Links
+          </Link>
+          <Link className={styles.hover} href="/about">
+            About
+          </Link>
         </div>
       </div>
     </header>

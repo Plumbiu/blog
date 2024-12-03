@@ -20,18 +20,17 @@
   height: 100%;
   margin: auto;
 
-  & a,
-  svg {
-    color: var(--text-2);
-    transition: color 125ms ease-in-out;
-    cursor: pointer;
-    &:hover {
-      color: var(--text);
-    }
-  }
-
   & svg {
     font-size: 24px;
+  }
+}
+
+.hover {
+  color: var(--text-2);
+  transition: color 125ms ease-in-out;
+  cursor: pointer;
+  &:hover {
+    color: var(--text);
   }
 }
 
