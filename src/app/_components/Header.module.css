@@ -20,7 +20,7 @@
   height: 100%;
   margin: auto;
 
-  a,
+  & a,
   svg {
     color: var(--text-2);
     transition: color 125ms ease-in-out;
@@ -30,7 +30,7 @@
     }
   }
 
-  svg {
+  & svg {
     font-size: 24px;
   }
 }

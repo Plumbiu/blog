@@ -84,7 +84,7 @@
   gap: 12px;
   margin-top: 36px;
   font-size: 16px;
-  svg {
+  & svg {
     font-size: 18px;
   }
 }

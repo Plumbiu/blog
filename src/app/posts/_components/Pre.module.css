@@ -23,7 +23,7 @@
   color: var(--text-2);
   transition: opacity 300ms ease-out, color 150ms;
 
-  svg {
+  & svg {
     display: inline-block;
     box-sizing: content-box;
     background-color: var(--bg-md-pre);
