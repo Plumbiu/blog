@@ -15,3 +15,7 @@ desc: 文章简介，可以是数字，表示简介是文章正文第 n 行内�
 # Github Pages
 
 修改 [`constants.ts` 文件](/src/constants.ts) 中的 `RepoName` 变量，对应你仓库的名字
+
+# 图片
+
+文章中所有的图片都存储在 [public/images](/public/images/) 文件夹下，如果你的图片存储在其它位置，修改 [src/app/posts/\_components/Markdown/index.tsx](/src/app/posts/_components/Markdown/index.tsx) 文件，搜索关键字 `imagePath`
