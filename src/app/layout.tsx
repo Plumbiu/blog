@@ -28,7 +28,7 @@ export default function RootLayout({
         <script src={resolveAssetPath('theme.js')}></script>
       </head>
       <link
-        href="/icons/icon.svg"
+        href={resolveAssetPath('icons/icon.svg')}
         rel="icon"
         sizes="32x32"
         type="image/x-icon"
