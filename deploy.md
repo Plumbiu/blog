@@ -14,6 +14,6 @@ desc: 文章简介，可以是数字，表示简介是文章正文第 n 行内�
 
 # Github Pages
 
-目前具备上传 [Github Pages](https://docs.github.com/zh/pages/getting-started-with-github-pages/creating-a-github-pages-site) 能力，**但是它暂时托管不了 `public` 文件夹，因此里面的图片或者 rss 不会正常展示**，但是对 `theme.js` 做了处理，具体可查看 [`/package.json`] 文件的 `build:gitpage` 命令以及 [`git-page.tsx`](/src/app/git-page.tsx) 文件。
+目前具备上传 [Github Pages](https://docs.github.com/zh/pages/getting-started-with-github-pages/creating-a-github-pages-site) 能力，**但是它暂时托管不了 `public` 文件夹，因此里面的图片或者 rss 不会正常展示**，但是对 `theme.js` 做了处理，具体可查看 [`package.json`](/package.json) 文件的 `build:gitpage` 命令以及 [`git-page.tsx`](/src/app/git-page.tsx) 文件。
 
 > **如果你有处理 public 文件夹更好的方法，欢迎 PR**！
