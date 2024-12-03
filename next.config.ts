@@ -6,7 +6,10 @@ const withBundleAnalyzer = Analyzer({
   enabled: !!process.env.ANALYZE,
 })
 
+const IS_GITPAGE = !!process.env.GITPAGE
+
 const nextConfig: NextConfig = {
+  basePath: IS_GITPAGE ? '/blog' : '',
   experimental: {
     useLightningcss: true,
     turbo: {
