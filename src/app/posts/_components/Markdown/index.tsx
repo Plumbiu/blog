@@ -39,7 +39,8 @@ const components: Partial<Components> = {
     const commonProps: ImageProps = {
       src: resolveAssetPath(`images/${src}`),
       alt,
-      unoptimized: src.endsWith('.gif') ? true : undefined,
+      unoptimized:
+        src.endsWith('.gif') || src.endsWith('.webp') ? true : undefined,
       blurDataURL: base64,
       placeholder: 'blur',
       width: metadata.width,
