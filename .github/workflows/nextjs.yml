@@ -8,6 +8,12 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ['main']
+    paths:
+      - '!.gitignore'
+      - '!deploy.md'
+      - '!eslint.config.mjs'
+      - '!LICENSE'
+      - '!README.md'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
