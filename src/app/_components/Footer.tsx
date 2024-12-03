@@ -1,11 +1,11 @@
 import { clsx } from 'clsx'
 import Link from 'next/link'
 import styles from './Footer.module.css'
-import { RssIcon, GithubIcon } from './Icons'
+import { RssIcon } from './Icons'
 
 async function Footer() {
   return (
-    <div className={clsx(styles.wrap, 'center')}>
+    <div className={clsx('center', styles.wrap)}>
       <div>
         <Link
           className="link"

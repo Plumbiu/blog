@@ -2,7 +2,6 @@ import { CSSProperties } from 'react'
 import { LoadingIcon } from '@/app/_components/Icons'
 
 const style: CSSProperties = {
-  minHeight: 300,
   flexDirection: 'column',
 }
 
