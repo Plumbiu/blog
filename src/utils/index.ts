@@ -1,4 +1,4 @@
-import { PostDir, type FrontmatterKey } from '@/constants'
+import { BasePath, PostDir, type FrontmatterKey } from '@/constants'
 import { StringValueObj } from '@/types/base'
 
 const RemoveMdSuffixRegx = /\.md$/
@@ -148,4 +148,8 @@ export function isTypeScript(lang: string) {
 export function isJavaScript(lang: string) {
   lang = lang.toLowerCase()
   return lang === 'js' || lang === 'javascript'
+}
+
+export function resolveAssetPath(p: string) {
+  return `${BasePath}/${p}`
 }

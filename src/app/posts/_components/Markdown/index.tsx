@@ -8,12 +8,9 @@ import './index.css'
 import './shiki.css'
 import { handleComponentName } from '@/app/posts/_plugins/constant'
 import { getBlurDataUrl } from '@/utils/node'
-import { RepoName } from '@/constants'
+import { resolveAssetPath } from '@/utils'
 import transfromCode2Jsx from './transfrom'
 import PreComponent from '../Pre'
-
-const IS_GITPAGE = !!process.env.GITPAGE
-const basePath = IS_GITPAGE ? `/${RepoName}` : ''
 
 const components: Partial<Components> = {
   pre(props) {
@@ -40,7 +37,7 @@ const components: Partial<Components> = {
       return null
     }
     const commonProps: ImageProps = {
-      src: `${basePath}/images/${src}`,
+      src: resolveAssetPath(`images/${src}`),
       alt,
       unoptimized: src.endsWith('.gif') ? true : undefined,
       blurDataURL: base64,

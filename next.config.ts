@@ -1,18 +1,14 @@
 import process from 'node:process'
 import Analyzer from '@next/bundle-analyzer'
 import { NextConfig } from 'next'
-import { RepoName } from '@/constants'
+import { BasePath } from '@/constants'
 
 const withBundleAnalyzer = Analyzer({
   enabled: !!process.env.ANALYZE,
 })
 
-const IS_GITPAGE = !!process.env.GITPAGE
-
-const basePath = IS_GITPAGE ? `/${RepoName}` : ''
-
 const nextConfig: NextConfig = {
-  basePath,
+  basePath: BasePath,
   experimental: {
     useLightningcss: true,
     turbo: {
@@ -30,7 +26,7 @@ const nextConfig: NextConfig = {
   },
   images: {
     minimumCacheTTL: 31536000,
-    path: `${basePath}/_next/image`,
+    path: `${BasePath}/_next/image`,
   },
   serverExternalPackages: ['three', '@react-three/fiber'],
 }

@@ -1,6 +1,7 @@
 import { type Metadata } from 'next'
 import { ViewTransitions } from 'next-view-transitions'
 import { Analytics } from '@vercel/analytics/react'
+import { resolveAssetPath } from '@/utils'
 import Header from './_components/Header'
 import Modal from './_components/Modal'
 import './_styles/globals.css'
@@ -24,8 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {' '}
-        <script src="/theme.js"></script>
+        <script src={resolveAssetPath('theme.js')}></script>
       </head>
       <link
         href="/icons/icon.svg"
