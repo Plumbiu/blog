@@ -63,7 +63,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          name: next output dir
+          name: github-pages
           path: ./out
       - name: Upload public dir
         uses: actions/upload-pages-artifact@v3
