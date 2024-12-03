@@ -10,6 +10,7 @@ import './_styles/preset.css'
 // import '@pigment-css/react/styles.css'
 import Footer from './_components/Footer'
 import { mono } from './fonts'
+import GitPage from './git-page'
 
 export const metadata: Metadata = {
   title: 'Plumbiuの博客',
@@ -21,11 +22,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const isGitPage = !!process.env.GITPAGE
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <script src="/theme.js"></script>
-      </head>
+      <head>{isGitPage ? <GitPage /> : <script src="/theme.js"></script>}</head>
       <link
         href="/icons/icon.svg"
         rel="icon"

@@ -59,17 +59,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Build with Next.js
-        run: pnpm build
+        run: pnpm build:gitpage
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           name: github-pages
           path: ./out
-      - name: Upload public dir
-        uses: actions/upload-pages-artifact@v3
-        with:
-          name: upload public dir
-          path: ./public
 
   # Deployment job
   deploy:
