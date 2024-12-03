@@ -2,7 +2,6 @@
 
 import { clsx } from 'clsx'
 import { MouseEventHandler, useRef, WheelEventHandler } from 'react'
-import { LucideZoomOut, LucideZoomIn } from '@/app/_components/Icons'
 import useModalStore from '@/app/_store/modal'
 import styles from './Modal.module.css'
 
@@ -35,7 +34,6 @@ function ImagePreview() {
   const { children, hidden } = useModalStore()
   const maskRef = useRef<HTMLDivElement>(null)
   const modalRef = useRef<HTMLDivElement>(null)
-  const actionRef = useRef<HTMLDivElement>(null)
   const scale = useRef(1)
   const preScale = useRef(1)
   const translate = useRef({
@@ -201,10 +199,7 @@ function ImagePreview() {
         onClick={(e) => {
           preventComplexEvent(e)
           const target = e.target as HTMLElement
-          if (
-            isImage(target) ||
-            (actionRef.current && actionRef.current.contains(target))
-          ) {
+          if (isImage(target)) {
             return
           }
           hidden(maskRef)
@@ -218,20 +213,6 @@ function ImagePreview() {
       >
         {children}
       </div>
-      {/* <div ref={actionRef} className={clsx(styles.action, 'fcc')}>
-        <LucideZoomOut
-          onClick={() => {
-            scaleDown()
-            updateDOM()
-          }}
-        />
-        <LucideZoomIn
-          onClick={() => {
-            scaleUp()
-            updateDOM()
-          }}
-        />
-      </div> */}
     </div>
   )
 }

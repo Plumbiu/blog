@@ -126,12 +126,7 @@ svg {
   width: 1em;
   height: 1em;
   fill: currentColor;
-
-  & > path {
-    fill: currentColor;
-  }
 }
-
 
 .verticalLine {
   height: 1em;
