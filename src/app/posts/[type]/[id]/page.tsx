@@ -28,7 +28,7 @@ export async function generateStaticParams() {
   })
 }
 
-export async function getPostContent(
+async function getPostContent(
   type: string,
   id: string,
 ): Promise<PostContent | undefined> {
