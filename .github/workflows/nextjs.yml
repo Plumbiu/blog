@@ -63,10 +63,12 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
+          name: next output dir
           path: ./out
       - name: Upload public dir
         uses: actions/upload-pages-artifact@v3
         with:
+          name: upload public dir
           path: ./public
 
   # Deployment job
