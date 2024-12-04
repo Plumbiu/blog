@@ -32,7 +32,6 @@ function preventComplexEvent(e: any) {
 
 function ImagePreview() {
   const { children, hidden } = useModalStore()
-  const maskRef = useRef<HTMLDivElement>(null)
   const modalRef = useRef<HTMLDivElement>(null)
   const scale = useRef(1)
   const preScale = useRef(1)
@@ -193,7 +192,7 @@ function ImagePreview() {
 
   return (
     <div>
-      <div ref={maskRef} className={styles.mask} />
+      <div className={styles.mask} />
       <div
         ref={modalRef}
         onClick={(e) => {
@@ -202,7 +201,7 @@ function ImagePreview() {
           if (isImage(target)) {
             return
           }
-          hidden(maskRef)
+          hidden()
         }}
         className={clsx(styles.modal, styles.anim)}
         onWheel={onWheel}

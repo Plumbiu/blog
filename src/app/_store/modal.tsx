@@ -9,19 +9,11 @@ function preventBodyScroll(e: Event) {
 
 const useModalStore = createStore({
   children: null as React.ReactElement | null,
-  hidden(maskRef?: RefObject<HTMLDivElement> | Event) {
-    if (maskRef && 'current' in maskRef) {
-      const dom = maskRef.current
-      if (!dom) {
-        return
-      }
-      window.removeEventListener('popstate', this.hidden)
-      document.body.removeEventListener('wheel', preventBodyScroll)
-      document.body.removeEventListener('touchmove', preventBodyScroll)
-      this.$set({ children: null })
-    } else {
-      this.$set({ children: null })
-    }
+  hidden() {
+    window.removeEventListener('popstate', this.hidden)
+    document.body.removeEventListener('wheel', preventBodyScroll)
+    document.body.removeEventListener('touchmove', preventBodyScroll)
+    this.$set({ children: null })
   },
   set(children: React.ReactElement) {
     window.addEventListener('popstate', this.hidden)
