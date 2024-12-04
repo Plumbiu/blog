@@ -16,6 +16,7 @@ import {
   SummaryIcon,
 } from '@/app/_components/Icons'
 import { PostDir } from '@/constants'
+import NotFound from '@/app/not-found'
 import styles from './page.module.css'
 import AsideLeft from './_components/AsideLeft'
 import { formatPostByYear } from './utils'
@@ -62,6 +63,10 @@ async function ArtlistAll(props: ListProps) {
   const pagenum = +params.pagenum
   const allLists = await getPostList(id)
   const floatLists = formatPostByYear(allLists)
+
+  if (pagenum * MAX_PAGE_SIZE > allLists.length) {
+    return <NotFound />
+  }
 
   const showLists = formatPostByYear(
     allLists.slice((pagenum - 1) * MAX_PAGE_SIZE, pagenum * MAX_PAGE_SIZE),

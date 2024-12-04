@@ -23,6 +23,12 @@
 
 .active {
   background-color: var(--c-gray-soft);
+  transition: border-color 0.15s;
+  border: 1px solid transparent;
+
+  &:hover {
+    border-color: var(--c-green-soft);
+  }
 }
 
 .disabled {

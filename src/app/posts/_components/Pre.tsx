@@ -1,7 +1,6 @@
 'use client'
 
-import { Fragment, ReactNode, useState } from 'react'
-import { clsx } from 'clsx'
+import { ReactNode, useState } from 'react'
 import { CopyCheckIcon, CopyErrorIcon, CopyIcon } from '@/app/_components/Icons'
 import { mono } from '@/app/fonts'
 import styles from './Pre.module.css'

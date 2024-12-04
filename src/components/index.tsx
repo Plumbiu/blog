@@ -1,9 +1,10 @@
+/* eslint-disable @stylistic/max-len */
 /* eslint-disable @stylistic/function-paren-newline */
 'use client'
 
 import { createElement, lazy } from 'react'
 import { handleComponentName } from '@/app/posts/_plugins/constant'
-import IntersectionComponent from '@/app/_components/IntersectionComponent'
+import IntersectionObserverComponent from '@/app/_components/IntersectionObserverComponent'
 import Playground from './playground'
 import CodeRunner from './code-runner'
 
@@ -88,7 +89,11 @@ function CustomComponent(props: any) {
     if (componentName === 'Playground' || componentName === 'Run') {
       return createElement(value, props)
     }
-    return <IntersectionComponent props={props}>{value}</IntersectionComponent>
+    return (
+      <IntersectionObserverComponent props={props}>
+        {value}
+      </IntersectionObserverComponent>
+    )
   }
   return props.children
 }

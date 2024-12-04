@@ -7,7 +7,7 @@ interface IntersectionCustomComponentProps {
   props?: any
 }
 
-const IntersectionComponent = memo(
+const IntersectionObserverComponent = memo(
   ({ children, props }: IntersectionCustomComponentProps) => {
     const observerRef = useRef<HTMLDivElement>(null)
     const isIntersecting = useObserver(observerRef)
@@ -22,4 +22,4 @@ const IntersectionComponent = memo(
   },
 )
 
-export default IntersectionComponent
+export default IntersectionObserverComponent

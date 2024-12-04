@@ -7,7 +7,7 @@
   row-gap: 16px;
   color: var(--text-3);
   white-space: nowrap;
-  padding: 36px 0;
+  margin: 36px auto !important;
 
   & > a {
     color: inherit;

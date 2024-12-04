@@ -1,6 +1,5 @@
-import { useCallback, useState } from 'react'
+import { useState } from 'react'
 import { getType } from '@/utils'
-import useMounted from './useMounted'
 
 export interface LogInfo {
   date: number
