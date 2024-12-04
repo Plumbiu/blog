@@ -63,15 +63,15 @@ async function ArtlistAll(props: ListProps) {
   const pagenum = +params.pagenum
   const allLists = await getPostList(id)
   const floatLists = formatPostByYear(allLists)
+  const pageEndIndex = Math.ceil(allLists.length / MAX_PAGE_SIZE)
 
-  if (pagenum * MAX_PAGE_SIZE > allLists.length) {
+  if (pagenum > pageEndIndex) {
     return <NotFound />
   }
 
   const showLists = formatPostByYear(
     allLists.slice((pagenum - 1) * MAX_PAGE_SIZE, pagenum * MAX_PAGE_SIZE),
   )
-  const pageEndIndex = Math.ceil(allLists.length / MAX_PAGE_SIZE)
   const pages = new Array(pageEndIndex).fill(1).map((_, i) => i + 1)
   return (
     <div className="center">
