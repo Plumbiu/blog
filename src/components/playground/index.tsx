@@ -1,5 +1,4 @@
 /* eslint-disable @stylistic/max-len */
-/* eslint-disable import-x/no-named-as-default */
 'use client'
 
 // It could be running at server, but doesn't support onClick or other props
@@ -13,7 +12,6 @@ import {
   useRef,
   useState,
 } from 'react'
-import clsx from 'clsx'
 import { createRoot, type Root } from 'react-dom/client'
 import { mono } from '@/app/fonts'
 import { handlePlaygroundFileKey } from '@/app/posts/_plugins/rehype/playground-pre'
