@@ -1,5 +1,5 @@
-import { clsx } from 'clsx'
 import { memo } from 'react'
+import { cn } from '@/utils/client'
 import { LogInfo } from '@/app/_hooks/useConsole'
 import { isString, transfromLogValue } from '@/utils'
 import styles from './Console.module.css'
@@ -31,11 +31,11 @@ interface ConsoleProps {
 const Console = memo(
   ({ logs, showType = false, className, ...rest }: ConsoleProps) => {
     return (
-      <div className={clsx(styles.console, className)} {...rest}>
+      <div className={cn(styles.console, className)} {...rest}>
         {logs.map(({ value, date, valueType }, i) => (
           <div key={i}>
             <div
-              className={clsx(styles.right, {
+              className={cn(styles.right, {
                 [styles.num]: valueType === 'Number',
                 [styles.string]: valueType === 'String',
                 [styles.none]:

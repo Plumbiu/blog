@@ -1,12 +1,12 @@
-import { clsx } from 'clsx'
 import Link from 'next/link'
 import { BiliBiliIcon, CodeIcon, GithubIcon } from '@/app/_components/Icons'
 import IconCard from '@/app/_components/IconCard'
+import { cn } from '@/utils/client'
 import styles from './page.module.css'
 
 function About() {
   return (
-    <div className={clsx(styles.wrap, 'center')}>
+    <div className={cn(styles.wrap, 'center')}>
       <div className={styles.left}>
         <h1 className={styles.hi}> Hi, I'm Plumbiu 👋</h1>
         <div className={styles.tag}>

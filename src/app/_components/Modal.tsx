@@ -1,7 +1,7 @@
 'use client'
 
-import { clsx } from 'clsx'
 import { MouseEventHandler, useRef, WheelEventHandler } from 'react'
+import { cn } from '@/utils/client'
 import useModalStore from '@/app/_store/modal'
 import styles from './Modal.module.css'
 
@@ -203,7 +203,7 @@ function ImagePreview() {
           }
           hidden()
         }}
-        className={clsx(styles.modal, styles.anim)}
+        className={cn(styles.modal, styles.anim)}
         onWheel={onWheel}
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}

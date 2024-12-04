@@ -1,5 +1,5 @@
-import { clsx } from 'clsx'
 import { ReactNode } from 'react'
+import { cn } from '@/utils/client'
 import styles from './Card.module.css'
 
 interface CardProps {
@@ -12,7 +12,7 @@ interface CardProps {
 function Card({ children, active, disabled = false, ...rest }: CardProps) {
   return (
     <div
-      className={clsx(styles.card, {
+      className={cn(styles.card, {
         [styles.active]: active,
         [styles.disabled]: disabled,
         [styles.transition]: !disabled,

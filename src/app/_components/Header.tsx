@@ -2,7 +2,7 @@
 
 import { Link } from 'next-view-transitions'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { clsx } from 'clsx'
+import { cn } from '@/utils/client'
 import { GithubIcon, MoonIcon, SunIcon } from '@/app/_components/Icons'
 import { applyTheme, Dark, Light } from '@/utils/client/theme'
 import styles from './Header.module.css'
@@ -47,7 +47,7 @@ function Header() {
   return (
     <header ref={ref} className={styles.wrap}>
       <div className={styles.header}>
-        <div className={clsx(styles.left, styles.hover)}>
+        <div className={cn(styles.left, styles.hover)}>
           <Link href="/list/blog/1" className="fcc">
             Plumbiu
           </Link>

@@ -1,11 +1,11 @@
-import { clsx } from 'clsx'
 import Link from 'next/link'
+import { cn } from '@/utils/client'
 import styles from './Footer.module.css'
 import { RssIcon } from './Icons'
 
 async function Footer() {
   return (
-    <div className={clsx('center', styles.wrap)}>
+    <div className={cn('center', styles.wrap)}>
       <div>
         <Link
           className="link"

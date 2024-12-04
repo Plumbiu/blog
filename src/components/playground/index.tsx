@@ -28,6 +28,7 @@ import {
 import ReactShadowRoot from '@/app/_components/Shadow'
 import useConsole from '@/app/_hooks/useConsole'
 import useObserver from '@/app/_hooks/useObservser'
+import { cn } from '@/utils/client'
 import styles from './index.module.css'
 import { renderStaticPlayground, renerPlayground } from './compile'
 import CodeWrap from '../_common/CodeWrap'
@@ -60,7 +61,7 @@ const Tab = memo((props: TabProps) => {
     <div
       key={name}
       onClick={onClick}
-      className={clsx({
+      className={cn({
         [styles['tab_active']]: isActive,
       })}
     >
@@ -192,7 +193,7 @@ const Playground = (props: any) => {
         {!(isStatic || isPreviewTabsHidden) && (
           <div className={styles.tab}>
             <div
-              className={clsx({
+              className={cn({
                 [styles['tab_active']]: !isConsoleVisible,
               })}
               onClick={() => setIsConsoleVisible(false)}
@@ -200,7 +201,7 @@ const Playground = (props: any) => {
               {PreviewTabName}
             </div>
             <div
-              className={clsx({
+              className={cn({
                 [styles['tab_active']]: isConsoleVisible,
               })}
               onClick={() => setIsConsoleVisible(true)}
@@ -211,7 +212,7 @@ const Playground = (props: any) => {
           </div>
         )}
         <div
-          className={clsx(styles.preview, {
+          className={cn(styles.preview, {
             [styles.hide]: isConsoleVisible,
           })}
           ref={nodeRef}

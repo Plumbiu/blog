@@ -1,7 +1,7 @@
 import path from 'node:path'
 import Link from 'next/link'
-import { clsx } from 'clsx'
 import Image from 'next/image'
+import { cn } from '@/utils/client'
 import info from '@/links.json'
 import { getBlurDataUrl } from '@/utils/node'
 import styles from './page.module.css'
@@ -25,14 +25,14 @@ async function Links() {
     }),
   )
   return (
-    <div className={clsx('center', styles.wrap)}>
+    <div className={cn('center', styles.wrap)}>
       <div>
         <h1 className={styles.top_title}>Links</h1>
         <div className={styles.subtitle}>朋友们</div>
       </div>
       <div className={styles.main_content}>
         {data.map(({ avatar, link, name, desc, base64 }) => (
-          <div key={name} className={clsx(styles.link)}>
+          <div key={name} className={cn(styles.link)}>
             <Image
               alt={name}
               placeholder="blur"
@@ -46,7 +46,7 @@ async function Links() {
               <Link
                 href={link}
                 target="_blank"
-                className={clsx('link', styles.title)}
+                className={cn('link', styles.title)}
               >
                 {name}
               </Link>

@@ -1,5 +1,4 @@
 import React, { createElement } from 'react'
-import { clsx } from 'clsx'
 import { isJsxFileLike } from '@/utils'
 
 type Scope = Record<string, any>
@@ -11,7 +10,6 @@ interface LogFn {
 const baseScope: Scope = {
   react: React,
   React,
-  clsx,
 }
 
 const baseScopeKeys = Object.keys(baseScope)

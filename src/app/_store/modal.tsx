@@ -1,7 +1,7 @@
 'use client'
 
 import { createStore } from '@plumbiu/react-store'
-import React, { RefObject } from 'react'
+import React from 'react'
 
 function preventBodyScroll(e: Event) {
   e.preventDefault()

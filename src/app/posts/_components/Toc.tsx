@@ -1,8 +1,8 @@
 'use client'
 
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { clsx } from 'clsx'
 import { Link } from 'next-view-transitions'
+import { cn } from '@/utils/client'
 import { throttle } from '@/utils'
 import styles from './Toc.module.css'
 
@@ -18,7 +18,7 @@ const TocLink = memo(
       style={{
         paddingLeft: (depth - 1) * 16,
       }}
-      className={clsx(styles.link, {
+      className={cn(styles.link, {
         [styles.active]: active,
       })}
       href={`#${id}`}

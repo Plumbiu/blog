@@ -1,8 +1,8 @@
 import { Link } from 'next-view-transitions'
 import { Metadata } from 'next'
-import { clsx } from 'clsx'
 import { ReactNode } from 'react'
 import { upperFirstChar } from '@/utils'
+import { cn } from '@/utils/client'
 import { getPostList } from '@/utils/node'
 import IconCard from '@/app/_components/IconCard'
 import { TimeWordInfo } from '@/app/_components/PostInfo'
@@ -79,7 +79,7 @@ async function ArtlistAll(props: ListProps) {
       <div className={styles.action}>
         {PostDir.map((p) => (
           <Link
-            className={clsx(styles.action_item, {
+            className={cn(styles.action_item, {
               [styles.active]: id === p,
             })}
             scroll={false}

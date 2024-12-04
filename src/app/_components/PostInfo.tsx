@@ -1,4 +1,5 @@
-import { clsx } from 'clsx'
+import { cn } from '@/utils/client'
+
 import { monthArr } from '@/constants'
 import { FrontMatterItem } from '@/utils/node'
 import styles from './PostInfo.module.css'
@@ -18,7 +19,7 @@ export function TimeWordInfo({
   className,
 }: TimeWordInfoProps) {
   return (
-    <div className={clsx(styles.tw_info, className)}>
+    <div className={cn(styles.tw_info, className)}>
       <div>{formatTime(date)}</div>
       <div className="verticalLine" />
       <div>{(wordLength / 225).toFixed(0)} min read</div>
