@@ -19,16 +19,12 @@
   }
 }
 
-.hide {
-  opacity: 0;
-}
-
 .modal {
   position: fixed;
   top: 0;
+  z-index: 999;
   display: flex;
   align-items: center;
-  z-index: 999;
   justify-content: center;
   overflow: hidden;
   width: 100%;
