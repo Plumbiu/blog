@@ -9,11 +9,13 @@ on:
   push:
     branches: ['main']
     paths:
-      - '!.gitignore'
-      - '!deploy.md'
-      - '!eslint.config.mjs'
-      - '!LICENSE'
-      - '!README.md'
+      - '.github/**'
+      - 'post/**'
+      - 'public/**'
+      - 'scripts/**'
+      - 'src/**'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
