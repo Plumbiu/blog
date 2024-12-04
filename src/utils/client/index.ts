@@ -1,21 +1,22 @@
+import { isNumber, isString } from '..'
+
 type ClassNameArg = any
 export function cn(...args: ClassNameArg[]) {
   let classname = ''
-  for (const arg of args) {
-    if (!arg) {
-      continue
-    }
-    if (typeof arg === 'object') {
+  for (let i = 0; i < args.length; i++) {
+    const arg = args[i]
+    if (isString(arg) || isNumber(arg)) {
+      classname && (classname += ' ')
+      classname += arg
+    } else if (typeof arg === 'object') {
       for (const key in arg) {
-        const value = arg[key]
-        if (value) {
-          classname += ' ' + key
+        if (arg[key]) {
+          classname && (classname += ' ')
+          classname += key
         }
       }
-    } else {
-      classname += ' ' + arg
     }
   }
 
-  return classname ? classname.slice(1) : undefined
+  return classname
 }

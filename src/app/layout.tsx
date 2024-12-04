@@ -38,8 +38,8 @@ export default function RootLayout({
           <Header />
           <div className="main_children">{children}</div>
           <Footer />
-          <Modal />
         </ViewTransitions>
+        <Modal />
         <Analytics />
       </body>
     </html>

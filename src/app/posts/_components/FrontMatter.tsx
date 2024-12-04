@@ -8,13 +8,6 @@ function FrontMatter({ title, date, tags, wordLength }: FrontMatterItem) {
     <div className={styles.wrap}>
       <h1 className={styles.title}>{title}</h1>
       <TimeWordInfo wordLength={wordLength} date={date} />
-      {tags && (
-        <div className={styles.tags}>
-          {tags.map((tag) => (
-            <IconCard key={tag} icon="#" text={tag} />
-          ))}
-        </div>
-      )}
     </div>
   )
 }

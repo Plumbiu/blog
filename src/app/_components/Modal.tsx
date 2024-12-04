@@ -172,20 +172,6 @@ function ImagePreview() {
     mousePosition.current = null
   }
 
-  const onDoubleClick: MouseEventHandler<HTMLDivElement> = (e) => {
-    preventComplexEvent(e)
-    const target = e.target as HTMLElement
-    if (!isImage(target)) {
-      return
-    }
-    if (isDoubleClicked.current) {
-      scaleUp()
-    } else {
-      scaleDown()
-    }
-    updateDOM()
-    isDoubleClicked.current = !isDoubleClicked.current
-  }
   if (!children) {
     return
   }
@@ -208,7 +194,6 @@ function ImagePreview() {
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}
         onMouseUp={onMouseUp}
-        onDoubleClick={onDoubleClick}
       >
         {children}
       </div>

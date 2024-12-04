@@ -96,7 +96,7 @@ function Toc() {
 
   return (
     <div ref={tocRef} className={styles.toc}>
-      <div className={styles.title}>Table of Contents</div>
+      <div className={styles.title}>TOC</div>
       <div className={styles.inner}>
         {lists.map((list, i) => (
           <TocLink

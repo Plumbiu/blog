@@ -67,7 +67,8 @@
     color: var(--text-1);
     overflow: auto;
     tab-size: 2;
-    line-height: 1.45;
+    line-height: 1.5;
+    max-height: 80vh;
     border-radius: var(--pre-radius);
     background-color: var(--bg-md-pre);
     border: 1px solid var(--divider);
@@ -168,7 +169,7 @@
   }
   .line {
     display: inline-block;
-    min-height: 10px;
+    min-height: 18px;
     width: 100%;
   }
   .line[data-line]::before {

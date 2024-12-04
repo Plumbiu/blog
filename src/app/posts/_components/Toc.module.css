@@ -43,6 +43,7 @@
 .title {
   font-size: 18px;
   margin-bottom: 12px;
+  letter-spacing: 4px;
   font-weight: 700;
   color: var(--text);
 }
