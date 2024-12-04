@@ -1,4 +1,4 @@
-type ClassNameArg = string | number | Record<string, any>
+type ClassNameArg = any
 export function cn(...args: ClassNameArg[]) {
   let classname = ''
   for (const arg of args) {
