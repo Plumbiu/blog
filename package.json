@@ -6,7 +6,7 @@
     "prepare": "simple-git-hooks",
     "generate": "esno ./scripts/index.ts",
     "dev": "next dev --turbo",
-    "build": "next build",
+    "build": "next build --experimental-app-only",
     "build:gitpage": "cross-env GITPAGE=true next build",
     "start": "next start",
     "analyze": "cross-env ANALYZE=true next build"
