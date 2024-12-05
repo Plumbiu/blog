@@ -39,7 +39,6 @@ function ImagePreview() {
     x: 0,
     y: 0,
   })
-  const isDoubleClicked = useRef(false)
   const mousePosition = useRef<Position | null>(null)
 
   function scaleDown() {
@@ -71,12 +70,12 @@ function ImagePreview() {
   }
 
   const onWheel: WheelEventHandler<HTMLDivElement> = (e) => {
-    removeAnimation()
     e.stopPropagation()
     const target = e.target as HTMLImageElement
     if (!isImage(target)) {
       return
     }
+    removeAnimation()
     let nextScale = e.deltaY < 0 ? scale.current * 1.1 : scale.current / 1.1
     if (nextScale < 1) {
       nextScale = 1
@@ -92,9 +91,9 @@ function ImagePreview() {
     }
     const { x, y, width, height } = target.getBoundingClientRect()
     const { clientX, clientY } = e
-    const n = scale.current / preScale.current
-    translate.current.x -= (1 - n) * (width / 2 - clientX + x)
-    translate.current.y -= (1 - n) * (height / 2 - clientY + y)
+    const n = scale.current / preScale.current - 1
+    translate.current.x += n * (width / 2 - clientX + x)
+    translate.current.y += n * (height / 2 - clientY + y)
     updateDOM()
     addAnimation()
   }

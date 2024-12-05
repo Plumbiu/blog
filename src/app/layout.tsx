@@ -3,7 +3,7 @@ import { ViewTransitions } from 'next-view-transitions'
 import { Analytics } from '@vercel/analytics/react'
 import { resolveAssetPath } from '@/utils'
 import Header from './_components/Header'
-import Modal from './_components/Modal'
+import ImagePreview from './_components/Modal'
 import './_styles/globals.css'
 import './_styles/variable.css'
 import './_styles/dark-variable.css'
@@ -39,7 +39,7 @@ export default function RootLayout({
           <div className="main_children">{children}</div>
           <Footer />
         </ViewTransitions>
-        <Modal />
+        <ImagePreview />
         <Analytics />
       </body>
     </html>
