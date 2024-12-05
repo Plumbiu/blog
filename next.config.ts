@@ -29,6 +29,22 @@ const nextConfig: NextConfig = {
     path: `${BasePath}/_next/image`,
   },
   serverExternalPackages: ['three', '@react-three/fiber'],
+  async rewrites() {
+    return [
+      {
+        source: '/',
+        destination: '/list/blog/1',
+      },
+      {
+        source: '/list',
+        destination: '/list/blog/1',
+      },
+      {
+        source: '/list/:id',
+        destination: '/list/:id/1',
+      },
+    ]
+  },
 }
 
 export default withBundleAnalyzer(nextConfig)
