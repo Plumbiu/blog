@@ -4,7 +4,7 @@ import { ReactNode } from 'react'
 import { upperFirstChar } from '@/utils'
 import { cn } from '@/utils/client'
 import { getPostList } from '@/utils/node'
-import IconCard from '@/app/_components/IconCard'
+import Tag from '@/app/_components/Tag'
 import { TimeWordInfo } from '@/app/_components/PostInfo'
 import Card from '@/app/_components/Card'
 import {
@@ -116,7 +116,9 @@ async function ArtlistAll(props: ListProps) {
                   {tags && (
                     <div className={styles.tags}>
                       {tags.map((tag) => (
-                        <IconCard key={tag} icon="#" text={tag} />
+                        <Tag key={tag} icon="#">
+                          {tag}
+                        </Tag>
                       ))}
                     </div>
                   )}

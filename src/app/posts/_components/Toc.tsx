@@ -1,6 +1,6 @@
 'use client'
 
-import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { memo, useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'next-view-transitions'
 import { cn } from '@/utils/client'
 import { throttle } from '@/utils'
@@ -96,7 +96,9 @@ function Toc() {
 
   return (
     <div ref={tocRef} className={styles.toc}>
-      <div className={styles.title}>TOC</div>
+      {lists.length ? (
+        <div className={styles.title}>Table of Contents</div>
+      ) : null}
       <div className={styles.inner}>
         {lists.map((list, i) => (
           <TocLink

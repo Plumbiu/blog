@@ -1,9 +1,8 @@
 import { FrontMatterItem } from '@/utils/node'
-import IconCard from '@/app/_components/IconCard'
 import { TimeWordInfo } from '@/app/_components/PostInfo'
 import styles from './FrontMatter.module.css'
 
-function FrontMatter({ title, date, tags, wordLength }: FrontMatterItem) {
+function FrontMatter({ title, date, wordLength }: FrontMatterItem) {
   return (
     <div className={styles.wrap}>
       <h1 className={styles.title}>{title}</h1>

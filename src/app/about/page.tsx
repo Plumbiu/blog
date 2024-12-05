@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { BiliBiliIcon, CodeIcon, GithubIcon } from '@/app/_components/Icons'
-import IconCard from '@/app/_components/IconCard'
+import { BiliBiliIcon, GithubIcon } from '@/app/_components/Icons'
+import Tag from '@/app/_components/Tag'
 import { cn } from '@/utils/client'
 import styles from './page.module.css'
 
@@ -10,8 +10,8 @@ function About() {
       <div className={styles.left}>
         <h1 className={styles.hi}> Hi, I'm Plumbiu 👋</h1>
         <div className={styles.tag}>
-          <IconCard icon="#" text="Developer" />
-          <IconCard icon="#" text="Student" />
+          <Tag icon="#">Developer</Tag>
+          <Tag icon="#">Student</Tag>
         </div>
         <div className={styles.desc}>
           I'm a college student from China, currently studying electronic
@@ -28,8 +28,8 @@ function About() {
         </div>
         <div></div>
         <div className={styles.tag}>
-          <IconCard icon="#" text="Web " />
-          <IconCard icon="#" text="Programming" />
+          <Tag icon="#">Web</Tag>
+          <Tag icon="#">Programming</Tag>
         </div>
         <div>
           If you are interested in this blog:{' '}

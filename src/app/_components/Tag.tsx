@@ -1,18 +1,18 @@
 import { ReactNode } from 'react'
-import styles from './IconCard.module.css'
+import styles from './Tag.module.css'
 
 interface TechItemProps {
   icon: ReactNode
-  text: string
+  children: ReactNode
 }
 
-function IconCard({ icon, text }: TechItemProps) {
+function Tag({ icon, children }: TechItemProps) {
   return (
     <div className={styles.card}>
       {icon}
-      <div>{text}</div>
+      <div>{children}</div>
     </div>
   )
 }
 
-export default IconCard
+export default Tag
