@@ -1,0 +1,46 @@
+.link {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  border: 1px solid var(--divider);
+  border-radius: 10px;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--c-gray-soft);
+    border-color: var(--c-indigo-soft);
+  }
+}
+
+.title {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.desc {
+  line-height: 1.5rem;
+  font-size: 14px;
+  color: var(--text-2);
+}
+
+.subtitle {
+  color: var(--text-3);
+  font-weight: 600;
+}
+
+.tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.year {
+  font-weight: 700;
+  margin: 12px 0;
+  font-size: 20px;
+  text-indent: 8px;
+}

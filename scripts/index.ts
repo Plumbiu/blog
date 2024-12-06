@@ -1,6 +1,6 @@
 import fsp from 'node:fs/promises'
 import { getPostList } from '@/utils/node'
-import generateRss from './rss'
+import feed from './feed'
 import { gitadd } from './utils.js'
 
 export type FileMap = Record<string, string>
@@ -15,7 +15,7 @@ async function generate() {
       fileMap[mdPath] = file
     }),
   )
-  gitadd(await generateRss(posts))
+  gitadd(await feed(posts))
 }
 
 generate()

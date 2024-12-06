@@ -1,0 +1,18 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 36px;
+  font-size: 16px;
+  & svg {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .pagination {
+    font-size: 14px;
+    gap: 6px;
+  }
+}

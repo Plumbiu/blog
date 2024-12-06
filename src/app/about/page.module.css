@@ -1,10 +1,7 @@
 .wrap {
-  width: var(--post-w);
   font-size: 18px;
-  display: flex;
-  align-items: center;
 
-  & .left > div {
+  & > div {
     margin-bottom: 28px;
   }
 }
@@ -13,20 +10,14 @@
   font-size: 48px;
 }
 
-.tag {
-  & > div {
-    margin-right: 12px;
-    font-size: 18px !important;
-  }
+.tag > div {
+  margin-right: 12px;
+  font-size: 18px !important;
 }
 
 .desc {
   font-size: 18px;
   line-height: 1.65;
-}
-
-.exp {
-  line-height: 1.85;
 }
 
 .links {

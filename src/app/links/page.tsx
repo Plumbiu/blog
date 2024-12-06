@@ -25,12 +25,12 @@ async function Links() {
     }),
   )
   return (
-    <div className={cn('center', styles.wrap)}>
+    <div className={'center'}>
       <div>
-        <h1 className={styles.top_title}>Links</h1>
+        <h1>Links</h1>
         <div className={styles.subtitle}>朋友们</div>
       </div>
-      <div className={styles.main_content}>
+      <div className={styles.content}>
         {data.map(({ avatar, link, name, desc, base64 }) => (
           <div key={name} className={cn(styles.link)}>
             <Image

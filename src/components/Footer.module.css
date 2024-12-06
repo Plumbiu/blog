@@ -1,0 +1,32 @@
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 16px;
+  row-gap: 16px;
+  color: var(--text-3);
+  white-space: nowrap;
+  margin: 64px auto !important;
+
+  & > a {
+    color: inherit;
+    margin-right: 6px;
+  }
+}
+
+.right {
+  display: flex;
+  gap: 16px;
+
+  & > a {
+    color: var(--text-2);
+
+    &:hover {
+      color: var(--text);
+    }
+  }
+  & svg {
+    font-size: 26px;
+  }
+}

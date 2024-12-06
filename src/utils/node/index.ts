@@ -1,3 +1,4 @@
+/* eslint-disable @stylistic/function-paren-newline */
 import fs from 'node:fs'
 import fsp from 'node:fs/promises'
 import path from 'node:path'
@@ -5,7 +6,7 @@ import yaml from 'js-yaml'
 import { minify_sync } from 'terser'
 import sharp from 'sharp'
 import { FrontmatterWrapStr, PostDir } from '@/constants'
-import stripMarkdown from '../strip-markdown'
+import stripMarkdown from './strip-markdown'
 import {
   isLikeNum,
   getCategory,
@@ -28,8 +29,8 @@ export async function getMarkdownPath() {
   await Promise.all(
     PostDir.map(async (dir) => {
       const postsPath = path.join(process.cwd(), 'posts', dir)
-      const posts = (await fsp.readdir(postsPath)).filter(
-        (p) => p !== '.gitkeep',
+      const posts = (await fsp.readdir(postsPath)).filter((p) =>
+        p.endsWith('.md'),
       )
       results.push(...posts.map((p) => joinFormatPaths('posts', dir, p)))
     }),

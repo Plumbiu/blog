@@ -1,0 +1,93 @@
+:root {
+  /* text */
+  --text: #060606;
+  --text-4: rgba(30, 30, 30, 0.4);
+  --text-3: rgba(30, 30, 30, 0.56);
+  --text-2: rgba(30, 30, 30, 0.82);
+  --text-1: rgb(30, 30, 30);
+  /* border */
+  --divider: #e2e2e5;
+  /* color */
+  --c-yellow-soft: rgba(234, 179, 8, 0.14);
+  --c-yellow-3: #9f6a00;
+  --c-yellow-2: #946300;
+  --c-yellow-1: #915930;
+  --c-red-soft: rgba(244, 63, 94, 0.14);
+  --c-red-3: #e0575b;
+  --c-red-2: #d5393e;
+  --c-red-1: #b8272c;
+  --c-purple-soft: rgba(159, 122, 234, 0.14);
+  --c-purple-3: #8e5cd9;
+  --c-purple-2: #7e4cc9;
+  --c-purple-1: #6f42c1;
+  --c-indigo-soft: rgba(100, 108, 255, 0.14);
+  --c-indigo-3: #5672cd;
+  --c-indigo-2: #3a5ccc;
+  --c-indigo-1: #3451b2;
+  --c-green-soft: rgba(5, 185, 129, 0.14);
+  --c-green-3: #30a46c;
+  --c-green-2: #299764;
+  --c-green-1: #18794e;
+  --c-gray-soft: rgba(128, 130, 146, 0.14);
+  --c-gray-3: #dfdfe6;
+  --c-gray-2: #e4e4e9;
+  --c-gray-1: #dddde3;
+  /* background */
+  --bg-md-quote-before: #d5d5d5;
+  --bg-md-quote-warn: #fcf4dc;
+  --bg-md-quote-info: #e9eaff;
+  --bg-md-quote-danger: rgba(244, 63, 94, 0.14);
+  --bg-md-pre: #fbfbfb;
+  --bg-md-pre-bar: #f9f9f9;
+  --bg-md-highlight-line: rgba(220, 220, 225, 0.52);
+  --bg-md-code: #ddeef8;
+  --bg-md-table-header: #efefef;
+  --bg-md-table-th: #f6f6f6;
+  --bg-header: #ffffff85;
+  --bg-body: #fff;
+  --bg-scrollbar: #c8c8c8;
+  --bg-tag: #e9e9e9;
+  --bg-vertical-line: #bfbfbf;
+  /* shadow */
+  --shadow-header: 3px 3px 16px #f2f2f2, -3px -3px 16px #fefefe;
+  /* console */
+  --console-num: rgb(47, 121, 138);
+  --console-string: rgb(181, 105, 89);
+  --console-none: rgb(171, 89, 89);
+  --console-bool: rgb(30, 117, 79);
+  --console-symbol: rgb(89, 135, 58);
+}
+
+/* constant */
+:root {
+  --header-h: 120px;
+  --post-w: 740px;
+  --center-rest: calc((100% - var(--post-w)) / 2);
+  --pre-radius: 6px;
+  --pre-p: 12px;
+  --extend-x: -36px;
+  --image-item-w: 50%;
+  --code-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    Liberation Mono, Courier New, monospace;
+  --bg-modal: #00000073;
+}
+
+@media screen and (max-width: 1240px) {
+  :root {
+    --post-w: 580px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  :root {
+    --post-w: 500px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  :root {
+    --extend-x: 0;
+    --image-item-w: 100%;
+    --post-w: 100%;
+  }
+}

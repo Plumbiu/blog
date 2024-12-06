@@ -1,14 +1,5 @@
-.wrap {
-  min-height: 80vh;
-}
-
-.top_title {
-  margin-bottom: 4px;
-}
-
-.main_content {
-  margin-top: 36px;
-  margin-bottom: 64px;
+.content {
+  margin: 36px 0;
 }
 
 .link {

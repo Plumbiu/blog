@@ -1,0 +1,41 @@
+.main_children {
+  margin-top: var(--header-h);
+}
+
+.center {
+  width: var(--post-w);
+  margin: auto;
+}
+
+@media screen and (max-width: 960px) {
+  .center {
+    width: 100%;
+    padding: 0 14px;
+  }
+}
+
+.link {
+  color: var(--text);
+  border-width: 0;
+  border-bottom-width: 1px;
+  border-style: solid;
+  border-color: var(--divider);
+  padding-bottom: 1px;
+  transition: border-color 250ms ease-in-out;
+  word-break: break-all;
+  &:hover {
+    border-color: var(--c-green-1);
+  }
+
+  & > code {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+}
+
+.fcc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
