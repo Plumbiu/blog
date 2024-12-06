@@ -1,5 +1,6 @@
 /* eslint-disable @stylistic/max-len */
 import { StringValueObj } from '@/types/base'
+import { getFirstLine } from '@/utils'
 import { ComponentKey } from '../constant'
 import { buildPlaygroundHandlerFunction } from '../utils'
 
@@ -47,4 +48,21 @@ export const handlePlaygroundStyles =
 export const PlaygroundName = 'Playground'
 export function isPlayground(props: any) {
   return props[ComponentKey] === PlaygroundName
+}
+
+export const buildFiles = (code: string, startStr: string) => {
+  if (!code?.startsWith(startStr)) {
+    code = `/// ${startStr}\n${code}`
+  }
+  const tokens = code.split('///')
+  const attrs: StringValueObj = {}
+  for (let i = 0; i < tokens.length; i++) {
+    const token = tokens[i]
+    if (token[0] === ' ') {
+      const str = getFirstLine(tokens[i])
+      const key = str.trim()
+      attrs[key] = tokens[i].slice(str.length).trim()
+    }
+  }
+  return attrs
 }

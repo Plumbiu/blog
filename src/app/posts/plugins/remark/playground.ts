@@ -1,7 +1,7 @@
 import path from 'node:path'
 import { visit } from 'unist-util-visit'
 import { transform, Options } from 'sucrase'
-import { buildFiles, getBaseName, getFirstLine, isJsxFileLike } from '@/utils'
+import { getBaseName, getFirstLine, isJsxFileLike } from '@/utils'
 import { minify, tryReadFileSync } from '@/utils/node'
 import {
   handlePlaygroundCustomPreivew,
@@ -12,6 +12,7 @@ import {
   handlePlaygroundStyles,
   PlaygroundHidePreviewTabsKeySuffix,
   PlaygroundHideCodeTabsKeySuffix,
+  buildFiles,
 } from './playground-utils'
 import {
   handleComponentCode,

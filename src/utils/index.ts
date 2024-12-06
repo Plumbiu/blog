@@ -1,5 +1,4 @@
 import { BasePath, PostDir, type FrontmatterKey } from '@/constants'
-import { StringValueObj } from '@/types/base'
 
 const RemoveMdSuffixRegx = /\.md$/
 export const removeMdSuffix = (p: string) => {
@@ -77,38 +76,9 @@ export function getFirstLine(s: string) {
   return str
 }
 
-export const buildFiles = (code: string, startStr: string) => {
-  if (!code?.startsWith(startStr)) {
-    code = `/// ${startStr}\n${code}`
-  }
-  const tokens = code.split('///')
-  const attrs: StringValueObj = {}
-  for (let i = 0; i < tokens.length; i++) {
-    const token = tokens[i]
-    if (token[0] === ' ') {
-      const str = getFirstLine(tokens[i])
-      const key = str.trim()
-      attrs[key] = tokens[i].slice(str.length).trim()
-    }
-  }
-  return attrs
-}
-
 export const getBaseName = (p: string) => {
   const idx = p.lastIndexOf('/')
   return p.slice(idx + 1)
-}
-
-const DescNumRegx = /^\d+$/
-export function isLikeNum(s: string) {
-  if (!s) {
-    return false
-  }
-  return DescNumRegx.test(s)
-}
-
-export function joinFormatPaths(...args: string[]) {
-  return args.join('/')
 }
 
 export function getYear(date: number) {
@@ -124,30 +94,9 @@ export function isJsxFileLike(p: string) {
   )
 }
 
-export function transfromLogValue(value: any) {
-  if (isString(value) || isNumber(value)) {
-    return value
-  }
-  if (isFunction(value) || value == null) {
-    return String(value)
-  }
-
-  return JSON.stringify(value)
-}
-
 export function getType(value: any) {
   const type = Object.prototype.toString.call(value)
   return type.slice(8, type.length - 1)
-}
-
-export function isTypeScript(lang: string) {
-  lang = lang.toLowerCase()
-  return lang === 'ts' || lang === 'typescript'
-}
-
-export function isJavaScript(lang: string) {
-  lang = lang.toLowerCase()
-  return lang === 'js' || lang === 'javascript'
 }
 
 export function resolveAssetPath(p: string) {

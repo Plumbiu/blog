@@ -7,12 +7,7 @@ import { minify_sync } from 'terser'
 import sharp from 'sharp'
 import { FrontmatterWrapStr, PostDir } from '@/constants'
 import stripMarkdown from './strip-markdown'
-import {
-  isLikeNum,
-  getCategory,
-  removeMdSuffix,
-  joinFormatPaths,
-} from '../index'
+import { getCategory, removeMdSuffix } from '../index'
 
 export interface FrontMatterItem {
   title: string
@@ -32,12 +27,13 @@ export async function getMarkdownPath() {
       const posts = (await fsp.readdir(postsPath)).filter((p) =>
         p.endsWith('.md'),
       )
-      results.push(...posts.map((p) => joinFormatPaths('posts', dir, p)))
+      results.push(...posts.map((p) => `posts/${dir}/${p}`))
     }),
   )
   return results
 }
 
+const DescNumRegx = /^\d+$/
 export function getFrontmatter(code: string) {
   const startIdx = code.indexOf(FrontmatterWrapStr)
   if (startIdx !== 0) {
@@ -49,7 +45,7 @@ export function getFrontmatter(code: string) {
   const desc = frontmatter.desc
   const content = code.slice(endIndex + 3)
   const rawText = stripMarkdown(content).trim()
-  if (desc && isLikeNum(desc)) {
+  if (desc && DescNumRegx.test(desc)) {
     const segments = rawText.split(/\r?\n/g).filter((s) => s.trim())
     frontmatter.desc = segments.length > 0 ? segments[+desc - 1] : ''
   }

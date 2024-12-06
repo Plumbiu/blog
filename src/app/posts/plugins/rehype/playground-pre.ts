@@ -1,9 +1,9 @@
 import { type Element } from 'hast'
-import { buildFiles } from '@/utils'
 import {
   isPlayground,
   handlePlaygroundSelector,
   PlaygroundPrefix,
+  buildFiles,
 } from '../remark/playground-utils'
 import { handleComponentCode, handleComponentMetaFromProps } from '../constant'
 import { buildPlaygroundHandlerFunction } from '../utils'
