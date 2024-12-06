@@ -6,9 +6,9 @@ import MarkdownImage from '@/app/posts/components/Image'
 import { handleComponentName } from '@/app/posts/plugins/constant'
 import { getBlurDataUrl } from '@/utils/node'
 import { resolveAssetPath } from '@/utils'
+import CustomComponent from '~/components'
 import PreComponent from './Pre'
 import transfromCode2Jsx from '../utils/transfrom'
-import CustomComponent from '~/components'
 
 const components: Partial<Components> = {
   pre(props) {
