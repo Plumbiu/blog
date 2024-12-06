@@ -63,14 +63,14 @@ function remarkPlayground(): RemarkReturn {
         const componentPath = PlaygroundPathRegx.exec(meta)?.[1]
         if (previewName) {
           const content = tryReadFileSync(
-            path.join('src', 'components', `${previewName}.tsx`),
+            path.join('components', `${previewName}.tsx`),
           )
           handlePlaygroundCustomPreivew(props, getBaseName(previewName))
           handleComponentCode(props, content.trim())
         }
         if (componentName && componentPath) {
           const content = tryReadFileSync(
-            path.join('src', 'components', `${componentPath}.tsx`),
+            path.join('components', `${componentPath}.tsx`),
           )
           handlePlaygroundCustomPreivew(props, componentName)
           handleComponentCode(props, content.trim())

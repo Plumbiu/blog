@@ -96,9 +96,6 @@ const CodePreview = memo(
   },
 )
 
-const PreviewTabName = 'Preview'
-const ConsoleTabName = 'Console'
-
 const Playground = (props: any) => {
   const {
     defaultSelector,
@@ -196,7 +193,7 @@ const Playground = (props: any) => {
               })}
               onClick={() => setIsConsoleVisible(false)}
             >
-              {PreviewTabName}
+              Preview
             </div>
             <div
               className={cn({
@@ -204,7 +201,7 @@ const Playground = (props: any) => {
               })}
               onClick={() => setIsConsoleVisible(true)}
             >
-              {ConsoleTabName}
+              Console
             </div>
             <div />
           </div>
