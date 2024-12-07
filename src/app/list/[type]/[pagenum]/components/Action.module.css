@@ -1,12 +1,12 @@
 .action {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   color: var(--text-4);
   margin-bottom: 24px;
   overflow-x: auto;
   scrollbar-width: none;
-  font-size: 16px;
+  font-size: 18px;
 
   &::-webkit-scrollbar {
     height: 0;

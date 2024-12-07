@@ -11,7 +11,7 @@ body {
   overflow-x: hidden;
   background-color: var(--bg-body);
   text-rendering: optimizeLegibility;
-  transition: background-color 100ms;
+  transition: background-color 300ms;
   scrollbar-color: var(--bg-scrollbar);
 }
 

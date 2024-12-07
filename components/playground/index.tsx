@@ -90,7 +90,7 @@ const CodePreview = memo(
             <div />
           </div>
         )}
-        <pre className={mono.className}>{node}</pre>
+        <pre>{node}</pre>
       </div>
     )
   },

@@ -2,7 +2,6 @@
 
 import { ReactNode, useState } from 'react'
 import { CopyCheckIcon, CopyErrorIcon, CopyIcon } from '@/components/Icons'
-import { mono } from '@/app/fonts'
 import styles from './Pre.module.css'
 
 interface PreComponentProps {
@@ -34,7 +33,7 @@ function PreComponent({ children, code }: PreComponentProps) {
           {icon}
         </div>
       )}
-      <pre className={mono.className}>{children}</pre>
+      <pre>{children}</pre>
     </div>
   )
 }

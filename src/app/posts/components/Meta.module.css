@@ -2,9 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 16px;
   gap: 8px;
-  margin-bottom: 16px;
+  margin-top: 24px;
+  margin-bottom: 32px;
 }
 
 .title {
@@ -16,6 +16,7 @@
 
 .info {
   font-size: 18px !important;
+  gap: 16px;
   color: var(--text-3);
 }
 

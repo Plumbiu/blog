@@ -5,7 +5,7 @@
   right: 0;
   z-index: 99;
   width: 100%;
-  font-size: 18px;
+  font-size: 20px;
   background-color: var(--bg-header);
   backdrop-filter: blur(10px);
   height: var(--header-h);
@@ -22,7 +22,7 @@
   margin: auto;
 
   & svg {
-    font-size: 24px;
+    font-size: 26px;
   }
 }
 
@@ -58,7 +58,6 @@
 .left {
   font-weight: 700;
   font-style: italic;
-  font-size: 18px;
 }
 
 .right {

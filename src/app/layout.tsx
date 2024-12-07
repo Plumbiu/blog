@@ -25,13 +25,13 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <script src={resolveAssetPath('theme.js')}></script>
+        <link
+          href={resolveAssetPath('icons/icon.svg')}
+          rel="icon"
+          sizes="32x32"
+          type="image/x-icon"
+        />
       </head>
-      <link
-        href={resolveAssetPath('icons/icon.svg')}
-        rel="icon"
-        sizes="32x32"
-        type="image/x-icon"
-      />
       <body className={mono.className}>
         <ViewTransitions>
           <Header />
