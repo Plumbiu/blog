@@ -24,10 +24,10 @@ async function feed(posts: PostList[]) {
   }
 
   json.channel.push({
-    lastBuildDate: posts[0].date,
+    lastBuildDate: posts[0].meta.date,
   })
   for (const post of posts) {
-    const { title, desc: description, date: pubDate } = post
+    const { title, desc: description, date: pubDate } = post.meta
     json.channel.push({
       item: {
         title,
