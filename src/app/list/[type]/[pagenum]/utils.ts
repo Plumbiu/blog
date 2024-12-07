@@ -5,7 +5,7 @@ import { FloatType } from './types'
 export function formatPostByYear(lists: PostList[]) {
   const map: FloatType = {}
   for (const list of lists) {
-    const year = getYear(list.date)
+    const year = getYear(list.meta.date)
     if (!map[year]) {
       map[year] = []
     }

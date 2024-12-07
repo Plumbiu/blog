@@ -12,18 +12,18 @@ import ArtlistPagination from './components/Pagination'
 const MAX_PAGE_SIZE = 4
 
 interface Params {
-  id: string
+  type: string
   pagenum: string
 }
 export async function generateStaticParams() {
   const result: Params[] = []
 
   await Promise.all(
-    PostDir.map(async (id) => {
-      const post = await getPostList(id)
+    PostDir.map(async (type) => {
+      const post = await getPostList(type)
       for (let i = 1; i <= Math.ceil(post.length / MAX_PAGE_SIZE); i++) {
         result.push({
-          id,
+          type,
           pagenum: String(i),
         })
       }
@@ -38,10 +38,10 @@ interface ListProps {
 
 async function ArtlistAll(props: ListProps) {
   const params = await props.params
-  const id = params.id
+  const type = params.type
 
   const pagenum = +params.pagenum
-  const allLists = await getPostList(id)
+  const allLists = await getPostList(type)
   const floatLists = formatPostByYear(allLists)
   const pageCount = Math.ceil(allLists.length / MAX_PAGE_SIZE)
 
@@ -55,10 +55,10 @@ async function ArtlistAll(props: ListProps) {
   return (
     <div className="center">
       <AsideLeft items={floatLists} />
-      <ArtlistAction id={id} />
+      <ArtlistAction type={type} />
       <ArtList lists={showLists} />
       <ArtlistPagination
-        id={id}
+        type={type}
         pagenum={pagenum}
         lists={allLists}
         pageCount={pageCount}
@@ -70,8 +70,8 @@ async function ArtlistAll(props: ListProps) {
 export default ArtlistAll
 
 export async function generateMetadata(props: ListProps): Promise<Metadata> {
-  const params = (await props.params).id
+  const type = (await props.params).type
   return {
-    title: `${upperFirstChar(params || 'blog')} | 文章`,
+    title: `${upperFirstChar(type || 'blog')} | 文章`,
   }
 }

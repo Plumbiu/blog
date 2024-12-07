@@ -1,26 +1,19 @@
-import fsp from 'node:fs/promises'
-import path from 'node:path'
-import process from 'node:process'
 import { Metadata } from 'next'
 import React from 'react'
 import { getCategory, removeMdSuffix, upperFirstChar } from '@/utils'
 import NotFound from '@/components/NotFound'
-import { FrontMatterItem, getFrontmatter, getMarkdownPath } from '@/utils/node'
+import { getPostPaths, getPostList, PostList } from '@/utils/node'
 import { FrontmatterKey } from '@/constants'
+import Card from '@/components/Card'
 import styles from './page.module.css'
-import Markdown from '../../components/Markdown'
 import Toc from '../../components/Toc'
-import FrontMatter from '../../components/FrontMatter'
+import Meta from '../../components/Meta'
 import '../../styles/md.css'
 import '../../styles/shiki.css'
-
-interface PostContent {
-  frontmatter: FrontMatterItem
-  content: string
-}
+import transfromCode2Jsx from '../../utils/transfrom'
 
 export async function generateStaticParams() {
-  const mds = await getMarkdownPath()
+  const mds = await getPostPaths()
   return mds.map((id) => {
     const tokens = id.split('/')
     return {
@@ -33,20 +26,14 @@ export async function generateStaticParams() {
 async function getPostContent(
   type: string,
   id: string,
-): Promise<PostContent | undefined> {
+): Promise<PostList | undefined> {
   try {
-    const file = await fsp.readFile(
-      path.join(process.cwd(), 'posts', type, `${decodeURI(id)}.md`),
-      'utf-8',
-    )
-    const { frontmatter, content } = getFrontmatter(file)
-    if (!frontmatter || !content || frontmatter.hidden) {
+    const posts = await getPostList(type)
+    const post = posts.find((post) => post.path === `posts/${type}/${id}`)
+    if (!post) {
       return
     }
-    return {
-      frontmatter,
-      content,
-    }
+    return post
   } catch (error) {}
 }
 
@@ -63,6 +50,7 @@ async function Post(props: PostProps) {
   if (!info) {
     return <NotFound />
   }
+  const node = await transfromCode2Jsx(info.content)
   return (
     <div className={styles.wrap}>
       <div
@@ -71,8 +59,8 @@ async function Post(props: PostProps) {
           margin: 0,
         }}
       >
-        <FrontMatter {...info.frontmatter} />
-        <Markdown content={info.content} />
+        <Meta {...info} />
+        <div className="md">{node}</div>
       </div>
       <Toc />
     </div>
@@ -84,7 +72,7 @@ export async function generateMetadata(props: PostProps): Promise<Metadata> {
   const info = await getPostContent(params.type, params.id)
   const category = getCategory(params.id)
   return {
-    title: `${upperFirstChar(category)} - ${info?.frontmatter.title}`,
+    title: `${upperFirstChar(category)} - ${info?.meta.title}`,
   }
 }
 

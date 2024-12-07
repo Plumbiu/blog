@@ -13,13 +13,13 @@ const iconMap: Record<(typeof PostDir)[number], ReactNode> = {
   note: <NoteIcon style={{ backgroundColor: 'var(--c-gray-soft)' }} />,
 }
 
-function ArtlistAction({ id }: { id: string }) {
+function ArtlistAction({ type }: { type: string }) {
   return (
     <div className={styles.action}>
       {PostDir.map((p) => (
         <Link
           className={cn(styles.item, {
-            [styles.active]: id === p,
+            [styles.active]: type === p,
           })}
           scroll={false}
           key={p}

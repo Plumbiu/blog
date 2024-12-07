@@ -3,7 +3,7 @@ import { cn } from '@/utils/client'
 import styles from './Footer.module.css'
 import { RssIcon } from './Icons'
 
-async function Footer() {
+function Footer() {
   return (
     <div className={cn('center', styles.wrap)}>
       <div>

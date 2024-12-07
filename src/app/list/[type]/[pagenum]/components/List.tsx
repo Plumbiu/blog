@@ -12,8 +12,9 @@ function ArtList({ lists }: { lists: [string, PostList[]][] }) {
       {lists.map(([year, post]) => (
         <div key={year}>
           <div className={styles.year}>{year}</div>
-          {post.map(
-            ({ title, date, desc, subtitle, tags, wordLength, path }) => (
+          {post.map(({ meta, path }) => {
+            const { title, date, desc, subtitle, tags, wordLength } = meta
+            return (
               <Link
                 key={path}
                 prefetch
@@ -38,8 +39,8 @@ function ArtList({ lists }: { lists: [string, PostList[]][] }) {
                   </div>
                 )}
               </Link>
-            ),
-          )}
+            )
+          })}
         </div>
       ))}
     </div>

@@ -7,10 +7,9 @@ import { handleComponentName } from '@/app/posts/plugins/constant'
 import { getBlurDataUrl } from '@/utils/node'
 import { resolveAssetPath } from '@/utils'
 import CustomComponent from '~/components'
-import PreComponent from './Pre'
-import transfromCode2Jsx from '../utils/transfrom'
+import PreComponent from '../components/Pre'
 
-const components: Partial<Components> = {
+export const markdownComponents: Partial<Components> = {
   pre(props) {
     const { node, ...rest } = props
     const component = handleComponentName(props)
@@ -51,9 +50,3 @@ const components: Partial<Components> = {
     return <CustomComponent {...rest} />
   },
 }
-
-function Markdown({ content }: { content: string }) {
-  return <div className="md">{transfromCode2Jsx(content, components)}</div>
-}
-
-export default Markdown

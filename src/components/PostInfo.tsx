@@ -1,6 +1,6 @@
 import { cn } from '@/utils/client'
 import { monthArr } from '@/constants'
-import { FrontMatterItem } from '@/utils/node'
+import { PostMeta } from '@/utils/node'
 import styles from './PostInfo.module.css'
 
 function formatTime(time: string | number) {
@@ -9,7 +9,7 @@ function formatTime(time: string | number) {
   return `${month} ${String(d.getDate()).padStart(3, ' 0')}, ${d.getFullYear()}`
 }
 
-type TimeWordInfoProps = Pick<FrontMatterItem, 'date' | 'wordLength'> & {
+type TimeWordInfoProps = Pick<PostMeta, 'date' | 'wordLength'> & {
   className?: string
 }
 export function TimeWordInfo({

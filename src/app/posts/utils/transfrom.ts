@@ -18,6 +18,7 @@ import remarkPlayground from '@/app/posts/plugins/remark/playground'
 import { remarkContainerDirectivePlugin } from '@/app/posts/plugins/rehype/directive'
 import remarkRunner from '@/app/posts/plugins/remark/runner'
 import remarkCodeConfig from '@/app/posts/plugins/remark/code'
+import { markdownComponents } from './components'
 
 const shikiOptions = {
   themes: [vitesseDark, vitesseLight],
@@ -80,10 +81,7 @@ const shikiOptions = {
   SOFTWARE.
 */
 
-async function transfromCode2Jsx(
-  code: string,
-  components: Partial<Components>,
-) {
+async function transfromCode2Jsx(code: string) {
   const shiki = await getSingletonHighlighterCore(shikiOptions)
   const processor = unified()
     .use(remarkParse)
@@ -103,7 +101,7 @@ async function transfromCode2Jsx(
 
   const node = toJsxRuntime(hastTree, {
     Fragment,
-    components,
+    components: markdownComponents,
     ignoreInvalidStyle: true,
     jsx,
     jsxs,
