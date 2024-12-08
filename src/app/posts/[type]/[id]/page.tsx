@@ -65,8 +65,9 @@ async function Post({ params }: PostProps) {
   )
 }
 
-export async function generateMetadata(props: PostProps): Promise<Metadata> {
-  const params = await props.params
+export async function generateMetadata({
+  params,
+}: PostProps): Promise<Metadata> {
   const info = await getPostContent(params.type, params.id)
   const category = getCategory(params.id)
   return {

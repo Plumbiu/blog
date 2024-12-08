@@ -11,38 +11,34 @@
   table {
     border-spacing: 0;
     border-collapse: collapse;
-    display: block;
     overflow: auto;
     border-spacing: 0;
     width: 100%;
     table-layout: fixed;
+    margin: 32px 0;
 
-    tbody,
     thead {
-      overflow: auto;
+      border-bottom: 1px solid var(--divider);
     }
     th {
-      font-weight: 700;
-      background-color: var(--bg-md-table-header);
+      text-align: left;
+      font-weight: 600;
     }
     th,
     td {
-      padding: 8px 12px;
-      border: 1px solid var(--divider);
-    }
-    td > :last-child {
-      margin-bottom: 0;
-    }
-    tr:nth-child(2n) {
-      background-color: var(--background);
-    }
-    tr {
-      transition: background-color 125ms;
-      background-color: var(--bg-md-table-th);
-      border-top: 1px solid var(--divider);
-      &:hover {
-        background-color: var(--c-gray-soft);
+      padding: 12px 8px;
+      border-bottom: 1px solid var(--divider);
+
+      &:first-child {
+        padding-left: 0;
       }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+    tr:last-child > td {
+      border-bottom: none;
     }
   }
 

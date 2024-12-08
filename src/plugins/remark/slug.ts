@@ -1,5 +1,4 @@
 import { visit } from 'unist-util-visit'
-import { Link, type Heading } from 'mdast'
 import { RemarkReturn } from '../constant'
 import { makeProperties } from '../utils'
 

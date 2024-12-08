@@ -3,7 +3,7 @@
 'use client'
 
 import { createElement, lazy } from 'react'
-import { handleComponentName } from '@/app/posts/plugins/constant'
+import { handleComponentName } from '@/plugins/constant'
 import IntersectionObserverComponent from '@/components/IntersectionObserverComponent'
 import Playground from './playground'
 import CodeRunner from './code-runner'

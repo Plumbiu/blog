@@ -14,7 +14,7 @@ import {
 } from 'react'
 import { createRoot, type Root } from 'react-dom/client'
 import { mono } from '@/app/fonts'
-import { handlePlaygroundFileKey } from '@/app/posts/plugins/rehype/playground-pre'
+import { handlePlaygroundFileKey } from '@/plugins/rehype/playground-pre'
 import {
   handlePlaygroundFileMapKey,
   handlePlaygroundSelector,
@@ -22,7 +22,7 @@ import {
   handlePlaygroundHidePreviewTabsKey,
   handlePlaygroundStyles,
   handlePlaygroundHideCodeTabsKey,
-} from '@/app/posts/plugins/remark/playground-utils'
+} from '@/plugins/remark/playground-utils'
 import ReactShadowRoot from '@/components/Shadow'
 import useConsole from '@/hooks/useConsole'
 import useObserver from '@/hooks/useObservser'

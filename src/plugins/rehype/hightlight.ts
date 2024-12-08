@@ -114,66 +114,64 @@ const themeOptions = {
   dark: 'vitesse-dark',
 }
 const rehypePrismGenerator = (shiki: HighlighterCore) => {
-  return () => {
-    return (tree: Root) => {
-      visit(tree, 'element', (node, index, parent) => {
-        if (
-          !parent ||
-          parent.type !== 'element' ||
-          parent.tagName !== 'pre' ||
-          node.tagName !== 'code'
-        ) {
-          return
-        }
-        const props = node.properties
-        const data = node.data
-        const code = toString(node).trim()
-        const meta = (data?.meta ?? '') as string
+  return (tree: Root) => {
+    visit(tree, 'element', (node, index, parent) => {
+      if (
+        !parent ||
+        parent.type !== 'element' ||
+        parent.tagName !== 'pre' ||
+        node.tagName !== 'code'
+      ) {
+        return
+      }
+      const props = node.properties
+      const data = node.data
+      const code = toString(node).trim()
+      const meta = (data?.meta ?? '') as string
 
-        const lang = getLanguage(props.className)
-        const shouldHighlightLine = calculateLinesToHighlight(meta)
-        const shouldAddNumber = meta.includes('line')
-        // Syntax highlight
-        let shikiRoot = node
-        try {
-          shikiRoot =
-            shiki.codeToHast(code, {
-              themes: themeOptions,
-              lang: lang.replace('diff-', ''),
-              transformers: [
-                shikiClassTransformer({
-                  map: shikiMap,
-                  deletedKeys: ['--shiki-dark'],
-                }),
-                {
-                  line(node, line) {
-                    if (shouldAddNumber) {
-                      node.properties['data-line'] = line
+      const lang = getLanguage(props.className)
+      const shouldHighlightLine = calculateLinesToHighlight(meta)
+      const shouldAddNumber = meta.includes('line')
+      // Syntax highlight
+      let shikiRoot = node
+      try {
+        shikiRoot =
+          shiki.codeToHast(code, {
+            themes: themeOptions,
+            lang: lang.replace('diff-', ''),
+            transformers: [
+              shikiClassTransformer({
+                map: shikiMap,
+                deletedKeys: ['--shiki-dark'],
+              }),
+              {
+                line(node, line) {
+                  if (shouldAddNumber) {
+                    node.properties['data-line'] = line
+                  }
+                  if (shouldHighlightLine(line - 1)) {
+                    this.addClassToHast(node, 'highlight-line')
+                  }
+                  if (lang.startsWith('diff-')) {
+                    const ch = toString(node).substring(0, 1)
+                    if (ch !== '-' && ch !== '+') {
+                      return
                     }
-                    if (shouldHighlightLine(line - 1)) {
-                      this.addClassToHast(node, 'highlight-line')
-                    }
-                    if (lang.startsWith('diff-')) {
-                      const ch = toString(node).substring(0, 1)
-                      if (ch !== '-' && ch !== '+') {
-                        return
-                      }
-                      this.addClassToHast(
-                        node,
-                        ch === '-' ? 'deleted' : 'inserted',
-                      )
-                    }
-                  },
+                    this.addClassToHast(
+                      node,
+                      ch === '-' ? 'deleted' : 'inserted',
+                    )
+                  }
                 },
-              ],
-              // @ts-ignore
-            }).children?.[0]?.children[0] ?? node
-        } catch (error) {}
+              },
+            ],
+            // @ts-ignore
+          }).children?.[0]?.children[0] ?? node
+      } catch (error) {}
 
-        node.children = shikiRoot.children
-        return 'skip'
-      })
-    }
+      node.children = shikiRoot.children
+      return 'skip'
+    })
   }
 }
 

@@ -261,3 +261,13 @@ fn({ obj: 1 })
 ## Three.js
 
 :ThreeSunEarthMoon
+
+# Variable Inject
+
+| Raw text            | Inline code          | Text               |
+| ------------------- | -------------------- | ------------------ |
+| $\{ foo }           | `${ foo }`           | ${ foo }           |
+| $\{ bar.test.a }    | `${ bar.test.a }`    | ${ bar.test.a }    |
+| $\{ bar['test'].a } | `${ bar['test'].a }` | ${ bar['test'].a } |
+
+## `${ bar['test'].a }`: **${ bar['test'].a }**

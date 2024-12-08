@@ -10,14 +10,14 @@ import vitesseDark from 'shiki/themes/vitesse-dark.mjs'
 import vitesseLight from 'shiki/themes/vitesse-light.mjs'
 import getWasm from 'shiki/wasm'
 import { getSingletonHighlighterCore } from 'shiki/core'
-import rehypePrismGenerator from '@/app/posts/plugins/rehype/hightlight'
-import rehypeElementPlugin from '@/app/posts/plugins/rehype/element'
-import { remarkSlug } from '@/app/posts/plugins/remark/slug'
-import remarkPlayground from '@/app/posts/plugins/remark/playground'
-// eslint-disable-next-line @stylistic/max-len
-import { remarkContainerDirectivePlugin } from '@/app/posts/plugins/rehype/directive'
-import remarkRunner from '@/app/posts/plugins/remark/runner'
-import remarkCodeConfig from '@/app/posts/plugins/remark/code'
+import rehypePrismGenerator from '@/plugins/rehype/hightlight'
+import rehypeElementPlugin from '@/plugins/rehype/element'
+import { remarkSlug } from '@/plugins/remark/slug'
+import remarkPlayground from '@/plugins/remark/playground'
+import { remarkContainerDirectivePlugin } from '@/plugins/rehype/directive'
+import remarkRunner from '@/plugins/remark/runner'
+import remarkCodeConfig from '@/plugins/remark/code'
+import { remarkVarInject } from '@/plugins/remark/var-inject'
 import { markdownComponents } from './components'
 
 const shikiOptions = {
@@ -93,9 +93,10 @@ async function transfromCode2Jsx(code: string) {
       remarkCodeConfig,
       remarkPlayground,
       remarkRunner,
+      [remarkVarInject, code],
     ])
     .use(remarkRehype)
-    .use([rehypeElementPlugin, rehypePrismGenerator(shiki)])
+    .use([rehypeElementPlugin, [rehypePrismGenerator, shiki]])
   const mdastTree = processor.parse(code)
   const hastTree = await processor.run(mdastTree)
 
