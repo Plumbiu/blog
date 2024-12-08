@@ -1,6 +1,6 @@
-const ThemeKey = 'data-theme'
-const Dark = 'dark'
-const Light = 'light'
+var ThemeKey = 'data-theme'
+var Dark = 'dark'
+var Light = 'light'
 
 const media = window.matchMedia('(prefers-color-scheme: light)')
 

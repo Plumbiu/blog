@@ -3,7 +3,6 @@
 import { Link } from 'next-view-transitions'
 import { useEffect, useRef, useState } from 'react'
 import { cn } from '@/utils/client'
-import { applyTheme, Dark, Light } from '@/utils/client/theme'
 import { GithubIcon, MoonIcon, SunIcon } from './Icons'
 import styles from './Header.module.css'
 
@@ -13,7 +12,7 @@ function Header() {
   const [theme, setTheme] = useState<string>()
 
   useEffect(() => {
-    setTheme(localStorage.getItem('data-theme')!)
+    setTheme(window.getLocalTheme()!)
   }, [])
 
   function addShadowClassName() {
@@ -58,12 +57,14 @@ function Header() {
             <div
               className={styles.hover}
               onClick={() => {
-                const nextTheme = theme === Dark ? Light : Dark
+                const nextTheme =
+                  theme === window.Dark ? window.Light : window.Dark
                 setTheme(nextTheme)
-                applyTheme(nextTheme)
+                window.setTheme(nextTheme)
+                console.log(window)
               }}
             >
-              {theme === Dark ? <SunIcon /> : <MoonIcon />}
+              {theme === window.Dark ? <SunIcon /> : <MoonIcon />}
             </div>
           )}
           <Link
