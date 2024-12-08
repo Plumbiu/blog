@@ -5,7 +5,7 @@
   right: 0;
   z-index: 99;
   width: 100%;
-  font-size: 20px;
+  font-size: 18px;
   background-color: var(--bg-header);
   backdrop-filter: blur(10px);
   height: var(--header-h);
@@ -22,7 +22,7 @@
   margin: auto;
 
   & svg {
-    font-size: 26px;
+    font-size: 24px;
   }
 }
 

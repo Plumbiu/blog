@@ -5,7 +5,7 @@
   "scripts": {
     "prepare": "simple-git-hooks",
     "generate": "esno ./scripts/index.ts",
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "build": "next build --experimental-app-only",
     "build:gitpage": "cross-env GITPAGE=true next build",
     "start": "next start",
@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "@next/bundle-analyzer": "15.0.3",
+    "@nimpl/classnames-minifier": "^4.0.0",
     "@plumbiu/eslint-config": "^0.3.8",
     "@types/hast": "^3.0.4",
     "@types/js-yaml": "^4.0.9",
@@ -54,13 +55,13 @@
     "lightningcss": "^1.28.2",
     "mdast-util-directive": "^3.0.0",
     "picocolors": "^1.1.1",
+    "postcss-nested": "^7.0.2",
     "simple-git-hooks": "^2.11.1",
     "typescript": "^5.7.2"
   },
   "pnpm": {
     "patchedDependencies": {
-      "jstoxml": "patches/jstoxml.patch",
-      "next": "patches/next.patch"
+      "jstoxml": "patches/jstoxml.patch"
     }
   },
   "simple-git-hooks": {

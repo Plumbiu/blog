@@ -1,20 +1,22 @@
 import process from 'node:process'
 import Analyzer from '@next/bundle-analyzer'
 import { NextConfig } from 'next'
+import classnamesMinifier from '@nimpl/classnames-minifier'
 import { BasePath } from '@/constants'
 
 const withBundleAnalyzer = Analyzer({
   enabled: !!process.env.ANALYZE,
 })
 
+const withClassnamesMinifier = classnamesMinifier({
+  prefix: '_',
+  reservedNames: ['_en', '_de'],
+  disabled: false,
+})
+
 const nextConfig: NextConfig = {
   basePath: BasePath,
   experimental: {
-    useLightningcss: true,
-    turbo: {
-      treeShaking: process.env.NODE_ENV === 'production',
-      // ...
-    },
     cssChunking: 'loose',
   },
   poweredByHeader: false,
@@ -47,4 +49,4 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default withBundleAnalyzer(nextConfig)
+export default withClassnamesMinifier(withBundleAnalyzer(nextConfig))
