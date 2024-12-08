@@ -33,11 +33,10 @@ export async function generateStaticParams() {
 }
 
 interface ListProps {
-  params: Promise<Params>
+  params: Params
 }
 
-async function ArtlistAll(props: ListProps) {
-  const params = await props.params
+async function ArtlistAll({ params }: ListProps) {
   const type = params.type
 
   const pagenum = +params.pagenum

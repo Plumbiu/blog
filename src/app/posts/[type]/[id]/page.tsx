@@ -37,14 +37,13 @@ async function getPostContent(
 }
 
 interface PostProps {
-  params: Promise<{
+  params: {
     id: string
     type: FrontmatterKey
-  }>
+  }
 }
 
-async function Post(props: PostProps) {
-  const params = await props.params
+async function Post({ params }: PostProps) {
   const info = await getPostContent(params.type, params.id)
   if (!info) {
     return <NotFound />

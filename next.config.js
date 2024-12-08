@@ -1,8 +1,10 @@
-import process from 'node:process'
-import Analyzer from '@next/bundle-analyzer'
-import { NextConfig } from 'next'
-import classnamesMinifier from '@nimpl/classnames-minifier'
-import { BasePath } from '@/constants'
+const process = require('node:process')
+const Analyzer = require('@next/bundle-analyzer')
+const { NextConfig } = require('next')
+const { default: classnamesMinifier } = require('@nimpl/classnames-minifier')
+
+const IS_GITPAGE = !!process.env.GITPAGE
+const BasePath = IS_GITPAGE ? `/${RepoName}` : ''
 
 const withBundleAnalyzer = Analyzer({
   enabled: !!process.env.ANALYZE,
@@ -14,10 +16,18 @@ const withClassnamesMinifier = classnamesMinifier({
   disabled: false,
 })
 
-const nextConfig: NextConfig = {
+/**
+ * @type {NextConfig}
+ */
+const nextConfig = {
   basePath: BasePath,
   experimental: {
     cssChunking: 'loose',
+    serverComponentsExternalPackages: [
+      'three',
+      '@react-three/fiber',
+      'lil-gui',
+    ],
   },
   poweredByHeader: false,
   eslint: {
@@ -30,7 +40,6 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 31536000,
     path: `${BasePath}/_next/image`,
   },
-  serverExternalPackages: ['three', '@react-three/fiber'],
   async rewrites() {
     return [
       {
@@ -49,4 +58,4 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default withClassnamesMinifier(withBundleAnalyzer(nextConfig))
+module.exports = withClassnamesMinifier(withBundleAnalyzer(nextConfig))

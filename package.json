@@ -18,7 +18,7 @@
     "hast-util-to-jsx-runtime": "^2.3.2",
     "hast-util-to-string": "^3.0.1",
     "lil-gui": "^0.20.0",
-    "next": "15.0.3",
+    "next": "14.2.20",
     "next-view-transitions": "^0.3.4",
     "react": "18.3.1",
     "react-dom": "18.3.1",
@@ -36,7 +36,7 @@
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "15.0.3",
+    "@next/bundle-analyzer": "14.2.20",
     "@nimpl/classnames-minifier": "^4.0.0",
     "@plumbiu/eslint-config": "^0.3.8",
     "@types/hast": "^3.0.4",
@@ -52,7 +52,6 @@
     "esno": "^4.8.0",
     "js-yaml": "^4.1.0",
     "jstoxml": "^5.0.2",
-    "lightningcss": "^1.28.2",
     "mdast-util-directive": "^3.0.0",
     "picocolors": "^1.1.1",
     "postcss-nested": "^7.0.2",
