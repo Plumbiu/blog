@@ -1,6 +1,5 @@
 const process = require('node:process')
 const Analyzer = require('@next/bundle-analyzer')
-const { NextConfig } = require('next')
 const { default: classnamesMinifier } = require('@nimpl/classnames-minifier')
 
 const IS_GITPAGE = !!process.env.GITPAGE
@@ -17,8 +16,8 @@ const withClassnamesMinifier = classnamesMinifier({
 })
 
 /**
- * @type {NextConfig}
- */
+ * @type {import('next/dist/next-server/server/config').NextConfig}
+ **/
 const nextConfig = {
   basePath: BasePath,
   experimental: {
