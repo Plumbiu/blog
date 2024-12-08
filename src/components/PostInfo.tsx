@@ -1,6 +1,6 @@
 import { cn } from '@/utils/client'
 import { monthArr } from '@/constants'
-import { PostMeta } from '@/utils/node'
+import { PostMeta } from '@/utils/node/markdown'
 import styles from './PostInfo.module.css'
 
 function formatTime(time: string | number) {

@@ -1,6 +1,6 @@
 import { Link } from 'next-view-transitions'
 import { TimeWordInfo } from '@/components/PostInfo'
-import { PostList } from '@/utils/node'
+import { PostList } from '@/utils/node/markdown'
 import { cn } from '@/utils/client'
 import { ArrowLeftIcon, ArrowRightIcon } from '@/components/Icons'
 import styles from './Meta.module.css'

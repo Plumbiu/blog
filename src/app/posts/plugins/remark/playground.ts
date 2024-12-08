@@ -1,8 +1,9 @@
 import path from 'node:path'
 import { visit } from 'unist-util-visit'
 import { transform, Options } from 'sucrase'
-import { getBaseName, getFirstLine, isJsxFileLike } from '@/utils'
-import { minify, tryReadFileSync } from '@/utils/node'
+import { isJsxFileLike } from '@/utils'
+import { tryReadFileSync } from '@/utils/node/fs'
+import { minifyCodeSync } from '@/utils/node/optimize'
 import {
   handlePlaygroundCustomPreivew,
   handlePlaygroundHidePreviewTabsKey,
@@ -19,7 +20,7 @@ import {
   handleComponentName,
   RemarkReturn,
 } from '../constant'
-import { makeProperties } from '../utils'
+import { getBaseName, getFirstLine, makeProperties } from '../utils'
 
 const transfromOptions: Options = {
   transforms: ['jsx', 'typescript', 'imports'],
@@ -83,7 +84,7 @@ function remarkPlayground(): RemarkReturn {
         for (const key of fileKeys) {
           const code = files[key]
           if (isJsxFileLike(key)) {
-            files[key] = minify(transform(code, transfromOptions).code)
+            files[key] = minifyCodeSync(transform(code, transfromOptions).code)
             if (code.includes('console.log(')) {
               hideTabs = false
             }

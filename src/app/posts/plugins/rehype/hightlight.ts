@@ -4,7 +4,7 @@ import { toString } from 'hast-util-to-string'
 import { HighlighterCore } from 'shiki/core'
 import { shikiClassTransformer } from 'shiki-class-transformer'
 import shikiMap from 'shiki-class-transformer/themes/vitesse-light.json'
-import { isString } from '@/utils'
+import { isString } from '@/utils/types'
 
 // This code is modified based on
 // https://github.com/euank/node-parse-numeric-range/blob/master/index.js

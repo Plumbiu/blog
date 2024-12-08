@@ -1,6 +1,6 @@
 import fsp from 'fs/promises'
 import { toXML } from 'jstoxml'
-import { PostList } from '@/utils/node'
+import { PostList } from '@/utils/node/markdown'
 
 const URL = 'https://blog.plumbiu.top'
 

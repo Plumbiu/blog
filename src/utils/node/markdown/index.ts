@@ -1,13 +1,10 @@
 /* eslint-disable @stylistic/function-paren-newline */
-import fs from 'node:fs'
 import fsp from 'node:fs/promises'
 import path from 'node:path'
 import yaml from 'js-yaml'
-import { minify_sync } from 'terser'
-import sharp from 'sharp'
 import { FrontmatterWrapStr, PostDir } from '@/constants'
-import stripMarkdown from './strip-markdown'
-import { getCategory, removeMdSuffix } from '../index'
+import stripMarkdown from './strip'
+import { getCategory, removeMdSuffix } from '../../index'
 
 export interface PostMeta {
   title: string
@@ -103,56 +100,4 @@ export async function getPostList(postType?: string) {
   }
 
   return data
-}
-
-export function tryReadFileSync(p: string) {
-  let content = ''
-  try {
-    content = fs.readFileSync(p, 'utf-8')
-  } catch (error) {}
-
-  return content
-}
-
-export function minify(code: string) {
-  code = code.replace('"use strict";', '')
-  const mini = minify_sync(code, {
-    compress: {
-      ecma: 2018,
-      ie8: false,
-    },
-    mangle: { toplevel: true },
-  }).code
-  if (!mini) {
-    return code
-  }
-  return mini
-}
-
-export async function getBlurDataUrl(filePath: string) {
-  const image = sharp(filePath)
-  const metadata = await image.metadata()
-  const originWidth = metadata.width
-  const originHeight = metadata.height
-  if (!originHeight || !originWidth) {
-    return {}
-  }
-  const resizedSize = 14
-  const resizedImage = image.resize({
-    width: Math.min(originWidth, resizedSize),
-    height: Math.min(originHeight, resizedSize),
-    fit: 'inside',
-  })
-  const output = resizedImage.webp({
-    quality: 20,
-    alphaQuality: 20,
-    smartSubsample: true,
-  })
-
-  const { data } = await output.toBuffer({ resolveWithObject: true })
-
-  return {
-    base64: `data:image/webp;base64,${data.toString('base64')}`,
-    metadata,
-  }
 }

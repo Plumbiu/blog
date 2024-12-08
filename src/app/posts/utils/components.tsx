@@ -4,9 +4,9 @@ import { ImageProps } from 'next/image'
 import { toString } from 'hast-util-to-string'
 import MarkdownImage from '@/app/posts/components/Image'
 import { handleComponentName } from '@/app/posts/plugins/constant'
-import { getBlurDataUrl } from '@/utils/node'
 import { resolveAssetPath } from '@/utils'
 import CustomComponent from '~/components'
+import { getBlurDataUrl } from '@/utils/node/optimize'
 import PreComponent from '../components/Pre'
 
 export const markdownComponents: Partial<Components> = {

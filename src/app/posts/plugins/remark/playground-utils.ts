@@ -1,8 +1,7 @@
 /* eslint-disable @stylistic/max-len */
 import { StringValueObj } from '@/types/base'
-import { getFirstLine } from '@/utils'
 import { ComponentKey } from '../constant'
-import { buildPlaygroundHandlerFunction } from '../utils'
+import { buildPlaygroundHandlerFunction, getFirstLine } from '../utils'
 
 export const PlaygroundHidePreviewTabsKeySuffix = 'no-v-tab'
 export const PlaygroundHideCodeTabsKeySuffix = 'no-c-tab'

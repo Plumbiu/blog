@@ -1,5 +1,5 @@
 import { RefObject, useEffect, useRef, useState } from 'react'
-import { isFunction } from '@/utils'
+import { isFunction } from '@/utils/types'
 
 type VoidFn = () => void
 

@@ -35,3 +35,20 @@ export function buildPlaygroundHandlerFunction<T>(key: string, fn?: Function) {
     return v
   }
 }
+
+export function getFirstLine(s: string) {
+  let str = ''
+  for (let i = 0; i < s.length; i++) {
+    const ch = s[i]
+    if (ch === '\r' || ch === '\n') {
+      return str
+    }
+    str += ch
+  }
+  return str
+}
+
+export const getBaseName = (p: string) => {
+  const idx = p.lastIndexOf('/')
+  return p.slice(idx + 1)
+}

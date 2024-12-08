@@ -1,6 +1,9 @@
-import { PostList } from '@/utils/node'
-import { getYear } from '@/utils'
+import { PostList } from '@/utils/node/markdown'
 import { FloatType } from './types'
+
+export function getYear(date: number) {
+  return String(new Date(date).getFullYear())
+}
 
 export function formatPostByYear(lists: PostList[]) {
   const map: FloatType = {}

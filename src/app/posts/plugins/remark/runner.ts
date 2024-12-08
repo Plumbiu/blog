@@ -1,6 +1,6 @@
 import { transform, Options } from 'sucrase'
 import { visit } from 'unist-util-visit'
-import { minify } from '@/utils/node'
+import { minifyCodeSync } from '@/utils/node/optimize'
 import { isJavaScript, isTypeScript, RunCodeKey } from './runner-utils'
 import { ComponentCodeKey, ComponentKey, RemarkReturn } from '../constant'
 import { makeProperties } from '../utils'
@@ -38,7 +38,7 @@ function remarkRunner(): RemarkReturn {
       node.type = 'root'
       node.data!.hName = 'div'
       props[ComponentKey] = RunnerName
-      props[RunCodeKey] = minify(code)
+      props[RunCodeKey] = minifyCodeSync(code)
     })
   }
 }

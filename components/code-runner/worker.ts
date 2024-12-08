@@ -1,5 +1,5 @@
 import { LogInfo } from '@/hooks/useConsole'
-import { getType } from '@/utils'
+import { getType } from '@/utils/types'
 
 addEventListener('message', (event: MessageEvent<string>) => {
   const result: LogInfo[] = []

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { cn } from '@/utils/client'
 import info from '@/links.json'
-import { getBlurDataUrl } from '@/utils/node'
+import { getBlurDataUrl } from '@/utils/node/optimize'
 import styles from './page.module.css'
 
 type Data = (typeof info)[number] & {

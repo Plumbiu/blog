@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { upperFirstChar } from '@/utils'
-import { getPostList } from '@/utils/node'
+import { getPostList } from '@/utils/node/markdown'
 import { PostDir } from '@/constants'
 import NotFound from '@/app/not-found'
 import AsideLeft from './components/AsideLeft'

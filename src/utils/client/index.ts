@@ -1,4 +1,4 @@
-import { isNumber, isString } from '..'
+import { isNumber, isString } from '../types'
 
 type ClassNameArg = any
 export function cn(...args: ClassNameArg[]) {
@@ -19,4 +19,17 @@ export function cn(...args: ClassNameArg[]) {
   }
 
   return classname
+}
+
+export function throttle(fn: Function, wait = 300) {
+  let start = Date.now()
+  return function (this: any, ...args: any[]) {
+    const now = Date.now()
+    if (now - start < wait) {
+      return
+    }
+    start = now
+
+    fn.apply(this, args)
+  }
 }

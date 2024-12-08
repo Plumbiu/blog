@@ -1,7 +1,7 @@
 import { Link } from 'next-view-transitions'
 import Card from '@/components/Card'
 import { ArrowLeftIcon, ArrowRightIcon } from '@/components/Icons'
-import { PostList } from '@/utils/node'
+import { PostList } from '@/utils/node/markdown'
 import styles from './Pagination.module.css'
 
 interface ArtlistPaginationProps {
@@ -21,31 +21,27 @@ function ArtlistPagination({
 
   return (
     <div className={styles.pagination}>
-      <Link
-        className="fcc"
-        scroll={false}
+      <Card
         href={`/list/${type}/${pagenum - 1}`}
+        scroll={false}
+        disabled={pagenum === 1 || lists.length === 0}
       >
-        <Card disabled={pagenum === 1 || lists.length === 0}>
-          <ArrowLeftIcon />
-          Previous
-        </Card>
-      </Link>
+        <ArrowLeftIcon />
+        Previous
+      </Card>
       {pages.map((n) => (
         <Link key={n} scroll={false} href={`/list/${type}/${n}`}>
           <Card active={n === pagenum}>{n}</Card>
         </Link>
       ))}
-      <Link
-        className="fcc"
-        scroll={false}
+      <Card
         href={`/list/${type}/${pagenum + 1}`}
+        scroll={false}
+        disabled={pagenum === pageCount || lists.length === 0}
       >
-        <Card disabled={pagenum === pageCount || lists.length === 0}>
-          Next
-          <ArrowRightIcon />
-        </Card>
-      </Link>
+        Next
+        <ArrowRightIcon />
+      </Card>
     </div>
   )
 }
