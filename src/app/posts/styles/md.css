@@ -20,6 +20,9 @@
     thead {
       border-bottom: 1px solid var(--divider);
     }
+    tbody {
+      font-size: 14px;
+    }
     th {
       text-align: left;
       font-weight: 600;

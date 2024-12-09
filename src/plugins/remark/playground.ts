@@ -4,6 +4,7 @@ import { transform, Options } from 'sucrase'
 import { isJsxFileLike } from '@/utils'
 import { tryReadFileSync } from '@/utils/node/fs'
 import { minifyCodeSync } from '@/utils/node/optimize'
+import { DataPath } from '@/utils/node/markdown'
 import {
   handlePlaygroundCustomPreivew,
   handlePlaygroundHidePreviewTabsKey,
@@ -65,14 +66,14 @@ function remarkPlayground(): RemarkReturn {
         const componentPath = PlaygroundPathRegx.exec(meta)?.[1]
         if (previewName) {
           const content = tryReadFileSync(
-            path.join('components', `${previewName}.tsx`),
+            path.join(DataPath, 'components', `${previewName}.tsx`),
           )
           handlePlaygroundCustomPreivew(props, getBaseName(previewName))
           handleComponentCode(props, content.trim())
         }
         if (componentName && componentPath) {
           const content = tryReadFileSync(
-            path.join('components', `${componentPath}.tsx`),
+            path.join(DataPath, 'components', `${componentPath}.tsx`),
           )
           handlePlaygroundCustomPreivew(props, componentName)
           handleComponentCode(props, content.trim())
