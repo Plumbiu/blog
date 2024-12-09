@@ -1,4 +1,5 @@
 import fsp from 'node:fs/promises'
+import path from 'node:path'
 import { getPostList } from '@/utils/node/markdown'
 import feed from './feed'
 import { gitadd } from './utils.js'
@@ -11,7 +12,8 @@ async function generate() {
   await Promise.all(
     posts.map(async (item) => {
       const mdPath = `${item.path}.md`
-      const file = await fsp.readFile(mdPath, 'utf-8')
+      console.log(mdPath)
+      const file = await fsp.readFile(path.join('data', mdPath), 'utf-8')
       fileMap[mdPath] = file
     }),
   )

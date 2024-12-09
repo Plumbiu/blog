@@ -2,7 +2,7 @@
 import fsp from 'node:fs/promises'
 import path from 'node:path'
 import yaml from 'js-yaml'
-import { FrontmatterWrapStr, PostDir } from '@/constants'
+import { PostDir } from '@/constants'
 import stripMarkdown from './strip'
 import { getCategory, removeMdSuffix } from '../../index'
 
@@ -16,11 +16,14 @@ export interface PostMeta {
   wordLength: number
 }
 
+export const DataPath = path.join(process.cwd(), 'data')
+export const PostPath = path.join(DataPath, 'posts')
+
 export async function getPostPaths() {
   const results: string[] = []
   await Promise.all(
     PostDir.map(async (dir) => {
-      const postsPath = path.join(process.cwd(), 'posts', dir)
+      const postsPath = path.join(PostPath, dir)
       const posts = (await fsp.readdir(postsPath)).filter((p) =>
         p.endsWith('.md'),
       )
@@ -31,6 +34,7 @@ export async function getPostPaths() {
 }
 
 const DescNumRegx = /^\d+$/
+export const FrontmatterWrapStr = '---'
 export function parsePostMeta(code: string) {
   const startIdx = code.indexOf(FrontmatterWrapStr)
   if (startIdx !== 0) {
@@ -73,7 +77,7 @@ export async function getPostList(postType?: string) {
       if (postType != null && type !== postType) {
         return
       }
-      const file = await fsp.readFile(mdPath, 'utf-8')
+      const file = await fsp.readFile(path.join(DataPath, mdPath), 'utf-8')
       const { meta, content } = parsePostMeta(file)
       if (!meta || !content || meta.hidden) {
         return

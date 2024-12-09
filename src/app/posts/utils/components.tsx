@@ -5,7 +5,7 @@ import { toString } from 'hast-util-to-string'
 import MarkdownImage from '@/app/posts/components/Image'
 import { handleComponentName } from '@/plugins/constant'
 import { resolveAssetPath } from '@/utils'
-import CustomComponent from '~/components'
+import CustomComponent from '~/data/components'
 import { getBlurDataUrl } from '@/utils/node/optimize'
 import PreComponent from '../components/Pre'
 

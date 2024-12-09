@@ -2,7 +2,7 @@ import path from 'node:path'
 import Link from 'next/link'
 import Image from 'next/image'
 import { cn } from '@/utils/client'
-import info from '@/links.json'
+import info from '~/data/links.json'
 import { getBlurDataUrl } from '@/utils/node/optimize'
 import styles from './page.module.css'
 
@@ -56,7 +56,7 @@ async function Links() {
         ))}
       </div>
       <Link
-        href="https://github.com/Plumbiu/blog/blob/main/src/links.json"
+        href="https://github.com/Plumbiu/blog/blob/main/data/links.json"
         target="_blank"
         className="link"
       >
