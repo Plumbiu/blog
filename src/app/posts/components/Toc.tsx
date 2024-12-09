@@ -32,15 +32,19 @@ function Toc() {
   const [activeIndex, setActiveIndex] = useState<number>()
   const nodes = useRef<NodeListOf<Element>>()
   const tocRef = useRef<HTMLDivElement>(null)
+  const listRef = useRef<HTMLDivElement>(null)
 
   function highlight(i: number) {
     setActiveIndex(i)
     const tocDom = tocRef.current
-    const top = (tocDom?.children[i] as any)?.offsetTop
+    const listDom = listRef.current
+    if (!tocDom || !listDom) {
+      return
+    }
+    const top = (listDom.children?.[i] as any)?.offsetTop
     if (top) {
-      const tocHeight = tocDom?.clientHeight ?? 0
       tocDom?.scrollTo({
-        top: top - Math.floor(tocHeight / 2) - 16,
+        top: top / 2 - 16,
       })
     }
   }
@@ -98,7 +102,7 @@ function Toc() {
       {lists.length ? (
         <div className={styles.title}>Table of Contents</div>
       ) : null}
-      <div className={styles.inner}>
+      <div ref={listRef} className={styles.inner}>
         {lists.map((list, i) => (
           <TocLink
             key={i}
