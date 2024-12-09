@@ -19,10 +19,6 @@
   }
 }
 
-.inner {
-  padding-top: 16px;
-}
-
 .item {
   display: block;
   font-size: 14px;
@@ -47,6 +43,7 @@
   position: sticky;
   top: 0;
   left: 16px;
+  padding-bottom: 16px;
   background-color: var(--bg-body);
   font-size: 18px;
   font-weight: 700;

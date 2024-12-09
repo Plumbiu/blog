@@ -102,7 +102,7 @@ function Toc() {
       {lists.length ? (
         <div className={styles.title}>Table of Contents</div>
       ) : null}
-      <div ref={listRef} className={styles.inner}>
+      <div ref={listRef}>
         {lists.map((list, i) => (
           <TocLink
             key={i}
