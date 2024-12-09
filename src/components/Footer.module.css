@@ -7,8 +7,8 @@
   row-gap: 16px;
   color: var(--text-3);
   white-space: nowrap;
-  margin-top: 64px;
-  margin-bottom: 16px;
+  margin-top: 48px !important;
+  margin-bottom: 32px !important;
 
   & > a {
     color: inherit;

@@ -17,7 +17,7 @@ function Footer() {
         <span> 2024 © Plumbiu</span>
       </div>
       <div className={styles.right}>
-        <Link target="_blank" href="/rss.xml">
+        <Link target="_blank" prefetch={false} href="/rss.xml">
           <RssIcon />
         </Link>
       </div>
