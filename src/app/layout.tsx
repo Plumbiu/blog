@@ -1,6 +1,7 @@
 import { type Metadata } from 'next'
 import { ViewTransitions } from 'next-view-transitions'
 import { Analytics } from '@vercel/analytics/react'
+import { BlogUrl } from '~/data/site'
 import { resolveAssetPath } from '@/utils'
 import Header from '@/components/Header'
 import ImageView from '@/components/ImageView'
@@ -11,9 +12,21 @@ import '../styles/preset.css'
 import Footer from '@/components/Footer'
 import { mono } from './fonts'
 
+const Blog_Title = 'Plumbiuの博客'
+const Blog_Desc = 'Note, life, summary and blog'
+
 export const metadata: Metadata = {
-  title: 'Plumbiuの博客',
-  description: 'Note, life, summary and blog',
+  title: Blog_Title,
+  description: Blog_Desc,
+  openGraph: {
+    title: Blog_Title,
+    description: Blog_Desc,
+    url: BlogUrl,
+    // eslint-disable-next-line @stylistic/quotes
+    siteName: "Plumbiu's blog",
+    locale: 'zh_CN',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({
@@ -22,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="zh" suppressHydrationWarning>
       <head>
         <script src={resolveAssetPath('theme.js')}></script>
         <link

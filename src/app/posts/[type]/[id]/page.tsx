@@ -3,6 +3,7 @@ import React from 'react'
 import { getCategory, removeMdSuffix, upperFirstChar } from '@/utils'
 import NotFound from '@/components/NotFound'
 import { getPostPaths, getPostList, PostList } from '@/utils/node/markdown'
+import { BlogUrl } from '~/data/site'
 import { FrontmatterKey } from '@/constants'
 import styles from './page.module.css'
 import Toc from '../../components/Toc'
@@ -22,16 +23,10 @@ export async function generateStaticParams() {
   })
 }
 
-async function getPostContent(
-  type: string,
-  id: string,
-): Promise<PostList | undefined> {
+async function getPostContent(type: string, id: string) {
   try {
     const posts = await getPostList(type)
     const post = posts.find((post) => post.path === `posts/${type}/${id}`)
-    if (!post) {
-      return
-    }
     return post
   } catch (error) {}
 }
@@ -42,6 +37,19 @@ interface PostProps {
     type: FrontmatterKey
   }
 }
+
+function joinWebUrl(...args: string[]) {
+  let url = ''
+  for (const arg of args) {
+    url += arg
+    if (!arg.endsWith('/')) {
+      url += arg
+    }
+  }
+  return url
+}
+
+const Desc_Max_Length = 40
 
 async function Post({ params }: PostProps) {
   const info = await getPostContent(params.type, params.id)
@@ -69,9 +77,24 @@ export async function generateMetadata({
   params,
 }: PostProps): Promise<Metadata> {
   const info = await getPostContent(params.type, params.id)
-  const category = getCategory(params.id)
+  const category = upperFirstChar(getCategory(params.id))
+  if (!info) {
+    return {
+      title: `${category} - ${params.id}`,
+    }
+  }
   return {
-    title: `${upperFirstChar(category)} - ${info?.meta.title}`,
+    title: `${category} - ${info.meta.title}`,
+    description: info.meta.desc.slice(0, Desc_Max_Length),
+    openGraph: {
+      title: info.meta.title,
+      description: info?.meta.desc,
+      url: BlogUrl,
+      // eslint-disable-next-line @stylistic/quotes
+      siteName: "Plumbiu's blog",
+      locale: 'zh_CN',
+      type: 'website',
+    },
   }
 }
 

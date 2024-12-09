@@ -264,10 +264,10 @@ fn({ obj: 1 })
 
 # Variable Inject
 
-| Raw text            | Inline code          | Text               |
-| ------------------- | -------------------- | ------------------ |
-| $\{ foo }           | `${ foo }`           | ${ foo }           |
-| $\{ bar.test.a }    | `${ bar.test.a }`    | ${ bar.test.a }    |
-| $\{ bar['test'].a } | `${ bar['test'].a }` | ${ bar['test'].a } |
+| Raw text            | Inline code          | Text               | Blod text              |
+| ------------------- | -------------------- | ------------------ | ---------------------- |
+| $\{ foo }           | `${ foo }`           | ${ foo }           | **${ foo }**           |
+| $\{ bar.test.a }    | `${ bar.test.a }`    | ${ bar.test.a }    | **${ bar.test.a }**    |
+| $\{ bar['test'].a } | `${ bar['test'].a }` | ${ bar['test'].a } | **${ bar['test'].a }** |
 
 ## `${ bar['test'].a }`: **${ bar['test'].a }**

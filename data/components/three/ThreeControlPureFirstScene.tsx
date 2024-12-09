@@ -3,7 +3,7 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/Addons.js'
 import { buildCamera, buildRenderer } from './utils'
 
-function ControlFirstScence() {
+function ThreeControlPureFirstScene() {
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -33,4 +33,4 @@ function ControlFirstScence() {
   return <div ref={containerRef} />
 }
 
-export default ControlFirstScence
+export default ThreeControlPureFirstScene
