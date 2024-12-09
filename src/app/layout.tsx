@@ -11,22 +11,18 @@ import '../styles/dark-variable.css'
 import '../styles/preset.css'
 import Footer from '@/components/Footer'
 import { mono } from './fonts'
-
-const Blog_Title = 'Plumbiuの博客'
-const Blog_Desc = 'Note, life, summary and blog'
+import { Blog_Desc, Blog_Title, generateSeoMetaData } from './seo'
 
 export const metadata: Metadata = {
   title: Blog_Title,
   description: Blog_Desc,
-  openGraph: {
+  ...generateSeoMetaData({
     title: Blog_Title,
     description: Blog_Desc,
     url: BlogUrl,
     // eslint-disable-next-line @stylistic/quotes
     siteName: "Plumbiu's blog",
-    locale: 'zh_CN',
-    type: 'website',
-  },
+  }),
 }
 
 export default function RootLayout({

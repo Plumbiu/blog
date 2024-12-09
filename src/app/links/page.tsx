@@ -1,10 +1,13 @@
+/* eslint-disable @stylistic/quotes */
 import path from 'node:path'
 import Link from 'next/link'
 import Image from 'next/image'
+import { Metadata } from 'next'
 import { cn } from '@/utils/client'
 import info from '~/data/links.json'
 import { getBlurDataUrl } from '@/utils/node/optimize'
 import styles from './page.module.css'
+import { generateSeoMetaData, joinWebUrl } from '../seo'
 
 type Data = (typeof info)[number] & {
   base64: string
@@ -64,6 +67,18 @@ async function Links() {
       </Link>
     </div>
   )
+}
+
+const Title = 'Plumbiu | About'
+const Desc = "Plumbiu's introduction"
+export const metadata: Metadata = {
+  title: Title,
+  description: Desc,
+  ...generateSeoMetaData({
+    title: Title,
+    description: Desc,
+    url: joinWebUrl('links'),
+  }),
 }
 
 export default Links

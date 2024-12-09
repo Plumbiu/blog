@@ -3,6 +3,7 @@ import { upperFirstChar } from '@/utils'
 import { getPostList } from '@/utils/node/markdown'
 import { PostDir } from '@/constants'
 import NotFound from '@/app/not-found'
+import { Blog_Title, generateSeoMetaData, joinWebUrl } from '@/app/seo'
 import AsideLeft from './components/AsideLeft'
 import { formatPostByYear } from './utils'
 import ArtlistAction from './components/Action'
@@ -69,8 +70,14 @@ async function ArtlistAll({ params }: ListProps) {
 export default ArtlistAll
 
 export async function generateMetadata(props: ListProps): Promise<Metadata> {
-  const type = (await props.params).type
+  const { type, pagenum } = props.params
+  const title = `${upperFirstChar(type || 'blog')} | ${Blog_Title}`
   return {
-    title: `${upperFirstChar(type || 'blog')} | 文章`,
+    title,
+    ...generateSeoMetaData({
+      title,
+      description: `${upperFirstChar(type)}文章 - 第${pagenum}页`,
+      url: joinWebUrl(type, pagenum),
+    }),
   }
 }

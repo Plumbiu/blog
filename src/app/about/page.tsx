@@ -1,8 +1,11 @@
+/* eslint-disable @stylistic/quotes */
 import Link from 'next/link'
+import { Metadata } from 'next'
 import { BiliBiliIcon, GithubIcon } from '@/components/Icons'
 import Tag from '@/components/Tag'
 import { cn } from '@/utils/client'
 import styles from './page.module.css'
+import { generateSeoMetaData, joinWebUrl } from '../seo'
 
 function About() {
   return (
@@ -49,6 +52,18 @@ function About() {
       <div>Happy reading! 🍺</div>
     </div>
   )
+}
+
+const Title = 'Plumbiu | About'
+const Desc = "Plumbiu's introduction"
+export const metadata: Metadata = {
+  title: Title,
+  description: Desc,
+  ...generateSeoMetaData({
+    title: Title,
+    description: Desc,
+    url: joinWebUrl('about'),
+  }),
 }
 
 export default About

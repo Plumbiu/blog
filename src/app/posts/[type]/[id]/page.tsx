@@ -3,8 +3,8 @@ import React from 'react'
 import { getCategory, removeMdSuffix, upperFirstChar } from '@/utils'
 import NotFound from '@/components/NotFound'
 import { getPostPaths, getPostList, PostList } from '@/utils/node/markdown'
-import { BlogUrl } from '~/data/site'
 import { FrontmatterKey } from '@/constants'
+import { generateSeoMetaData, joinWebUrl } from '@/app/seo'
 import styles from './page.module.css'
 import Toc from '../../components/Toc'
 import Meta from '../../components/Meta'
@@ -36,17 +36,6 @@ interface PostProps {
     id: string
     type: FrontmatterKey
   }
-}
-
-function joinWebUrl(...args: string[]) {
-  let url = ''
-  for (const arg of args) {
-    url += arg
-    if (!arg.endsWith('/')) {
-      url += arg
-    }
-  }
-  return url
 }
 
 const Desc_Max_Length = 40
@@ -83,18 +72,15 @@ export async function generateMetadata({
       title: `${category} - ${params.id}`,
     }
   }
+  const title = `${info.meta.title} | ${category}`
   return {
-    title: `${category} - ${info.meta.title}`,
+    title,
     description: info.meta.desc.slice(0, Desc_Max_Length),
-    openGraph: {
-      title: info.meta.title,
-      description: info?.meta.desc,
-      url: BlogUrl,
-      // eslint-disable-next-line @stylistic/quotes
-      siteName: "Plumbiu's blog",
-      locale: 'zh_CN',
-      type: 'website',
-    },
+    ...generateSeoMetaData({
+      title,
+      description: info.meta.desc.slice(0, 30),
+      url: joinWebUrl(params.type, params.id),
+    }),
   }
 }
 
