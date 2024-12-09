@@ -12,7 +12,6 @@ async function generate() {
   await Promise.all(
     posts.map(async (item) => {
       const mdPath = `${item.path}.md`
-      console.log(mdPath)
       const file = await fsp.readFile(path.join('data', mdPath), 'utf-8')
       fileMap[mdPath] = file
     }),

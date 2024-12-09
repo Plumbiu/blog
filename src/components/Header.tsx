@@ -61,7 +61,6 @@ function Header() {
                   theme === window.Dark ? window.Light : window.Dark
                 setTheme(nextTheme)
                 window.setTheme(nextTheme)
-                console.log(window)
               }}
             >
               {theme === window.Dark ? <SunIcon /> : <MoonIcon />}
