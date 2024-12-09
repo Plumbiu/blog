@@ -1,8 +1,8 @@
 import { visit } from 'unist-util-visit'
-import { ComponentLangKey, ComponentMetaKey, RemarkReturn } from '../constant'
+import { ComponentLangKey, ComponentMetaKey, RemarkPlugin } from '../constant'
 import { makeProperties } from '../utils'
 
-function remarkCodeConfig(): RemarkReturn {
+const remarkCodeConfig: RemarkPlugin = () => {
   return (tree) => {
     visit(tree, 'code', (node) => {
       makeProperties(node)

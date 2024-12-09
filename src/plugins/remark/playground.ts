@@ -19,7 +19,7 @@ import {
 import {
   handleComponentCode,
   handleComponentName,
-  RemarkReturn,
+  RemarkPlugin,
 } from '../constant'
 import { getBaseName, getFirstLine, makeProperties } from '../utils'
 
@@ -35,7 +35,7 @@ const SplitKey = '///'
 const PlaygroundNameCustomPreviewRegx = /Playground=['"]([^'"]+)['"]/
 const PlaygroundCustomComponentRegx = /component=['"]([^'"]+)['"]/
 const PlaygroundPathRegx = /path=['"]([^'"]+)['"]/
-function remarkPlayground(): RemarkReturn {
+const remarkPlayground: RemarkPlugin = () => {
   return (tree) => {
     visit(tree, 'code', (node) => {
       makeProperties(node)

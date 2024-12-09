@@ -2,13 +2,13 @@ import { visit } from 'unist-util-visit'
 import { type Text, type Code, type InlineCode } from 'mdast'
 import { isString } from '@/utils/types'
 import vars from '~/data/variable'
-import { RemarkReturn } from '../constant'
+import { RemarkPlugin } from '../constant'
 
 // obj['a'].b['c'] => obj.a.b.c
 const LeftBracketRegx = /\[['"]/g
 const RightBracketRegx = /['"]\]/g
 
-export function remarkVarInject(code: string): RemarkReturn {
+export const remarkVarInject: RemarkPlugin<string> = (code: string) => {
   const BracketStart = '${'
   const BracketEnd = '}'
   function handleValue(node: Text | InlineCode) {

@@ -103,12 +103,6 @@ const getLanguage = (className: any) => {
   return 'txt'
 }
 
-/**
- * Rehype prism plugin generator that highlights code blocks with refractor (prismjs)
- *
- * Pass in your own refractor object with the required languages registered:
- * https://github.com/wooorm/refractor#refractorregistersyntax
- */
 const themeOptions = {
   light: 'vitesse-light',
   dark: 'vitesse-dark',

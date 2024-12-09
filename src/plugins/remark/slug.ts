@@ -1,5 +1,5 @@
 import { visit } from 'unist-util-visit'
-import { RemarkReturn } from '../constant'
+import { RemarkPlugin } from '../constant'
 import { makeProperties } from '../utils'
 
 const WhiteSpaceRegx = /\s/g
@@ -22,7 +22,7 @@ function getElementText(node: { children?: any[] }) {
   return text
 }
 
-export function remarkSlug(): RemarkReturn {
+const remarkSlug: RemarkPlugin = () => {
   return (tree) => {
     visit(tree, 'heading', (node) => {
       makeProperties(node)
@@ -35,3 +35,5 @@ export function remarkSlug(): RemarkReturn {
     })
   }
 }
+
+export default remarkSlug

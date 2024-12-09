@@ -2,7 +2,7 @@ import { transform, Options } from 'sucrase'
 import { visit } from 'unist-util-visit'
 import { minifyCodeSync } from '@/utils/node/optimize'
 import { isJavaScript, isTypeScript, RunCodeKey } from './runner-utils'
-import { ComponentCodeKey, ComponentKey, RemarkReturn } from '../constant'
+import { ComponentCodeKey, ComponentKey, RemarkPlugin } from '../constant'
 import { makeProperties } from '../utils'
 
 export const RunnerName = 'Run'
@@ -12,7 +12,7 @@ const transfromOptions: Options = {
 export function isRuner(props: any) {
   return props[ComponentKey] === RunnerName
 }
-function remarkRunner(): RemarkReturn {
+const remarkRunner: RemarkPlugin = () => {
   return (tree) => {
     visit(tree, 'code', (node) => {
       makeProperties(node)

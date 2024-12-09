@@ -9,9 +9,7 @@ import Playground from './playground'
 import CodeRunner from './code-runner'
 
 const ThreeFirstScene = lazy(() => import('./three/ThreeFirstScene'))
-const ThreePureFirstScene = lazy(
-  () => import('./three/ThreePureFirstScene'),
-)
+const ThreePureFirstScene = lazy(() => import('./three/ThreePureFirstScene'))
 const ThreeControlPureFirstScene = lazy(
   () => import('./three/ThreeControlPureFirstScene'),
 )
@@ -24,9 +22,7 @@ const ThreePureModel = lazy(() => import('./three/ThreePureModel'))
 const ThreeLearnPrimitivesBox = lazy(
   () => import('./three/ThreeLearnPrimitivesBox'),
 )
-const ThreeSunEarthMoon = lazy(
-  () => import('./three/ThreeSunEarthMoon'),
-)
+const ThreeSunEarthMoon = lazy(() => import('./three/ThreeSunEarthMoon'))
 const ThreeMaterialKinds = lazy(() =>
   import('./three/ThreeMaterialKinds').then((res) => ({
     default: res.ThreeMaterialKinds,
@@ -52,9 +48,7 @@ const ThreeTextureMulti = lazy(() =>
     default: res.ThreeTextureMulti,
   })),
 )
-const ThreeLilGuiFirst = lazy(
-  () => import('./three/ThreeLilGuiFirst'),
-)
+const ThreeLilGuiFirst = lazy(() => import('./three/ThreeLilGuiFirst'))
 const ThreePureAmbientLight = lazy(
   () => import('./three/ThreePureAmbientLight'),
 )

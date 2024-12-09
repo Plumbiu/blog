@@ -9,7 +9,7 @@
   background-color: var(--bg-header);
   backdrop-filter: blur(10px);
   height: var(--header-h);
-  transition: height 200ms;
+  transition: height 300ms ease-in-out;
 }
 
 .header {
@@ -42,7 +42,7 @@
 }
 
 .shadow {
-  height: calc((var(--header-h) - 48px));
+  height: calc((var(--header-h) - 32px));
 }
 
 .hide {

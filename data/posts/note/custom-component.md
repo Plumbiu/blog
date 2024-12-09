@@ -271,3 +271,13 @@ fn({ obj: 1 })
 | $\{ bar['test'].a } | `${ bar['test'].a }` | ${ bar['test'].a } | **${ bar['test'].a }** |
 
 ## `${ bar['test'].a }`: **${ bar['test'].a }**
+
+# Video
+
+## Bilibili
+
+::bilibili[【官方 MV】Never Gonna Give You Up - Rick Astley]{#BV1GJ411x7h7}
+
+## Youtube
+
+::youtube[Rick Astley - Never Gonna Give You Up (Official Music Video)]{#dQw4w9WgXcQ}

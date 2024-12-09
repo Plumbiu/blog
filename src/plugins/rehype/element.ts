@@ -4,7 +4,7 @@ import markRunnerPre from './runner-pre'
 import markPlaygroundPre from './playground-pre'
 import { RehypePlugin } from '../constant'
 
-function rehypeElementPlugin(): RehypePlugin {
+const rehypeElementPlugin: RehypePlugin = () => {
   return (tree) => {
     visit(tree, 'element', (node, index, parent) => {
       blankTargetPlugin(node)
