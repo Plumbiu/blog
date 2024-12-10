@@ -63,7 +63,8 @@
   "pnpm": {
     "patchedDependencies": {
       "jstoxml": "patches/jstoxml.patch",
-      "yet-another-react-lightbox": "patches/yet-another-react-lightbox.patch"
+      "yet-another-react-lightbox": "patches/yet-another-react-lightbox.patch",
+      "react-photo-album": "patches/react-photo-album.patch"
     }
   },
   "simple-git-hooks": {

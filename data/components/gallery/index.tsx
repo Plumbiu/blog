@@ -1,4 +1,3 @@
-/* eslint-disable @stylistic/max-len */
 'use client'
 
 import {
@@ -23,24 +22,16 @@ function renderNextImage(
   const { photo, width, height } = context
   const { base64 } = photo as Photo
   return (
-    <div
-      style={{
-        width: '100%',
-        position: 'relative',
-        aspectRatio: `${width} / ${height}`,
-      }}
-    >
-      <Image
-        width={width}
-        height={height}
-        src={photo}
-        alt={alt}
-        title={title}
-        sizes={sizes}
-        placeholder="blur"
-        blurDataURL={base64}
-      />
-    </div>
+    <Image
+      width={width}
+      height={height}
+      src={photo}
+      alt={alt}
+      title={title}
+      sizes={sizes}
+      placeholder="blur"
+      blurDataURL={base64}
+    />
   )
 }
 function ImageGallery(props: any) {

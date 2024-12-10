@@ -8,6 +8,9 @@ patchedDependencies:
   jstoxml:
     hash: vuklsk3t2dpsarp3md24bvusmm
     path: patches/jstoxml.patch
+  react-photo-album:
+    hash: ocwe5z2mqhu7gxtukdnzxvurha
+    path: patches/react-photo-album.patch
   yet-another-react-lightbox:
     hash: bi6qhit7bfyrqvxnnzljgjvc7a
     path: patches/yet-another-react-lightbox.patch
@@ -48,7 +51,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-photo-album:
         specifier: ^3.0.2
-        version: 3.0.2(@types/react@18.3.14)(react@18.3.1)
+        version: 3.0.2(patch_hash=ocwe5z2mqhu7gxtukdnzxvurha)(@types/react@18.3.14)(react@18.3.1)
       remark-directive:
         specifier: ^3.0.0
         version: 3.0.0
@@ -2139,7 +2142,7 @@ packages:
     engines: {node: '>=12'}
 
   strip-bom@3.0.0:
-    resolution: {integrity: sha512-vavAMRXOgBVNF6nyEEmL3DBK19iRpDcoIwW+swQ+CbGiu7lju6t+JklA1MHweoWtadgt4ISVUsXLyDq34ddcwA==}
+    resolution: {integrity: sha1-IzTBjpx1n3vdVv3vfprj1YjmjtM=}
     engines: {node: '>=4'}
 
   strip-json-comments@3.1.1:
@@ -4493,7 +4496,7 @@ snapshots:
       react: 18.3.1
       scheduler: 0.23.2
 
-  react-photo-album@3.0.2(@types/react@18.3.14)(react@18.3.1):
+  react-photo-album@3.0.2(patch_hash=ocwe5z2mqhu7gxtukdnzxvurha)(@types/react@18.3.14)(react@18.3.1):
     dependencies:
       react: 18.3.1
     optionalDependencies:
