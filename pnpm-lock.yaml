@@ -8,6 +8,9 @@ patchedDependencies:
   jstoxml:
     hash: vuklsk3t2dpsarp3md24bvusmm
     path: patches/jstoxml.patch
+  yet-another-react-lightbox:
+    hash: e2xbcf3hi6ydgkoydvdi5oefiq
+    path: patches/yet-another-react-lightbox.patch
 
 importers:
 
@@ -84,7 +87,7 @@ importers:
         version: 5.0.0
       yet-another-react-lightbox:
         specifier: ^3.21.7
-        version: 3.21.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 3.21.7(patch_hash=e2xbcf3hi6ydgkoydvdi5oefiq)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@next/bundle-analyzer':
         specifier: 14.2.20
@@ -5013,7 +5016,7 @@ snapshots:
 
   ws@7.5.10: {}
 
-  yet-another-react-lightbox@3.21.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  yet-another-react-lightbox@3.21.7(patch_hash=e2xbcf3hi6ydgkoydvdi5oefiq)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
