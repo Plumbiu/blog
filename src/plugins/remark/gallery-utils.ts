@@ -1,6 +1,7 @@
-export const GalleryLinkKey = 'data-links'
+import { Gallery } from '@/app/posts/types'
+export const GalleryPhotoKey = 'data-photos'
 export const GalleryName = 'Gallery'
 
-export function getGalleryLinks(props: any) {
-  return props[GalleryLinkKey]
+export function getGalleryPhoto(props: any): Gallery[] {
+  return JSON.parse(props[GalleryPhotoKey])
 }

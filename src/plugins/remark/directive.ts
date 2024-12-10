@@ -1,21 +1,68 @@
 /* eslint-disable @stylistic/max-len */
+import path from 'path'
 import {
   type LeafDirective,
   type ContainerDirective,
 } from 'mdast-util-directive'
 import { visit } from 'unist-util-visit'
-import { GalleryLinkKey, GalleryName } from './gallery-utils'
+import { isString } from '@/utils/types'
+import { Gallery } from '@/app/posts/types'
+import { getBlurDataUrl } from '@/utils/node/optimize'
+import { resolveAssetPath } from '@/utils'
+import { GalleryPhotoKey, GalleryName, getGalleryPhoto } from './gallery-utils'
 import { addNodeClassName, makeProperties } from '../utils'
 import { ComponentKey, RemarkPlugin } from '../constant'
 
 export const remarkContainerDirectivePlugin: RemarkPlugin = () => {
-  return (tree) => {
+  return async (tree) => {
+    const photos: { node: ContainerDirective; links: string }[] = []
     visit(tree, 'containerDirective', (node, index, parent) => {
       makeProperties(node)
       noteContainerDirective(node)
       detailContainerDirective(node)
-      GalleryContainerDirective(node)
+      // Gallery
+      if (node.name === GalleryName) {
+        const data = node.data!
+        const props = data.hProperties!
+        const children = node.children
+        if (children.length === 1) {
+          const child = children[0]
+          if (child && child.type === 'paragraph') {
+            const contentNode = child.children[0]
+            if (contentNode && contentNode.type === 'text') {
+              const links = contentNode.value
+              props[ComponentKey] = node.name
+              data.hName = 'div'
+              photos.push({ node, links })
+            }
+          }
+        }
+      }
     })
+    await Promise.all(
+      photos.map(async ({ node, links: rawLinks }) => {
+        if (isString(rawLinks)) {
+          const links = rawLinks.split(/\r?\n/)
+          const images: Gallery[] = []
+          await Promise.all(
+            links.map(async (link, i) => {
+              const imagePath = path.join('public', 'images', link)
+              const { base64, metadata } = await getBlurDataUrl(imagePath)
+              if (!base64 || !metadata.width || !metadata.height) {
+                return null
+              }
+              images.push({
+                width: metadata.width,
+                height: metadata.height,
+                src: resolveAssetPath(`images/${link}`),
+                alt: '',
+              })
+            }),
+          )
+          node.data!.hProperties![GalleryPhotoKey] = JSON.stringify(images)
+        }
+      }),
+    )
     visit(tree, 'textDirective', (node, index, parent) => {
       if (!parent) {
         return
@@ -63,26 +110,6 @@ function noteContainerDirective(node: ContainerDirective) {
     const firstChild = node.children[0]
     if (firstChild.type === 'paragraph' && firstChild.data?.directiveLabel) {
       props['data-title'] = true
-    }
-  }
-}
-
-function GalleryContainerDirective(node: ContainerDirective) {
-  if (node.name === GalleryName) {
-    const data = node.data!
-    const props = data.hProperties!
-    data.hName = 'div'
-    const children = node.children
-    if (children.length === 1) {
-      const child = children[0]
-      if (child && child.type === 'paragraph') {
-        const contentNode = child.children[0]
-        if (contentNode && contentNode.type === 'text') {
-          const links = contentNode.value
-          data!.hProperties![ComponentKey] = node.name
-          props[GalleryLinkKey] = links
-        }
-      }
     }
   }
 }

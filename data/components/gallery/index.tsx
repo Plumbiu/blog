@@ -8,21 +8,12 @@ import { Lightbox } from 'yet-another-react-lightbox'
 import 'yet-another-react-lightbox/styles.css'
 import Thumbnails from 'yet-another-react-lightbox/plugins/thumbnails'
 import IntersectionObserverComponent from '@/components/IntersectionObserverComponent'
+import { getGalleryPhoto } from '@/plugins/remark/gallery-utils'
 import styles from './index.module.css'
 import 'yet-another-react-lightbox/plugins/thumbnails.css'
 
-export interface Gallery {
-  width: number
-  height: number
-  src: string
-  alt: string
-}
-
-interface ImageGalleryProps {
-  images: Gallery[]
-}
-
-function ImageGallery(props: ImageGalleryProps) {
+function ImageGallery(props: any) {
+  const pothos = getGalleryPhoto(props)
   const [index, setIndex] = useState(-1)
   return (
     <IntersectionObserverComponent className={styles.gallery}>
@@ -30,11 +21,11 @@ function ImageGallery(props: ImageGalleryProps) {
         <>
           <ColumnsPhotoAlbum
             spacing={4}
-            photos={props.images}
+            photos={pothos}
             onClick={({ index }) => setIndex(index)}
           />
           <Lightbox
-            slides={props.images}
+            slides={pothos}
             open={index >= 0}
             index={index}
             close={() => setIndex(-1)}
