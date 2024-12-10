@@ -10,7 +10,7 @@ import { getBlurDataUrl } from '@/utils/node/optimize'
 import { resolveAssetPath } from '@/utils'
 import { GalleryPhotoKey, GalleryName, Photo, PhotoNode } from './gallery-utils'
 import { addNodeClassName, makeProperties } from '../utils'
-import { ComponentKey, RemarkPlugin } from '../constant'
+import { ComponentKey, handleComponentName, RemarkPlugin } from '../constant'
 
 export const remarkContainerDirectivePlugin: RemarkPlugin = () => {
   return async (tree) => {
@@ -135,7 +135,8 @@ function iframeLeafDirective(node: LeafDirective) {
     src = `https://www.youtube.com/embed/${id}`
   }
 
-  data.hName = 'iframe'
+  data.hName = 'div'
+
   data.hProperties = {
     src,
     width: '100%',
@@ -144,4 +145,5 @@ function iframeLeafDirective(node: LeafDirective) {
     allow: 'picture-in-picture',
     allowFullScreen: true,
   }
+  handleComponentName(data.hProperties, 'Iframe')
 }

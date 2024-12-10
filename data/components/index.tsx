@@ -54,11 +54,13 @@ const ThreePureAmbientLight = lazy(
 )
 
 const Gallery = lazy(() => import('./gallery/index'))
+const Iframe = lazy(() => import('./iframe/index'))
 
 export const componentMap: Record<string, any> = {
   Playground,
   Run: CodeRunner,
   Gallery,
+  Iframe,
   // Three.js
   ThreeLearnPrimitivesBox,
   ThreeFirstScene,

@@ -43,4 +43,3 @@ export async function getBlurDataUrl(filePath: string) {
     metadata,
   }
 }
-
