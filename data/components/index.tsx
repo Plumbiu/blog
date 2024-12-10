@@ -53,7 +53,7 @@ const ThreePureAmbientLight = lazy(
   () => import('./three/ThreePureAmbientLight'),
 )
 
-const Gallery = lazy(() => import('../../src/app/posts/components/gallery/index'))
+const Gallery = lazy(() => import('./gallery/index'))
 
 export const componentMap: Record<string, any> = {
   Playground,
