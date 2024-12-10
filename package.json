@@ -22,6 +22,7 @@
     "next-view-transitions": "^0.3.4",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "react-photo-album": "^3.0.2",
     "remark-directive": "^3.0.0",
     "remark-gfm": "^4.0.0",
     "remark-parse": "^11.0.0",
@@ -33,7 +34,8 @@
     "terser": "^5.36.0",
     "three": "^0.171.0",
     "unified": "^11.0.5",
-    "unist-util-visit": "^5.0.0"
+    "unist-util-visit": "^5.0.0",
+    "yet-another-react-lightbox": "^3.21.7"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "14.2.20",

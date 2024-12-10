@@ -4,6 +4,7 @@ import {
   type ContainerDirective,
 } from 'mdast-util-directive'
 import { visit } from 'unist-util-visit'
+import { GalleryLinkKey, GalleryName } from './gallery-utils'
 import { addNodeClassName, makeProperties } from '../utils'
 import { ComponentKey, RemarkPlugin } from '../constant'
 
@@ -13,6 +14,7 @@ export const remarkContainerDirectivePlugin: RemarkPlugin = () => {
       makeProperties(node)
       noteContainerDirective(node)
       detailContainerDirective(node)
+      GalleryContainerDirective(node)
     })
     visit(tree, 'textDirective', (node, index, parent) => {
       if (!parent) {
@@ -61,6 +63,26 @@ function noteContainerDirective(node: ContainerDirective) {
     const firstChild = node.children[0]
     if (firstChild.type === 'paragraph' && firstChild.data?.directiveLabel) {
       props['data-title'] = true
+    }
+  }
+}
+
+function GalleryContainerDirective(node: ContainerDirective) {
+  if (node.name === GalleryName) {
+    const data = node.data!
+    const props = data.hProperties!
+    data.hName = 'div'
+    const children = node.children
+    if (children.length === 1) {
+      const child = children[0]
+      if (child && child.type === 'paragraph') {
+        const contentNode = child.children[0]
+        if (contentNode && contentNode.type === 'text') {
+          const links = contentNode.value
+          data!.hProperties![ComponentKey] = node.name
+          props[GalleryLinkKey] = links
+        }
+      }
     }
   }
 }

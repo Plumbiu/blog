@@ -33,3 +33,14 @@ export function throttle(fn: Function, wait = 300) {
     fn.apply(this, args)
   }
 }
+
+export function debounce(fn: Function, wait = 300) {
+  let timer: any = null
+
+  return function (this: any, ...args: any[]) {
+    clearTimeout(timer)
+    timer = setTimeout(() => {
+      fn.apply(this, args)
+    }, wait)
+  }
+}

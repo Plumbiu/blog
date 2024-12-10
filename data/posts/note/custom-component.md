@@ -168,13 +168,26 @@ Hello World
 `console.log('details')`
 :::
 
-# Image
+# Image gallery
 
-图片组件，类名用 `image-wrap` 包裹：
-
-![image-20240310213919215](2023-1.webp)
-![image-20240310213930618](2023-2.webp)
-![image-20240310213919215](2023-3.png)
+:::Gallery
+2023-1.webp
+threejs/flower-2.jpg
+2023-2.webp
+2023-3.png
+threejs/flower-6.jpg
+shiki-className.webp
+threejs/flower-1.jpg
+shiki-inline-styles.webp
+toc-optimize.gif
+toc.gif
+threejs/flower-3.jpg
+view-frustum.png
+threejs/flower-4.jpg
+2022-1.png
+threejs/flower-5.jpg
+threejs/wall.jpg
+:::
 
 # Table
 
