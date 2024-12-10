@@ -35,3 +35,9 @@ export function getCategory(urls: string | string[]) {
   }
   return 'blog'
 }
+
+export function isUnOptimized(url: string) {
+  return url.endsWith('.gif') || url.endsWith('.webp') || url.endsWith('.svg')
+    ? true
+    : undefined
+}

@@ -4,7 +4,7 @@ import { ImageProps } from 'next/image'
 import { toString } from 'hast-util-to-string'
 import MarkdownImage from '@/app/posts/components/Image'
 import { handleComponentName } from '@/plugins/constant'
-import { resolveAssetPath } from '@/utils'
+import { isUnOptimized, resolveAssetPath } from '@/utils'
 import CustomComponent from '~/data/components'
 import { getBlurDataUrl } from '@/utils/node/optimize'
 import PreComponent from '../components/Pre'
@@ -36,8 +36,7 @@ export const markdownComponents: Partial<Components> = {
     const commonProps: ImageProps = {
       src: resolveAssetPath(`images/${src}`),
       alt,
-      unoptimized:
-        src.endsWith('.gif') || src.endsWith('.webp') ? true : undefined,
+      unoptimized: isUnOptimized(src),
       blurDataURL: base64,
       placeholder: 'blur',
       width: metadata.width,

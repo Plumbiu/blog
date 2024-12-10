@@ -5,6 +5,7 @@ export interface Photo {
   height: number
   src: string
   alt: string
+  base64: string
 }
 
 export interface PhotoNode {

@@ -57,6 +57,7 @@ export const remarkContainerDirectivePlugin: RemarkPlugin = () => {
               height: metadata.height,
               src: resolveAssetPath(`images/${link}`),
               alt: '',
+              base64,
             })
           }),
         )
