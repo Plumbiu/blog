@@ -23,8 +23,7 @@ function renderNextImage(
   context: RenderImageContext,
 ) {
   const { photo, width, height } = context
-  const { src, base64 } = photo as Photo
-  console.log(context)
+  const { base64 } = photo as Photo
   return (
     <div
       style={{
@@ -34,8 +33,8 @@ function renderNextImage(
       }}
     >
       <Image
-        unoptimized={isUnOptimized(src)}
-        fill
+        width={width}
+        height={height}
         src={photo}
         alt={alt}
         title={title}
