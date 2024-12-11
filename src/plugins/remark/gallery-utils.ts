@@ -6,6 +6,7 @@ export interface Photo {
   src: string
   alt: string
   base64: string
+  optimizeSrc: string
 }
 
 export interface PhotoNode {

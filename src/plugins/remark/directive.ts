@@ -7,10 +7,11 @@ import {
 import { visit } from 'unist-util-visit'
 import { isString } from '@/utils/types'
 import { getBlurDataUrl } from '@/utils/node/optimize'
-import { resolveAssetPath } from '@/utils'
+import { isUnOptimized, resolveAssetPath } from '@/utils'
 import { GalleryPhotoKey, GalleryName, Photo, PhotoNode } from './gallery-utils'
 import { addNodeClassName, makeProperties } from '../utils'
 import { ComponentKey, handleComponentName, RemarkPlugin } from '../constant'
+import { getImageProps } from 'next/image'
 
 export const remarkContainerDirectivePlugin: RemarkPlugin = () => {
   return async (tree) => {
@@ -52,13 +53,26 @@ export const remarkContainerDirectivePlugin: RemarkPlugin = () => {
             if (!base64 || !metadata.width || !metadata.height) {
               return null
             }
-            images.push({
+            const src = resolveAssetPath(`images/${link}`)
+            const data: Photo = {
               width: metadata.width,
               height: metadata.height,
-              src: resolveAssetPath(`images/${link}`),
+              src,
               alt: '',
               base64,
+              optimizeSrc: '',
+            }
+            const { props } = getImageProps({
+              src,
+              alt: '',
+              width: metadata.width,
+              height: metadata.height,
+              placeholder: 'blur',
+              blurDataURL: base64,
+              unoptimized: isUnOptimized(src),
             })
+            data['optimizeSrc'] = props.src
+            images.push(data)
           }),
         )
         node.data!.hProperties![GalleryPhotoKey] = JSON.stringify(images)

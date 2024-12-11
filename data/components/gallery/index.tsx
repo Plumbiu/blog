@@ -1,7 +1,7 @@
 'use client'
 
 import { ColumnsPhotoAlbum } from 'react-photo-album'
-import NextImage, { getImageProps } from 'next/image'
+import NextImage from 'next/image'
 import 'react-photo-album/columns.css'
 import {
   ReactNode,
@@ -11,17 +11,22 @@ import {
   useRef,
   useState,
 } from 'react'
+import Link from 'next/link'
 import { getGalleryPhoto } from '@/plugins/remark/gallery-utils'
-import { ArrowLeftIcon, ArrowRightIcon, CloseIcon } from '@/components/Icons'
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  CloseIcon,
+  LoadingIcon,
+} from '@/components/Icons'
 import { cn } from '@/utils/client'
-import { isUnOptimized } from '@/utils'
 import { makeBodyScroll, preventBodyScroll } from '@/store/ImageView'
 import styles from './index.module.css'
 
 const ThumbnailsHeight = 400
 
 function ImageGallery(props: any) {
-  const pothos = getGalleryPhoto(props)
+  const photos = getGalleryPhoto(props)
   const [slideNode, setSlideNode] = useState<ReactNode>(null)
   const slideRef = useRef<HTMLDivElement>(null)
   const currentIndex = useRef(0)
@@ -43,31 +48,31 @@ function ImageGallery(props: any) {
   }, [slideNode])
 
   const allThumbnailsNode = useMemo(() => {
-    return pothos.map(({ src, width, height, base64 }, i) => {
+    return photos.map(({ src, width, height, base64, optimizeSrc }, i) => {
       const commonProps = {
         alt: '',
         src,
         placeholder: 'blur',
         blurDataURL: base64,
       } as const
-      const { props } = getImageProps({
-        ...commonProps,
-        width,
-        height,
-        unoptimized: isUnOptimized(src),
-      })
       return (
-        <NextImage
-          data-src={props.src}
-          key={src}
-          className={styles.w_full}
-          width={(ThumbnailsHeight * width) / height}
-          height={ThumbnailsHeight}
-          onClick={() => {
-            handleThumbnailClick(i)
+        <Link
+          href={optimizeSrc}
+          onClick={(e) => {
+            e.preventDefault()
           }}
-          {...commonProps}
-        />
+        >
+          <NextImage
+            key={src}
+            className={styles.w_full}
+            width={(ThumbnailsHeight * width) / height}
+            height={ThumbnailsHeight}
+            onClick={() => {
+              handleThumbnailClick(i)
+            }}
+            {...commonProps}
+          />
+        </Link>
       )
     })
   }, [])
@@ -88,16 +93,16 @@ function ImageGallery(props: any) {
       index = 0
     }
     setThumbnailTranslateX(nodesTranslateX[index])
+    const img = <img src={photos[index]['optimizeSrc']} />
+    setSlideNode(img)
     currentIndex.current = index
-    const node = allThumbnailsNode[index]
-    setSlideNode(<img src={node.props['data-src']} />)
   }
 
   return (
     <div className={styles.gallery}>
       <ColumnsPhotoAlbum
         spacing={4}
-        photos={pothos}
+        photos={photos}
         onClick={({ index }) => {
           handleThumbnailClick(index)
         }}
