@@ -86,7 +86,6 @@ function ImageGallery(props: any) {
       }
       if (finalLeft - data[i] >= halfViewW) {
         for (let j = i + 1; j < data.length; j++) {
-          console.log(finalLeft - halfViewW)
           data[j] = finalLeft - finalLeft + data[i]
         }
         break
