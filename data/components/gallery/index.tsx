@@ -40,12 +40,12 @@ function ImageGallery(props: any) {
       makeBodyScroll(hidden)
     }
     return () => {
-      preventBodyScroll(hidden)
+      makeBodyScroll(hidden)
     }
   }, [slideNode])
 
   const allThumbnailsNode = useMemo(() => {
-    return photos.map(({ src, width, height, base64, optimizeSrc }, i) => {
+    return photos.map(({ src, width, height, base64 }, i) => {
       const commonProps = {
         alt: '',
         src,

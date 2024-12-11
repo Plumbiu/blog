@@ -55,18 +55,24 @@ export const remarkContainerDirectivePlugin: RemarkPlugin = () => {
               return
             }
             const src = resolveAssetPath(`images/${link}`)
-            const data: Omit<Photo, 'optimizeSrc'> = {
+            const data: Photo = {
               width,
               height,
               src,
               alt: '',
               base64,
+              optimizeSrc: src,
             }
-            const { props } = getImageProps({
-              ...data,
-              unoptimized: isUnOptimized(src),
-            })
-            images.push({ ...data, optimizeSrc: props.src })
+            const unoptimized = isUnOptimized(src)
+
+            if (!unoptimized) {
+              const { props } = getImageProps({
+                ...data,
+                unoptimized,
+              })
+              data.optimizeSrc = props.src
+            }
+            images.push(data)
           }),
         )
         node.data!.hProperties![GalleryPhotoKey] = JSON.stringify(images)
