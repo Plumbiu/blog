@@ -12,14 +12,13 @@ import {
   useRef,
   useState,
 } from 'react'
-import Link from 'next/link'
 import { getGalleryPhoto } from '@/plugins/remark/gallery-utils'
 import { ArrowLeftIcon, ArrowRightIcon, CloseIcon } from '@/components/Icons'
 import { cn } from '@/utils/client'
 import { makeBodyScroll, preventBodyScroll } from '@/store/ImageView'
 import styles from './index.module.css'
 
-const ThumbnailsHeight = 420
+const ThumbnailsHeight = 400
 
 function ImageGallery(props: any) {
   const photos = getGalleryPhoto(props)
@@ -105,14 +104,14 @@ function ImageGallery(props: any) {
           image(props, context) {
             const photo = photos[context.index]
             return (
-              <Link
+              <a
                 href={photo.optimizeSrc}
                 onClick={(e) => {
                   e.preventDefault()
                 }}
               >
                 {allThumbnailsNode[context.index]}
-              </Link>
+              </a>
             )
           },
         }}

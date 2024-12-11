@@ -40,7 +40,7 @@
 
 .slide {
   & > img {
-    max-width: 90%;
+    max-width: 100%;
     transform: translateY(calc(-1 * var(--thumb-item-max-height) / 2));
     max-height: calc(100vh - var(--thumb-item-max-height));
   }
