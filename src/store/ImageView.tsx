@@ -3,25 +3,37 @@
 import { createStore } from '@plumbiu/react-store'
 import React from 'react'
 
-function preventBodyScroll(e: Event) {
+function preventDefault(e: Event) {
   e.preventDefault()
+}
+
+export function preventBodyScroll(callback?: () => void) {
+  document.body.addEventListener('wheel', preventDefault, {
+    passive: false,
+  })
+  document.body.addEventListener('touchmove', preventDefault, {
+    passive: false,
+  })
+  callback?.()
+}
+
+export function makeBodyScroll(callback?: () => void) {
+  document.body.removeEventListener('wheel', preventDefault)
+  document.body.removeEventListener('touchmove', preventDefault)
+  callback?.()
 }
 
 const useImageViewlStore = createStore({
   children: null as React.ReactElement | null,
   hidden() {
-    window.removeEventListener('popstate', this.hidden)
-    document.body.removeEventListener('wheel', preventBodyScroll)
-    document.body.removeEventListener('touchmove', preventBodyScroll)
+    makeBodyScroll(() => {
+      window.removeEventListener('popstate', this.hidden)
+    })
     this.$set({ children: null })
   },
   set(children: React.ReactElement) {
-    window.addEventListener('popstate', this.hidden)
-    document.body.addEventListener('wheel', preventBodyScroll, {
-      passive: false,
-    })
-    document.body.addEventListener('touchmove', preventBodyScroll, {
-      passive: false,
+    preventBodyScroll(() => {
+      window.addEventListener('popstate', this.hidden)
     })
     this.$set({ children })
   },
