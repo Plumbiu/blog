@@ -18,7 +18,7 @@ import { cn } from '@/utils/client'
 import { makeBodyScroll, preventBodyScroll } from '@/store/ImageView'
 import styles from './index.module.css'
 
-const ThumbnailsHeight = 400
+const ThumbnailsHeight = 420
 
 function ImageGallery(props: any) {
   const photos = getGalleryPhoto(props)
@@ -67,12 +67,32 @@ function ImageGallery(props: any) {
 
   const nodesTranslateX = useMemo(() => {
     let left = 0
-    const w = window.innerWidth / 2
-    return allThumbnailsNode.map((node) => {
-      const width = node.props.width / 7 + 12
+    const halfViewW = window.innerWidth / 2
+    const data = allThumbnailsNode.map((node) => {
+      const width = node.props.width / 7 + 24
       left += width
-      return left - w + width / 2
+      let result = left - halfViewW
+      if (result < 0) {
+        if (result < halfViewW) {
+          result = 0
+        }
+      }
+      return result
     })
+    const finalLeft = data[data.length - 1]
+    for (let i = data.length - 1; i >= 0; i--) {
+      if (data[i] === 0) {
+        break
+      }
+      if (finalLeft - data[i] >= halfViewW) {
+        for (let j = i + 1; j < data.length; j++) {
+          console.log(finalLeft - halfViewW)
+          data[j] = finalLeft - finalLeft + data[i]
+        }
+        break
+      }
+    }
+    return data
   }, [])
 
   const sildeNodes = useMemo(() => {
@@ -139,7 +159,6 @@ function ImageGallery(props: any) {
               }),
             )}
           </div>
-          <div className={styles.placeholder} />
           <ArrowLeftIcon
             onClick={() => handleThumbnailClick(currentIndex.current - 1)}
             className={cn(styles.arrow, styles.left_arrow)}

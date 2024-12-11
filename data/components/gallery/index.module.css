@@ -96,12 +96,3 @@
   right: 24px;
 }
 
-.placeholder {
-  position: fixed;
-  bottom: 0;
-  pointer-events: none;
-  left: 0;
-  right: 0;
-  height: var(--thumb-item-max-height);
-  background-image: linear-gradient(to right, #000, transparent, #000);
-}
