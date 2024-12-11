@@ -13,11 +13,6 @@
   z-index: 999;
   background-color: #000;
 
-  & img {
-    max-width: 100%;
-    max-height: calc(100vh - 120px);
-  }
-
   & svg {
     transition: color 0.2s;
     &:hover {
@@ -26,8 +21,11 @@
   }
 }
 
-.hidden {
-  visibility: hidden;
+.slide {
+  & > img {
+    max-width: 100%;
+    max-height: calc(100vh - 240px);
+  }
 }
 
 .close {
@@ -39,35 +37,27 @@
   font-size: 2rem;
 }
 
-@keyframes moveRight {
-  0% {
-    transform: translateX(-99px);
-    opacity: 0;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0.5;
-    transform: translateX(0);
-  }
-}
-
 .w_full {
   width: 100%;
 }
 
 .thumbnails {
   position: fixed;
+  margin: auto;
   bottom: 24px;
   display: flex;
   transition: transform 0.25s;
   gap: 12px;
-
   & img {
-    height: 80px;
-    width: auto;
+    filter: brightness(0.4);
+    transition: 0.25s;
+    height: 60px;
   }
+}
+
+.active {
+  filter: brightness(1) !important;
+  transform: translateY(-8px) scale(1.25);
 }
 
 .arrow {
@@ -80,9 +70,9 @@
 }
 
 .left_arrow {
-  left: 12px;
+  left: 24px;
 }
 
 .right_arrow {
-  right: 12px;
+  right: 24px;
 }

@@ -1,9 +1,11 @@
+/* eslint-disable @stylistic/function-paren-newline */
 'use client'
 
 import { ColumnsPhotoAlbum } from 'react-photo-album'
 import NextImage from 'next/image'
 import 'react-photo-album/columns.css'
 import {
+  cloneElement,
   ReactNode,
   useCallback,
   useEffect,
@@ -13,17 +15,12 @@ import {
 } from 'react'
 import Link from 'next/link'
 import { getGalleryPhoto } from '@/plugins/remark/gallery-utils'
-import {
-  ArrowLeftIcon,
-  ArrowRightIcon,
-  CloseIcon,
-  LoadingIcon,
-} from '@/components/Icons'
+import { ArrowLeftIcon, ArrowRightIcon, CloseIcon } from '@/components/Icons'
 import { cn } from '@/utils/client'
 import { makeBodyScroll, preventBodyScroll } from '@/store/ImageView'
 import styles from './index.module.css'
 
-const ThumbnailsHeight = 400
+const ThumbnailsHeight = 420
 
 function ImageGallery(props: any) {
   const photos = getGalleryPhoto(props)
@@ -56,33 +53,28 @@ function ImageGallery(props: any) {
         blurDataURL: base64,
       } as const
       return (
-        <Link
-          href={optimizeSrc}
-          onClick={(e) => {
-            e.preventDefault()
+        <NextImage
+          key={src}
+          className={styles.w_full}
+          width={(ThumbnailsHeight * width) / height}
+          height={ThumbnailsHeight}
+          onClick={() => {
+            handleThumbnailClick(i)
           }}
-        >
-          <NextImage
-            key={src}
-            className={styles.w_full}
-            width={(ThumbnailsHeight * width) / height}
-            height={ThumbnailsHeight}
-            onClick={() => {
-              handleThumbnailClick(i)
-            }}
-            {...commonProps}
-          />
-        </Link>
+          {...commonProps}
+        />
       )
     })
   }, [])
 
   const nodesTranslateX = useMemo(() => {
     let left = 0
-    return allThumbnailsNode.map((node, i) => {
-      const width = node.props.width / 5 + 12
+    const w = window.innerWidth / 2
+    return allThumbnailsNode.map((node) => {
+      console.log(node)
+      const width = node.props.width / 7 + 12
       left += width
-      return left - window.innerWidth / 2
+      return left - w
     })
   }, [])
 
@@ -93,9 +85,9 @@ function ImageGallery(props: any) {
       index = 0
     }
     setThumbnailTranslateX(nodesTranslateX[index])
+    currentIndex.current = index
     const img = <img src={photos[index]['optimizeSrc']} />
     setSlideNode(img)
-    currentIndex.current = index
   }
 
   return (
@@ -108,7 +100,17 @@ function ImageGallery(props: any) {
         }}
         render={{
           image(props, context) {
-            return allThumbnailsNode[context.index]
+            const photo = photos[context.index]
+            return (
+              <Link
+                href={photo.optimizeSrc}
+                onClick={(e) => {
+                  e.preventDefault()
+                }}
+              >
+                {allThumbnailsNode[context.index]}
+              </Link>
+            )
           },
         }}
       />
@@ -126,7 +128,14 @@ function ImageGallery(props: any) {
               transform: `translateX(${-thumbnailTranslateX}px)`,
             }}
           >
-            {allThumbnailsNode}
+            {allThumbnailsNode.map((node, i) =>
+              cloneElement(node, {
+                key: node.key,
+                className: cn({
+                  [styles.active]: i === currentIndex.current,
+                }),
+              }),
+            )}
           </div>
           <div
             onClick={() => handleThumbnailClick(currentIndex.current - 1)}

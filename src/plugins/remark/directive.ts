@@ -5,13 +5,13 @@ import {
   type ContainerDirective,
 } from 'mdast-util-directive'
 import { visit } from 'unist-util-visit'
+import { getImageProps } from 'next/image'
 import { isString } from '@/utils/types'
 import { getBlurDataUrl } from '@/utils/node/optimize'
 import { isUnOptimized, resolveAssetPath } from '@/utils'
 import { GalleryPhotoKey, GalleryName, Photo, PhotoNode } from './gallery-utils'
 import { addNodeClassName, makeProperties } from '../utils'
 import { ComponentKey, handleComponentName, RemarkPlugin } from '../constant'
-import { getImageProps } from 'next/image'
 
 export const remarkContainerDirectivePlugin: RemarkPlugin = () => {
   return async (tree) => {
@@ -50,29 +50,23 @@ export const remarkContainerDirectivePlugin: RemarkPlugin = () => {
           links.map(async (link, i) => {
             const imagePath = path.join('public', 'images', link)
             const { base64, metadata } = await getBlurDataUrl(imagePath)
-            if (!base64 || !metadata.width || !metadata.height) {
-              return null
+            const { width, height } = metadata ?? {}
+            if (!base64 || !width || !height) {
+              return
             }
             const src = resolveAssetPath(`images/${link}`)
-            const data: Photo = {
-              width: metadata.width,
-              height: metadata.height,
+            const data: Omit<Photo, 'optimizeSrc'> = {
+              width,
+              height,
               src,
               alt: '',
               base64,
-              optimizeSrc: '',
             }
             const { props } = getImageProps({
-              src,
-              alt: '',
-              width: metadata.width,
-              height: metadata.height,
-              placeholder: 'blur',
-              blurDataURL: base64,
+              ...data,
               unoptimized: isUnOptimized(src),
             })
-            data['optimizeSrc'] = props.src
-            images.push(data)
+            images.push({ ...data, optimizeSrc: props.src })
           }),
         )
         node.data!.hProperties![GalleryPhotoKey] = JSON.stringify(images)
