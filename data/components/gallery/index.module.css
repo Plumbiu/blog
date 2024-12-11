@@ -1,9 +1,26 @@
-.gallery img {
-  border-radius: 0 !important;
+.gallery {
+  & img {
+    user-select: none;
+    border-radius: 0 !important;
+  }
+}
+
+@keyframes fade {
+  to {
+    opacity: 1;
+  }
 }
 
 .mask {
   --text-color: #aaa;
+  --thumb-bottom: 24px;
+  --thumb-item-height: 60px;
+  --thumb-item-translate: 16px;
+  --thumb-item-max-height: calc(
+    var(--thumb-item-height) + var(--thumb-item-translate) + var(--thumb-bottom)
+  );
+  opacity: 0;
+  animation: fade 0.15s forwards;
   position: fixed;
   display: flex;
   align-items: center;
@@ -14,7 +31,7 @@
   background-color: #000;
 
   & svg {
-    transition: color 0.2s;
+    transition: color 0.15s ease-in;
     &:hover {
       color: #fff;
     }
@@ -23,8 +40,9 @@
 
 .slide {
   & > img {
-    max-width: 100%;
-    max-height: calc(100vh - 240px);
+    max-width: 90%;
+    transform: translateY(calc(-1 * var(--thumb-item-max-height) / 2));
+    max-height: calc(100vh - var(--thumb-item-max-height));
   }
 }
 
@@ -43,21 +61,22 @@
 
 .thumbnails {
   position: fixed;
-  margin: auto;
-  bottom: 24px;
+  bottom: var(--thumb-bottom);
   display: flex;
+  user-select: none;
+  margin: auto;
   transition: transform 0.25s;
-  gap: 12px;
   & img {
-    filter: brightness(0.4);
+    padding: 0 6px;
+    filter: brightness(0.6);
     transition: 0.25s;
-    height: 60px;
+    height: var(--thumb-item-height);
   }
 }
 
 .active {
   filter: brightness(1) !important;
-  transform: translateY(-8px) scale(1.25);
+  transform: translateY(calc(var(--thumb-item-translate) * -1));
 }
 
 .arrow {
@@ -75,4 +94,14 @@
 
 .right_arrow {
   right: 24px;
+}
+
+.placeholder {
+  position: fixed;
+  bottom: 0;
+  pointer-events: none;
+  left: 0;
+  right: 0;
+  height: var(--thumb-item-max-height);
+  background-image: linear-gradient(to right, #000, transparent, #000);
 }

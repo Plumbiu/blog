@@ -6,7 +6,6 @@ import NextImage from 'next/image'
 import 'react-photo-album/columns.css'
 import {
   cloneElement,
-  ReactNode,
   useCallback,
   useEffect,
   useMemo,
@@ -24,7 +23,7 @@ const ThumbnailsHeight = 420
 
 function ImageGallery(props: any) {
   const photos = getGalleryPhoto(props)
-  const [slideNode, setSlideNode] = useState<ReactNode>(null)
+  const [slideNode, setSlideNode] = useState<JSX.Element | null>(null)
   const slideRef = useRef<HTMLDivElement>(null)
   const currentIndex = useRef(0)
   const [thumbnailTranslateX, setThumbnailTranslateX] = useState(0)
@@ -71,10 +70,15 @@ function ImageGallery(props: any) {
     let left = 0
     const w = window.innerWidth / 2
     return allThumbnailsNode.map((node) => {
-      console.log(node)
       const width = node.props.width / 7 + 12
       left += width
-      return left - w
+      return left - w + width / 2
+    })
+  }, [])
+
+  const sildeNodes = useMemo(() => {
+    return photos.map(({ optimizeSrc }) => {
+      return <img src={optimizeSrc} />
     })
   }, [])
 
@@ -86,8 +90,7 @@ function ImageGallery(props: any) {
     }
     setThumbnailTranslateX(nodesTranslateX[index])
     currentIndex.current = index
-    const img = <img src={photos[index]['optimizeSrc']} />
-    setSlideNode(img)
+    setSlideNode(sildeNodes[index])
   }
 
   return (
@@ -95,7 +98,7 @@ function ImageGallery(props: any) {
       <ColumnsPhotoAlbum
         spacing={4}
         photos={photos}
-        onClick={({ index }) => {
+        onClick={({ index, event }) => {
           handleThumbnailClick(index)
         }}
         render={{
@@ -137,18 +140,15 @@ function ImageGallery(props: any) {
               }),
             )}
           </div>
-          <div
+          <div className={styles.placeholder} />
+          <ArrowLeftIcon
             onClick={() => handleThumbnailClick(currentIndex.current - 1)}
             className={cn(styles.arrow, styles.left_arrow)}
-          >
-            <ArrowLeftIcon />
-          </div>
-          <div
+          />
+          <ArrowRightIcon
             onClick={() => handleThumbnailClick(currentIndex.current + 1)}
             className={cn(styles.arrow, styles.right_arrow)}
-          >
-            <ArrowRightIcon />
-          </div>
+          />
         </div>
       )}
     </div>
