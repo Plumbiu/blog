@@ -14,27 +14,23 @@ export function preventBodyScroll(callback?: () => void) {
   document.body.addEventListener('touchmove', preventDefault, {
     passive: false,
   })
-  callback?.()
+  callback && window.addEventListener('popstate', callback)
 }
 
 export function makeBodyScroll(callback?: () => void) {
   document.body.removeEventListener('wheel', preventDefault)
   document.body.removeEventListener('touchmove', preventDefault)
-  callback?.()
+  callback && window.removeEventListener('popstate', callback)
 }
 
 const useImageViewlStore = createStore({
   children: null as React.ReactElement | null,
   hidden() {
-    makeBodyScroll(() => {
-      window.removeEventListener('popstate', this.hidden)
-    })
+    makeBodyScroll(this.hidden)
     this.$set({ children: null })
   },
   set(children: React.ReactElement) {
-    preventBodyScroll(() => {
-      window.addEventListener('popstate', this.hidden)
-    })
+    preventBodyScroll(this.hidden)
     this.$set({ children })
   },
 })

@@ -26,6 +26,10 @@
   }
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 .close {
   position: absolute;
   top: 1rem;
@@ -49,28 +53,20 @@
   }
 }
 
+.w_full {
+  width: 100%;
+}
+
 .thumbnails {
   position: fixed;
-  bottom: 36px;
+  bottom: 24px;
   display: flex;
-  gap: 24px;
+  transition: transform 0.25s;
+  gap: 12px;
 
-  & > img {
-    overflow: hidden;
+  & img {
     height: 80px;
-    max-width: 120px;
-    object-fit: cover;
-    filter: brightness(0.3);
-    transition: filter 0.2s;
-    &:nth-child(3) {
-      filter: brightness(1);
-    }
-    &:first-child {
-      animation: move 0.2s;
-    }
-    &:last-child {
-      animation: move 0.2s;
-    }
+    width: auto;
   }
 }
 
