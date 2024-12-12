@@ -3,7 +3,7 @@ const Analyzer = require('@next/bundle-analyzer')
 const { default: classnamesMinifier } = require('@nimpl/classnames-minifier')
 
 const IS_GITPAGE = !!process.env.GITPAGE
-const BasePath = IS_GITPAGE ? `/${RepoName}` : ''
+const BasePath = IS_GITPAGE ? '/blog' : ''
 
 const withBundleAnalyzer = Analyzer({
   enabled: !!process.env.ANALYZE,

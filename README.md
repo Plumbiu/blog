@@ -45,7 +45,7 @@ desc: The article introduction, it can be a number, indicating that the introduc
 
 # Deploy to Github pages
 
-Edit the `RepoName` in `/data/variable.ts` file.
+Edit the `RepoName` in [data/variable.ts](/data/variable.ts) file and `BasePath` in [next.config.js](/next.config.js) file.
 
 > [!WARNING]
 > Github pages only support static resources, [rewrites](https://nextjs.org/docs/app/api-reference/config/next-config-js/rewrites) will not work, see [next.config.js](/next.config.js)
