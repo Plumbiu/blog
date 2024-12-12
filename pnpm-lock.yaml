@@ -16,9 +16,6 @@ importers:
 
   .:
     dependencies:
-      '@fancyapps/ui':
-        specifier: ^5.0.36
-        version: 5.0.36
       '@plumbiu/react-store':
         specifier: ^0.9.3
         version: 0.9.3(react@18.3.1)
@@ -28,9 +25,6 @@ importers:
       '@vercel/analytics':
         specifier: ^1.4.1
         version: 1.4.1(next@14.2.20(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
-      chocolat:
-        specifier: ^1.1.3
-        version: 1.1.3
       hast-util-to-jsx-runtime:
         specifier: ^2.3.2
         version: 2.3.2
@@ -346,9 +340,6 @@ packages:
   '@eslint/plugin-kit@0.2.3':
     resolution: {integrity: sha512-2b/g5hRmpbb1o4GnTZax9N9m0FXzz9OV42ZzI4rDDMDuHUqigAiQCEWChBWCY4ztAGVRjoWT19v0yMmc5/L5kA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-
-  '@fancyapps/ui@5.0.36':
-    resolution: {integrity: sha512-GMygQzp1MBTFNTT6AzpbL6pXTD6bTxwjmmpI1fe8Ozmmiseu8/g82Sudl1YhcbZmS4bJgaBOF5THDFGpXQ1fDw==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -937,9 +928,6 @@ packages:
   character-reference-invalid@2.0.1:
     resolution: {integrity: sha512-iBZ4F4wRbyORVsu0jPV7gXkOsGYjGHPmAyv+HiHG8gi5PtC9KI2j1+v8/tlibRvjoWX027ypmG/n0HtO5t7unw==}
 
-  chocolat@1.1.3:
-    resolution: {integrity: sha512-lclEOMwtnT8B/3F6vSk/J1ypo0paOrtBHn+JXhDQrTIXokKfZIYYYzLBCn26D9l14iZYbIXqvtoKlMP5T0dEvg==}
-
   classnames-minifier@1.0.0:
     resolution: {integrity: sha512-f+oH54ka5SGsY2PB30/ztd74xhPC395anKTszSrKouZx3YQd+EEtfmFIOtOsdhmKkN9vCiuAvTEV78kdUUkVww==}
     peerDependencies:
@@ -978,9 +966,6 @@ packages:
 
   concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
-
-  core-js@3.39.0:
-    resolution: {integrity: sha512-raM0ew0/jJUqkJ0E6e8UDtl+y/7ktFivgWvqw8dNSQeNWoSDLvQ1H/RN3aPXB9tBd4/FhyR4RDPGhsNIMsAn7g==}
 
   cross-env@7.0.3:
     resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
@@ -1125,9 +1110,6 @@ packages:
   es-to-primitive@1.2.1:
     resolution: {integrity: sha512-QCOllgZJtaUo9miYBcLChTUaHNjJF3PYs1VidD7AwiEj1kYxKeQTctLAezAOH5ZKRH0g2IgPn6KwB4IT8iRpvA==}
     engines: {node: '>= 0.4'}
-
-  es6-promise@4.2.8:
-    resolution: {integrity: sha512-HJDGx5daxeIvxdBxvG2cb9g4tEvwIk3i8+nhX0yGrYmZUzbkdg8QbDevheDB8gd0//uPj4c1EQua8Q+MViT0/w==}
 
   esbuild@0.23.1:
     resolution: {integrity: sha512-VVNz/9Sa0bs5SELtn3f7qhJCDPCF5oMEl5cO9/SSinpE9hbPVvxbd572HH5AKiP7WD8INO53GgfDDhRjkylHEg==}
@@ -2509,8 +2491,6 @@ snapshots:
     dependencies:
       levn: 0.4.1
 
-  '@fancyapps/ui@5.0.36': {}
-
   '@humanfs/core@0.19.1': {}
 
   '@humanfs/node@0.16.6':
@@ -3087,11 +3067,6 @@ snapshots:
 
   character-reference-invalid@2.0.1: {}
 
-  chocolat@1.1.3:
-    dependencies:
-      core-js: 3.39.0
-      es6-promise: 4.2.8
-
   classnames-minifier@1.0.0(css-loader@7.1.2):
     dependencies:
       css-loader: 7.1.2
@@ -3124,8 +3099,6 @@ snapshots:
   commander@7.2.0: {}
 
   concat-map@0.0.1: {}
-
-  core-js@3.39.0: {}
 
   cross-env@7.0.3:
     dependencies:
@@ -3322,8 +3295,6 @@ snapshots:
       is-date-object: 1.0.5
       is-symbol: 1.0.4
     optional: true
-
-  es6-promise@4.2.8: {}
 
   esbuild@0.23.1:
     optionalDependencies:
