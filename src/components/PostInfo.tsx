@@ -1,7 +1,21 @@
 import { cn } from '@/utils/client'
-import { monthArr } from '@/constants'
 import { PostMeta } from '@/utils/node/markdown'
 import styles from './PostInfo.module.css'
+
+const monthArr = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec',
+]
 
 function formatTime(time: string | number) {
   const d = new Date(time)
