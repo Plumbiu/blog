@@ -1,7 +1,7 @@
 import { type Metadata } from 'next'
 import { ViewTransitions } from 'next-view-transitions'
 import { Analytics } from '@vercel/analytics/react'
-import { BlogUrl } from '~/data/site'
+import { BlogAuthor, BlogUrl } from '~/data/site'
 import { resolveAssetPath } from '@/utils'
 import Header from '@/components/Header'
 import ImageView from '@/components/ImageView'
@@ -20,8 +20,7 @@ export const metadata: Metadata = {
     title: Blog_Title,
     description: Blog_Desc,
     url: BlogUrl,
-    // eslint-disable-next-line @stylistic/quotes
-    siteName: "Plumbiu's blog",
+    siteName: `${BlogAuthor}'s blog`,
   }),
 }
 

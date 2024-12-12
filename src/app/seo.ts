@@ -1,6 +1,5 @@
-/* eslint-disable @stylistic/quotes */
 import { Metadata } from 'next'
-import { BlogUrl } from '~/data/site'
+import { BlogAuthor, BlogUrl } from '~/data/site'
 
 export function generateSeoMetaData(meta: Metadata['openGraph']): Metadata {
   return {
@@ -8,7 +7,7 @@ export function generateSeoMetaData(meta: Metadata['openGraph']): Metadata {
       ...meta,
       locale: 'zh_CN',
       type: 'website',
-      siteName: "Plumbiu's blog",
+      siteName: `${BlogAuthor}'s blog`,
     },
     twitter: meta,
   }
@@ -25,5 +24,5 @@ export function joinWebUrl(...args: string[]) {
   return url
 }
 
-export const Blog_Title = 'Plumbiuの博客'
+export const Blog_Title = `${BlogAuthor}の博客`
 export const Blog_Desc = 'Note, life, summary and blog'

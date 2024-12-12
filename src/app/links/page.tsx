@@ -1,4 +1,3 @@
-/* eslint-disable @stylistic/quotes */
 import path from 'node:path'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -6,6 +5,7 @@ import { Metadata } from 'next'
 import { cn } from '@/utils/client'
 import info from '~/data/links.json'
 import { getBlurDataUrl } from '@/utils/node/optimize'
+import { BlogAuthor, RepoLinksUrl } from '~/data/site'
 import styles from './page.module.css'
 import { generateSeoMetaData, joinWebUrl } from '../seo'
 
@@ -47,6 +47,7 @@ async function Links() {
             />
             <div>
               <Link
+                aria-label="Read more about links page"
                 href={link}
                 target="_blank"
                 className={cn('link', styles.title)}
@@ -59,7 +60,8 @@ async function Links() {
         ))}
       </div>
       <Link
-        href="https://github.com/Plumbiu/blog/blob/main/data/links.json"
+        aria-label="Read more about links config file"
+        href={RepoLinksUrl}
         target="_blank"
         className="link"
       >
@@ -69,8 +71,8 @@ async function Links() {
   )
 }
 
-const Title = 'Plumbiu | About'
-const Desc = "Plumbiu's introduction"
+const Title = `${BlogAuthor} | About`
+const Desc = `${BlogAuthor}'s introduction`
 export const metadata: Metadata = {
   title: Title,
   description: Desc,

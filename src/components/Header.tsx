@@ -3,6 +3,7 @@
 import { Link } from 'next-view-transitions'
 import { useEffect, useRef, useState } from 'react'
 import { cn } from '@/utils/client'
+import { BlogAuthor, RepoUrl } from '~/data/site'
 import { GithubIcon, MoonIcon, SunIcon } from './Icons'
 import styles from './Header.module.css'
 
@@ -48,8 +49,8 @@ function Header() {
     <header ref={ref} className={styles.wrap}>
       <div className={styles.header}>
         <div className={cn(styles.left, styles.hover)}>
-          <Link href="/list/blog/1" className="fcc">
-            Plumbiu
+          <Link aria-label="Home page" href="/list/blog/1" className="fcc">
+            {BlogAuthor}
           </Link>
         </div>
         <div className={styles.right}>
@@ -67,16 +68,25 @@ function Header() {
             </div>
           )}
           <Link
+            aria-label="Read more about repo"
             className={styles.hover}
             target="_blank"
-            href="https://github.com/Plumbiu/blog"
+            href={RepoUrl}
           >
             <GithubIcon />
           </Link>
-          <Link className={styles.hover} href="/links">
+          <Link
+            aria-label="Read more about links page"
+            className={styles.hover}
+            href="/links"
+          >
             Links
           </Link>
-          <Link className={styles.hover} href="/about">
+          <Link
+            aria-label="Read more about about page"
+            className={styles.hover}
+            href="/about"
+          >
             About
           </Link>
         </div>

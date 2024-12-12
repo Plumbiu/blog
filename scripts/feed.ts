@@ -1,20 +1,19 @@
 import fsp from 'fs/promises'
 import { toXML } from 'jstoxml'
 import { PostList } from '@/utils/node/markdown'
-
-const URL = 'https://blog.plumbiu.top'
+import { BlogAuthor, BlogUrl, GithubName } from '~/data/site'
 
 async function feed(posts: PostList[]) {
   const json: Record<string, any> = {
     channel: [
-      { title: 'Plumbiu の 小屋' },
-      { link: URL },
-      { generator: 'https://github.com/plumbiu' },
-      { description: 'Plumbiu 的博客' },
+      { title: `${BlogAuthor} の 小屋` },
+      { link: BlogUrl },
+      { generator: `https://github.com/${GithubName}` },
+      { description: `${BlogAuthor} 的博客` },
       {
         'atom:link': {
           _attrs: {
-            ' href': `${URL}/rss.xml`,
+            ' href': `${BlogUrl}/rss.xml`,
             ref: 'self',
             type: 'application/rss+xml',
           },
@@ -28,13 +27,14 @@ async function feed(posts: PostList[]) {
   })
   for (const post of posts) {
     const { title, desc: description, date: pubDate } = post.meta
+    const linkUrl = `${BlogUrl}${post.path}`
     json.channel.push({
       item: {
         title,
-        link: `${URL}/posts/${title}`,
+        link: linkUrl,
         pubDate,
-        author: 'Plumbiu',
-        guid: `${URL}/posts/${title}`,
+        author: BlogAuthor,
+        guid: linkUrl,
         description,
       },
     })

@@ -1,16 +1,16 @@
-/* eslint-disable @stylistic/quotes */
 import Link from 'next/link'
 import { Metadata } from 'next'
 import { BiliBiliIcon, GithubIcon } from '@/components/Icons'
 import Tag from '@/components/Tag'
 import { cn } from '@/utils/client'
+import { BilibiliId, BlogAuthor, GithubName } from '~/data/site'
 import styles from './page.module.css'
 import { generateSeoMetaData, joinWebUrl } from '../seo'
 
 function About() {
   return (
     <div className={cn(styles.wrap, 'center')}>
-      <h1 className={styles.hi}> Hi, I'm Plumbiu 👋</h1>
+      <h1 className={styles.hi}> Hi, I'm {BlogAuthor} 👋</h1>
       <div className={styles.tag}>
         <Tag icon="#">Developer</Tag>
         <Tag icon="#">Student</Tag>
@@ -42,10 +42,10 @@ function About() {
         </Link>
       </div>
       <div className={styles.links}>
-        <Link target="_blank" href="https://github.com/Plumbiu">
+        <Link target="_blank" href={`https://github.com/${GithubName}`}>
           <GithubIcon />
         </Link>
-        <Link target="_blank" href="https://www.bilibili.com/">
+        <Link target="_blank" href={`https://space.bilibili.com/${BilibiliId}`}>
           <BiliBiliIcon />
         </Link>
       </div>
@@ -54,8 +54,8 @@ function About() {
   )
 }
 
-const Title = 'Plumbiu | About'
-const Desc = "Plumbiu's introduction"
+const Title = `${BlogAuthor} | About`
+const Desc = `${BlogAuthor}'s introduction`
 export const metadata: Metadata = {
   title: Title,
   description: Desc,

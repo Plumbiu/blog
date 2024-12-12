@@ -1,4 +1,5 @@
-import { BasePath, PostDir, type FrontmatterKey } from '@/constants'
+import { PostDir, type FrontmatterKey } from '@/constants'
+import { BasePath } from '~/data/site'
 import { isString } from './types'
 
 const RemoveMdSuffixRegx = /\.md$/
