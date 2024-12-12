@@ -3,6 +3,11 @@ import { visit } from 'unist-util-visit'
 import { toString } from 'hast-util-to-string'
 import { HighlighterCore } from 'shiki/core'
 import { shikiClassTransformer } from 'shiki-class-transformer'
+import {
+  transformerNotationWordHighlight,
+  transformerNotationHighlight,
+  transformerNotationDiff,
+} from '@shikijs/transformers'
 import shikiMap from 'shiki-class-transformer/themes/vitesse-light.json'
 import { isString } from '@/utils/types'
 
@@ -158,6 +163,14 @@ const rehypePrismGenerator = (shiki: HighlighterCore) => {
                   }
                 },
               },
+              transformerNotationWordHighlight(),
+              transformerNotationHighlight({
+                classActiveLine: 'highlight-line',
+              }),
+              transformerNotationDiff({
+                classLineAdd: 'inserted symbol',
+                classLineRemove: 'deleted symbol',
+              }),
             ],
             // @ts-ignore
           }).children?.[0]?.children[0] ?? node

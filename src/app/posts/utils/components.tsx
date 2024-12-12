@@ -19,7 +19,7 @@ export const markdownComponents: Partial<Components> = {
     if (component) {
       return <CustomComponent {...rest} />
     }
-    const code = props.node ? toString(props.node).trim() : undefined
+    const code = props.node ? toString(props.node) : undefined
     return <PreComponent code={code}>{children}</PreComponent>
   },
   // @ts-ignore

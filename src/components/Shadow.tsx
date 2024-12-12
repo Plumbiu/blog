@@ -20,11 +20,13 @@ function ReactShadowRoot({
     if (!shadow) {
       return
     }
-    const dom = ref.current!
-    const root = dom.attachShadow({
-      mode,
-    })
-    setShadowRoot(root)
+    try {
+      const dom = ref.current!
+      const root = dom.attachShadow({
+        mode,
+      })
+      setShadowRoot(root)
+    } catch (error) {}
   }, [shadow])
   return (
     <div ref={ref} {...rest}>

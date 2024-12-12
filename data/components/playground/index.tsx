@@ -70,9 +70,10 @@ const CodePreview = memo(
   ({ defaultSelector, nodeMap, tabs, hide }: CodePreviewProps) => {
     const [selector, setSelector] = useState(defaultSelector)
     const node = nodeMap[selector]
+    const showTab = !hide && tabs.length > 1
     return (
       <div>
-        {!hide && tabs.length > 1 && (
+        {showTab && (
           <div className={styles.tab}>
             {tabs.map((tabProps) => (
               <Tab
@@ -104,7 +105,7 @@ const Playground = (props: any) => {
     isStatic,
     isPreviewTabsHidden,
     isCodeTabsHidden,
-    customPreviewName,
+    customPreviewNode,
   } = useMemo(() => {
     const children = Array.isArray(props.children)
       ? props.children
@@ -120,6 +121,8 @@ const Playground = (props: any) => {
     const isPreviewTabsHidden = handlePlaygroundHidePreviewTabsKey(props)
     const isCodeTabsHidden = handlePlaygroundHideCodeTabsKey(props)
     const customPreviewName = handlePlaygroundCustomPreivew(props)
+    const customPreviewNode = componentMap[customPreviewName]
+
     return {
       defaultSelector,
       codeNodeMap,
@@ -129,7 +132,7 @@ const Playground = (props: any) => {
       isStatic,
       isPreviewTabsHidden,
       isCodeTabsHidden,
-      customPreviewName,
+      customPreviewNode,
     }
   }, [props])
 
@@ -137,18 +140,18 @@ const Playground = (props: any) => {
   const nodeRef = useRef<HTMLDivElement>(null)
   const [isConsoleVisible, setIsConsoleVisible] = useState(false)
   const root = useRef<Root>()
-  const renderNode = useCallback(() => {
-    setLogs(logs)
-    root.current?.unmount()
-    root.current = createRoot(nodeRef.current!)
-    const customPreviewNode = componentMap[customPreviewName]
+  const renderNode = useCallback((refresh = false) => {
+    !isStatic && setLogs(logs)
+    if (refresh) {
+      root.current?.unmount()
+    }
+    if (!root.current || refresh) {
+      root.current = createRoot(nodeRef.current!)
+    }
     const playgroundProps = {
       files,
       defaultSelector,
       logFn,
-    }
-    if (!nodeRef.current) {
-      return
     }
     let node = null
     if (!isStatic) {
@@ -175,7 +178,7 @@ const Playground = (props: any) => {
   useObserver(nodeRef, renderNode)
 
   return (
-    <CodeWrap barText="Code Playground" forceUpdate={renderNode}>
+    <CodeWrap barText="Code Playground" forceUpdate={() => renderNode(true)}>
       <CodePreview
         tabs={codeTabs}
         nodeMap={codeNodeMap}

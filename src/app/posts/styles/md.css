@@ -66,7 +66,7 @@
     color: var(--text-1);
     overflow: auto;
     tab-size: 2;
-    line-height: 1.5;
+    line-height: 1.7;
     max-height: 80vh;
     border-radius: var(--pre-radius);
     background-color: var(--bg-md-pre);
@@ -184,13 +184,33 @@
     padding-left: 16px;
     margin-left: -16px;
   }
-  .highlight-line {
+  .highlight-line,
+  .highlighted-word {
     background-color: var(--bg-md-highlight-line); /* Set highlight bg color */
+  }
+  .highlighted-word {
+    box-sizing: content-box;
+    border: 1px solid var(--c-green-soft);
+    padding: 0 3px;
+    margin: 0 -3px;
+    border-radius: 4px;
   }
   .deleted {
     background-color: var(--c-red-soft);
+    &.symbol {
+      &::before {
+        content: '- ';
+        color: var(--c-red-1);
+      }
+    }
   }
   .inserted {
     background-color: var(--c-green-soft);
+    &.symbol {
+      &::before {
+        content: '+ ';
+        color: var(--c-red-1);
+      }
+    }
   }
 }

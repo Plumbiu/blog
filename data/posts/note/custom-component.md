@@ -258,13 +258,51 @@ fn('ch')
 fn({ obj: 1 })
 ```
 
-# Code Diff
+# Code
+
+## Diff
 
 代码中的删除添加：
 
-```diff-js
+```diff-ts
 - console.log('hewwo')
 + console.log('hello')
+console.log('goodbye')
+```
+
+shiki:
+
+```ts
+console.log('hewwo') // [!code --]
+console.log('hello') // [!code ++]
+console.log('goodbye')
+```
+
+## Highlight
+
+### Line
+
+```ts {1,2}
+console.log('hewwo')
+console.log('hello')
+console.log('goodbye')
+```
+
+shiki:
+
+```ts
+console.log('hewwo') // [!code highlight]
+console.log('hello') // [!code highlight]
+console.log('goodbye')
+```
+
+### Word
+
+```ts
+// [!code word:log]
+console.log('hewwo')
+console.log('hello')
+console.log('goodbye')
 ```
 
 # Custom Component

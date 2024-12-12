@@ -10,7 +10,6 @@ const remarkCodeConfig: RemarkPlugin = () => {
       const meta = node.meta
       const lang = node.lang?.toLowerCase()
       props[ComponentLangKey] = lang
-      props[ComponentMetaKey] = meta
     })
   }
 }
