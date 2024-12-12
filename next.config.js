@@ -39,6 +39,7 @@ const nextConfig = {
     minimumCacheTTL: 31536000,
     path: `${BasePath}/_next/image`,
   },
+  output: IS_GITPAGE ? 'export' : undefined,
   async rewrites() {
     return [
       {
