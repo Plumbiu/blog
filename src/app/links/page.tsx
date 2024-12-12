@@ -62,8 +62,8 @@ async function Links() {
       <Link
         aria-label="Read more about links config file"
         href={RepoLinksUrl}
-        target="_blank"
         className="link"
+        target="_blank"
       >
         see `links.json`
       </Link>

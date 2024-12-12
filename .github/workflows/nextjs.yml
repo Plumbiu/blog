@@ -14,6 +14,8 @@ on:
       - 'public/**'
       - 'scripts/**'
       - 'src/**'
+      - 'next.config.js'
+      - 'postcss.config.js'
       - 'package.json'
       - 'pnpm-lock.yaml'
 
