@@ -1,4 +1,3 @@
-/* eslint-disable @stylistic/function-paren-newline */
 'use client'
 
 import { ColumnsPhotoAlbum } from 'react-photo-album'
@@ -6,6 +5,7 @@ import NextImage from 'next/image'
 import 'react-photo-album/columns.css'
 import {
   cloneElement,
+  memo,
   useCallback,
   useEffect,
   useMemo,
@@ -18,13 +18,13 @@ import { cn } from '@/utils/client'
 import { makeBodyScroll, preventBodyScroll } from '@/store/ImageView'
 import styles from './index.module.css'
 
-const ThumbnailsHeight = 420
+const ThumbnailsHeight = 360
 
 function ImageGallery(props: any) {
   const photos = getGalleryPhoto(props)
   const [slideNode, setSlideNode] = useState<JSX.Element | null>(null)
-  const slideRef = useRef<HTMLDivElement>(null)
-  const currentIndex = useRef(0)
+  const thumbnailsRef = useRef<HTMLDivElement>(null)
+  const [currentIndex, setCurrentIndex] = useState(0)
   const [thumbnailTranslateX, setThumbnailTranslateX] = useState(0)
 
   const hidden = useCallback(() => {
@@ -42,6 +42,19 @@ function ImageGallery(props: any) {
     }
   }, [slideNode])
 
+  useEffect(() => {
+    if (!slideNode) {
+      return
+    }
+    const children = thumbnailsRef.current!?.children?.[
+      currentIndex
+    ] as HTMLImageElement
+    if (children?.tagName === 'IMG') {
+      const left = children.offsetLeft
+      setThumbnailTranslateX(left)
+    }
+  }, [slideNode, currentIndex])
+
   const allThumbnailsNode = useMemo(() => {
     return photos.map(({ src, width, height, base64 }, i) => {
       const commonProps = {
@@ -52,7 +65,7 @@ function ImageGallery(props: any) {
       } as const
       return (
         <NextImage
-          key={src}
+          key={i}
           className={styles.w_full}
           width={(ThumbnailsHeight * width) / height}
           height={ThumbnailsHeight}
@@ -65,35 +78,7 @@ function ImageGallery(props: any) {
     })
   }, [])
 
-  const nodesTranslateX = useMemo(() => {
-    let left = 0
-    const halfViewW = window.innerWidth / 2
-    const data = allThumbnailsNode.map((node) => {
-      const width = node.props.width / 7 + 24
-      left += width
-      let result = left - halfViewW
-      if (result < 0) {
-        if (result < halfViewW) {
-          result = 0
-        }
-      }
-      return result
-    })
-    const finalLeft = data[data.length - 1]
-    for (let i = data.length - 1; i >= 0; i--) {
-      if (data[i] === 0) {
-        break
-      }
-      if (finalLeft - data[i] >= halfViewW) {
-        for (let j = i + 1; j < data.length; j++) {
-          data[j] = finalLeft - finalLeft + data[i]
-        }
-        break
-      }
-    }
-    return data
-  }, [])
-
+  const thumbinalsLength = allThumbnailsNode.length
   const sildeNodes = useMemo(() => {
     return photos.map(({ optimizeSrc }) => {
       return <img src={optimizeSrc} />
@@ -102,12 +87,11 @@ function ImageGallery(props: any) {
 
   function handleThumbnailClick(index: number) {
     if (index < 0) {
-      index = nodesTranslateX.length - 1
-    } else if (index >= nodesTranslateX.length) {
+      index = thumbinalsLength - 1
+    } else if (index >= thumbinalsLength) {
       index = 0
     }
-    setThumbnailTranslateX(nodesTranslateX[index])
-    currentIndex.current = index
+    setCurrentIndex(index)
     setSlideNode(sildeNodes[index])
   }
 
@@ -116,7 +100,7 @@ function ImageGallery(props: any) {
       <ColumnsPhotoAlbum
         spacing={4}
         photos={photos}
-        onClick={({ index, event }) => {
+        onClick={({ index }) => {
           handleThumbnailClick(index)
         }}
         render={{
@@ -140,30 +124,28 @@ function ImageGallery(props: any) {
           <div className={styles.close} onClick={hidden}>
             <CloseIcon />
           </div>
-          <div className={styles.slide} ref={slideRef}>
-            {slideNode}
-          </div>
+          <div className={styles.slide}>{slideNode}</div>
           <div
             className={styles.thumbnails}
             style={{
-              transform: `translateX(${-thumbnailTranslateX}px)`,
+              transform: `translateX(${
+                -thumbnailTranslateX + window.innerWidth / 2
+              }px)`,
             }}
+            ref={thumbnailsRef}
           >
-            {allThumbnailsNode.map((node, i) =>
-              cloneElement(node, {
-                key: node.key,
-                className: cn({
-                  [styles.active]: i === currentIndex.current,
-                }),
-              }),
-            )}
+            {allThumbnailsNode.map((node, i) => (
+              <MemoThumbinalItem key={i} active={i === currentIndex}>
+                {node}
+              </MemoThumbinalItem>
+            ))}
           </div>
           <ArrowLeftIcon
-            onClick={() => handleThumbnailClick(currentIndex.current - 1)}
+            onClick={() => handleThumbnailClick(currentIndex - 1)}
             className={cn(styles.arrow, styles.left_arrow)}
           />
           <ArrowRightIcon
-            onClick={() => handleThumbnailClick(currentIndex.current + 1)}
+            onClick={() => handleThumbnailClick(currentIndex + 1)}
             className={cn(styles.arrow, styles.right_arrow)}
           />
         </div>
@@ -171,5 +153,16 @@ function ImageGallery(props: any) {
     </div>
   )
 }
+
+const MemoThumbinalItem = memo(
+  ({ children, active }: { children: JSX.Element; active: boolean }) => {
+    return cloneElement(children, {
+      key: children.key,
+      className: cn({
+        [styles.active]: active,
+      }),
+    })
+  },
+)
 
 export default ImageGallery

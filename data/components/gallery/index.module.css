@@ -15,6 +15,7 @@
   --text-color: #aaa;
   --thumb-bottom: 24px;
   --thumb-item-height: 60px;
+  --thumb-item-width: 80px;
   --thumb-item-translate: 16px;
   --thumb-item-max-height: calc(
     var(--thumb-item-height) + var(--thumb-item-translate) + var(--thumb-bottom)
@@ -61,22 +62,25 @@
 
 .thumbnails {
   position: fixed;
+  left: 0;
+  right: 0;
   bottom: var(--thumb-bottom);
   display: flex;
   user-select: none;
-  margin: auto;
   transition: transform 0.25s;
   & img {
-    padding: 0 6px;
     filter: brightness(0.6);
     transition: 0.25s;
     height: var(--thumb-item-height);
+    width: var(--thumb-item-width);
+    object-fit: cover;
   }
 }
 
 .active {
+  z-index: 20;
   filter: brightness(1) !important;
-  transform: translateY(calc(var(--thumb-item-translate) * -1));
+  transform: scale(1.2);
 }
 
 .arrow {
@@ -95,4 +99,3 @@
 .right_arrow {
   right: 24px;
 }
-
