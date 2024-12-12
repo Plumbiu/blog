@@ -52,19 +52,20 @@ Edit the `RepoName` in [data/variable.ts](/data/variable.ts) file and `BasePath`
 
 <details>
 
-<summary>However, you can create <code>src/app/list/page.tsx</code> and <code>src/app/list/[type]/page.tsx</code> files to generate</summary>
+<summary>However, you can create <code>src/app/page.tsx</code> <code>src/app/list/page.tsx</code> and <code>src/app/list/[type]/page.tsx</code> files to generate</summary>
 
 ```tsx
 // src/app/list/page.tsx
-import ArtlistAll from './[id]/[pagenum]/page'
+// src/app/page.tsx
+import ArtlistAll from '@/list/[id]/[pagenum]/page'
 
 export default function Art() {
   return (
     <ArtlistAll
-      params={Promise.resolve({
-        id: 'blog',
+      params={{
+        type: 'blog',
         pagenum: '1',
-      })}
+      }}
     />
   )
 }
@@ -73,31 +74,29 @@ export default function Art() {
 ```tsx
 // src/app/list/[id]/page.tsx
 import ArtlistAll from './[pagenum]/page'
-import { PostDir } from '@/constants.ts'
+import { PostDir } from '@/constants'
 
 interface Params {
-  id: string
-  pagenum: string
+  type: string
 }
 export async function generateStaticParams() {
-  return PostDir.map((id) => ({
-    id,
+  return PostDir.map((type) => ({
+    type,
   }))
 }
 
 interface ListProps {
-  params: Promise<Params>
+  params: Params
 }
 
-async function ArtList(props: ListProps) {
-  const params = await props.params
-  const id = params.id
+async function ArtList({ params }: ListProps) {
+  const type = params.type
   return (
     <ArtlistAll
-      params={Promise.resolve({
-        id,
+      params={{
+        type,
         pagenum: '1',
-      })}
+      }}
     />
   )
 }
