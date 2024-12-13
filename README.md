@@ -1,5 +1,17 @@
 # [Plumbiu's blog](https://blog.plumbiu.top/)
 
+<details>
+
+<summary>Performance</summary>
+
+**Phone:**
+![phone-scores](./assets/phone-scores.webp)
+
+**PC:**
+![pc-scores](./assets/pc-scores.webp)
+
+</details>
+
 # Features
 
 - Static stite generate(SSG)
