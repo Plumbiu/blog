@@ -1,8 +1,8 @@
 import { ComponentKey } from '../constant'
-import { buildPlaygroundHandlerFunction } from '../utils'
+import { buildHandlerFunction } from '../utils'
 
 export const RunCodeKey = `${ComponentKey}run-code`
-export const handleRunCode = buildPlaygroundHandlerFunction(RunCodeKey)
+export const handleRunCode = buildHandlerFunction(RunCodeKey)
 
 export function isTypeScript(lang: string) {
   lang = lang.toLowerCase()

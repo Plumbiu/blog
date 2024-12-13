@@ -4,15 +4,15 @@
   align-items: stretch;
   overflow: hidden;
   border-radius: 0 0 var(--pre-radius) var(--pre-radius);
+  background-color: var(--bg-md-pre);
   border: 1px solid var(--divider);
   border-top: none;
-  background-color: var(--bg-md-pre);
-
   & > div:first-child {
     border-right: 1px solid var(--divider);
-    & pre {
-      max-height: 70vh;
+    & > pre {
       border: none;
+      padding: 8px 12px !important;
+      border-radius: 0;
     }
   }
 }
@@ -25,7 +25,6 @@
 
     & > div:first-child {
       border-right: none;
-      border-bottom: 1px solid var(--divider);
     }
   }
 }
@@ -34,12 +33,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 16px;
+  padding: 8px 12px;
   font-size: 14px;
   background-color: var(--bg-md-pre-bar);
   font-weight: 600;
-  border-radius: var(--pre-radius) var(--pre-radius) 0 0;
   border: 1px solid var(--divider);
+  border-radius: var(--pre-radius) var(--pre-radius) 0 0;
 }
 
 .btn {

@@ -16,6 +16,7 @@ import remarkSlug from '@/plugins/remark/slug'
 import remarkPlayground from '@/plugins/remark/playground'
 import { remarkContainerDirectivePlugin } from '@/plugins/remark/directive'
 import remarkRunner from '@/plugins/remark/runner'
+import remarkImage from '@/plugins/remark/image'
 import remarkCodeConfig from '@/plugins/remark/code'
 import { remarkVarInject } from '@/plugins/remark/var-inject'
 import { markdownComponents } from './components'
@@ -93,6 +94,7 @@ async function transfromCode2Jsx(code: string) {
       remarkCodeConfig,
       remarkPlayground,
       remarkRunner,
+      remarkImage,
       [remarkVarInject, code],
     ])
     .use(remarkRehype)

@@ -3,14 +3,15 @@
 # Features
 
 - Static stite generate(SSG)
-- Lightweight: 109kB first load JS(mostly react)
+- Lightweight: 110kB first load JS(mostly react)
+- Highly designed by [remark](https://github.com/remarkjs/remark) and [rehype](https://github.com/rehypejs/rehype)
 - Static syntax highlighting via [shiki](https://github.com/shikijs/shiki)
 - Light/dark theme width [persistent storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) and [system theme listener](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia)
 - Image optimization via [sharp](https://github.com/lovell/sharp) and [next/image](https://nextjs.org/docs/basic-features/image-optimization)
 - SEO friendly with RSS feed
 - Module css an self-designed components
-- Custom markdown rules via [remark-directive](https://github.com/remarkjs/remark-directive), see [`custom-component.md`](/data/posts/note/custom-component.md) and [preview](https://blog.plumbiu.top/posts/note/custom-component)
-- Custom markdown component lazy load via [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver)
+- Custom markdown rules via [remark-directive](https://github.com/remarkjs/remark-directive): see [`custom-component.md`](/data/posts/note/custom-component.md) and [preview](https://blog.plumbiu.top/posts/note/custom-component)
+- Component lazy load via [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver)
 
 # Customize
 
@@ -20,7 +21,7 @@
 - [data/components](/data/components/): markdown custom component
 - [src/plugins](/src/plugins/): [rehype](https://github.com/rehypejs/rehype) and [remark](https://github.com/remarkjs/remark) plugins
 - [src/styles](/src/styles/): global style
-- [public/images](/public/images/): markdown static image, you don't need write the `/images/` prefix
+- [public/images](/public/images/): markdown static image, you don't need write the `/images/` prefix, see `getAssetImagePath` in [/src/utils/node/fs.ts](/src/utils/node/fs.ts) file
 - [src/utils/node/markdown](/src/utils/node/markdown): markdown utils
 
 ## File

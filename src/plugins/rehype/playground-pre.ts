@@ -6,11 +6,11 @@ import {
   buildFiles,
 } from '../remark/playground-utils'
 import { handleComponentCode, handleComponentMetaFromProps } from '../constant'
-import { buildPlaygroundHandlerFunction } from '../utils'
+import { buildHandlerFunction } from '../utils'
 
 const PlaygroundFileKey = `${PlaygroundPrefix}file-key`
 export const handlePlaygroundFileKey =
-  buildPlaygroundHandlerFunction(PlaygroundFileKey)
+  buildHandlerFunction(PlaygroundFileKey)
 
 function getSuffix(name: string) {
   const index = name.lastIndexOf('.')

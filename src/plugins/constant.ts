@@ -2,11 +2,10 @@
 import { type Root } from 'hast'
 import { type Plugin } from 'unified'
 import { type Root as RemarkRoot } from 'mdast'
-import { buildPlaygroundHandlerFunction } from './utils'
+import { buildHandlerFunction } from './utils'
 
 export const ComponentKey = 'dc'
-export const handleComponentName =
-  buildPlaygroundHandlerFunction<string>(ComponentKey)
+export const handleComponentName = buildHandlerFunction<string>(ComponentKey)
 
 export type RehypePlugin<T extends unknown = undefined> = Plugin<[T], Root>
 export type RemarkPlugin<T extends unknown = undefined> = Plugin<
@@ -16,12 +15,12 @@ export type RemarkPlugin<T extends unknown = undefined> = Plugin<
 
 export const ComponentCodeKey = `${ComponentKey}code`
 export const handleComponentCode =
-  buildPlaygroundHandlerFunction<string>(ComponentCodeKey)
+  buildHandlerFunction<string>(ComponentCodeKey)
 
 export const ComponentMetaKey = `${ComponentKey}meta`
 export const handleComponentMetaFromProps =
-  buildPlaygroundHandlerFunction<string>(ComponentMetaKey)
+  buildHandlerFunction<string>(ComponentMetaKey)
 
 export const ComponentLangKey = `${ComponentKey}lang`
 export const handleLangFromProps =
-  buildPlaygroundHandlerFunction<string>(ComponentLangKey)
+  buildHandlerFunction<string>(ComponentLangKey)

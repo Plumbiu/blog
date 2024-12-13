@@ -9,6 +9,7 @@ import { getImageProps } from 'next/image'
 import { isString } from '@/utils/types'
 import { getBlurDataUrl } from '@/utils/node/optimize'
 import { isUnOptimized, resolveAssetPath } from '@/utils'
+import { getAssetImagePath } from '@/utils/node/fs'
 import { GalleryPhotoKey, GalleryName, Photo, PhotoNode } from './gallery-utils'
 import { addNodeClassName, makeProperties } from '../utils'
 import { ComponentKey, handleComponentName, RemarkPlugin } from '../constant'
@@ -47,8 +48,8 @@ export const remarkContainerDirectivePlugin: RemarkPlugin = () => {
       photoNodes.map(async ({ node, links }) => {
         const images: Photo[] = []
         await Promise.all(
-          links.map(async (link, i) => {
-            const imagePath = path.join('public', 'images', link)
+          links.map(async (link) => {
+            const imagePath = getAssetImagePath(link)
             const { base64, metadata } = await getBlurDataUrl(imagePath)
             const { width, height } = metadata ?? {}
             if (!base64 || !width || !height) {

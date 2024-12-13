@@ -13,16 +13,14 @@
   white-space: nowrap;
 
   & > div {
-    padding: 10px 12px 11px 12px;
+    padding: 10px 12px;
     cursor: pointer;
-    border-width: 0;
-    border-color: var(--divider);
-    border-bottom-width: 1px;
-    border-style: solid;
+    border-bottom: 1px solid var(--divider);
     transition: color 150ms;
     &:last-child {
       width: 100%;
       cursor: auto;
+      pointer-events: none;
     }
     &:hover {
       color: var(--text);

@@ -74,7 +74,6 @@ export function shikiHightlightWordFormatTransformer(): ShikiTransformer {
     if (!isString(className) && !Array.isArray(className)) {
       return false
     }
-    console.log(node)
     return className.includes(HighLightWordClassName)
   }
   return {
@@ -92,7 +91,6 @@ export function shikiHightlightWordFormatTransformer(): ShikiTransformer {
         ) {
           this.addClassToHast(firstNode, `${HighLightWordClassName}-start`)
           this.addClassToHast(lastNode, `${HighLightWordClassName}-end`)
-          console.log(firstNode, lastNode)
         }
       })
     },

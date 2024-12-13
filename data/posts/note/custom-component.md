@@ -258,7 +258,7 @@ fn({ obj: 1 })
 console.log('goodbye')
 ```
 
-shiki:
+Notation:
 
 ```ts
 console.log('hewwo') // [!code --]
@@ -286,14 +286,16 @@ console.log('goodbye')
 
 ### Word
 
-```ts
-// [!code word:.log(']
+```ts /.log('/
 console.log('hewwo')
 console.log('hello')
 console.log('goodbye')
 ```
 
-```ts /.log('/
+Notation:
+
+```ts
+// [!code word:.log(']
 console.log('hewwo')
 console.log('hello')
 console.log('goodbye')
