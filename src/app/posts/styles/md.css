@@ -73,6 +73,9 @@
     border: 1px solid var(--divider);
     padding: var(--pre-p) 0 var(--pre-p) var(--pre-p);
     code {
+      display: block;
+      width: fit-content;
+      min-width: 100%;
       box-sizing: content-box;
       color: inherit;
       background-color: inherit;
