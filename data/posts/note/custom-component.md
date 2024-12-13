@@ -6,8 +6,6 @@ desc: 一篇用于测试/查看博客上的一些自定义组件的文章
 
 # Playground
 
-用于展示 react 组件或者原生 HTML。
-
 ## jsx
 
 ```jsx Playground
@@ -111,8 +109,6 @@ export default Test
 
 # Tip
 
-一些提示组件：
-
 > Normal Tip
 >
 > This is some description. This is some description.This is some description.
@@ -161,8 +157,6 @@ This is some description. This is some description. This is some description.
 
 # Details
 
-模拟原生 `detail` 组件：
-
 :::Details[Detail 测试]
 Hello World
 `console.log('details')`
@@ -191,8 +185,6 @@ threejs/wall.jpg
 
 # Table
 
-`remark-gfm` 提供的 table 组件：
-
 | 类型      | 转换为数字(`Number` 方法) | 转换为字符串(`String` 方法) |
 | --------- | ------------------------- | --------------------------- |
 | null      | 0                         | null                        |
@@ -204,8 +196,6 @@ threejs/wall.jpg
 | Symbol    | 报错                      | Symbol('xxx')               |
 
 # Code Runner
-
-执行 JavaScript/TypesSript 代码，运行在 web worker 中：
 
 ## js
 
@@ -262,8 +252,6 @@ fn({ obj: 1 })
 
 ## Diff
 
-代码中的删除添加：
-
 ```diff-ts
 - console.log('hewwo')
 + console.log('hello')
@@ -299,19 +287,21 @@ console.log('goodbye')
 ### Word
 
 ```ts
-// [!code word:log]
-console.log('hewwo')
-console.log('hello')
-console.log('goodbye')
-```
-
-```ts /log/
+// [!code word:.log(']
 console.log('hewwo')
 console.log('hello')
 console.log('goodbye')
 ```
 
 ```ts /.log('/
+console.log('hewwo')
+console.log('hello')
+console.log('goodbye')
+```
+
+## Show line
+
+```ts line
 console.log('hewwo')
 console.log('hello')
 console.log('goodbye')
