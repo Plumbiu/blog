@@ -321,9 +321,16 @@ console.log('goodbye')
 
 | Raw text            | Inline code          | Text               | Blod text              |
 | ------------------- | -------------------- | ------------------ | ---------------------- |
-| $\{ foo }           | `${ foo }`           | ${ foo }           | **${ foo }**           |
+| $\{ foo }           | `${ foo}`            | ${ foo }           | **${ foo }**           |
 | $\{ bar.test.a }    | `${ bar.test.a }`    | ${ bar.test.a }    | **${ bar.test.a }**    |
 | $\{ bar['test'].a } | `${ bar['test'].a }` | ${ bar['test'].a } | **${ bar['test'].a }** |
+
+Object:
+
+| Raw text            | Inline code          | Text               | Blod text              |
+| ------------------- | -------------------- | ------------------ | ---------------------- |
+| $\{ bar.test }      | `${ bar.test }`      | ${ bar.test }      | **${ bar.test }**      |
+| $\{ bar['test'] }   | `${ bar['test'] }`   | ${ bar['test'] }   | **${ bar['test'] }**   |
 
 ## `${ bar['test'].a }`: **${ bar['test'].a }**
 

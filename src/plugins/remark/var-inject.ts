@@ -1,6 +1,6 @@
 import { visit } from 'unist-util-visit'
-import { type Text, type Code, type InlineCode } from 'mdast'
-import { isString } from '@/utils/types'
+import { type Text, type InlineCode } from 'mdast'
+import { isNumber, isString } from '@/utils/types'
 import vars from '~/data/variable'
 import { RemarkPlugin } from '../constant'
 
@@ -11,6 +11,8 @@ const RightBracketRegx = /['"]\]/g
 export const remarkVarInject: RemarkPlugin<string> = (code: string) => {
   const BracketStart = '${'
   const BracketEnd = '}'
+  const BracketStartLen = BracketStart.length
+  const BracketEndLen = BracketEnd.length
   function handleValue(node: Text | InlineCode) {
     const position = node.position
     if (!position || !position.start.offset || !position.end.offset) {
@@ -23,32 +25,32 @@ export const remarkVarInject: RemarkPlugin<string> = (code: string) => {
       position.end.offset - offset,
     )
 
-    if (isString(value)) {
-      const start = value.indexOf(BracketStart)
-      const end = value.lastIndexOf(BracketEnd)
-      if (start === -1 || end === -1) {
-        return
+    const start = value.indexOf(BracketStart)
+    const end = value.lastIndexOf(BracketEnd)
+    if (start === -1 || end === -1) {
+      return
+    }
+    const prefix = value.slice(0, start)
+    const suffix = value.slice(end + BracketEndLen)
+    value = value.slice(start, end + BracketEndLen)
+    if (value.startsWith(BracketStart) && value.endsWith(BracketEnd)) {
+      const str = value
+        .slice(BracketStartLen, -BracketEndLen)
+        .trim()
+        .replace(RightBracketRegx, '')
+        .replace(LeftBracketRegx, '.')
+      const keys = str.split('.')
+      let data: Record<string, any> | string = vars
+      for (const key of keys) {
+        if (isString(data) || isNumber(data) || !data[key]) {
+          break
+        }
+        data = data[key]
       }
-      const prefix = value.slice(0, start)
-      const suffix = value.slice(end + BracketEnd.length)
-      value = value.slice(start, end + BracketEnd.length)
-      if (value.startsWith(BracketStart) && value.endsWith(BracketEnd)) {
-        const str = value
-          .slice(2, -2)
-          .trim()
-          .replace(RightBracketRegx, '')
-          .replace(LeftBracketRegx, '.')
-        const keys = str.split('.')
-        let obj: Record<string, any> | string = vars
-        for (const key of keys) {
-          if (isString(obj) || !obj[key]) {
-            break
-          }
-          obj = obj[key]
-        }
-        if (isString(obj)) {
-          node.value = prefix + obj + suffix
-        }
+      if (isString(data) || isNumber(data)) {
+        node.value = prefix + data + suffix
+      } else {
+        node.value = prefix + JSON.stringify(data) + suffix
       }
     }
   }
