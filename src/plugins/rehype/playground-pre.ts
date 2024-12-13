@@ -28,14 +28,15 @@ function markPlaygroundPre(node: Element) {
   const code = handleComponentCode(props)
   const selector = handlePlaygroundSelector(props)
   const files = buildFiles(code, selector)
+  // remarkPlayground make the type of node as 'root'
+  // so data.meta is not available
   const meta = handleComponentMetaFromProps(props)
-
   node.tagName = 'pre'
   if (!node.data) {
     node.data = {}
   }
-  node.data!.meta = meta
   node.children = Object.keys(files).map((key) => {
+    const item = files[key]
     const lang = getSuffix(key).toLowerCase()
     const props: Record<string, string> = {
       className: `language-${lang}`,
@@ -46,9 +47,9 @@ function markPlaygroundPre(node: Element) {
       tagName: 'code',
       properties: props,
       data: {
-        meta,
+        meta: item.meta,
       },
-      children: [{ type: 'text', value: files[key] }],
+      children: [{ type: 'text', value: item.code }],
     }
   })
 }

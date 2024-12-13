@@ -49,18 +49,26 @@ export function isPlayground(props: any) {
   return props[ComponentKey] === PlaygroundName
 }
 
+const WhiteSpaceMultiRegx = /\s+/
+interface FileAttr {
+  code: string
+  meta: string
+}
 export const buildFiles = (code: string, startStr: string) => {
   if (!code?.startsWith(startStr)) {
     code = `/// ${startStr}\n${code}`
   }
   const tokens = code.split('///')
-  const attrs: StringValueObj = {}
+  const attrs: Record<string, FileAttr> = {}
   for (let i = 0; i < tokens.length; i++) {
     const token = tokens[i]
     if (token[0] === ' ') {
       const str = getFirstLine(tokens[i])
-      const key = str.trim()
-      attrs[key] = tokens[i].slice(str.length).trim()
+      const [key, ...metas] = str.trim().split(WhiteSpaceMultiRegx)
+      attrs[key] = {
+        code: tokens[i].slice(str.length).trim(),
+        meta: metas.join(' '),
+      }
     }
   }
   return attrs

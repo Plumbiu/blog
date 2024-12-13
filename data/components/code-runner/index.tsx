@@ -2,14 +2,14 @@ import { useEffect, useRef, useState } from 'react'
 import { LogInfo } from '@/hooks/useConsole'
 import PreComponent from '@/app/posts/components/Pre'
 import { handleComponentCode } from '@/plugins/constant'
-import { getRunCode } from '@/plugins/remark/runner-utils'
+import { handleRunCode } from '@/plugins/remark/runner-utils'
 import useObserver from '@/hooks/useObservser'
 import CodeWrap from '../_common/CodeWrap'
 import Console from '../_common/Console'
 import Loading from '../_common/Loading'
 
 function CodeRunner(props: any) {
-  const runCode = getRunCode(props)
+  const runCode = handleRunCode(props)
   const code = handleComponentCode(props)
   const [logs, setLogs] = useState<LogInfo[]>([])
   const workerRef = useRef<Worker>()

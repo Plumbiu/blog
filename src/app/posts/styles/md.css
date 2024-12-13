@@ -74,8 +74,6 @@
     padding: var(--pre-p) 0 var(--pre-p) var(--pre-p);
     code {
       box-sizing: content-box;
-      display: inline-flex;
-      flex-wrap: wrap;
       color: inherit;
       background-color: inherit;
     }
@@ -185,15 +183,28 @@
     margin-left: -16px;
   }
   .highlight-line,
-  .highlighted-word {
+  .highlight-word {
     background-color: var(--bg-md-highlight-line); /* Set highlight bg color */
   }
-  .highlighted-word {
+  .highlight-word {
     box-sizing: content-box;
-    border: 1px solid var(--c-green-soft);
-    padding: 0 3px;
-    margin: 0 -3px;
+    padding: 0 1px;
     border-radius: 4px;
+    border: 1px solid var(--c-green-soft);
+    & + .highlight-word {
+      border-radius: 0;
+      padding: 0;
+      border-left: none;
+      border-right: none;
+    }
+    &.highlight-word-start {
+      border-right: none;
+      border-radius: 4px 0 0 4px;
+    }
+    &.highlight-word-end {
+      border-right: 1px solid var(--c-green-soft);
+      border-radius: 0 4px 4px 0;
+    }
   }
   .deleted {
     background-color: var(--c-red-soft);

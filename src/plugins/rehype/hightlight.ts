@@ -1,4 +1,4 @@
-import { type Root } from 'hast'
+import { type Root, Element } from 'hast'
 import { visit } from 'unist-util-visit'
 import { toString } from 'hast-util-to-string'
 import { HighlighterCore } from 'shiki/core'
@@ -10,51 +10,26 @@ import {
 } from '@shikijs/transformers'
 import shikiMap from 'shiki-class-transformer/themes/vitesse-light.json'
 import { isString } from '@/utils/types'
+import { calculateLinesToHighlight, parsePart } from './highlight-utils'
 
-// This code is modified based on
-// https://github.com/euank/node-parse-numeric-range/blob/master/index.js
-/*
-  LICENSE: https://github.com/euank/node-parse-numeric-range/blob/master/LICENSE
-
-  Copyright (c) 2014, Euank <euank@euank.com>
-
-  Permission to use, copy, modify, and/or distribute this software for any
-  purpose with or without fee is hereby granted, provided that the above
-  copyright notice and this permission notice appear in all copies.
-
-  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
-  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
-  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
-  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
-  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
-  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
-  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-*/
-const RangeNumRegx = /^-?\d+$/
-const LineRegx = /^(-?\d+)(-|\.\.\.?|\u2025|\u2026|\u22EF)(-?\d+)$/
-function parsePart(s: string) {
-  let res = new Set()
-  let m
-  for (let str of s.split(',')) {
-    str = str.trim()
-    if (RangeNumRegx.test(str)) {
-      res.add(parseInt(str, 10))
-    } else if ((m = str.match(LineRegx))) {
-      let [_, lhs, sep, rhs] = m as any
-      if (lhs && rhs) {
-        lhs = parseInt(lhs)
-        rhs = parseInt(rhs)
-        const incr = lhs < rhs ? 1 : -1
-        if (sep === '-' || sep === '..' || sep === '\u2025') rhs += incr
-
-        for (let i = lhs; i !== rhs; i += incr) res.add(i)
+const getLanguage = (className: any) => {
+  if (!Array.isArray(className)) {
+    className = [className]
+  }
+  for (const classListItem of className) {
+    if (isString(classListItem)) {
+      if (classListItem.slice(0, 9) === 'language-') {
+        return classListItem.slice(9).toLowerCase()
       }
     }
   }
-
-  return res
+  return 'txt'
 }
 
+const themeOptions = {
+  light: 'vitesse-light',
+  dark: 'vitesse-dark',
+}
 // This code is modified based on
 // https://github.com/timlrx/rehype-prism-plus/blob/main/src/generator.js
 /*
@@ -82,36 +57,7 @@ function parsePart(s: string) {
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 */
-
-const NumRangeRegx = /{([\d,-]+)}/
-const calculateLinesToHighlight = (meta: string) => {
-  const parsed = NumRangeRegx.exec(meta)
-  if (parsed === null) {
-    return () => false
-  }
-  const strlineNumbers = parsed[1]
-  const lineNumbers = parsePart(strlineNumbers)
-  return (index: number) => lineNumbers.has(index + 1)
-}
-
-const getLanguage = (className: any) => {
-  if (!Array.isArray(className)) {
-    className = [className]
-  }
-  for (const classListItem of className) {
-    if (isString(classListItem)) {
-      if (classListItem.slice(0, 9) === 'language-') {
-        return classListItem.slice(9).toLowerCase()
-      }
-    }
-  }
-  return 'txt'
-}
-
-const themeOptions = {
-  light: 'vitesse-light',
-  dark: 'vitesse-dark',
-}
+const HightLightWordRegx = /\/(.+)\//
 const rehypePrismGenerator = (shiki: HighlighterCore) => {
   return (tree: Root) => {
     visit(tree, 'element', (node, index, parent) => {
@@ -127,9 +73,9 @@ const rehypePrismGenerator = (shiki: HighlighterCore) => {
       const data = node.data
       const code = toString(node).trim()
       const meta = (data?.meta ?? '') as string
-
       const lang = getLanguage(props.className)
       const shouldHighlightLine = calculateLinesToHighlight(meta)
+      const [_, highlightWord] = HightLightWordRegx.exec(meta) ?? []
       const shouldAddNumber = meta.includes('line')
       // Syntax highlight
       let shikiRoot = node
@@ -145,6 +91,42 @@ const rehypePrismGenerator = (shiki: HighlighterCore) => {
               }),
               {
                 line(node, line) {
+                  const str = toString(node)
+                  if (highlightWord) {
+                    const hightlightWordIndex = str.indexOf(highlightWord)
+                    if (hightlightWordIndex !== -1) {
+                      let count = 0
+                      const nodes: Element[] = []
+                      for (const child of node.children) {
+                        if (child.type !== 'element') {
+                          continue
+                        }
+                        const childStr = toString(child)
+                        const endIndex =
+                          hightlightWordIndex + highlightWord.length
+                        if (
+                          highlightWord.includes(childStr) &&
+                          count >= hightlightWordIndex &&
+                          count < endIndex
+                        ) {
+                          nodes.push(child)
+                        }
+                        count += childStr.length
+                      }
+                      const nodeLength = nodes.length
+                      for (let i = 0; i < nodeLength; i++) {
+                        const node = nodes[i]
+                        this.addClassToHast(node, 'highlight-word')
+                        if (nodeLength !== 1) {
+                          if (i === 0) {
+                            this.addClassToHast(node, 'highlight-word-start')
+                          } else if (i === nodeLength - 1) {
+                            this.addClassToHast(node, 'highlight-word-end')
+                          }
+                        }
+                      }
+                    }
+                  }
                   if (shouldAddNumber) {
                     node.properties['data-line'] = line
                   }
@@ -152,7 +134,7 @@ const rehypePrismGenerator = (shiki: HighlighterCore) => {
                     this.addClassToHast(node, 'highlight-line')
                   }
                   if (lang.startsWith('diff-')) {
-                    const ch = toString(node).substring(0, 1)
+                    const ch = str.substring(0, 1)
                     if (ch !== '-' && ch !== '+') {
                       return
                     }
@@ -163,7 +145,9 @@ const rehypePrismGenerator = (shiki: HighlighterCore) => {
                   }
                 },
               },
-              transformerNotationWordHighlight(),
+              transformerNotationWordHighlight({
+                classActiveWord: 'highlight-word',
+              }),
               transformerNotationHighlight({
                 classActiveLine: 'highlight-line',
               }),

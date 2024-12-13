@@ -18,6 +18,7 @@ import {
 } from './playground-utils'
 import {
   handleComponentCode,
+  handleComponentMetaFromProps,
   handleComponentName,
   RemarkPlugin,
 } from '../constant'
@@ -83,9 +84,11 @@ const remarkPlayground: RemarkPlugin = () => {
         const fileKeys = Object.keys(files)
         let styles: string = ''
         for (const key of fileKeys) {
-          const code = files[key]
+          const { code } = files[key]
           if (isJsxFileLike(key)) {
-            files[key] = minifyCodeSync(transform(code, transfromOptions).code)
+            files[key].code = minifyCodeSync(
+              transform(code, transfromOptions).code,
+            )
             if (code.includes('console.log(')) {
               hideTabs = false
             }
@@ -98,12 +101,20 @@ const remarkPlayground: RemarkPlugin = () => {
           meta.includes(PlaygroundHideCodeTabsKeySuffix),
         )
         handlePlaygroundHidePreviewTabsKey(props, hideTabs)
-        handlePlaygroundFileMapKey(props, JSON.stringify(files))
+        handlePlaygroundFileMapKey(
+          props,
+          JSON.stringify(
+            Object.fromEntries(
+              Object.entries(files).map(([k, v]) => [k, v.code]),
+            ),
+          ),
+        )
         handlePlaygroundStyles(props, styles)
 
         // @ts-ignore
         node.type = 'root'
         node.data!.hName = 'div'
+        handleComponentMetaFromProps(props, meta)
       }
 
       if (SupportPlaygroundLang.has(lang)) {

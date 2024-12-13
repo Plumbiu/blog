@@ -23,7 +23,7 @@ function App() {
   )
 }
 export default App
-/// Test.css
+/// Test.css {1,2}
 .app {
   color: blue;
 }
@@ -288,7 +288,7 @@ console.log('hello')
 console.log('goodbye')
 ```
 
-shiki:
+Notation:
 
 ```ts
 console.log('hewwo') // [!code highlight]
@@ -300,6 +300,18 @@ console.log('goodbye')
 
 ```ts
 // [!code word:log]
+console.log('hewwo')
+console.log('hello')
+console.log('goodbye')
+```
+
+```ts /log/
+console.log('hewwo')
+console.log('hello')
+console.log('goodbye')
+```
+
+```ts /.log('/
 console.log('hewwo')
 console.log('hello')
 console.log('goodbye')
