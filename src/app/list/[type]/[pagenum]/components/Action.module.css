@@ -14,16 +14,16 @@
   }
 }
 
-.action::after {
+.curtain {
   content: '';
-  position: absolute;
-  pointer-events: none;
-  width: 64px;
-  top: 0;
+  position: fixed;
+  top: var(--header-h);
   right: 0;
-  bottom: 0;
+  pointer-events: none;
+  height: 60px;
+  width: 86px;
   z-index: 9;
-  background: linear-gradient(to left, var(--bg-body), transparent 60%);
+  background: linear-gradient(to left, var(--bg-body), transparent 100%);
 }
 
 .item {

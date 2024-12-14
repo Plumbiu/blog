@@ -29,6 +29,7 @@ function ArtlistAction({ type }: { type: string }) {
           {iconMap[p]}
         </Link>
       ))}
+      <div className={styles.curtain} />
     </div>
   )
 }
