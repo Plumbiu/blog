@@ -101,9 +101,6 @@ importers:
       '@types/js-yaml':
         specifier: ^4.0.9
         version: 4.0.9
-      '@types/jstoxml':
-        specifier: ^2.0.4
-        version: 2.0.4
       '@types/mdast':
         specifier: ^4.0.4
         version: 4.0.4
@@ -704,9 +701,6 @@ packages:
 
   '@types/json5@0.0.29':
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
-
-  '@types/jstoxml@2.0.4':
-    resolution: {integrity: sha512-XHUMp2t8CfJUsKt8qjlspZWlkVeveFg2eF/kRV8CKiNQ+Fd3mJkfexIDXtZEnG/4aJZRCVNNn46zNddSVIUN0w==}
 
   '@types/mdast@4.0.4':
     resolution: {integrity: sha512-kGaNbPh1k7AFzgpud/gMdvIm5xuECykRR+JnWKQno9TAXVa6WIVCGTPvYGekIDL4uwCZQSYbUxNBSb1aUo79oA==}
@@ -2870,8 +2864,6 @@ snapshots:
 
   '@types/json5@0.0.29':
     optional: true
-
-  '@types/jstoxml@2.0.4': {}
 
   '@types/mdast@4.0.4':
     dependencies:
