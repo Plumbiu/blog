@@ -32,7 +32,7 @@ async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }
       post.forEach((post) => {
         routes.push({
-          url: joinWebUrl('posts', dir, post.path),
+          url: joinWebUrl(post.path),
           lastModified: new Date(post.meta.date).toISOString(),
         })
       })

@@ -1,6 +1,7 @@
 export const BlogUrl = 'https://blog.plumbiu.top/'
-
 export const BlogAuthor = 'Plumbiu'
+export const BlogTitle = `${BlogAuthor}の博客`
+export const BlogDesc = 'Note, life, summary and blog'
 
 export const GithubName = BlogAuthor
 
@@ -11,6 +12,9 @@ export const RepoUrl = `https://github.com/Plumbiu/${RepoName}`
 export const RepoLinksUrl = `${RepoUrl}/blob/main/data/links.json`
 
 export const BilibiliId = '227616086'
+export const Email = 'plumbiuzz@gmail.com'
 
 export const IS_GITPAGE = !!process.env.GITPAGE
 export const BasePath = IS_GITPAGE ? `/${RepoName}` : ''
+
+export const CopyRight = `CC BY-NC-SA 4.0 2024 © ${BlogAuthor}`

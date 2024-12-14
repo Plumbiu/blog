@@ -30,6 +30,3 @@ export function joinWebUrl(...args: (string | number)[]) {
   }
   return url
 }
-
-export const Blog_Title = `${BlogAuthor}の博客`
-export const Blog_Desc = 'Note, life, summary and blog'

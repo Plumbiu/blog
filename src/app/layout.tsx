@@ -1,7 +1,7 @@
 import { type Metadata } from 'next'
 import { ViewTransitions } from 'next-view-transitions'
 import { Analytics } from '@vercel/analytics/react'
-import { BlogAuthor, BlogUrl } from '~/data/site'
+import { BlogAuthor, BlogTitle, BlogUrl, BlogDesc } from '~/data/site'
 import { resolveAssetPath } from '@/utils'
 import Header from '@/components/Header'
 import ImageView from '@/components/ImageView'
@@ -11,14 +11,14 @@ import '../styles/dark-variable.css'
 import '../styles/preset.css'
 import Footer from '@/components/Footer'
 import { mono } from './fonts'
-import { Blog_Desc, Blog_Title, generateSeoMetaData } from './seo'
+import { generateSeoMetaData } from './seo'
 
 export const metadata: Metadata = {
-  title: Blog_Title,
-  description: Blog_Desc,
+  title: BlogTitle,
+  description: BlogDesc,
   ...generateSeoMetaData({
-    title: Blog_Title,
-    description: Blog_Desc,
+    title: BlogTitle,
+    description: BlogDesc,
     url: BlogUrl,
     siteName: `${BlogAuthor}'s blog`,
   }),

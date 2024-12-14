@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://blog.plumbiu.top/</id>
+    <title>Plumbiuの博客</title>
+    <updated>2013-07-13T16:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <author>
+        <name>Plumbiu</name>
+        <email>plumbiuzz@gmail.com</email>
+        <uri>https://blog.plumbiu.top/about/</uri>
+    </author>
+    <link rel="alternate" href="https://blog.plumbiu.top/"/>
+    <link rel="self" href="https://blog.plumbiu.top/feed.atom/"/>
+    <subtitle>Note, life, summary and blog</subtitle>
+    <rights>CC BY-NC-SA 4.0 2024 © Plumbiu</rights>
+    <entry>
+        <title type="html"><![CDATA[占位]]></title>
+        <id>posts/life/Keep</id>
+        <link href="https://blog.plumbiu.top/posts/life/Keep/"/>
+        <updated>2024-12-03T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[用于占位]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Next.js 下主题切换最佳实践]]></title>
+        <id>posts/blog/nextjs-theme</id>
+        <link href="https://blog.plumbiu.top/posts/blog/nextjs-theme/"/>
+        <updated>2024-11-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[在 CSR（客户端渲染）的情况下，主题切换往往不会出现问题，因为页面内容是 JS 动态渲染出来的，在渲染之前我们就能拿到用户系统或者 localStorage 中保存的主题，然而在 SSR/SSG 情况下，服务端返回的是一个完整的 HTML 页面，而 JS 执行的结果往往在 HTML 之后，如果 JS 设置的主题和 HTML/CSS 不一致，这时候便会出现闪烁的情况。]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[转换 Shiki 的内联样式]]></title>
+        <id>posts/blog/shiki-class-transformer</id>
+        <link href="https://blog.plumbiu.top/posts/blog/shiki-class-transformer/"/>
+        <updated>2024-11-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Shiki 是一个基于 TextMate 语法的代码语法高亮器，它与 VS Code 的语法高亮引擎 onIguruma 一致，几乎所有主流编程语言提供非常准确且快速的语法高亮，然而 Shiki 并不关注于 CSS，它的语法高亮都是通过 HTML 的 style 属性实现的，这会导致很多样式无法得到复用，产生体积更大的 HTML 体积，本文实现内联样式到类名的转换。]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[在 Markdown 中展示 React 组件]]></title>
+        <id>posts/blog/markdown-component</id>
+        <link href="https://blog.plumbiu.top/posts/blog/markdown-component/"/>
+        <updated>2024-11-10T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[之前写过一篇如何在 Markdown 中实现 Playground 的文章，后续开发过程中，思来想去，觉得这个方案可能不是最好的展示组件的方法，因为展示组件并不需要 runtime 执行，换句话说，下面的伪代码可能更加合理：]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Threejs]]></title>
+        <id>posts/note/threejs</id>
+        <link href="https://blog.plumbiu.top/posts/note/threejs/"/>
+        <updated>2024-11-07T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Three.js 是基于 canvas 的一个开源应用级依赖，它屏蔽了 WebGL 底层的调用细节，可以使我们快速在网页创建 3D 效果。此文章是在学习 @react-three/fiber 是 three.js 之前，我需要了解 three.js 的一些基本概念，这些概念可以帮助我更好的理解 threejs 的设计理念和编程艺术。]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Threejs examples]]></title>
+        <id>posts/note/threejs-examples</id>
+        <link href="https://blog.plumbiu.top/posts/note/threejs-examples/"/>
+        <updated>2024-11-07T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[浏览器对 WebGL Contexts 数量有要求，数量过多会将旧的删除，因此单独分一个 example 文章：]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[类型化数组]]></title>
+        <id>posts/note/typed-arrays</id>
+        <link href="https://blog.plumbiu.top/posts/note/typed-arrays/"/>
+        <updated>2024-10-31T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[类型化数组是一种类似数组的对象，但是跟我们常说的“伪数组”不同，它的主要作用是提供了一种在内存缓存中访问二进制数据的机制。JavaScript 引入它主要是为了操作一些音视频以及 webgl 的原始数据。]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[一个优雅的文章目录组件]]></title>
+        <id>posts/blog/implement-toc</id>
+        <link href="https://blog.plumbiu.top/posts/blog/implement-toc/"/>
+        <updated>2024-10-24T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[在我的博客文章页面，随着页面滚动，右边的目录也会跟着发生变化，几乎所有静态网站生成的框架，例如 vitepress，都支持这种功能，这篇文章是讲解我实现 TOC 的思路，以及如何做到比 vitepress 更好的效果。]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[在 Markdown 中实现 Playground]]></title>
+        <id>posts/blog/implement-playground</id>
+        <link href="https://blog.plumbiu.top/posts/blog/implement-playground/"/>
+        <updated>2024-10-13T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[之前书写博客时，总会想着展示一个 React 组件，当时的实现是写一段代码，然后再贴一张图片预览，但是图片毕竟总是静态的，缺乏了交互性，后续了解到了 MDX，MDX 是一个很棒的方案，允许我们导入 React 组件，同时也可以执行一些 JavaScript 代码，但是最终我没有使用它，因为它并不像 JavaScript 那样“动态化”，例如我想使用 Nextjs 的 dynamic 功能，我不能确定它是否能完整的运行，同时相比于使用规则，我更喜欢创造规则。]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[我是如何构建自己的博客的]]></title>
+        <id>posts/blog/how-I-build-blog</id>
+        <link href="https://blog.plumbiu.top/posts/blog/how-I-build-blog/"/>
+        <updated>2024-10-10T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[在国庆假期期间，因为闲来无事，重拾起了构建博客的这一想法，事实上，自己在此之前已经有过两版博客了，第一版是根据 hexo 构建的，但毕竟只是一个模板，并没有自己的东西，第二版 是自己从头开始搭建的，但是当时对 Next.js 并不熟悉，有些实现还是不够优雅的，于是便有了这一版。]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[自定义组件]]></title>
+        <id>posts/note/custom-component</id>
+        <link href="https://blog.plumbiu.top/posts/note/custom-component/"/>
+        <updated>2024-10-03T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[一篇用于测试/查看博客上的一些自定义组件的文章]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[2023 年度总结]]></title>
+        <id>posts/summary/2023</id>
+        <link href="https://blog.plumbiu.top/posts/summary/2023/"/>
+        <updated>2024-03-10T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[因为工作的关系，今年年度总结不出意外是没有按时发布（现在看到的也是在上班的时候写的）]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[2022 年度总结]]></title>
+        <id>posts/summary/2022</id>
+        <link href="https://blog.plumbiu.top/posts/summary/2022/"/>
+        <updated>2023-03-05T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[emmm，本来这个年度总结应该放在 3 月 3 号的，问就是太忙了忘记了 😢😢😢，今天(3 月 5 号)我将绞尽脑汁去回忆过去一年里发生了什么，因为第一次写年度总结，所以写的差理所应当 🥰🥰🥰]]></summary>
+    </entry>
+</feed>

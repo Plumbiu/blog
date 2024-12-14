@@ -1,57 +1,54 @@
 import fsp from 'fs/promises'
-import { toXML } from 'jstoxml'
+import { Feed } from 'feed'
 import { PostList } from '@/utils/node/markdown'
-import { BlogAuthor, BlogUrl, GithubName } from '~/data/site'
+import {
+  BlogAuthor,
+  BlogDesc,
+  BlogTitle,
+  BlogUrl,
+  CopyRight,
+  Email,
+} from '~/data/site'
+import { joinWebUrl } from '@/app/seo'
+import { getCategory } from '@/utils'
 
 async function feed(posts: PostList[]) {
-  const json: Record<string, any> = {
-    channel: [
-      { title: `${BlogAuthor} の 小屋` },
-      { link: BlogUrl },
-      { generator: `https://github.com/${GithubName}` },
-      { description: `${BlogAuthor} 的博客` },
-      {
-        'atom:link': {
-          _attrs: {
-            ' href': `${BlogUrl}/rss.xml`,
-            ref: 'self',
-            type: 'application/rss+xml',
-          },
-        },
-      },
-    ],
-  }
+  const feed = new Feed({
+    title: BlogTitle,
+    description: BlogDesc,
+    id: BlogUrl,
+    link: BlogUrl,
+    copyright: CopyRight,
+    updated: new Date(2013, 6, 14), // optional, default = today
+    feedLinks: {
+      json: joinWebUrl('feed.json'),
+      atom: joinWebUrl('feed.atom'),
+      xml: joinWebUrl('feed.xml'),
+    },
+    author: {
+      name: BlogAuthor,
+      email: Email,
+      link: joinWebUrl('about'),
+    },
+  })
 
-  json.channel.push({
-    lastBuildDate: posts[0].meta.date,
+  posts.forEach(({ meta, path }) => {
+    if (!meta.hidden) {
+      feed.addItem({
+        title: meta.title,
+        id: path,
+        link: joinWebUrl(path),
+        description: meta.desc,
+        date: new Date(meta.date),
+      })
+    }
   })
-  for (const post of posts) {
-    const { title, desc: description, date: pubDate } = post.meta
-    const linkUrl = `${BlogUrl}${post.path}`
-    json.channel.push({
-      item: {
-        title,
-        link: linkUrl,
-        pubDate,
-        author: BlogAuthor,
-        guid: linkUrl,
-        description,
-      },
-    })
-  }
-  const xml = toXML({
-    _name: 'rss',
-    _attrs: {
-      version: '2.0',
-      'xmlns:atom': 'http://www.w3.org/2005/Atom',
-    },
-    _content: {
-      channel: json.channel,
-    },
-  })
-  const rssPath = 'public/rss.xml'
-  await fsp.writeFile(rssPath, xml)
-  return rssPath
+
+  const paths = ['rss.xml', 'rss.json', 'rss.atom'].map((p) => `public/${p}`)
+  await fsp.writeFile(paths[0], feed.rss2())
+  await fsp.writeFile(paths[1], feed.json1())
+  await fsp.writeFile(paths[2], feed.atom1())
+  return paths
 }
 
 export default feed

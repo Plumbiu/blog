@@ -16,7 +16,7 @@ const withClassnamesMinifier = classnamesMinifier({
 })
 
 /**
- * @type {import('next/dist/next-server/server/config').NextConfig}
+ * @type {import('next').NextConfig}
  **/
 const nextConfig = {
   basePath: BasePath,
@@ -53,6 +53,26 @@ const nextConfig = {
       {
         source: '/list/:id',
         destination: '/list/:id/1',
+      },
+      {
+        source: '/feed',
+        destination: '/rss.xml',
+      },
+      {
+        source: '/feed.xml',
+        destination: '/rss.xml',
+      },
+      {
+        source: '/feed.json',
+        destination: '/rss.json',
+      },
+      {
+        source: '/feed.atom',
+        destination: '/rss.atom',
+      },
+      {
+        source: '/rss',
+        destination: '/rss.xml',
       },
     ]
   },

@@ -3,8 +3,9 @@ import { upperFirstChar } from '@/utils'
 import { getPostList } from '@/utils/node/markdown'
 import { PostDir } from '@/constants'
 import NotFound from '@/app/not-found'
-import { Blog_Title, generateSeoMetaData, joinWebUrl } from '@/app/seo'
+import { generateSeoMetaData, joinWebUrl } from '@/app/seo'
 import { MAX_PAGE_SIZE } from '@/app/list/constants'
+import { BlogTitle } from '~/data/site'
 import AsideLeft from './components/AsideLeft'
 import { formatPostByYear } from './utils'
 import ArtlistAction from './components/Action'
@@ -70,7 +71,7 @@ export default ArtlistAll
 
 export async function generateMetadata(props: ListProps): Promise<Metadata> {
   const { type, pagenum } = props.params
-  const title = `${upperFirstChar(type || 'blog')} | ${Blog_Title}`
+  const title = `${upperFirstChar(type || 'blog')} | ${BlogTitle}`
   return {
     title,
     ...generateSeoMetaData({
