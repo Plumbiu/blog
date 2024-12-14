@@ -1,8 +1,8 @@
 const vars: Record<string, any> = {
-  foo: 'Test string',
+  foo: 'Test',
   bar: {
     test: {
-      a: 'Test string',
+      a: 'Test',
     },
   },
 }

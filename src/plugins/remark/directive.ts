@@ -1,5 +1,4 @@
 /* eslint-disable @stylistic/max-len */
-import path from 'node:path'
 import {
   type LeafDirective,
   type ContainerDirective,

@@ -1,7 +1,7 @@
 import { type Root } from 'hast'
 import { visit } from 'unist-util-visit'
 import { toString } from 'hast-util-to-string'
-import { HighlighterCore } from 'shiki/core'
+import { getSingletonHighlighterCore } from 'shiki/core'
 import { shikiClassTransformer } from 'shiki-class-transformer'
 import {
   transformerNotationWordHighlight,
@@ -9,15 +9,52 @@ import {
   transformerNotationDiff,
 } from '@shikijs/transformers'
 import shikiMap from 'shiki-class-transformer/themes/vitesse-light.json'
-import {
-  getLanguage,
-  HighLightLineClassName,
-  HighLightWordClassName,
-} from './highlight-utils'
+import { createOnigurumaEngine } from 'shiki/engine/oniguruma'
+import vitesseDark from 'shiki/themes/vitesse-dark.mjs'
+import vitesseLight from 'shiki/themes/vitesse-light.mjs'
+import getWasm from 'shiki/wasm'
 import {
   customShikiTranformer,
   shikiHightlightWordFormatTransformer,
-} from './shiki-transfomer'
+} from './transformer'
+import {
+  getLanguage,
+  HighLightWordClassName,
+  HighLightLineClassName,
+} from '../highlight-utils'
+
+const shikiOptions = {
+  themes: [vitesseDark, vitesseLight],
+  engine: createOnigurumaEngine(getWasm),
+  langs: [
+    import('shiki/langs/js.mjs'),
+    import('shiki/langs/jsx.mjs'),
+    import('shiki/langs/tsx.mjs'),
+    import('shiki/langs/ts.mjs'),
+    import('shiki/langs/css.mjs'),
+    import('shiki/langs/css.mjs'),
+    import('shiki/langs/rust.mjs'),
+    import('shiki/langs/vue.mjs'),
+    import('shiki/langs/json.mjs'),
+    import('shiki/langs/json5.mjs'),
+    import('shiki/langs/yaml.mjs'),
+    import('shiki/langs/go.mjs'),
+    import('shiki/langs/html.mjs'),
+    import('shiki/langs/html-derivative.mjs'),
+    import('shiki/langs/xml.mjs'),
+    import('shiki/langs/regex.mjs'),
+    import('shiki/langs/less.mjs'),
+    import('shiki/langs/shell.mjs'),
+    import('shiki/langs/bash.mjs'),
+    import('shiki/langs/git-commit.mjs'),
+    import('shiki/langs/git-rebase.mjs'),
+    import('shiki/langs/regexp.mjs'),
+    import('shiki/langs/markdown.mjs'),
+    import('shiki/langs/markdown-vue.mjs'),
+    import('shiki/langs/c.mjs'),
+    import('shiki/langs/cpp.mjs'),
+  ],
+}
 
 const themeOptions = {
   light: 'vitesse-light',
@@ -50,8 +87,9 @@ const themeOptions = {
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 */
-const rehypePrismGenerator = (shiki: HighlighterCore) => {
-  return (tree: Root) => {
+const rehypeShikiHighlight = () => {
+  return async (tree: Root) => {
+    const shiki = await getSingletonHighlighterCore(shikiOptions)
     visit(tree, 'element', (node, index, parent) => {
       if (
         !parent ||
@@ -105,4 +143,4 @@ const rehypePrismGenerator = (shiki: HighlighterCore) => {
   }
 }
 
-export default rehypePrismGenerator
+export default rehypeShikiHighlight

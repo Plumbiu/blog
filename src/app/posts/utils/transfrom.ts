@@ -5,12 +5,7 @@ import remarkDirective from 'remark-directive'
 import remarkGfm from 'remark-gfm'
 import { toJsxRuntime } from 'hast-util-to-jsx-runtime'
 import { Fragment, jsx, jsxs } from 'react/jsx-runtime'
-import { createOnigurumaEngine } from 'shiki/engine/oniguruma'
-import vitesseDark from 'shiki/themes/vitesse-dark.mjs'
-import vitesseLight from 'shiki/themes/vitesse-light.mjs'
-import getWasm from 'shiki/wasm'
-import { getSingletonHighlighterCore } from 'shiki/core'
-import rehypePrismGenerator from '@/plugins/rehype/hightlight'
+import rehypeShikiHighlight from '@/plugins/rehype/shiki/hightlight'
 import rehypeElementPlugin from '@/plugins/rehype/element'
 import remarkSlug from '@/plugins/remark/slug'
 import remarkPlayground from '@/plugins/remark/playground'
@@ -18,41 +13,8 @@ import { remarkContainerDirectivePlugin } from '@/plugins/remark/directive'
 import remarkRunner from '@/plugins/remark/runner'
 import remarkImage from '@/plugins/remark/image'
 import remarkCodeConfig from '@/plugins/remark/code'
-import { remarkVarInject } from '@/plugins/remark/var-inject'
+import { remarkPlainText } from '@/plugins/remark/plain-text/index'
 import { markdownComponents } from './components'
-
-const shikiOptions = {
-  themes: [vitesseDark, vitesseLight],
-  engine: createOnigurumaEngine(getWasm),
-  langs: [
-    import('shiki/langs/js.mjs'),
-    import('shiki/langs/jsx.mjs'),
-    import('shiki/langs/tsx.mjs'),
-    import('shiki/langs/ts.mjs'),
-    import('shiki/langs/css.mjs'),
-    import('shiki/langs/css.mjs'),
-    import('shiki/langs/rust.mjs'),
-    import('shiki/langs/vue.mjs'),
-    import('shiki/langs/json.mjs'),
-    import('shiki/langs/json5.mjs'),
-    import('shiki/langs/yaml.mjs'),
-    import('shiki/langs/go.mjs'),
-    import('shiki/langs/html.mjs'),
-    import('shiki/langs/html-derivative.mjs'),
-    import('shiki/langs/xml.mjs'),
-    import('shiki/langs/regex.mjs'),
-    import('shiki/langs/less.mjs'),
-    import('shiki/langs/shell.mjs'),
-    import('shiki/langs/bash.mjs'),
-    import('shiki/langs/git-commit.mjs'),
-    import('shiki/langs/git-rebase.mjs'),
-    import('shiki/langs/regexp.mjs'),
-    import('shiki/langs/markdown.mjs'),
-    import('shiki/langs/markdown-vue.mjs'),
-    import('shiki/langs/c.mjs'),
-    import('shiki/langs/cpp.mjs'),
-  ],
-}
 
 // This code is refactored into TypeScript based on
 // https://github.com/remarkjs/react-markdown/blob/main/lib/index.js
@@ -83,7 +45,6 @@ const shikiOptions = {
 */
 
 async function transfromCode2Jsx(code: string) {
-  const shiki = await getSingletonHighlighterCore(shikiOptions)
   const processor = unified()
     .use(remarkParse)
     .use([
@@ -95,10 +56,10 @@ async function transfromCode2Jsx(code: string) {
       remarkPlayground,
       remarkRunner,
       remarkImage,
-      [remarkVarInject, code],
+      [remarkPlainText, code],
     ])
     .use(remarkRehype)
-    .use([rehypeElementPlugin, [rehypePrismGenerator, shiki]])
+    .use([rehypeElementPlugin, rehypeShikiHighlight])
   const mdastTree = processor.parse(code)
   const hastTree = await processor.run(mdastTree)
 

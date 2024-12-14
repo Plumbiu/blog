@@ -6,9 +6,10 @@ desc: 一篇用于测试/查看博客上的一些自定义组件的文章
 
 # Playground
 
-## jsx
+## tsx
 
-```jsx Playground
+```tsx Playground
+/// App.tsx
 import Test from './Test'
 import './App.css'
 
@@ -16,7 +17,8 @@ function App() {
   return (
     <div onClick={() => console.log('This is App')}>
       <h1 className="app">This is App</h1>
-      <Test />
+      <div>Random - {Math.random()}</div>
+      <Test text="Test1" />
     </div>
   )
 }
@@ -25,21 +27,29 @@ export default App
 .app {
   color: blue;
 }
-/// Test.jsx
+/// Test.tsx
 import Test2 from './Test2'
 import './Test.css'
 
-function Test() {
+interface Test1Props {
+  text: string
+}
+
+function Test({ text }: Test1Props) {
   console.log('This is Test')
-  return <div className="test">This is Test1<Test2 /></div>
+  return <div className="test">This is {text}<Test2 text="Test2" /></div>
 }
 export default Test
-/// Test2.jsx
+/// Test2.tsx
 import './Test.css'
 
-function Test2() {
+interface Test2Props {
+  text: string
+}
+
+function Test2({ text }: Test2Props) {
   console.log('This is Test')
-  return <div className="test">This is Test2</div>
+  return <div className="test">This is {text}</div>
 }
 export default Test2
 /// App.css
@@ -62,48 +72,9 @@ export default Test2
 }
 ```
 
-## random
-
-```jsx Playground
-function App() {
-  return (
-    <div>
-      <h1>Random App - {Math.random()}</h1>
-    </div>
-  )
-}
-export default App
-```
-
-## tsx
-
-```tsx Playground
-import Test from './Test'
-
-function App() {
-  return (
-    <div onClick={() => console.log('This is App')}>
-      <h1>This is App</h1>
-      <Test logText="Text log from App" />
-    </div>
-  )
-}
-export default App
-/// Test.tsx
-
-interface TestProps {
-  logText: string
-}
-function Test(props: TestProps) {
-  console.log(props.logText)
-  return <div>This is Test</div>
-}
-export default Test
-```
-
 ## custom preview
 
-```js Playground='three/ThreeLearnPrimitivesBox'
+```js Playground path="three/ThreeLearnPrimitivesBox" component="ThreeLearnPrimitivesBox"
 
 ```
 
@@ -317,22 +288,29 @@ console.log('goodbye')
 
 :ThreeSunEarthMoon
 
-# Variable Inject
+# Injection
 
-| Raw text            | Inline code          | Text               | Blod text              |
-| ------------------- | -------------------- | ------------------ | ---------------------- |
-| $\{ foo }           | `${ foo}`            | ${ foo }           | **${ foo }**           |
-| $\{ bar.test.a }    | `${ bar.test.a }`    | ${ bar.test.a }    | **${ bar.test.a }**    |
-| $\{ bar['test'].a } | `${ bar['test'].a }` | ${ bar['test'].a } | **${ bar['test'].a }** |
+## Variable
+
+| Expression        | Text             | Code               | Blod                 | Link                           |
+| ----------------- | ---------------- | ------------------ | -------------------- | ------------------------------ |
+| $\{foo}           | ${foo}           | `${foo}`           | **${foo}**           | [${foo}](#injection)           |
+| $\{bar.test.a}    | ${bar.test.a}    | `${bar.test.a}`    | **${bar.test.a}**    | [${bar.test.a}](#injection)    |
+| $\{bar['test'].a} | ${bar['test'].a} | `${bar['test'].a}` | **${bar['test'].a}** | [${bar['test'].a}](#injection) |
 
 Object:
 
-| Raw text            | Inline code          | Text               | Blod text              |
-| ------------------- | -------------------- | ------------------ | ---------------------- |
-| $\{ bar.test }      | `${ bar.test }`      | ${ bar.test }      | **${ bar.test }**      |
-| $\{ bar['test'] }   | `${ bar['test'] }`   | ${ bar['test'] }   | **${ bar['test'] }**   |
+| Expression      | Text           | Code             | Blod               |
+| --------------- | -------------- | ---------------- | ------------------ |
+| $\{bar.test}    | ${bar.test}    | `${bar.test}`    | **${bar.test}**    |
+| $\{bar['test']} | ${bar['test']} | `${bar['test']}` | **${bar['test']}** |
 
-## `${ bar['test'].a }`: **${ bar['test'].a }**
+## Emoji
+
+| Expression | Text    | Code      | Blod        |
+| ---------- | ------- | --------- | ----------- |
+| \:smile\:  | :smile: | `:smile:` | **:smile:** |
+| \:hugs\:   | :hugs:  | `:hugs:`  | **:hugs:**  |
 
 # Video
 

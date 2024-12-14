@@ -122,6 +122,9 @@ importers:
       '@types/three':
         specifier: ^0.170.0
         version: 0.170.0
+      '@types/unist':
+        specifier: ^3.0.3
+        version: 3.0.3
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
