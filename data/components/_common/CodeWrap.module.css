@@ -25,6 +25,9 @@
 
     & > div:first-child {
       border-right: none;
+      & > pre {
+        border-bottom: 1px solid var(--c-green-3);
+      }
     }
   }
 }
@@ -41,14 +44,11 @@
   border-radius: var(--pre-radius) var(--pre-radius) 0 0;
 }
 
-.btn {
+.rerun {
   cursor: pointer;
   transition: color 150ms;
+  font-size: 16.5px;
   &:hover {
     color: var(--text);
-  }
-  & svg {
-    font-size: 18px;
-    display: block;
   }
 }
