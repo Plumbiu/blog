@@ -65,8 +65,8 @@
     color: var(--text-1);
     overflow: auto;
     tab-size: 2;
-    line-height: 1.7;
-    max-height: 70vh;
+    line-height: 1.6;
+    max-height: 60vh;
     border-radius: var(--pre-radius);
     background-color: var(--bg-md-pre);
     border: 1px solid var(--divider);

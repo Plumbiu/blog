@@ -15,7 +15,7 @@ const TocLink = memo(
   ({ id, depth, title, active }: ITocList & { active: boolean }) => (
     <Link
       style={{
-        paddingLeft: (depth - 1) * 16,
+        paddingLeft: (depth - 1) * 12,
       }}
       className={cn(styles.item, {
         [styles.active]: active,
@@ -113,6 +113,7 @@ function Toc() {
           />
         ))}
       </div>
+      <div className={styles.curtain} />
     </div>
   )
 }

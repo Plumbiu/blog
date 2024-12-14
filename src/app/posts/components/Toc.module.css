@@ -6,11 +6,18 @@
   right: 0;
   top: 140px;
   z-index: 9;
-  padding-left: 64px;
+  padding-left: 48px;
+  padding-right: 16px;
+  max-height: 100vh;
   width: var(--center-rest);
-  max-height: 50vh;
   overflow-y: auto;
   scrollbar-width: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .toc {
+    padding-left: 32px;
+  }
 }
 
 @media screen and (max-width: 960px) {
@@ -23,8 +30,8 @@
   display: block;
   font-size: 14px;
   max-width: 300px;
-  height: 30px;
-  line-height: 30px;
+  height: 32px;
+  line-height: 32px;
   transition: color 150ms;
   overflow: hidden;
   white-space: nowrap;
@@ -43,9 +50,19 @@
   position: sticky;
   top: 0;
   left: 16px;
-  padding-bottom: 16px;
+  padding-bottom: 8px;
   background-color: var(--bg-body);
   font-size: 18px;
   font-weight: 700;
   color: var(--text);
+}
+
+.curtain {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: 48px;
+  width: var(--center-rest);
+  z-index: 8;
+  background: linear-gradient(transparent, var(--bg-body) 60%);
 }

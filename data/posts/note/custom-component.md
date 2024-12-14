@@ -4,9 +4,11 @@ date: 2024-10-03
 desc: 一篇用于测试/查看博客上的一些自定义组件的文章
 ---
 
-# Playground
+# Code
 
-## tsx
+## Playground
+
+### tsx
 
 ```tsx Playground
 /// App.tsx
@@ -58,7 +60,7 @@ export default Test2
 }
 ```
 
-## static
+### static
 
 ```txt Playground
 <div class="test" onclick="console.log(111)">hello</div>
@@ -72,11 +74,129 @@ export default Test2
 }
 ```
 
-## custom preview
+### meta
 
 ```js Playground path="three/ThreeLearnPrimitivesBox" component="ThreeLearnPrimitivesBox"
 
 ```
+
+## Runner
+
+### js
+
+```js Run
+function fn(n) {
+  console.log(n)
+}
+
+fn(1)
+fn('ch')
+fn({ obj: 1 })
+fn(function t() {})
+fn(() => {
+  console.log(2)
+  console.log(1)
+})
+fn(Symbol('foo'))
+fn(undefined)
+fn(null)
+fn(true)
+fn(new Date(Date.now()))
+```
+
+### ts
+
+```ts Run
+interface Foo {
+  text: string
+}
+
+function fn(n: Foo) {
+  console.log(n.text)
+}
+
+fn({ text: 'Hello' })
+```
+
+### long time
+
+```js Run
+function fn(n) {
+  console.log(n)
+}
+
+const start = Date.now()
+while (Date.now() - start < 3000) {}
+
+fn(1)
+fn('ch')
+fn({ obj: 1 })
+```
+
+## Block
+
+### Diff
+
+```diff-ts
+- console.log('hewwo')
++ console.log('hello')
+console.log('goodbye')
+```
+
+Notation:
+
+```ts
+console.log('hewwo') // [!code --]
+console.log('hello') // [!code ++]
+console.log('goodbye')
+```
+
+### Highlight
+
+#### Line
+
+```ts {1,2}
+console.log('hewwo')
+console.log('hello')
+console.log('goodbye')
+```
+
+Notation:
+
+```ts
+console.log('hewwo') // [!code highlight]
+console.log('hello') // [!code highlight]
+console.log('goodbye')
+```
+
+#### Word
+
+```ts /.log('/
+console.log('hewwo')
+console.log('hello')
+console.log('goodbye')
+```
+
+Notation:
+
+```ts
+// [!code word:.log(']
+console.log('hewwo')
+console.log('hello')
+console.log('goodbye')
+```
+
+#### Show line
+
+```ts line
+console.log('hewwo')
+console.log('hello')
+console.log('goodbye')
+```
+
+## Custom Component
+
+:ThreeSunEarthMoon
 
 # Tip
 
@@ -154,141 +274,7 @@ threejs/flower-5.jpg
 threejs/wall.jpg
 :::
 
-# Table
-
-| 类型      | 转换为数字(`Number` 方法) | 转换为字符串(`String` 方法) |
-| --------- | ------------------------- | --------------------------- |
-| null      | 0                         | null                        |
-| undefined | NaN                       | undefined                   |
-| false     | 0                         | false                       |
-| true      | 1                         | true                        |
-| Array     | NaN                       | 运行 `.join('')` 拼接       |
-| Object    | NaN                       | [object Object]             |
-| Symbol    | 报错                      | Symbol('xxx')               |
-
-# Code Runner
-
-## js
-
-```js Run
-function fn(n) {
-  console.log(n)
-}
-
-fn(1)
-fn('ch')
-fn({ obj: 1 })
-fn(function t() {})
-fn(() => {
-  console.log(2)
-  console.log(1)
-})
-fn(Symbol('foo'))
-fn(undefined)
-fn(null)
-fn(true)
-fn(new Date(Date.now()))
-```
-
-## ts
-
-```ts Run
-interface Foo {
-  text: string
-}
-
-function fn(n: Foo) {
-  console.log(n.text)
-}
-
-fn({ text: 'Hello' })
-```
-
-## long time
-
-```js Run
-function fn(n) {
-  console.log(n)
-}
-
-const start = Date.now()
-while (Date.now() - start < 3000) {}
-
-fn(1)
-fn('ch')
-fn({ obj: 1 })
-```
-
-# Code
-
-## Diff
-
-```diff-ts
-- console.log('hewwo')
-+ console.log('hello')
-console.log('goodbye')
-```
-
-Notation:
-
-```ts
-console.log('hewwo') // [!code --]
-console.log('hello') // [!code ++]
-console.log('goodbye')
-```
-
-## Highlight
-
-### Line
-
-```ts {1,2}
-console.log('hewwo')
-console.log('hello')
-console.log('goodbye')
-```
-
-Notation:
-
-```ts
-console.log('hewwo') // [!code highlight]
-console.log('hello') // [!code highlight]
-console.log('goodbye')
-```
-
-### Word
-
-```ts /.log('/
-console.log('hewwo')
-console.log('hello')
-console.log('goodbye')
-```
-
-Notation:
-
-```ts
-// [!code word:.log(']
-console.log('hewwo')
-console.log('hello')
-console.log('goodbye')
-```
-
-## Show line
-
-```ts line
-console.log('hewwo')
-console.log('hello')
-console.log('goodbye')
-```
-
-# Custom Component
-
-自定义组件，仅用于展示：
-
-## Three.js
-
-:ThreeSunEarthMoon
-
-# Injection
+# Injection and Table
 
 ## Variable
 

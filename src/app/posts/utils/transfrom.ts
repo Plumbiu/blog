@@ -62,7 +62,6 @@ async function transfromCode2Jsx(code: string) {
     .use([rehypeElementPlugin, rehypeShikiHighlight])
   const mdastTree = processor.parse(code)
   const hastTree = await processor.run(mdastTree)
-
   const node = toJsxRuntime(hastTree, {
     Fragment,
     components: markdownComponents,
