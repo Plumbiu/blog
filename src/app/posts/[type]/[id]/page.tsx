@@ -79,7 +79,7 @@ export async function generateMetadata({
     ...generateSeoMetaData({
       title,
       description: info.meta.desc.slice(0, 30),
-      url: joinWebUrl(params.type, params.id),
+      url: joinWebUrl('posts', params.type, params.id),
     }),
   }
 }

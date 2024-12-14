@@ -117,7 +117,6 @@ const rehypeShikiHighlight = () => {
                 deletedKeys: ['--shiki-dark'],
               }),
               customShikiTranformer({
-                code,
                 meta,
                 lang,
               }),

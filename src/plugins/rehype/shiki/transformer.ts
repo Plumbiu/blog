@@ -1,5 +1,5 @@
 import { ElementContent, type Element } from 'hast'
-import { ShikiTransformer } from 'shiki'
+import { ShikiTransformer, ShikiTransformerContext } from 'shiki'
 import { toString } from 'hast-util-to-string'
 import { isString } from '@/utils/types'
 import {
@@ -10,14 +10,12 @@ import {
 
 interface TransformerOptions {
   meta: string
-  code: string
   lang: string
 }
 
 const HightLightWordRegx = /\/(.+)\//
 export function customShikiTranformer({
   meta,
-  code,
   lang,
 }: TransformerOptions): ShikiTransformer {
   const shouldHighlightLine = calculateLinesToHighlight(meta)

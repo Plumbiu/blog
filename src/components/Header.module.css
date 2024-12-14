@@ -42,7 +42,7 @@
 }
 
 .shadow {
-  height: calc((var(--header-h) - 32px));
+  height: calc((var(--header-h) - 48px));
 }
 
 .hide {

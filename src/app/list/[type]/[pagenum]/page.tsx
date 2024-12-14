@@ -4,13 +4,12 @@ import { getPostList } from '@/utils/node/markdown'
 import { PostDir } from '@/constants'
 import NotFound from '@/app/not-found'
 import { Blog_Title, generateSeoMetaData, joinWebUrl } from '@/app/seo'
+import { MAX_PAGE_SIZE } from '@/app/list/constants'
 import AsideLeft from './components/AsideLeft'
 import { formatPostByYear } from './utils'
 import ArtlistAction from './components/Action'
 import ArtList from './components/List'
 import ArtlistPagination from './components/Pagination'
-
-const MAX_PAGE_SIZE = 4
 
 interface Params {
   type: string
@@ -77,7 +76,7 @@ export async function generateMetadata(props: ListProps): Promise<Metadata> {
     ...generateSeoMetaData({
       title,
       description: `${upperFirstChar(type)}文章 - 第${pagenum}页`,
-      url: joinWebUrl(type, pagenum),
+      url: joinWebUrl('list', type, pagenum),
     }),
   }
 }

@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { isNumber } from '@/utils/types'
 import { BlogAuthor, BlogUrl } from '~/data/site'
 
 export function generateSeoMetaData(meta: Metadata['openGraph']): Metadata {
@@ -13,12 +14,18 @@ export function generateSeoMetaData(meta: Metadata['openGraph']): Metadata {
   }
 }
 
-export function joinWebUrl(...args: string[]) {
+export function joinWebUrl(...args: (string | number)[]) {
   let url = BlogUrl
-  for (const arg of args) {
+  for (let arg of args) {
+    if (arg === '') {
+      continue
+    }
     url += arg
-    if (!arg.endsWith('/')) {
-      url += arg
+    if (isNumber(arg)) {
+      arg = String(arg)
+    }
+    if (!arg.startsWith('/')) {
+      url += '/'
     }
   }
   return url
