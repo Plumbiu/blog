@@ -6,7 +6,7 @@ import {
   BlogDesc,
   BlogTitle,
   BlogUrl,
-  CopyRight,
+  BlogCopyRight,
   Email,
 } from '~/data/site'
 import { joinWebUrl } from '@/app/seo'
@@ -18,7 +18,7 @@ async function feed(posts: PostList[]) {
     description: BlogDesc,
     id: BlogUrl,
     link: BlogUrl,
-    copyright: CopyRight,
+    copyright: BlogCopyRight,
     updated: new Date(2013, 6, 14), // optional, default = today
     feedLinks: {
       json: joinWebUrl('feed.json'),

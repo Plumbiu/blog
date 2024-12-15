@@ -27,7 +27,6 @@ function ArtlistPagination({
         disabled={pagenum === 1 || lists.length === 0}
       >
         <ArrowLeftIcon />
-        Previous
       </Card>
       {pages.map((n) => (
         <Link key={n} scroll={false} href={`/list/${type}/${n}`}>
@@ -39,7 +38,6 @@ function ArtlistPagination({
         scroll={false}
         disabled={pagenum === pageCount || lists.length === 0}
       >
-        Next
         <ArrowRightIcon />
       </Card>
     </div>
