@@ -23,21 +23,25 @@ import { isString } from '@/utils/types'
 const RangeNumRegx = /^-?\d+$/
 const LineRegx = /^(-?\d+)(-|\.\.\.?|\u2025|\u2026|\u22EF)(-?\d+)$/
 export function parsePart(s: string) {
-  let res = new Set()
-  let m
+  const res = new Set()
+  let m: RegExpMatchArray | null
   for (let str of s.split(',')) {
     str = str.trim()
     if (RangeNumRegx.test(str)) {
-      res.add(parseInt(str, 10))
+      res.add(Number.parseInt(str, 10))
     } else if ((m = str.match(LineRegx))) {
       let [_, lhs, sep, rhs] = m as any
       if (lhs && rhs) {
-        lhs = parseInt(lhs)
-        rhs = parseInt(rhs)
+        lhs = Number.parseInt(lhs)
+        rhs = Number.parseInt(rhs)
         const incr = lhs < rhs ? 1 : -1
-        if (sep === '-' || sep === '..' || sep === '\u2025') rhs += incr
+        if (sep === '-' || sep === '..' || sep === '\u2025') {
+          rhs += incr
+        }
 
-        for (let i = lhs; i !== rhs; i += incr) res.add(i)
+        for (let i = lhs; i !== rhs; i += incr) {
+          res.add(i)
+        }
       }
     }
   }
@@ -61,10 +65,8 @@ export const getLanguage = (className: any) => {
     className = [className]
   }
   for (const classListItem of className) {
-    if (isString(classListItem)) {
-      if (classListItem.slice(0, 9) === 'language-') {
-        return classListItem.slice(9).toLowerCase()
-      }
+    if (isString(classListItem) && classListItem.slice(0, 9) === 'language-') {
+      return classListItem.slice(9).toLowerCase()
     }
   }
   return 'txt'

@@ -1,22 +1,30 @@
 /* eslint-disable @stylistic/max-len */
-import {
-  type LeafDirective,
-  type ContainerDirective,
-} from 'mdast-util-directive'
+import type { LeafDirective, ContainerDirective } from 'mdast-util-directive'
 import { visit } from 'unist-util-visit'
 import { getImageProps } from 'next/image'
 import { isString } from '@/utils/types'
 import { getBlurDataUrl } from '@/utils/node/optimize'
 import { isUnOptimized, resolveAssetPath } from '@/utils'
 import { getAssetImagePath } from '@/utils/node/fs'
-import { GalleryPhotoKey, GalleryName, Photo, PhotoNode } from './gallery-utils'
+import {
+  GalleryPhotoKey,
+  GalleryName,
+  type Photo,
+  type PhotoNode,
+} from './gallery-utils'
 import { addNodeClassName, makeProperties } from '../utils'
-import { ComponentKey, handleComponentName, RemarkPlugin } from '../constant'
+import {
+  ComponentKey,
+  handleComponentName,
+  type RemarkPlugin,
+} from '../constant'
+
+const LineRegx = /\r?\n/
 
 export const remarkContainerDirectivePlugin: RemarkPlugin = () => {
   return async (tree) => {
     const photoNodes: PhotoNode[] = []
-    visit(tree, 'containerDirective', (node, index, parent) => {
+    visit(tree, 'containerDirective', (node) => {
       makeProperties(node)
       noteContainerDirective(node)
       detailContainerDirective(node)
@@ -34,7 +42,7 @@ export const remarkContainerDirectivePlugin: RemarkPlugin = () => {
               contentNode.type === 'text' &&
               isString(contentNode.value)
             ) {
-              const links = contentNode.value.split(/\r?\n/)
+              const links = contentNode.value.split(LineRegx)
               props[ComponentKey] = node.name
               data.hName = 'div'
               photoNodes.push({ node, links })
@@ -78,7 +86,7 @@ export const remarkContainerDirectivePlugin: RemarkPlugin = () => {
         node.data!.hProperties![GalleryPhotoKey] = JSON.stringify(images)
       }),
     )
-    visit(tree, 'textDirective', (node, index, parent) => {
+    visit(tree, 'textDirective', (node, _index, parent) => {
       if (!parent) {
         return
       }
@@ -87,7 +95,7 @@ export const remarkContainerDirectivePlugin: RemarkPlugin = () => {
       node.data!.hName = 'div'
       node.data!.hProperties![ComponentKey] = node.name
     })
-    visit(tree, 'leafDirective', (node, index, parent) => {
+    visit(tree, 'leafDirective', (node, _index, parent) => {
       if (!parent) {
         return
       }
@@ -142,7 +150,7 @@ function iframeLeafDirective(node: LeafDirective) {
     return
   }
 
-  let src
+  let src: string
   if (name === 'bilibili') {
     src = `https://player.bilibili.com/player.html?bvid=${id}&muted=false&autoplay=false`
   } else {

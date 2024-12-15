@@ -1,5 +1,5 @@
 import { Link } from 'next-view-transitions'
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import { PostDir } from '@/constants'
 import { upperFirstChar } from '@/utils'
 import { cn } from '@/utils/client'

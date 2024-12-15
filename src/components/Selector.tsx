@@ -1,6 +1,6 @@
 'use client'
 
-import { ReactNode, useEffect, useId, useRef, useState } from 'react'
+import { type ReactNode, useEffect, useId, useRef, useState } from 'react'
 import styles from './Selector.module.css'
 
 interface SelectorValueItem {

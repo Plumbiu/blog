@@ -1,6 +1,6 @@
-import fsp from 'fs/promises'
+import fsp from 'node:fs/promises'
 import { Feed } from 'feed'
-import { PostList } from '@/utils/node/markdown'
+import type { PostList } from '@/utils/node/markdown'
 import {
   BlogAuthor,
   BlogDesc,
@@ -10,7 +10,6 @@ import {
   Email,
 } from '~/data/site'
 import { joinWebUrl } from '@/app/seo'
-import { getCategory } from '@/utils'
 
 async function feed(posts: PostList[]) {
   const feed = new Feed({

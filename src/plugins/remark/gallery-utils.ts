@@ -1,4 +1,4 @@
-import { type ContainerDirective } from 'mdast-util-directive'
+import type { ContainerDirective } from 'mdast-util-directive'
 
 export interface Photo {
   width: number

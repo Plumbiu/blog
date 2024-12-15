@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import { Link } from 'next-view-transitions'
 import { cn } from '@/utils/client'
 import styles from './Card.module.css'

@@ -79,7 +79,7 @@ export async function getPostList(postType?: string) {
       }
       const file = await fsp.readFile(path.join(DataPath, mdPath), 'utf-8')
       const { meta, content } = parsePostMeta(file)
-      if (!meta || !content || meta.hidden) {
+      if (!(meta && content) || meta.hidden) {
         return
       }
       const data = {

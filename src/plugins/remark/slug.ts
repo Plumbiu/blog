@@ -1,5 +1,5 @@
 import { visit } from 'unist-util-visit'
-import { RemarkPlugin } from '../constant'
+import type { RemarkPlugin } from '../constant'
 import { makeProperties } from '../utils'
 
 const WhiteSpaceRegx = /\s/g

@@ -1,11 +1,11 @@
-import { RefObject, useEffect, useRef, useState } from 'react'
+import { type RefObject, useEffect, useRef, useState } from 'react'
 import { isFunction } from '@/utils/types'
 
 type VoidFn = () => void
 
 export default function useObserver(
   ref: RefObject<HTMLElement>,
-  callback?: () => void | VoidFn,
+  callback?: () => undefined | VoidFn,
 ) {
   const [isIntersecting, setIsIntersecting] = useState(false)
   const callbackRef = useRef<VoidFn>()

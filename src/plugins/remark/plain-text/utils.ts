@@ -1,5 +1,5 @@
-import { type Text, type InlineCode } from 'mdast'
-import { Position } from 'unist'
+import type { Text, InlineCode } from 'mdast'
+import type { Position } from 'unist'
 
 export function getRawValueFromPosition(
   code: string,
@@ -11,7 +11,7 @@ export function getRawValueFromPosition(
   }
   const isInlineCode = node.type === 'inlineCode'
   const offset = isInlineCode ? 1 : 0
-  let value = code.slice(
+  const value = code.slice(
     position.start.offset + offset,
     position.end.offset - offset,
   )

@@ -1,5 +1,3 @@
-import fsp from 'node:fs/promises'
-import path from 'node:path'
 import { getPostList } from '@/utils/node/markdown'
 import feed from './feed'
 import { gitadd } from './utils.js'

@@ -6,12 +6,16 @@ export function cn(...args: ClassNameArg[]) {
   for (let i = 0; i < args.length; i++) {
     const arg = args[i]
     if (isString(arg) || isNumber(arg)) {
-      classname && (classname += ' ')
+      if (classname) {
+        classname += ' '
+      }
       classname += arg
     } else if (typeof arg === 'object') {
       for (const key in arg) {
         if (arg[key]) {
-          classname && (classname += ' ')
+          if (classname) {
+            classname += ' '
+          }
           classname += key
         }
       }

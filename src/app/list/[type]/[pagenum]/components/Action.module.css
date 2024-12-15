@@ -15,7 +15,7 @@
 }
 
 .curtain {
-  content: '';
+  content: "";
   position: fixed;
   top: var(--header-h);
   right: 0;

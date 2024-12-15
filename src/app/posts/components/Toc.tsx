@@ -99,7 +99,7 @@ function Toc() {
 
   return (
     <div ref={tocRef} className={styles.toc}>
-      {lists.length ? (
+      {lists.length > 0 ? (
         <div className={styles.title}>Table of Contents</div>
       ) : null}
       <div ref={listRef}>

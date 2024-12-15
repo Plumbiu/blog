@@ -1,4 +1,4 @@
-import { type Root } from 'hast'
+import type { Root } from 'hast'
 import { visit } from 'unist-util-visit'
 import { toString } from 'hast-util-to-string'
 import { getSingletonHighlighterCore } from 'shiki/core'
@@ -92,7 +92,7 @@ const themeOptions = {
 const rehypeShikiHighlight = () => {
   return async (tree: Root) => {
     const shiki = await getSingletonHighlighterCore(shikiOptions)
-    visit(tree, 'element', (node, index, parent) => {
+    visit(tree, 'element', (node, _index, parent) => {
       if (
         !parent ||
         parent.type !== 'element' ||

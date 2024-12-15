@@ -1,6 +1,6 @@
 'use client'
 
-import { MouseEventHandler, useRef, WheelEventHandler } from 'react'
+import { type MouseEventHandler, useRef, type WheelEventHandler } from 'react'
 import { cn } from '@/utils/client'
 import useImageViewlStore from '@/store/ImageView'
 import styles from './ImageView.module.css'
@@ -131,12 +131,7 @@ function ImageView() {
       return
     }
     const imageViewInfo = getImgViewInfo(target, scale.current)
-    if (!imageViewInfo.one) {
-      translate.current = {
-        x: 0,
-        y: 0,
-      }
-    } else {
+    if (imageViewInfo.one) {
       const { clientX, clientY } = e
       const { x, y } = mousePosition.current
       const clientWidth = target.clientWidth
@@ -146,12 +141,11 @@ function ImageView() {
         x: clientX - x,
         y: clientY - y,
       }
-
       if (imageViewInfo.wLarge) {
         const xDistance = clientWidth * scale.current - window.innerWidth
         const xTranslatedDistance =
           xDistance - Math.abs(translate.current.x * 2)
-        let one = translate.current.x < 0 ? -1 : 1
+        const one = translate.current.x < 0 ? -1 : 1
         if (xTranslatedDistance < 0) {
           newTranslate.x = (one * xDistance) / 2
         }
@@ -166,6 +160,11 @@ function ImageView() {
         }
       }
       translate.current = newTranslate
+    } else {
+      translate.current = {
+        x: 0,
+        y: 0,
+      }
     }
     updateDOM()
     mousePosition.current = null

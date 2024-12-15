@@ -60,7 +60,7 @@
 
 /* constant */
 :root {
-  --header-h: 100px;
+  --header-h: 120px;
   --post-w: 780px;
   --center-rest: calc((100% - var(--post-w)) / 2);
   --pre-radius: 6px;

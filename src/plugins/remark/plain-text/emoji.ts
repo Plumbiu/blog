@@ -1,4 +1,4 @@
-import { Text, InlineCode } from 'mdast'
+import type { Text, InlineCode } from 'mdast'
 import { injectNodeValue } from './utils'
 import emojilist from '../data/emoji'
 

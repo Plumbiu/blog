@@ -1,11 +1,11 @@
-import { type Element } from 'hast'
+import type { Element } from 'hast'
 import {
   isPlayground,
   handlePlaygroundSelector,
   PlaygroundPrefix,
   buildFiles,
 } from '../remark/playground-utils'
-import { handleComponentCode, handleComponentMetaFromProps } from '../constant'
+import { handleComponentCode } from '../constant'
 import { buildHandlerFunction } from '../utils'
 
 const PlaygroundFileKey = `${PlaygroundPrefix}file-key`

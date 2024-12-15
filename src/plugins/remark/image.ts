@@ -1,5 +1,5 @@
 import { visit } from 'unist-util-visit'
-import { type Image } from 'mdast'
+import type { Image } from 'mdast'
 import { getBlurDataUrl } from '@/utils/node/optimize'
 import { resolveAssetPath } from '@/utils'
 import { getAssetImagePath } from '@/utils/node/fs'
@@ -8,7 +8,7 @@ import {
   handleImageHeight,
   handleImagebase64,
 } from './image-utils'
-import { RemarkPlugin } from '../constant'
+import type { RemarkPlugin } from '../constant'
 import { makeProperties } from '../utils'
 
 const remarkImage: RemarkPlugin = () => {

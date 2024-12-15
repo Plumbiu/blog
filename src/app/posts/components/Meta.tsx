@@ -1,11 +1,8 @@
-import { Link } from 'next-view-transitions'
 import { TimeWordInfo } from '@/components/PostInfo'
-import { PostList } from '@/utils/node/markdown'
-import { cn } from '@/utils/client'
-import { ArrowLeftIcon, ArrowRightIcon } from '@/components/Icons'
+import type { PostList } from '@/utils/node/markdown'
 import styles from './Meta.module.css'
 
-function Meta({ meta, prev, next }: PostList) {
+function Meta({ meta }: PostList) {
   const { title, date, wordLength } = meta
   return (
     <div className={styles.wrap}>

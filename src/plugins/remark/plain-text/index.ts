@@ -1,8 +1,8 @@
 import { visit } from 'unist-util-visit'
-import { type Text, type InlineCode } from 'mdast'
+import type { Text, InlineCode } from 'mdast'
 import injectVariable from './variable'
 import injectEmoji from './emoji'
-import { RemarkPlugin } from '../../constant'
+import type { RemarkPlugin } from '../../constant'
 
 export const remarkPlainText: RemarkPlugin<string> = (code: string) => {
   function handler(node: Text | InlineCode) {

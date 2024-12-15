@@ -5,9 +5,10 @@ export function tryReadFileSync(p: string) {
   let content = ''
   try {
     content = fs.readFileSync(p, 'utf-8')
-  } catch (error) {}
-
-  return content
+    return content
+  } catch (error) {
+    return content
+  }
 }
 
 export function getAssetImagePath(url: string) {

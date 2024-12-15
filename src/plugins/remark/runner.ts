@@ -1,4 +1,4 @@
-import { transform, Options } from 'sucrase'
+import { transform, type Options } from 'sucrase'
 import { visit } from 'unist-util-visit'
 import { minifyCodeSync } from '@/utils/node/optimize'
 import {
@@ -12,7 +12,7 @@ import {
   handleComponentMetaFromProps,
   handleComponentName,
   handleLangFromProps,
-  RemarkPlugin,
+  type RemarkPlugin,
 } from '../constant'
 import { makeProperties } from '../utils'
 
@@ -37,7 +37,7 @@ const remarkRunner: RemarkPlugin = () => {
       }
       handleLangFromProps(props, lang)
 
-      if (!isJavaScript(lang) && !isTypeScript(lang)) {
+      if (!(isJavaScript(lang) || isTypeScript(lang))) {
         return
       }
       if (isTypeScript(lang)) {

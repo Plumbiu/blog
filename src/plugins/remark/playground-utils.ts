@@ -1,5 +1,5 @@
 /* eslint-disable @stylistic/max-len */
-import { StringValueObj } from '@/types/base'
+import type { StringValueObj } from '@/types/base'
 import { ComponentKey } from '../constant'
 import { buildHandlerFunction, getFirstLine } from '../utils'
 
@@ -19,27 +19,26 @@ export const handlePlaygroundSelector = buildHandlerFunction<string>(
   PlaygroundDefaultSelectorKey,
 )
 
-export const handlePlaygroundFileMapKey =
-  buildHandlerFunction<StringValueObj>(
-    PlaygroundFileMapKey,
-    JSON.parse,
-  )
+export const handlePlaygroundFileMapKey = buildHandlerFunction<StringValueObj>(
+  PlaygroundFileMapKey,
+  JSON.parse,
+)
 
 export const handlePlaygroundHidePreviewKey = buildHandlerFunction<
   boolean | undefined
 >(PlaygroundHidePreviewKey)
 
-export const handlePlaygroundHidePreviewTabsKey =
-  buildHandlerFunction<boolean | undefined>(
-    PlaygroundHidePreviewTabsKey,
-  )
+export const handlePlaygroundHidePreviewTabsKey = buildHandlerFunction<
+  boolean | undefined
+>(PlaygroundHidePreviewTabsKey)
 
 export const handlePlaygroundHideCodeTabsKey = buildHandlerFunction<
   boolean | undefined
 >(PlaygroundHideCodeTabsKey)
 
-export const handlePlaygroundCustomPreivew =
-  buildHandlerFunction<string>(PlaygroundCustomPreivew)
+export const handlePlaygroundCustomPreivew = buildHandlerFunction<string>(
+  PlaygroundCustomPreivew,
+)
 
 export const handlePlaygroundStyles =
   buildHandlerFunction<string[]>(PlaygroundStyles)

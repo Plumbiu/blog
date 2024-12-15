@@ -4,7 +4,7 @@ import { tryReadFileSync } from '@/utils/node/fs'
 import { DataPath } from '@/utils/node/markdown'
 import { handlePlaygroundCustomPreivew } from './playground-utils'
 import { makeProperties } from '../utils'
-import { RemarkPlugin } from '../constant'
+import type { RemarkPlugin } from '../constant'
 
 const CodePathRegx = /path=['"]([^'"]+)['"]/
 const CodeComponentRegx = /component=['"]([^'"]+)['"]/

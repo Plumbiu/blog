@@ -1,4 +1,4 @@
-html[data-theme='dark'] {
+html[data-theme="dark"] {
   /* text */
   --text: #fafafa;
   --text-4: rgba(220, 220, 220, 0.4);

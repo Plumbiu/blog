@@ -1,5 +1,5 @@
-import { PostList } from '@/utils/node/markdown'
-import { FloatType } from './types'
+import type { PostList } from '@/utils/node/markdown'
+import type { FloatType } from './types'
 
 export function getYear(date: number) {
   return String(new Date(date).getFullYear())

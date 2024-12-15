@@ -1,4 +1,4 @@
-import { isValidElement, ReactNode } from 'react'
+import { isValidElement, type ReactNode } from 'react'
 import { PostDir, type FrontmatterKey } from '@/constants'
 import { BasePath } from '~/data/site'
 import { isNumber, isString } from './types'

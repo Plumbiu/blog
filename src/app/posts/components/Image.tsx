@@ -1,6 +1,6 @@
 'use client'
 
-import NextImage, { ImageProps } from 'next/image'
+import NextImage, { type ImageProps } from 'next/image'
 import useImageViewlStore from '@/store/ImageView'
 
 function MarkdownImage(props: ImageProps) {

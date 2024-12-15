@@ -1,5 +1,5 @@
-import { ElementContent, type Element } from 'hast'
-import { ShikiTransformer } from 'shiki'
+import type { ElementContent, Element } from 'hast'
+import type { ShikiTransformer } from 'shiki'
 import { toString } from 'hast-util-to-string'
 import { isString } from '@/utils/types'
 import {

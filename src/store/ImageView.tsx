@@ -1,7 +1,7 @@
 'use client'
 
 import { createStore } from '@plumbiu/react-store'
-import React from 'react'
+import type React from 'react'
 
 function preventDefault(e: Event) {
   e.preventDefault()

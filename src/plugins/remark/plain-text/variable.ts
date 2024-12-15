@@ -1,4 +1,4 @@
-import { Text, InlineCode } from 'mdast'
+import type { Text, InlineCode } from 'mdast'
 import { isNumber, isString } from '@/utils/types'
 import { injectNodeValue } from './utils'
 import vars from '../data/variable'

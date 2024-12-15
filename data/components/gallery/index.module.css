@@ -18,7 +18,9 @@
   --thumb-item-width: 80px;
   --thumb-item-translate: 16px;
   --thumb-item-max-height: calc(
-    var(--thumb-item-height) + var(--thumb-item-translate) + var(--thumb-bottom)
+    var(--thumb-item-height) +
+    var(--thumb-item-translate) +
+    var(--thumb-bottom)
   );
   opacity: 0;
   animation: fade 0.15s forwards;

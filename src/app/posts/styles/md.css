@@ -211,14 +211,14 @@
   .deleted {
     background-color: var(--c-red-soft);
     &::before {
-      content: '- ';
+      content: "- ";
       color: var(--c-red-1);
     }
   }
   .inserted {
     background-color: var(--c-green-soft);
     &::before {
-      content: '+ ';
+      content: "+ ";
       color: var(--c-green-1);
     }
   }

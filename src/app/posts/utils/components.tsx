@@ -1,5 +1,5 @@
-import { type Components } from 'hast-util-to-jsx-runtime'
-import { ImageProps } from 'next/image'
+import type { Components } from 'hast-util-to-jsx-runtime'
+import type { ImageProps } from 'next/image'
 import MarkdownImage from '@/app/posts/components/Image'
 import { handleComponentName } from '@/plugins/constant'
 import {

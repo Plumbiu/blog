@@ -1,5 +1,5 @@
 import { visit } from 'unist-util-visit'
-import { transform, Options } from 'sucrase'
+import { transform, type Options } from 'sucrase'
 import { isJsxFileLike } from '@/utils'
 import { minifyCodeSync } from '@/utils/node/optimize'
 import {
@@ -16,7 +16,7 @@ import {
   handleComponentCode,
   handleComponentMetaFromProps,
   handleComponentName,
-  RemarkPlugin,
+  type RemarkPlugin,
 } from '../constant'
 import { getFirstLine, makeProperties } from '../utils'
 
@@ -37,7 +37,7 @@ const remarkPlayground: RemarkPlugin = () => {
       const code = node.value.trim()
       const meta = node.meta
       const lang = node.lang?.toLowerCase()
-      if (!lang || !meta?.includes(PlaygroundName)) {
+      if (!(lang && meta?.includes(PlaygroundName))) {
         return
       }
 
@@ -58,7 +58,7 @@ const remarkPlayground: RemarkPlugin = () => {
         let hideTabs = true
         const files = buildFiles(code, selector)
         const fileKeys = Object.keys(files)
-        let styles: string = ''
+        let styles = ''
         for (const key of fileKeys) {
           const { code } = files[key]
           if (isJsxFileLike(key)) {
@@ -69,7 +69,7 @@ const remarkPlayground: RemarkPlugin = () => {
               hideTabs = false
             }
           } else if (key.endsWith('.css')) {
-            styles += ' ' + code
+            styles += ` ${code}`
           }
         }
         handlePlaygroundHidePreviewTabsKey(

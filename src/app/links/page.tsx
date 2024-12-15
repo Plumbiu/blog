@@ -1,7 +1,7 @@
 import path from 'node:path'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import { cn } from '@/utils/client'
 import info from '~/data/links.json'
 import { getBlurDataUrl } from '@/utils/node/optimize'
@@ -40,7 +40,7 @@ async function Links() {
               alt={name}
               placeholder="blur"
               blurDataURL={base64}
-              src={'/links/' + avatar}
+              src={`/links/${avatar}`}
               className={styles.image}
               width={48}
               height={48}

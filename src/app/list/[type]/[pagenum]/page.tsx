@@ -1,4 +1,4 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import { upperFirstChar } from '@/utils'
 import { getPostList } from '@/utils/node/markdown'
 import { PostDir } from '@/constants'

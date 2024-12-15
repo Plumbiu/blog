@@ -1,6 +1,6 @@
 'use client'
 
-import { ReactNode, useState } from 'react'
+import { type ReactNode, useState } from 'react'
 import { CopyCheckIcon, CopyErrorIcon, CopyIcon } from '@/components/Icons'
 import { renderReactNodeToString } from '@/utils'
 import styles from './Pre.module.css'

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import { BiliBiliIcon, GithubIcon } from '@/components/Icons'
 import Tag from '@/components/Tag'
 import { cn } from '@/utils/client'
@@ -26,7 +26,7 @@ function About() {
         <li>I landed my first job as a Web developer in 2024.03.16</li>
         <li>I started building this blog in 2024.10.01</li>
       </ul>
-      <div></div>
+      <div />
       <div className={styles.tag}>
         <Tag icon="#">Web</Tag>
         <Tag icon="#">Programming</Tag>

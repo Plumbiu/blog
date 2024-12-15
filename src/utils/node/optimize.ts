@@ -21,7 +21,7 @@ export async function getBlurDataUrl(filePath: string) {
   const metadata = await image.metadata()
   const originWidth = metadata.width
   const originHeight = metadata.height
-  if (!originHeight || !originWidth) {
+  if (!(originHeight && originWidth)) {
     return {}
   }
   const resizedSize = 14
