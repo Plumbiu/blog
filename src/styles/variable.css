@@ -28,7 +28,7 @@
   --c-green-3: #30a46c;
   --c-green-2: #299764;
   --c-green-1: #18794e;
-  --c-gray-soft: rgba(100, 111, 123, 0.14);
+  --c-gray-soft: rgba(150, 150, 160, 0.14);
   --c-gray-3: #dfdfe6;
   --c-gray-2: #e4e4e9;
   --c-gray-1: #dddde3;
@@ -60,7 +60,7 @@
 
 /* constant */
 :root {
-  --header-h: 120px;
+  --header-h: 100px;
   --post-w: 780px;
   --center-rest: calc((100% - var(--post-w)) / 2);
   --pre-radius: 6px;

@@ -1,6 +1,6 @@
 import { visit } from 'unist-util-visit'
 import { type Text, type InlineCode } from 'mdast'
-import injectVariable from './inject'
+import injectVariable from './variable'
 import injectEmoji from './emoji'
 import { RemarkPlugin } from '../../constant'
 

@@ -2,10 +2,10 @@
   display: inline-flex;
   align-items: center;
   gap: 2px;
-  border-radius: 24px;
+  border-radius: 12px;
   cursor: pointer;
   color: var(--text-1);
   background-color: var(--bg-tag);
   padding: 3px 8px;
-  font-size: 12px;
+  font-size: 13px;
 }

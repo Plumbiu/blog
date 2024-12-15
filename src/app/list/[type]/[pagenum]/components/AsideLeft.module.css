@@ -1,8 +1,7 @@
 .wrap {
   position: fixed;
+  margin-left: 28px;
   margin-top: 16px;
-  margin-left: 32px;
-  margin-right: 16px;
   top: var(--header-h);
   left: 0;
   z-index: 9;
@@ -33,11 +32,12 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding-left: 12px;
+  padding-left: 0;
   font-size: 13.5px;
   margin: 0;
 
   & > li {
+    text-indent: 1em;
     line-height: 1.25;
     list-style: none;
     & > a {

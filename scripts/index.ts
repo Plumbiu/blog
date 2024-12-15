@@ -8,14 +8,6 @@ export type FileMap = Record<string, string>
 
 async function generate() {
   const posts = await getPostList()
-  const fileMap: FileMap = {}
-  await Promise.all(
-    posts.map(async (item) => {
-      const mdPath = `${item.path}.md`
-      const file = await fsp.readFile(path.join('data', mdPath), 'utf-8')
-      fileMap[mdPath] = file
-    }),
-  )
   gitadd(await feed(posts))
 }
 

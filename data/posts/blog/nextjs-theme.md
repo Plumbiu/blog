@@ -110,7 +110,7 @@ if (!theme) {
 return theme === 'light' ? <MoonIcon /> : <SunIcon />
 ```
 
-我的解决方案是图标替换为下拉框，~~你可以在我的博客头部尝试，~~这里给出一个简单的版本：
+我的解决方案是图标替换为下拉框，~~你可以在我的博客头部尝试~~，这里给出一个简单的版本：
 
 ```jsx
 export default function Selector() {

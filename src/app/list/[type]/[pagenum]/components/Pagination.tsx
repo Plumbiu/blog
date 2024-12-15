@@ -18,7 +18,6 @@ function ArtlistPagination({
   pageCount,
 }: ArtlistPaginationProps) {
   const pages = new Array(pageCount).fill(1).map((_, i) => i + 1)
-
   return (
     <div className={styles.pagination}>
       <Card
