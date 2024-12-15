@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
+    "@ducanh2912/next-pwa": "^10.2.9",
     "@next/bundle-analyzer": "14.2.20",
     "@nimpl/classnames-minifier": "^4.0.0",
     "@types/hast": "^3.0.4",
@@ -58,7 +59,8 @@
     "picocolors": "^1.1.1",
     "postcss-nested": "^7.0.2",
     "simple-git-hooks": "^2.11.1",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "webpack": "^5.97.1"
   },
   "pnpm": {
     "patchedDependencies": {
