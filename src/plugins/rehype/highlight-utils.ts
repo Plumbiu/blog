@@ -72,3 +72,5 @@ export const getLanguage = (className: any) => {
 
 export const HighLightWordClassName = 'highlight-word'
 export const HighLightLineClassName = 'highlight-line'
+export const DiffInsertedClassName = 'inserted'
+export const DiffDeletedClassName = 'deleted'

@@ -1,6 +1,5 @@
 import { type Components } from 'hast-util-to-jsx-runtime'
 import { ImageProps } from 'next/image'
-import { toString } from 'hast-util-to-string'
 import MarkdownImage from '@/app/posts/components/Image'
 import { handleComponentName } from '@/plugins/constant'
 import {
@@ -8,6 +7,7 @@ import {
   handleImageHeight,
   handleImageWidth,
 } from '@/plugins/remark/image-utils'
+import { getOptimizedCodeProps } from '@/plugins/remark/code-utils'
 import { isUnOptimized } from '@/utils'
 import CustomComponent from '~/data/components'
 import PreComponent from '../components/Pre'
@@ -17,11 +17,11 @@ export const markdownComponents: Partial<Components> = {
     const { node, ...rest } = props
     const component = handleComponentName(props)
     const children = props.children
+    const restProps = getOptimizedCodeProps(rest)
     if (component) {
-      return <CustomComponent {...rest} />
+      return <CustomComponent {...restProps} />
     }
-    const code = props.node ? toString(props.node) : undefined
-    return <PreComponent code={code}>{children}</PreComponent>
+    return <PreComponent>{children}</PreComponent>
   },
   img(props) {
     const { src, alt } = props

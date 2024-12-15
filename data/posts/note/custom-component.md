@@ -138,8 +138,8 @@ fn({ obj: 1 })
 ### Diff
 
 ```diff-ts
-- console.log('hewwo')
-+ console.log('hello')
+-console.log('hewwo')
++console.log('hello')
 console.log('goodbye')
 ```
 

@@ -21,6 +21,8 @@ import {
   getLanguage,
   HighLightWordClassName,
   HighLightLineClassName,
+  DiffInsertedClassName,
+  DiffDeletedClassName,
 } from '../highlight-utils'
 
 const shikiOptions = {
@@ -127,8 +129,8 @@ const rehypeShikiHighlight = () => {
                 classActiveLine: HighLightLineClassName,
               }),
               transformerNotationDiff({
-                classLineAdd: 'inserted symbol',
-                classLineRemove: 'deleted symbol',
+                classLineAdd: DiffInsertedClassName,
+                classLineRemove: DiffDeletedClassName,
               }),
               shikiHightlightWordFormatTransformer(),
             ],

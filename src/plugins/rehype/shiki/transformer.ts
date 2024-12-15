@@ -4,6 +4,8 @@ import { toString } from 'hast-util-to-string'
 import { isString } from '@/utils/types'
 import {
   calculateLinesToHighlight,
+  DiffDeletedClassName,
+  DiffInsertedClassName,
   HighLightLineClassName,
   HighLightWordClassName,
 } from '../highlight-utils'
@@ -57,7 +59,11 @@ export function customShikiTranformer({
         if (ch !== '-' && ch !== '+') {
           return
         }
-        this.addClassToHast(node, ch === '-' ? 'deleted' : 'inserted')
+        node.children.splice(0, 1)
+        this.addClassToHast(
+          node,
+          ch === '-' ? DiffDeletedClassName : DiffInsertedClassName,
+        )
       }
     },
   }

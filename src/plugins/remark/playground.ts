@@ -1,12 +1,8 @@
-import path from 'node:path'
 import { visit } from 'unist-util-visit'
 import { transform, Options } from 'sucrase'
 import { isJsxFileLike } from '@/utils'
-import { tryReadFileSync } from '@/utils/node/fs'
 import { minifyCodeSync } from '@/utils/node/optimize'
-import { DataPath } from '@/utils/node/markdown'
 import {
-  handlePlaygroundCustomPreivew,
   handlePlaygroundHidePreviewTabsKey,
   handlePlaygroundSelector,
   handlePlaygroundFileMapKey,
@@ -22,7 +18,7 @@ import {
   handleComponentName,
   RemarkPlugin,
 } from '../constant'
-import { getBaseName, getFirstLine, makeProperties } from '../utils'
+import { getFirstLine, makeProperties } from '../utils'
 
 const transfromOptions: Options = {
   transforms: ['jsx', 'typescript', 'imports'],
@@ -33,9 +29,6 @@ const SupportPlaygroundLang = new Set(['jsx', 'tsx', 'js', 'ts'])
 const SupportStaticPlaygroundLang = new Set(['html', 'css', 'js', 'txt'])
 
 const SplitKey = '///'
-const PlaygroundNameCustomPreviewRegx = /Playground=['"]([^'"]+)['"]/
-const PlaygroundCustomComponentRegx = /component=['"]([^'"]+)['"]/
-const PlaygroundPathRegx = /path=['"]([^'"]+)['"]/
 const remarkPlayground: RemarkPlugin = () => {
   return (tree) => {
     visit(tree, 'code', (node) => {
@@ -62,23 +55,6 @@ const remarkPlayground: RemarkPlugin = () => {
           meta.includes(PlaygroundHidePreviewTabsKeySuffix),
         )
 
-        const previewName = PlaygroundNameCustomPreviewRegx.exec(meta)?.[1]
-        const componentName = PlaygroundCustomComponentRegx.exec(meta)?.[1]
-        const componentPath = PlaygroundPathRegx.exec(meta)?.[1]
-        if (previewName) {
-          const content = tryReadFileSync(
-            path.join(DataPath, 'components', `${previewName}.tsx`),
-          )
-          handlePlaygroundCustomPreivew(props, getBaseName(previewName))
-          handleComponentCode(props, content.trim())
-        }
-        if (componentName && componentPath) {
-          const content = tryReadFileSync(
-            path.join(DataPath, 'components', `${componentPath}.tsx`),
-          )
-          handlePlaygroundCustomPreivew(props, componentName)
-          handleComponentCode(props, content.trim())
-        }
         let hideTabs = true
         const files = buildFiles(code, selector)
         const fileKeys = Object.keys(files)

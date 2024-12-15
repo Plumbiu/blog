@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { LogInfo } from '@/hooks/useConsole'
 import PreComponent from '@/app/posts/components/Pre'
-import { handleComponentCode } from '@/plugins/constant'
 import { handleRunCode } from '@/plugins/remark/runner-utils'
 import useObserver from '@/hooks/useObservser'
 import CodeWrap from '../_common/CodeWrap'
@@ -10,7 +9,6 @@ import Loading from '../_common/Loading'
 
 function CodeRunner(props: any) {
   const runCode = handleRunCode(props)
-  const code = handleComponentCode(props)
   const [logs, setLogs] = useState<LogInfo[]>([])
   const workerRef = useRef<Worker>()
   const observerRef = useRef<HTMLDivElement>(null)
@@ -38,7 +36,7 @@ function CodeRunner(props: any) {
           workerRef.current?.postMessage(runCode)
         }}
       >
-        <PreComponent code={code}>{props.children}</PreComponent>
+        <PreComponent>{props.children}</PreComponent>
         {logs.length ? <Console showType logs={logs} /> : <Loading />}
       </CodeWrap>
     </div>

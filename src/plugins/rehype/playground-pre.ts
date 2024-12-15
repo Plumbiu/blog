@@ -9,8 +9,7 @@ import { handleComponentCode, handleComponentMetaFromProps } from '../constant'
 import { buildHandlerFunction } from '../utils'
 
 const PlaygroundFileKey = `${PlaygroundPrefix}file-key`
-export const handlePlaygroundFileKey =
-  buildHandlerFunction(PlaygroundFileKey)
+export const handlePlaygroundFileKey = buildHandlerFunction(PlaygroundFileKey)
 
 function getSuffix(name: string) {
   const index = name.lastIndexOf('.')
@@ -28,9 +27,6 @@ function markPlaygroundPre(node: Element) {
   const code = handleComponentCode(props)
   const selector = handlePlaygroundSelector(props)
   const files = buildFiles(code, selector)
-  // remarkPlayground make the type of node as 'root'
-  // so data.meta is not available
-  const meta = handleComponentMetaFromProps(props)
   node.tagName = 'pre'
   if (!node.data) {
     node.data = {}
