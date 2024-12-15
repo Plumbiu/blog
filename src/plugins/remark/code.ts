@@ -4,24 +4,22 @@ import { tryReadFileSync } from '@/utils/node/fs'
 import { DataPath } from '@/utils/node/markdown'
 import { handlePlaygroundCustomPreivew } from './playground-utils'
 import { makeProperties } from '../utils'
-import { ComponentLangKey, RemarkPlugin } from '../constant'
+import { RemarkPlugin } from '../constant'
 
-const PlaygroundPathRegx = /path=['"]([^'"]+)['"]/
-const PlaygroundCustomComponentRegx = /component=['"]([^'"]+)['"]/
+const CodePathRegx = /path=['"]([^'"]+)['"]/
+const CodeComponentRegx = /component=['"]([^'"]+)['"]/
 
 const remarkCodeConfig: RemarkPlugin = () => {
   return (tree) => {
     visit(tree, 'code', (node) => {
       makeProperties(node)
       const props = node.data!.hProperties!
-      const lang = node.lang?.toLowerCase()
-      props[ComponentLangKey] = lang
       const meta = node.meta
       if (!meta) {
         return
       }
-      const componentName = PlaygroundCustomComponentRegx.exec(meta)?.[1]
-      const componentPath = PlaygroundPathRegx.exec(meta)?.[1]
+      const componentName = CodeComponentRegx.exec(meta)?.[1]
+      const componentPath = CodePathRegx.exec(meta)?.[1]
       if (componentName) {
         handlePlaygroundCustomPreivew(props, componentName)
       }

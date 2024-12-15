@@ -186,7 +186,7 @@
   }
   .highlight-line,
   .highlight-word {
-    background-color: var(--bg-md-highlight-line); /* Set highlight bg color */
+    background-color: var(--bg-md-highlight-line);
   }
 
   .highlight-word {

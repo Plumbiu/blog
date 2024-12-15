@@ -14,7 +14,7 @@ function PreComponent({ children }: PreComponentProps) {
   async function copy() {
     try {
       const code = renderReactNodeToString(children)
-      navigator.clipboard.writeText(code)
+      await navigator.clipboard.writeText(code)
       setIcon(<CopyCheckIcon />)
     } catch (error) {
       setIcon(<CopyErrorIcon />)

@@ -1,22 +1,23 @@
 import { transform, Options } from 'sucrase'
 import { visit } from 'unist-util-visit'
 import { minifyCodeSync } from '@/utils/node/optimize'
-import { handleRunCode, isJavaScript, isTypeScript } from './runner-utils'
 import {
-  ComponentCodeKey,
-  ComponentKey,
+  handleRunCode,
+  isJavaScript,
+  isTypeScript,
+  RunnerName,
+} from './runner-utils'
+import {
+  handleComponentCode,
   handleComponentMetaFromProps,
   handleComponentName,
+  handleLangFromProps,
   RemarkPlugin,
 } from '../constant'
 import { makeProperties } from '../utils'
 
-export const RunnerName = 'Run'
 const transfromOptions: Options = {
   transforms: ['flow'],
-}
-export function isRuner(props: any) {
-  return props[ComponentKey] === RunnerName
 }
 const remarkRunner: RemarkPlugin = () => {
   return (tree) => {
@@ -28,11 +29,14 @@ const remarkRunner: RemarkPlugin = () => {
       if (!meta?.includes(RunnerName)) {
         return
       }
-      props[ComponentCodeKey] = code
+      handleComponentCode(props, code)
       const lang = node.lang?.toLowerCase()
+
       if (!lang) {
         return
       }
+      handleLangFromProps(props, lang)
+
       if (!isJavaScript(lang) && !isTypeScript(lang)) {
         return
       }

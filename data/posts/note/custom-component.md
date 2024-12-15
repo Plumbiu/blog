@@ -198,6 +198,12 @@ console.log('goodbye')
 
 :ThreeSunEarthMoon
 
+## Path
+
+```jsx path="iframe/index"
+
+```
+
 # Tip
 
 > Normal Tip

@@ -1,5 +1,5 @@
 import { type Element } from 'hast'
-import { isRuner } from '../remark/runner'
+import { isRuner } from '../remark/runner-utils'
 import {
   handleComponentCode,
   handleComponentMetaFromProps,

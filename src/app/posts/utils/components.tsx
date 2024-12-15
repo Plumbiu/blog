@@ -7,7 +7,7 @@ import {
   handleImageHeight,
   handleImageWidth,
 } from '@/plugins/remark/image-utils'
-import { getOptimizedCodeProps } from '@/plugins/remark/code-utils'
+import { optimizeCodeProps } from '@/plugins/remark/code-utils'
 import { isUnOptimized } from '@/utils'
 import CustomComponent from '~/data/components'
 import PreComponent from '../components/Pre'
@@ -17,9 +17,9 @@ export const markdownComponents: Partial<Components> = {
     const { node, ...rest } = props
     const component = handleComponentName(props)
     const children = props.children
-    const restProps = getOptimizedCodeProps(rest)
+    optimizeCodeProps(rest)
     if (component) {
-      return <CustomComponent {...restProps} />
+      return <CustomComponent {...rest} />
     }
     return <PreComponent>{children}</PreComponent>
   },
