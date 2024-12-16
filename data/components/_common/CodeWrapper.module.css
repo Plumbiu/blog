@@ -1,34 +1,18 @@
+.wrapper {
+  overflow: hidden;
+  border-radius: var(--pre-radius);
+}
+
 .container {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  align-items: stretch;
-  overflow: hidden;
-  border-radius: 0 0 var(--pre-radius) var(--pre-radius);
   background-color: var(--bg-md-pre);
-  border: 1px solid var(--divider);
-  border-top: none;
-  & > div:first-child {
-    border-right: 1px solid var(--divider);
-    & > pre {
-      border: none;
-      padding: 8px 12px !important;
-      border-radius: 0;
-    }
-  }
 }
 
 @media screen and (max-width: 640px) {
   .container {
-    display: grid;
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
-
-    & > div:first-child {
-      border-right: none;
-      & > pre {
-        border-bottom: 1px solid var(--c-green-3);
-      }
-    }
   }
 }
 
@@ -40,8 +24,6 @@
   font-size: 14px;
   background-color: var(--bg-md-pre-bar);
   font-weight: 600;
-  border: 1px solid var(--divider);
-  border-radius: var(--pre-radius) var(--pre-radius) 0 0;
 }
 
 .rerun {

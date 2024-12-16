@@ -3,7 +3,7 @@ import type { LogInfo } from '@/hooks/useConsole'
 import PreComponent from '@/app/posts/components/Pre'
 import { handleRunCode } from '@/plugins/remark/runner-utils'
 import useObserver from '@/hooks/useObservser'
-import CodeWrap from '../_common/CodeWrap'
+import CodeWrapper from '../_common/CodeWrapper'
 import Console from '../_common/Console'
 import Loading from '../_common/Loading'
 
@@ -29,16 +29,18 @@ function CodeRunner(props: any) {
   }, [isIntersecting])
   return (
     <div ref={observerRef}>
-      <CodeWrap
+      <CodeWrapper
         barText="Code Runner"
         forceUpdate={() => {
           setLogs([])
           workerRef.current?.postMessage(runCode)
         }}
       >
-        <PreComponent>{props.children}</PreComponent>
-        {logs.length > 0? <Console showType logs={logs} /> : <Loading />}
-      </CodeWrap>
+        <PreComponent className="codeblock_split">
+          {props.children}
+        </PreComponent>
+        {logs.length > 0 ? <Console showType logs={logs} /> : <Loading />}
+      </CodeWrapper>
     </div>
   )
 }

@@ -15,7 +15,6 @@ import {
   handlePlaygroundCustomPreivew,
   handlePlaygroundHidePreviewTabsKey,
   handlePlaygroundStyles,
-  handlePlaygroundHideCodeTabsKey,
 } from '@/plugins/remark/code-block/playground-utils'
 import ReactShadowRoot from '@/components/Shadow'
 import useConsole from '@/hooks/useConsole'
@@ -24,53 +23,35 @@ import { cn } from '@/utils/client'
 import styles from './index.module.css'
 import tabStyles from '../_styles/tab.module.css'
 import { renderStaticPlayground, renerPlayground } from './compile'
-import CodeWrap from '../_common/CodeWrap'
+import CodeWrapper from '../_common/CodeWrapper'
 import Console from '../_common/Console'
 import { componentMap } from '..'
 import Loading from '../_common/Loading'
-import {
-  handleComponentFileKey,
-  handleComponentSelectorKey,
-  handleFileMap,
-} from '@/plugins/constant'
+import { handleComponentSelectorKey, handleFileMap } from '@/plugins/constant'
 import CodePreview from '../_common/CodePreview'
 
 const Playground = (props: any) => {
   const {
     defaultSelector,
-    codeNodeMap,
     css,
     files,
-    codeTabs,
     isStatic,
     isPreviewTabsHidden,
-    isCodeTabsHidden,
     customPreviewNode,
   } = useMemo(() => {
-    const children = Array.isArray(props.children)
-      ? props.children
-      : [props.children]
     const defaultSelector = handleComponentSelectorKey(props)
-    const codeNodeMap = Object.fromEntries(
-      children.map((node: any) => [handleComponentFileKey(node.props), node]),
-    )
     const css = handlePlaygroundStyles(props) ?? ''
     const files = handleFileMap(props)
-    const codeTabs = Object.keys(files).map((name) => ({ name }))
     const isStatic = defaultSelector.endsWith('.html')
     const isPreviewTabsHidden = handlePlaygroundHidePreviewTabsKey(props)
-    const isCodeTabsHidden = handlePlaygroundHideCodeTabsKey(props)
     const customPreviewName = handlePlaygroundCustomPreivew(props)
     const customPreviewNode = componentMap[customPreviewName]
     return {
       defaultSelector,
-      codeNodeMap,
       css,
       files,
-      codeTabs,
       isStatic,
       isPreviewTabsHidden,
-      isCodeTabsHidden,
       customPreviewNode,
     }
   }, [props])
@@ -101,13 +82,17 @@ const Playground = (props: any) => {
         ? createElement(customPreviewNode, props)
         : renerPlayground(playgroundProps)
     }
+    node = <Suspense fallback={<Loading />}>{node}</Suspense>
 
-    root.current.render(
-      <ReactShadowRoot shadow={!!css}>
-        {!!css && <style>{css}</style>}
-        <Suspense fallback={<Loading />}>{node}</Suspense>
-      </ReactShadowRoot>,
-    )
+    if (css) {
+      node = (
+        <ReactShadowRoot shadow>
+          <style>{css}</style>
+          {node}
+        </ReactShadowRoot>
+      )
+    }
+    root.current.render(node)
     return () => {
       setTimeout(() => {
         root.current?.unmount()
@@ -118,13 +103,8 @@ const Playground = (props: any) => {
   useObserver(nodeRef, renderNode)
 
   return (
-    <CodeWrap barText="Code Playground" forceUpdate={() => renderNode(true)}>
-      <CodePreview
-        tabs={codeTabs}
-        nodeMap={codeNodeMap}
-        defaultSelector={defaultSelector}
-        hide={!!isCodeTabsHidden}
-      />
+    <CodeWrapper barText="Code Playground" forceUpdate={() => renderNode(true)}>
+      <CodePreview {...props} />
       <div>
         {!(isStatic || isPreviewTabsHidden) && (
           <div className={tabStyles.tab}>
@@ -155,7 +135,7 @@ const Playground = (props: any) => {
         />
         {isConsoleVisible && <Console logs={logs} />}
       </div>
-    </CodeWrap>
+    </CodeWrapper>
   )
 }
 

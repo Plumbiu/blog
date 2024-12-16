@@ -2,6 +2,7 @@
   height: 100%;
   color: var(--text-2);
   overflow-x: hidden;
+  overflow-y: auto;
   position: sticky;
   right: 0;
   top: 140px;
@@ -10,8 +11,6 @@
   padding-right: 16px;
   max-height: 100vh;
   width: var(--center-rest);
-  overflow-y: auto;
-  scrollbar-width: none;
 }
 
 @media screen and (max-width: 1024px) {

@@ -8,6 +8,7 @@
   white-space: nowrap;
 
   & > div {
+    background-color: var(--bg-md-pre);
     padding: 10px 12px;
     cursor: pointer;
     border-bottom: 1px solid var(--divider);

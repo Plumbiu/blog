@@ -35,3 +35,13 @@
   justify-content: center;
   gap: 4px;
 }
+
+.codeblock_split {
+  border-right: 1px solid var(--divider);
+}
+
+@media screen and (max-width: 640px) {
+  .codeblock_split {
+    border-right: none;
+  }
+}

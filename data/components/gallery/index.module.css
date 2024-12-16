@@ -1,8 +1,6 @@
-.gallery {
-  & img {
-    user-select: none;
-    border-radius: 0 !important;
-  }
+.gallery img {
+  user-select: none;
+  border-radius: 0 !important;
 }
 
 @keyframes fade {

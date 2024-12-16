@@ -4,12 +4,14 @@ import { type ReactNode, useState } from 'react'
 import { CopyCheckIcon, CopyErrorIcon, CopyIcon } from '@/components/Icons'
 import { renderReactNodeToString } from '@/utils'
 import styles from './Pre.module.css'
+import { cn } from '@/utils/client'
 
 interface PreComponentProps {
   children: ReactNode
+  className?: string
 }
 
-function PreComponent({ children }: PreComponentProps) {
+function PreComponent({ children, className }: PreComponentProps) {
   const [icon, setIcon] = useState(<CopyIcon />)
   async function copy() {
     try {
@@ -25,7 +27,7 @@ function PreComponent({ children }: PreComponentProps) {
     }
   }
   return (
-    <div className={styles.wrap}>
+    <div className={cn(className, styles.wrap)}>
       <div className={styles.action} onClick={copy}>
         {icon}
       </div>

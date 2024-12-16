@@ -1,9 +1,14 @@
 'use client'
 
 import type { TabProps, CodePreviewProps } from '../types'
-import { memo, useState } from 'react'
-import styles from '../_styles/tab.module.css'
+import { memo, useMemo, useState } from 'react'
+import tabStyles from '../_styles/tab.module.css'
 import { cn } from '@/utils/client'
+import {
+  handleComponentSelectorKey,
+  handleComponentFileKey,
+  handleFileMap,
+} from '@/plugins/constant'
 
 const Tab = memo((props: TabProps) => {
   const { name, onClick, hidden = false, isActive } = props
@@ -15,7 +20,7 @@ const Tab = memo((props: TabProps) => {
       key={name}
       onClick={onClick}
       className={cn({
-        [styles.tab_active]: isActive,
+        [tabStyles.tab_active]: isActive,
       })}
     >
       {name}
@@ -23,7 +28,7 @@ const Tab = memo((props: TabProps) => {
   )
 })
 
-const CodePreview = memo(
+const CodeTabs = memo(
   ({ defaultSelector, nodeMap, tabs, hide, className }: CodePreviewProps) => {
     const [selector, setSelector] = useState(defaultSelector)
     const node = nodeMap[selector]
@@ -31,7 +36,7 @@ const CodePreview = memo(
     return (
       <div className={className}>
         {showTab && (
-          <div className={styles.tab}>
+          <div className={tabStyles.tab}>
             {tabs.map((tabProps) => (
               <Tab
                 key={tabProps.name}
@@ -51,4 +56,34 @@ const CodePreview = memo(
     )
   },
 )
+const CodePreview = (props: any) => {
+  const { defaultSelector, codeNodeMap, codeTabs } = useMemo(() => {
+    const children = Array.isArray(props.children)
+      ? props.children
+      : [props.children]
+    const defaultSelector = handleComponentSelectorKey(props)
+    const codeNodeMap = Object.fromEntries(
+      children.map((node: any) => [handleComponentFileKey(node.props), node]),
+    )
+    const files = handleFileMap(props)
+    const codeTabs = Object.keys(files).map((name) => ({ name }))
+
+    return {
+      defaultSelector,
+      codeNodeMap,
+      codeTabs,
+    }
+  }, [props])
+
+  return (
+    <CodeTabs
+      className={cn('codeblock_split', props.className)}
+      tabs={codeTabs}
+      nodeMap={codeNodeMap}
+      defaultSelector={defaultSelector}
+      hide={false}
+    />
+  )
+}
+
 export default CodePreview

@@ -6,13 +6,7 @@
     "useIgnoreFile": true
   },
   "files": {
-    "ignoreUnknown": false,
-    "ignore": [
-      "node_modules",
-      "patches",
-      ".next",
-      "public"
-    ]
+    "ignoreUnknown": true
   },
   "formatter": {
     "enabled": true,
@@ -330,7 +324,13 @@
         "useValidAriaValues": "error",
         "useValidLang": "error"
       }
-    }
+    },
+    "ignore": [
+      "node_modules",
+      "patches",
+      ".next",
+      "public"
+    ]
   },
   "javascript": {
     "linter": {

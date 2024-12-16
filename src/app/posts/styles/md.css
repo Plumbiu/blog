@@ -63,7 +63,6 @@
     max-height: 60vh;
     border-radius: var(--pre-radius);
     background-color: var(--bg-md-pre);
-    border: 1px solid var(--divider);
     padding: var(--pre-p) 0 var(--pre-p) var(--pre-p);
     code {
       display: block;

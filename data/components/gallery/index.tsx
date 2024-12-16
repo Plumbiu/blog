@@ -59,7 +59,7 @@ function ImageGallery(props: any) {
   const allThumbnailsNode = useMemo(() => {
     return photos.map(({ src, width, height, base64 }, i) => {
       const commonProps = {
-        alt: '',
+        alt: src,
         src,
         placeholder: 'blur',
         blurDataURL: base64,
@@ -106,17 +106,7 @@ function ImageGallery(props: any) {
         }}
         render={{
           image(_props, context) {
-            const photo = photos[context.index]
-            return (
-              <a
-                href={photo.optimizeSrc}
-                onClick={(e) => {
-                  e.preventDefault()
-                }}
-              >
-                {allThumbnailsNode[context.index]}
-              </a>
-            )
+            return allThumbnailsNode[context.index]
           },
         }}
       />
