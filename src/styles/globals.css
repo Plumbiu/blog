@@ -15,6 +15,12 @@ body {
   scrollbar-color: var(--bg-scrollbar);
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+}
+
 h1,
 h2,
 h3,
@@ -82,12 +88,6 @@ p {
 strong,
 em {
   color: var(--text);
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  font-weight: 500;
 }
 
 img {

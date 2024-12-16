@@ -43,5 +43,6 @@
 @media screen and (max-width: 640px) {
   .codeblock_split {
     border-right: none;
+    border-bottom: 1px solid var(--divider);
   }
 }
