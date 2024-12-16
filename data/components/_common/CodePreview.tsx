@@ -9,6 +9,7 @@ import {
   handleComponentFileKey,
   handleFileMap,
 } from '@/plugins/constant'
+import PreComponent from '@/app/posts/components/Pre'
 
 const Tab = memo((props: TabProps) => {
   const { name, onClick, hidden = false, isActive } = props
@@ -51,7 +52,7 @@ const CodeTabs = memo(
             <div />
           </div>
         )}
-        <pre>{node}</pre>
+        <PreComponent>{node}</PreComponent>
       </div>
     )
   },
