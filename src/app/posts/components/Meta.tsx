@@ -12,34 +12,6 @@ function Meta({ meta }: PostList) {
         date={date}
         className={styles.info}
       />
-      {/* <div className={styles.extra}>
-        <Link
-          href={'/' + prev?.path}
-          className={cn({
-            [styles.extra_wrap_disabled]: !prev,
-          })}
-        >
-          <ArrowLeftIcon />
-          <div>
-            <div className={styles.top_title}>上一篇</div>
-            <div>{prev?.meta?.title || '没有上一篇'}</div>
-          </div>
-        </Link>
-        <Link
-          href={'/' + next?.path}
-          className={cn(styles.next, {
-            [styles.extra_wrap_disabled]: !next,
-          })}
-        >
-          <div>
-            <div className={styles.top_title}>下一篇</div>
-            <div className={styles.extra_title}>
-              {next?.meta?.title || 'Last post!'}
-            </div>
-          </div>
-          <ArrowRightIcon />
-        </Link>
-      </div> */}
     </div>
   )
 }

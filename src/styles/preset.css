@@ -16,7 +16,7 @@
 
 .link {
   color: var(--text);
-  border-bottom: 1px solid var(--divider);
+  border-bottom: 1px solid var(--c-gray-2);
   transition: border-color 250ms;
   word-break: break-all;
   &:hover {

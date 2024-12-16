@@ -29,9 +29,9 @@
   --c-green-2: #299764;
   --c-green-1: #18794e;
   --c-gray-soft: rgba(150, 150, 160, 0.14);
-  --c-gray-3: #dfdfe6;
-  --c-gray-2: #e4e4e9;
-  --c-gray-1: #dddde3;
+  --c-gray-3: #ccc;
+  --c-gray-2: #bababa;
+  --c-gray-1: #a9a9a9;
   /* background */
   --bg-md-quote-before: #d5d5d5;
   --bg-md-quote-warn: #fcf4dc;

@@ -4,6 +4,10 @@
   justify-content: center;
   gap: 12px;
   margin-top: 36px;
+
+  & svg {
+    font-size: 20px;
+  }
 }
 
 @media screen and (max-width: 960px) {

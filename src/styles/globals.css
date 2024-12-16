@@ -73,7 +73,7 @@ ol,
 ul {
   margin-top: 6px;
   padding-left: 28px;
-  line-height: 26px;
+  line-height: 28px;
   & > li {
     padding-left: 4px;
   }
