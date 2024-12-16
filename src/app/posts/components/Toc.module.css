@@ -9,8 +9,12 @@
   z-index: 9;
   padding-left: 48px;
   padding-right: 16px;
-  max-height: 100vh;
+  max-height: calc(100vh - 140px);
   width: var(--center-rest);
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 }
 
 @media screen and (max-width: 1024px) {
