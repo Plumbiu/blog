@@ -1,10 +1,6 @@
 const process = require('node:process')
 const Analyzer = require('@next/bundle-analyzer')
 const { default: classnamesMinifier } = require('@nimpl/classnames-minifier')
-const {
-  PHASE_DEVELOPMENT_SERVER,
-  PHASE_PRODUCTION_BUILD,
-} = require('next/constants')
 
 const IS_GITPAGE = !!process.env.GITPAGE
 const BasePath = IS_GITPAGE ? '/blog' : ''
@@ -22,7 +18,7 @@ const withClassnamesMinifier = classnamesMinifier({
 /**
  * @type {import('next').NextConfig}
  **/
-const config = {
+const nextConfig = {
   basePath: BasePath,
   experimental: {
     cssChunking: 'loose',
@@ -82,14 +78,4 @@ const config = {
   },
 }
 
-const nextConfig = withClassnamesMinifier(withBundleAnalyzer(config))
-
-module.exports = (phase) => {
-  if (phase === PHASE_DEVELOPMENT_SERVER || phase === PHASE_PRODUCTION_BUILD) {
-    const withPWA = require('@ducanh2912/next-pwa').default({
-      dest: 'public',
-    })
-    return withPWA(nextConfig)
-  }
-  return nextConfig
-}
+module.exports = withClassnamesMinifier(withBundleAnalyzer(nextConfig))
