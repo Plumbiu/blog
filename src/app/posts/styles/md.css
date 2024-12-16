@@ -215,4 +215,11 @@
       color: var(--c-green-1);
     }
   }
+
+  .language-bash > .line {
+    &::before {
+      content: "$ ";
+      color: var(--c-indigo-1);
+    }
+  }
 }

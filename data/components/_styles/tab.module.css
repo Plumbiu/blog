@@ -1,7 +1,7 @@
 .tab {
   box-sizing: content-box;
   display: flex;
-  font-size: 13px;
+  font-size: 14px;
   overflow-x: auto;
   overflow-y: hidden;
   color: var(--text-3);

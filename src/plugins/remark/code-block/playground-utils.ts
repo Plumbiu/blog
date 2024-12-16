@@ -64,12 +64,13 @@ export const buildFiles = (code: string, selector?: string) => {
 export const filemapToElementContent = (
   files: FileMap,
   parentMeta: string,
+  parentLang: string
 ): ElementContent[] => {
   return Object.keys(files).map((key) => {
     const item = files[key]
     const lang = getSuffix(key).toLowerCase()
     const props: Record<string, string> = {
-      className: `language-${lang}`,
+      className: `language-${lang || parentLang}`,
       [ComponentFileMapKey]: key,
     }
     return {

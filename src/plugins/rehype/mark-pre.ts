@@ -22,7 +22,8 @@ function markCustomComponentPre(node: Element) {
     // TODO: already build files in remark-plugin
     const files = buildFiles(code, selector)
     const meta = handleComponentMeta(props)
-    markPre(node, filemapToElementContent(files, meta))
+    const lang = handleLang(props)
+    markPre(node, filemapToElementContent(files, meta, lang))
     return
   }
   if (isRuner(props)) {

@@ -135,27 +135,13 @@ fn({ obj: 1 })
 
 ## Switcher
 
-```ts Switcher
-/// index.ts
-interface Foo {
-  text: string
-  prefix: string
-}
-function log(foo: Foo) {
-  console.log(foo)
-}
-console.log({
-  text: 1,
-  prefix: 2,
-})
-/// index.js
-function log(foo) {
-  console.log(foo)
-}
-console.log({
-  text: 1,
-  prefix: 2,
-})
+```bash Switcher
+/// npm
+npm install @plumbiu/react-store
+/// yarn
+yarn add @plumbiu/react-store
+/// pnpm
+pnpm add @plumbiu/react-store
 ```
 
 ## Block

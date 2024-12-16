@@ -16,6 +16,7 @@ import {
   handleComponentName,
   handleComponentSelectorKey,
   handleFileMap,
+  handleLang,
   type RemarkPlugin,
 } from '../../constant'
 import { getFirstFileKey, makeProperties } from '../../utils'
@@ -84,7 +85,7 @@ const remarkCodeBlcok: RemarkPlugin = () => {
           ),
         )
         handlePlaygroundStyles(props, styles)
-
+        handleLang(props, lang)
         // @ts-ignore
         node.type = 'root'
         node.data!.hName = 'div'
