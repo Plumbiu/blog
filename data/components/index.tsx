@@ -8,9 +8,9 @@ import IntersectionObserverComponent from '@/components/IntersectionObserverComp
 import Playground from './playground'
 import CodeRunner from './code-runner'
 import Switcher from './switcher'
-import { isPlayground } from '@/plugins/remark/playground-utils'
+import { isPlayground } from '@/plugins/remark/code-block/playground-utils'
 import { isRuner } from '@/plugins/remark/runner-utils'
-import { isSwitcher } from '@/plugins/remark/switcher-utils'
+import { isSwitcher } from '@/plugins/remark/code-block/switcher-utils'
 
 const ThreeFirstScene = lazy(() => import('./three/ThreeFirstScene'))
 const ThreePureFirstScene = lazy(() => import('./three/ThreePureFirstScene'))

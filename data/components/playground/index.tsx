@@ -16,7 +16,7 @@ import {
   handlePlaygroundHidePreviewTabsKey,
   handlePlaygroundStyles,
   handlePlaygroundHideCodeTabsKey,
-} from '@/plugins/remark/playground-utils'
+} from '@/plugins/remark/code-block/playground-utils'
 import ReactShadowRoot from '@/components/Shadow'
 import useConsole from '@/hooks/useConsole'
 import useObserver from '@/hooks/useObservser'

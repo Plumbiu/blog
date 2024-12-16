@@ -8,14 +8,13 @@ import { Fragment, jsx, jsxs } from 'react/jsx-runtime'
 import rehypeShikiHighlight from '@/plugins/rehype/shiki/hightlight'
 import rehypeElementPlugin from '@/plugins/rehype/element'
 import remarkSlug from '@/plugins/remark/slug'
-import remarkPlayground from '@/plugins/remark/playground'
 import { remarkContainerDirectivePlugin } from '@/plugins/remark/directive'
 import remarkRunner from '@/plugins/remark/runner'
 import remarkImage from '@/plugins/remark/image'
 import remarkCodeConfig from '@/plugins/remark/code'
 import { remarkPlainText } from '@/plugins/remark/plain-text/index'
 import { markdownComponents } from './components'
-import remarkSwitcher from '@/plugins/remark/switcher'
+import remarkCodeBlcok from '@/plugins/remark/code-block'
 
 // This code is refactored into TypeScript based on
 // https://github.com/remarkjs/react-markdown/blob/main/lib/index.js
@@ -54,10 +53,9 @@ async function transfromCode2Jsx(code: string) {
       remarkContainerDirectivePlugin,
       remarkSlug,
       remarkCodeConfig,
-      remarkPlayground,
+      remarkCodeBlcok,
       remarkRunner,
       remarkImage,
-      remarkSwitcher,
       [remarkPlainText, code],
     ])
     .use(remarkRehype)

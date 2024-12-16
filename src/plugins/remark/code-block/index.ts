@@ -17,8 +17,9 @@ import {
   handleComponentSelectorKey,
   handleFileMap,
   type RemarkPlugin,
-} from '../constant'
-import { getFirstFileKey, makeProperties } from '../utils'
+} from '../../constant'
+import { getFirstFileKey, makeProperties } from '../../utils'
+import { SwitcherName } from './switcher-utils'
 
 const transfromOptions: Options = {
   transforms: ['jsx', 'typescript', 'imports'],
@@ -28,7 +29,7 @@ const transfromOptions: Options = {
 const SupportPlaygroundLang = new Set(['jsx', 'tsx', 'js', 'ts'])
 const SupportStaticPlaygroundLang = new Set(['html', 'css', 'js', 'txt'])
 
-const remarkPlayground: RemarkPlugin = () => {
+const remarkCodeBlcok: RemarkPlugin = () => {
   return (tree) => {
     visit(tree, 'code', (node) => {
       makeProperties(node)
@@ -36,13 +37,15 @@ const remarkPlayground: RemarkPlugin = () => {
       const code = node.value.trim()
       const meta = node.meta
       const lang = node.lang?.toLowerCase()
-      if (!(lang && meta?.includes(PlaygroundName))) {
+      const isPlayground = meta?.includes(PlaygroundName)
+      const isSwitcher = meta?.includes(SwitcherName)
+      if (!(meta && lang)) {
         return
       }
 
       const myBeAppFile = getFirstFileKey(code)
       const setNode = (selector: string) => {
-        handleComponentName(props, PlaygroundName)
+        handleComponentName(props, isPlayground ? PlaygroundName : SwitcherName)
         handleComponentSelectorKey(props, selector)
         handleComponentCode(props, code)
         handlePlaygroundHidePreviewTabsKey(
@@ -87,14 +90,17 @@ const remarkPlayground: RemarkPlugin = () => {
         node.data!.hName = 'div'
         handleComponentMeta(props, meta)
       }
-
-      if (SupportPlaygroundLang.has(lang)) {
-        setNode(myBeAppFile ?? `App.${lang}`)
-      } else if (SupportStaticPlaygroundLang.has(lang)) {
-        setNode(myBeAppFile ?? 'index.html')
+      if (isPlayground) {
+        if (SupportPlaygroundLang.has(lang)) {
+          setNode(myBeAppFile ?? `App.${lang}`)
+        } else if (SupportStaticPlaygroundLang.has(lang)) {
+          setNode(myBeAppFile ?? 'index.html')
+        }
+      } else if (isSwitcher && myBeAppFile) {
+        setNode(myBeAppFile)
       }
     })
   }
 }
 
-export default remarkPlayground
+export default remarkCodeBlcok

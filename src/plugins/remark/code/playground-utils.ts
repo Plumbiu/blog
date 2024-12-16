@@ -1,8 +1,11 @@
-import { ComponentKey, type FileMap, FileMapStartStr } from '../constant'
-import { buildHandlerFunction, getFirstLine } from '../utils'
 import type { ElementContent } from 'hast'
-import { ComponentFileMapKey } from '../constant'
-import { getSuffix } from '../utils'
+import {
+  ComponentFileMapKey,
+  ComponentKey,
+  type FileMap,
+  FileMapStartStr,
+} from '../../constant'
+import { getSuffix, buildHandlerFunction, getFirstLine } from '../../utils'
 export const PlaygroundHidePreviewTabsKeySuffix = 'no-v-tab'
 export const PlaygroundHideCodeTabsKeySuffix = 'no-c-tab'
 
@@ -58,7 +61,10 @@ export const buildFiles = (code: string, selector?: string) => {
   return attrs
 }
 
-export const filemapToElementContent = (files: FileMap): ElementContent[] => {
+export const filemapToElementContent = (
+  files: FileMap,
+  parentMeta: string,
+): ElementContent[] => {
   return Object.keys(files).map((key) => {
     const item = files[key]
     const lang = getSuffix(key).toLowerCase()
@@ -71,7 +77,7 @@ export const filemapToElementContent = (files: FileMap): ElementContent[] => {
       tagName: 'code',
       properties: props,
       data: {
-        meta: item.meta,
+        meta: `${parentMeta} ${item.meta}`,
       },
       children: [{ type: 'text', value: item.code }],
     }

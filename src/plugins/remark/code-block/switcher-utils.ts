@@ -1,4 +1,4 @@
-import { ComponentKey } from '../constant'
+import { ComponentKey } from '../../constant'
 
 export const SwitcherName = 'Switcher'
 
