@@ -3,6 +3,7 @@ import { visit } from 'unist-util-visit'
 import markRunnerPre from './runner-pre'
 import markPlaygroundPre from './playground-pre'
 import type { RehypePlugin } from '../constant'
+import markSwitcherPre from './switcher-pre'
 
 const rehypeElementPlugin: RehypePlugin = () => {
   return (tree) => {
@@ -10,6 +11,7 @@ const rehypeElementPlugin: RehypePlugin = () => {
       blankTargetPlugin(node)
       markPlaygroundPre(node)
       markRunnerPre(node)
+      markSwitcherPre(node)
     })
   }
 }

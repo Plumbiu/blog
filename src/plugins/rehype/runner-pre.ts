@@ -2,23 +2,20 @@ import type { Element } from 'hast'
 import { isRuner } from '../remark/runner-utils'
 import {
   handleComponentCode,
-  handleComponentMetaFromProps,
-  handleLangFromProps,
+  handleComponentMeta,
+  handleLang,
 } from '../constant'
+import { markPre } from './pre-utils'
 
 function markRunnerPre(node: Element) {
   const props = node.properties
   if (isRuner(props)) {
     // remarkRunner make the type of node as 'root'
     // so data.meta is not available
-    const meta = handleComponentMetaFromProps(props)
+    const meta = handleComponentMeta(props)
     const code = handleComponentCode(props)
-    const lang = handleLangFromProps(props)
-    node.tagName = 'pre'
-    if (!node.data) {
-      node.data = {}
-    }
-    node.children = [
+    const lang = handleLang(props)
+    markPre(node, [
       {
         type: 'element',
         tagName: 'code',
@@ -30,7 +27,7 @@ function markRunnerPre(node: Element) {
         },
         children: [{ type: 'text', value: code }],
       },
-    ]
+    ])
   }
 }
 

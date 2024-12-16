@@ -9,9 +9,9 @@ import {
 } from './runner-utils'
 import {
   handleComponentCode,
-  handleComponentMetaFromProps,
+  handleComponentMeta,
   handleComponentName,
-  handleLangFromProps,
+  handleLang,
   type RemarkPlugin,
 } from '../constant'
 import { makeProperties } from '../utils'
@@ -35,7 +35,7 @@ const remarkRunner: RemarkPlugin = () => {
       if (!lang) {
         return
       }
-      handleLangFromProps(props, lang)
+      handleLang(props, lang)
 
       if (!(isJavaScript(lang) || isTypeScript(lang))) {
         return
@@ -48,7 +48,7 @@ const remarkRunner: RemarkPlugin = () => {
       node.type = 'root'
       node.data!.hName = 'div'
       handleComponentName(props, RunnerName)
-      handleComponentMetaFromProps(props, meta)
+      handleComponentMeta(props, meta)
       handleRunCode(props, minifyCodeSync(code))
     })
   }

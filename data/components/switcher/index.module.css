@@ -1,0 +1,12 @@
+.container {
+  & > div {
+    border-radius: var(--pre-radius) var(--pre-radius) 0 0;
+    background-color: var(--bg-md-pre-bar);
+    border: 1px solid var(--divider);
+    border-bottom: none;
+  }
+  & pre {
+    border-radius: 0 0 var(--pre-radius) var(--pre-radius) !important;
+    border-top: none !important;
+  }
+}

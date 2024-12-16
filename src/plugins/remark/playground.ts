@@ -4,8 +4,6 @@ import { isJsxFileLike } from '@/utils'
 import { minifyCodeSync } from '@/utils/node/optimize'
 import {
   handlePlaygroundHidePreviewTabsKey,
-  handlePlaygroundSelector,
-  handlePlaygroundFileMapKey,
   PlaygroundName,
   handlePlaygroundStyles,
   PlaygroundHidePreviewTabsKeySuffix,
@@ -14,11 +12,13 @@ import {
 } from './playground-utils'
 import {
   handleComponentCode,
-  handleComponentMetaFromProps,
+  handleComponentMeta,
   handleComponentName,
+  handleComponentSelectorKey,
+  handleFileMap,
   type RemarkPlugin,
 } from '../constant'
-import { getFirstLine, makeProperties } from '../utils'
+import { getFirstFileKey, makeProperties } from '../utils'
 
 const transfromOptions: Options = {
   transforms: ['jsx', 'typescript', 'imports'],
@@ -28,7 +28,6 @@ const transfromOptions: Options = {
 const SupportPlaygroundLang = new Set(['jsx', 'tsx', 'js', 'ts'])
 const SupportStaticPlaygroundLang = new Set(['html', 'css', 'js', 'txt'])
 
-const SplitKey = '///'
 const remarkPlayground: RemarkPlugin = () => {
   return (tree) => {
     visit(tree, 'code', (node) => {
@@ -41,15 +40,11 @@ const remarkPlayground: RemarkPlugin = () => {
         return
       }
 
-      const firstLine = getFirstLine(code)
-      const endIndex = firstLine.length
-      const myBeAppFile = firstLine.startsWith(SplitKey)
-        ? firstLine.replace(SplitKey, '').trim()
-        : undefined
+      const myBeAppFile = getFirstFileKey(code)
       const setNode = (selector: string) => {
         handleComponentName(props, PlaygroundName)
-        handlePlaygroundSelector(props, selector)
-        handleComponentCode(props, myBeAppFile ? code.slice(endIndex) : code)
+        handleComponentSelectorKey(props, selector)
+        handleComponentCode(props, code)
         handlePlaygroundHidePreviewTabsKey(
           props,
           meta.includes(PlaygroundHidePreviewTabsKeySuffix),
@@ -77,7 +72,7 @@ const remarkPlayground: RemarkPlugin = () => {
           meta.includes(PlaygroundHideCodeTabsKeySuffix),
         )
         handlePlaygroundHidePreviewTabsKey(props, hideTabs)
-        handlePlaygroundFileMapKey(
+        handleFileMap(
           props,
           JSON.stringify(
             Object.fromEntries(
@@ -90,7 +85,7 @@ const remarkPlayground: RemarkPlugin = () => {
         // @ts-ignore
         node.type = 'root'
         node.data!.hName = 'div'
-        handleComponentMetaFromProps(props, meta)
+        handleComponentMeta(props, meta)
       }
 
       if (SupportPlaygroundLang.has(lang)) {

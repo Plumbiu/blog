@@ -123,7 +123,7 @@
         "noDuplicatedFields": "error",
         "noDynamicNamespaceImportAccess": "error",
         "noEnum": "error",
-        "noExportedImports": "error",
+        "noExportedImports": "off",
         "noHeadElement": "error",
         "noHeadImportInDocument": "error",
         "noImgElement": "error",
@@ -168,8 +168,8 @@
         "useTopLevelRegex": "error"
       },
       "security": {
-        "noDangerouslySetInnerHtml": "error",
-        "noDangerouslySetInnerHtmlWithChildren": "error",
+        "noDangerouslySetInnerHtml": "off",
+        "noDangerouslySetInnerHtmlWithChildren": "off",
         "noGlobalEval": "error"
       },
       "suspicious": {
@@ -247,7 +247,7 @@
         "noImplicitBoolean": "off",
         "noInferrableTypes": "error",
         "noNamespace": "error",
-        "noNamespaceImport": "error",
+        "noNamespaceImport": "off",
         "noNegationElse": "error",
         "noNonNullAssertion": "off",
         "noParameterAssign": "off",

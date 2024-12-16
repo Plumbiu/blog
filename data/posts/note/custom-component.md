@@ -11,7 +11,7 @@ desc: 一篇用于测试/查看博客上的一些自定义组件的文章
 ### tsx
 
 ```tsx Playground
-/// App.tsx
+/// App.jsx
 import Test from './Test'
 import './App.css'
 
@@ -131,6 +131,31 @@ while (Date.now() - start < 3000) {}
 fn(1)
 fn('ch')
 fn({ obj: 1 })
+```
+
+## Switcher
+
+```ts Switcher
+/// index.ts
+interface Foo {
+  text: string
+  prefix: string
+}
+function log(foo: Foo) {
+  console.log(foo)
+}
+console.log({
+  text: 1,
+  prefix: 2,
+})
+/// index.js
+function log(foo) {
+  console.log(foo)
+}
+console.log({
+  text: 1,
+  prefix: 2,
+})
 ```
 
 ## Block

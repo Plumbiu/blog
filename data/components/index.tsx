@@ -7,6 +7,10 @@ import { handleComponentName } from '@/plugins/constant'
 import IntersectionObserverComponent from '@/components/IntersectionObserverComponent'
 import Playground from './playground'
 import CodeRunner from './code-runner'
+import Switcher from './switcher'
+import { isPlayground } from '@/plugins/remark/playground-utils'
+import { isRuner } from '@/plugins/remark/runner-utils'
+import { isSwitcher } from '@/plugins/remark/switcher-utils'
 
 const ThreeFirstScene = lazy(() => import('./three/ThreeFirstScene'))
 const ThreePureFirstScene = lazy(() => import('./three/ThreePureFirstScene'))
@@ -61,6 +65,7 @@ export const componentMap: Record<string, any> = {
   Run: CodeRunner,
   Gallery,
   Iframe,
+  Switcher,
   // Three.js
   ThreeLearnPrimitivesBox,
   ThreeFirstScene,
@@ -85,7 +90,7 @@ function CustomComponent(props: any) {
   const value = componentMap[componentName]
 
   if (value) {
-    if (componentName === 'Playground' || componentName === 'Run') {
+    if (isPlayground(props) || isRuner(props) || isSwitcher(props)) {
       return createElement(value, props)
     }
     return (

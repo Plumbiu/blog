@@ -1,4 +1,5 @@
-import { type Metadata } from 'next'
+import type { ReactNode } from 'react'
+import type { Metadata } from 'next'
 import { ViewTransitions } from 'next-view-transitions'
 import { Analytics } from '@vercel/analytics/react'
 import { BlogAuthor, BlogTitle, BlogUrl, BlogDesc } from '~/data/site'
@@ -27,12 +28,12 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: ReactNode
 }>) {
   return (
     <html lang="zh" suppressHydrationWarning>
       <head>
-        <script src={resolveAssetPath('theme.js')}></script>
+        <script src={resolveAssetPath('theme.js')} />
         <link
           href={resolveAssetPath('icons/icon.svg')}
           rel="icon"

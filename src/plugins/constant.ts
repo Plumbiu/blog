@@ -15,9 +15,27 @@ export const handleComponentCode =
   buildHandlerFunction<string>(ComponentCodeKey)
 
 export const ComponentMetaKey = `${ComponentKey}meta`
-export const handleComponentMetaFromProps =
+export const handleComponentMeta =
   buildHandlerFunction<string>(ComponentMetaKey)
 
 export const ComponentLangKey = `${ComponentKey}lang`
-export const handleLangFromProps =
-  buildHandlerFunction<string>(ComponentLangKey)
+export const handleLang = buildHandlerFunction<string>(ComponentLangKey)
+
+export type FileMap = Record<
+  string,
+  {
+    code: string
+    meta: string
+  }
+>
+export const ComponentFileMapKey = `${ComponentKey}fmkey`
+export const handleComponentFileKey = buildHandlerFunction(ComponentFileMapKey)
+export const ComponentFileMap = `${ComponentKey}fm`
+export const handleFileMap = buildHandlerFunction<Record<string, string>>(
+  ComponentFileMap,
+  JSON.parse,
+)
+export const ComponentSelectorKey = `${ComponentKey}selector`
+export const handleComponentSelectorKey =
+  buildHandlerFunction<string>(ComponentSelectorKey)
+export const FileMapStartStr = '///'

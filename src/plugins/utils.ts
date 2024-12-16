@@ -1,3 +1,5 @@
+import { FileMapStartStr } from './constant'
+
 interface CommonReamrkNode {
   data?: {
     hProperties?: any
@@ -51,4 +53,20 @@ export function getFirstLine(s: string) {
 export const getBaseName = (p: string) => {
   const idx = p.lastIndexOf('/')
   return p.slice(idx + 1)
+}
+
+export function getSuffix(name: string) {
+  const index = name.lastIndexOf('.')
+  if (index === -1) {
+    return ''
+  }
+  return name.slice(index + 1)
+}
+
+export function getFirstFileKey(code: string) {
+  const firstLine = getFirstLine(code)
+  const appKey = firstLine.startsWith(FileMapStartStr)
+    ? firstLine.replace(FileMapStartStr, '').trim()
+    : undefined
+  return appKey
 }

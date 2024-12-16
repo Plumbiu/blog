@@ -6,7 +6,7 @@ export const handleImageWidth = buildHandlerFunction<number>(
   Number,
 )
 
-const ImageHeigghtKey = 'data-heigght'
+const ImageHeigghtKey = 'data-height'
 export const handleImageHeight = buildHandlerFunction<number>(
   ImageHeigghtKey,
   Number,

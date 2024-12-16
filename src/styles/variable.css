@@ -63,7 +63,7 @@
   --header-h: 120px;
   --post-w: 780px;
   --center-rest: calc((100% - var(--post-w)) / 2);
-  --pre-radius: 6px;
+  --pre-radius: 4px;
   --pre-p: 12px;
   --extend-x: -36px;
   --image-item-w: 50%;

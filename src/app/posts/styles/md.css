@@ -44,13 +44,7 @@
     }
   }
 
-  /* Code blocks and inline Code */
-
-  code:not([class]),
-  kbd,
-  samp {
-    font-weight: 600;
-  }
+  /* Code */
   code:not([class]) {
     font-size: 0.85rem;
     padding: 2px 6px;

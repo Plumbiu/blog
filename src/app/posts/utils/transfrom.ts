@@ -15,6 +15,7 @@ import remarkImage from '@/plugins/remark/image'
 import remarkCodeConfig from '@/plugins/remark/code'
 import { remarkPlainText } from '@/plugins/remark/plain-text/index'
 import { markdownComponents } from './components'
+import remarkSwitcher from '@/plugins/remark/switcher'
 
 // This code is refactored into TypeScript based on
 // https://github.com/remarkjs/react-markdown/blob/main/lib/index.js
@@ -56,6 +57,7 @@ async function transfromCode2Jsx(code: string) {
       remarkPlayground,
       remarkRunner,
       remarkImage,
+      remarkSwitcher,
       [remarkPlainText, code],
     ])
     .use(remarkRehype)
