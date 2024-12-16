@@ -6,6 +6,7 @@ import 'react-photo-album/columns.css'
 import {
   cloneElement,
   memo,
+  type ReactNode,
   useCallback,
   useEffect,
   useMemo,
@@ -22,7 +23,7 @@ const ThumbnailsHeight = 360
 
 function ImageGallery(props: any) {
   const photos = getGalleryPhoto(props)
-  const [slideNode, setSlideNode] = useState<JSX.Element | null>(null)
+  const [slideNode, setSlideNode] = useState<ReactNode>(null)
   const thumbnailsRef = useRef<HTMLDivElement>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [thumbnailTranslateX, setThumbnailTranslateX] = useState(0)
@@ -46,7 +47,7 @@ function ImageGallery(props: any) {
     if (!slideNode) {
       return
     }
-    const children = thumbnailsRef.current!?.children?.[
+    const children = thumbnailsRef.current!.children?.[
       currentIndex
     ] as HTMLImageElement
     if (children?.tagName === 'IMG') {
@@ -81,7 +82,7 @@ function ImageGallery(props: any) {
   const thumbinalsLength = allThumbnailsNode.length
   const sildeNodes = useMemo(() => {
     return photos.map(({ optimizeSrc }) => {
-      return <img src={optimizeSrc} />
+      return <img key={optimizeSrc} src={optimizeSrc} alt={optimizeSrc} />
     })
   }, [])
 
@@ -104,7 +105,7 @@ function ImageGallery(props: any) {
           handleThumbnailClick(index)
         }}
         render={{
-          image(props, context) {
+          image(_props, context) {
             const photo = photos[context.index]
             return (
               <a

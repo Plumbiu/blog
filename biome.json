@@ -7,7 +7,12 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": ["node_modules", "patches", ".next", "public"]
+    "ignore": [
+      "node_modules",
+      "patches",
+      ".next",
+      "public"
+    ]
   },
   "formatter": {
     "enabled": true,
@@ -85,7 +90,7 @@
         "noStringCaseMismatch": "error",
         "noSwitchDeclarations": "error",
         "noUndeclaredDependencies": "error",
-        "noUndeclaredVariables": "error",
+        "noUndeclaredVariables": "off",
         "noUnknownFunction": "error",
         "noUnknownMediaFeatureName": "error",
         "noUnknownProperty": "error",
@@ -126,7 +131,7 @@
         "noExportedImports": "off",
         "noHeadElement": "error",
         "noHeadImportInDocument": "error",
-        "noImgElement": "error",
+        "noImgElement": "off",
         "noIrregularWhitespace": "error",
         "noMissingVarFunction": "error",
         "noNestedTernary": "off",

@@ -1,4 +1,4 @@
-import { LogInfo } from '@/hooks/useConsole'
+import type { LogInfo } from '@/hooks/useConsole'
 import { getType } from '@/utils/types'
 
 addEventListener('message', (event: MessageEvent<string>) => {

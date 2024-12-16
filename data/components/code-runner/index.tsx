@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { LogInfo } from '@/hooks/useConsole'
+import type { LogInfo } from '@/hooks/useConsole'
 import PreComponent from '@/app/posts/components/Pre'
 import { handleRunCode } from '@/plugins/remark/runner-utils'
 import useObserver from '@/hooks/useObservser'
@@ -37,7 +37,7 @@ function CodeRunner(props: any) {
         }}
       >
         <PreComponent>{props.children}</PreComponent>
-        {logs.length ? <Console showType logs={logs} /> : <Loading />}
+        {logs.length > 0? <Console showType logs={logs} /> : <Loading />}
       </CodeWrap>
     </div>
   )

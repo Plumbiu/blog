@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { cn } from '@/utils/client'
-import { LogInfo } from '@/hooks/useConsole'
+import type { LogInfo } from '@/hooks/useConsole'
 import { isFunction, isNumber, isString } from '@/utils/types'
 import styles from './Console.module.css'
 
