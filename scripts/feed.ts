@@ -1,4 +1,3 @@
-import fsp from 'node:fs/promises'
 import { Feed } from 'feed'
 import type { PostList } from '@/utils/node/markdown'
 import {
@@ -10,6 +9,7 @@ import {
   Email,
 } from '~/data/site'
 import { joinWebUrl } from '@/app/seo'
+import { writeFileWithGit } from './utils'
 
 async function feed(posts: PostList[]) {
   const feed = new Feed({
@@ -44,10 +44,9 @@ async function feed(posts: PostList[]) {
   })
 
   const paths = ['rss.xml', 'rss.json', 'rss.atom'].map((p) => `public/${p}`)
-  await fsp.writeFile(paths[0], feed.rss2())
-  await fsp.writeFile(paths[1], feed.json1())
-  await fsp.writeFile(paths[2], feed.atom1())
-  return paths
+  writeFileWithGit(paths[0], feed.rss2())
+  writeFileWithGit(paths[1], feed.json1())
+  writeFileWithGit(paths[2], feed.atom1())
 }
 
 export default feed
