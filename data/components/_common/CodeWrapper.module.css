@@ -1,6 +1,7 @@
 .wrapper {
   overflow: hidden;
   border-radius: var(--pre-radius);
+  border: 1px solid var(--divider);
 }
 
 .container {
@@ -24,6 +25,7 @@
   font-size: 14px;
   background-color: var(--bg-md-pre-bar);
   font-weight: 600;
+  border-bottom: 1px solid var(--divider);
 }
 
 .rerun {

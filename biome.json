@@ -130,7 +130,7 @@
         "noMissingVarFunction": "error",
         "noNestedTernary": "off",
         "noOctalEscape": "error",
-        "noProcessEnv": "error",
+        "noProcessEnv": "off",
         "noRestrictedImports": "error",
         "noRestrictedTypes": "error",
         "noSecrets": "off",

@@ -1,4 +1,4 @@
-import { JetBrains_Mono, DM_Mono } from 'next/font/google'
+import { JetBrains_Mono } from 'next/font/google'
 
 export const mono = JetBrains_Mono({
   subsets: ['latin'],

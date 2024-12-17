@@ -1,5 +1,5 @@
-import { Metadata } from 'next'
-import { isNumber } from '@/utils/types'
+import type { Metadata } from 'next'
+import { isString } from '@/utils/types'
 import { BlogAuthor, BlogUrl } from '~/data/site'
 
 export function generateSeoMetaData(meta: Metadata['openGraph']): Metadata {
@@ -16,15 +16,12 @@ export function generateSeoMetaData(meta: Metadata['openGraph']): Metadata {
 
 export function joinWebUrl(...args: (string | number)[]) {
   let url = BlogUrl
-  for (let arg of args) {
+  for (const arg of args) {
     if (arg === '') {
       continue
     }
     url += arg
-    if (isNumber(arg)) {
-      arg = String(arg)
-    }
-    if (!arg.startsWith('/')) {
+    if (isString(arg) && !arg.startsWith('/')) {
       url += '/'
     }
   }

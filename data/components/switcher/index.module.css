@@ -1,5 +1,5 @@
 .container {
   border-radius: var(--pre-radius) var(--pre-radius) 0 0;
   overflow: hidden;
-  border-right: 1px solid var(--divider);
+  border-right: none;
 }
