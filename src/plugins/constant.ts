@@ -28,14 +28,16 @@ export type FileMap = Record<
     meta: string
   }
 >
-export const ComponentFileMapKey = `${ComponentKey}fmkey`
+const ComponentFileMapPrefx = `${ComponentKey}_f`
+export const ComponentFileMapKey = `${ComponentFileMapPrefx}key`
 export const handleComponentFileKey = buildHandlerFunction(ComponentFileMapKey)
-export const ComponentFileMap = `${ComponentKey}fm`
+export const ComponentFileMap = `${ComponentFileMapPrefx}m`
 export const handleFileMap = buildHandlerFunction<Record<string, string>>(
   ComponentFileMap,
   JSON.parse,
 )
-export const ComponentSelectorKey = `${ComponentKey}selector`
+const Selector = '_s'
+export const ComponentSelectorKey = `${ComponentFileMapPrefx}${Selector}`
 export const handleComponentSelectorKey =
   buildHandlerFunction<string>(ComponentSelectorKey)
 export const FileMapStartStr = '///'

@@ -6,14 +6,18 @@ import {
 } from '../../constant'
 import { buildHandlerFunction, getFirstLine, getSuffix } from '../../utils'
 import type { ElementContent } from 'hast'
-export const PlaygroundHidePreviewTabsKeySuffix = 'no-v-tab'
-export const PlaygroundHideCodeTabsKeySuffix = 'no-c-tab'
 
-export const PlaygroundPrefix = `${ComponentKey}p-`
-const PlaygroundHidePreviewKey = `${PlaygroundPrefix}no-view`
+const NO = 'n'
+const View = 'v'
+const Tab = 't'
+export const PlaygroundHidePreviewTabsKeySuffix = `${NO}-${View}-${Tab}`
+export const PlaygroundHideCodeTabsKeySuffix = `${NO}-c-${Tab}`
+
+export const PlaygroundPrefix = `${ComponentKey}-p`
+const PlaygroundHidePreviewKey = `${PlaygroundPrefix}${NO}-${View}`
 const PlaygroundHidePreviewTabsKey = `${PlaygroundPrefix}${PlaygroundHidePreviewTabsKeySuffix}`
 const PlaygroundHideCodeTabsKey = `${PlaygroundPrefix}${PlaygroundHideCodeTabsKeySuffix}`
-const PlaygroundCustomPreivew = `${PlaygroundPrefix}cus-view`
+const PlaygroundCustomPreivew = `${PlaygroundPrefix}cus-${View}`
 const PlaygroundStyles = `${PlaygroundPrefix}css`
 
 export const handlePlaygroundHidePreviewKey = buildHandlerFunction<
@@ -64,7 +68,7 @@ export const buildFiles = (code: string, selector?: string) => {
 export const filemapToElementContent = (
   files: FileMap,
   parentMeta: string,
-  parentLang: string
+  parentLang: string,
 ): ElementContent[] => {
   return Object.keys(files).map((key) => {
     const item = files[key]
