@@ -5,6 +5,10 @@
   font-family: inherit;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 body {
   margin: 0;
   color: var(--text-1);
