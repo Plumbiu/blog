@@ -1,15 +1,3 @@
-.wrap {
-  position: relative;
-  width: 100%;
-
-  &:hover {
-    .action {
-      pointer-events: all;
-      opacity: 1;
-    }
-  }
-}
-
 .action {
   position: absolute;
   top: 16px;
@@ -35,5 +23,17 @@
   }
   &:hover {
     color: var(--text-1);
+  }
+}
+
+.wrap {
+  position: relative;
+  width: 100%;
+
+  &:hover {
+    .action {
+      pointer-events: all;
+      opacity: 1;
+    }
   }
 }

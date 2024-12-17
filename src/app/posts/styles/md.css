@@ -216,10 +216,9 @@
     }
   }
 
-  .language-bash > .line {
+  .language-bash > .line:first-child {
     &::before {
       content: "$ ";
-      color: var(--c-indigo-1);
     }
   }
 }
