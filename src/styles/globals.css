@@ -12,11 +12,11 @@ html {
 body {
   margin: 0;
   color: var(--text-1);
-  overflow-x: hidden;
   background-color: var(--bg-body);
   text-rendering: optimizeLegibility;
   transition: background-color 300ms;
   scrollbar-color: var(--bg-scrollbar);
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
