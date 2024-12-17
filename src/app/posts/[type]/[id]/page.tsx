@@ -37,7 +37,7 @@ interface PostProps {
   }
 }
 
-const Desc_Max_Length = 40
+const DescMaxLen = 40
 
 async function Post({ params }: PostProps) {
   const info = await getPostContent(params.type, params.id)
@@ -74,10 +74,10 @@ export async function generateMetadata({
   const title = `${info.meta.title} | ${category}`
   return {
     title,
-    description: info.meta.desc.slice(0, Desc_Max_Length),
+    description: info.meta.desc.slice(0, DescMaxLen),
     ...generateSeoMetaData({
       title,
-      description: info.meta.desc.slice(0, 30),
+      description: info.meta.desc.slice(0, 20),
       url: joinWebUrl('posts', params.type, params.id),
     }),
   }

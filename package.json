@@ -49,6 +49,7 @@
     "@types/react-dom": "^18.3.1",
     "@types/three": "^0.170.0",
     "@types/unist": "^3.0.3",
+    "autoprefixer": "^10.4.20",
     "cross-env": "^7.0.3",
     "esno": "^4.8.0",
     "feed": "^4.2.2",
@@ -67,5 +68,10 @@
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm generate"
-  }
+  },
+  "browserslist": [
+    "> 0.2%",
+    "not dead",
+    "not op_mini all"
+  ]
 }

@@ -2,9 +2,8 @@
   position: fixed;
   inset: 0;
   background-color: var(--bg-modal);
+  backdrop-filter: blur(1px);
   z-index: 99;
-  inset: 0;
-  overflow: auto;
   text-align: center;
   transition: opacity 0.15s;
   overflow: hidden;
