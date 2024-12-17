@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
+import { ViewTransitions } from 'next-view-transitions'
 import { Analytics } from '@vercel/analytics/react'
 import { BlogAuthor, BlogTitle, BlogUrl, BlogDesc } from '~/data/site'
 import { resolveAssetPath } from '@/utils'
@@ -41,9 +42,11 @@ export default function RootLayout({
         />
       </head>
       <body className={mono.className}>
-        <Header />
-        <div className="main_children">{children}</div>
-        <Footer />
+        <ViewTransitions>
+          <Header />
+          <div className="main_children">{children}</div>
+          <Footer />
+        </ViewTransitions>
         <ImageView />
         <Analytics />
       </body>
