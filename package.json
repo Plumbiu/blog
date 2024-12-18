@@ -55,7 +55,6 @@
     "esno": "^4.8.0",
     "feed": "^4.2.2",
     "js-yaml": "^4.1.0",
-    "jstoxml": "^5.0.2",
     "mdast-util-directive": "^3.0.0",
     "picocolors": "^1.1.1",
     "postcss-nested": "^7.0.2",

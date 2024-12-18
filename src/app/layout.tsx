@@ -33,6 +33,10 @@ export default function RootLayout({
   return (
     <html lang="zh" suppressHydrationWarning>
       <head>
+        <meta
+          name="google-site-verification"
+          content="cLcOnIeQ4g4EzFOatuj_bf8zVqruuH4ZYgrnTSgVR_k"
+        />
         <script src={resolveAssetPath('theme.js')} />
         <link
           href={resolveAssetPath('icons/icon.svg')}
