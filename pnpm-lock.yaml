@@ -31,6 +31,9 @@ importers:
       hast-util-to-string:
         specifier: ^3.0.1
         version: 3.0.1
+      is-plain-obj:
+        specifier: ^4.1.0
+        version: 4.1.0
       lil-gui:
         specifier: ^0.20.0
         version: 0.20.0

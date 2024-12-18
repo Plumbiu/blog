@@ -1,19 +1,9 @@
 import { memo } from 'react'
 import { cn } from '@/utils/client'
 import type { LogInfo } from '@/hooks/useConsole'
-import { isFunction, isNumber, isString } from '@/utils/types'
+import { isString } from '@/utils/types'
 import styles from './Console.module.css'
-
-function transfromLogValue(value: any) {
-  if (isString(value) || isNumber(value)) {
-    return value
-  }
-  if (isFunction(value) || value == null) {
-    return String(value)
-  }
-
-  return JSON.stringify(value)
-}
+import { transfromLogValue } from '../utils'
 
 export function padStartZero(str: number | string, num = 2) {
   if (!isString(str)) {

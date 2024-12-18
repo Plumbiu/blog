@@ -82,55 +82,36 @@ export default Test2
 
 ## Runner
 
-### js
+### simple
 
-```js Run
-function fn(n) {
+```ts Run
+function log(n: any) {
   console.log(n)
 }
 
-fn(1)
-fn('ch')
-fn({ obj: 1 })
-fn(function t() {})
-fn(() => {
-  console.log(2)
+log(1)
+log('ch')
+log({ obj: 1 })
+log([1, 2, 3])
+log(function t() {})
+log(() => {
   console.log(1)
 })
-fn(Symbol('foo'))
-fn(undefined)
-fn(null)
-fn(true)
-fn(new Date(Date.now()))
-```
-
-### ts
-
-```ts Run
-interface Foo {
-  text: string
-}
-
-function fn(n: Foo) {
-  console.log(n.text)
-}
-
-fn({ text: 'Hello' })
+log(Symbol('foo'))
+log(undefined)
+log(null)
+log(true)
+log(/foo/)
+log(new Date(Date.now()))
 ```
 
 ### long time
 
 ```js Run
-function fn(n) {
-  console.log(n)
-}
-
 const start = Date.now()
+console.log('start')
 while (Date.now() - start < 3000) {}
-
-fn(1)
-fn('ch')
-fn({ obj: 1 })
+console.log('end')
 ```
 
 ## Switcher
@@ -205,10 +186,6 @@ console.log('hello')
 console.log('goodbye')
 ```
 
-## Custom Component
-
-:ThreeSunEarthMoon
-
 ## Path
 
 ### Local
@@ -222,6 +199,10 @@ console.log('goodbye')
 ```js path="https://gist.githubusercontent.com/Plumbiu/7fc950397d9913b6f9558f7fc2c541ed/raw/4a3c95548679087f4ccd6ac032ed7aa1b1ca7e87/blog-remote-test.js"
 
 ```
+
+## Custom Component
+
+:ThreeSunEarthMoon
 
 # Tip
 
