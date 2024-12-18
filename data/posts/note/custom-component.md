@@ -4,7 +4,7 @@ date: 2024-10-03
 desc: 一篇用于测试/查看博客上的一些自定义组件的文章
 ---
 
-[Source Code](https://github.com/Plumbiu/blog/blob/main/data/posts/note/custom-component.md)
+See [source code](https://github.com/Plumbiu/blog/blob/main/data/posts/note/custom-component.md?plain=1) to learn the custom markdown rules.
 
 # Code
 
@@ -19,15 +19,14 @@ import './App.css'
 
 function App() {
   return (
-    <div onClick={() => console.log('This is App')}>
-      <h1 className="app">This is App</h1>
-      <div>Random - {Math.random()}</div>
+    <div onClick={() => console.log('App')}>
+      <h1 className="app">App - {Math.random()}</h1>
       <Test text="Test1" />
     </div>
   )
 }
 export default App
-/// Test.css {1,2}
+/// Test.css line
 .app {
   color: blue;
 }
@@ -40,8 +39,8 @@ interface Test1Props {
 }
 
 function Test({ text }: Test1Props) {
-  console.log('This is Test')
-  return <div className="test">This is {text}<Test2 text="Test2" /></div>
+  console.log('Test1')
+  return <div className="test">{text}<Test2 text="Test2" /></div>
 }
 export default Test
 /// Test2.tsx
@@ -52,11 +51,11 @@ interface Test2Props {
 }
 
 function Test2({ text }: Test2Props) {
-  console.log('This is Test')
-  return <div className="test">This is {text}</div>
+  console.log('Test2')
+  return <div className="test">{text}</div>
 }
 export default Test2
-/// App.css
+/// App.css line
 .test {
   font-weight: 700;
 }
@@ -202,7 +201,7 @@ console.log('goodbye')
 
 ```
 
-## Custom Component
+# Custom Component
 
 :ThreeSunEarthMoon
 
