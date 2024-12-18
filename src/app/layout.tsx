@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { ViewTransitions } from 'next-view-transitions'
 import { Analytics } from '@vercel/analytics/react'
-import { BlogAuthor, BlogTitle, BlogUrl, BlogDesc } from '~/data/site'
+import { BlogAuthor, BlogTitle, BlogUrl, BlogDesc, GSC } from '~/data/site'
 import { resolveAssetPath } from '@/utils'
 import Header from '@/components/Header'
 import ImageView from '@/components/ImageView'
@@ -33,10 +33,7 @@ export default function RootLayout({
   return (
     <html lang="zh" suppressHydrationWarning>
       <head>
-        <meta
-          name="google-site-verification"
-          content="cLcOnIeQ4g4EzFOatuj_bf8zVqruuH4ZYgrnTSgVR_k"
-        />
+        <meta name="google-site-verification" content={GSC} />
         <script src={resolveAssetPath('theme.js')} />
         <link
           href={resolveAssetPath('icons/icon.svg')}

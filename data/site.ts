@@ -18,3 +18,6 @@ export const Email = 'plumbiuzz@gmail.com'
 // Page
 export const IS_GITPAGE = !!process.env.GITPAGE
 export const BasePath = IS_GITPAGE ? `/${RepoName}` : ''
+
+// Google Search Console
+export const GSC = 'cLcOnIeQ4g4EzFOatuj_bf8zVqruuH4ZYgrnTSgVR_k'
