@@ -70,6 +70,7 @@ function ImageGallery(props: any) {
           className={styles.w_full}
           width={(ThumbnailsHeight * width) / height}
           height={ThumbnailsHeight}
+          unoptimized={src.endsWith('.gif')}
           onClick={() => {
             handleThumbnailClick(i)
           }}
