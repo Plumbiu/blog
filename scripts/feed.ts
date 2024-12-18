@@ -44,9 +44,9 @@ async function feed(posts: PostList[]) {
   })
 
   const paths = ['rss.xml', 'rss.json', 'rss.atom'].map((p) => `public/${p}`)
-  writeFileWithGit(paths[0], feed.rss2())
-  writeFileWithGit(paths[1], feed.json1())
-  writeFileWithGit(paths[2], feed.atom1())
+  await writeFileWithGit(paths[0], feed.rss2())
+  await writeFileWithGit(paths[1], feed.json1())
+  await writeFileWithGit(paths[2], feed.atom1())
 }
 
 export default feed
