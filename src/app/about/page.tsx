@@ -36,7 +36,7 @@ function About() {
         <Link
           className="link"
           target="_blank"
-          href="/posts/blog/How-I-Build-My-Blog"
+          href="/posts/blog/how-I-build-blog"
         >
           How this blog works
         </Link>
