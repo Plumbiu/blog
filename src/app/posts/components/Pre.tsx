@@ -1,6 +1,6 @@
 'use client'
 
-import { type ReactNode, useState } from 'react'
+import { type ReactNode, useCallback, useState } from 'react'
 import { CopyCheckIcon, CopyErrorIcon, CopyIcon } from '@/components/Icons'
 import { renderReactNodeToString } from '@/utils'
 import styles from './Pre.module.css'
@@ -13,7 +13,8 @@ interface PreComponentProps {
 
 function PreComponent({ children, className }: PreComponentProps) {
   const [icon, setIcon] = useState(<CopyIcon />)
-  async function copy() {
+
+  const copy = useCallback(async () => {
     try {
       const code = renderReactNodeToString(children)
       await navigator.clipboard.writeText(code)
@@ -25,7 +26,7 @@ function PreComponent({ children, className }: PreComponentProps) {
         setIcon(<CopyIcon />)
       }, 750)
     }
-  }
+  }, [])
   return (
     <div className={cn(className, styles.wrap)}>
       <div className={styles.action} onClick={copy}>

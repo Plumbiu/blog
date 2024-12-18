@@ -133,7 +133,12 @@ const Playground = (props: any) => {
           })}
           ref={nodeRef}
         />
-        {isConsoleVisible && <Console logs={logs} />}
+        <Console
+          className={cn({
+            [styles.hide]: !isConsoleVisible,
+          })}
+          logs={logs}
+        />
       </div>
     </CodeWrapper>
   )

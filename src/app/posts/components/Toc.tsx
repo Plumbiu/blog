@@ -34,7 +34,7 @@ function Toc() {
   const tocRef = useRef<HTMLDivElement>(null)
   const listRef = useRef<HTMLDivElement>(null)
 
-  function highlight(i: number) {
+  const highlight = useCallback((i: number) => {
     setActiveIndex(i)
     const tocDom = tocRef.current
     const listDom = listRef.current
@@ -47,7 +47,7 @@ function Toc() {
         top: top / 2 - 16,
       })
     }
-  }
+  }, [])
 
   const highlightSet = useMemo(() => {
     if (activeIndex == null) {

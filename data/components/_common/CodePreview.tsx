@@ -57,7 +57,7 @@ const CodeTabs = memo(
     )
   },
 )
-const CodePreview = (props: any) => {
+const CodePreview = memo((props: any) => {
   const { defaultSelector, codeNodeMap, codeTabs } = useMemo(() => {
     const children = Array.isArray(props.children)
       ? props.children
@@ -85,6 +85,6 @@ const CodePreview = (props: any) => {
       hide={false}
     />
   )
-}
+})
 
 export default CodePreview
