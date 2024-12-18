@@ -1,4 +1,5 @@
 .toc {
+  --max-height: 60vh;
   height: 100%;
   color: var(--text-2);
   overflow-x: hidden;
@@ -9,7 +10,7 @@
   z-index: 9;
   padding-left: 48px;
   padding-right: 16px;
-  max-height: calc(100vh - 140px);
+  max-height: calc(var(--max-height) - 140px);
   width: var(--center-rest);
   scrollbar-width: none;
   &::-webkit-scrollbar {
@@ -62,7 +63,7 @@
 
 .curtain {
   position: fixed;
-  bottom: 0;
+  bottom: calc(100vh - var(--max-height));
   right: 0;
   height: 48px;
   width: var(--center-rest);

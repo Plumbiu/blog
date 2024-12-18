@@ -1,6 +1,6 @@
 'use client'
 
-import { memo, useEffect, useMemo, useRef, useState } from 'react'
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'next-view-transitions'
 import { cn, throttle } from '@/utils/client'
 import styles from './Toc.module.css'
@@ -66,22 +66,25 @@ function Toc() {
     return indexSet
   }, [activeIndex])
 
-  const handler = throttle(() => {
-    const viewHeight = 300
-    for (let i = 0; i < nodes.current!.length; i++) {
-      const node = nodes.current![i]
-      const rect = node.getBoundingClientRect()
-      if (rect.bottom >= 0 && rect.top < viewHeight) {
-        highlight(i)
-        break
+  const handler = useCallback(
+    throttle(() => {
+      const viewHeight = 300
+      for (let i = 0; i < nodes.current!.length; i++) {
+        const node = nodes.current![i]
+        const rect = node.getBoundingClientRect()
+        if (rect.bottom >= 0 && rect.top < viewHeight) {
+          highlight(i)
+          break
+        }
+        const nextRect = nodes.current![i + 1]?.getBoundingClientRect()
+        if (rect.bottom < 0 && nextRect && nextRect.top > viewHeight) {
+          highlight(i)
+          break
+        }
       }
-      const nextRect = nodes.current![i + 1]?.getBoundingClientRect()
-      if (rect.bottom < 0 && nextRect && nextRect.top > viewHeight) {
-        highlight(i)
-        break
-      }
-    }
-  }, 100)
+    }, 100),
+    [],
+  )
 
   useEffect(() => {
     nodes.current = document.querySelectorAll('.md > h1,h2,h3')

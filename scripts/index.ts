@@ -20,6 +20,7 @@ async function run() {
     await writeFileWithGit(themePath, mini.code)
   }
   await feed(posts)
+  console.log()
 }
 
 run()
