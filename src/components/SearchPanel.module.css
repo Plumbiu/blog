@@ -8,7 +8,6 @@
   top: 86px;
   background-color: var(--bg-search-panel);
   border-radius: 6px;
-  gap: 8px;
   width: var(--w);
   margin: 0 auto;
   font-size: 14px;
@@ -24,6 +23,7 @@
   position: sticky;
   top: 0;
   margin: var(--distance);
+  margin-bottom: 8px;
 }
 
 .form {
@@ -52,8 +52,19 @@
 }
 
 .list_wrapper {
+  position: relative;
   max-height: 50vh;
   overflow-y: scroll;
+}
+
+.list_type {
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-search-panel);
+  margin-left: var(--distance);
+  margin-top: var(--distance);
+  padding-bottom: 10px;
+  color: var(--c-purple-1);
 }
 
 .list {
@@ -61,7 +72,7 @@
   cursor: pointer;
   background-color: var(--c-gray-soft);
   padding: 10px 12px;
-  margin: 0 var(--distance) 12px var(--distance);
+  margin: 0 var(--distance) 6px var(--distance);
   border-radius: 4px;
   border: 1px solid transparent;
 
@@ -73,12 +84,17 @@
   }
 }
 
+.date {
+  font-size: 12px;
+}
+
 .empty {
   text-align: center;
   padding: 24px 0 32px 0;
 }
 
 .type {
+  top: 80px;
   color: var(--text-3);
 }
 
@@ -98,13 +114,19 @@
 
 .footer {
   background-color: var(--bg-search-panel-footer);
-  padding: 18px var(--distance);
+  padding: var(--distance);
   background-origin: padding-box;
   border-radius: 0 0 4px 4px;
   font-size: 12px;
   border-top: 1px solid var(--c-gray-3);
   & svg {
-    font-size: 15px;
+    font-size: 18px;
+  }
+
+  & > div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 }
 

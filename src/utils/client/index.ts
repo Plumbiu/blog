@@ -25,7 +25,7 @@ export function cn(...args: ClassNameArg[]) {
   return classname
 }
 
-export function throttle(fn: Function, wait = 300) {
+export function throttle<T extends (...args: any) => any>(fn: T, wait = 300) {
   let start = Date.now()
   return function (this: any, ...args: any[]) {
     const now = Date.now()
@@ -38,11 +38,13 @@ export function throttle(fn: Function, wait = 300) {
   }
 }
 
-export function debounce(fn: Function, wait = 300) {
+export function debounce<T extends (...args: any) => any>(fn: T, wait = 300) {
   let timer: any = null
 
-  return function (this: any, ...args: any[]) {
-    clearTimeout(timer)
+  return function (this: any, ...args: Parameters<T>) {
+    if (timer) {
+      clearTimeout(timer)
+    }
     timer = setTimeout(() => {
       fn.apply(this, args)
     }, wait)

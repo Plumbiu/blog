@@ -4,24 +4,26 @@ import { cn } from '@/utils/client'
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import styles from './SearchPanel.module.css'
 import Modal from './Modal'
-import { CopyErrorIcon, SearchIcon } from './Icons'
+import { CopyErrorIcon, KeyboardEscIcon, SearchIcon } from './Icons'
 import { upperFirstChar } from '@/utils'
 import { Link } from 'next-view-transitions'
 
 interface SearchData {
+  date: string
   title: string
   path: string
   type: string
 }
 
+type ListType = [string, SearchData[]][]
 interface SearchPanelProps {
   setSearchVisible: (visible: boolean) => void
 }
 
 function SearchPanel({ setSearchVisible }: SearchPanelProps) {
   const listRef = useRef<SearchData[]>()
-  const [lists, setLists] = useState<SearchData[]>([])
-  const [activeIndex, setActiveIndex] = useState(0)
+  const [lists, setLists] = useState<ListType>([])
+  const [activePath, setActivePath] = useState<string>()
   const [search, setSearch] = useState('')
   const contentRef = useRef<HTMLDivElement>(null)
   const label = useId()
@@ -58,7 +60,15 @@ function SearchPanel({ setSearchVisible }: SearchPanelProps) {
       const lists = listRef.current!.filter((list) =>
         list.title.toLowerCase().includes(search.toLowerCase()),
       )
-      setLists(lists)
+      const result: Record<string, SearchData[]> = {}
+      for (const list of lists) {
+        const type = upperFirstChar(list.type)
+        if (!result[type]) {
+          result[type] = []
+        }
+        result[type].push(list)
+      }
+      setLists(Object.entries(result))
     } else {
       setLists([])
     }
@@ -86,7 +96,6 @@ function SearchPanel({ setSearchVisible }: SearchPanelProps) {
     },
     [search],
   )
-
   return (
     <Modal>
       <div
@@ -94,7 +103,6 @@ function SearchPanel({ setSearchVisible }: SearchPanelProps) {
           e.preventDefault()
           e.stopPropagation()
           const target = e.target as HTMLElement
-          console.log(contentRef.current)
           if (!contentRef.current!.contains(target)) {
             hidden()
           }
@@ -112,6 +120,7 @@ function SearchPanel({ setSearchVisible }: SearchPanelProps) {
                 id={label}
                 className={styles.ipt}
                 placeholder="Search posts"
+                autoComplete="off"
               />
               {search.length > 0 && (
                 <button
@@ -128,27 +137,36 @@ function SearchPanel({ setSearchVisible }: SearchPanelProps) {
             {lists.length === 0 && (
               <div className={styles.empty}>No recent posts</div>
             )}
-            {lists.map((list, i) => (
-              <Link
-                onClick={() => setSearchVisible(false)}
-                href={`/${list.path}`}
-                onMouseEnter={() => setActiveIndex(i)}
-                className={cn(styles.list, {
-                  [styles.list_active]: activeIndex === i,
-                })}
-                key={list.path}
-              >
+            {lists.map(([type, list]) => (
+              <section key={type}>
+                <div className={styles.list_type}>{type}</div>
                 <div>
-                  <div className={styles.type}>{upperFirstChar(list.type)}</div>
-                  <div className={styles.title}>
-                    {handleHihglight(list.title)}
-                  </div>
+                  {list.map(({ path, title, date }) => (
+                    <Link
+                      key={path}
+                      onClick={() => setSearchVisible(false)}
+                      href={`/${path}`}
+                      onMouseEnter={() => setActivePath(path)}
+                      className={cn(styles.list, {
+                        [styles.list_active]: activePath === path,
+                      })}
+                    >
+                      <div>
+                        <div className={styles.date}>{date}</div>
+                        <div className={styles.title}>
+                          {handleHihglight(title)}
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
                 </div>
-              </Link>
+              </section>
             ))}
           </div>
           <div className={styles.footer}>
-            <div>ESC to close</div>
+            <div>
+              <KeyboardEscIcon /> to close
+            </div>
           </div>
         </div>
       </div>
