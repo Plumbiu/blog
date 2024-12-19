@@ -1,15 +1,14 @@
 'use client'
 
 import { Link } from 'next-view-transitions'
-import { useEffect, useRef, useState } from 'react'
+import { lazy, useEffect, useRef, useState } from 'react'
 import { cn } from '@/utils/client'
 import { BlogAuthor, RepoUrl } from '~/data/site'
 import { GithubIcon, MoonIcon, RssIcon, SearchIcon, SunIcon } from './Icons'
 import styles from './Header.module.css'
 import { usePathname } from 'next/navigation'
-import dynamic from 'next/dynamic'
 
-const SearchPanel = dynamic(() => import('./SearchPanel'))
+const SearchPanel = lazy(() => import('./SearchPanel'))
 
 const rightData = [
   { href: '/rss.xml', children: <RssIcon />, target: '_blank' },

@@ -70,7 +70,7 @@
     "pre-commit": "pnpm generate"
   },
   "browserslist": [
-    ">= 2%",
+    "> 0.2%",
     "not dead",
     "not op_mini all"
   ]
