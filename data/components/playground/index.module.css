@@ -1,5 +1,5 @@
 .hide {
-  position: absolute;
+  position: fixed;
   left: 99999px;
 }
 
