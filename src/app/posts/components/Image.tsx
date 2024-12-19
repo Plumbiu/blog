@@ -1,10 +1,10 @@
 'use client'
 
 import NextImage, { type ImageProps } from 'next/image'
-import useImageViewlStore from '@/store/ImageView'
+import useModalStore from '@/store/modal'
 
 function MarkdownImage(props: ImageProps) {
-  const set = useImageViewlStore('set')
+  const set = useModalStore('set')
   const node = <NextImage {...props} onClick={() => set(node)} />
 
   return node

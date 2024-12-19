@@ -110,3 +110,11 @@ svg {
   width: 1px;
   background-color: var(--bg-vertical-line);
 }
+
+button {
+  border: none;
+  outline: none;
+  background-color: inherit;
+  color: inherit;
+  cursor: pointer;
+}

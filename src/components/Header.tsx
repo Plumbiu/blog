@@ -4,13 +4,26 @@ import { Link } from 'next-view-transitions'
 import { useEffect, useRef, useState } from 'react'
 import { cn } from '@/utils/client'
 import { BlogAuthor, RepoUrl } from '~/data/site'
-import { GithubIcon, MoonIcon, SunIcon } from './Icons'
+import { GithubIcon, MoonIcon, RssIcon, SearchIcon, SunIcon } from './Icons'
 import styles from './Header.module.css'
+import { usePathname } from 'next/navigation'
+import dynamic from 'next/dynamic'
+
+const SearchPanel = dynamic(() => import('./SearchPanel'))
+
+const rightData = [
+  { href: '/rss.xml', children: <RssIcon />, target: '_blank' },
+  { href: RepoUrl, children: <GithubIcon />, target: '_blank' },
+  { href: '/links', children: 'Links' },
+  { href: '/about', children: 'About' },
+]
 
 function Header() {
   const ref = useRef<HTMLHeadingElement>(null)
   const prevScrollTop = useRef(0)
   const [theme, setTheme] = useState<string>()
+  const pathanme = usePathname()
+  const [searchVisible, setSearchVisible] = useState(false)
 
   useEffect(() => {
     setTheme(window.getLocalTheme()!)
@@ -46,52 +59,56 @@ function Header() {
   }, [])
 
   return (
-    <header ref={ref} className={styles.wrap}>
-      <div className={styles.header}>
-        <div className={cn(styles.left, styles.hover)}>
-          <Link aria-label="Home page" href="/list/blog/1" className="fcc">
-            {BlogAuthor}
-          </Link>
-        </div>
-        <div className={styles.right}>
-          {theme && (
+    <>
+      <header ref={ref} className={styles.wrap}>
+        <div className={styles.header}>
+          <div className={cn(styles.left, styles.hover)}>
+            <Link aria-label="Home page" href="/list/blog/1" className="fcc">
+              {BlogAuthor}
+            </Link>
+          </div>
+          <div className={styles.right}>
+            {theme && (
+              <div
+                className={styles.hover}
+                onClick={() => {
+                  const nextTheme =
+                    theme === window.Dark ? window.Light : window.Dark
+                  setTheme(nextTheme)
+                  window.setTheme(nextTheme)
+                }}
+              >
+                {theme === window.Dark ? <SunIcon /> : <MoonIcon />}
+              </div>
+            )}
             <div
               className={styles.hover}
               onClick={() => {
-                const nextTheme =
-                  theme === window.Dark ? window.Light : window.Dark
-                setTheme(nextTheme)
-                window.setTheme(nextTheme)
+                setSearchVisible(true)
               }}
             >
-              {theme === window.Dark ? <SunIcon /> : <MoonIcon />}
+              <SearchIcon />
             </div>
-          )}
-          <Link
-            aria-label="Read more about repo"
-            className={styles.hover}
-            target="_blank"
-            href={RepoUrl}
-          >
-            <GithubIcon />
-          </Link>
-          <Link
-            aria-label="Read more about links page"
-            className={styles.hover}
-            href="/links"
-          >
-            Links
-          </Link>
-          <Link
-            aria-label="Read more about about page"
-            className={styles.hover}
-            href="/about"
-          >
-            About
-          </Link>
+            {rightData.map((data) => (
+              <Link
+                key={data.href}
+                href={data.href}
+                target={data.target}
+                className={cn(styles.hover, {
+                  [styles.active]: pathanme === data.href,
+                  [styles.mobile]:
+                    data.href === RepoUrl || data.href === '/about',
+                })}
+                prefetch={data.href !== '/rss.xml'}
+              >
+                {data.children}
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+      {searchVisible && <SearchPanel setSearchVisible={setSearchVisible} />}
+    </>
   )
 }
 

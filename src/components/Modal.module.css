@@ -1,0 +1,48 @@
+.mask {
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg-modal);
+  backdrop-filter: blur(1px);
+  z-index: 99;
+  text-align: center;
+  transition: opacity 0.15s;
+  overflow: hidden;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+}
+
+.anim {
+  transition: transform 0.3s cubic-bezier(0, 0, 0.25, 1);
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.modal img {
+  user-select: none;
+  animation: fade 0.15s forwards;
+  cursor: grab;
+  max-width: 95vw;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  max-height: calc(90vh - 104px);
+
+  &:active {
+    cursor: grabbing;
+  }
+}

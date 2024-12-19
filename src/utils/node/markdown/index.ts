@@ -62,6 +62,7 @@ export function parsePostMeta(code: string) {
 
 export interface PostList {
   meta: PostMeta
+  type: string
   path: string
   content: string
   next?: PostList
@@ -84,6 +85,7 @@ export async function getPostList(postType?: string) {
       }
       const data = {
         meta,
+        type,
         content,
         path: removeMdSuffix(mdPath),
       }

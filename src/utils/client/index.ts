@@ -48,3 +48,7 @@ export function debounce(fn: Function, wait = 300) {
     }, wait)
   }
 }
+
+export function formatDesc(str: string, maxLen = 30) {
+  return str.length > maxLen ? str.slice(0, maxLen - 3) + '...' : str
+}

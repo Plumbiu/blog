@@ -6,7 +6,7 @@ import { cn } from '@/utils/client'
 import { BlogIcon, LifeIcon, SummaryIcon, NoteIcon } from '@/components/Icons'
 import styles from './Action.module.css'
 
-const iconMap: Record<(typeof PostDir)[number], ReactNode> = {
+export const listActionIconMap: Record<string, ReactNode> = {
   blog: <BlogIcon style={{ backgroundColor: 'var(--c-green-soft)' }} />,
   life: <LifeIcon style={{ backgroundColor: 'var(--c-red-soft)' }} />,
   summary: <SummaryIcon style={{ backgroundColor: 'var(--c-indigo-soft)' }} />,
@@ -26,7 +26,7 @@ function ArtlistAction({ type }: { type: string }) {
           href={`/list/${p}/1`}
         >
           {upperFirstChar(p)}
-          {iconMap[p]}
+          {listActionIconMap[p]}
         </Link>
       ))}
       <div className={styles.curtain} />

@@ -16,7 +16,7 @@ import {
 import { getGalleryPhoto } from '@/plugins/remark/gallery-utils'
 import { ArrowLeftIcon, ArrowRightIcon, CloseIcon } from '@/components/Icons'
 import { cn } from '@/utils/client'
-import { makeBodyScroll, preventBodyScroll } from '@/store/ImageView'
+import { makeBodyScroll, avoidBodyScroll } from '@/store/utils'
 import styles from './index.module.css'
 
 const ThumbnailsHeight = 360
@@ -34,7 +34,7 @@ function ImageGallery(props: any) {
 
   useEffect(() => {
     if (slideNode) {
-      preventBodyScroll(hidden)
+      avoidBodyScroll(hidden)
     } else {
       makeBodyScroll(hidden)
     }

@@ -1,13 +1,8 @@
-'use client'
-
-import { createStore } from '@plumbiu/react-store'
-import type React from 'react'
-
 function preventDefault(e: Event) {
   e.preventDefault()
 }
 
-export function preventBodyScroll(callback?: () => void) {
+export function avoidBodyScroll(callback?: () => void) {
   document.body.addEventListener('wheel', preventDefault, {
     passive: false,
   })
@@ -22,17 +17,3 @@ export function makeBodyScroll(callback?: () => void) {
   document.body.removeEventListener('touchmove', preventDefault)
   callback && window.removeEventListener('popstate', callback)
 }
-
-const useImageViewlStore = createStore({
-  children: null as React.ReactElement | null,
-  hidden() {
-    makeBodyScroll(this.hidden)
-    this.$set({ children: null })
-  },
-  set(children: React.ReactElement) {
-    preventBodyScroll(this.hidden)
-    this.$set({ children })
-  },
-})
-
-export default useImageViewlStore

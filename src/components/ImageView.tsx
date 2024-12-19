@@ -1,9 +1,10 @@
 'use client'
 
 import { type MouseEventHandler, useRef, type WheelEventHandler } from 'react'
-import { cn } from '@/utils/client'
-import useImageViewlStore from '@/store/ImageView'
+import useModalStore from '@/store/modal'
 import styles from './ImageView.module.css'
+import Modal from './Modal'
+import { cn } from '@/utils/client'
 
 interface Position {
   x: number
@@ -31,7 +32,7 @@ function preventComplexEvent(e: any) {
 }
 
 function ImageView() {
-  const { children, hidden } = useImageViewlStore()
+  const { children, hidden } = useModalStore()
   const modalRef = useRef<HTMLDivElement>(null)
   const scale = useRef(1)
   const preScale = useRef(1)
@@ -175,8 +176,7 @@ function ImageView() {
   }
 
   return (
-    <div>
-      <div className={styles.mask} />
+    <Modal>
       <div
         ref={modalRef}
         onClick={(e) => {
@@ -187,7 +187,7 @@ function ImageView() {
           }
           hidden()
         }}
-        className={cn(styles.modal, styles.anim)}
+        className={cn('fcc', styles.anim)}
         onWheel={onWheel}
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}
@@ -195,7 +195,7 @@ function ImageView() {
       >
         {children}
       </div>
-    </div>
+    </Modal>
   )
 }
 

@@ -53,7 +53,9 @@
     color: var(--text);
     background-color: var(--c-gray-soft);
   }
-
+  h2 {
+    margin-top: 32px;
+  }
   pre {
     margin: 0;
     font-size: 14px;
