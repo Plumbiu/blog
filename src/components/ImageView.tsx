@@ -176,25 +176,23 @@ function ImageView() {
   }
 
   return (
-    <Modal>
-      <div
-        ref={modalRef}
-        onClick={(e) => {
-          preventComplexEvent(e)
-          const target = e.target as HTMLElement
-          if (isImage(target)) {
-            return
-          }
-          hidden()
-        }}
-        className={cn('fcc', styles.anim)}
-        onWheel={onWheel}
-        onMouseDown={onMouseDown}
-        onMouseMove={onMouseMove}
-        onMouseUp={onMouseUp}
-      >
-        {children}
-      </div>
+    <Modal
+      ref={modalRef}
+      onClick={(e) => {
+        preventComplexEvent(e)
+        const target = e.target as HTMLElement
+        if (isImage(target)) {
+          return
+        }
+        hidden()
+      }}
+      className={cn('fcc', styles.anim)}
+      onWheel={onWheel}
+      onMouseDown={onMouseDown}
+      onMouseMove={onMouseMove}
+      onMouseUp={onMouseUp}
+    >
+      {children}
     </Modal>
   )
 }

@@ -97,76 +97,74 @@ function SearchPanel({ setSearchVisible }: SearchPanelProps) {
     [search],
   )
   return (
-    <Modal>
-      <div
-        onClick={(e) => {
-          e.preventDefault()
-          e.stopPropagation()
-          const target = e.target as HTMLElement
-          if (!contentRef.current!.contains(target)) {
-            hidden()
-          }
-        }}
-      >
-        <div ref={contentRef} className={styles.wrap}>
-          <div className={styles.header}>
-            <form className={styles.form}>
-              <label htmlFor={label} className={styles.label}>
-                <SearchIcon />
-              </label>
-              <input
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                id={label}
-                className={styles.ipt}
-                placeholder="Search posts"
-                autoComplete="off"
-              />
-              {search.length > 0 && (
-                <button
-                  onClick={() => setSearch('')}
-                  className={styles.btn}
-                  type="reset"
-                >
-                  <CopyErrorIcon />
-                </button>
-              )}
-            </form>
-          </div>
-          <div className={styles.list_wrapper}>
-            {lists.length === 0 && (
-              <div className={styles.empty}>No recent posts</div>
+    <Modal
+      onClick={(e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        const target = e.target as HTMLElement
+        if (!contentRef.current!.contains(target)) {
+          hidden()
+        }
+      }}
+    >
+      <div ref={contentRef} className={styles.wrap}>
+        <div className={styles.header}>
+          <form className={styles.form}>
+            <label htmlFor={label} className={styles.label}>
+              <SearchIcon />
+            </label>
+            <input
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              id={label}
+              className={styles.ipt}
+              placeholder="Search posts"
+              autoComplete="off"
+            />
+            {search.length > 0 && (
+              <button
+                onClick={() => setSearch('')}
+                className={styles.btn}
+                type="reset"
+              >
+                <CopyErrorIcon />
+              </button>
             )}
-            {lists.map(([type, list]) => (
-              <section key={type}>
-                <div className={styles.list_type}>{type}</div>
-                <div>
-                  {list.map(({ path, title, date }) => (
-                    <Link
-                      key={path}
-                      onClick={() => setSearchVisible(false)}
-                      href={`/${path}`}
-                      onMouseEnter={() => setActivePath(path)}
-                      className={cn(styles.list, {
-                        [styles.list_active]: activePath === path,
-                      })}
-                    >
-                      <div>
-                        <div className={styles.date}>{date}</div>
-                        <div className={styles.title}>
-                          {handleHihglight(title)}
-                        </div>
+          </form>
+        </div>
+        <div className={styles.list_wrapper}>
+          {lists.length === 0 && (
+            <div className={styles.empty}>No recent posts</div>
+          )}
+          {lists.map(([type, list]) => (
+            <section key={type}>
+              <div className={styles.list_type}>{type}</div>
+              <div>
+                {list.map(({ path, title, date }) => (
+                  <Link
+                    key={path}
+                    onClick={() => setSearchVisible(false)}
+                    href={`/${path}`}
+                    onMouseEnter={() => setActivePath(path)}
+                    className={cn(styles.list, {
+                      [styles.list_active]: activePath === path,
+                    })}
+                  >
+                    <div>
+                      <div className={styles.date}>{date}</div>
+                      <div className={styles.title}>
+                        {handleHihglight(title)}
                       </div>
-                    </Link>
-                  ))}
-                </div>
-              </section>
-            ))}
-          </div>
-          <div className={styles.footer}>
-            <div>
-              <KeyboardEscIcon /> to close
-            </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
+        <div className={styles.footer}>
+          <div>
+            <KeyboardEscIcon /> to close
           </div>
         </div>
       </div>
