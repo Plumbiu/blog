@@ -1,34 +1,30 @@
 'use client'
 
-import Script from 'next/script'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 function Comment() {
-  const [mount, setMount] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
   useEffect(() => {
-    setMount(true)
+    const element = document.createElement('script')
+    element.src = 'https://giscus.app/client.js'
+    element.setAttribute('data-repo', 'Plumbiu/blog')
+    element.setAttribute('data-repo-id', 'R_kgDOKYTpow')
+    element.setAttribute('data-category', 'Announcements')
+    element.setAttribute('data-category-id', 'DIC_kwDOKYTpo')
+    element.setAttribute('data-mapping', 'url')
+    element.setAttribute('data-strict', '0')
+    element.setAttribute('data-reactions-enabled', '1')
+    element.setAttribute('data-emit-metadata', '0')
+    element.setAttribute('data-input-position', 'bottom')
+    element.setAttribute('data-theme', window.getLocalTheme())
+    element.setAttribute('data-lang', 'zh-CN')
+    element.setAttribute('data-loading', 'lazy')
+    element.crossOrigin = 'anonymous'
+    element.async = true
+    ref.current!.appendChild(element)
   }, [])
-  return (
-    mount && (
-      <Script
-        src="https://giscus.app/client.js"
-        data-repo="Plumbiu/blog"
-        data-repo-id="R_kgDOKYTpow"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOKYTpo84ClYz1"
-        data-mapping="url"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme={window.getLocalTheme()}
-        data-lang="zh-CN"
-        data-loading="lazy"
-        crossOrigin="anonymous"
-        async
-      />
-    )
-  )
+
+  return <div ref={ref} className="giscus" />
 }
 
 export default Comment
