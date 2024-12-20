@@ -10,7 +10,6 @@ import Meta from '../../components/Meta'
 import '../../styles/md.css'
 import '../../styles/shiki.css'
 import transfromCode2Jsx from '../../utils/transfrom'
-import Comment from '../../components/Comment'
 
 export async function generateStaticParams() {
   const mds = await getPostPaths()
@@ -56,7 +55,6 @@ async function Post({ params }: PostProps) {
       >
         <Meta {...info} />
         <div className="md">{node}</div>
-        <Comment />
       </div>
       <Toc />
     </div>
