@@ -34,7 +34,13 @@ export default function RootLayout({
     <html lang="zh" suppressHydrationWarning>
       <head>
         <meta name="google-site-verification" content={GSC} />
-        <script src={resolveAssetPath('theme.js')} />
+        <script
+          src={resolveAssetPath(
+            `assets/${
+              process.env.NODE_ENV === 'development' ? 'dev/' : ''
+            }theme.js`,
+          )}
+        />
         <link
           href={resolveAssetPath('icons/icon.svg')}
           rel="icon"

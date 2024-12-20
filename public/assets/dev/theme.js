@@ -1,11 +1,9 @@
-// biome-ignore lint/style/noVar: <explanation>
 var ThemeKey = 'data-theme'
-// biome-ignore lint/style/noVar: <explanation>
 var Dark = 'dark'
-// biome-ignore lint/style/noVar: <explanation>
 var Light = 'light'
 
 const media = window.matchMedia('(prefers-color-scheme: light)')
+let iframe
 
 function getTheme() {
   const localTheme = getLocalTheme()
@@ -21,6 +19,22 @@ function setHtmlTheme(theme) {
 function setTheme(theme) {
   setHtmlTheme(theme)
   localStorage.setItem(ThemeKey, theme)
+
+  if (!iframe) {
+    iframe = document.querySelector('iframe.giscus-frame')
+  }
+  if (iframe) {
+    iframe.contentWindow.postMessage(
+      {
+        giscus: {
+          setConfig: {
+            theme: theme,
+          },
+        },
+      },
+      'https://giscus.app',
+    )
+  }
 }
 
 const theme = getTheme()

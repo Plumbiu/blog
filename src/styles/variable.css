@@ -68,7 +68,7 @@
   --center-rest: calc((100% - var(--post-w)) / 2);
   --pre-radius: 4px;
   --pre-padding: 14px;
-  --extend-x: -56px;
+  --extend-x: -76px;
   --image-item-w: 50%;
   --code-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     Liberation Mono, Courier New, monospace;

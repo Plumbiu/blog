@@ -7,7 +7,7 @@
   row-gap: 16px;
   color: var(--text-3);
   white-space: nowrap;
-  margin-top: 48px !important;
+  margin-top: 12px !important;
   margin-bottom: 32px !important;
 
   & > a {

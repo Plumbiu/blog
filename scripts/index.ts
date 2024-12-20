@@ -7,7 +7,7 @@ import { minify } from 'terser'
 export type FileMap = Record<string, string>
 
 async function run() {
-  const code = await fsp.readFile('scripts/theme.js', 'utf-8')
+  const code = await fsp.readFile('public/assets/dev/theme.js', 'utf-8')
   const mini = await minify(code, {
     compress: {
       ecma: 2018,
@@ -15,7 +15,7 @@ async function run() {
     },
   })
   const posts = await getPostList()
-  const themePath = 'public/theme.js'
+  const themePath = 'public/assets/theme.js'
   if (mini.code) {
     await writeFileWithGit(themePath, mini.code)
   }
