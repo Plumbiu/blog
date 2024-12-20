@@ -54,6 +54,7 @@
 .list_wrapper {
   position: relative;
   max-height: 50vh;
+  padding-bottom: var(--distance);
   overflow-y: scroll;
 }
 
@@ -90,7 +91,7 @@
 
 .empty {
   text-align: center;
-  padding: 24px 0 32px 0;
+  padding: 24px 0 12px 0;
 }
 
 .type {
@@ -132,4 +133,15 @@
 
 .highlight_word {
   color: var(--c-indigo-1);
+  word-break: break-all;
+}
+
+.empty_content {
+  padding: 0 var(--distance);
+  white-space: break-all;
+  & > svg {
+    margin: 8px auto;
+    font-size: 48px;
+    color: var(--c-gray-1);
+  }
 }

@@ -1,10 +1,23 @@
 'use client'
 
 import { cn } from '@/utils/client'
-import { useCallback, useEffect, useId, useRef, useState } from 'react'
+import {
+  memo,
+  type ReactNode,
+  useCallback,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+} from 'react'
 import styles from './SearchPanel.module.css'
 import Modal from './Modal'
-import { CopyErrorIcon, KeyboardEscIcon, SearchIcon } from './Icons'
+import {
+  CopyErrorIcon,
+  KeyboardEscIcon,
+  SearchIcon,
+  SearchSlashIcon,
+} from './Icons'
 import { upperFirstChar } from '@/utils'
 import { Link } from 'next-view-transitions'
 
@@ -15,15 +28,28 @@ interface SearchData {
   type: string
 }
 
+const EmptyContent = memo(({ search }: { search: string }) => {
+  return (
+    <div className={styles.empty_content}>
+      <SearchSlashIcon />
+      No results found for "
+      <span className={styles.highlight_word}>{search}</span>"
+    </div>
+  )
+})
+
 type ListType = [string, SearchData[]][]
 interface SearchPanelProps {
   setSearchVisible: (visible: boolean) => void
 }
 
+const InitialEmptyContent = 'Type to search'
+
 function SearchPanel({ setSearchVisible }: SearchPanelProps) {
   const listRef = useRef<SearchData[]>()
   const [lists, setLists] = useState<ListType>([])
   const [activePath, setActivePath] = useState<string>()
+  const [emptyContent, setEmptyContent] = useState<ReactNode>(InitialEmptyContent)
   const [search, setSearch] = useState('')
   const contentRef = useRef<HTMLDivElement>(null)
   const label = useId()
@@ -60,6 +86,9 @@ function SearchPanel({ setSearchVisible }: SearchPanelProps) {
       const lists = listRef.current!.filter((list) =>
         list.title.toLowerCase().includes(search.toLowerCase()),
       )
+      if (lists.length === 0) {
+        setEmptyContent(<EmptyContent search={search} />)
+      }
       const result: Record<string, SearchData[]> = {}
       for (const list of lists) {
         const type = upperFirstChar(list.type)
@@ -71,6 +100,7 @@ function SearchPanel({ setSearchVisible }: SearchPanelProps) {
       setLists(Object.entries(result))
     } else {
       setLists([])
+      setEmptyContent(InitialEmptyContent)
     }
   }, [search, listRef])
 
@@ -134,7 +164,7 @@ function SearchPanel({ setSearchVisible }: SearchPanelProps) {
         </div>
         <div className={styles.list_wrapper}>
           {lists.length === 0 && (
-            <div className={styles.empty}>No recent posts</div>
+            <div className={styles.empty}>{emptyContent}</div>
           )}
           {lists.map(([type, list]) => (
             <section key={type}>

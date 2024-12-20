@@ -33,12 +33,9 @@
 }
 
 .modal > * {
-  user-select: none;
   animation: fade 0.15s forwards;
-  cursor: grab;
   max-width: 95vw;
   max-height: calc(90vh - 104px);
-  object-fit: contain;
 
   &:active {
     cursor: grabbing;
@@ -46,6 +43,9 @@
 }
 
 .modal > img {
+  user-select: none;
+  object-fit: contain;
+  cursor: grab;
   width: auto;
   height: auto;
 }

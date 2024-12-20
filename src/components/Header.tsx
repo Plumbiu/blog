@@ -2,7 +2,7 @@
 
 import { Link } from 'next-view-transitions'
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
-import { cn, throttle } from '@/utils/client'
+import { cn } from '@/utils/client'
 import { BlogAuthor, RepoUrl } from '~/data/site'
 import { GithubIcon, MoonIcon, RssIcon, SearchIcon, SunIcon } from './Icons'
 import styles from './Header.module.css'
@@ -29,26 +29,23 @@ function Header() {
     setTheme(window.getLocalTheme()!)
   }, [])
 
-  const addShadowClassName = useCallback(
-    throttle(() => {
-      const header = ref.current!
-      const scrollTop =
-        document.documentElement.scrollTop || document.body.scrollTop
-      const prevTop = prevScrollTop.current
-      if (scrollTop > prevTop) {
-        header.classList.add(styles.hide)
-      } else {
-        header.classList.remove(styles.hide)
-      }
-      if (scrollTop > 120) {
-        header.classList.add(styles.shadow)
-      } else {
-        header.classList.remove(styles.shadow)
-      }
-      prevScrollTop.current = scrollTop
-    }, 150),
-    [],
-  )
+  const addShadowClassName = useCallback(() => {
+    const header = ref.current!
+    const scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop
+    const prevTop = prevScrollTop.current
+    if (scrollTop > prevTop) {
+      header.classList.add(styles.hide)
+    } else {
+      header.classList.remove(styles.hide)
+    }
+    if (scrollTop > 120) {
+      header.classList.add(styles.shadow)
+    } else {
+      header.classList.remove(styles.shadow)
+    }
+    prevScrollTop.current = scrollTop
+  }, [])
 
   useEffect(() => {
     addShadowClassName()
