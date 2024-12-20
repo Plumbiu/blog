@@ -18,7 +18,6 @@ function Comment() {
     element.setAttribute('data-input-position', 'bottom')
     element.setAttribute('data-theme', window.getLocalTheme())
     element.setAttribute('data-lang', 'zh-CN')
-    element.setAttribute('data-loading', 'lazy')
     element.crossOrigin = 'anonymous'
     element.async = true
     ref.current!.appendChild(element)
