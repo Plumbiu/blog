@@ -28,16 +28,16 @@ function SearchPanel({ setSearchVisible }: SearchPanelProps) {
   const contentRef = useRef<HTMLDivElement>(null)
   const label = useId()
 
-  const hidden = useCallback(() => {
+  const hide = useCallback(() => {
     setSearchVisible(false)
   }, [setSearchVisible])
   const handleKeyDown = useCallback(
     (e: WindowEventMap['keydown']) => {
       if (e.key === 'Escape') {
-        hidden()
+        hide()
       }
     },
-    [hidden],
+    [hide],
   )
 
   useEffect(() => {
@@ -103,7 +103,7 @@ function SearchPanel({ setSearchVisible }: SearchPanelProps) {
         e.stopPropagation()
         const target = e.target as HTMLElement
         if (!contentRef.current!.contains(target)) {
-          hidden()
+          hide()
         }
       }}
     >

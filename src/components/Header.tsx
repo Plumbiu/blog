@@ -1,12 +1,13 @@
 'use client'
 
 import { Link } from 'next-view-transitions'
-import { lazy, useEffect, useRef, useState } from 'react'
-import { cn } from '@/utils/client'
+import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
+import { cn, throttle } from '@/utils/client'
 import { BlogAuthor, RepoUrl } from '~/data/site'
 import { GithubIcon, MoonIcon, RssIcon, SearchIcon, SunIcon } from './Icons'
 import styles from './Header.module.css'
 import { usePathname } from 'next/navigation'
+import ModalLoading from './ModalLoading'
 
 const SearchPanel = lazy(() => import('./SearchPanel'))
 
@@ -28,26 +29,26 @@ function Header() {
     setTheme(window.getLocalTheme()!)
   }, [])
 
-  function addShadowClassName() {
-    const header = ref.current
-    if (!header) {
-      return
-    }
-    const scrollTop =
-      document.documentElement.scrollTop || document.body.scrollTop
-    const prevTop = prevScrollTop.current
-    if (scrollTop > prevTop) {
-      header.classList.add(styles.hide)
-    } else {
-      header.classList.remove(styles.hide)
-    }
-    if (scrollTop > 120) {
-      header.classList.add(styles.shadow)
-    } else {
-      header.classList.remove(styles.shadow)
-    }
-    prevScrollTop.current = scrollTop
-  }
+  const addShadowClassName = useCallback(
+    throttle(() => {
+      const header = ref.current!
+      const scrollTop =
+        document.documentElement.scrollTop || document.body.scrollTop
+      const prevTop = prevScrollTop.current
+      if (scrollTop > prevTop) {
+        header.classList.add(styles.hide)
+      } else {
+        header.classList.remove(styles.hide)
+      }
+      if (scrollTop > 120) {
+        header.classList.add(styles.shadow)
+      } else {
+        header.classList.remove(styles.shadow)
+      }
+      prevScrollTop.current = scrollTop
+    }, 150),
+    [],
+  )
 
   useEffect(() => {
     addShadowClassName()
@@ -106,7 +107,11 @@ function Header() {
           </div>
         </div>
       </header>
-      {searchVisible && <SearchPanel setSearchVisible={setSearchVisible} />}
+      <Suspense
+        fallback={<ModalLoading hide={() => setSearchVisible(false)} />}
+      >
+        {searchVisible && <SearchPanel setSearchVisible={setSearchVisible} />}
+      </Suspense>
     </>
   )
 }

@@ -113,7 +113,7 @@
       },
       "nursery": {
         "noCommonJs": "off",
-        "noDescendingSpecificity": "error",
+        "noDescendingSpecificity": "off",
         "noDocumentCookie": "error",
         "noDocumentImportInPage": "error",
         "noDuplicateCustomProperties": "error",

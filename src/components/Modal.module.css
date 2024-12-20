@@ -32,17 +32,20 @@
   }
 }
 
-.modal img {
+.modal > * {
   user-select: none;
   animation: fade 0.15s forwards;
   cursor: grab;
   max-width: 95vw;
-  width: auto;
-  height: auto;
-  object-fit: contain;
   max-height: calc(90vh - 104px);
+  object-fit: contain;
 
   &:active {
     cursor: grabbing;
   }
+}
+
+.modal > img {
+  width: auto;
+  height: auto;
 }
