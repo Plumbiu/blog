@@ -1,37 +1,33 @@
 'use client'
 
-import useObserver from '@/hooks/useObservser'
 import Script from 'next/script'
-import { useRef } from 'react'
-import Loading from '~/data/components/_common/Loading'
+import { useEffect, useState } from 'react'
 
 function Comment() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const isIntersecting = useObserver(containerRef)
-
+  const [mount, setMount] = useState(false)
+  useEffect(() => {
+    setMount(true)
+  }, [])
   return (
-    <div ref={containerRef} id="comment-container">
-      {isIntersecting ? (
-        <Script
-          src="https://giscus.app/client.js"
-          data-repo="Plumbiu/blog"
-          data-repo-id="R_kgDOKYTpow"
-          data-category="Announcements"
-          data-category-id="DIC_kwDOKYTpo84ClYz1"
-          data-mapping="url"
-          data-strict="0"
-          data-reactions-enabled="1"
-          data-emit-metadata="0"
-          data-input-position="bottom"
-          data-theme={window.getLocalTheme()}
-          data-lang="zh-CN"
-          crossOrigin="anonymous"
-          async
-        />
-      ) : (
-        <Loading />
-      )}
-    </div>
+    mount && (
+      <Script
+        src="https://giscus.app/client.js"
+        data-repo="Plumbiu/blog"
+        data-repo-id="R_kgDOKYTpow"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOKYTpo84ClYz1"
+        data-mapping="url"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme={window.getLocalTheme()}
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossOrigin="anonymous"
+        async
+      />
+    )
   )
 }
 
