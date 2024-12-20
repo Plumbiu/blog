@@ -22,6 +22,7 @@
 - Image optimization via [sharp](https://github.com/lovell/sharp) and [next/image](https://nextjs.org/docs/basic-features/image-optimization)
 - SEO friendly with RSS feed
 - Module css an self-designed components
+- Comment system via [giscus](https://github.com/giscus/giscus)
 - Custom markdown rules via [remark-directive](https://github.com/remarkjs/remark-directive): see [`custom-component.md`](/data/posts/note/custom-component.md) and [preview](https://blog.plumbiu.top/posts/note/custom-component)
 - Component lazy load via [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver)
 
@@ -59,7 +60,7 @@ desc: The article introduction, it can be a number, indicating that the introduc
 
 # Deploy to Github pages
 
-Edit the `RepoName` in [data/variable.ts](/data/variable.ts) file and `BasePath` in [next.config.js](/next.config.js) file.
+Edit the `RepoName` in [data/site.ts](/data/site.ts) file and `BasePath` in [next.config.js](/next.config.js) file.
 
 > [!WARNING]
 > Github pages only support static resources, [rewrites](https://nextjs.org/docs/app/api-reference/config/next-config-js/rewrites) will not work, see [next.config.js](/next.config.js)
