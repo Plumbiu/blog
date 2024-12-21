@@ -9,6 +9,7 @@ import issueMap from '~/data/issues.json'
 import { Link } from 'next-view-transitions'
 import { ExternalLinkIcon } from '@/components/Icons'
 import useObserver from '@/hooks/useObservser'
+import { isString } from '@/utils/types'
 
 const reactionsMap: Record<string, string> = {
   '+1': '👍',
@@ -45,9 +46,11 @@ const timeago = (createdAt: string): string => {
   return ans
 }
 
+type Status = { status: 'error' | 'loading' | 'loaded'; value?: string }
+
 const Comment = memo(({ pathname }: CommentProps) => {
   const [lists, setLists] = useState<any[]>([])
-  const [isLoading, setIsLoading] = useState(true)
+  const [fetchStatus, setFetchStatus] = useState<Status>({ status: 'loading' })
   const containerRef = useRef<HTMLDivElement>(null)
   const isIntersecting = useObserver(containerRef)
   const issueName = `[comment] ${pathname}`
@@ -67,21 +70,35 @@ const Comment = memo(({ pathname }: CommentProps) => {
           cache:
             process.env.NODE_ENV === 'development' ? 'force-cache' : 'no-store',
         }).then((res) => res.json())
+
         if (Array.isArray(lists)) {
           setLists(lists)
+          setFetchStatus({ status: 'loaded' })
+        } else if (isString(lists.message)) {
+          setFetchStatus({ status: 'error', value: lists.message })
+        } else {
+          setFetchStatus({ status: 'error', value: '未知错误' })
         }
       } catch (error) {
-      } finally {
-        setIsLoading(false)
+        setFetchStatus({ status: 'error' })
       }
     })()
   }, [isIntersecting])
 
   const node = useMemo(() => {
+    if (fetchStatus.status === 'error') {
+      return (
+        <div className="md">
+          <blockquote className="blockquote-danger">
+            {fetchStatus.value}
+          </blockquote>
+        </div>
+      )
+    }
     if (!lists || !isIntersecting) {
       return null
     }
-    if (isLoading) {
+    if (fetchStatus.status === 'loading') {
       return (
         <div className={cn(styles.loading_wrap)}>
           <div className={styles.loading} />
@@ -108,24 +125,26 @@ const Comment = memo(({ pathname }: CommentProps) => {
                 __html: list.body_html,
               }}
             />
-            {list.reactions.total_count > 0 && <div className={styles.reactions}>
-              {Object.entries(list.reactions).map(([key, reaction]) => {
-                if (!reactionsMap[key] || reaction === 0) {
-                  return null
-                }
-                return (
-                  <div key={key}>
-                    <span>{reactionsMap[key]}</span>
-                    <span>{reaction as string}</span>
-                  </div>
-                )
-              })}
-            </div>}
+            {list.reactions.total_count > 0 && (
+              <div className={styles.reactions}>
+                {Object.entries(list.reactions).map(([key, reaction]) => {
+                  if (!reactionsMap[key] || reaction === 0) {
+                    return null
+                  }
+                  return (
+                    <div key={key}>
+                      <span>{reactionsMap[key]}</span>
+                      <span>{reaction as string}</span>
+                    </div>
+                  )
+                })}
+              </div>
+            )}
           </div>
         ))}
       </>
     )
-  }, [lists, isIntersecting, isLoading])
+  }, [lists, isIntersecting, fetchStatus])
 
   return (
     <div ref={containerRef} className={styles.wrapper}>
