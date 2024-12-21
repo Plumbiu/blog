@@ -62,6 +62,10 @@ desc: The article introduction, it can be a number, indicating that the introduc
 ---
 ```
 
+## Scripts
+
+Run `pnpm generate`.
+
 # Deploy to Github pages
 
 Edit the `RepoName` in [data/site.ts](/data/site.ts) file and `BasePath` in [next.config.js](/next.config.js) file.
