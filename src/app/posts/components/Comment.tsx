@@ -64,9 +64,12 @@ const Comment = memo(({ pathname }: CommentProps) => {
           headers: {
             accept: 'application/vnd.github.VERSION.html+json',
           },
-          cache: 'no-store',
+          cache:
+            process.env.NODE_ENV === 'development' ? 'force-cache' : 'no-store',
         }).then((res) => res.json())
-        setLists(lists)
+        if (Array.isArray(lists)) {
+          setLists(lists)
+        }
       } catch (error) {
       } finally {
         setIsLoading(false)
@@ -105,7 +108,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
                 __html: list.body_html,
               }}
             />
-            <div className={styles.reactions}>
+            {list.reactions.total_count > 0 && <div className={styles.reactions}>
               {Object.entries(list.reactions).map(([key, reaction]) => {
                 if (!reactionsMap[key] || reaction === 0) {
                   return null
@@ -117,7 +120,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
                   </div>
                 )
               })}
-            </div>
+            </div>}
           </div>
         ))}
       </>
