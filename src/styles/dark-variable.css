@@ -6,7 +6,7 @@ html[data-theme="dark"] {
   --text-2: rgba(200, 200, 200, 0.82);
   --text-1: rgba(200, 200, 200);
   /* border */
-  --divider: #1f1f20;
+  --divider: #222;
   /* color */
   --c-yellow-soft: rgba(234, 179, 8, 0.16);
   --c-yellow-3: #a46a0a;
@@ -28,7 +28,7 @@ html[data-theme="dark"] {
   --c-green-3: #298459;
   --c-green-2: #30a46c;
   --c-green-1: #3dd68c;
-  --c-gray-soft: rgba(101, 117, 133, 0.16);
+  --c-gray-soft: rgba(101, 117, 130, 0.16);
   --c-gray-3: #333;
   --c-gray-2: #454545;
   --c-gray-1: #565656;

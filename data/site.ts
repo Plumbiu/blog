@@ -7,9 +7,9 @@ export const BlogCopyRight = `CC BY-NC-SA 4.0 2024 © ${BlogAuthor}`
 
 // Github
 export const GithubName = BlogAuthor
-export const RepoName = 'blog'
-export const RepoUrl = `https://github.com/Plumbiu/${RepoName}`
-export const RepoLinksUrl = `${RepoUrl}/blob/main/data/links.json`
+export const GithubRepoName = 'blog'
+export const GithubRepoUrl = `https://github.com/Plumbiu/${GithubRepoName}`
+export const GithubLinksUrl = `${GithubRepoUrl}/blob/main/data/links.json`
 
 // Contact
 export const BilibiliId = '227616086'
@@ -17,7 +17,7 @@ export const Email = 'plumbiuzz@gmail.com'
 
 // Page
 export const IS_GITPAGE = !!process.env.GITPAGE
-export const BasePath = IS_GITPAGE ? `/${RepoName}` : ''
+export const BasePath = IS_GITPAGE ? `/${GithubRepoName}` : ''
 
 // Google Search Console
 export const GSC = 'cLcOnIeQ4g4EzFOatuj_bf8zVqruuH4ZYgrnTSgVR_k'

@@ -56,7 +56,7 @@ async function Post({ params }: PostProps) {
       >
         <Meta {...info} />
         <div className="md">{node}</div>
-        <Comment />
+        <Comment pathname={`posts/${params.type}/${params.id}`} />
       </div>
       <Toc />
     </div>

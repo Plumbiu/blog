@@ -8,3 +8,8 @@ interface Window {
   Dark: string
   Light: string
 }
+
+declare module '~/data/issues.json' {
+  const value: Record<string, number>
+  export default value
+}

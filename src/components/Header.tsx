@@ -3,7 +3,7 @@
 import { Link } from 'next-view-transitions'
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import { cn } from '@/utils/client'
-import { BlogAuthor, RepoUrl } from '~/data/site'
+import { BlogAuthor, GithubRepoUrl } from '~/data/site'
 import { GithubIcon, MoonIcon, RssIcon, SearchIcon, SunIcon } from './Icons'
 import styles from './Header.module.css'
 import { usePathname } from 'next/navigation'
@@ -13,7 +13,7 @@ const SearchPanel = lazy(() => import('./SearchPanel'))
 
 const rightData = [
   { href: '/rss.xml', children: <RssIcon />, target: '_blank' },
-  { href: RepoUrl, children: <GithubIcon />, target: '_blank' },
+  { href: GithubRepoUrl, children: <GithubIcon />, target: '_blank' },
   { href: '/links', children: 'Links' },
   { href: '/about', children: 'About' },
 ]
@@ -94,7 +94,7 @@ function Header() {
                 className={cn(styles.hover, {
                   [styles.active]: pathanme === data.href,
                   [styles.mobile]:
-                    data.href === RepoUrl || data.href === '/about',
+                    data.href === GithubRepoUrl || data.href === '/about',
                 })}
                 prefetch={data.href !== '/rss.xml'}
               >

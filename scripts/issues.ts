@@ -1,0 +1,52 @@
+import type { PostList } from '@/utils/node/markdown'
+import fsp from 'node:fs/promises'
+import { GithubName, GithubRepoName } from '~/data/site'
+import { writeFileWithGit } from './utils'
+
+const EnvLocalFile = '.env.local'
+
+export async function createIssues(posts: PostList[]) {
+  console.log(process.env.GITHUB_TOKEN)
+  const allIssues: any[] = await fetch(
+    `https://api.github.com/repos/${GithubName}/${GithubRepoName}/issues`,
+  ).then((res) => res.json())
+  const issues = allIssues.filter((issue) =>
+    issue.title.startsWith('[comment] '),
+  )
+  const result: Record<string, number> = {}
+  for (const issue of issues) {
+    result[issue.title] = issue.number
+  }
+  const postIssues = posts
+    .map((post) => {
+      const issueName = `[comment] ${post.path}`
+      return issueName
+    })
+    .filter((issueName) => !result[issueName])
+  const files = await fsp.readFile(EnvLocalFile, 'utf-8')
+  const envs = files.split(/\r?\n/g)
+
+  for (const env of envs) {
+    if (env.startsWith('GITHUB_TOKEN=')) {
+      const token = env.split('=')[1].trim()
+      const querylUrl = `https://api.github.com/repos/${GithubName}/${GithubRepoName}/issues`
+      await Promise.all(
+        postIssues.map(async (title) => {
+          await fetch(querylUrl, {
+            method: 'POST',
+            headers: {
+              accept: 'application/vnd.github.VERSION.html+json',
+              authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({
+              title,
+              body: 'You can leave comment here 😄',
+              labels: ['comment'],
+            }),
+          })
+        }),
+      )
+    }
+  }
+  await writeFileWithGit(EnvLocalFile, JSON.stringify(result))
+}

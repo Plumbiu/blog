@@ -28,6 +28,10 @@
 
 # Customize
 
+## Env
+
+See [.env.example](/.env.example) file.
+
 ## Directory
 
 - [data/posts](/data/posts/): markdown files with category

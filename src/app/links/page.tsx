@@ -5,7 +5,7 @@ import type { Metadata } from 'next'
 import { cn } from '@/utils/client'
 import info from '~/data/links.json'
 import { getBlurDataUrl } from '@/utils/node/optimize'
-import { BlogAuthor, RepoLinksUrl } from '~/data/site'
+import { BlogAuthor, GithubLinksUrl } from '~/data/site'
 import styles from './page.module.css'
 import { generateSeoMetaData, joinWebUrl } from '../seo'
 
@@ -61,7 +61,7 @@ async function Links() {
       </div>
       <Link
         aria-label="Read more about links config file"
-        href={RepoLinksUrl}
+        href={GithubLinksUrl}
         className="link"
         target="_blank"
       >
