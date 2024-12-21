@@ -1,5 +1,6 @@
 import type { PostList } from '@/utils/node/markdown'
 import type { FloatType } from './types'
+import { entries } from '@/utils/types'
 
 export function getYear(date: number) {
   return String(new Date(date).getFullYear())
@@ -14,5 +15,5 @@ export function formatPostByYear(lists: PostList[]) {
     }
     map[year].push(list)
   }
-  return Object.entries(map).sort(([a], [b]) => +b - +a)
+  return entries(map).sort(([a], [b]) => +b - +a)
 }

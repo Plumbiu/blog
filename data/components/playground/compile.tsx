@@ -1,5 +1,6 @@
 import React, { createElement } from 'react'
 import { isJsxFileLike } from '@/utils'
+import { keys } from '@/utils/types'
 
 type Scope = Record<string, any>
 
@@ -12,7 +13,7 @@ const baseScope: Scope = {
   React,
 }
 
-const baseScopeKeys = Object.keys(baseScope)
+const baseScopeKeys = keys(baseScope)
 const baseScopeValues = baseScopeKeys.map((key) => baseScope[key])
 
 function evalCode(code: string, scope: Scope, logFn?: LogFn) {
@@ -56,7 +57,7 @@ export function renerPlayground({
     ...baseScope,
   }
   const main = files[defaultSelector]
-  const jsKyes = Object.keys(files).filter((key) => {
+  const jsKyes = keys(files).filter((key) => {
     return key !== defaultSelector && isJsxFileLike(key)
   })
   const loop = () => {

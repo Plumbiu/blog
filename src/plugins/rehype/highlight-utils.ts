@@ -1,7 +1,7 @@
 // This code is modified based on
 // https://github.com/euank/node-parse-numeric-range/blob/master/index.js
 
-import { isString } from '@/utils/types'
+import { arrayify, isString } from '@/utils/types'
 
 /*
   LICENSE: https://github.com/euank/node-parse-numeric-range/blob/master/LICENSE
@@ -61,9 +61,7 @@ export const calculateLinesToHighlight = (meta: string) => {
 }
 
 export const getLanguage = (className: any) => {
-  if (!Array.isArray(className)) {
-    className = [className]
-  }
+  className = arrayify(className)
   for (const classListItem of className) {
     if (isString(classListItem) && classListItem.slice(0, 9) === 'language-') {
       return classListItem.slice(9).toLowerCase()

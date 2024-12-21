@@ -1,3 +1,4 @@
+import { keys } from '@/utils/types'
 import {
   ComponentKey,
   type FileMap,
@@ -70,7 +71,7 @@ export const filemapToElementContent = (
   parentMeta: string,
   parentLang: string,
 ): ElementContent[] => {
-  return Object.keys(files).map((key) => {
+  return keys(files).map((key) => {
     const item = files[key]
     const lang = getSuffix(key).toLowerCase()
     const props: Record<string, string> = {

@@ -18,3 +18,11 @@ export function getType(value: any) {
   const type = Object.prototype.toString.call(value)
   return type.slice(8, type.length - 1)
 }
+
+export const isArray = Array.isArray
+export const arrayify = <T>(value: T | T[]): T[] =>
+  isArray(value) ? value : [value]
+
+export const keys = Object.keys
+export const values = Object.values
+export const entries = Object.entries

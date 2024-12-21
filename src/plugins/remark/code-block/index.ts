@@ -21,6 +21,7 @@ import {
 } from '../../constant'
 import { getFirstFileKey, makeProperties } from '../../utils'
 import { SwitcherName } from './switcher-utils'
+import { entries, keys } from '@/utils/types'
 
 const transfromOptions: Options = {
   transforms: ['jsx', 'typescript', 'imports'],
@@ -56,7 +57,7 @@ const remarkCodeBlcok: RemarkPlugin = () => {
 
         let hideTabs = true
         const files = buildFiles(code, selector)
-        const fileKeys = Object.keys(files)
+        const fileKeys = keys(files)
         let styles = ''
         for (const key of fileKeys) {
           const { code } = files[key]
@@ -79,9 +80,7 @@ const remarkCodeBlcok: RemarkPlugin = () => {
         handleFileMap(
           props,
           JSON.stringify(
-            Object.fromEntries(
-              Object.entries(files).map(([k, v]) => [k, v.code]),
-            ),
+            Object.fromEntries(entries(files).map(([k, v]) => [k, v.code])),
           ),
         )
         handlePlaygroundStyles(props, styles)

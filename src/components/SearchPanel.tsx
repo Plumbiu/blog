@@ -20,6 +20,7 @@ import {
 } from './Icons'
 import { upperFirstChar } from '@/utils'
 import { Link } from 'next-view-transitions'
+import { entries } from '@/utils/types'
 
 interface SearchData {
   date: string
@@ -97,7 +98,7 @@ function SearchPanel({ setSearchVisible }: SearchPanelProps) {
         }
         result[type].push(list)
       }
-      setLists(Object.entries(result))
+      setLists(entries(result))
     } else {
       setLists([])
       setEmptyContent(InitialEmptyContent)

@@ -10,6 +10,7 @@ import {
   handleFileMap,
 } from '@/plugins/constant'
 import PreComponent from '@/app/posts/components/Pre'
+import { isArray, keys } from '@/utils/types'
 
 const Tab = memo((props: TabProps) => {
   const { name, onClick, hidden = false, isActive } = props
@@ -59,7 +60,7 @@ const CodeTabs = memo(
 )
 const CodePreview = memo((props: any) => {
   const { defaultSelector, codeNodeMap, codeTabs } = useMemo(() => {
-    const children = Array.isArray(props.children)
+    const children = isArray(props.children)
       ? props.children
       : [props.children]
     const defaultSelector = handleComponentSelectorKey(props)
@@ -67,7 +68,7 @@ const CodePreview = memo((props: any) => {
       children.map((node: any) => [handleComponentFileKey(node.props), node]),
     )
     const files = handleFileMap(props)
-    const codeTabs = Object.keys(files).map((name) => ({ name }))
+    const codeTabs = keys(files).map((name) => ({ name }))
 
     return {
       defaultSelector,

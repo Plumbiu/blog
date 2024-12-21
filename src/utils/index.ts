@@ -1,7 +1,7 @@
 import { isValidElement, type ReactNode } from 'react'
 import { PostDir, type FrontmatterKey } from '@/constants'
 import { BasePath } from '~/data/site'
-import { isNumber, isString } from './types'
+import { isArray, isNumber, isString } from './types'
 
 const RemoveMdSuffixRegx = /\.md$/
 export const removeMdSuffix = (p: string) => {
@@ -53,7 +53,7 @@ export function renderReactNodeToString(node: ReactNode) {
     } else if (isValidElement(node)) {
       const { children } = node.props
       if (children) {
-        if (Array.isArray(children)) {
+        if (isArray(children)) {
           for (const child of children) {
             render(child)
           }

@@ -9,7 +9,7 @@ import issueMap from '~/data/issues.json'
 import { Link } from 'next-view-transitions'
 import { ExternalLinkIcon } from '@/components/Icons'
 import useObserver from '@/hooks/useObservser'
-import { isString } from '@/utils/types'
+import { entries, isArray, isString } from '@/utils/types'
 
 const reactionsMap: Record<string, string> = {
   '+1': '👍',
@@ -46,11 +46,10 @@ const timeago = (createdAt: string): string => {
   return ans
 }
 
-type Status = { status: 'error' | 'loading' | 'loaded'; value?: string }
+type Data = { status: 'error' | 'loading' | 'loaded'; value?: any }
 
 const Comment = memo(({ pathname }: CommentProps) => {
-  const [lists, setLists] = useState<any[]>([])
-  const [fetchStatus, setFetchStatus] = useState<Status>({ status: 'loading' })
+  const [data, setData] = useState<Data>({ status: 'loading' })
   const containerRef = useRef<HTMLDivElement>(null)
   const isIntersecting = useObserver(containerRef)
   const issueName = `[comment] ${pathname}`
@@ -71,34 +70,33 @@ const Comment = memo(({ pathname }: CommentProps) => {
             process.env.NODE_ENV === 'development' ? 'force-cache' : 'no-store',
         }).then((res) => res.json())
 
-        if (Array.isArray(lists)) {
-          setLists(lists)
-          setFetchStatus({ status: 'loaded' })
+        if (isArray(lists)) {
+          setData({ status: 'loaded', value: lists })
         } else if (isString(lists.message)) {
-          setFetchStatus({ status: 'error', value: lists.message })
+          setData({ status: 'error', value: lists.message })
         } else {
-          setFetchStatus({ status: 'error', value: '未知错误' })
+          setData({ status: 'error', value: '未知错误' })
         }
       } catch (error) {
-        setFetchStatus({ status: 'error' })
+        setData({ status: 'error' })
       }
     })()
   }, [isIntersecting])
 
   const node = useMemo(() => {
-    if (fetchStatus.status === 'error') {
+    if (data.status === 'error') {
       return (
         <div className="md">
           <blockquote className="blockquote-danger">
-            {fetchStatus.value}
+            {data.value}
           </blockquote>
         </div>
       )
     }
-    if (!lists || !isIntersecting) {
+    if (!data.value || !isIntersecting) {
       return null
     }
-    if (fetchStatus.status === 'loading') {
+    if (data.status === 'loading') {
       return (
         <div className={cn(styles.loading_wrap)}>
           <div className={styles.loading} />
@@ -106,10 +104,13 @@ const Comment = memo(({ pathname }: CommentProps) => {
         </div>
       )
     }
+    if (!isArray(data.value)) {
+      return null
+    }
     return (
       <>
-        <div className={styles.count}>{lists.length}条评论</div>
-        {lists.map((list) => (
+        <div className={styles.count}>{data.value.length}条评论</div>
+        {data.value.map((list: any) => (
           <div key={list.id} className={styles.item}>
             <div className={styles.top}>
               <Image src={list.user.avatar_url} width={32} height={32} alt="" />
@@ -127,7 +128,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
             />
             {list.reactions.total_count > 0 && (
               <div className={styles.reactions}>
-                {Object.entries(list.reactions).map(([key, reaction]) => {
+                {entries(list.reactions).map(([key, reaction]) => {
                   if (!reactionsMap[key] || reaction === 0) {
                     return null
                   }
@@ -144,7 +145,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
         ))}
       </>
     )
-  }, [lists, isIntersecting, fetchStatus])
+  }, [isIntersecting, data])
 
   return (
     <div ref={containerRef} className={styles.wrapper}>

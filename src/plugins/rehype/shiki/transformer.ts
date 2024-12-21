@@ -1,7 +1,7 @@
 import type { ElementContent, Element } from 'hast'
 import type { ShikiTransformer } from 'shiki'
 import { toString } from 'hast-util-to-string'
-import { isString } from '@/utils/types'
+import { isArray, isString } from '@/utils/types'
 import {
   calculateLinesToHighlight,
   DiffDeletedClassName,
@@ -75,7 +75,7 @@ export function shikiHightlightWordFormatTransformer(): ShikiTransformer {
       return false
     }
     const className = node.properties.class
-    if (!isString(className) && !Array.isArray(className)) {
+    if (!isString(className) && !isArray(className)) {
       return false
     }
     return className.includes(HighLightWordClassName)
