@@ -21,7 +21,7 @@ const reactionsMap: Record<string, string> = {
   eyes: '👀',
 }
 
-interface Comment2Props {
+interface CommentProps {
   pathname: string
 }
 const timeago = (createdAt: string): string => {
@@ -45,7 +45,7 @@ const timeago = (createdAt: string): string => {
   return ans
 }
 
-const Comment = memo(({ pathname }: Comment2Props) => {
+const Comment = memo(({ pathname }: CommentProps) => {
   const [lists, setLists] = useState<any[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -54,23 +54,22 @@ const Comment = memo(({ pathname }: Comment2Props) => {
   const issueNumber = issueMap[issueName]
   console.log(isIntersecting)
   useEffect(() => {
-    if (!isIntersecting) {
+    if (!isIntersecting || !issueNumber) {
       return
     }
     ;(async () => {
-      if (issueNumber) {
-        try {
-          const queryUrl = `https://api.github.com/repos/${GithubName}/${GithubRepoName}/issues/${issueNumber}/comments`
-          const lists = await fetch(queryUrl, {
-            headers: {
-              accept: 'application/vnd.github.VERSION.html+json',
-            },
-          }).then((res) => res.json())
-          setLists(lists)
-        } catch (error) {
-        } finally {
-          setIsLoading(false)
-        }
+      try {
+        const queryUrl = `https://api.github.com/repos/${GithubName}/${GithubRepoName}/issues/${issueNumber}/comments`
+        const lists = await fetch(queryUrl, {
+          headers: {
+            accept: 'application/vnd.github.VERSION.html+json',
+          },
+          cache: 'no-store',
+        }).then((res) => res.json())
+        setLists(lists)
+      } catch (error) {
+      } finally {
+        setIsLoading(false)
       }
     })()
   }, [isIntersecting])
