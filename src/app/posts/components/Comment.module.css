@@ -54,7 +54,7 @@
 .item {
   overflow: hidden;
   border: 1px solid var(--divider);
-  background-color: var(--c-gray-soft);
+  background-color: var(--bg-md-pre);
   border-radius: 6px;
   margin-bottom: 12px;
 }
