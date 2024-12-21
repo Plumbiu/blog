@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { memo, useEffect, useRef, useState } from 'react'
+import { memo, useEffect, useMemo, useRef, useState } from 'react'
 import { GithubName, GithubRepoName, GithubRepoUrl } from '~/data/site'
 import styles from './Comment.module.css'
 import { cn } from '@/utils/client'
@@ -52,7 +52,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
   const isIntersecting = useObserver(containerRef)
   const issueName = `[comment] ${pathname}`
   const issueNumber = issueMap[issueName]
-  console.log(isIntersecting)
+
   useEffect(() => {
     if (!isIntersecting || !issueNumber) {
       return
@@ -74,6 +74,56 @@ const Comment = memo(({ pathname }: CommentProps) => {
     })()
   }, [isIntersecting])
 
+  const node = useMemo(() => {
+    if (!lists || !isIntersecting) {
+      return null
+    }
+    if (isLoading) {
+      return (
+        <div className={cn(styles.loading_wrap)}>
+          <div className={styles.loading} />
+          加载评论中......
+        </div>
+      )
+    }
+    return (
+      <>
+        <div className={styles.count}>{lists.length}条评论</div>
+        {lists.map((list) => (
+          <div key={list.id} className={styles.item}>
+            <div className={styles.top}>
+              <Image src={list.user.avatar_url} width={32} height={32} alt="" />
+              <div className={styles.login}>{list.user.login}</div>
+              <div className={styles.date}>{timeago(list.created_at)}</div>
+              {list.author_association === 'OWNER' && (
+                <div className={styles.owner}>所有者</div>
+              )}
+            </div>
+            <div
+              className={cn('md', styles.body)}
+              dangerouslySetInnerHTML={{
+                __html: list.body_html,
+              }}
+            />
+            <div className={styles.reactions}>
+              {Object.entries(list.reactions).map(([key, reaction]) => {
+                if (!reactionsMap[key] || reaction === 0) {
+                  return null
+                }
+                return (
+                  <div key={key}>
+                    <span>{reactionsMap[key]}</span>
+                    <span>{reaction as string}</span>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        ))}
+      </>
+    )
+  }, [lists, isIntersecting, isLoading])
+
   return (
     <div ref={containerRef} className={styles.wrapper}>
       <Link
@@ -84,52 +134,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
         去 issue 页面添加评论
         <ExternalLinkIcon />
       </Link>
-      {isIntersecting && !isLoading && lists ? (
-        <>
-          <div className={styles.count}>{lists.length}条评论</div>
-          {lists.map((list) => (
-            <div key={list.id} className={styles.item}>
-              <div className={styles.top}>
-                <Image
-                  src={list.user.avatar_url}
-                  width={32}
-                  height={32}
-                  alt=""
-                />
-                <div className={styles.login}>{list.user.login}</div>
-                <div className={styles.date}>{timeago(list.created_at)}</div>
-                {list.author_association === 'OWNER' && (
-                  <div className={styles.owner}>所有者</div>
-                )}
-              </div>
-              <div
-                className={cn('md', styles.body)}
-                dangerouslySetInnerHTML={{
-                  __html: list.body_html,
-                }}
-              />
-              <div className={styles.reactions}>
-                {Object.entries(list.reactions).map(([key, reaction]) => {
-                  if (!reactionsMap[key] || reaction === 0) {
-                    return null
-                  }
-                  return (
-                    <div key={key}>
-                      <span>{reactionsMap[key]}</span>
-                      <span>{reaction as string}</span>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-          ))}
-        </>
-      ) : (
-        <div className={cn(styles.loading_wrap)}>
-          <div className={styles.loading} />
-          加载评论中......
-        </div>
-      )}
+      {node}
     </div>
   )
 })
