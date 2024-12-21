@@ -87,14 +87,9 @@ const Comment = memo(({ pathname }: CommentProps) => {
     if (data.status === 'error') {
       return (
         <div className="md">
-          <blockquote className="blockquote-danger">
-            {data.value}
-          </blockquote>
+          <blockquote className="blockquote-danger">{data.value}</blockquote>
         </div>
       )
-    }
-    if (!data.value || !isIntersecting) {
-      return null
     }
     if (data.status === 'loading') {
       return (
@@ -104,7 +99,12 @@ const Comment = memo(({ pathname }: CommentProps) => {
         </div>
       )
     }
-    if (!isArray(data.value)) {
+    if (
+      !data.value ||
+      !isIntersecting ||
+      data.status !== 'loaded' ||
+      !isArray(data.value)
+    ) {
       return null
     }
     return (
