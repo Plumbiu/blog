@@ -36,6 +36,5 @@ export async function GET(req: NextRequest) {
   } catch (error) {
     console.log(error)
   }
-  revalidatePath('/posts/[type]/[id]')
   redirect(redirectUrl)
 }
