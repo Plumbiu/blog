@@ -20,7 +20,11 @@
       access_token && localStorage.setItem('access-token', access_token)
       user_login && localStorage.setItem('user-login', user_login)
       user_avatar && localStorage.setItem('user-avatar', user_avatar)
-      window.history.back(-1)
+      if ('referrer' in document) {
+        window.location = document.referrer
+      } else {
+        window.history.back()
+      }
     </script>
   </body>
 </html>

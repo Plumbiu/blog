@@ -1,3 +1,4 @@
+import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import type { NextRequest } from 'next/server'
 
@@ -35,5 +36,6 @@ export async function GET(req: NextRequest) {
   } catch (error) {
     console.log(error)
   }
+  revalidatePath('/posts/[type]/[id]')
   redirect(redirectUrl)
 }
