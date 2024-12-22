@@ -70,6 +70,62 @@ const LoadingUI = memo(() => (
   </div>
 ))
 
+interface List {
+  user: {
+    login: string
+    avatar_url: string
+  }
+  created_at: string
+  body_html: string
+  reactions: Record<string, number>
+  author_association: string
+}
+
+interface ListItemProps {
+  list: List
+  currentLogin: string | null
+}
+
+const ListItem = memo(({ list, currentLogin }: ListItemProps) => {
+  return (
+    <div className={styles.item}>
+      <div
+        className={cn(styles.top, {
+          [styles.top_active]: currentLogin === list.user.login,
+        })}
+      >
+        <Image src={list.user.avatar_url} width={28} height={28} alt="" />
+        <div className={styles.login}>{list.user.login}</div>
+        <div className={styles.date}>{timeago(list.created_at)}</div>
+        {list.author_association === 'OWNER' && (
+          <div className={styles.owner}>所有者</div>
+        )}
+      </div>
+      <div
+        className={cn('md', styles.body)}
+        dangerouslySetInnerHTML={{
+          __html: list.body_html,
+        }}
+      />
+      {list.reactions.total_count > 0 && (
+        <div className={styles.reactions}>
+          {entries(list.reactions).map(([key, reaction]) => {
+            if (!reactionsMap[key] || reaction === 0) {
+              return null
+            }
+            return (
+              <div key={key}>
+                <span>{reactionsMap[key]}</span>
+                <span>{reaction as number}</span>
+              </div>
+            )
+          })}
+        </div>
+      )}
+    </div>
+  )
+})
+
 const Comment = memo(({ pathname }: CommentProps) => {
   const [status, setStatus] = useState<'loading' | 'error' | 'loaded'>(
     'loading',
@@ -193,38 +249,9 @@ const Comment = memo(({ pathname }: CommentProps) => {
     if (!shouldShowLists) {
       return null
     }
+    const currentLogin = localStorage.getItem('user-login')
     return data.map((list: any) => (
-      <div key={list.id} className={styles.item}>
-        <div className={styles.top}>
-          <Image src={list.user.avatar_url} width={32} height={32} alt="" />
-          <div className={styles.login}>{list.user.login}</div>
-          <div className={styles.date}>{timeago(list.created_at)}</div>
-          {list.author_association === 'OWNER' && (
-            <div className={styles.owner}>所有者</div>
-          )}
-        </div>
-        <div
-          className={cn('md', styles.body)}
-          dangerouslySetInnerHTML={{
-            __html: list.body_html,
-          }}
-        />
-        {list.reactions.total_count > 0 && (
-          <div className={styles.reactions}>
-            {entries(list.reactions).map(([key, reaction]) => {
-              if (!reactionsMap[key] || reaction === 0) {
-                return null
-              }
-              return (
-                <div key={key}>
-                  <span>{reactionsMap[key]}</span>
-                  <span>{reaction as string}</span>
-                </div>
-              )
-            })}
-          </div>
-        )}
-      </div>
+      <ListItem key={list.id} list={list} currentLogin={currentLogin} />
     ))
   }, [status, data])
   const node = useMemo(() => {

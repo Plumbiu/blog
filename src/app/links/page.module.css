@@ -4,7 +4,6 @@
 
 .link {
   margin-bottom: 32px;
-  display: block;
   display: flex;
   gap: 16px;
 }

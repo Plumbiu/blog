@@ -59,11 +59,15 @@
   align-items: center;
   gap: 12px;
   font-size: 14px;
-  padding: 12px;
+  padding: 7px 10px;
   border-bottom: 1px solid var(--divider);
   & > img {
     border-radius: 50%;
   }
+}
+
+.top_active {
+  background-color: var(--c-indigo-soft);
 }
 
 .item {
@@ -97,6 +101,18 @@
 
 .login {
   color: var(--text);
+}
+
+.date {
+  font-size: 12px;
+}
+
+.owner {
+  border: 1px solid var(--c-indigo-3);
+  background-color: var(--c-indigo-soft);
+  font-size: 12px;
+  padding: 1px 7px;
+  border-radius: 12px;
 }
 
 .github_login {
@@ -144,12 +160,4 @@
       background-color: var(--c-purple-soft);
     }
   }
-}
-
-.owner {
-  border: 1px solid var(--divider);
-  background-color: var(--c-indigo-soft);
-  font-size: 12px;
-  padding: 1px 7px;
-  border-radius: 12px;
 }

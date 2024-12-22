@@ -1,4 +1,4 @@
-import { MetadataRoute } from 'next'
+import type { MetadataRoute } from 'next'
 import { getPostList } from '@/utils/node/markdown'
 import { PostDir } from '@/constants'
 import { MAX_PAGE_SIZE } from '@/app/list/constants'
