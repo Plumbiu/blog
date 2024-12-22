@@ -1,15 +1,16 @@
 'use client'
 
 import Image from 'next/image'
-import { memo, useEffect, useMemo, useRef, useState } from 'react'
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { GithubName, GithubRepoName, GithubRepoUrl } from '~/data/site'
 import styles from './Comment.module.css'
 import { cn } from '@/utils/client'
 import issueMap from '~/data/issues.json'
 import { Link } from 'next-view-transitions'
-import { ExternalLinkIcon } from '@/components/Icons'
+import { ExternalLinkIcon, GithubIcon } from '@/components/Icons'
 import useObserver from '@/hooks/useObservser'
 import { entries, isArray, isString } from '@/utils/types'
+import { GithubAppClientId } from '@/constants'
 
 const reactionsMap: Record<string, string> = {
   '+1': '👍',
@@ -46,14 +47,33 @@ const timeago = (createdAt: string): string => {
   return ans
 }
 
-type Data = { status: 'error' | 'loading' | 'loaded'; value?: any }
+type Data = {
+  status: 'error' | 'loading' | 'loaded'
+  value?: any
+  token?: string | null
+}
+
+const LoginGithub = memo(() => (
+  <a
+    className="fcc"
+    data-type="button"
+    href={`https://github.com/login/oauth/authorize?client_id=${GithubAppClientId}&redirect_uri=http://localhost:3000/api/oauth`}
+  >
+    <GithubIcon fontSize={20} /> 使用 Github 登录
+  </a>
+))
 
 const Comment = memo(({ pathname }: CommentProps) => {
   const [data, setData] = useState<Data>({ status: 'loading' })
   const containerRef = useRef<HTMLDivElement>(null)
   const isIntersecting = useObserver(containerRef)
+  const textareaRef = useRef<HTMLTextAreaElement>(null)
   const issueName = `[comment] ${pathname}`
   const issueNumber = issueMap[issueName]
+  const queryUrl = `https://api.github.com/repos/${GithubName}/${GithubRepoName}/issues/${issueNumber}/comments`
+  const getToken = useCallback(() => {
+    return localStorage.getItem('access-token')
+  }, [])
 
   useEffect(() => {
     if (!isIntersecting || !issueNumber) {
@@ -61,21 +81,24 @@ const Comment = memo(({ pathname }: CommentProps) => {
     }
     ;(async () => {
       try {
-        const queryUrl = `https://api.github.com/repos/${GithubName}/${GithubRepoName}/issues/${issueNumber}/comments`
+        const token = getToken()
+        const headers: Record<string, string> = {
+          accept: 'application/vnd.github.VERSION.html+json',
+        }
+        if (token) {
+          headers.authorization = `Bearer ${token}`
+        }
         const lists = await fetch(queryUrl, {
-          headers: {
-            accept: 'application/vnd.github.VERSION.html+json',
-          },
-          cache:
-            process.env.NODE_ENV === 'development' ? 'force-cache' : 'no-store',
+          headers,
+          cache: 'no-store',
         }).then((res) => res.json())
 
         if (isArray(lists)) {
-          setData({ status: 'loaded', value: lists })
+          setData({ status: 'loaded', value: lists, token })
         } else if (isString(lists.message)) {
-          setData({ status: 'error', value: lists.message })
+          setData({ status: 'error', value: lists.message, token })
         } else {
-          setData({ status: 'error', value: '未知错误' })
+          setData({ status: 'error', value: '未知错误', token })
         }
       } catch (error) {
         setData({ status: 'error' })
@@ -83,11 +106,30 @@ const Comment = memo(({ pathname }: CommentProps) => {
     })()
   }, [isIntersecting])
 
+  const createIssue = useCallback(async (body: string) => {
+    const token = getToken()
+    body = body.trim()
+    if (!token || !body) {
+      return
+    }
+    try {
+      await fetch(queryUrl, {
+        method: 'POST',
+        headers: {
+          accept: 'application/vnd.github+json',
+          authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ body }),
+      })
+    } catch (error) {}
+  }, [])
+
   const node = useMemo(() => {
     if (data.status === 'error') {
       return (
         <div className="md">
           <blockquote className="blockquote-danger">{data.value}</blockquote>
+          <LoginGithub />
         </div>
       )
     }
@@ -99,17 +141,49 @@ const Comment = memo(({ pathname }: CommentProps) => {
         </div>
       )
     }
-    if (
-      !data.value ||
-      !isIntersecting ||
-      data.status !== 'loaded' ||
-      !isArray(data.value)
-    ) {
+    if (!isIntersecting || data.status !== 'loaded' || !isArray(data.value)) {
       return null
     }
+    const userLogin = localStorage.getItem('user-login')
+    const userAvatar = localStorage.getItem('user-avatar')
     return (
       <>
+        <Link
+          target="_blank"
+          className={cn('fcc', styles.add_link)}
+          href={`${GithubRepoUrl}/issues/${issueNumber}`}
+        >
+          去 issue 页面添加评论
+          <ExternalLinkIcon />
+        </Link>
+        {!data.token && (
+          <div className={cn(styles.github_login, 'fcc')}>
+            <div className={styles.or}>or</div>
+            <LoginGithub />
+          </div>
+        )}
         <div className={styles.count}>{data.value.length}条评论</div>
+        {data.token && (
+          <div className={styles.item}>
+            {userLogin && userAvatar && (
+              <div className={styles.top}>
+                <Image src={userAvatar} width={32} height={32} alt="" />
+                <div className={styles.login}>{userLogin}</div>
+              </div>
+            )}
+            <textarea placeholder="添加评论" ref={textareaRef} />
+            <button
+              className={styles.issue_btn}
+              data-disabled={!data.token}
+              type="button"
+              onClick={() => {
+                createIssue(textareaRef.current!.value)
+              }}
+            >
+              提交
+            </button>
+          </div>
+        )}
         {data.value.map((list: any) => (
           <div key={list.id} className={styles.item}>
             <div className={styles.top}>
@@ -149,14 +223,6 @@ const Comment = memo(({ pathname }: CommentProps) => {
 
   return (
     <div ref={containerRef} className={styles.wrapper}>
-      <Link
-        target="_blank"
-        className={cn('fcc', styles.add_link)}
-        href={`${GithubRepoUrl}/issues/${issueNumber}`}
-      >
-        去 issue 页面添加评论
-        <ExternalLinkIcon />
-      </Link>
       {node}
     </div>
   )

@@ -20,7 +20,6 @@
 
 .add_link {
   margin-top: 32px;
-  margin-bottom: 16px;
   text-align: center;
   color: var(--c-indigo-3);
   text-underline-offset: 4px;
@@ -35,6 +34,7 @@
 .count {
   color: var(--text);
   margin-bottom: 12px;
+  margin-top: 16px;
   font-weight: 700;
 }
 
@@ -51,18 +51,38 @@
 }
 
 .item {
+  box-sizing: content-box;
   overflow: hidden;
   border: 1px solid var(--divider);
   background-color: var(--bg-md-pre);
   border-radius: 6px;
   margin-bottom: 16px;
+
+  & > textarea {
+    color: var(--text-1);
+    border-radius: 0;
+    border-color: transparent;
+    border-bottom: 1px solid var(--divider);
+    &:focus {
+      border: 1px solid var(--c-indigo-3);
+    }
+  }
 }
 
 .login {
   color: var(--text);
 }
 
+.github_login {
+  margin: 12px 0;
+}
+
+.issue_btn {
+  margin: 0 12px 8px 8px;
+}
+
 .body {
+  font-size: 14px;
   padding: 0 12px;
   color: var(--text) !important;
 
