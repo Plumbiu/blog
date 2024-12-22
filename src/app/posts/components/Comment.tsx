@@ -45,15 +45,21 @@ const timeago = (createdAt: string): string => {
   return ans
 }
 
-const LoginGithub = memo(() => (
-  <a
-    className="fcc"
-    data-type="button"
-    href={`https://github.com/login/oauth/authorize?client_id=${GithubAppClientId}&redirect_uri=${BlogUrl}api/oauth`}
-  >
-    使用 Github 登录
-  </a>
-))
+const LoginGithub = memo(({ pathname }: CommentProps) => {
+  return (
+    <button
+      type="button"
+      className="fcc"
+      onClick={(e) => {
+        e.preventDefault()
+        sessionStorage.setItem('prev-pathname', `${BlogUrl}${pathname}`)
+        location.href = `https://github.com/login/oauth/authorize?client_id=${GithubAppClientId}&redirect_uri=${BlogUrl}api/oauth`
+      }}
+    >
+      使用 Github 登录
+    </button>
+  )
+})
 
 const LoadingUI = memo(() => (
   <div className={cn(styles.loading_wrap)}>
@@ -75,6 +81,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
   const issueName = `[comment] ${pathname}`
   const issueNumber = issueMap[issueName]
   const queryUrl = `https://api.github.com/repos/${GithubName}/${GithubRepoName}/issues/${issueNumber}/comments`
+
   const getToken = useCallback(() => {
     return localStorage.getItem('access-token')
   }, [])
@@ -226,7 +233,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
       return (
         <div className="md">
           <blockquote className="blockquote-danger">{errorMessage}</blockquote>
-          <LoginGithub />
+          <LoginGithub pathname={pathname} />
         </div>
       )
     }
@@ -235,7 +242,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
       <>
         {!accessToken && status === 'loaded' && (
           <div className={cn(styles.github_login, 'fcc')}>
-            <LoginGithub />
+            <LoginGithub pathname={pathname} />
           </div>
         )}
         {shouldShowLists && (

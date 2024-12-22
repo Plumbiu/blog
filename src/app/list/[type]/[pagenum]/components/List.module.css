@@ -16,7 +16,6 @@
 }
 
 .title {
-  view-transition-name: list-title;
   font-weight: 700;
   color: var(--text);
 }

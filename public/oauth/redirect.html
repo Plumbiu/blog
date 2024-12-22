@@ -20,11 +20,8 @@
       access_token && localStorage.setItem('access-token', access_token)
       user_login && localStorage.setItem('user-login', user_login)
       user_avatar && localStorage.setItem('user-avatar', user_avatar)
-      if ('referrer' in document) {
-        window.location = document.referrer
-      } else {
-        window.history.back()
-      }
+      const prevUrl = sessionStorage.getItem('prev-pathname')
+      location.href = prevUrl
     </script>
   </body>
 </html>
