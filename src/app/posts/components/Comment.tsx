@@ -94,7 +94,12 @@ const ListItem = memo(({ list, currentLogin }: ListItemProps) => {
           [styles.top_active]: currentLogin === list.user.login,
         })}
       >
-        <Image src={list.user.avatar_url} width={28} height={28} alt={list.user.avatar_url} />
+        <Image
+          src={list.user.avatar_url}
+          width={28}
+          height={28}
+          alt={list.user.avatar_url}
+        />
         <div className={styles.login}>{list.user.login}</div>
         <div className={styles.date}>{timeago(list.created_at)}</div>
         {list.author_association === 'OWNER' && (
@@ -146,9 +151,15 @@ const Comment = memo(({ pathname }: CommentProps) => {
   const setErrorMessage = useCallback((error: any) => {
     setStatus('error')
     if (isString(error.message)) {
-      setErrorMessage(error.message)
+      if (error.message === 'Bad credentials') {
+        _setErrorMessage('请检查网络是否可以连接 Github 或者 Token 是否过期')
+      } else if (error.message.startsWith('API rate limit')) {
+        _setErrorMessage('超出 Github API 速率限制，请登录或者等待')
+      } else {
+        _setErrorMessage(error.message)
+      }
     } else {
-      setErrorMessage('未知错误')
+      _setErrorMessage('未知错误，请尝试登录 Github 解决')
     }
   }, [])
   const getIssues = useCallback(async () => {
@@ -166,11 +177,12 @@ const Comment = memo(({ pathname }: CommentProps) => {
         headers,
         cache: 'no-store',
       }).then((res) => res.json())
-      lists.sort(
-        (a: any, b: any) =>
-          new Date(b.created_at).getTime() - new Date(a.created_at).getTime(),
-      )
+
       if (isArray(lists)) {
+        lists.sort(
+          (a: any, b: any) =>
+            new Date(b.created_at).getTime() - new Date(a.created_at).getTime(),
+        )
         setData(lists)
         setStatus('loaded')
       } else {
@@ -261,8 +273,8 @@ const Comment = memo(({ pathname }: CommentProps) => {
     if (status === 'error') {
       return (
         <div className="md">
-          <blockquote className="blockquote-danger">{errorMessage}</blockquote>
           <LoginGithub pathname={pathname} />
+          <blockquote className="blockquote-danger">{errorMessage}</blockquote>
         </div>
       )
     }
@@ -287,7 +299,6 @@ const Comment = memo(({ pathname }: CommentProps) => {
         </div>
         <CommentTextarea />
         <Lists />
-        {status === 'loading' && <LoadingUI />}
       </>
     )
   }, [isIntersecting, data, status])
