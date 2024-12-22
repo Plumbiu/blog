@@ -94,7 +94,7 @@ const ListItem = memo(({ list, currentLogin }: ListItemProps) => {
           [styles.top_active]: currentLogin === list.user.login,
         })}
       >
-        <Image src={list.user.avatar_url} width={28} height={28} alt="" />
+        <Image src={list.user.avatar_url} width={28} height={28} alt={list.user.avatar_url} />
         <div className={styles.login}>{list.user.login}</div>
         <div className={styles.date}>{timeago(list.created_at)}</div>
         {list.author_association === 'OWNER' && (
@@ -226,7 +226,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
         <div className={styles.item}>
           <div className={styles.top}>
             {userAvatar && (
-              <Image src={userAvatar} width={32} height={32} alt={userAvatar} />
+              <Image src={userAvatar} width={28} height={28} alt={userAvatar} />
             )}
             {userLogin && <div className={styles.login}>{userLogin}</div>}
           </div>
