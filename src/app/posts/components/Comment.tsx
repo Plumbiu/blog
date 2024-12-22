@@ -9,7 +9,7 @@ import issueMap from '~/data/issues.json'
 import useObserver from '@/hooks/useObservser'
 import { entries, isArray, isString } from '@/utils/types'
 import { GithubAppClientId } from '@/constants'
-import { ExternalLinkIcon } from '@/components/Icons'
+import { ExternalLinkIcon, GithubIcon } from '@/components/Icons'
 
 const reactionsMap: Record<string, string> = {
   '+1': '👍',
@@ -57,7 +57,8 @@ const LoginGithub = memo(({ pathname }: CommentProps) => {
         location.href = `https://github.com/login/oauth/authorize?client_id=${GithubAppClientId}&redirect_uri=${BlogUrl}api/oauth`
       }}
     >
-      使用 Github 登录
+      <GithubIcon fontSize={24} />
+      使用 Github 登录评论
     </button>
   )
 })
@@ -174,15 +175,16 @@ const Comment = memo(({ pathname }: CommentProps) => {
             {userLogin && <div className={styles.login}>{userLogin}</div>}
           </div>
           <textarea placeholder="添加评论" ref={textareaRef} />
-          <button
-            className={styles.issue_btn}
-            type="button"
-            onClick={() => {
-              createIssue(textareaRef.current!.value)
-            }}
-          >
-            提交
-          </button>
+          <div className={styles.submit}>
+            <button
+              type="button"
+              onClick={() => {
+                createIssue(textareaRef.current!.value)
+              }}
+            >
+              提交
+            </button>
+          </div>
         </div>
       )
     )
@@ -248,8 +250,10 @@ const Comment = memo(({ pathname }: CommentProps) => {
         <div className={styles.comment_info}>
           <div className={styles.count}>{data.length}条评论</div>
           <a
+            target="_blank"
             className={cn('fcc', styles.add_link)}
             href={`${GithubRepoUrl}/issues/${issueNumber}`}
+            rel="noreferrer"
           >
             去 issue 页面添加评论 <ExternalLinkIcon />
           </a>

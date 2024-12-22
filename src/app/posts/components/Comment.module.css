@@ -1,5 +1,16 @@
 .wrapper {
-  margin: 32px 0;
+  position: relative;
+  margin: 64px 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -36px;
+    right: 25%;
+    left: 25%;
+    height: 1px;
+    background-color: var(--divider);
+  }
 }
 
 .loading_wrap {
@@ -24,7 +35,6 @@
   justify-content: flex-start;
   margin: 16px 0;
   gap: 16px;
-
 }
 
 .add_link {
@@ -75,16 +85,23 @@
   }
 }
 
+.submit {
+  display: flex;
+  align-items: center;
+  margin: 0 12px 6px 6px;
+  background-color: var(--bg-md-pre);
+  & > button {
+    margin: 0;
+  }
+}
+
 .login {
   color: var(--text);
 }
 
 .github_login {
-  margin: 12px 0;
-}
-
-.issue_btn {
-  margin: 0 12px 8px 8px;
+  margin-top: 8px;
+  margin-bottom: 24px;
 }
 
 .body {
