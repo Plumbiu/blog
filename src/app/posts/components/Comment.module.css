@@ -18,8 +18,16 @@
   background-image: url("https://github.githubassets.com/images/mona-loading-default.gif");
 }
 
+.comment_info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 16px 0;
+  gap: 16px;
+
+}
+
 .add_link {
-  margin-top: 32px;
   text-align: center;
   color: var(--c-indigo-3);
   text-underline-offset: 4px;
@@ -33,8 +41,6 @@
 
 .count {
   color: var(--text);
-  margin-bottom: 12px;
-  margin-top: 16px;
   font-weight: 700;
 }
 

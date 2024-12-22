@@ -2,13 +2,14 @@
 
 import Image from 'next/image'
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { BlogUrl, GithubName, GithubRepoName } from '~/data/site'
+import { BlogUrl, GithubName, GithubRepoName, GithubRepoUrl } from '~/data/site'
 import styles from './Comment.module.css'
 import { cn } from '@/utils/client'
 import issueMap from '~/data/issues.json'
 import useObserver from '@/hooks/useObservser'
 import { entries, isArray, isString } from '@/utils/types'
 import { GithubAppClientId } from '@/constants'
+import { ExternalLinkIcon } from '@/components/Icons'
 
 const reactionsMap: Record<string, string> = {
   '+1': '👍',
@@ -86,11 +87,10 @@ const Comment = memo(({ pathname }: CommentProps) => {
     return localStorage.getItem('access-token')
   }, [])
   const setErrorMessage = useCallback((error: any) => {
+    setStatus('error')
     if (isString(error.message)) {
-      setStatus('error')
       setErrorMessage(error.message)
     } else {
-      setStatus('error')
       setErrorMessage('未知错误')
     }
   }, [])
@@ -167,12 +167,12 @@ const Comment = memo(({ pathname }: CommentProps) => {
     return (
       accessToken && (
         <div className={styles.item}>
-          {userLogin && userAvatar && (
-            <div className={styles.top}>
-              <Image src={userAvatar} width={32} height={32} alt="" />
-              <div className={styles.login}>{userLogin}</div>
-            </div>
-          )}
+          <div className={styles.top}>
+            {userAvatar && (
+              <Image src={userAvatar} width={32} height={32} alt={userAvatar} />
+            )}
+            {userLogin && <div className={styles.login}>{userLogin}</div>}
+          </div>
           <textarea placeholder="添加评论" ref={textareaRef} />
           <button
             className={styles.issue_btn}
@@ -245,9 +245,15 @@ const Comment = memo(({ pathname }: CommentProps) => {
             <LoginGithub pathname={pathname} />
           </div>
         )}
-        {shouldShowLists && (
+        <div className={styles.comment_info}>
           <div className={styles.count}>{data.length}条评论</div>
-        )}
+          <a
+            className={cn('fcc', styles.add_link)}
+            href={`${GithubRepoUrl}/issues/${issueNumber}`}
+          >
+            去 issue 页面添加评论 <ExternalLinkIcon />
+          </a>
+        </div>
         <CommentTextarea />
         <Lists />
         {status === 'loading' && <LoadingUI />}
