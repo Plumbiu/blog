@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { GithubName, GithubRepoName, GithubRepoUrl } from '~/data/site'
+import { BlogUrl, GithubName, GithubRepoName, GithubRepoUrl } from '~/data/site'
 import styles from './Comment.module.css'
 import { cn } from '@/utils/client'
 import issueMap from '~/data/issues.json'
@@ -57,7 +57,7 @@ const LoginGithub = memo(() => (
   <a
     className="fcc"
     data-type="button"
-    href={`https://github.com/login/oauth/authorize?client_id=${GithubAppClientId}&redirect_uri=http://localhost:3000/api/oauth`}
+    href={`https://github.com/login/oauth/authorize?client_id=${GithubAppClientId}&redirect_uri=${BlogUrl}api/oauth`}
   >
     <GithubIcon fontSize={20} /> 使用 Github 登录
   </a>
