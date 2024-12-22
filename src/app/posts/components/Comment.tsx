@@ -2,12 +2,10 @@
 
 import Image from 'next/image'
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { BlogUrl, GithubName, GithubRepoName, GithubRepoUrl } from '~/data/site'
+import { BlogUrl, GithubName, GithubRepoName } from '~/data/site'
 import styles from './Comment.module.css'
 import { cn } from '@/utils/client'
 import issueMap from '~/data/issues.json'
-import { Link } from 'next-view-transitions'
-import { ExternalLinkIcon, GithubIcon } from '@/components/Icons'
 import useObserver from '@/hooks/useObservser'
 import { entries, isArray, isString } from '@/utils/types'
 import { GithubAppClientId } from '@/constants'
@@ -47,24 +45,30 @@ const timeago = (createdAt: string): string => {
   return ans
 }
 
-type Data = {
-  status: 'error' | 'loading' | 'loaded'
-  value?: any
-  token?: string | null
-}
-
 const LoginGithub = memo(() => (
   <a
     className="fcc"
     data-type="button"
     href={`https://github.com/login/oauth/authorize?client_id=${GithubAppClientId}&redirect_uri=${BlogUrl}api/oauth`}
   >
-    <GithubIcon fontSize={20} /> 使用 Github 登录
+    使用 Github 登录
   </a>
 ))
 
+const LoadingUI = memo(() => (
+  <div className={cn(styles.loading_wrap)}>
+    <div className={styles.loading} />
+    加载评论中......
+  </div>
+))
+
 const Comment = memo(({ pathname }: CommentProps) => {
-  const [data, setData] = useState<Data>({ status: 'loading' })
+  const [status, setStatus] = useState<'loading' | 'error' | 'loaded'>(
+    'loading',
+  )
+  const [accessToken, setAccessToken] = useState<string>()
+  const [data, setData] = useState<any[]>([])
+  const [errorMessage, _setErrorMessage] = useState<string>()
   const containerRef = useRef<HTMLDivElement>(null)
   const isIntersecting = useObserver(containerRef)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
@@ -74,36 +78,50 @@ const Comment = memo(({ pathname }: CommentProps) => {
   const getToken = useCallback(() => {
     return localStorage.getItem('access-token')
   }, [])
+  const setErrorMessage = useCallback((error: any) => {
+    if (isString(error.message)) {
+      setStatus('error')
+      setErrorMessage(error.message)
+    } else {
+      setStatus('error')
+      setErrorMessage('未知错误')
+    }
+  }, [])
+  const getIssues = useCallback(async () => {
+    try {
+      setStatus('loading')
+      const token = getToken()
+      const headers: Record<string, string> = {
+        accept: 'application/vnd.github.VERSION.html+json',
+      }
+      if (token) {
+        setAccessToken(token)
+        headers.authorization = `Bearer ${token}`
+      }
+      const lists = await fetch(queryUrl, {
+        headers,
+        cache: 'no-store',
+      }).then((res) => res.json())
+      lists.sort(
+        (a: any, b: any) =>
+          new Date(b.created_at).getTime() - new Date(a.created_at).getTime(),
+      )
+      if (isArray(lists)) {
+        setData(lists)
+        setStatus('loaded')
+      } else {
+        setErrorMessage(lists)
+      }
+    } catch (error: any) {
+      setErrorMessage(error)
+    }
+  }, [])
 
   useEffect(() => {
     if (!isIntersecting || !issueNumber) {
       return
     }
-    ;(async () => {
-      try {
-        const token = getToken()
-        const headers: Record<string, string> = {
-          accept: 'application/vnd.github.VERSION.html+json',
-        }
-        if (token) {
-          headers.authorization = `Bearer ${token}`
-        }
-        const lists = await fetch(queryUrl, {
-          headers,
-          cache: 'no-store',
-        }).then((res) => res.json())
-
-        if (isArray(lists)) {
-          setData({ status: 'loaded', value: lists, token })
-        } else if (isString(lists.message)) {
-          setData({ status: 'error', value: lists.message, token })
-        } else {
-          setData({ status: 'error', value: '未知错误', token })
-        }
-      } catch (error) {
-        setData({ status: 'error' })
-      }
-    })()
+    getIssues()
   }, [isIntersecting])
 
   const createIssue = useCallback(async (body: string) => {
@@ -113,6 +131,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
       return
     }
     try {
+      setStatus('loading')
       await fetch(queryUrl, {
         method: 'POST',
         headers: {
@@ -121,105 +140,113 @@ const Comment = memo(({ pathname }: CommentProps) => {
         },
         body: JSON.stringify({ body }),
       })
-    } catch (error) {}
+      await getIssues()
+    } catch (error) {
+      setErrorMessage(error)
+    }
+    if (textareaRef.current) {
+      textareaRef.current.value = ''
+    }
   }, [])
 
+  const shouldShowLists = useMemo(
+    () => status === 'loaded' && isArray(data),
+    [data, status],
+  )
+
+  const CommentTextarea = useCallback(() => {
+    const userLogin = localStorage.getItem('user-login')
+    const userAvatar = localStorage.getItem('user-avatar')
+    return (
+      accessToken && (
+        <div className={styles.item}>
+          {userLogin && userAvatar && (
+            <div className={styles.top}>
+              <Image src={userAvatar} width={32} height={32} alt="" />
+              <div className={styles.login}>{userLogin}</div>
+            </div>
+          )}
+          <textarea placeholder="添加评论" ref={textareaRef} />
+          <button
+            className={styles.issue_btn}
+            type="button"
+            onClick={() => {
+              createIssue(textareaRef.current!.value)
+            }}
+          >
+            提交
+          </button>
+        </div>
+      )
+    )
+  }, [accessToken])
+  const Lists = useCallback(() => {
+    if (!shouldShowLists) {
+      return null
+    }
+    return data.map((list: any) => (
+      <div key={list.id} className={styles.item}>
+        <div className={styles.top}>
+          <Image src={list.user.avatar_url} width={32} height={32} alt="" />
+          <div className={styles.login}>{list.user.login}</div>
+          <div className={styles.date}>{timeago(list.created_at)}</div>
+          {list.author_association === 'OWNER' && (
+            <div className={styles.owner}>所有者</div>
+          )}
+        </div>
+        <div
+          className={cn('md', styles.body)}
+          dangerouslySetInnerHTML={{
+            __html: list.body_html,
+          }}
+        />
+        {list.reactions.total_count > 0 && (
+          <div className={styles.reactions}>
+            {entries(list.reactions).map(([key, reaction]) => {
+              if (!reactionsMap[key] || reaction === 0) {
+                return null
+              }
+              return (
+                <div key={key}>
+                  <span>{reactionsMap[key]}</span>
+                  <span>{reaction as string}</span>
+                </div>
+              )
+            })}
+          </div>
+        )}
+      </div>
+    ))
+  }, [status, data])
   const node = useMemo(() => {
-    if (data.status === 'error') {
+    if (!isIntersecting) {
+      return null
+    }
+    if (status === 'error') {
       return (
         <div className="md">
-          <blockquote className="blockquote-danger">{data.value}</blockquote>
+          <blockquote className="blockquote-danger">{errorMessage}</blockquote>
           <LoginGithub />
         </div>
       )
     }
-    if (data.status === 'loading') {
-      return (
-        <div className={cn(styles.loading_wrap)}>
-          <div className={styles.loading} />
-          加载评论中......
-        </div>
-      )
-    }
-    if (!isIntersecting || data.status !== 'loaded' || !isArray(data.value)) {
-      return null
-    }
-    const userLogin = localStorage.getItem('user-login')
-    const userAvatar = localStorage.getItem('user-avatar')
+
     return (
       <>
-        <Link
-          target="_blank"
-          className={cn('fcc', styles.add_link)}
-          href={`${GithubRepoUrl}/issues/${issueNumber}`}
-        >
-          去 issue 页面添加评论
-          <ExternalLinkIcon />
-        </Link>
-        {!data.token && (
+        {!accessToken && status === 'loaded' && (
           <div className={cn(styles.github_login, 'fcc')}>
-            <div className={styles.or}>or</div>
             <LoginGithub />
           </div>
         )}
-        <div className={styles.count}>{data.value.length}条评论</div>
-        {data.token && (
-          <div className={styles.item}>
-            {userLogin && userAvatar && (
-              <div className={styles.top}>
-                <Image src={userAvatar} width={32} height={32} alt="" />
-                <div className={styles.login}>{userLogin}</div>
-              </div>
-            )}
-            <textarea placeholder="添加评论" ref={textareaRef} />
-            <button
-              className={styles.issue_btn}
-              data-disabled={!data.token}
-              type="button"
-              onClick={() => {
-                createIssue(textareaRef.current!.value)
-              }}
-            >
-              提交
-            </button>
-          </div>
+        {shouldShowLists && (
+          <div className={styles.count}>{data.length}条评论</div>
         )}
-        {data.value.map((list: any) => (
-          <div key={list.id} className={styles.item}>
-            <div className={styles.top}>
-              <Image src={list.user.avatar_url} width={32} height={32} alt="" />
-              <div className={styles.login}>{list.user.login}</div>
-              <div className={styles.date}>{timeago(list.created_at)}</div>
-              {list.author_association === 'OWNER' && (
-                <div className={styles.owner}>所有者</div>
-              )}
-            </div>
-            <div
-              className={cn('md', styles.body)}
-              dangerouslySetInnerHTML={{
-                __html: list.body_html,
-              }}
-            />
-            {list.reactions.total_count > 0 && (
-              <div className={styles.reactions}>
-                {entries(list.reactions).map(([key, reaction]) => {
-                  if (!reactionsMap[key] || reaction === 0) {
-                    return null
-                  }
-                  return (
-                    <div key={key}>
-                      <span>{reactionsMap[key]}</span>
-                      <span>{reaction as string}</span>
-                    </div>
-                  )
-                })}
-              </div>
-            )}
-          </div>
-        ))}
+        <CommentTextarea />
+        <Lists />
+        {status === 'loading' && <LoadingUI />}
       </>
     )
-  }, [isIntersecting, data])
+  }, [isIntersecting, data, status])
 
   return (
     <div ref={containerRef} className={styles.wrapper}>
