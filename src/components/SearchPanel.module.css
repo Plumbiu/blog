@@ -34,7 +34,7 @@
   border: 1px solid var(--c-indigo-1);
   border-radius: 4px;
   overflow: hidden;
-  background-color: var(--bg-search-panel-ipt);
+  background-color: var(--bg-search-panel-item);
   & svg {
     font-size: 20px;
   }
@@ -48,7 +48,7 @@
   width: 100%;
   outline: none;
   border: none;
-  background-color: var(--bg-search-panel-ipt);
+  background-color: var(--bg-search-panel-item);
 }
 
 .list_wrapper {
@@ -71,11 +71,12 @@
 .list {
   display: block;
   cursor: pointer;
-  background-color: var(--c-gray-soft);
-  padding: 10px 12px;
-  margin: 0 var(--distance) 6px var(--distance);
+  background-color: var(--bg-search-panel-item);
+  padding: 12px;
+  margin: 0 var(--distance) 8px var(--distance);
   border-radius: 4px;
   border: 1px solid transparent;
+  box-shadow: var(--shadow-search-panel-item);
 
   & svg {
     font-size: 20px;
@@ -90,6 +91,7 @@
 }
 
 .empty {
+  font-size: 16px;
   text-align: center;
   padding: 24px 0 12px 0;
 }

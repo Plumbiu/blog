@@ -38,7 +38,8 @@
 }
 
 .add_link {
-  text-align: center;
+  display: flex;
+  align-items: center;
   color: var(--c-indigo-3);
   text-underline-offset: 4px;
   &:hover {

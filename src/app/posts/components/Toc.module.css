@@ -69,4 +69,5 @@
   width: var(--center-rest);
   z-index: 8;
   background: linear-gradient(transparent, var(--bg-body) 60%);
+  transition: all 0.3s;
 }

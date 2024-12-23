@@ -24,6 +24,7 @@
   width: 86px;
   z-index: 9;
   background: linear-gradient(to left, var(--bg-body), transparent 100%);
+  transition: 0.3s;
 }
 
 .item {

@@ -22,7 +22,7 @@
 - Image optimization via [sharp](https://github.com/lovell/sharp) and [next/image](https://nextjs.org/docs/basic-features/image-optimization)
 - SEO friendly with RSS feed
 - Module css an self-designed components
-- Comment system via [giscus](https://github.com/giscus/giscus)
+- Comment system via [Gtihub API](https://docs.github.com/zh/rest)
 - Custom markdown rules via [remark-directive](https://github.com/remarkjs/remark-directive): see [`custom-component.md`](/data/posts/note/custom-component.md) and [preview](https://blog.plumbiu.top/posts/note/custom-component)
 - Component lazy load via [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver)
 

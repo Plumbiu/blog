@@ -152,7 +152,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
     setStatus('error')
     if (isString(error.message)) {
       if (error.message === 'Bad credentials') {
-        _setErrorMessage('请检查网络是否可以连接 Github 或者 Token 是否过期')
+        _setErrorMessage('Github token 过期，请重新登录')
       } else if (error.message.startsWith('API rate limit')) {
         _setErrorMessage('超出 Github API 速率限制，请登录或者等待')
       } else {
@@ -192,6 +192,19 @@ const Comment = memo(({ pathname }: CommentProps) => {
       setErrorMessage(error)
     }
   }, [])
+  const issueAddNode = useMemo(
+    () => (
+      <a
+        target="_blank"
+        className={styles.add_link}
+        href={`${GithubRepoUrl}/issues/${issueNumber}`}
+        rel="noreferrer"
+      >
+        去 issue 页面添加评论 <ExternalLinkIcon />
+      </a>
+    ),
+    [],
+  )
 
   useEffect(() => {
     if (!isIntersecting || !issueNumber) {
@@ -225,11 +238,6 @@ const Comment = memo(({ pathname }: CommentProps) => {
     }
   }, [])
 
-  const shouldShowLists = useMemo(
-    () => status === 'loaded' && isArray(data),
-    [data, status],
-  )
-
   const CommentTextarea = useCallback(() => {
     const userLogin = localStorage.getItem('user-login')
     const userAvatar = localStorage.getItem('user-avatar')
@@ -258,7 +266,10 @@ const Comment = memo(({ pathname }: CommentProps) => {
     )
   }, [accessToken])
   const Lists = useCallback(() => {
-    if (!shouldShowLists) {
+    if (status === 'loading') {
+      return <LoadingUI />
+    }
+    if (status !== 'loaded' || !isArray(data)) {
       return null
     }
     const currentLogin = localStorage.getItem('user-login')
@@ -274,7 +285,11 @@ const Comment = memo(({ pathname }: CommentProps) => {
       return (
         <div className="md">
           <LoginGithub pathname={pathname} />
-          <blockquote className="blockquote-danger">{errorMessage}</blockquote>
+
+          <blockquote className="blockquote-danger">
+            <p>{errorMessage}</p>
+            <p>{issueAddNode}</p>
+          </blockquote>
         </div>
       )
     }
@@ -286,17 +301,12 @@ const Comment = memo(({ pathname }: CommentProps) => {
             <LoginGithub pathname={pathname} />
           </div>
         )}
-        <div className={styles.comment_info}>
-          <div className={styles.count}>{data.length}条评论</div>
-          <a
-            target="_blank"
-            className={cn('fcc', styles.add_link)}
-            href={`${GithubRepoUrl}/issues/${issueNumber}`}
-            rel="noreferrer"
-          >
-            去 issue 页面添加评论 <ExternalLinkIcon />
-          </a>
-        </div>
+        {status === 'loaded' && (
+          <div className={styles.comment_info}>
+            <div className={styles.count}>{data.length}条评论</div>
+            {issueAddNode}
+          </div>
+        )}
         <CommentTextarea />
         <Lists />
       </>

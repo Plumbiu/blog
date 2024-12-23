@@ -14,7 +14,6 @@ body {
   color: var(--text-1);
   background-color: var(--bg-body);
   text-rendering: optimizeLegibility;
-  transition: background-color 300ms;
   scrollbar-color: var(--bg-scrollbar);
   -webkit-font-smoothing: antialiased;
 }

@@ -50,8 +50,9 @@
   --bg-vertical-line: #bfbfbf;
   --bg-modal: #00000073;
   --bg-search-panel: #f6f6f7;
-  --bg-search-panel-ipt: #fff;
   --bg-search-panel-footer: #fff;
+  --bg-search-panel-item: #fff;
+  --shadow-search-panel-item: 0 1px 3px 0 #d4d9e1;
   /* console */
   --console-num: rgb(47, 121, 138);
   --console-string: rgb(181, 105, 89);
