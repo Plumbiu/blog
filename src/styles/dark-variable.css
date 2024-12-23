@@ -7,6 +7,7 @@ html[data-theme="dark"] {
   --text-1: rgba(200, 200, 200);
   /* border */
   --divider: #222;
+  --s-border: 1px solid var(--divider);
   /* color */
   --c-yellow-soft: rgba(234, 179, 8, 0.16);
   --c-yellow-3: #a46a0a;

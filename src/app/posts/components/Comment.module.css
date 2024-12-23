@@ -1,7 +1,8 @@
 .wrapper {
   position: relative;
   margin: 64px 0;
-
+  font-family:
+    -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
   &::before {
     content: "";
     position: absolute;
@@ -60,15 +61,10 @@
   align-items: center;
   gap: 12px;
   font-size: 14px;
-  padding: 8px 12px;
-  border-bottom: 1px solid var(--divider);
+  padding: 12px 12px 0 12px;
   & > img {
     border-radius: 50%;
   }
-}
-
-.top_active {
-  background-color: var(--c-indigo-soft);
 }
 
 .item {
@@ -83,7 +79,9 @@
     color: var(--text-1);
     border-radius: 0;
     border-color: transparent;
+    margin-top: 12px;
     border-bottom: 1px solid var(--divider);
+    border-top: 1px solid var(--divider);
     &:focus {
       border: 1px solid var(--c-indigo-3);
     }

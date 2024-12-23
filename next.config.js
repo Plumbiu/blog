@@ -15,6 +15,13 @@ const withClassnamesMinifier = classnamesMinifier({
   disabled: process.env.NODE_ENV === 'development',
 })
 
+const AtomChartsetHeader = [
+  {
+    key: 'Content-Type',
+    value: 'application/atom+xml;  charset=utf-8',
+  },
+]
+
 /**
  * @type {import('next').NextConfig}
  **/
@@ -46,6 +53,18 @@ const nextConfig = {
     ],
   },
   output: IS_GITPAGE ? 'export' : undefined,
+  async headers() {
+    return [
+      {
+        source: '/feed.atom',
+        headers: AtomChartsetHeader,
+      },
+      {
+        source: '/rss.atom',
+        headers: AtomChartsetHeader,
+      },
+    ]
+  },
   async rewrites() {
     return [
       {

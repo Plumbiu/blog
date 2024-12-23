@@ -83,17 +83,12 @@ interface List {
 
 interface ListItemProps {
   list: List
-  currentLogin: string | null
 }
 
-const ListItem = memo(({ list, currentLogin }: ListItemProps) => {
+const ListItem = memo(({ list }: ListItemProps) => {
   return (
     <div className={styles.item}>
-      <div
-        className={cn(styles.top, {
-          [styles.top_active]: currentLogin === list.user.login,
-        })}
-      >
+      <div className={styles.top}>
         <Image
           src={list.user.avatar_url}
           width={28}
@@ -265,18 +260,17 @@ const Comment = memo(({ pathname }: CommentProps) => {
       )
     )
   }, [accessToken])
+
   const Lists = useCallback(() => {
-    if (status === 'loading') {
-      return <LoadingUI />
-    }
-    if (status !== 'loaded' || !isArray(data)) {
-      return null
-    }
-    const currentLogin = localStorage.getItem('user-login')
-    return data.map((list: any) => (
-      <ListItem key={list.id} list={list} currentLogin={currentLogin} />
-    ))
+    return (
+      <>
+        {status === 'loading' && <LoadingUI />}
+        {isArray(data) &&
+          data.map((list: any) => <ListItem key={list.id} list={list} />)}
+      </>
+    )
   }, [status, data])
+
   const node = useMemo(() => {
     if (!isIntersecting) {
       return null

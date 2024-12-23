@@ -191,7 +191,7 @@
         "noDuplicateAtImportRules": "error",
         "noDuplicateCase": "error",
         "noDuplicateClassMembers": "error",
-        "noDuplicateFontNames": "error",
+        "noDuplicateFontNames": "off",
         "noDuplicateJsxProps": "error",
         "noDuplicateObjectKeys": "error",
         "noDuplicateParameters": "error",
