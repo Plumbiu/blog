@@ -9,10 +9,8 @@ import {
   transformerNotationDiff,
 } from '@shikijs/transformers'
 import shikiMap from 'shiki-class-transformer/themes/vitesse-light.json'
-import { createOnigurumaEngine } from 'shiki/engine/oniguruma'
 import vitesseDark from 'shiki/themes/vitesse-dark.mjs'
 import vitesseLight from 'shiki/themes/vitesse-light.mjs'
-import getWasm from 'shiki/wasm'
 import {
   customShikiTranformer,
   shikiHightlightWordFormatTransformer,
@@ -24,16 +22,16 @@ import {
   DiffInsertedClassName,
   DiffDeletedClassName,
 } from '../highlight-utils'
+import { createJavaScriptRegexEngine } from 'shiki/engine/javascript'
 
 const shikiOptions = {
   themes: [vitesseDark, vitesseLight],
-  engine: createOnigurumaEngine(getWasm),
+  engine: createJavaScriptRegexEngine(),
   langs: [
     import('shiki/langs/js.mjs'),
     import('shiki/langs/jsx.mjs'),
     import('shiki/langs/tsx.mjs'),
     import('shiki/langs/ts.mjs'),
-    import('shiki/langs/css.mjs'),
     import('shiki/langs/css.mjs'),
     import('shiki/langs/rust.mjs'),
     import('shiki/langs/vue.mjs'),
