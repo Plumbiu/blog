@@ -3,10 +3,7 @@
   margin: 0;
   word-break: break-word;
   overflow-x: hidden;
-
-  & > * {
-    margin-bottom: 16px;
-  }
+  line-height: 28px;
 
   /* table */
   table {
@@ -46,19 +43,15 @@
   }
 
   /* Code */
-  code:not([class]) {
-    font-size: 0.85rem;
+  code {
+    font-size: 14px;
     padding: 2px 6px;
     border-radius: 4px;
     color: var(--text);
     background-color: var(--c-gray-soft);
   }
-  h2 {
-    margin-top: 32px;
-  }
   pre {
     margin: 0;
-    font-size: 14px;
     color: var(--text-1);
     overflow: auto;
     tab-size: 2;
@@ -70,10 +63,11 @@
     code {
       display: block;
       width: fit-content;
+      padding: 0;
       min-width: 100%;
       box-sizing: content-box;
       color: inherit;
-      background-color: inherit;
+      background-color: transparent;
     }
   }
 
@@ -137,7 +131,6 @@
       border-radius: 0;
     }
   }
-
   /* Details */
   details {
     font-size: 14px;

@@ -293,9 +293,6 @@ const Comment = memo(({ pathname }: CommentProps) => {
       return (
         <div className="md">
           <LoginGithub pathname={pathname} />
-
-
-          
           <blockquote className="blockquote-danger">
             <p>{errorMessage}</p>
             <p>{issueAddNode}</p>

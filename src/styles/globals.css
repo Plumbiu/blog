@@ -38,6 +38,9 @@ h6 {
     font-size: inherit !important;
   }
 }
+h6 {
+  margin: 1.8em 0;
+}
 h1 {
   font-size: 28px;
 }
@@ -142,7 +145,7 @@ textarea {
   padding: 8px;
   font-size: 14px;
   transition: border-color 0.15s;
-  background-color: var(--bg-md-pre);
+  background-color: var(--bg-body);
   &:focus {
     border-color: var(--c-indigo-3);
   }
