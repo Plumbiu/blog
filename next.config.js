@@ -40,7 +40,6 @@ const nextConfig = {
     path: `${BasePath}/_next/image`,
     remotePatterns: [
       {
-        // "https://avatars.githubusercontent.com/u/99574369?v=4"
         protocol: 'https',
         hostname: 'avatars.githubusercontent.com',
       },

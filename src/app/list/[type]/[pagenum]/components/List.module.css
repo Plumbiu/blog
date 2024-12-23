@@ -6,7 +6,7 @@
   margin-bottom: 16px;
   border: 1px solid var(--divider);
   border-radius: 10px;
-  transition: 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
   cursor: pointer;
 
   &:hover {
