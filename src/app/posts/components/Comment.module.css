@@ -88,6 +88,10 @@
   }
 }
 
+.item_active {
+  border: 1px solid var(--c-indigo-3);
+}
+
 .submit {
   display: flex;
   align-items: center;

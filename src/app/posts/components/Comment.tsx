@@ -83,11 +83,16 @@ interface List {
 
 interface ListItemProps {
   list: List
+  active: boolean
 }
 
-const ListItem = memo(({ list }: ListItemProps) => {
+const ListItem = memo(({ list, active }: ListItemProps) => {
   return (
-    <div className={styles.item}>
+    <div
+      className={cn(styles.item, {
+        [styles.item_active]: active,
+      })}
+    >
       <div className={styles.top}>
         <Image
           src={list.user.avatar_url}
@@ -133,6 +138,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
   const [accessToken, setAccessToken] = useState<string>()
   const [data, setData] = useState<any[]>([])
   const [errorMessage, _setErrorMessage] = useState<string>()
+  const [highLightFirstOne, setHighLightFirstOne] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   const isIntersecting = useObserver(containerRef)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
@@ -143,6 +149,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
   const getToken = useCallback(() => {
     return localStorage.getItem('access-token')
   }, [])
+
   const setErrorMessage = useCallback((error: any) => {
     setStatus('error')
     if (isString(error.message)) {
@@ -157,9 +164,10 @@ const Comment = memo(({ pathname }: CommentProps) => {
       _setErrorMessage('未知错误，请尝试登录 Github 解决')
     }
   }, [])
-  const getIssues = useCallback(async () => {
+
+  const getIssues = useCallback(async (loading = true) => {
     try {
-      setStatus('loading')
+      loading && setStatus('loading')
       const token = getToken()
       const headers: Record<string, string> = {
         accept: 'application/vnd.github.VERSION.html+json',
@@ -215,7 +223,6 @@ const Comment = memo(({ pathname }: CommentProps) => {
       return
     }
     try {
-      setStatus('loading')
       await fetch(queryUrl, {
         method: 'POST',
         headers: {
@@ -224,7 +231,8 @@ const Comment = memo(({ pathname }: CommentProps) => {
         },
         body: JSON.stringify({ body }),
       })
-      await getIssues()
+      await getIssues(false)
+      setHighLightFirstOne(true)
     } catch (error) {
       setErrorMessage(error)
     }
@@ -266,10 +274,16 @@ const Comment = memo(({ pathname }: CommentProps) => {
       <>
         {status === 'loading' && <LoadingUI />}
         {isArray(data) &&
-          data.map((list: any) => <ListItem key={list.id} list={list} />)}
+          data.map((list: any, i) => (
+            <ListItem
+              key={list.id}
+              list={list}
+              active={highLightFirstOne && i === 0}
+            />
+          ))}
       </>
     )
-  }, [status, data])
+  }, [status, data, highLightFirstOne])
 
   const node = useMemo(() => {
     if (!isIntersecting) {
