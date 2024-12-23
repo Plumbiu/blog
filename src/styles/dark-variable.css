@@ -45,12 +45,12 @@ html[data-theme="dark"] {
   --bg-md-table-header: #161618;
   --bg-md-table-th: #090910;
   --bg-header: #00000085;
-  --bg-body: #090909;
+  --bg-body: #040404;
   --bg-scrollbar: #212123;
   --bg-tag: #181818;
   --bg-vertical-line: #444;
   --bg-modal: #33333330;
-  --bg-comment: #101010;
+  --bg-comment: #090909;
   --bg-search-panel: #181819;
   --bg-search-panel-footer: #1c1c1c;
   --bg-search-panel-item: #2b2f32;
