@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation'
 import type { NextRequest } from 'next/server'
-import { getTokenResponse } from './utils'
+import { getTokenResponse } from '../utils'
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url)

@@ -12,6 +12,7 @@
     "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
+    "@octokit/auth-oauth-app": "^8.1.1",
     "@plumbiu/react-store": "^0.9.3",
     "@react-three/fiber": "9.0.0-alpha.8",
     "@shikijs/transformers": "^1.24.2",
@@ -22,6 +23,7 @@
     "lil-gui": "^0.20.0",
     "next": "14.2.21",
     "next-view-transitions": "^0.3.4",
+    "octokit": "^4.0.2",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-photo-album": "^3.0.2",

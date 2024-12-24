@@ -54,7 +54,7 @@ const LoginGithub = memo(({ pathname }: CommentProps) => {
       onClick={(e) => {
         e.preventDefault()
         sessionStorage.setItem('prev-pathname', `${BlogUrl}${pathname}`)
-        location.href = `https://github.com/login/oauth/authorize?client_id=${GithubAppClientId}&redirect_uri=${BlogUrl}api/oauth`
+        location.href = `https://github.com/login/oauth/authorize?client_id=${GithubAppClientId}&redirect_uri=${BlogUrl}api/oauth/redirect`
       }}
     >
       <GithubIcon fontSize={24} />
@@ -173,8 +173,15 @@ const Comment = memo(({ pathname }: CommentProps) => {
         accept: 'application/vnd.github.VERSION.html+json',
       }
       if (token) {
-        setAccessToken(token)
-        headers.authorization = `Bearer ${token}`
+        const verifyText = await fetch('/api/oauth/verify', {
+          headers: {
+            authorization: token,
+          },
+        }).then((res) => res.text())
+        if (verifyText !== 'error') {
+          setAccessToken(token)
+          headers.authorization = `Bearer ${token}`
+        }
       }
       const lists = await fetch(queryUrl, {
         headers,
