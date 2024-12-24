@@ -2,19 +2,21 @@ import type { NextRequest } from 'next/server'
 import { createOAuthAppAuth } from '@octokit/auth-oauth-app'
 import { Octokit } from 'octokit'
 
+const octokit = new Octokit({
+  authStrategy: createOAuthAppAuth,
+  auth: {
+    clientType: 'oauth-app',
+    clientId: process.env.GITHUB_CLIENT_ID,
+    clientSecret: process.env.GITHUB_CLIENT_SECRET,
+  },
+})
+
 export async function GET(req: NextRequest) {
   const token = req.headers.get('Authorization')
   if (!token || !process.env.GITHUB_CLIENT_ID) {
     return new Response('error')
   }
-  const octokit = new Octokit({
-    authStrategy: createOAuthAppAuth,
-    auth: {
-      clientType: 'oauth-app',
-      clientId: process.env.GITHUB_CLIENT_ID,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    },
-  })
+
   try {
     const verifyResponse = await octokit.request(
       'POST /applications/{client_id}/token',
