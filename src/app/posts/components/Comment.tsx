@@ -156,7 +156,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
       if (error.message === 'Bad credentials') {
         _setErrorMessage('Github token 过期，请重新登录')
       } else if (error.message.startsWith('API rate limit')) {
-        _setErrorMessage('超出 Github API 速率限制，请登录或者等待')
+        _setErrorMessage('超出 Github API 速率限制，请登录获取更多次数')
       } else {
         _setErrorMessage(error.message)
       }
