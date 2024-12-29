@@ -1,4 +1,3 @@
-/* eslint-disable @stylistic/function-paren-newline */
 import fsp from 'node:fs/promises'
 import path from 'node:path'
 import yaml from 'js-yaml'
