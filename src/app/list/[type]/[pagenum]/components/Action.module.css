@@ -14,19 +14,6 @@
   }
 }
 
-.curtain {
-  content: "";
-  position: fixed;
-  top: var(--header-h);
-  right: 0;
-  pointer-events: none;
-  height: 60px;
-  width: 86px;
-  z-index: 9;
-  background: linear-gradient(to left, var(--bg-body), transparent 100%);
-  transition: 0.3s;
-}
-
 .item {
   display: flex;
   align-items: center;

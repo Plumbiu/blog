@@ -21,7 +21,6 @@ function ArtlistAction({ type }: { type: string }) {
           className={cn(styles.item, {
             [styles.active]: type === p,
           })}
-          scroll={false}
           key={p}
           href={`/list/${p}/1`}
         >
@@ -29,7 +28,6 @@ function ArtlistAction({ type }: { type: string }) {
           {listActionIconMap[p]}
         </Link>
       ))}
-      <div className={styles.curtain} />
     </div>
   )
 }

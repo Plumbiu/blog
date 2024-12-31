@@ -30,11 +30,13 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  height: 58px;
   padding: 12px;
   border: 1px solid var(--c-indigo-1);
   border-radius: 4px;
   overflow: hidden;
   background-color: var(--bg-search-panel-item);
+
   & svg {
     font-size: 20px;
   }
@@ -110,7 +112,10 @@
 }
 
 .btn {
-  &:hover {
+  padding: 8px;
+  border: none;
+
+  & {
     color: var(--c-indigo-1);
   }
 }
@@ -122,11 +127,12 @@
   border-radius: 0 0 4px 4px;
   font-size: 12px;
   border-top: 1px solid var(--c-gray-3);
+
   & svg {
     font-size: 18px;
   }
 
-  & > div {
+  &>div {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -141,7 +147,8 @@
 .empty_content {
   padding: 0 var(--distance);
   white-space: break-all;
-  & > svg {
+
+  &>svg {
     margin: 8px auto;
     font-size: 48px;
     color: var(--c-gray-1);
