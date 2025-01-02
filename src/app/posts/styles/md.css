@@ -2,10 +2,13 @@
   color: var(--text-1);
   margin: 0;
   word-break: break-word;
-  overflow-x: hidden;
 
   &>p {
     line-height: 28px;
+  }
+
+  & > div {
+    overflow-x: hidden;
   }
 
   /* table */
@@ -88,6 +91,7 @@
     padding: 10px 0;
     padding-left: 16px;
     margin-left: calc(var(--extend-x) / 10);
+    margin-right: 0;
     border-left: 4px solid var(--bg-md-quote-before);
 
     p {
