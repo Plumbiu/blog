@@ -21,7 +21,7 @@ importers:
         version: 0.9.3(react@18.3.1)
       '@react-three/fiber':
         specifier: 9.0.0-alpha.8
-        version: 9.0.0-alpha.8(@types/react@18.3.2)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.171.0)
+        version: 9.0.0-alpha.8(@types/react@18.3.2)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.172.0)
       '@shikijs/transformers':
         specifier: ^1.24.4
         version: 1.24.4
@@ -35,6 +35,9 @@ importers:
         specifier: ^3.0.1
         version: 3.0.1
       is-plain-obj:
+        specifier: ^4.1.0
+        version: 4.1.0
+      js-yaml:
         specifier: ^4.1.0
         version: 4.1.0
       lil-gui:
@@ -86,8 +89,8 @@ importers:
         specifier: ^5.37.0
         version: 5.37.0
       three:
-        specifier: ^0.171.0
-        version: 0.171.0
+        specifier: ^0.172.0
+        version: 0.172.0
       unified:
         specifier: ^11.0.5
         version: 11.0.5
@@ -140,9 +143,6 @@ importers:
       feed:
         specifier: ^4.2.2
         version: 4.2.2
-      js-yaml:
-        specifier: ^4.1.0
-        version: 4.1.0
       mdast-util-directive:
         specifier: ^3.0.0
         version: 3.0.0
@@ -1689,8 +1689,8 @@ packages:
   thenify@3.3.1:
     resolution: {integrity: sha512-RVZSIV5IG10Hk3enotrhvz0T9em6cyHBLkH/YAZuKqd8hRkKhSfCGIcP2KUY0EPxndzANBmNllzWPwak+bheSw==}
 
-  three@0.171.0:
-    resolution: {integrity: sha512-Y/lAXPaKZPcEdkKjh0JOAHVv8OOnv/NDJqm0wjfCzyQmfKxV7zvkwsnBgPBKTzJHToSOhRGQAGbPJObT59B/PQ==}
+  three@0.172.0:
+    resolution: {integrity: sha512-6HMgMlzU97MsV7D/tY8Va38b83kz8YJX+BefKjspMNAv0Vx6dxMogHOrnRl/sbMIs3BPUKijPqDqJ/+UwJbIow==}
 
   toad-cache@3.7.0:
     resolution: {integrity: sha512-/m8M+2BJUpoJdgAHoG+baCwBT+tf2VraSfkBgl0Y00qIWt41DJ8R5B8nsEw0I58YwF5IZH6z24/2TobDKnqSWw==}
@@ -2253,7 +2253,7 @@ snapshots:
 
   '@polka/url@1.0.0-next.28': {}
 
-  '@react-three/fiber@9.0.0-alpha.8(@types/react@18.3.2)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.171.0)':
+  '@react-three/fiber@9.0.0-alpha.8(@types/react@18.3.2)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.172.0)':
     dependencies:
       '@babel/runtime': 7.25.7
       '@types/react-reconciler': 0.28.8
@@ -2265,7 +2265,7 @@ snapshots:
       react-use-measure: 2.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       scheduler: 0.25.0-rc-935180c7e0-20240524
       suspend-react: 0.1.3(react@18.3.1)
-      three: 0.171.0
+      three: 0.172.0
       zustand: 4.5.5(@types/react@18.3.2)(immer@10.1.1)(react@18.3.1)
     optionalDependencies:
       react-dom: 18.3.1(react@18.3.1)
@@ -3529,7 +3529,7 @@ snapshots:
     dependencies:
       any-promise: 1.3.0
 
-  three@0.171.0: {}
+  three@0.172.0: {}
 
   toad-cache@3.7.0: {}
 
