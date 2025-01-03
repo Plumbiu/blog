@@ -1,6 +1,7 @@
 .wrapper {
   position: relative;
   margin: 64px 0;
+
   &::before {
     content: "";
     position: absolute;
@@ -41,10 +42,12 @@
   align-items: center;
   color: var(--c-indigo-3);
   text-underline-offset: 4px;
+
   &:hover {
     text-decoration: underline;
   }
-  & > svg {
+
+  &>svg {
     font-size: 18px;
   }
 }
@@ -60,7 +63,8 @@
   gap: 12px;
   font-size: 14px;
   padding: 12px 12px 0 12px;
-  & > img {
+
+  &>img {
     border-radius: 50%;
   }
 }
@@ -73,13 +77,14 @@
   border-radius: 6px;
   margin-bottom: 16px;
 
-  & > textarea {
+  &>textarea {
     color: var(--text-1);
     border-radius: 0;
     border-color: transparent;
     margin-top: 12px;
     border-bottom: 1px solid var(--divider);
     border-top: 1px solid var(--divider);
+
     &:focus {
       border: 1px solid var(--c-indigo-3);
     }
@@ -94,7 +99,8 @@
   display: flex;
   align-items: center;
   margin: 0 12px 6px 6px;
-  & > button {
+
+  &>button {
     margin: 0;
   }
 }
@@ -128,6 +134,7 @@
   & a {
     color: var(--c-indigo-3);
     text-decoration: none;
+
     &:hover {
       text-decoration: underline;
     }
@@ -145,7 +152,8 @@
   gap: 8px;
   font-size: 12px;
   padding: 0 12px 12px 8px;
-  & > div {
+
+  &>div {
     display: flex;
     align-items: center;
     gap: 4px;
@@ -156,8 +164,13 @@
     cursor: pointer;
     transition: background-color 0.15s;
     font-weight: 700;
+
     &:hover {
       background-color: var(--c-purple-soft);
     }
   }
+}
+
+.error_link {
+  display: flex;
 }

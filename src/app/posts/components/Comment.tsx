@@ -302,7 +302,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
           <LoginGithub pathname={pathname} />
           <blockquote className="blockquote-danger">
             <p>{errorMessage}</p>
-            <p>{issueAddNode}</p>
+            <p className={styles.error_link}>或者&nbsp;{issueAddNode}</p>
           </blockquote>
         </div>
       )
