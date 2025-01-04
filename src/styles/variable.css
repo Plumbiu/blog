@@ -37,7 +37,7 @@
   --bg-md-quote-warn: #fcf4dc;
   --bg-md-quote-info: #e9eaff;
   --bg-md-quote-danger: rgba(244, 63, 94, 0.14);
-  --bg-md-pre: #fafafb;
+  --bg-md-pre: #f8f8f9;
   --bg-md-pre-bar: #e2e2e2;
   --bg-md-highlight-line: rgba(220, 220, 225, 0.52);
   --bg-md-code: #ddeef8;
@@ -49,7 +49,7 @@
   --bg-tag: #e9e9e9;
   --bg-vertical-line: #bfbfbf;
   --bg-modal: #00000073;
-  --bg-comment: #fafafb;
+  --bg-comment: #fcfcfd;
   --bg-search-panel: #f6f6f7;
   --bg-search-panel-footer: #fff;
   --bg-search-panel-item: #fff;

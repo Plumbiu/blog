@@ -94,7 +94,7 @@ function Header() {
                 className={cn(styles.hover, {
                   [styles.active]: pathanme === data.href,
                   [styles.mobile]:
-                    data.href === GithubRepoUrl || data.href === '/about',
+                    data.href === '/rss.xml' || data.href === '/links',
                 })}
                 prefetch={data.href !== '/rss.xml'}
               >
