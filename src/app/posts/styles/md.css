@@ -7,7 +7,7 @@
     line-height: 28px;
   }
 
-  & > div {
+  &>* {
     overflow-x: hidden;
   }
 
@@ -95,6 +95,7 @@
     border-left: 4px solid var(--bg-md-quote-before);
 
     p {
+      line-height: 1.6;
       margin: 0;
     }
   }

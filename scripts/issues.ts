@@ -1,12 +1,8 @@
 import type { PostList } from '@/utils/node/markdown'
 import fsp from 'node:fs/promises'
 import { GithubName, GithubRepoName } from '~/data/site'
-import { writeFileWithGit } from './utils'
-
-const EnvLocalFile = '.env.local'
 
 export async function createIssues(posts: PostList[]) {
-  console.log(process.env.GITHUB_TOKEN)
   const allIssues: any[] = await fetch(
     `https://api.github.com/repos/${GithubName}/${GithubRepoName}/issues`,
   ).then((res) => res.json())
@@ -23,7 +19,7 @@ export async function createIssues(posts: PostList[]) {
       return issueName
     })
     .filter((issueName) => !result[issueName])
-  const files = await fsp.readFile(EnvLocalFile, 'utf-8')
+  const files = await fsp.readFile('.env.local', 'utf-8')
   const envs = files.split(/\r?\n/g)
 
   for (const env of envs) {
@@ -48,5 +44,4 @@ export async function createIssues(posts: PostList[]) {
       )
     }
   }
-  await writeFileWithGit(EnvLocalFile, JSON.stringify(result))
 }
