@@ -32,14 +32,11 @@ function evalCode(code: string, scope: Scope, logFn?: LogFn) {
   return _exports.default
 }
 
-function getBasename(p: string) {
-  if (p.endsWith('.jsx') || p.endsWith('.tsx')) {
-    return p.slice(0, p.length - 4)
+function getJsxLikeBasename(p: string) {
+  const [basename, ext] = p.split('.')
+  if (ext === 'jsx' || ext === 'tsx' || ext === 'ts' || ext === 'js') {
+    return basename
   }
-  if (p.endsWith('.ts') || p.endsWith('.js')) {
-    return p.slice(0, p.length - 3)
-  }
-  return null
 }
 
 interface PlaygroundPreviewProps {
@@ -63,7 +60,7 @@ export function renerPlayground({
   const loop = () => {
     for (const key of jsKyes) {
       const value = evalCode(files[key], scope, logFn)
-      const scopeKey = getBasename(key)
+      const scopeKey = getJsxLikeBasename(key)
       if (scopeKey) {
         scope['./' + scopeKey] = value
       }

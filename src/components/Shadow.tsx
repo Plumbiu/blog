@@ -10,16 +10,12 @@ interface ShadowRootProps {
 
 function ReactShadowRoot({
   children,
-  shadow = true,
   mode = 'open',
   ...rest
 }: ShadowRootProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [shadowRoot, setShadowRoot] = useState<ShadowRoot | HTMLDivElement>()
   useEffect(() => {
-    if (!shadow) {
-      return
-    }
     try {
       const dom = ref.current!
       const root = dom.attachShadow({
@@ -27,14 +23,10 @@ function ReactShadowRoot({
       })
       setShadowRoot(root)
     } catch (error) {}
-  }, [shadow])
+  }, [])
   return (
     <div ref={ref} {...rest}>
-      {shadow
-        ? shadowRoot
-          ? createPortal(children, shadowRoot)
-          : null
-        : children}
+      {shadowRoot ? createPortal(children, shadowRoot) : null}
     </div>
   )
 }

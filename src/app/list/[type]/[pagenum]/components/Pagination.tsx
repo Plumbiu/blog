@@ -3,6 +3,7 @@ import Card from '@/components/Card'
 import { ArrowLeftIcon, ArrowRightIcon } from '@/components/Icons'
 import type { PostList } from '@/utils/node/markdown'
 import styles from './Pagination.module.css'
+import { cn } from '@/utils/client'
 
 interface ArtlistPaginationProps {
   type: string
@@ -19,7 +20,7 @@ function ArtlistPagination({
 }: ArtlistPaginationProps) {
   const pages = new Array(pageCount).fill(1).map((_, i) => i + 1)
   return (
-    <div className={styles.pagination}>
+    <div className={cn('fcc', styles.pagination)}>
       <Card
         href={`/list/${type}/${pagenum - 1}`}
         scroll={false}

@@ -15,17 +15,10 @@
   --thumb-item-height: 60px;
   --thumb-item-width: 80px;
   --thumb-item-translate: 16px;
-  --thumb-item-max-height: calc(
-    var(--thumb-item-height) +
-    var(--thumb-item-translate) +
-    var(--thumb-bottom)
-  );
+  --thumb-item-max-height: calc(var(--thumb-item-height) + var(--thumb-item-translate) + var(--thumb-bottom));
   opacity: 0;
   animation: fade 0.15s forwards;
   position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
   inset: 0;
   z-index: 999;
@@ -33,6 +26,7 @@
 
   & svg {
     transition: color 0.15s ease-in;
+
     &:hover {
       color: #fff;
     }
@@ -40,7 +34,7 @@
 }
 
 .slide {
-  & > img {
+  &>img {
     max-width: 100%;
     transform: translateY(calc(-1 * var(--thumb-item-max-height) / 2));
     max-height: calc(100vh - var(--thumb-item-max-height));
@@ -68,6 +62,7 @@
   display: flex;
   user-select: none;
   transition: transform 0.25s;
+
   & img {
     filter: brightness(0.6);
     transition: 0.25s;

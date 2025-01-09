@@ -1,10 +1,11 @@
 import { Link } from 'next-view-transitions'
 import Card from './Card'
 import styles from './NotFound.module.css'
+import { cn } from '@/utils/client'
 
 function NotFound() {
   return (
-    <div className={styles.wrap}>
+    <div className={cn('fcc', styles.wrap)}>
       <h1>404</h1>
       <div>This page is missing ......</div>
       <Card active>

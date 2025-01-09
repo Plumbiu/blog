@@ -39,7 +39,7 @@ function Header() {
     } else {
       header.classList.remove(styles.hide)
     }
-    if (scrollTop > 120) {
+    if (scrollTop > 68) {
       header.classList.add(styles.shadow)
     } else {
       header.classList.remove(styles.shadow)

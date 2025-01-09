@@ -112,7 +112,7 @@ function ImageGallery(props: any) {
         }}
       />
       {slideNode && (
-        <div className={styles.mask}>
+        <div className={cn('fcc', styles.mask)}>
           <div className={styles.close} onClick={hidden}>
             <CloseIcon />
           </div>

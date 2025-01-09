@@ -1,17 +1,15 @@
 .wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
   gap: 16px;
   margin: auto;
   height: calc(100vh - var(--header-h) - 86px);
 
-  & > h1 {
+  &>h1 {
     margin: 0;
     font-size: 32px;
   }
-  & > div {
+
+  &>div {
     font-weight: 600;
     font-size: 20px;
   }

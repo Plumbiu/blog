@@ -82,12 +82,12 @@ const Playground = (props: any) => {
         ? createElement(customPreviewNode, props)
         : renerPlayground(playgroundProps)
     }
-
+    node = <Suspense fallback={<Loading />}>{node}</Suspense>
     if (css) {
       node = (
         <ReactShadowRoot shadow>
           <style>{css}</style>
-          <Suspense fallback={<Loading />}>{node}</Suspense>
+          {node}
         </ReactShadowRoot>
       )
     }
