@@ -12,10 +12,10 @@
     "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
-    "@octokit/auth-oauth-app": "^8.1.1",
+    "@octokit/auth-oauth-app": "^8.1.2",
     "@plumbiu/react-store": "^0.9.3",
     "@react-three/fiber": "9.0.0-alpha.8",
-    "@shikijs/transformers": "^1.26.1",
+    "@shikijs/transformers": "^1.27.2",
     "@vercel/analytics": "^1.4.1",
     "hast-util-to-jsx-runtime": "^2.3.2",
     "hast-util-to-string": "^3.0.1",
@@ -24,7 +24,7 @@
     "lil-gui": "^0.20.0",
     "next": "14.2.21",
     "next-view-transitions": "^0.3.4",
-    "octokit": "^4.0.3",
+    "octokit": "^4.1.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-photo-album": "^3.0.2",
@@ -33,7 +33,7 @@
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.1",
     "sharp": "^0.33.5",
-    "shiki": "^1.26.1",
+    "shiki": "^1.27.2",
     "shiki-class-transformer": "^0.3.0",
     "sucrase": "^3.35.0",
     "terser": "^5.37.0",
@@ -61,7 +61,7 @@
     "picocolors": "^1.1.1",
     "postcss-nested": "^7.0.2",
     "simple-git-hooks": "^2.11.1",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.3"
   },
   "pnpm": {
     "patchedDependencies": {
@@ -71,9 +71,12 @@
   "simple-git-hooks": {
     "pre-commit": "pnpm generate"
   },
+  "sideEffects": false,
   "browserslist": [
-    "> 0.2%",
-    "not dead",
-    "not op_mini all"
+    "chrome 89",
+    "edge 89",
+    "firefox 89",
+    "opera 75",
+    "safari 15"
   ]
 }

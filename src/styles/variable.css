@@ -70,9 +70,6 @@
   --pre-radius: 4px;
   --pre-padding: 14px;
   --extend-x: -76px;
-  --image-item-w: 50%;
-  --code-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    Liberation Mono, Courier New, monospace;
 }
 
 @media screen and (max-width: 1240px) {
@@ -90,7 +87,6 @@
 @media screen and (max-width: 960px) {
   :root {
     --extend-x: 0;
-    --image-item-w: 100%;
     --post-w: 100%;
   }
 }

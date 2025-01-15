@@ -4,6 +4,7 @@ const { default: classnamesMinifier } = require('@nimpl/classnames-minifier')
 
 const IS_GITPAGE = !!process.env.GITPAGE
 const BasePath = IS_GITPAGE ? '/blog' : ''
+const IsDev = process.env.NODE_ENV === 'development'
 
 const withBundleAnalyzer = Analyzer({
   enabled: !!process.env.ANALYZE,
@@ -12,7 +13,7 @@ const withBundleAnalyzer = Analyzer({
 const withClassnamesMinifier = classnamesMinifier({
   prefix: '_',
   reservedNames: ['_en', '_de'],
-  disabled: process.env.NODE_ENV === 'development' || !!process.env.ANALYZE,
+  disabled: IsDev || !!process.env.ANALYZE,
 })
 
 const AtomChartsetHeader = [
