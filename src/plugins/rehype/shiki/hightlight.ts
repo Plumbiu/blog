@@ -121,12 +121,15 @@ const rehypeShikiHighlight = () => {
                 lang,
               }),
               transformerNotationWordHighlight({
+                matchAlgorithm: 'v3',
                 classActiveWord: HighLightWordClassName,
               }),
               transformerNotationHighlight({
+                matchAlgorithm: 'v3',
                 classActiveLine: HighLightLineClassName,
               }),
               transformerNotationDiff({
+                matchAlgorithm: 'v3',
                 classLineAdd: DiffInsertedClassName,
                 classLineRemove: DiffDeletedClassName,
               }),
