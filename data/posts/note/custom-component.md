@@ -262,7 +262,31 @@ Hello World
 
 # Image gallery
 
+## None config
+
 :::Gallery
+2023-1.webp
+threejs/flower-2.jpg
+2023-2.webp
+2023-3.png
+threejs/flower-6.jpg
+shiki-className.webp
+threejs/flower-1.jpg
+shiki-inline-styles.webp
+toc-optimize.gif
+toc.gif
+threejs/flower-3.jpg
+view-frustum.png
+threejs/flower-4.jpg
+2022-1.png
+threejs/flower-5.jpg
+threejs/wall.jpg
+:::
+
+## Max show
+
+:::Gallery
+[max:6]
 2023-1.webp
 threejs/flower-2.jpg
 2023-2.webp

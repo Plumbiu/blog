@@ -21,10 +21,10 @@ importers:
         version: 0.9.3(react@18.3.1)
       '@react-three/fiber':
         specifier: 9.0.0-alpha.8
-        version: 9.0.0-alpha.8(@types/react@18.3.2)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.172.0)
+        version: 9.0.0-alpha.8(@types/react@18.3.2)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.173.0)
       '@shikijs/transformers':
-        specifier: ^2.0.3
-        version: 2.0.3
+        specifier: ^2.3.0
+        version: 2.3.0
       '@vercel/analytics':
         specifier: ^1.4.1
         version: 1.4.1(next@14.2.21(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
@@ -62,8 +62,8 @@ importers:
         specifier: ^3.0.2
         version: 3.0.2(patch_hash=ocwe5z2mqhu7gxtukdnzxvurha)(@types/react@18.3.2)(react@18.3.1)
       remark-directive:
-        specifier: ^3.0.0
-        version: 3.0.0
+        specifier: ^3.0.1
+        version: 3.0.1
       remark-gfm:
         specifier: ^4.0.0
         version: 4.0.0
@@ -77,8 +77,8 @@ importers:
         specifier: ^0.33.5
         version: 0.33.5
       shiki:
-        specifier: ^2.0.3
-        version: 2.0.3
+        specifier: ^2.3.0
+        version: 2.3.0
       shiki-class-transformer:
         specifier: ^0.3.0
         version: 0.3.0
@@ -89,8 +89,8 @@ importers:
         specifier: ^5.37.0
         version: 5.37.0
       three:
-        specifier: ^0.172.0
-        version: 0.172.0
+        specifier: ^0.173.0
+        version: 0.173.0
       unified:
         specifier: ^11.0.5
         version: 11.0.5
@@ -126,8 +126,8 @@ importers:
         specifier: 18.3.2
         version: 18.3.2
       '@types/three':
-        specifier: ^0.172.0
-        version: 0.172.0
+        specifier: ^0.173.0
+        version: 0.173.0
       '@types/unist':
         specifier: ^3.0.3
         version: 3.0.3
@@ -144,8 +144,8 @@ importers:
         specifier: ^4.2.2
         version: 4.2.2
       mdast-util-directive:
-        specifier: ^3.0.0
-        version: 3.0.0
+        specifier: ^3.1.0
+        version: 3.1.0
       picocolors:
         specifier: ^1.1.1
         version: 1.1.1
@@ -722,26 +722,26 @@ packages:
       react-native:
         optional: true
 
-  '@shikijs/core@2.0.3':
-    resolution: {integrity: sha512-dhbLagx1As0BmaNGUTxJ/qshb4MPyKYIvjCcd7y1utDToebUS4BZI3FH+WVCJF3/VwWWKOhuzX4lgjOb7qtSjQ==}
+  '@shikijs/core@2.3.0':
+    resolution: {integrity: sha512-N1r7sIXYm31Zju3CmH6bH6tgIftF0NlHxx0HiZ85X2BLWczgFLo61PJCoF7nFZUu8DeS0g8xhZsiL8zi+tV8YQ==}
 
-  '@shikijs/engine-javascript@2.0.3':
-    resolution: {integrity: sha512-GMmfP8xEmUl0H7RXo4VTFYqAWzAADtlghA9perlm6mzuo0n/Ih+owh57ZLWBMMe/N1TUMis4SGJRvx31HtK3jg==}
+  '@shikijs/engine-javascript@2.3.0':
+    resolution: {integrity: sha512-/ITg36HXHXP486+6zaQgP7Y38LIV9V2Pir4aIk7zQ5XcM1CU8dOlUL9BuyA/E6BKg1XaAgN+rFg3qsaspt+x2A==}
 
-  '@shikijs/engine-oniguruma@2.0.3':
-    resolution: {integrity: sha512-MicRzo0aNaS18yXBnXjYFLnzi5Sh3NUHtm/WXzavtpGiWd75gRdZsZDMceeFyTL9MMy9iGifK2JePXY5dlZHIA==}
+  '@shikijs/engine-oniguruma@2.3.0':
+    resolution: {integrity: sha512-8nBH/QwDrJLxbIFg7ifrfyEtrW0m9FCfanxU9SJFUEbA+rFNbyDGdoXZ4IxkC6ykT1+Utx2vW6EYVAUk3Q9gcg==}
 
-  '@shikijs/langs@2.0.3':
-    resolution: {integrity: sha512-L+QcwH6tjVY21xDxe3etR+C+33mAbkyQVvUIsszwnQrRVI54r7VPNTMVWR4EbZfPFwWmwLCoO83V5YiBWusvVg==}
+  '@shikijs/langs@2.3.0':
+    resolution: {integrity: sha512-gaNaqbUhncigokGehwhzGe5AY+IRJKDnp+1Zp3gjxhhv6RxMYtbn9zDu3cl9ngNZGEdtEtvruz6LasdY3n0MCA==}
 
-  '@shikijs/themes@2.0.3':
-    resolution: {integrity: sha512-NFnArltjzmYAssn1SLIFlKX9HJEL9K12z0uBB0tg579hW6UHIXwfd+AhsaB/+cXYLix2YuN5uEPJpqtRN2zi0A==}
+  '@shikijs/themes@2.3.0':
+    resolution: {integrity: sha512-2M3XKry66lB975B7v+kSesGyIJrhxsLdk/RyhB+hbkXmD2Myyuspyox0/2JTqWnM1Y9132NjeVsBl1ZI507ZXw==}
 
-  '@shikijs/transformers@2.0.3':
-    resolution: {integrity: sha512-Y5qmHA2LyoXccq6IPP5AeGqialn54ZORPBxbyNH+NEbCaw1nTCCy+Tfm3idRkqYLZOw0yq+0MUSDWbGezHksow==}
+  '@shikijs/transformers@2.3.0':
+    resolution: {integrity: sha512-y/9RIr/YWENiZpoMbo4GkKpxgYwuP1CZTFgi1lvnxBY9zvwRHhQz62rCH+md34A995Vap1jQmkkG+kye7wotgw==}
 
-  '@shikijs/types@2.0.3':
-    resolution: {integrity: sha512-jyP6NMdWkbBpEn3WqqH8TCfkzE52/hS7msKGJAvxcwyQQah7+hU8x7ejFhCVoxrBaW001v+ID4zl3wspcDSaaw==}
+  '@shikijs/types@2.3.0':
+    resolution: {integrity: sha512-rC8ZkfIE6m17RBGwRPoXqj/an4JPUnAB1JGHELPVrzygyB0Gqa9Lc7h4xYb8c3GWywAgrjryLAJSN3kpe1fqhw==}
 
   '@shikijs/vscode-textmate@10.0.1':
     resolution: {integrity: sha512-fTIQwLF+Qhuws31iw7Ncl1R3HUDtGwIipiJ9iU+UsDUwMhegFcQKQHd51nZjb7CArq0MvON8rbgCGQYWHUKAdg==}
@@ -797,8 +797,8 @@ packages:
   '@types/stats.js@0.17.3':
     resolution: {integrity: sha512-pXNfAD3KHOdif9EQXZ9deK82HVNaXP5ZIF5RP2QG6OQFNTaY2YIetfrE9t528vEreGQvEPRDDc8muaoYeK0SxQ==}
 
-  '@types/three@0.172.0':
-    resolution: {integrity: sha512-LrUtP3FEG26Zg5WiF0nbg8VoXiKokBLTcqM2iLvM9vzcfEiYmmBAPGdBgV0OYx9fvWlY3R/3ERTZcD9X5sc0NA==}
+  '@types/three@0.173.0':
+    resolution: {integrity: sha512-KtNjfI/CRB6JVKIVeZM1R3GYDX2wkoV2itNcQu2j4d7qkhjGOuB+s2oF6jl9mztycDLGMtrAnJQYxInC8Bb20A==}
 
   '@types/unist@2.0.11':
     resolution: {integrity: sha512-CmBKiL6NNo/OqgmMn95Fk9Whlp2mtvIv+KNpQKN2F4SjvrEesubTRWGYSg+BnWZOnlCaSTU1sMpsBOzgbYhnsA==}
@@ -1202,8 +1202,8 @@ packages:
   markdown-table@3.0.3:
     resolution: {integrity: sha512-Z1NL3Tb1M9wH4XESsCDEksWoKTdlUafKc4pt0GRwjUyXaCFZ+dc3g2erqB6zm3szA2IUSi7VnPI+o/9jnxh9hw==}
 
-  mdast-util-directive@3.0.0:
-    resolution: {integrity: sha512-JUpYOqKI4mM3sZcNxmF/ox04XYFFkNwr0CFlrQIkCwbvH0xzMCqkMqAde9wRd80VAhaUrwFwKm2nxretdT1h7Q==}
+  mdast-util-directive@3.1.0:
+    resolution: {integrity: sha512-I3fNFt+DHmpWCYAT7quoM6lHf9wuqtI+oCOfvILnoicNIqjh5E3dEJWiXuYME2gNe8vl1iMQwyUHa7bgFmak6Q==}
 
   mdast-util-find-and-replace@3.0.1:
     resolution: {integrity: sha512-SG21kZHGC3XRTSUhtofZkBzZTJNM5ecCi0SK2IMKmSXR8vO3peL+kb1O0z7Zl83jKtutG4k5Wv/W7V3/YHvzPA==}
@@ -1408,8 +1408,8 @@ packages:
     resolution: {integrity: sha512-/UrQAOSvkc+lUUWKNzy4ByAgYU9KpFzZQt8DnC962YmQuDiZb1SNJ90YukCCK5aMzKqqCA+z1kkAlmzYvdYKag==}
     engines: {node: '>= 18'}
 
-  oniguruma-to-es@2.2.0:
-    resolution: {integrity: sha512-EEsso27ri0sf+t4uRFEj5C5gvXQj0d0w1Y2qq06b+hDLBnvzO1rWTwEW4C7ytan6nhg4WPwE26eLoiPhHUbvKg==}
+  oniguruma-to-es@3.1.0:
+    resolution: {integrity: sha512-BJ3Jy22YlgejHSO7Fvmz1kKazlaPmRSUH+4adTDUS/dKQ4wLxI+gALZ8updbaux7/m7fIlpgOZ5fp/Inq5jUAw==}
 
   opener@1.5.2:
     resolution: {integrity: sha512-ur5UIdyw5Y7yEj9wLzhqXiy6GZ3Mwx0yGI+5sMn2r0N0v3cKJvUmFH5yPP+WXh9e0xfyzyJX95D8l088DNFj7A==}
@@ -1518,17 +1518,17 @@ packages:
   regenerator-runtime@0.14.1:
     resolution: {integrity: sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==}
 
-  regex-recursion@5.1.1:
-    resolution: {integrity: sha512-ae7SBCbzVNrIjgSbh7wMznPcQel1DNlDtzensnFxpiNpXt1U2ju/bHugH422r+4LAVS1FpW1YCwilmnNsjum9w==}
+  regex-recursion@6.0.2:
+    resolution: {integrity: sha512-0YCaSCq2VRIebiaUviZNs0cBz1kg5kVS2UKUfNIx8YVs1cN3AV7NTctO5FOKBA+UT2BPJIWZauYHPqJODG50cg==}
 
   regex-utilities@2.3.0:
     resolution: {integrity: sha512-8VhliFJAWRaUiVvREIiW2NXXTmHs4vMNnSzuJVhscgmGav3g9VDxLrQndI3dZZVVdp0ZO/5v0xmX516/7M9cng==}
 
-  regex@5.1.1:
-    resolution: {integrity: sha512-dN5I359AVGPnwzJm2jN1k0W9LPZ+ePvoOeVMMfqIMFz53sSwXkxaJoxr50ptnsC771lK95BnTrVSZxq0b9yCGw==}
+  regex@6.0.1:
+    resolution: {integrity: sha512-uorlqlzAKjKQZ5P+kTJr3eeJGSVroLKoHmquUj4zHWuR+hEyNqlXsSKlYYF5F4NI6nl7tWCs0apKJ0lmfsXAPA==}
 
-  remark-directive@3.0.0:
-    resolution: {integrity: sha512-l1UyWJ6Eg1VPU7Hm/9tt0zKtReJQNOA4+iDMAxTyZNWnJnFlbS/7zhiel/rogTLQ2vMYwDzSJa4BiVNqGlqIMA==}
+  remark-directive@3.0.1:
+    resolution: {integrity: sha512-gwglrEQEZcZYgVyG1tQuA+h58EZfq5CSULw7J90AFuCTyib1thgHPoqQ+h9iFvU6R+vnZ5oNFQR5QKgGpk741A==}
 
   remark-gfm@4.0.0:
     resolution: {integrity: sha512-U92vJgBPkbw4Zfu/IiW2oTZLSL3Zpv+uI7My2eq8JxKgqraFdU8YUGicEJCEgSbeaG+QDFqIcwwfMTOEelPxuA==}
@@ -1574,8 +1574,8 @@ packages:
   shiki-class-transformer@0.3.0:
     resolution: {integrity: sha512-usTSWOmj7p/J6M9aUvg01HcFNInugIQcv+D+DUYvMdmz6J93aYwZap1Va1BF5D6d6DHoSNNG7JedmRjo/moYcA==}
 
-  shiki@2.0.3:
-    resolution: {integrity: sha512-njF3iF97mxWcEFxxB591EeVFgf5VPpXJKFIB3RCFSkcgINetMIb+9CfNInmzkz8BlPWlEEY1nSGd0F1807YhCg==}
+  shiki@2.3.0:
+    resolution: {integrity: sha512-wMmrvyxj4i8ft9r2dA+aIi5+G6PL0Dz19h5fr5xG7Jvo8uLIOWxaveSRl3LNcj58h+jUnhdkCh7tQIVULGNXJw==}
 
   signal-exit@4.1.0:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
@@ -1667,8 +1667,8 @@ packages:
   thenify@3.3.1:
     resolution: {integrity: sha512-RVZSIV5IG10Hk3enotrhvz0T9em6cyHBLkH/YAZuKqd8hRkKhSfCGIcP2KUY0EPxndzANBmNllzWPwak+bheSw==}
 
-  three@0.172.0:
-    resolution: {integrity: sha512-6HMgMlzU97MsV7D/tY8Va38b83kz8YJX+BefKjspMNAv0Vx6dxMogHOrnRl/sbMIs3BPUKijPqDqJ/+UwJbIow==}
+  three@0.173.0:
+    resolution: {integrity: sha512-AUwVmViIEUgBwxJJ7stnF0NkPpZxx1aZ6WiAbQ/Qq61h6I9UR4grXtZDmO8mnlaNORhHnIBlXJ1uBxILEKuVyw==}
 
   toad-cache@3.7.0:
     resolution: {integrity: sha512-/m8M+2BJUpoJdgAHoG+baCwBT+tf2VraSfkBgl0Y00qIWt41DJ8R5B8nsEw0I58YwF5IZH6z24/2TobDKnqSWw==}
@@ -2249,7 +2249,7 @@ snapshots:
 
   '@polka/url@1.0.0-next.28': {}
 
-  '@react-three/fiber@9.0.0-alpha.8(@types/react@18.3.2)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.172.0)':
+  '@react-three/fiber@9.0.0-alpha.8(@types/react@18.3.2)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.173.0)':
     dependencies:
       '@babel/runtime': 7.25.7
       '@types/react-reconciler': 0.28.8
@@ -2261,7 +2261,7 @@ snapshots:
       react-use-measure: 2.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       scheduler: 0.25.0-rc-935180c7e0-20240524
       suspend-react: 0.1.3(react@18.3.1)
-      three: 0.172.0
+      three: 0.173.0
       zustand: 4.5.5(@types/react@18.3.2)(immer@10.1.1)(react@18.3.1)
     optionalDependencies:
       react-dom: 18.3.1(react@18.3.1)
@@ -2269,40 +2269,40 @@ snapshots:
       - '@types/react'
       - immer
 
-  '@shikijs/core@2.0.3':
+  '@shikijs/core@2.3.0':
     dependencies:
-      '@shikijs/engine-javascript': 2.0.3
-      '@shikijs/engine-oniguruma': 2.0.3
-      '@shikijs/types': 2.0.3
+      '@shikijs/engine-javascript': 2.3.0
+      '@shikijs/engine-oniguruma': 2.3.0
+      '@shikijs/types': 2.3.0
       '@shikijs/vscode-textmate': 10.0.1
       '@types/hast': 3.0.4
       hast-util-to-html: 9.0.4
 
-  '@shikijs/engine-javascript@2.0.3':
+  '@shikijs/engine-javascript@2.3.0':
     dependencies:
-      '@shikijs/types': 2.0.3
+      '@shikijs/types': 2.3.0
       '@shikijs/vscode-textmate': 10.0.1
-      oniguruma-to-es: 2.2.0
+      oniguruma-to-es: 3.1.0
 
-  '@shikijs/engine-oniguruma@2.0.3':
+  '@shikijs/engine-oniguruma@2.3.0':
     dependencies:
-      '@shikijs/types': 2.0.3
+      '@shikijs/types': 2.3.0
       '@shikijs/vscode-textmate': 10.0.1
 
-  '@shikijs/langs@2.0.3':
+  '@shikijs/langs@2.3.0':
     dependencies:
-      '@shikijs/types': 2.0.3
+      '@shikijs/types': 2.3.0
 
-  '@shikijs/themes@2.0.3':
+  '@shikijs/themes@2.3.0':
     dependencies:
-      '@shikijs/types': 2.0.3
+      '@shikijs/types': 2.3.0
 
-  '@shikijs/transformers@2.0.3':
+  '@shikijs/transformers@2.3.0':
     dependencies:
-      '@shikijs/core': 2.0.3
-      '@shikijs/types': 2.0.3
+      '@shikijs/core': 2.3.0
+      '@shikijs/types': 2.3.0
 
-  '@shikijs/types@2.0.3':
+  '@shikijs/types@2.3.0':
     dependencies:
       '@shikijs/vscode-textmate': 10.0.1
       '@types/hast': 3.0.4
@@ -2363,7 +2363,7 @@ snapshots:
 
   '@types/stats.js@0.17.3': {}
 
-  '@types/three@0.172.0':
+  '@types/three@0.173.0':
     dependencies:
       '@tweenjs/tween.js': 23.1.3
       '@types/stats.js': 0.17.3
@@ -2735,10 +2735,11 @@ snapshots:
 
   markdown-table@3.0.3: {}
 
-  mdast-util-directive@3.0.0:
+  mdast-util-directive@3.1.0:
     dependencies:
       '@types/mdast': 4.0.4
       '@types/unist': 3.0.3
+      ccount: 2.0.1
       devlop: 1.1.0
       mdast-util-from-markdown: 2.0.1
       mdast-util-to-markdown: 2.1.0
@@ -3173,11 +3174,11 @@ snapshots:
       '@octokit/request-error': 6.1.6
       '@octokit/types': 13.7.0
 
-  oniguruma-to-es@2.2.0:
+  oniguruma-to-es@3.1.0:
     dependencies:
       emoji-regex-xs: 1.0.0
-      regex: 5.1.1
-      regex-recursion: 5.1.1
+      regex: 6.0.1
+      regex-recursion: 6.0.2
 
   opener@1.5.2: {}
 
@@ -3281,21 +3282,20 @@ snapshots:
 
   regenerator-runtime@0.14.1: {}
 
-  regex-recursion@5.1.1:
+  regex-recursion@6.0.2:
     dependencies:
-      regex: 5.1.1
       regex-utilities: 2.3.0
 
   regex-utilities@2.3.0: {}
 
-  regex@5.1.1:
+  regex@6.0.1:
     dependencies:
       regex-utilities: 2.3.0
 
-  remark-directive@3.0.0:
+  remark-directive@3.0.1:
     dependencies:
       '@types/mdast': 4.0.4
-      mdast-util-directive: 3.0.0
+      mdast-util-directive: 3.1.0
       micromark-extension-directive: 3.0.2
       unified: 11.0.5
     transitivePeerDependencies:
@@ -3383,14 +3383,14 @@ snapshots:
     dependencies:
       style-to-object: 1.0.8
 
-  shiki@2.0.3:
+  shiki@2.3.0:
     dependencies:
-      '@shikijs/core': 2.0.3
-      '@shikijs/engine-javascript': 2.0.3
-      '@shikijs/engine-oniguruma': 2.0.3
-      '@shikijs/langs': 2.0.3
-      '@shikijs/themes': 2.0.3
-      '@shikijs/types': 2.0.3
+      '@shikijs/core': 2.3.0
+      '@shikijs/engine-javascript': 2.3.0
+      '@shikijs/engine-oniguruma': 2.3.0
+      '@shikijs/langs': 2.3.0
+      '@shikijs/themes': 2.3.0
+      '@shikijs/types': 2.3.0
       '@shikijs/vscode-textmate': 10.0.1
       '@types/hast': 3.0.4
 
@@ -3484,7 +3484,7 @@ snapshots:
     dependencies:
       any-promise: 1.3.0
 
-  three@0.172.0: {}
+  three@0.173.0: {}
 
   toad-cache@3.7.0: {}
 

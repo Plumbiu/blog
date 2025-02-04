@@ -21,8 +21,10 @@ import styles from './index.module.css'
 
 const ThumbnailsHeight = 360
 
+const SeeMore = memo(() => <div className={styles.seemore}>......</div>)
+
 function ImageGallery(props: any) {
-  const photos = getGalleryPhoto(props)
+  const { photos = [], max } = getGalleryPhoto(props)
   const [slideNode, setSlideNode] = useState<ReactNode>(null)
   const thumbnailsRef = useRef<HTMLDivElement>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -57,7 +59,7 @@ function ImageGallery(props: any) {
   }, [slideNode, currentIndex])
 
   const allThumbnailsNode = useMemo(() => {
-    return photos.map(({ src, width, height, base64 }, i) => {
+    return photos.map(({ src, width, height, b64: base64 }, i) => {
       const commonProps = {
         alt: src,
         src,
@@ -82,7 +84,7 @@ function ImageGallery(props: any) {
 
   const thumbinalsLength = allThumbnailsNode.length
   const sildeNodes = useMemo(() => {
-    return photos.map(({ optimizeSrc }) => {
+    return photos.map(({ ops: optimizeSrc }) => {
       return <img key={optimizeSrc} src={optimizeSrc} alt={optimizeSrc} />
     })
   }, [])
@@ -101,7 +103,7 @@ function ImageGallery(props: any) {
     <div className={styles.gallery}>
       <ColumnsPhotoAlbum
         spacing={4}
-        photos={photos}
+        photos={max ? photos.slice(0, max) : photos}
         onClick={({ index }) => {
           handleThumbnailClick(index)
         }}
@@ -111,6 +113,7 @@ function ImageGallery(props: any) {
           },
         }}
       />
+      {max ? <div className={styles.seemore}>剩余隐藏{photos.length - max}张图片....</div> : null}
       {slideNode && (
         <div className={cn('fcc', styles.mask)}>
           <div className={styles.close} onClick={hidden}>

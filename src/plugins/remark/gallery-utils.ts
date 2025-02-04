@@ -1,22 +1,36 @@
 import type { ContainerDirective } from 'mdast-util-directive'
 
 export interface Photo {
+  // width
   width: number
+  // height
   height: number
   src: string
   alt: string
-  base64: string
-  optimizeSrc: string
+  // base64
+  b64: string
+  // optimzed src
+  ops: string
 }
 
 export interface PhotoNode {
   node: ContainerDirective
   links: string[]
+  maxNum: number | undefined
 }
 
-export const GalleryPhotoKey = 'data-photos'
+export const GalleryPhotoKey = 'data-gallery'
 export const GalleryName = 'Gallery'
+export const GalleryPhotoConfigKey = 'data-gallery-config'
 
-export function getGalleryPhoto(props: any): Photo[] {
-  return JSON.parse(props[GalleryPhotoKey])
+export function getGalleryPhoto(props: any): {
+  photos: Photo[]
+  max: number | undefined
+} {
+  const data = props[GalleryPhotoKey]
+  return data ? JSON.parse(data) : {}
+}
+
+export function getGalleryPhotoConfig(props: any): PhotoNode[] {
+  return JSON.parse(props[GalleryPhotoConfigKey])
 }

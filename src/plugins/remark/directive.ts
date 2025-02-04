@@ -20,6 +20,7 @@ import {
 } from '../constant'
 
 const LineRegx = /\r?\n/
+const LineConfigRegx = /\[max:(\d+)\]/
 
 export const remarkContainerDirectivePlugin: RemarkPlugin = () => {
   return async (tree) => {
@@ -42,17 +43,22 @@ export const remarkContainerDirectivePlugin: RemarkPlugin = () => {
               contentNode.type === 'text' &&
               isString(contentNode.value)
             ) {
-              const links = contentNode.value.split(LineRegx)
+              let links = contentNode.value.split(LineRegx)
+              const maxNum = LineConfigRegx.exec(links[0])?.[1]
+              const firstLine = links[0]
+              if (firstLine.startsWith('[max:')) {
+                links = links.slice(1)
+              }
               props[ComponentKey] = node.name
               data.hName = 'div'
-              photoNodes.push({ node, links })
+              photoNodes.push({ node, links, maxNum: Number(maxNum) })
             }
           }
         }
       }
     })
     await Promise.all(
-      photoNodes.map(async ({ node, links }) => {
+      photoNodes.map(async ({ node, links, maxNum }) => {
         const images: Photo[] = []
         await Promise.all(
           links.map(async (link) => {
@@ -64,12 +70,12 @@ export const remarkContainerDirectivePlugin: RemarkPlugin = () => {
             }
             const src = resolveAssetPath(`images/${link}`)
             const data: Photo = {
-              width,
-              height,
+              width: width,
+              height: height,
               src,
               alt: '',
-              base64,
-              optimizeSrc: src,
+              b64: base64,
+              ops: src,
             }
             const unoptimized = isUnOptimized(src)
 
@@ -78,12 +84,19 @@ export const remarkContainerDirectivePlugin: RemarkPlugin = () => {
                 ...data,
                 unoptimized,
               })
-              data.optimizeSrc = props.src
+              data.ops = props.src
             }
             images.push(data)
           }),
         )
-        node.data!.hProperties![GalleryPhotoKey] = JSON.stringify(images)
+        node.data!.hProperties![GalleryPhotoKey] = JSON.stringify({
+          photos: images,
+          max: maxNum
+            ? maxNum > images.length
+              ? images.length
+              : maxNum
+            : undefined,
+        })
       }),
     )
     visit(tree, 'textDirective', (node, _index, parent) => {

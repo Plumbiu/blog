@@ -94,3 +94,9 @@
 .right_arrow {
   right: 24px;
 }
+
+.seemore {
+  color: var(--text-3);
+  font-size: 14px;
+  text-align: right;
+}
