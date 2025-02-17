@@ -23,9 +23,11 @@ function formatTime(time: string | number) {
   return `${month} ${String(d.getDate()).padStart(3, ' 0')}, ${d.getFullYear()}`
 }
 
-type TimeWordInfoProps = Pick<PostMeta, 'date' | 'wordLength'> & {
-  className?: string
-}
+type TimeWordInfoProps = Partial<
+  Pick<PostMeta, 'date' | 'wordLength'> & {
+    className?: string
+  }
+>
 export function TimeWordInfo({
   date,
   wordLength,
@@ -33,11 +35,15 @@ export function TimeWordInfo({
 }: TimeWordInfoProps) {
   return (
     <div className={cn(styles.info, className)}>
-      <div>{formatTime(date)}</div>
-      <div className="verticalLine" />
-      <div>{(wordLength / 225).toFixed(0)} min read</div>
-      <div className="verticalLine" />
-      <div>{wordLength} 字</div>
+      {!!date && <div>{formatTime(date)}</div>}
+      {!!wordLength && (
+        <>
+          <div className="verticalLine" />
+          {wordLength && <div>{(wordLength / 225).toFixed(0)} min read</div>}
+          <div className="verticalLine" />
+          <div>{wordLength} 字</div>
+        </>
+      )}
     </div>
   )
 }

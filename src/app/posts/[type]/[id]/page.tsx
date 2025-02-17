@@ -76,10 +76,10 @@ export async function generateMetadata({
   const title = `${info.meta.title} | ${category}`
   return {
     title,
-    description: info.meta.desc.slice(0, DescMaxLen),
+    description: info.meta.desc?.slice(0, DescMaxLen),
     ...generateSeoMetaData({
       title,
-      description: info.meta.desc.slice(0, 20),
+      description: info.meta.desc?.slice(0, 20),
       url: joinWebUrl('posts', params.type, params.id),
     }),
   }

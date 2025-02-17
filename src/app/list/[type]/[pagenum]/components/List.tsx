@@ -18,7 +18,7 @@ function ArtList({ lists }: { lists: [string, PostList[]][] }) {
             <TimeWordInfo wordLength={wordLength} date={date} />
             {subtitle && <div className={styles.subtitle}>{subtitle}</div>}
             <div className={styles.desc}>
-              {desc.length > MAX_LEN
+              {desc && desc.length > MAX_LEN
                 ? desc.slice(0, MAX_LEN - 3) + '...'
                 : desc}
             </div>

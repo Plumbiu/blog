@@ -25,6 +25,9 @@ export const markdownComponents: Partial<Components> = {
   },
   img(props) {
     const { src, alt } = props
+    if (src?.endsWith('.mp4')) {
+      return <video muted src={src} controls />
+    }
     const width = handleImageWidth(props)
     const height = handleImageHeight(props)
     const base64 = handleImagebase64(props)

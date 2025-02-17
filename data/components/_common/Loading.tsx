@@ -9,7 +9,7 @@ const Loading = memo(() => {
   return (
     <div style={style} className="fcc">
       <LoadingIcon fontSize={24} />
-      <div>Running...</div>
+      <div>Loading...</div>
     </div>
   )
 })

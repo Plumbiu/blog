@@ -23,11 +23,11 @@ importers:
         specifier: 9.0.0-alpha.8
         version: 9.0.0-alpha.8(@types/react@18.3.2)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.173.0)
       '@shikijs/transformers':
-        specifier: ^2.3.0
-        version: 2.3.0
+        specifier: ^2.4.2
+        version: 2.4.2
       '@vercel/analytics':
-        specifier: ^1.4.1
-        version: 1.4.1(next@14.2.21(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+        specifier: ^1.5.0
+        version: 1.5.0(next@14.2.21(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       hast-util-to-jsx-runtime:
         specifier: ^2.3.2
         version: 2.3.2
@@ -50,8 +50,8 @@ importers:
         specifier: ^0.3.4
         version: 0.3.4(next@14.2.21(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       octokit:
-        specifier: ^4.1.0
-        version: 4.1.0
+        specifier: ^4.1.1
+        version: 4.1.1
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -65,8 +65,8 @@ importers:
         specifier: ^3.0.1
         version: 3.0.1
       remark-gfm:
-        specifier: ^4.0.0
-        version: 4.0.0
+        specifier: ^4.0.1
+        version: 4.0.1
       remark-parse:
         specifier: ^11.0.0
         version: 11.0.0
@@ -77,8 +77,8 @@ importers:
         specifier: ^0.33.5
         version: 0.33.5
       shiki:
-        specifier: ^2.3.0
-        version: 2.3.0
+        specifier: ^2.4.2
+        version: 2.4.2
       shiki-class-transformer:
         specifier: ^0.3.0
         version: 0.3.0
@@ -86,8 +86,8 @@ importers:
         specifier: ^3.35.0
         version: 3.35.0
       terser:
-        specifier: ^5.37.0
-        version: 5.37.0
+        specifier: ^5.39.0
+        version: 5.39.0
       three:
         specifier: ^0.173.0
         version: 0.173.0
@@ -564,8 +564,8 @@ packages:
     peerDependencies:
       css-loader: '>=4.0.0'
 
-  '@octokit/app@15.1.2':
-    resolution: {integrity: sha512-6aKmKvqnJKoVK+kx0mLlBMKmQYoziPw4Rd/PWr0j65QVQlrDXlu6hGU8fmTXt7tNkf/DsubdIaTT4fkoWzCh5g==}
+  '@octokit/app@15.1.3':
+    resolution: {integrity: sha512-injaSv2CN8wZrhhnVky3HcQVEy4rRoIAm+OeCwNQzgQJn1OTglfT7RyMDaCbkiNWXDR0tkWLkWMv4duTTj765g==}
     engines: {node: '>= 18'}
 
   '@octokit/auth-app@7.1.4':
@@ -677,12 +677,12 @@ packages:
   '@octokit/types@13.7.0':
     resolution: {integrity: sha512-BXfRP+3P3IN6fd4uF3SniaHKOO4UXWBfkdR3vA8mIvaoO/wLjGN5qivUtW0QRitBHHMcfC41SLhNVYIZZE+wkA==}
 
-  '@octokit/webhooks-methods@5.1.0':
-    resolution: {integrity: sha512-yFZa3UH11VIxYnnoOYCVoJ3q4ChuSOk2IVBBQ0O3xtKX4x9bmKb/1t+Mxixv2iUhzMdOl1qeWJqEhouXXzB3rQ==}
+  '@octokit/webhooks-methods@5.1.1':
+    resolution: {integrity: sha512-NGlEHZDseJTCj8TMMFehzwa9g7On4KJMPVHDSrHxCQumL6uSQR8wIkP/qesv52fXqV1BPf4pTxwtS31ldAt9Xg==}
     engines: {node: '>= 18'}
 
-  '@octokit/webhooks@13.4.2':
-    resolution: {integrity: sha512-fakbgkCScapQXPxyqx2jZs/Y3jGlyezwUp7ATL7oLAGJ0+SqBKWKstoKZpiQ+REeHutKpYjY9UtxdLSurwl2Tg==}
+  '@octokit/webhooks@13.5.1':
+    resolution: {integrity: sha512-2q5xt+UEkElPjcRuE5QAEkgsL5WhWa7/vMeWIklhM7BTH86hxQedm20OO0BvEYRyNnOwEj/CpQCB0K9QYt2+ug==}
     engines: {node: '>= 18'}
 
   '@pkgjs/parseargs@0.11.0':
@@ -722,29 +722,29 @@ packages:
       react-native:
         optional: true
 
-  '@shikijs/core@2.3.0':
-    resolution: {integrity: sha512-N1r7sIXYm31Zju3CmH6bH6tgIftF0NlHxx0HiZ85X2BLWczgFLo61PJCoF7nFZUu8DeS0g8xhZsiL8zi+tV8YQ==}
+  '@shikijs/core@2.4.2':
+    resolution: {integrity: sha512-V0kXYB/70xA3CO+b2Pz9kcSThaOUfObOEkGeHsKSFqV6rultaWPfeyZPpBlKHMUXO9Bt1ZGINDCctN90pQvnTg==}
 
-  '@shikijs/engine-javascript@2.3.0':
-    resolution: {integrity: sha512-/ITg36HXHXP486+6zaQgP7Y38LIV9V2Pir4aIk7zQ5XcM1CU8dOlUL9BuyA/E6BKg1XaAgN+rFg3qsaspt+x2A==}
+  '@shikijs/engine-javascript@2.4.2':
+    resolution: {integrity: sha512-WRg63Lfta+5RJ0y0/ns1e1NqSxo+jSQclMf9kBHvtchLhR/x3R/E3PSNFiCM+t7oo+d9/VCCp1kURqsSVTHWJg==}
 
-  '@shikijs/engine-oniguruma@2.3.0':
-    resolution: {integrity: sha512-8nBH/QwDrJLxbIFg7ifrfyEtrW0m9FCfanxU9SJFUEbA+rFNbyDGdoXZ4IxkC6ykT1+Utx2vW6EYVAUk3Q9gcg==}
+  '@shikijs/engine-oniguruma@2.4.2':
+    resolution: {integrity: sha512-YmvW7XcvT2f2pf1r1IvKd48fFYcsZRMMISRr2nY1fE2uOF4xcm+84R7+yg4jNAblrFcXU9tDrkllJKH2uD3mBQ==}
 
-  '@shikijs/langs@2.3.0':
-    resolution: {integrity: sha512-gaNaqbUhncigokGehwhzGe5AY+IRJKDnp+1Zp3gjxhhv6RxMYtbn9zDu3cl9ngNZGEdtEtvruz6LasdY3n0MCA==}
+  '@shikijs/langs@2.4.2':
+    resolution: {integrity: sha512-USwSIDIxalwON4FSE2IFMGmAvM250RNdWjOf79zj2JjV2fsNJWn0vvEE9gh1WtvPp2l5BXXhdybFYA6ek7ogFQ==}
 
-  '@shikijs/themes@2.3.0':
-    resolution: {integrity: sha512-2M3XKry66lB975B7v+kSesGyIJrhxsLdk/RyhB+hbkXmD2Myyuspyox0/2JTqWnM1Y9132NjeVsBl1ZI507ZXw==}
+  '@shikijs/themes@2.4.2':
+    resolution: {integrity: sha512-W6uxyv91JWI6udgBpsSRCdmIp8WPxOq5Ys9Nj9royB+Or8sYmvnEBHLw6f+dZB9DIlFgvRPw5VnlwUx5ofKMKA==}
 
-  '@shikijs/transformers@2.3.0':
-    resolution: {integrity: sha512-y/9RIr/YWENiZpoMbo4GkKpxgYwuP1CZTFgi1lvnxBY9zvwRHhQz62rCH+md34A995Vap1jQmkkG+kye7wotgw==}
+  '@shikijs/transformers@2.4.2':
+    resolution: {integrity: sha512-vDoOsJM1IfYTY7xneAnMGPds9PgKSAJSmwkV9F+g8srf9/IdelRdB/Asz8btrXQWUpqaCjP4LDAihqNlL2sr/A==}
 
-  '@shikijs/types@2.3.0':
-    resolution: {integrity: sha512-rC8ZkfIE6m17RBGwRPoXqj/an4JPUnAB1JGHELPVrzygyB0Gqa9Lc7h4xYb8c3GWywAgrjryLAJSN3kpe1fqhw==}
+  '@shikijs/types@2.4.2':
+    resolution: {integrity: sha512-e28aFDPwVgK8H2nPrEA5CexLa5yumBvb5aF6nN4SlmqaBFOuGQdxX/Cfh8rwRFALepJtlj0P3wvJ4oL+ndxgSA==}
 
-  '@shikijs/vscode-textmate@10.0.1':
-    resolution: {integrity: sha512-fTIQwLF+Qhuws31iw7Ncl1R3HUDtGwIipiJ9iU+UsDUwMhegFcQKQHd51nZjb7CArq0MvON8rbgCGQYWHUKAdg==}
+  '@shikijs/vscode-textmate@10.0.2':
+    resolution: {integrity: sha512-83yeghZ2xxin3Nj8z1NMd/NCuca+gsYXswywDy5bHvwlWL8tpTQmzGeUuHd9FC3E/SBEMvzJRwWEOz5gGes9Qg==}
 
   '@swc/counter@0.1.3':
     resolution: {integrity: sha512-e2BR4lsJkkRlKZ/qCHPw9ZaSxc0MVUd7gtbtaB7aMvHeJVYe8sOB8DBZkP2DtISHGSku9sCK6T6cnY0CtXrOCQ==}
@@ -812,8 +812,8 @@ packages:
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
 
-  '@vercel/analytics@1.4.1':
-    resolution: {integrity: sha512-ekpL4ReX2TH3LnrRZTUKjHHNpNy9S1I7QmS+g/RQXoSUQ8ienzosuX7T9djZ/s8zPhBx1mpHP/Rw5875N+zQIQ==}
+  '@vercel/analytics@1.5.0':
+    resolution: {integrity: sha512-MYsBzfPki4gthY5HnYN7jgInhAZ7Ac1cYDoRWFomwGHWEX7odTEzbtg9kf/QSo7XEsEAqlQugA6gJ2WS2DEa3g==}
     peerDependencies:
       '@remix-run/react': ^2
       '@sveltejs/kit': ^1 || ^2
@@ -1404,8 +1404,8 @@ packages:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
     engines: {node: '>=0.10.0'}
 
-  octokit@4.1.0:
-    resolution: {integrity: sha512-/UrQAOSvkc+lUUWKNzy4ByAgYU9KpFzZQt8DnC962YmQuDiZb1SNJ90YukCCK5aMzKqqCA+z1kkAlmzYvdYKag==}
+  octokit@4.1.1:
+    resolution: {integrity: sha512-GMjkrTnGk2PB9MKnK5SVDj4wSrnVX39vldKvYIC3MVNDQY1nZ6ufPrGCUFsQ645q5q+PG+CHUWRB6ZH8MBcyFg==}
     engines: {node: '>= 18'}
 
   oniguruma-to-es@3.1.0:
@@ -1530,8 +1530,8 @@ packages:
   remark-directive@3.0.1:
     resolution: {integrity: sha512-gwglrEQEZcZYgVyG1tQuA+h58EZfq5CSULw7J90AFuCTyib1thgHPoqQ+h9iFvU6R+vnZ5oNFQR5QKgGpk741A==}
 
-  remark-gfm@4.0.0:
-    resolution: {integrity: sha512-U92vJgBPkbw4Zfu/IiW2oTZLSL3Zpv+uI7My2eq8JxKgqraFdU8YUGicEJCEgSbeaG+QDFqIcwwfMTOEelPxuA==}
+  remark-gfm@4.0.1:
+    resolution: {integrity: sha512-1quofZ2RQ9EWdeN34S79+KExV1764+wCUGop5CPL1WGdD0ocPpu91lzPGbwWMECpEpd42kJGQwzRfyov9j4yNg==}
 
   remark-parse@11.0.0:
     resolution: {integrity: sha512-FCxlKLNGknS5ba/1lmpYijMUzX2esxW5xQqjWxw2eHFfS2MSdaHVINFmhjo+qN1WhZhNimq0dZATN9pH0IDrpA==}
@@ -1574,8 +1574,8 @@ packages:
   shiki-class-transformer@0.3.0:
     resolution: {integrity: sha512-usTSWOmj7p/J6M9aUvg01HcFNInugIQcv+D+DUYvMdmz6J93aYwZap1Va1BF5D6d6DHoSNNG7JedmRjo/moYcA==}
 
-  shiki@2.3.0:
-    resolution: {integrity: sha512-wMmrvyxj4i8ft9r2dA+aIi5+G6PL0Dz19h5fr5xG7Jvo8uLIOWxaveSRl3LNcj58h+jUnhdkCh7tQIVULGNXJw==}
+  shiki@2.4.2:
+    resolution: {integrity: sha512-kPOa6plKRlylb23/qOtO+iBI3HYO84IgMix9oc7oet9WcsnuGHCPK4s/v7635nkUSmv+F6s6xmaDreNs5z6v+w==}
 
   signal-exit@4.1.0:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
@@ -1655,8 +1655,8 @@ packages:
     peerDependencies:
       react: '>=17.0'
 
-  terser@5.37.0:
-    resolution: {integrity: sha512-B8wRRkmre4ERucLM/uXx4MOV5cbnOlVAqUst+1+iLKPI0dOgFO28f84ptoQt9HEI537PMzfYa/d+GEPKTRXmYA==}
+  terser@5.39.0:
+    resolution: {integrity: sha512-LBAhFyLho16harJoWMg/nZsQYgTrg5jXOn2nCYjRUcZZEdE3qa2zb8QEDRUGVZBW4rlazf2fxkg8tztybTaqWw==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -2075,7 +2075,7 @@ snapshots:
       css-loader: 7.1.2
       uuid: 10.0.0
 
-  '@octokit/app@15.1.2':
+  '@octokit/app@15.1.3':
     dependencies:
       '@octokit/auth-app': 7.1.4
       '@octokit/auth-unauthenticated': 6.1.1
@@ -2083,7 +2083,7 @@ snapshots:
       '@octokit/oauth-app': 7.1.5
       '@octokit/plugin-paginate-rest': 11.4.0(@octokit/core@6.1.3)
       '@octokit/types': 13.7.0
-      '@octokit/webhooks': 13.4.2
+      '@octokit/webhooks': 13.5.1
 
   '@octokit/auth-app@7.1.4':
     dependencies:
@@ -2231,13 +2231,13 @@ snapshots:
     dependencies:
       '@octokit/openapi-types': 23.0.1
 
-  '@octokit/webhooks-methods@5.1.0': {}
+  '@octokit/webhooks-methods@5.1.1': {}
 
-  '@octokit/webhooks@13.4.2':
+  '@octokit/webhooks@13.5.1':
     dependencies:
       '@octokit/openapi-webhooks-types': 8.5.1
       '@octokit/request-error': 6.1.6
-      '@octokit/webhooks-methods': 5.1.0
+      '@octokit/webhooks-methods': 5.1.1
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
@@ -2269,45 +2269,45 @@ snapshots:
       - '@types/react'
       - immer
 
-  '@shikijs/core@2.3.0':
+  '@shikijs/core@2.4.2':
     dependencies:
-      '@shikijs/engine-javascript': 2.3.0
-      '@shikijs/engine-oniguruma': 2.3.0
-      '@shikijs/types': 2.3.0
-      '@shikijs/vscode-textmate': 10.0.1
+      '@shikijs/engine-javascript': 2.4.2
+      '@shikijs/engine-oniguruma': 2.4.2
+      '@shikijs/types': 2.4.2
+      '@shikijs/vscode-textmate': 10.0.2
       '@types/hast': 3.0.4
       hast-util-to-html: 9.0.4
 
-  '@shikijs/engine-javascript@2.3.0':
+  '@shikijs/engine-javascript@2.4.2':
     dependencies:
-      '@shikijs/types': 2.3.0
-      '@shikijs/vscode-textmate': 10.0.1
+      '@shikijs/types': 2.4.2
+      '@shikijs/vscode-textmate': 10.0.2
       oniguruma-to-es: 3.1.0
 
-  '@shikijs/engine-oniguruma@2.3.0':
+  '@shikijs/engine-oniguruma@2.4.2':
     dependencies:
-      '@shikijs/types': 2.3.0
-      '@shikijs/vscode-textmate': 10.0.1
+      '@shikijs/types': 2.4.2
+      '@shikijs/vscode-textmate': 10.0.2
 
-  '@shikijs/langs@2.3.0':
+  '@shikijs/langs@2.4.2':
     dependencies:
-      '@shikijs/types': 2.3.0
+      '@shikijs/types': 2.4.2
 
-  '@shikijs/themes@2.3.0':
+  '@shikijs/themes@2.4.2':
     dependencies:
-      '@shikijs/types': 2.3.0
+      '@shikijs/types': 2.4.2
 
-  '@shikijs/transformers@2.3.0':
+  '@shikijs/transformers@2.4.2':
     dependencies:
-      '@shikijs/core': 2.3.0
-      '@shikijs/types': 2.3.0
+      '@shikijs/core': 2.4.2
+      '@shikijs/types': 2.4.2
 
-  '@shikijs/types@2.3.0':
+  '@shikijs/types@2.4.2':
     dependencies:
-      '@shikijs/vscode-textmate': 10.0.1
+      '@shikijs/vscode-textmate': 10.0.2
       '@types/hast': 3.0.4
 
-  '@shikijs/vscode-textmate@10.0.1': {}
+  '@shikijs/vscode-textmate@10.0.2': {}
 
   '@swc/counter@0.1.3': {}
 
@@ -2380,7 +2380,7 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vercel/analytics@1.4.1(next@14.2.21(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)':
+  '@vercel/analytics@1.5.0(next@14.2.21(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)':
     optionalDependencies:
       next: 14.2.21(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
@@ -3161,9 +3161,9 @@ snapshots:
 
   object-assign@4.1.1: {}
 
-  octokit@4.1.0:
+  octokit@4.1.1:
     dependencies:
-      '@octokit/app': 15.1.2
+      '@octokit/app': 15.1.3
       '@octokit/core': 6.1.3
       '@octokit/oauth-app': 7.1.5
       '@octokit/plugin-paginate-graphql': 5.2.4(@octokit/core@6.1.3)
@@ -3301,7 +3301,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  remark-gfm@4.0.0:
+  remark-gfm@4.0.1:
     dependencies:
       '@types/mdast': 4.0.4
       mdast-util-gfm: 3.0.0
@@ -3383,15 +3383,15 @@ snapshots:
     dependencies:
       style-to-object: 1.0.8
 
-  shiki@2.3.0:
+  shiki@2.4.2:
     dependencies:
-      '@shikijs/core': 2.3.0
-      '@shikijs/engine-javascript': 2.3.0
-      '@shikijs/engine-oniguruma': 2.3.0
-      '@shikijs/langs': 2.3.0
-      '@shikijs/themes': 2.3.0
-      '@shikijs/types': 2.3.0
-      '@shikijs/vscode-textmate': 10.0.1
+      '@shikijs/core': 2.4.2
+      '@shikijs/engine-javascript': 2.4.2
+      '@shikijs/engine-oniguruma': 2.4.2
+      '@shikijs/langs': 2.4.2
+      '@shikijs/themes': 2.4.2
+      '@shikijs/types': 2.4.2
+      '@shikijs/vscode-textmate': 10.0.2
       '@types/hast': 3.0.4
 
   signal-exit@4.1.0: {}
@@ -3469,7 +3469,7 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  terser@5.37.0:
+  terser@5.39.0:
     dependencies:
       '@jridgewell/source-map': 0.3.6
       acorn: 8.14.0

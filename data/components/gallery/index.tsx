@@ -21,8 +21,6 @@ import styles from './index.module.css'
 
 const ThumbnailsHeight = 360
 
-const SeeMore = memo(() => <div className={styles.seemore}>......</div>)
-
 function ImageGallery(props: any) {
   const { photos = [], max } = getGalleryPhoto(props)
   const [slideNode, setSlideNode] = useState<ReactNode>(null)
@@ -113,7 +111,11 @@ function ImageGallery(props: any) {
           },
         }}
       />
-      {max ? <div className={styles.seemore}>剩余隐藏{photos.length - max}张图片....</div> : null}
+      {max ? (
+        <div className={styles.seemore}>
+          剩余隐藏{photos.length - max}张图片....
+        </div>
+      ) : null}
       {slideNode && (
         <div className={cn('fcc', styles.mask)}>
           <div className={styles.close} onClick={hidden}>

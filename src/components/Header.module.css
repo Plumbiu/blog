@@ -29,6 +29,7 @@
   color: var(--text-2);
   transition: color 125ms ease-in-out;
   cursor: pointer;
+
   &:hover {
     color: var(--text);
   }
@@ -38,19 +39,14 @@
   .header {
     padding: 0 12px;
   }
+
   .mobile {
     display: none;
   }
 }
 
-.shadow {
+.fixed {
   height: calc((var(--header-h) - 52px));
-}
-
-.hide {
-  height: 0;
-  box-shadow: none;
-  overflow: hidden;
 }
 
 .item:hover {

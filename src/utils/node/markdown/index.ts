@@ -8,7 +8,7 @@ import { getCategory, removeMdSuffix } from '../../index'
 export interface PostMeta {
   title: string
   date: number
-  desc: string
+  desc?: string
   subtitle: string
   hidden?: boolean
   tags?: string[]

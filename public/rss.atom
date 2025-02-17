@@ -14,11 +14,17 @@
     <subtitle>Note, life, summary and blog</subtitle>
     <rights>CC BY-NC-SA 4.0 2024 © Plumbiu</rights>
     <entry>
+        <title type="html"><![CDATA[再见济南]]></title>
+        <id>posts/life/ByeJinan</id>
+        <link href="https://blog.plumbiu.top/posts/life/ByeJinan/"/>
+        <updated>2025-02-17T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[故乡两月]]></summary>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[占位]]></title>
         <id>posts/life/Keep</id>
         <link href="https://blog.plumbiu.top/posts/life/Keep/"/>
         <updated>2024-12-03T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[用于占位]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Next.js 下主题切换最佳实践]]></title>

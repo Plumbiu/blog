@@ -9,11 +9,17 @@
         <generator>https://github.com/jpmonette/feed</generator>
         <copyright>CC BY-NC-SA 4.0 2024 © Plumbiu</copyright>
         <item>
+            <title><![CDATA[再见济南]]></title>
+            <link>https://blog.plumbiu.top/posts/life/ByeJinan/</link>
+            <guid>posts/life/ByeJinan</guid>
+            <pubDate>Mon, 17 Feb 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[故乡两月]]></description>
+        </item>
+        <item>
             <title><![CDATA[占位]]></title>
             <link>https://blog.plumbiu.top/posts/life/Keep/</link>
             <guid>posts/life/Keep</guid>
             <pubDate>Tue, 03 Dec 2024 00:00:00 GMT</pubDate>
-            <description><![CDATA[用于占位]]></description>
         </item>
         <item>
             <title><![CDATA[Next.js 下主题切换最佳实践]]></title>

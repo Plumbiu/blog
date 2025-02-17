@@ -20,7 +20,6 @@ const rightData = [
 
 function Header() {
   const ref = useRef<HTMLHeadingElement>(null)
-  const prevScrollTop = useRef(0)
   const [theme, setTheme] = useState<string>()
   const pathanme = usePathname()
   const [searchVisible, setSearchVisible] = useState(false)
@@ -33,18 +32,12 @@ function Header() {
     const header = ref.current!
     const scrollTop =
       document.documentElement.scrollTop || document.body.scrollTop
-    const prevTop = prevScrollTop.current
-    if (scrollTop > prevTop) {
-      header.classList.add(styles.hide)
-    } else {
-      header.classList.remove(styles.hide)
-    }
+
     if (scrollTop > 68) {
-      header.classList.add(styles.shadow)
+      header.classList.add(styles.fixed)
     } else {
-      header.classList.remove(styles.shadow)
+      header.classList.remove(styles.fixed)
     }
-    prevScrollTop.current = scrollTop
   }, [])
 
   useEffect(() => {
