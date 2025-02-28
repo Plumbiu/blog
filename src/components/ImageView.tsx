@@ -58,8 +58,9 @@ function ImageView() {
         y: 0,
       }
     }
-    // eslint-disable-next-line @stylistic/max-len
-    modalRef.current!.style.transform = `matrix(${scale.current},0,0,${scale.current},${translate.current.x},${translate.current.y})`
+    const scaleValue = scale.current
+    const translateValue = translate.current
+    modalRef.current!.style.transform = `matrix(${scaleValue},0,0,${scaleValue},${translateValue.x},${translateValue.y})`
   }
 
   function addAnimation() {
