@@ -1,7 +1,7 @@
 'use client'
 
 import { Link } from 'next-view-transitions'
-import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { cn } from '@/utils/client'
 import { BlogAuthor, GithubRepoUrl } from '~/data/site'
 import { GithubIcon, MoonIcon, RssIcon, SearchIcon, SunIcon } from './Icons'
@@ -26,26 +26,6 @@ function Header() {
 
   useEffect(() => {
     setTheme(window.getLocalTheme()!)
-  }, [])
-
-  const addShadowClassName = useCallback(() => {
-    const header = ref.current!
-    const scrollTop =
-      document.documentElement.scrollTop || document.body.scrollTop
-
-    if (scrollTop > 68) {
-      header.classList.add(styles.fixed)
-    } else {
-      header.classList.remove(styles.fixed)
-    }
-  }, [])
-
-  useEffect(() => {
-    addShadowClassName()
-    window.addEventListener('scroll', addShadowClassName)
-    return () => {
-      window.removeEventListener('scroll', addShadowClassName)
-    }
   }, [])
 
   return (
