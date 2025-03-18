@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { ViewTransitions } from 'next-view-transitions'
-import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/react'
 import { BlogAuthor, BlogTitle, BlogUrl, BlogDesc, GSC } from '~/data/site'
 import { resolveAssetPath } from '@/utils'
@@ -43,8 +42,7 @@ export default function RootLayout({
         />
       </head>
       <body className={mono.className}>
-        <Script
-          strategy="beforeInteractive"
+        <script
           src={resolveAssetPath(
             `assets/${
               process.env.NODE_ENV === 'development' ? 'dev/' : ''

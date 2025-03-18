@@ -34,10 +34,11 @@ export async function generateStaticParams() {
 }
 
 interface ListProps {
-  params: Params
+  params: Promise<Params>
 }
 
-async function ArtlistAll({ params }: ListProps) {
+async function ArtlistAll(props: ListProps) {
+  const params = await props.params;
   const type = params.type
 
   const pagenum = +params.pagenum
@@ -70,7 +71,7 @@ async function ArtlistAll({ params }: ListProps) {
 export default ArtlistAll
 
 export async function generateMetadata(props: ListProps): Promise<Metadata> {
-  const { type, pagenum } = props.params
+  const { type, pagenum } = (await props.params)
   const title = `${upperFirstChar(type || 'blog')} | ${BlogTitle}`
   return {
     title,
