@@ -1,6 +1,7 @@
-const process = require('node:process')
-const Analyzer = require('@next/bundle-analyzer')
-const { default: classnamesMinifier } = require('@nimpl/classnames-minifier')
+import process from 'node:process'
+import Analyzer from '@next/bundle-analyzer'
+import classnamesMinifier from '@nimpl/classnames-minifier'
+import type { NextConfig } from 'next'
 
 const IS_GITPAGE = !!process.env.GITPAGE
 const BasePath = IS_GITPAGE ? '/blog' : ''
@@ -23,19 +24,9 @@ const AtomChartsetHeader = [
   },
 ]
 
-/**
- * @type {import('next').NextConfig}
- **/
-const nextConfig = {
+const nextConfig: NextConfig = {
   basePath: BasePath,
-  experimental: {
-    cssChunking: 'loose',
-    serverComponentsExternalPackages: [
-      'three',
-      '@react-three/fiber',
-      'lil-gui',
-    ],
-  },
+  serverExternalPackages: ['three', '@react-three/fiber', 'lil-gui'],
   poweredByHeader: false,
   eslint: {
     ignoreDuringBuilds: true,
