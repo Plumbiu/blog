@@ -26,6 +26,7 @@ export async function createIssues(posts: PostList[]) {
     if (env.startsWith('GITHUB_TOKEN=')) {
       const token = env.split('=')[1].trim()
       const querylUrl = `https://api.github.com/repos/${GithubName}/${GithubRepoName}/issues`
+      const issueMap: Record<string, number> = {}
       await Promise.all(
         postIssues.map(async (title) => {
           await fetch(querylUrl, {
@@ -42,13 +43,16 @@ export async function createIssues(posts: PostList[]) {
           })
             .then((data) => data.json())
             .then((data) => {
-              console.log(data)
+              const title = data.title
+              const issueNumber = data.url.split('/').pop()
+              issueMap[title.replace('[comment] posts/', '')] = +issueNumber
             })
             .catch((err) => {
               console.log(err)
             })
         }),
       )
+      await fsp.writeFile('/data/issues.json', JSON.stringify(issueMap))
     }
   }
 }

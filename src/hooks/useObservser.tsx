@@ -4,11 +4,11 @@ import { isFunction } from '@/utils/types'
 type VoidFn = () => void
 
 export default function useObserver(
-  ref: RefObject<HTMLElement>,
+  ref: RefObject<HTMLElement | null>,
   callback?: () => undefined | VoidFn,
 ) {
   const [isIntersecting, setIsIntersecting] = useState(false)
-  const callbackRef = useRef<VoidFn>()
+  const callbackRef = useRef<VoidFn>(null)
   useEffect(() => {
     const observerDom = ref.current
     // dom is not null, but in dev, run twice will case error

@@ -131,6 +131,10 @@ const ListItem = memo(({ list, active }: ListItemProps) => {
   )
 })
 
+const getToken = () => {
+  return localStorage.getItem('access-token')
+}
+
 const Comment = memo(({ pathname }: CommentProps) => {
   const [status, setStatus] = useState<'loading' | 'error' | 'loaded'>(
     'loading',
@@ -142,13 +146,8 @@ const Comment = memo(({ pathname }: CommentProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const isIntersecting = useObserver(containerRef)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
-  const issueName = `[comment] ${pathname}`
-  const issueNumber = issueMap[issueName]
+  const issueNumber = issueMap[pathname.slice(6)]
   const queryUrl = `https://api.github.com/repos/${GithubName}/${GithubRepoName}/issues/${issueNumber}/comments`
-
-  const getToken = useCallback(() => {
-    return localStorage.getItem('access-token')
-  }, [])
 
   const setErrorMessage = useCallback((error: any) => {
     setStatus('error')
@@ -217,6 +216,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
   )
 
   useEffect(() => {
+    console.log(issueNumber)
     if (!isIntersecting || !issueNumber) {
       return
     }
