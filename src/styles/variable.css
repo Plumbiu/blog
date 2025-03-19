@@ -64,7 +64,7 @@
 
 /* constant */
 :root {
-  --header-h: 82px;
+  --header-h: 72px;
   --post-w: 760px;
   --center-rest: calc((100% - var(--post-w)) / 2);
   --pre-radius: 4px;

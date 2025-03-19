@@ -1,6 +1,6 @@
 .wrap {
   position: fixed;
-  top: 0;
+  top: 16px;
   left: 0;
   right: 0;
   z-index: 99;

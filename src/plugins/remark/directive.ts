@@ -19,8 +19,8 @@ import {
   type RemarkPlugin,
 } from '../constant'
 
-const LineRegx = /\r?\n/
-const LineConfigRegx = /\[max:(\d+)\]/
+const LineRegx = /\n/
+const LineConfigRegx = /max-(\d+)/
 
 export const remarkContainerDirectivePlugin: RemarkPlugin = () => {
   return async (tree) => {
@@ -45,8 +45,7 @@ export const remarkContainerDirectivePlugin: RemarkPlugin = () => {
             ) {
               let links = contentNode.value.split(LineRegx)
               const maxNum = LineConfigRegx.exec(links[0])?.[1]
-              const firstLine = links[0]
-              if (firstLine.startsWith('[max:')) {
+              if (maxNum) {
                 links = links.slice(1)
               }
               props[ComponentKey] = node.name

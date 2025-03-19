@@ -5,7 +5,7 @@
   "scripts": {
     "prepare": "simple-git-hooks",
     "generate": "esno ./scripts/index.ts",
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build --experimental-app-only",
     "build:gitpage": "cross-env GITPAGE=true next build",
     "start": "next start",

@@ -14,6 +14,13 @@
     <subtitle>Note, life, summary and blog</subtitle>
     <rights>CC BY-NC-SA 4.0 2024 © Plumbiu</rights>
     <entry>
+        <title type="html"><![CDATA[2024 年度总结]]></title>
+        <id>posts/summary/2024</id>
+        <link href="https://blog.plumbiu.top/posts/summary/2024/"/>
+        <updated>2025-03-19T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[一如既往的来晚了，最近比较沉迷云顶，也是上了大师。]]></summary>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[再见济南]]></title>
         <id>posts/life/ByeJinan</id>
         <link href="https://blog.plumbiu.top/posts/life/ByeJinan/"/>

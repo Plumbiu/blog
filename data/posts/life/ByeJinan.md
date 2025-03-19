@@ -26,7 +26,7 @@ jinan/2025/吃08.jpg
 # 水族馆
 
 :::Gallery
-[max:6]
+max-10
 jinan/2025/水族馆 (1).jpg
 jinan/2025/水族馆 (2).jpg
 jinan/2025/水族馆 (3).jpg
