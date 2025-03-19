@@ -40,6 +40,13 @@ export async function createIssues(posts: PostList[]) {
               labels: ['comment'],
             }),
           })
+            .then((data) => data.json())
+            .then((data) => {
+              console.log(data)
+            })
+            .catch((err) => {
+              console.log(err)
+            })
         }),
       )
     }

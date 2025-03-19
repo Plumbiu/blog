@@ -14,10 +14,8 @@ async function run() {
   const status = spawnSync('git', ['status', '-s']).stdout.toString()
   if (PostRegx.test(status)) {
     const posts = await getPostList()
-
     await feed(posts)
     await createIssues(posts)
-    console.log()
   }
   const code = await fsp.readFile('public/assets/dev/theme.js', 'utf-8')
   const mini = await minify(code, {
