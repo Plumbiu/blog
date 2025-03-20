@@ -3,8 +3,6 @@ import fsp from 'node:fs/promises'
 import pc from 'picocolors'
 import { GithubName, GithubRepoName } from '~/data/site'
 
-console.log(process.env.UPDATE_ISSUE)
-
 const update_issue = process.env.UPDATE_ISSUE === 'true'
 
 export async function createIssues(posts: PostList[]) {
