@@ -49,7 +49,7 @@ function ImageGallery(props: any) {
     }
     const children = thumbnailsRef.current!.children?.[
       currentIndex
-    ] as HTMLImageElement
+    ].children[0] as HTMLImageElement
     if (children?.tagName === 'IMG') {
       const left = children.offsetLeft
       setThumbnailTranslateX(left)
