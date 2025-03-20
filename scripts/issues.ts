@@ -1,6 +1,11 @@
-import type { PostList } from '@/utils/node/markdown'
+import { getPostList, type PostList } from '@/utils/node/markdown'
 import fsp from 'node:fs/promises'
+import pc from 'picocolors'
 import { GithubName, GithubRepoName } from '~/data/site'
+
+console.log(process.env.UPDATE_ISSUE)
+
+const update_issue = process.env.UPDATE_ISSUE === 'true'
 
 export async function createIssues(posts: PostList[]) {
   const allIssues: any[] = await fetch(
@@ -13,6 +18,7 @@ export async function createIssues(posts: PostList[]) {
   for (const issue of issues) {
     result[issue.title] = issue.number
   }
+
   const postIssues = posts
     .map((post) => {
       const issueName = `[comment] ${post.path}`
@@ -47,8 +53,11 @@ export async function createIssues(posts: PostList[]) {
               const issueNumber = data.url.split('/').pop()
               issueMap[title.replace('[comment] posts/', '')] = +issueNumber
             })
-            .catch((err) => {
-              console.log(err)
+            .catch(() => {
+              console.log(
+                `/data/issues.json 缺少\n${pc.bgCyan(postIssues.join('\n'))}`,
+              )
+              console.log(pc.cyan('请手动更新 /data/issue.json'))
             })
         }),
       )
@@ -56,3 +65,10 @@ export async function createIssues(posts: PostList[]) {
     }
   }
 }
+
+;(async () => {
+  if (update_issue) {
+    const posts = await getPostList()
+    createIssues(posts)
+  }
+})()

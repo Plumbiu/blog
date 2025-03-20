@@ -8,6 +8,7 @@
     "dev": "next dev --turbo",
     "build": "next build --experimental-app-only",
     "build:gitpage": "cross-env GITPAGE=true next build",
+    "issue:update": "cross-env UPDATE_ISSUE=true esno ./scripts/issues.ts",
     "start": "next start",
     "analyze": "cross-env ANALYZE=true next build"
   },
