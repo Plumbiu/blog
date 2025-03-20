@@ -82,6 +82,7 @@ export const remarkContainerDirectivePlugin: RemarkPlugin = () => {
               const { props } = getImageProps({
                 ...data,
                 unoptimized,
+                quality: 70,
               })
               data.ops = props.src
             }

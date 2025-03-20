@@ -4,7 +4,7 @@ import { ColumnsPhotoAlbum } from 'react-photo-album'
 import NextImage from 'next/image'
 import 'react-photo-album/columns.css'
 import {
-  cloneElement,
+  type JSX,
   memo,
   type ReactNode,
   useCallback,
@@ -83,6 +83,8 @@ function ImageGallery(props: any) {
   const thumbinalsLength = allThumbnailsNode.length
   const sildeNodes = useMemo(() => {
     return photos.map(({ ops: optimizeSrc }) => {
+      const image = new Image()
+      image.src = optimizeSrc
       return <img key={optimizeSrc} src={optimizeSrc} alt={optimizeSrc} />
     })
   }, [])
@@ -153,12 +155,15 @@ function ImageGallery(props: any) {
 
 const MemoThumbinalItem = memo(
   ({ children, active }: { children: JSX.Element; active: boolean }) => {
-    return cloneElement(children, {
-      key: children.key,
-      className: cn({
-        [styles.active]: active,
-      }),
-    })
+    return (
+      <div
+        className={cn({
+          [styles.active]: active,
+        })}
+      >
+        {children}
+      </div>
+    )
   },
 )
 

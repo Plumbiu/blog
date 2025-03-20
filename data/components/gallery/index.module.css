@@ -72,7 +72,7 @@
   }
 }
 
-.active {
+.active > img {
   z-index: 20;
   filter: brightness(1) !important;
   transform: scale(1.2);

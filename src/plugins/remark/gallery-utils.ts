@@ -28,7 +28,10 @@ export function getGalleryPhoto(props: any): {
   max: number | undefined
 } {
   const data = props[GalleryPhotoKey]
-  return data ? JSON.parse(data) : {}
+  return data ? JSON.parse(data) : {
+    photos: [],
+    max: undefined
+  }
 }
 
 export function getGalleryPhotoConfig(props: any): PhotoNode[] {
