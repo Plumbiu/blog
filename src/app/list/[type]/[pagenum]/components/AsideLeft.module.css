@@ -2,7 +2,7 @@
   position: fixed;
   margin-left: 28px;
   margin-top: 16px;
-  top: var(--header-h);
+  top: calc(var(--header-h) + 48px);
   left: 0;
   z-index: 9;
   overflow-y: auto;
