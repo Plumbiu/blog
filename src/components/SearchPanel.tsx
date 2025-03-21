@@ -47,10 +47,11 @@ interface SearchPanelProps {
 const InitialEmptyContent = 'Type to search'
 
 function SearchPanel({ setSearchVisible }: SearchPanelProps) {
-  const listRef = useRef<SearchData[]>()
+  const listRef = useRef<SearchData[]>(null)
   const [lists, setLists] = useState<ListType>([])
   const [activePath, setActivePath] = useState<string>()
-  const [emptyContent, setEmptyContent] = useState<ReactNode>(InitialEmptyContent)
+  const [emptyContent, setEmptyContent] =
+    useState<ReactNode>(InitialEmptyContent)
   const [search, setSearch] = useState('')
   const contentRef = useRef<HTMLDivElement>(null)
   const label = useId()
@@ -181,12 +182,8 @@ function SearchPanel({ setSearchVisible }: SearchPanelProps) {
                       [styles.list_active]: activePath === path,
                     })}
                   >
-                    <div>
-                      <div className={styles.date}>{date}</div>
-                      <div className={styles.title}>
-                        {handleHihglight(title)}
-                      </div>
-                    </div>
+                    <div className={styles.date}>{date}</div>
+                    <div className={styles.title}>{handleHihglight(title)}</div>
                   </Link>
                 ))}
               </div>

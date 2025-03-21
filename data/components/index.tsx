@@ -1,5 +1,3 @@
-/* eslint-disable @stylistic/max-len */
-/* eslint-disable @stylistic/function-paren-newline */
 'use client'
 
 import { createElement, lazy } from 'react'

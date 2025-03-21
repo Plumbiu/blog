@@ -30,7 +30,7 @@ const TocLink = memo(
 function Toc() {
   const [lists, setLists] = useState<ITocList[]>([])
   const [activeIndex, setActiveIndex] = useState<number>()
-  const nodes = useRef<NodeListOf<Element>>()
+  const nodes = useRef<NodeListOf<Element>>(null)
   const tocRef = useRef<HTMLDivElement>(null)
   const listRef = useRef<HTMLDivElement>(null)
 

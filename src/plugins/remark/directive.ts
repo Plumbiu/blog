@@ -1,4 +1,3 @@
-/* eslint-disable @stylistic/max-len */
 import type { LeafDirective, ContainerDirective } from 'mdast-util-directive'
 import { visit } from 'unist-util-visit'
 import { getImageProps } from 'next/image'

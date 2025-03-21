@@ -60,9 +60,7 @@ const CodeTabs = memo(
 )
 const CodePreview = memo((props: any) => {
   const { defaultSelector, codeNodeMap, codeTabs } = useMemo(() => {
-    const children = isArray(props.children)
-      ? props.children
-      : [props.children]
+    const children = isArray(props.children) ? props.children : [props.children]
     const defaultSelector = handleComponentSelectorKey(props)
     const codeNodeMap = Object.fromEntries(
       children.map((node: any) => [handleComponentFileKey(node.props), node]),

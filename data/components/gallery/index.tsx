@@ -47,9 +47,8 @@ function ImageGallery(props: any) {
     if (!slideNode) {
       return
     }
-    const children = thumbnailsRef.current!.children?.[
-      currentIndex
-    ].children[0] as HTMLImageElement
+    const children = thumbnailsRef.current!.children?.[currentIndex]
+      .children[0] as HTMLImageElement
     if (children?.tagName === 'IMG') {
       const left = children.offsetLeft
       setThumbnailTranslateX(left)
