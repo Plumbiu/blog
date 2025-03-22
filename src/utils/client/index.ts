@@ -1,4 +1,5 @@
-import { isNumber, isString } from '../types'
+import { isValidElement, type ReactNode } from 'react'
+import { isArray, isNumber, isObject, isString } from '../types'
 
 type ClassNameArg = any
 export function cn(...args: ClassNameArg[]) {
@@ -53,4 +54,31 @@ export function debounce<T extends (...args: any) => any>(fn: T, wait = 300) {
 
 export function formatDesc(str: string, maxLen = 30) {
   return str.length > maxLen ? str.slice(0, maxLen - 3) + '...' : str
+}
+
+export function renderReactNodeToString(node: ReactNode) {
+  // 递归遍历 reactnode, 形成 textContent
+  let textContent = ''
+  function render(node: ReactNode) {
+    if (isString(node) || isNumber(node)) {
+      textContent += node
+    } else if (
+      isValidElement(node) &&
+      isObject(node.props) &&
+      'children' in node.props
+    ) {
+      const { children } = node.props
+      if (children) {
+        if (isArray(children)) {
+          for (const child of children) {
+            render(child)
+          }
+        } else {
+          render(children)
+        }
+      }
+    }
+  }
+  render(node)
+  return textContent
 }

@@ -1,7 +1,6 @@
-import { isValidElement, type ReactNode } from 'react'
 import { PostDir, type FrontmatterKey } from '@/constants'
 import { BasePath } from '~/data/site'
-import { isArray, isNumber, isString } from './types'
+import { isString } from './types'
 
 const RemoveMdSuffixRegx = /\.md$/
 export const removeMdSuffix = (p: string) => {
@@ -42,27 +41,4 @@ export function isUnOptimized(url: string) {
   return url.endsWith('.gif') || url.endsWith('.webp') || url.endsWith('.svg')
     ? true
     : undefined
-}
-
-export function renderReactNodeToString(node: ReactNode) {
-  // 递归遍历 reactnode, 形成 textContent
-  let textContent = ''
-  function render(node: ReactNode) {
-    if (isString(node) || isNumber(node)) {
-      textContent += node
-    } else if (isValidElement(node)) {
-      const { children } = node.props
-      if (children) {
-        if (isArray(children)) {
-          for (const child of children) {
-            render(child)
-          }
-        } else {
-          render(children)
-        }
-      }
-    }
-  }
-  render(node)
-  return textContent
 }

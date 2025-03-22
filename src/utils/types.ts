@@ -14,6 +14,10 @@ export function isSymbol(x: unknown): x is Symbol {
   return typeof x === 'symbol'
 }
 
+export function isObject<T extends Record<string, any>>(x: unknown): x is T {
+  return x !== null && typeof x === 'object'
+}
+
 export function getType(value: any) {
   const type = Object.prototype.toString.call(value)
   return type.slice(8, type.length - 1)
