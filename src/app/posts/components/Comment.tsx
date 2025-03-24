@@ -216,7 +216,6 @@ const Comment = memo(({ pathname }: CommentProps) => {
   )
 
   useEffect(() => {
-    console.log(issueNumber)
     if (!isIntersecting || !issueNumber) {
       return
     }
