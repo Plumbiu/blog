@@ -15,11 +15,13 @@ import {
 } from 'react'
 import { getGalleryPhoto } from '@/plugins/remark/gallery-utils'
 import { ArrowLeftIcon, ArrowRightIcon, CloseIcon } from '@/components/Icons'
-import { cn } from '@/utils/client'
+import { cn, isMobileDevice } from '@/utils/client'
 import { makeBodyScroll, avoidBodyScroll } from '@/store/utils'
 import styles from './index.module.css'
 
 const ThumbnailsHeight = 360
+
+type DragEvent = TouchEvent | MouseEvent
 
 function ImageGallery(props: any) {
   const { photos = [], max } = getGalleryPhoto(props)
@@ -27,10 +29,64 @@ function ImageGallery(props: any) {
   const thumbnailsRef = useRef<HTMLDivElement>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [thumbnailTranslateX, setThumbnailTranslateX] = useState(0)
+  const isMouseDown = useRef(false)
+  const touchXRef = useRef({
+    prev: 0,
+    curr: 0,
+  })
 
   const hidden = useCallback(() => {
     setSlideNode(null)
   }, [])
+
+  const drageStart = useCallback((e: DragEvent) => {
+    isMouseDown.current = true
+    if ('touches' in e) {
+      touchXRef.current.prev = e.touches[0].clientX
+    } else if ('pageX' in e) {
+      touchXRef.current.prev = e.pageX
+    }
+  }, [])
+
+  const dragMove = useCallback((e: DragEvent) => {
+    if ('touches' in e) {
+      touchXRef.current.curr = e.touches[0].clientX
+    } else if ('pageX' in e && isMouseDown.current) {
+      console.log('dragMove')
+      touchXRef.current.curr = e.pageX
+    }
+  }, [])
+
+  const dragEnd = useCallback(() => {
+    console.log('end')
+    const start = touchXRef.current.prev
+    const end = touchXRef.current.curr
+    if (end - start > 50) {
+      handleThumbnailClick(currentIndex - 1)
+    } else if (end - start < -50) {
+      handleThumbnailClick(currentIndex + 1)
+    }
+    isMouseDown.current = false
+  }, [currentIndex])
+
+  useEffect(() => {
+    if (!slideNode) {
+      return
+    }
+    const isMobile = isMobileDevice()
+    if (isMobile) {
+      window.addEventListener('touchstart', drageStart)
+      window.addEventListener('touchmove', dragMove)
+      window.addEventListener('touchend', dragEnd)
+    }
+    return () => {
+      if (slideNode && isMobile) {
+        window.removeEventListener('touchstart', drageStart)
+        window.removeEventListener('touchmove', dragMove)
+        window.removeEventListener('touchend', dragEnd!)
+      }
+    }
+  }, [slideNode])
 
   useEffect(() => {
     if (slideNode) {
@@ -81,9 +137,12 @@ function ImageGallery(props: any) {
 
   const thumbinalsLength = allThumbnailsNode.length
   const sildeNodes = useMemo(() => {
-    return photos.map(({ ops: optimizeSrc }) => {
-      const image = new Image()
-      image.src = optimizeSrc
+    return photos.map(({ ops: optimizeSrc }, i) => {
+      // preload images
+      if (!max || i < max) {
+        const image = new Image()
+        image.src = optimizeSrc
+      }
       return <img key={optimizeSrc} src={optimizeSrc} alt={optimizeSrc} />
     })
   }, [])
@@ -94,6 +153,7 @@ function ImageGallery(props: any) {
     } else if (index >= thumbinalsLength) {
       index = 0
     }
+    console.log(index)
     setCurrentIndex(index)
     setSlideNode(sildeNodes[index])
   }

@@ -52,10 +52,6 @@ export function debounce<T extends (...args: any) => any>(fn: T, wait = 300) {
   }
 }
 
-export function formatDesc(str: string, maxLen = 30) {
-  return str.length > maxLen ? str.slice(0, maxLen - 3) + '...' : str
-}
-
 export function renderReactNodeToString(node: ReactNode) {
   // 递归遍历 reactnode, 形成 textContent
   let textContent = ''
@@ -81,4 +77,10 @@ export function renderReactNodeToString(node: ReactNode) {
   }
   render(node)
   return textContent
+}
+
+const MobileRegx =
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+export function isMobileDevice() {
+  return MobileRegx.test(navigator.userAgent)
 }
