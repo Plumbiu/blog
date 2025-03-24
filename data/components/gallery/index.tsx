@@ -52,13 +52,11 @@ function ImageGallery(props: any) {
     if ('touches' in e) {
       touchXRef.current.curr = e.touches[0].clientX
     } else if ('pageX' in e && isMouseDown.current) {
-      console.log('dragMove')
       touchXRef.current.curr = e.pageX
     }
   }, [])
 
   const dragEnd = useCallback(() => {
-    console.log('end')
     const start = touchXRef.current.prev
     const end = touchXRef.current.curr
     if (end - start > 50) {
@@ -153,7 +151,6 @@ function ImageGallery(props: any) {
     } else if (index >= thumbinalsLength) {
       index = 0
     }
-    console.log(index)
     setCurrentIndex(index)
     setSlideNode(sildeNodes[index])
   }
