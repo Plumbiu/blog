@@ -70,9 +70,9 @@ function SearchPanel({ setSearchVisible }: SearchPanelProps) {
 
   useEffect(() => {
     ;(async () => {
-      const data: SearchData[] = await fetch('/api/search').then((res) =>
-        res.json(),
-      )
+      const data: SearchData[] = await fetch('/api/search', {
+        cache: 'force-cache',
+      }).then((res) => res.json())
       listRef.current = data
     })()
 
