@@ -121,7 +121,7 @@ const ListItem = memo(({ list, active }: ListItemProps) => {
             return (
               <div key={key}>
                 <span>{reactionsMap[key]}</span>
-                <span>{reaction as number}</span>
+                <span>{reaction}</span>
               </div>
             )
           })}

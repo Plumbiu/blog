@@ -10,7 +10,7 @@ import Loading from '../_common/Loading'
 function CodeRunner(props: any) {
   const runCode = handleRunCode(props)
   const [logs, setLogs] = useState<LogInfo[]>([])
-  const workerRef = useRef<Worker>()
+  const workerRef = useRef<Worker>(null)
   const observerRef = useRef<HTMLDivElement>(null)
   const isIntersecting = useObserver(observerRef)
 

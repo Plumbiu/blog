@@ -59,7 +59,7 @@ const Playground = (props: any) => {
   const { logFn, logs, setLogs } = useConsole()
   const nodeRef = useRef<HTMLDivElement>(null)
   const [isConsoleVisible, setIsConsoleVisible] = useState(false)
-  const root = useRef<Root>()
+  const root = useRef<Root>(null)
   const renderNode = useCallback((refresh = false) => {
     !isStatic && setLogs(logs)
     if (refresh) {
@@ -85,7 +85,7 @@ const Playground = (props: any) => {
     node = <Suspense fallback={<Loading />}>{node}</Suspense>
     if (css) {
       node = (
-        <ReactShadowRoot shadow>
+        <ReactShadowRoot>
           <style>{css}</style>
           {node}
         </ReactShadowRoot>
