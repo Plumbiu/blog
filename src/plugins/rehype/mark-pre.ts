@@ -13,6 +13,7 @@ import {
 import { markPre } from './pre-utils'
 import { isSwitcher } from '../remark/code-block/switcher-utils'
 import { isRuner } from '../remark/runner-utils'
+import { isPreTitle } from '../remark/code-block/pre-title-utils'
 
 function markCustomComponentPre(node: Element) {
   const props = node.properties
@@ -27,6 +28,26 @@ function markCustomComponentPre(node: Element) {
     return
   }
   if (isRuner(props)) {
+    // remarkRunner make the type of node as 'root'
+    // so data.meta is not available
+    const meta = handleComponentMeta(props)
+    const code = handleComponentCode(props)
+    const lang = handleLang(props)
+    markPre(node, [
+      {
+        type: 'element',
+        tagName: 'code',
+        properties: {
+          className: `language-${lang}`,
+        },
+        data: {
+          meta,
+        },
+        children: [{ type: 'text', value: code }],
+      },
+    ])
+  }
+  if (isPreTitle(props)) {
     // remarkRunner make the type of node as 'root'
     // so data.meta is not available
     const meta = handleComponentMeta(props)

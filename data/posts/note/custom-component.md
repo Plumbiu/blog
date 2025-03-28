@@ -201,6 +201,13 @@ console.log('goodbye')
 
 ```
 
+## Title
+
+```js title="test/console.js"
+console.log('hello')
+console.log(1)
+```
+
 # Custom Component
 
 :ThreeSunEarthMoon

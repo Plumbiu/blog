@@ -9,6 +9,8 @@ import Switcher from './switcher'
 import { isPlayground } from '@/plugins/remark/code-block/playground-utils'
 import { isRuner } from '@/plugins/remark/runner-utils'
 import { isSwitcher } from '@/plugins/remark/code-block/switcher-utils'
+import { isPreTitle } from '@/plugins/remark/code-block/pre-title-utils'
+import PreTitle from './pre-title'
 
 const ThreeFirstScene = lazy(() => import('./three/ThreeFirstScene'))
 const ThreePureFirstScene = lazy(() => import('./three/ThreePureFirstScene'))
@@ -64,6 +66,7 @@ export const componentMap: Record<string, any> = {
   Gallery,
   Iframe,
   Switcher,
+  PreTitle,
   // Three.js
   ThreeLearnPrimitivesBox,
   ThreeFirstScene,
@@ -88,7 +91,12 @@ function CustomComponent(props: any) {
   const value = componentMap[componentName]
 
   if (value) {
-    if (isPlayground(props) || isRuner(props) || isSwitcher(props)) {
+    if (
+      isPlayground(props) ||
+      isRuner(props) ||
+      isSwitcher(props) ||
+      isPreTitle(props)
+    ) {
       return createElement(value, props)
     }
     return (

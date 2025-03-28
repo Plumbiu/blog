@@ -1,3 +1,4 @@
+// !!! if you add some custom component here, remember modify plugins/mark-pre.ts
 import { visit } from 'unist-util-visit'
 import { transform, type Options } from 'sucrase'
 import { isJsxFileLike } from '@/utils'
@@ -22,6 +23,7 @@ import {
 import { getFirstFileKey, makeProperties } from '../../utils'
 import { SwitcherName } from './switcher-utils'
 import { entries, keys } from '@/utils/types'
+import { handlePreTitleValue, PreTitleName } from './pre-title-utils'
 
 const transfromOptions: Options = {
   transforms: ['jsx', 'typescript', 'imports'],
@@ -30,6 +32,7 @@ const transfromOptions: Options = {
 
 const SupportPlaygroundLang = new Set(['jsx', 'tsx', 'js', 'ts'])
 const SupportStaticPlaygroundLang = new Set(['html', 'css', 'js', 'txt'])
+const PreTitleRegx = /title=(['"])([^'"]+)\1/
 
 const remarkCodeBlcok: RemarkPlugin = () => {
   return (tree) => {
@@ -39,17 +42,35 @@ const remarkCodeBlcok: RemarkPlugin = () => {
       const code = node.value.trim()
       const meta = node.meta
       const lang = node.lang?.toLowerCase()
-      const isPlayground = meta?.includes(PlaygroundName)
-      const isSwitcher = meta?.includes(SwitcherName)
+
       if (!(meta && lang)) {
         return
       }
-
+      const isPlayground = meta.includes(PlaygroundName)
+      const isSwitcher = meta.includes(SwitcherName)
+      const isPreTitle = PreTitleRegx.test(meta)
       const myBeAppFile = getFirstFileKey(code)
-      const setNode = (selector: string) => {
-        handleComponentName(props, isPlayground ? PlaygroundName : SwitcherName)
+
+      const changeNodeType = () => {
+        // @ts-ignore
+        node.type = 'root'
+        node.data!.hName = 'div'
+        handleComponentMeta(props, meta)
+      }
+      handleComponentCode(props, code)
+      handleLang(props, lang)
+
+      const setNodeProps = (selector: string) => {
+        const componentName = isPlayground
+          ? PlaygroundName
+          : isSwitcher
+          ? SwitcherName
+          : undefined
+        if (!componentName) {
+          return
+        }
+        handleComponentName(props, componentName)
         handleComponentSelectorKey(props, selector)
-        handleComponentCode(props, code)
         handlePlaygroundHidePreviewTabsKey(
           props,
           meta.includes(PlaygroundHidePreviewTabsKeySuffix),
@@ -84,20 +105,23 @@ const remarkCodeBlcok: RemarkPlugin = () => {
           ),
         )
         handlePlaygroundStyles(props, styles)
-        handleLang(props, lang)
-        // @ts-ignore
-        node.type = 'root'
-        node.data!.hName = 'div'
-        handleComponentMeta(props, meta)
+        changeNodeType()
       }
       if (isPlayground) {
         if (SupportPlaygroundLang.has(lang)) {
-          setNode(myBeAppFile ?? `App.${lang}`)
+          setNodeProps(myBeAppFile ?? `App.${lang}`)
         } else if (SupportStaticPlaygroundLang.has(lang)) {
-          setNode(myBeAppFile ?? 'index.html')
+          setNodeProps(myBeAppFile ?? 'index.html')
         }
       } else if (isSwitcher && myBeAppFile) {
-        setNode(myBeAppFile)
+        setNodeProps(myBeAppFile)
+      } else if (isPreTitle) {
+        const title = PreTitleRegx.exec(meta)?.[2]
+        if (title) {
+          handleComponentName(props, PreTitleName)
+          handlePreTitleValue(props, title)
+          changeNodeType()
+        }
       }
     })
   }
