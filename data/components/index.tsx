@@ -6,10 +6,6 @@ import IntersectionObserverComponent from '@/components/IntersectionObserverComp
 import Playground from './playground'
 import CodeRunner from './code-runner'
 import Switcher from './switcher'
-import { isPlayground } from '@/plugins/remark/code-block/playground-utils'
-import { isRuner } from '@/plugins/remark/runner-utils'
-import { isSwitcher } from '@/plugins/remark/code-block/switcher-utils'
-import { isPreTitle } from '@/plugins/remark/code-block/pre-title-utils'
 import PreTitle from './pre-title'
 
 const ThreeFirstScene = lazy(() => import('./three/ThreeFirstScene'))
@@ -86,19 +82,17 @@ export const componentMap: Record<string, any> = {
   ThreePureAmbientLight,
 }
 
+const SyncComponentSet = new Set([Playground, CodeRunner, Switcher, PreTitle])
+
 function CustomComponent(props: any) {
   const componentName = handleComponentName(props)
   const value = componentMap[componentName]
 
   if (value) {
-    if (
-      isPlayground(props) ||
-      isRuner(props) ||
-      isSwitcher(props) ||
-      isPreTitle(props)
-    ) {
+    if (SyncComponentSet.has(value)) {
       return createElement(value, props)
     }
+
     return (
       <IntersectionObserverComponent props={props}>
         {value}
