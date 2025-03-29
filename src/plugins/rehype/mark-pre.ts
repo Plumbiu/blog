@@ -22,7 +22,6 @@ function markCustomComponentPre(node: Element) {
     const selector = handleComponentSelectorKey(props)
     // TODO: already build files in remark-plugin
     const files = buildFiles(code, selector)
-    console.log(files, handleFileMap(props))
     const meta = handleComponentMeta(props)
     const lang = handleLang(props)
     markPre(
