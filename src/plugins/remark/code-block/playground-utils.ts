@@ -1,12 +1,5 @@
-import { keys } from '@/utils/types'
-import {
-  ComponentKey,
-  type FileMap,
-  FileMapStartStr,
-  ComponentFileMapKey,
-} from '../../constant'
-import { buildHandlerFunction, getFirstLine, getSuffix } from '../../utils'
-import type { ElementContent } from 'hast'
+import { ComponentKey, type FileMap, FileMapStartStr } from '../../constant'
+import { buildHandlerFunction, getFirstLine } from '../../utils'
 
 const NO = 'n'
 const View = 'v'
@@ -64,28 +57,4 @@ export const buildFiles = (code: string, selector?: string) => {
     }
   }
   return attrs
-}
-
-export const filemapToElementContent = (
-  files: FileMap,
-  parentMeta: string,
-  parentLang: string,
-): ElementContent[] => {
-  return keys(files).map((key) => {
-    const item = files[key]
-    const lang = getSuffix(key).toLowerCase()
-    const props: Record<string, string> = {
-      className: `language-${lang || parentLang}`,
-      [ComponentFileMapKey]: key,
-    }
-    return {
-      type: 'element',
-      tagName: 'code',
-      properties: props,
-      data: {
-        meta: `${parentMeta} ${item.meta}`,
-      },
-      children: [{ type: 'text', value: item.code }],
-    }
-  })
 }
