@@ -63,11 +63,12 @@
 
 .curtain {
   position: fixed;
-  bottom: calc(100vh - var(--max-height));
+  pointer-events: none;
+  bottom: calc(100vh - var(--max-height) - 24px);
   right: 0;
-  height: 48px;
+  height: 80px;
   width: var(--center-rest);
   z-index: 8;
-  background: linear-gradient(transparent, var(--bg-body) 60%);
+  background: linear-gradient(transparent, var(--bg-body) 80%);
   transition: all 0.3s;
 }
