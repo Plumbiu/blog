@@ -1,4 +1,5 @@
 import type { ContainerDirective } from 'mdast-util-directive'
+import { generatePluginKey } from '../optimize-utils'
 
 export interface Photo {
   // width
@@ -19,19 +20,21 @@ export interface PhotoNode {
   maxNum: number | undefined
 }
 
-export const GalleryPhotoKey = 'data-gallery'
+export const GalleryPhotoKey = generatePluginKey('data-gallery')
 export const GalleryName = 'Gallery'
-export const GalleryPhotoConfigKey = 'data-gallery-config'
+export const GalleryPhotoConfigKey = generatePluginKey('data-gallery-config')
 
 export function getGalleryPhoto(props: any): {
   photos: Photo[]
   max: number | undefined
 } {
   const data = props[GalleryPhotoKey]
-  return data ? JSON.parse(data) : {
-    photos: [],
-    max: undefined
-  }
+  return data
+    ? JSON.parse(data)
+    : {
+        photos: [],
+        max: undefined,
+      }
 }
 
 export function getGalleryPhotoConfig(props: any): PhotoNode[] {

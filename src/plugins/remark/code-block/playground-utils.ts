@@ -1,18 +1,24 @@
+import { generatePluginKey } from '@/plugins/optimize-utils'
 import { ComponentKey, type FileMap, FileMapStartStr } from '../../constant'
 import { buildHandlerFunction, getFirstLine } from '../../utils'
 
-const NO = 'n'
-const View = 'v'
-const Tab = 't'
-export const PlaygroundHidePreviewTabsKeySuffix = `${NO}-${View}-${Tab}`
-export const PlaygroundHideCodeTabsKeySuffix = `${NO}-c-${Tab}`
+export const PlaygroundPrefix = `${ComponentKey}-playground`
+export const PlaygroundHidePreviewTabsName = 'no-preview-tab'
+export const PlaygroundHideCodeTabsName = 'no-code-tab'
 
-export const PlaygroundPrefix = `${ComponentKey}-p`
-const PlaygroundHidePreviewKey = `${PlaygroundPrefix}${NO}-${View}`
-const PlaygroundHidePreviewTabsKey = `${PlaygroundPrefix}${PlaygroundHidePreviewTabsKeySuffix}`
-const PlaygroundHideCodeTabsKey = `${PlaygroundPrefix}${PlaygroundHideCodeTabsKeySuffix}`
-const PlaygroundCustomPreivew = `${PlaygroundPrefix}cus-${View}`
-const PlaygroundStyles = `${PlaygroundPrefix}css`
+const PlaygroundHidePreviewKey = generatePluginKey(
+  `${PlaygroundPrefix}-hide-preview`,
+)
+const PlaygroundHidePreviewTabsKey = generatePluginKey(
+  `${PlaygroundPrefix}-${PlaygroundHidePreviewTabsName}`,
+)
+const PlaygroundHideCodeTabsKey = generatePluginKey(
+  `${PlaygroundPrefix}-${PlaygroundHideCodeTabsName}`,
+)
+const PlaygroundCustomPreivewKey = generatePluginKey(
+  `${PlaygroundPrefix}-custom-preview`,
+)
+const PlaygroundStyles = generatePluginKey(`${PlaygroundPrefix}-css`)
 
 export const handlePlaygroundHidePreviewKey = buildHandlerFunction<
   boolean | undefined
@@ -27,7 +33,7 @@ export const handlePlaygroundHideCodeTabsKey = buildHandlerFunction<
 >(PlaygroundHideCodeTabsKey)
 
 export const handlePlaygroundCustomPreivew = buildHandlerFunction<string>(
-  PlaygroundCustomPreivew,
+  PlaygroundCustomPreivewKey,
 )
 
 export const handlePlaygroundStyles =

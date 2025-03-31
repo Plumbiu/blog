@@ -1,0 +1,1 @@
+export const IframeName = 'Iframe'

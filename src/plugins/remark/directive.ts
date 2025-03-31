@@ -17,6 +17,7 @@ import {
   handleComponentName,
   type RemarkPlugin,
 } from '../constant'
+import { IframeName } from './iframe-utils'
 
 const LineRegx = /\n/
 const LineConfigRegx = /max-(\d+)/
@@ -179,5 +180,5 @@ function iframeLeafDirective(node: LeafDirective) {
     allow: 'picture-in-picture',
     allowFullScreen: true,
   }
-  handleComponentName(data.hProperties, 'Iframe')
+  handleComponentName(data.hProperties, IframeName)
 }

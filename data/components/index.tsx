@@ -7,6 +7,12 @@ import Playground from './playground'
 import CodeRunner from './code-runner'
 import Switcher from './switcher'
 import PreTitle from './pre-title'
+import { PlaygroundName } from '@/plugins/remark/code-block/playground-utils'
+import { RunnerName } from '@/plugins/remark/runner-utils'
+import { GalleryName } from '@/plugins/remark/gallery-utils'
+import { SwitcherName } from '@/plugins/remark/code-block/switcher-utils'
+import { PreTitleName } from '@/plugins/remark/code-block/pre-title-utils'
+import { IframeName } from '@/plugins/remark/iframe-utils'
 
 const ThreeFirstScene = lazy(() => import('./three/ThreeFirstScene'))
 const ThreePureFirstScene = lazy(() => import('./three/ThreePureFirstScene'))
@@ -57,12 +63,12 @@ const Gallery = lazy(() => import('./gallery/index'))
 const Iframe = lazy(() => import('./iframe/index'))
 
 export const componentMap: Record<string, any> = {
-  Playground,
-  Run: CodeRunner,
-  Gallery,
-  Iframe,
-  Switcher,
-  PreTitle,
+  [PlaygroundName]: Playground,
+  [RunnerName]: CodeRunner,
+  [GalleryName]: Gallery,
+  [IframeName]: Iframe,
+  [SwitcherName]: Switcher,
+  [PreTitleName]: PreTitle,
   // Three.js
   ThreeLearnPrimitivesBox,
   ThreeFirstScene,

@@ -100,7 +100,6 @@ const Playground = (props: any) => {
   }, [])
 
   useObserver(nodeRef, renderNode)
-
   return (
     <CodeWrapper barText="Code Playground" forceUpdate={() => renderNode(true)}>
       <CodePreview {...props} />

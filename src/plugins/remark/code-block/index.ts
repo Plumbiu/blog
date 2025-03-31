@@ -7,8 +7,8 @@ import {
   handlePlaygroundHidePreviewTabsKey,
   PlaygroundName,
   handlePlaygroundStyles,
-  PlaygroundHidePreviewTabsKeySuffix,
-  PlaygroundHideCodeTabsKeySuffix,
+  PlaygroundHidePreviewTabsName,
+  PlaygroundHideCodeTabsName,
   buildFiles,
 } from './playground-utils'
 import {
@@ -73,7 +73,7 @@ const remarkCodeBlcok: RemarkPlugin = () => {
         handleComponentSelectorKey(props, selector)
         handlePlaygroundHidePreviewTabsKey(
           props,
-          meta.includes(PlaygroundHidePreviewTabsKeySuffix),
+          meta.includes(PlaygroundHidePreviewTabsName),
         )
 
         let hideTabs = true
@@ -95,7 +95,7 @@ const remarkCodeBlcok: RemarkPlugin = () => {
         }
         handlePlaygroundHidePreviewTabsKey(
           props,
-          meta.includes(PlaygroundHideCodeTabsKeySuffix),
+          meta.includes(PlaygroundHideCodeTabsName),
         )
         handlePlaygroundHidePreviewTabsKey(props, hideTabs)
         handleFileMap(

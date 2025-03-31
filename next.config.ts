@@ -95,4 +95,6 @@ const nextConfig: NextConfig = {
   },
 }
 
-module.exports = withClassnamesMinifier(withBundleAnalyzer(nextConfig))
+module.exports = IsDev
+  ? nextConfig
+  : withClassnamesMinifier(withBundleAnalyzer(nextConfig))

@@ -6,7 +6,7 @@ import tabStyles from '../_styles/tab.module.css'
 import { cn } from '@/utils/client'
 import {
   handleComponentSelectorKey,
-  handleComponentFileKey,
+  handleFileMapItemKey,
   handleFileMap,
 } from '@/plugins/constant'
 import PreComponent from '@/app/posts/components/Pre'
@@ -63,7 +63,7 @@ const CodePreview = memo((props: any) => {
     const children = isArray(props.children) ? props.children : [props.children]
     const defaultSelector = handleComponentSelectorKey(props)
     const codeNodeMap = Object.fromEntries(
-      children.map((node: any) => [handleComponentFileKey(node.props), node]),
+      children.map((node: any) => [handleFileMapItemKey(node.props), node]),
     )
     const files = handleFileMap(props)
     const codeTabs = keys(files).map((name) => ({ name }))

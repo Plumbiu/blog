@@ -1,11 +1,10 @@
 import type { Element } from 'hast'
 import { isPlayground, buildFiles } from '../remark/code-block/playground-utils'
 import {
-  ComponentFileMapKey,
+  FileMapItemKey,
   handleComponentCode,
   handleComponentMeta,
   handleComponentSelectorKey,
-  handleFileMap,
   handleLang,
 } from '../constant'
 import { hCode, markPre } from './mark-pre-utils'
@@ -33,7 +32,7 @@ function markCustomComponentPre(node: Element) {
           meta: `${meta} ${item.meta}`,
           props: {
             className: `language-${childLang || lang}`,
-            [ComponentFileMapKey]: key,
+            [FileMapItemKey]: key,
           },
           code: item.code,
         })
