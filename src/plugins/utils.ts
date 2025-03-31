@@ -12,7 +12,7 @@ export function addNodeClassName(node: CommonReamrkNode, className: string) {
     return
   }
   const originClassName = props.class?.trim() ?? ''
-  props.class = `${originClassName} ${className} `
+  props.class = `${originClassName} ${className}`.trim()
 }
 
 export function makeProperties(node: CommonReamrkNode) {

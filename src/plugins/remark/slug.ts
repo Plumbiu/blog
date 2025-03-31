@@ -31,7 +31,6 @@ const remarkSlug: RemarkPlugin = () => {
       const value = getElementText(node)
       if (value) {
         props.id = formatId(value)
-        props['data-title'] = value
       }
     })
   }
