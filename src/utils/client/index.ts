@@ -84,3 +84,7 @@ const MobileRegx =
 export function isMobileDevice() {
   return MobileRegx.test(navigator.userAgent)
 }
+
+export function getBase64Url(base: string) {
+  return `data:image/webp;base64,${base}`
+}

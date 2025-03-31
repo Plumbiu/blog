@@ -2,15 +2,13 @@ import type { Components } from 'hast-util-to-jsx-runtime'
 import type { ImageProps } from 'next/image'
 import MarkdownImage from '@/app/posts/components/Image'
 import { handleComponentName } from '@/plugins/constant'
-import {
-  handleImagebase64,
-  handleImageHeight,
-  handleImageWidth,
-} from '@/plugins/remark/image-utils'
 import { optimizeCodeProps } from '@/plugins/remark/code-utils'
-import { isUnOptimized } from '@/utils'
+import { isUnOptimized, resolveAssetPath } from '@/utils'
 import CustomComponent from '~/data/components'
 import PreComponent from '../components/Pre'
+import { getAssetImagePath } from '@/utils/node/fs'
+import { getBlurDataUrl } from '@/utils/node/optimize'
+import { getBase64Url } from '@/utils/client'
 
 export const markdownComponents: Partial<Components> = {
   pre(props) {
@@ -23,22 +21,27 @@ export const markdownComponents: Partial<Components> = {
     }
     return <PreComponent>{children}</PreComponent>
   },
-  img(props) {
+  async img(props) {
     const { src, alt } = props
-    if (src?.endsWith('.mp4')) {
+    if (!src || !alt) {
+      return
+    }
+    if (src.endsWith('.mp4')) {
       return <video muted src={src} controls />
     }
-    const width = handleImageWidth(props)
-    const height = handleImageHeight(props)
-    const base64 = handleImagebase64(props)
-    if (!src || !alt || !width || !height || !base64) {
-      return null
+    const imagePath = getAssetImagePath(src)
+    const { base64, metadata } = await getBlurDataUrl(
+      decodeURIComponent(imagePath),
+    )
+    const { width, height } = metadata ?? {}
+    if (!width || !height || !base64) {
+      return
     }
     const commonProps: ImageProps = {
-      src,
+      src: resolveAssetPath(`images/${src}`),
       alt,
       unoptimized: isUnOptimized(src),
-      blurDataURL: base64,
+      blurDataURL: getBase64Url(base64),
       placeholder: 'blur',
       width,
       height,

@@ -10,7 +10,6 @@ import rehypeElementPlugin from '@/plugins/rehype/element'
 import remarkSlug from '@/plugins/remark/slug'
 import { remarkContainerDirectivePlugin } from '@/plugins/remark/directive'
 import remarkRunner from '@/plugins/remark/runner'
-import remarkImage from '@/plugins/remark/image'
 import remarkCodeConfig from '@/plugins/remark/code'
 import { remarkPlainText } from '@/plugins/remark/plain-text/index'
 import { markdownComponents } from './components'
@@ -55,7 +54,6 @@ async function transfromCode2Jsx(code: string) {
       remarkCodeConfig,
       remarkCodeBlcok,
       remarkRunner,
-      remarkImage,
       [remarkPlainText, code],
     ])
     .use(remarkRehype)

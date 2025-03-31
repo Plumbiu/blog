@@ -25,7 +25,7 @@
   background-color: #000;
 
   & svg {
-    transition: color 0.15s ease-in;
+    transition: color 0.15s;
 
     &:hover {
       color: #fff;
@@ -43,11 +43,12 @@
 
 .close {
   position: absolute;
+  z-index: 99;
   top: 1rem;
   right: 1rem;
   cursor: pointer;
   color: var(--text-color);
-  font-size: 2rem;
+  font-size: 42px;
 }
 
 .w_full {
@@ -72,14 +73,14 @@
   }
 }
 
-.active > img {
+.active>img {
   z-index: 20;
   filter: brightness(1) !important;
   transform: scale(1.2);
 }
 
 .arrow {
-  font-size: 36px;
+  font-size: 48px;
   position: fixed;
   top: 50%;
   color: var(--text-color);
