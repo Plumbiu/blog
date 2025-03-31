@@ -144,7 +144,7 @@
         "noUselessStringRaw": "error",
         "noValueAtRule": "error",
         "useAriaPropsSupportedByRole": "error",
-        "useAtIndex": "error",
+        "useAtIndex": "off",
         "useCollapsedIf": "error",
         "useComponentExportOnlyModules": "off",
         "useConsistentCurlyBraces": "off",

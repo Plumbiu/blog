@@ -8,7 +8,7 @@ function PureLine() {
   useEffect(() => {
     const renderer = buildRenderer(containerRef)
     const material = new THREE.LineBasicMaterial({ color: 0xff0000 })
-    const points = []
+    const points: THREE.Vector3[] = []
     points.push(
       ...[
         new THREE.Vector3(-5, 0, 0),

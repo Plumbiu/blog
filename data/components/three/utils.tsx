@@ -1,4 +1,4 @@
-import { type RefObject } from 'react'
+import type { RefObject } from 'react'
 import { GUI } from 'lil-gui'
 import * as THREE from 'three'
 
@@ -8,7 +8,7 @@ interface RendererProps {
 }
 
 export function buildRenderer(
-  ref: RefObject<HTMLDivElement>,
+  ref: RefObject<HTMLDivElement | null>,
   options: RendererProps = {},
 ) {
   const { width, height } = options
@@ -34,7 +34,7 @@ export function buildCamera(x: number, y: number, z: number) {
   return camera
 }
 
-export function buildGUI(ref: RefObject<HTMLDivElement>, width = 250) {
+export function buildGUI(ref: RefObject<HTMLDivElement | null>, width = 250) {
   const gui = new GUI({
     autoPlace: false,
     container: ref.current!,
