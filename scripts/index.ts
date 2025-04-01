@@ -3,6 +3,7 @@ import { getPostList } from '@/utils/node/markdown'
 import feed from './feed'
 import { writeFileWithGit } from './utils.js'
 import { minify } from 'terser'
+import { minify as minifyHTML } from '@swc/html'
 import { spawnSync } from 'node:child_process'
 import { createIssues } from './issues'
 
@@ -17,16 +18,22 @@ async function run() {
     await feed(posts)
     await createIssues(posts)
   }
-  const code = await fsp.readFile('public/assets/dev/theme.js', 'utf-8')
-  const mini = await minify(code, {
+  const themeCode = await fsp.readFile('public/assets/theme/dev.js', 'utf-8')
+  const minifiedThmeCode = await minify(themeCode, {
     compress: {
       ecma: 2018,
       ie8: false,
     },
   })
-  const themePath = 'public/assets/theme.js'
-  if (mini.code) {
-    await writeFileWithGit(themePath, mini.code)
+  const oauthRedirectHTML = await fsp.readFile(
+    'public/assets/oauth/redirect/dev.html',
+  )
+  const minifiedOauthRedirectHTML = (await minifyHTML(oauthRedirectHTML)).code
+  const themePath = 'public/assets/theme/index.js'
+  const oauthRedirectHTMLPath = 'public/assets/oauth/redirect/index.html'
+  if (minifiedThmeCode.code && minifiedOauthRedirectHTML) {
+    await writeFileWithGit(themePath, minifiedThmeCode.code)
+    await writeFileWithGit(oauthRedirectHTMLPath, minifiedOauthRedirectHTML)
   }
 }
 

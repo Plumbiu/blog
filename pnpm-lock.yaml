@@ -107,6 +107,9 @@ importers:
       '@nimpl/classnames-minifier':
         specifier: ^4.0.0
         version: 4.0.0(css-loader@7.1.2)
+      '@swc/html':
+        specifier: ^1.11.15
+        version: 1.11.15
       '@types/hast':
         specifier: ^3.0.4
         version: 3.0.4
@@ -737,6 +740,70 @@ packages:
 
   '@swc/helpers@0.5.15':
     resolution: {integrity: sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g==}
+
+  '@swc/html-darwin-arm64@1.11.15':
+    resolution: {integrity: sha512-yn4cRc/odibIkbvKWdVEzW6SB4nZAb+sHQFqGDyGtj1iR9Yl4rr+oSKRbUg6O3IAYxZ7Eeq6SlkD09Iuci5IkA==}
+    engines: {node: '>=10'}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@swc/html-darwin-x64@1.11.15':
+    resolution: {integrity: sha512-JKxoeHMR5Wl40dDVyFTMlQU8wY8hNZbiH+FYmfA8pnmaOrHEPVLxzzeiSZa2u8X2JSZr4AHI072UzMHKxFmaEg==}
+    engines: {node: '>=10'}
+    cpu: [x64]
+    os: [darwin]
+
+  '@swc/html-linux-arm-gnueabihf@1.11.15':
+    resolution: {integrity: sha512-XIcD1l5U5FF5VyrgujyNU4PO3jR/yLxXasMbNFflOuNbeMn83XM5qJ2BVmdWqN5C4lZBjDHNNUuQIIqreIhRwg==}
+    engines: {node: '>=10'}
+    cpu: [arm]
+    os: [linux]
+
+  '@swc/html-linux-arm64-gnu@1.11.15':
+    resolution: {integrity: sha512-3kUzdN38tGkMubfw/5B1+aOvP4WjTpKKOV7EP+t0auls1sQdDARg0VuKbpwBsjTzlIyPLb8q/5BL5nLijI9pOQ==}
+    engines: {node: '>=10'}
+    cpu: [arm64]
+    os: [linux]
+
+  '@swc/html-linux-arm64-musl@1.11.15':
+    resolution: {integrity: sha512-vy+bA7RBI6cfUXbAtdPWrxrhjO4M6yBeoJ2eOJ/W057/ZA4HE5IfPq+/xzuG9FkYumf7gmNKb1PJQY6CzBK3OA==}
+    engines: {node: '>=10'}
+    cpu: [arm64]
+    os: [linux]
+
+  '@swc/html-linux-x64-gnu@1.11.15':
+    resolution: {integrity: sha512-8csOri424hppNbI97EH9y6UEe7zB0qJYTm7z4qjhJi7ICb0gyYlhKvSeSiLP3i4F1xkzkr/mr39JNu7V0F/q7g==}
+    engines: {node: '>=10'}
+    cpu: [x64]
+    os: [linux]
+
+  '@swc/html-linux-x64-musl@1.11.15':
+    resolution: {integrity: sha512-t3FV8t2vZ2SVz3TXu65gtQyoaN4hIy0QOBMgL5YDNAr0jJrEwBhIah05UuoZ1FoLTecIzWYOR9c9V18/obAcEg==}
+    engines: {node: '>=10'}
+    cpu: [x64]
+    os: [linux]
+
+  '@swc/html-win32-arm64-msvc@1.11.15':
+    resolution: {integrity: sha512-GQt26/2M5y8PKLE3HhGjgagp1CGRyp29k4FE7qEPZT+mw4abW2kw2077drehNRlQvtxZCYpuUVZSf7WneiIV9g==}
+    engines: {node: '>=10'}
+    cpu: [arm64]
+    os: [win32]
+
+  '@swc/html-win32-ia32-msvc@1.11.15':
+    resolution: {integrity: sha512-XX53X25892KawkHFSyxmu80nd6yr1BkU8Tkp7lkie8EWa1k7wDbWAMnittiDLj3vAjD4NPL6BDYu8BzapJDZFA==}
+    engines: {node: '>=10'}
+    cpu: [ia32]
+    os: [win32]
+
+  '@swc/html-win32-x64-msvc@1.11.15':
+    resolution: {integrity: sha512-H55qWdbnOezvJoQ6BLPs87F9V4QY5aU4zCYvvEdL3OdqmzXyW4epe2go5lghwdV3/UQEpHx0V6qDeeGx8JnXXg==}
+    engines: {node: '>=10'}
+    cpu: [x64]
+    os: [win32]
+
+  '@swc/html@1.11.15':
+    resolution: {integrity: sha512-ioOt+3eaKf39hGjMXc3vg+JMZImB2ZenHiKiGkF4Y6h19iIGqtxw+/qKrm+eKfsBFEhsebYIJnuHN+UlBS5CFA==}
+    engines: {node: '>=14'}
 
   '@tweenjs/tween.js@23.1.3':
     resolution: {integrity: sha512-vJmvvwFxYuGnF2axRtPYocag6Clbb5YS7kLL+SO/TeVFzHqDIWrNKYtcsPMibjDx9O+bu+psAy9NKfWklassUA==}
@@ -2281,6 +2348,51 @@ snapshots:
   '@swc/helpers@0.5.15':
     dependencies:
       tslib: 2.8.1
+
+  '@swc/html-darwin-arm64@1.11.15':
+    optional: true
+
+  '@swc/html-darwin-x64@1.11.15':
+    optional: true
+
+  '@swc/html-linux-arm-gnueabihf@1.11.15':
+    optional: true
+
+  '@swc/html-linux-arm64-gnu@1.11.15':
+    optional: true
+
+  '@swc/html-linux-arm64-musl@1.11.15':
+    optional: true
+
+  '@swc/html-linux-x64-gnu@1.11.15':
+    optional: true
+
+  '@swc/html-linux-x64-musl@1.11.15':
+    optional: true
+
+  '@swc/html-win32-arm64-msvc@1.11.15':
+    optional: true
+
+  '@swc/html-win32-ia32-msvc@1.11.15':
+    optional: true
+
+  '@swc/html-win32-x64-msvc@1.11.15':
+    optional: true
+
+  '@swc/html@1.11.15':
+    dependencies:
+      '@swc/counter': 0.1.3
+    optionalDependencies:
+      '@swc/html-darwin-arm64': 1.11.15
+      '@swc/html-darwin-x64': 1.11.15
+      '@swc/html-linux-arm-gnueabihf': 1.11.15
+      '@swc/html-linux-arm64-gnu': 1.11.15
+      '@swc/html-linux-arm64-musl': 1.11.15
+      '@swc/html-linux-x64-gnu': 1.11.15
+      '@swc/html-linux-x64-musl': 1.11.15
+      '@swc/html-win32-arm64-msvc': 1.11.15
+      '@swc/html-win32-ia32-msvc': 1.11.15
+      '@swc/html-win32-x64-msvc': 1.11.15
 
   '@tweenjs/tween.js@23.1.3': {}
 

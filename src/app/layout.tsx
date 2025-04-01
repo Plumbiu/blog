@@ -44,9 +44,9 @@ export default function RootLayout({
       <body className={mono.className}>
         <script
           src={resolveAssetPath(
-            `assets/${
-              process.env.NODE_ENV === 'development' ? 'dev/' : ''
-            }theme.js`,
+            `assets/theme/${
+              process.env.NODE_ENV === 'development' ? 'dev' : 'index'
+            }.js`,
           )}
         />
         <ViewTransitions>
