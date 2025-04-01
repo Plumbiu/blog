@@ -28,7 +28,11 @@ async function run() {
   const oauthRedirectHTML = await fsp.readFile(
     'public/assets/oauth/redirect/dev.html',
   )
-  const minifiedOauthRedirectHTML = (await minifyHTML(oauthRedirectHTML)).code
+  const minifiedOauthRedirectHTML = (
+    await minifyHTML(oauthRedirectHTML, {
+      minifyJs: true,
+    })
+  ).code
   const themePath = 'public/assets/theme/index.js'
   const oauthRedirectHTMLPath = 'public/assets/oauth/redirect/index.html'
   if (minifiedThmeCode.code && minifiedOauthRedirectHTML) {
