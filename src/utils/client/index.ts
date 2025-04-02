@@ -79,12 +79,6 @@ export function renderReactNodeToString(node: ReactNode) {
   return textContent
 }
 
-const MobileRegx =
-  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
-export function isMobileDevice() {
-  return MobileRegx.test(navigator.userAgent)
-}
-
 export function getBase64Url(base: string) {
   return `data:image/webp;base64,${base}`
 }
