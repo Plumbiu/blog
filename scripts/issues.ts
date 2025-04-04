@@ -59,7 +59,7 @@ export async function createIssues(posts: PostList[]) {
             })
         }),
       )
-      await fsp.writeFile('/data/issues.json', JSON.stringify(issueMap))
+      await fsp.writeFile('data/issues.json', JSON.stringify(issueMap))
     }
   }
 }
