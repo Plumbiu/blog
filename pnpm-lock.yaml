@@ -21,7 +21,7 @@ importers:
         version: 0.9.3(react@19.1.0)
       '@react-three/fiber':
         specifier: 9.1.0
-        version: 9.1.0(@types/react@19.0.12)(immer@10.1.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(three@0.175.0)
+        version: 9.1.0(@types/react@19.1.0)(immer@10.1.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(three@0.175.0)
       '@shikijs/transformers':
         specifier: 3.2.1
         version: 3.2.1
@@ -59,8 +59,8 @@ importers:
         specifier: 19.1.0
         version: 19.1.0(react@19.1.0)
       react-photo-album:
-        specifier: ^3.0.2
-        version: 3.0.2(patch_hash=ocwe5z2mqhu7gxtukdnzxvurha)(@types/react@19.0.12)(react@19.1.0)
+        specifier: 3.1.0
+        version: 3.1.0(patch_hash=ocwe5z2mqhu7gxtukdnzxvurha)(@types/react@19.1.0)(react@19.1.0)
       remark-directive:
         specifier: 4.0.0
         version: 4.0.0
@@ -71,8 +71,8 @@ importers:
         specifier: ^11.0.0
         version: 11.0.0
       remark-rehype:
-        specifier: ^11.1.1
-        version: 11.1.1
+        specifier: 11.1.2
+        version: 11.1.2
       sharp:
         specifier: ^0.33.5
         version: 0.33.5
@@ -123,11 +123,11 @@ importers:
         specifier: ^20
         version: 20.17.28
       '@types/react':
-        specifier: 19.0.12
-        version: 19.0.12
+        specifier: 19.1.0
+        version: 19.1.0
       '@types/react-dom':
-        specifier: 19.0.4
-        version: 19.0.4(@types/react@19.0.12)
+        specifier: 19.1.1
+        version: 19.1.1(@types/react@19.1.0)
       '@types/three':
         specifier: ^0.175.0
         version: 0.175.0
@@ -835,8 +835,8 @@ packages:
   '@types/node@20.17.28':
     resolution: {integrity: sha512-DHlH/fNL6Mho38jTy7/JT7sn2wnXI+wULR6PV4gy4VHLVvnrV/d3pHAMQHhc4gjdLmK2ZiPoMxzp6B3yRajLSQ==}
 
-  '@types/react-dom@19.0.4':
-    resolution: {integrity: sha512-4fSQ8vWFkg+TGhePfUzVmat3eC14TXYSsiiDSLI0dVLsrm9gZFABjPy/Qu6TKgl1tq1Bu1yDsuQgY3A3DOjCcg==}
+  '@types/react-dom@19.1.1':
+    resolution: {integrity: sha512-jFf/woGTVTjUJsl2O7hcopJ1r0upqoq/vIOoCj0yLh3RIXxWcljlpuZ+vEBRXsymD1jhfeJrlyTy/S1UW+4y1w==}
     peerDependencies:
       '@types/react': ^19.0.0
 
@@ -845,8 +845,8 @@ packages:
     peerDependencies:
       '@types/react': '*'
 
-  '@types/react@19.0.12':
-    resolution: {integrity: sha512-V6Ar115dBDrjbtXSrS+/Oruobc+qVbbUxDFC1RSbRqLt5SYvxxyIDrSC85RWml54g+jfNeEMZhEj7wW07ONQhA==}
+  '@types/react@19.1.0':
+    resolution: {integrity: sha512-UaicktuQI+9UKyA4njtDOGBD/67t8YEBt2xdfqu8+gP9hqPUPsiXlNPcpS2gVdjmis5GKPG3fCxbQLVgxsQZ8w==}
 
   '@types/stats.js@0.17.3':
     resolution: {integrity: sha512-pXNfAD3KHOdif9EQXZ9deK82HVNaXP5ZIF5RP2QG6OQFNTaY2YIetfrE9t528vEreGQvEPRDDc8muaoYeK0SxQ==}
@@ -1531,12 +1531,12 @@ packages:
     peerDependencies:
       react: ^19.1.0
 
-  react-photo-album@3.0.2:
-    resolution: {integrity: sha512-w3+8i6aj9l1jRfcubgVbAlBGSdtiXcqWdcwZcH4/Bavc+v7X7h+S3TkQ723pvDABjhaaxS168g9ECEBP6xnKrQ==}
+  react-photo-album@3.1.0:
+    resolution: {integrity: sha512-9PiWzwvckfefJRHY5E6kcNKoWNjyyFKhQ6Pl5nS1Z29QeP9h8zDOAoVQKWcv/AhZjRoduw1dybu9RNMj0+uPzQ==}
     engines: {node: '>=18'}
     peerDependencies:
-      '@types/react': '>=18'
-      react: '>=18'
+      '@types/react': ^18 || ^19
+      react: ^18 || ^19
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -1581,8 +1581,8 @@ packages:
   remark-parse@11.0.0:
     resolution: {integrity: sha512-FCxlKLNGknS5ba/1lmpYijMUzX2esxW5xQqjWxw2eHFfS2MSdaHVINFmhjo+qN1WhZhNimq0dZATN9pH0IDrpA==}
 
-  remark-rehype@11.1.1:
-    resolution: {integrity: sha512-g/osARvjkBXb6Wo0XvAeXQohVta8i84ACbenPpoSsxTOQH/Ae0/RGP4WZgnMH5pMLpsj4FG7OHmcIcXxpza8eQ==}
+  remark-rehype@11.1.2:
+    resolution: {integrity: sha512-Dh7l57ianaEoIpzbp0PC9UKAdCSVklD8E5Rpw7ETfbTl3FqcOOgq5q2LVDhgGCkaBv7p24JXikPdvhhmHvKMsw==}
 
   remark-stringify@11.0.0:
     resolution: {integrity: sha512-1OSmLd3awB/t8qdoEOMazZkNsfVTeY4fTsgzcQFdXNq8ToTN4ZGwrMnlda4K6smTFKD+GRV6O48i6Z4iKgPPpw==}
@@ -2283,14 +2283,14 @@ snapshots:
 
   '@polka/url@1.0.0-next.28': {}
 
-  '@react-three/fiber@9.1.0(@types/react@19.0.12)(immer@10.1.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(three@0.175.0)':
+  '@react-three/fiber@9.1.0(@types/react@19.1.0)(immer@10.1.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(three@0.175.0)':
     dependencies:
       '@babel/runtime': 7.27.0
-      '@types/react-reconciler': 0.28.9(@types/react@19.0.12)
+      '@types/react-reconciler': 0.28.9(@types/react@19.1.0)
       '@types/webxr': 0.5.21
       base64-js: 1.5.1
       buffer: 6.0.3
-      its-fine: 2.0.0(@types/react@19.0.12)(react@19.1.0)
+      its-fine: 2.0.0(@types/react@19.1.0)(react@19.1.0)
       react: 19.1.0
       react-reconciler: 0.31.0(react@19.1.0)
       react-use-measure: 2.1.7(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -2298,7 +2298,7 @@ snapshots:
       suspend-react: 0.1.3(react@19.1.0)
       three: 0.175.0
       use-sync-external-store: 1.5.0(react@19.1.0)
-      zustand: 5.0.3(@types/react@19.0.12)(immer@10.1.1)(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))
+      zustand: 5.0.3(@types/react@19.1.0)(immer@10.1.1)(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))
     optionalDependencies:
       react-dom: 19.1.0(react@19.1.0)
     transitivePeerDependencies:
@@ -2424,15 +2424,15 @@ snapshots:
     dependencies:
       undici-types: 6.19.8
 
-  '@types/react-dom@19.0.4(@types/react@19.0.12)':
+  '@types/react-dom@19.1.1(@types/react@19.1.0)':
     dependencies:
-      '@types/react': 19.0.12
+      '@types/react': 19.1.0
 
-  '@types/react-reconciler@0.28.9(@types/react@19.0.12)':
+  '@types/react-reconciler@0.28.9(@types/react@19.1.0)':
     dependencies:
-      '@types/react': 19.0.12
+      '@types/react': 19.1.0
 
-  '@types/react@19.0.12':
+  '@types/react@19.1.0':
     dependencies:
       csstype: 3.1.3
 
@@ -2776,9 +2776,9 @@ snapshots:
 
   isexe@2.0.0: {}
 
-  its-fine@2.0.0(@types/react@19.0.12)(react@19.1.0):
+  its-fine@2.0.0(@types/react@19.1.0)(react@19.1.0):
     dependencies:
-      '@types/react-reconciler': 0.28.9(@types/react@19.0.12)
+      '@types/react-reconciler': 0.28.9(@types/react@19.1.0)
       react: 19.1.0
     transitivePeerDependencies:
       - '@types/react'
@@ -3327,11 +3327,11 @@ snapshots:
       react: 19.1.0
       scheduler: 0.26.0
 
-  react-photo-album@3.0.2(patch_hash=ocwe5z2mqhu7gxtukdnzxvurha)(@types/react@19.0.12)(react@19.1.0):
+  react-photo-album@3.1.0(patch_hash=ocwe5z2mqhu7gxtukdnzxvurha)(@types/react@19.1.0)(react@19.1.0):
     dependencies:
       react: 19.1.0
     optionalDependencies:
-      '@types/react': 19.0.12
+      '@types/react': 19.1.0
 
   react-reconciler@0.31.0(react@19.1.0):
     dependencies:
@@ -3387,7 +3387,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  remark-rehype@11.1.1:
+  remark-rehype@11.1.2:
     dependencies:
       '@types/hast': 3.0.4
       '@types/mdast': 4.0.4
@@ -3681,9 +3681,9 @@ snapshots:
     dependencies:
       sax: 1.4.1
 
-  zustand@5.0.3(@types/react@19.0.12)(immer@10.1.1)(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0)):
+  zustand@5.0.3(@types/react@19.1.0)(immer@10.1.1)(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0)):
     optionalDependencies:
-      '@types/react': 19.0.12
+      '@types/react': 19.1.0
       immer: 10.1.1
       react: 19.1.0
       use-sync-external-store: 1.5.0(react@19.1.0)
