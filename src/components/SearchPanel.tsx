@@ -69,12 +69,13 @@ function SearchPanel({ setSearchVisible }: SearchPanelProps) {
   )
 
   useEffect(() => {
-    ;(async () => {
-      const data: SearchData[] = await fetch('/api/search', {
-        cache: 'force-cache',
-      }).then((res) => res.json())
-      listRef.current = data
-    })()
+    fetch('/api/search', {
+      cache: 'force-cache',
+    })
+      .then((res) => res.json())
+      .then((data: SearchData[]) => {
+        listRef.current = data
+      })
 
     window.addEventListener('keydown', handleKeyDown)
 
