@@ -28,12 +28,6 @@
         <summary type="html"><![CDATA[故乡两月]]></summary>
     </entry>
     <entry>
-        <title type="html"><![CDATA[占位]]></title>
-        <id>posts/life/Keep</id>
-        <link href="https://blog.plumbiu.top/posts/life/Keep/"/>
-        <updated>2024-12-03T00:00:00.000Z</updated>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Next.js 下主题切换最佳实践]]></title>
         <id>posts/blog/nextjs-theme</id>
         <link href="https://blog.plumbiu.top/posts/blog/nextjs-theme/"/>

@@ -26,6 +26,7 @@ type DragEvent = TouchEvent | MouseEvent
 
 function ImageGallery(props: any) {
   const { photos = [], max } = getGalleryPhoto(props)
+  const memoImageIndexSet = useRef<Set<number>>(new Set())
   const [slideNode, setSlideNode] = useState<ReactNode>(null)
   const thumbnailsRef = useRef<HTMLDivElement>(null)
   const isMobile = useIsMobileDevice()
@@ -134,13 +135,22 @@ function ImageGallery(props: any) {
     })
   }, [])
 
+  function preloadImage(i: number) {
+    if (memoImageIndexSet.current.has(i)) {
+      return
+    }
+    const image = new Image()
+    image.src = photos[i].ops
+    memoImageIndexSet.current.add(i)
+  }
+
   const thumbinalsLength = allThumbnailsNode.length
+
   const sildeNodes = useMemo(() => {
     return photos.map(({ ops: optimizeSrc }, i) => {
       // preload images
-      if (!max || i < max) {
-        const image = new Image()
-        image.src = optimizeSrc
+      if (!max || i < max ) {
+        preloadImage(i)
       }
       return <img key={optimizeSrc} src={optimizeSrc} alt={optimizeSrc} />
     })
@@ -151,6 +161,15 @@ function ImageGallery(props: any) {
       index = thumbinalsLength - 1
     } else if (index >= thumbinalsLength) {
       index = 0
+    }
+    const start = index - 5
+    const end = index + 5
+    for (
+      let i = start < 0 ? 0 : start;
+      i < (end > photos.length ? photos.length : end);
+      i++
+    ) {
+      preloadImage(i)
     }
     setCurrentIndex(index)
     setSlideNode(sildeNodes[index])
