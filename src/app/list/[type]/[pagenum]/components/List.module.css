@@ -1,29 +1,15 @@
 .link {
-  position: relative;
   display: flex;
-  gap: 4px;
   flex-direction: column;
-  padding: 16px;
-  margin-left: -12px;
-  margin-right: -12px;
+  border: 1px solid var(--divider);
+  padding: 12px 16px;
   margin-bottom: 24px;
   border-radius: 8px;
-  min-height: 140px;
-  transition: background-color 0.2s ease-in-out;
   cursor: pointer;
 
   &:hover {
+    border-color: var(--c-indigo-1);
     background-color: var(--c-gray-soft);
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    left: 16px;
-    bottom: 0;
-    width: 10%;
-    height: 1px;
-    background-color: var(--divider);
   }
 }
 
@@ -33,7 +19,7 @@
 }
 
 .desc {
-  margin: 12px 0;
+  margin: 8px 0;
   line-height: 1.4rem;
   font-size: 14px;
   color: var(--text-2);
@@ -45,13 +31,13 @@
   font-weight: 600;
 }
 
-/* .tags {
+.tags {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 2px;
-} */
+}
 
 .year {
   font-weight: 700;

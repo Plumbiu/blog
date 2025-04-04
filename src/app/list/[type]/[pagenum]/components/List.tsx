@@ -2,9 +2,7 @@ import { Link } from 'next-view-transitions'
 import type { PostList } from '@/utils/node/markdown'
 import { TimeWordInfo } from '@/components/PostInfo'
 import styles from './List.module.css'
-// import Tag from '@/components/Tag'
-
-const MAX_LEN = 200
+import { DESC_MAX_LEN } from '@/app/list/constants'
 
 function ArtList({ lists }: { lists: [string, PostList[]][] }) {
   return lists.map(([year, post]) => (
@@ -18,19 +16,10 @@ function ArtList({ lists }: { lists: [string, PostList[]][] }) {
             <TimeWordInfo date={date} />
             {subtitle && <div className={styles.subtitle}>{subtitle}</div>}
             <div className={styles.desc}>
-              {desc && desc.length > MAX_LEN
-                ? desc.slice(0, MAX_LEN - 3) + '...'
+              {desc && desc.length > DESC_MAX_LEN
+                ? desc.slice(0, DESC_MAX_LEN - 3).trim() + '...'
                 : desc}
             </div>
-            {/* {tags && (
-              <div className={styles.tags}>
-                {tags.map((tag) => (
-                  <Tag key={tag} icon="#">
-                    {tag}
-                  </Tag>
-                ))}
-              </div>
-            )} */}
           </Link>
         )
       })}
