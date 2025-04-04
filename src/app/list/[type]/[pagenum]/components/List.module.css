@@ -1,5 +1,6 @@
 .link {
   display: flex;
+  gap: 4px;
   flex-direction: column;
   border: 1px solid var(--divider);
   padding: 12px 16px;
