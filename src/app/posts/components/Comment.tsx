@@ -63,23 +63,10 @@ const LoginGithub = memo(({ pathname }: CommentProps) => {
   )
 })
 
-const LoadingUI = memo(({ issueUrl }: { issueUrl: string }) => (
+const LoadingUI = memo(() => (
   <div className={cn(styles.loading_wrap)}>
     <div className={styles.loading} />
-    <div>加载评论中......</div>
-    <div>
-      或前往{' '}
-      <a
-        target="_blank"
-        className={styles.add_link}
-        href={issueUrl}
-        rel="noreferrer"
-      >
-        {' '}
-        issue 页
-      </a>
-      查看评论
-    </div>
+    加载评论中......
   </div>
 ))
 
@@ -161,7 +148,6 @@ const Comment = memo(({ pathname }: CommentProps) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const issueNumber = issueMap[pathname.slice(6)]
   const queryUrl = `https://api.github.com/repos/${GithubName}/${GithubRepoName}/issues/${issueNumber}/comments`
-  const issueUrl = `${GithubRepoUrl}/issues/${issueNumber}`
 
   const setErrorMessage = useCallback((error: any) => {
     setStatus('error')
@@ -200,6 +186,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
         headers,
         cache: 'no-store',
       }).then((res) => res.json())
+
       if (isArray(lists)) {
         lists.sort(
           (a: any, b: any) =>
@@ -219,7 +206,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
       <a
         target="_blank"
         className={styles.add_link}
-        href={issueUrl}
+        href={`${GithubRepoUrl}/issues/${issueNumber}`}
         rel="noreferrer"
       >
         去 issue 页面添加评论 <ExternalLinkIcon />
@@ -291,7 +278,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
   const Lists = useCallback(() => {
     return (
       <>
-        {status === 'loading' && <LoadingUI issueUrl={issueUrl} />}
+        {status === 'loading' && <LoadingUI />}
         {isArray(data) &&
           data.map((list: any, i) => (
             <ListItem
