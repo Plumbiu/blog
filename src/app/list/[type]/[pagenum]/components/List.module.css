@@ -9,7 +9,7 @@
   cursor: pointer;
 
   &:hover {
-    border-color: var(--c-indigo-1);
+    border-color: var(--c-indigo-soft);
     background-color: var(--c-gray-soft);
   }
 }
