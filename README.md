@@ -68,10 +68,10 @@ Run `pnpm generate`.
 
 # Deploy to Github pages
 
-Edit the `RepoName` in [data/site.ts](/data/site.ts) file and `BasePath` in [next.config.js](/next.config.js) file.
+Edit the `RepoName` in [data/site.ts](/data/site.ts) file and `BasePath` in [next.config.ts](/next.config.ts) file.
 
 > [!WARNING]
-> Github pages only support static resources, [rewrites](https://nextjs.org/docs/app/api-reference/config/next-config-js/rewrites) will not work, see [next.config.js](/next.config.js)
+> Github pages only support static resources, [rewrites](https://nextjs.org/docs/app/api-reference/config/next-config-js/rewrites) will not work, see [next.config.ts](/next.config.ts)
 
 <details>
 
