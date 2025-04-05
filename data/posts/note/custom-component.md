@@ -4,7 +4,7 @@ date: 2024-10-03
 desc: 一篇用于测试/查看博客上的一些自定义组件的文章
 ---
 
-See [source code](https://github.com/Plumbiu/blog/blob/main/data/posts/note/custom-component.md?plain=1) to learn the custom markdown rules.
+[源码](https://github.com/Plumbiu/blog/blob/main/data/posts/note/custom-component.md?plain=1).
 
 # Code
 
@@ -293,7 +293,7 @@ threejs/wall.jpg
 ## Max show
 
 :::Gallery
-[max:6]
+max-6
 2023-1.webp
 threejs/flower-2.jpg
 2023-2.webp

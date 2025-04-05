@@ -46,7 +46,7 @@
     "@biomejs/biome": "1.9.4",
     "@next/bundle-analyzer": "15.2.4",
     "@nimpl/classnames-minifier": "^4.0.0",
-    "@swc/html": "^1.11.15",
+    "@swc/html": "1.11.16",
     "@types/hast": "^3.0.4",
     "@types/js-yaml": "^4.0.9",
     "@types/mdast": "^4.0.4",
@@ -63,7 +63,7 @@
     "picocolors": "^1.1.1",
     "postcss-nested": "^7.0.2",
     "simple-git-hooks": "^2.12.1",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.3"
   },
   "pnpm": {
     "patchedDependencies": {

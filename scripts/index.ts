@@ -16,7 +16,7 @@ async function run() {
   if (PostRegx.test(status)) {
     const posts = await getPostList()
     await feed(posts)
-    await createIssues(posts)
+    await createIssues()
   }
   const themeCode = await fsp.readFile('public/assets/theme/dev.js', 'utf-8')
   const minifiedThmeCode = await minify(themeCode, {
