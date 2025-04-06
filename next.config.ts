@@ -2,6 +2,7 @@ import process from 'node:process'
 import Analyzer from '@next/bundle-analyzer'
 import classnamesMinifier from '@nimpl/classnames-minifier'
 import type { NextConfig } from 'next'
+import getResvervedClassnames from './optimize/reserved-classmame'
 
 const IS_GITPAGE = !!process.env.GITPAGE
 const BasePath = IS_GITPAGE ? '/blog' : ''
@@ -11,10 +12,11 @@ const withBundleAnalyzer = Analyzer({
   enabled: !!process.env.ANALYZE,
 })
 
+const isMinifierEnabled = !IsDev && !process.env.ANALYZE
 const withClassnamesMinifier = classnamesMinifier({
-  prefix: '_',
-  reservedNames: ['_en', '_de'],
-  disabled: IsDev || !!process.env.ANALYZE,
+  prefix: '',
+  reservedNames: isMinifierEnabled ? getResvervedClassnames() : [],
+  disabled: !isMinifierEnabled,
 })
 
 const AtomChartsetHeader = [

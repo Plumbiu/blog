@@ -7,7 +7,7 @@ import styles from './Comment.module.css'
 import { cn } from '@/utils/client'
 import issueMap from '~/data/issues.json'
 import useObserver from '@/hooks/useObservser'
-import { entries, isArray, isString } from '@/utils/types'
+import { isArray, isString } from '@/utils/types'
 import { GithubAppClientId } from '@/constants'
 import { ExternalLinkIcon, GithubIcon } from '@/components/Icons'
 
@@ -112,7 +112,7 @@ const ListItem = memo(({ list, active }: ListItemProps) => {
           __html: list.body_html,
         }}
       />
-      {list.reactions.total_count > 0 && (
+      {/* {list.reactions.total_count > 0 && (
         <div className={styles.reactions}>
           {entries(list.reactions).map(([key, reaction]) => {
             if (!reactionsMap[key] || reaction === 0) {
@@ -126,7 +126,7 @@ const ListItem = memo(({ list, active }: ListItemProps) => {
             )
           })}
         </div>
-      )}
+      )} */}
     </div>
   )
 })
@@ -156,6 +156,8 @@ const Comment = memo(({ pathname }: CommentProps) => {
         _setErrorMessage('Github token 过期，请重新登录')
       } else if (error.message.startsWith('API rate limit')) {
         _setErrorMessage('超出 Github API 速率限制，请登录获取更多次数')
+      } else if (error.message.startsWith('Failed to fetch')) {
+        _setErrorMessage('Github API 请求失败，请检查网络')
       } else {
         _setErrorMessage(error.message)
       }
@@ -301,7 +303,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
           <LoginGithub pathname={pathname} />
           <blockquote className="blockquote-danger">
             <p>{errorMessage}</p>
-            <p className={styles.error_link}>或者&nbsp;{issueAddNode}</p>
+            <p className={styles.error_link}>{issueAddNode}</p>
           </blockquote>
         </div>
       )
