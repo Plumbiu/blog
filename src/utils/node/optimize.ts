@@ -7,6 +7,9 @@ export function minifyCodeSync(code: string) {
     compress: {
       ecma: 2018,
       ie8: false,
+      unsafe_math: true,
+      unsafe_methods: true,
+      unsafe_proto: true,
     },
     mangle: { toplevel: true },
   }).code

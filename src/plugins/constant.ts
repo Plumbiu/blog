@@ -5,7 +5,7 @@ import type { Root as RemarkRoot } from 'mdast'
 import { buildHandlerFunction } from './utils'
 import { generatePluginKey } from './optimize-utils'
 
-export const ComponentKey = 'component-key-'
+export const ComponentKey = generatePluginKey('component-key-')
 export const handleComponentName = buildHandlerFunction<string>(ComponentKey)
 
 export type RehypePlugin<T = undefined> = Plugin<[T], Root>

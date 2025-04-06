@@ -2,7 +2,7 @@ import { generatePluginKey } from '@/plugins/optimize-utils'
 import { ComponentKey, type FileMap, FileMapStartStr } from '../../constant'
 import { buildHandlerFunction, getFirstLine } from '../../utils'
 
-export const PlaygroundPrefix = `${ComponentKey}-playground`
+export const PlaygroundPrefix = 'playground'
 export const PlaygroundHidePreviewTabsName = 'no-preview-tab'
 export const PlaygroundHideCodeTabsName = 'no-code-tab'
 
