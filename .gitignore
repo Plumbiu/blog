@@ -36,6 +36,4 @@ yarn-error.log*
 next-env.d.ts
 
 /analyze
-test.js
-test.html
-test.ts
+test.*
