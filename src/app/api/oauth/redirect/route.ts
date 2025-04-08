@@ -1,4 +1,4 @@
-import { redirect } from 'next/navigation'
+import { permanentRedirect } from 'next/navigation'
 import type { NextRequest } from 'next/server'
 import { getTokenResponse } from '../utils'
 
@@ -26,6 +26,5 @@ export async function GET(req: NextRequest) {
   } catch (error) {
     console.log(error)
   }
-  console.log(redirectUrl)
-  redirect(redirectUrl)
+  permanentRedirect(redirectUrl)
 }
