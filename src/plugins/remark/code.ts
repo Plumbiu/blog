@@ -3,10 +3,10 @@ import path from 'node:path'
 import type { Code } from 'mdast'
 import { visit } from 'unist-util-visit'
 import { tryReadFileSync } from '@/utils/node/fs'
-import { DataPath } from '@/utils/node/markdown'
 import { handlePlaygroundCustomPreivew } from './code-block/playground-utils'
 import { makeProperties } from '../utils'
 import type { RemarkPlugin } from '../constant'
+import { DataPath } from '@/constants-node'
 
 const CodePathRegx = /path=(['"])([^'"]+)\1/
 const CodeComponentRegx = /component=(['"])([^'"]+)\1/

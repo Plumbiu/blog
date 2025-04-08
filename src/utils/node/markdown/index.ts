@@ -4,6 +4,7 @@ import yaml from 'js-yaml'
 import { PostDir } from '@/constants'
 import stripMarkdown from './strip'
 import { getCategory, removeMdSuffix } from '../../index'
+import { CWD, PostPath } from '@/constants-node'
 
 export interface PostMeta {
   title: string
@@ -14,9 +15,6 @@ export interface PostMeta {
   tags?: string[]
   wordLength: number
 }
-
-export const DataPath = path.join(process.cwd(), 'data')
-export const PostPath = path.join(DataPath, 'posts')
 
 export async function getPostPaths() {
   const results: string[] = []
@@ -77,7 +75,7 @@ export async function getPostList(postType?: string) {
       if (postType != null && type !== postType) {
         return
       }
-      const file = await fsp.readFile(path.join(DataPath, mdPath), 'utf-8')
+      const file = await fsp.readFile(path.join(CWD, mdPath), 'utf-8')
       const { meta, content } = parsePostMeta(file)
       if (!(meta && content) || meta.hidden) {
         return

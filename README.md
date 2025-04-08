@@ -23,7 +23,7 @@
 - SEO friendly with RSS feed
 - Module css an self-designed components
 - Comment system via [Gtihub API](https://docs.github.com/zh/rest)
-- Custom markdown rules via [remark-directive](https://github.com/remarkjs/remark-directive): see [`custom-component.md`](/data/posts/note/custom-component.md) and [preview](https://blog.plumbiu.top/posts/note/custom-component)
+- Custom markdown rules via [remark-directive](https://github.com/remarkjs/remark-directive): see [`custom-component.md`](/posts/note/custom-component.md) and [preview](https://blog.plumbiu.top/posts/note/custom-component)
 - Component lazy load via [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver)
 
 # Customize
@@ -34,7 +34,7 @@ See [.env.example](/.env.example) file.
 
 ## Directory
 
-- [data/posts](/data/posts/): markdown files with category
+- [posts](posts/): markdown files with category
 - [data/components](/data/components/): markdown custom component
 - [src/plugins](/src/plugins/): [rehype](https://github.com/rehypejs/rehype) and [remark](https://github.com/remarkjs/remark) plugins
 - [src/styles](/src/styles/): global style
