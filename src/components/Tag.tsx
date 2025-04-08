@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import styles from './Tag.module.css'
 
 interface TechItemProps {
-  icon: ReactNode
+  icon?: ReactNode
   children: ReactNode
 }
 

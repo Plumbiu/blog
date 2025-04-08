@@ -4,7 +4,10 @@ import { isString } from './types'
 
 const RemoveMdSuffixRegx = /\.md$/
 export const removeMdSuffix = (p: string) => {
-  return p.replace(RemoveMdSuffixRegx, '')
+  if (p == null) {
+    return ''
+  }
+  return p?.replace?.(RemoveMdSuffixRegx, '')
 }
 
 export const upperFirstChar = (s: string) => {

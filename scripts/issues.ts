@@ -1,4 +1,4 @@
-import { getPostList, PostList } from '@/utils/node/markdown'
+import { getPostByPostType, PostList } from '@/utils/node/markdown'
 import fsp from 'node:fs/promises'
 import pc from 'picocolors'
 import issueMap from '~/data/issues.json'
@@ -72,7 +72,7 @@ export async function createIssues(posts: PostList[]) {
 }
 
 async function run() {
-  const posts = await getPostList()
+  const posts = await getPostByPostType()
   await createIssues(posts)
 }
 if (update_issue) {

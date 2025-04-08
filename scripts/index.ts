@@ -1,5 +1,5 @@
 import fsp from 'node:fs/promises'
-import { getPostList } from '@/utils/node/markdown'
+import { getPostByPostType } from '@/utils/node/markdown'
 import feed from './feed'
 import { writeFileWithGit } from './utils.js'
 import { minify } from 'terser'
@@ -14,7 +14,7 @@ const PostRegx = /\s*[AD]\s*"?data\/posts\/(blog|life|note|summary)\/.*/
 async function run() {
   const status = spawnSync('git', ['status', '-s']).stdout.toString()
   if (PostRegx.test(status)) {
-    const posts = await getPostList()
+    const posts = await getPostByPostType()
     await feed(posts)
     await createIssues()
   }

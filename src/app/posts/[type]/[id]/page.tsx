@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { getCategory, removeMdSuffix, upperFirstChar } from '@/utils'
 import NotFound from '@/components/NotFound'
-import { getPostPaths, getPostList } from '@/utils/node/markdown'
+import { getPostsPath, getPostByPostType } from '@/utils/node/markdown'
 import type { FrontmatterKey } from '@/constants'
 import { generateSeoMetaData, joinWebUrl } from '@/app/seo'
 import styles from './page.module.css'
@@ -13,7 +13,7 @@ import transfromCode2Jsx from '../../utils/transfrom'
 import Comment from '../../components/Comment'
 
 export async function generateStaticParams() {
-  const mds = await getPostPaths()
+  const mds = await getPostsPath()
   return mds.map((id) => {
     const tokens = id.split('/')
     return {
@@ -25,7 +25,7 @@ export async function generateStaticParams() {
 
 async function getPostContent(type: string, id: string) {
   try {
-    const posts = await getPostList(type)
+    const posts = await getPostByPostType(type)
     const post = posts.find((post) => post.path === `posts/${type}/${id}`)
     return post
   } catch (error) {}
@@ -55,7 +55,7 @@ async function Post(props: PostProps) {
           margin: 0,
         }}
       >
-        <Meta {...info} />
+        <Meta title={info.meta.title} />
         <div className="md">{node}</div>
         <Comment pathname={`posts/${params.type}/${params.id}`} />
       </div>

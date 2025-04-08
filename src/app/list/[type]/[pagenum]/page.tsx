@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { upperFirstChar } from '@/utils'
-import { getPostList } from '@/utils/node/markdown'
+import { getPostByPostType } from '@/utils/node/markdown'
 import { PostDir } from '@/constants'
 import NotFound from '@/app/not-found'
 import { generateSeoMetaData, joinWebUrl } from '@/app/seo'
@@ -21,7 +21,7 @@ export async function generateStaticParams() {
 
   await Promise.all(
     PostDir.map(async (type) => {
-      const post = await getPostList(type)
+      const post = await getPostByPostType(type)
       for (let i = 1; i <= Math.ceil(post.length / MAX_PAGE_SIZE); i++) {
         result.push({
           type,
@@ -42,7 +42,7 @@ async function ArtlistAll(props: ListProps) {
   const type = params.type
 
   const pagenum = +params.pagenum
-  const allLists = await getPostList(type)
+  const allLists = await getPostByPostType(type)
   const floatLists = formatPostByYear(allLists)
   const pageCount = Math.ceil(allLists.length / MAX_PAGE_SIZE)
 

@@ -43,10 +43,12 @@ const remarkCodeConfig: RemarkPlugin = () => {
         content = await fetch(nodePath).then((res) => res.text())
         nodeWithPath.value = content.trim()
       } else {
-        content = await fsp.readFile(
-          path.join(DataPath, 'components', `${nodePath}.tsx`),
-          'utf-8',
-        )
+        try {
+          content = await fsp.readFile(
+            path.join(DataPath, 'components', `${nodePath}.tsx`),
+            'utf-8',
+          )
+        } catch (error) {}
       }
       if (content) {
         nodeWithPath.value = content.trim()

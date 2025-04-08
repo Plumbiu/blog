@@ -15,6 +15,9 @@
 }
 
 .title {
+  display: flex;
+  gap: 4px;
+  align-items: center;
   font-weight: 700;
   color: var(--text);
 }
@@ -27,22 +30,18 @@
   word-break: break-all;
 }
 
-.subtitle {
-  color: var(--text-3);
-  font-weight: 600;
-}
-
-.tags {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 2px;
-}
-
 .year {
   font-weight: 700;
   margin: 8px 0;
   font-size: 20px;
   text-indent: 4px;
+}
+
+.locale {
+  font-size: 14px;
+  padding: 2px 6px;
+  font-weight: 400;
+  border-radius: 4px;
+  background-color: #a1a1aa26;
+  color: var(--text-2);
 }

@@ -265,7 +265,7 @@
         "useDefaultParameterLast": "error",
         "useDefaultSwitchClause": "error",
         "useEnumInitializers": "error",
-        "useExplicitLengthCheck": "error",
+        "useExplicitLengthCheck": "off",
         "useExponentiationOperator": "error",
         "useExportType": "error",
         "useFilenamingConvention": "error",

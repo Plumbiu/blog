@@ -1,10 +1,10 @@
 import fsp from 'node:fs/promises'
 import path from 'node:path'
 import yaml from 'js-yaml'
-import { PostDir } from '@/constants'
+import { glob } from 'fast-glob'
 import stripMarkdown from './strip'
 import { getCategory, removeMdSuffix } from '../../index'
-import { CWD, PostPath } from '@/constants-node'
+import { CWD } from '@/constants-node'
 
 export interface PostMeta {
   title: string
@@ -16,18 +16,8 @@ export interface PostMeta {
   wordLength: number
 }
 
-export async function getPostPaths() {
-  const results: string[] = []
-  await Promise.all(
-    PostDir.map(async (dir) => {
-      const postsPath = path.join(PostPath, dir)
-      const posts = (await fsp.readdir(postsPath)).filter((p) =>
-        p.endsWith('.md'),
-      )
-      results.push(...posts.map((p) => `posts/${dir}/${p}`))
-    }),
-  )
-  return results
+export async function getPostsPath() {
+  return glob('posts/**/*.md')
 }
 
 const DescNumRegx = /^\d+$/
@@ -61,16 +51,20 @@ export interface PostList {
   meta: PostMeta
   type: string
   path: string
+  locale?: string
   content: string
   next?: PostList
   prev?: PostList
 }
 
-export async function getPostList(postType?: string) {
+export async function getPostByPostType(postType?: string) {
   const result: PostList[] = []
-  const mds = await getPostPaths()
+  const mds = await getPostsPath()
+
   await Promise.all(
     mds.map(async (mdPath) => {
+      const tokens = mdPath.split('/')
+      const mdName = tokens[tokens.length - 1]
       const type = getCategory(mdPath)
       if (postType != null && type !== postType) {
         return
@@ -80,16 +74,18 @@ export async function getPostList(postType?: string) {
       if (!(meta && content) || meta.hidden) {
         return
       }
+      const isLocale = tokens.length === 4
+      const locale = isLocale ? tokens[tokens.length - 2] : undefined
       const data = {
         meta,
         type,
+        locale,
         content,
         path: removeMdSuffix(mdPath),
       }
       result.push(data)
     }),
   )
-
   const data = result.sort((prev, next) => {
     const dateDiff = next.meta.date - prev.meta.date
     if (dateDiff !== 0) {

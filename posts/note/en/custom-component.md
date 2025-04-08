@@ -1,7 +1,7 @@
 ---
-title: 自定义组件
+title: Custom component
 date: 2024-10-03
-desc: 一篇用于测试/查看博客上的一些自定义组件的文章。
+desc: Article for test and view the custom component.
 ---
 
 [源码](https://github.com/Plumbiu/blog/blob/main/data/posts/note/custom-component.md?plain=1).
