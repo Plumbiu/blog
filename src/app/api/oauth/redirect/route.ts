@@ -2,6 +2,9 @@ import { permanentRedirect } from 'next/navigation'
 import type { NextRequest } from 'next/server'
 import { getTokenResponse } from '../utils'
 
+const IS_GITPAGE = !!process.env.GITPAGE
+export const dynamic = IS_GITPAGE ? 'force-static' : 'auto'
+
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url)
   const code = searchParams.get('code')

@@ -2,6 +2,9 @@ import type { NextRequest } from 'next/server'
 import { createOAuthAppAuth } from '@octokit/auth-oauth-app'
 import { Octokit } from 'octokit'
 
+const IS_GITPAGE = !!process.env.GITPAGE
+export const dynamic = IS_GITPAGE ? 'force-static' : 'auto'
+
 const octokit = new Octokit({
   authStrategy: createOAuthAppAuth,
   auth: {
