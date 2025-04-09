@@ -14,14 +14,10 @@ import Comment from '../../components/Comment'
 
 export async function generateStaticParams() {
   const mds = await getPostsPath()
-  return mds.map((md) => {
-    const tokens = md.split('/')
-    const id = removeMdSuffix(tokens[tokens.length - 1])
-    const isLocale = tokens.length === 4
-    const locale = isLocale ? tokens[tokens.length - 2] : undefined
-    const data = locale ? [locale, id] : [id]
+  return mds.map((id) => {
+    const tokens = id.split('/')
     return {
-      data,
+      id: removeMdSuffix(tokens[2]),
       type: tokens[1],
     }
   })
@@ -37,7 +33,7 @@ async function getPostContent(type: string, id: string) {
 
 interface PostProps {
   params: Promise<{
-    data: [string, string | undefined]
+    id: string
     type: FrontmatterKey
   }>
 }
@@ -46,11 +42,10 @@ const DescMaxLen = 40
 
 async function Post(props: PostProps) {
   const params = await props.params
-  const info = await getPostContent(params.type, params.data.join('/'))
+  const info = await getPostContent(params.type, params.id)
   if (!info) {
     return <NotFound />
   }
-  const id = params.data[params.data.length - 1]!
   const node = await transfromCode2Jsx(info.content)
   return (
     <div className={styles.wrap}>
@@ -62,7 +57,7 @@ async function Post(props: PostProps) {
       >
         <Meta title={info.meta.title} />
         <div className="md">{node}</div>
-        <Comment pathname={`posts/${params.type}/${id}`} />
+        <Comment pathname={`posts/${params.type}/${params.id}`} />
       </div>
       <Toc />
     </div>
@@ -71,12 +66,11 @@ async function Post(props: PostProps) {
 
 export async function generateMetadata(props: PostProps): Promise<Metadata> {
   const params = await props.params
-  const id = params.data[params.data.length - 1]!
-  const info = await getPostContent(params.type, id)
-  const category = upperFirstChar(getCategory(id))
+  const info = await getPostContent(params.type, params.id)
+  const category = upperFirstChar(getCategory(params.id))
   if (!info) {
     return {
-      title: `${category} - ${id}`,
+      title: `${category} - ${params.id}`,
     }
   }
   const title = `${info.meta.title} | ${category}`
@@ -86,7 +80,7 @@ export async function generateMetadata(props: PostProps): Promise<Metadata> {
     ...generateSeoMetaData({
       title,
       description: info.meta.desc?.slice(0, 20),
-      url: joinWebUrl('posts', params.type, id),
+      url: joinWebUrl('posts', params.type, params.id),
     }),
   }
 }
