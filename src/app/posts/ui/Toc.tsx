@@ -2,7 +2,7 @@
 
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'next-view-transitions'
-import { cn, throttle } from '@/utils/client'
+import { cn, throttle } from '@/lib/client'
 import styles from './Toc.module.css'
 
 interface ITocList {

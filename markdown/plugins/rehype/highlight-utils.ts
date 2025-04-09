@@ -1,7 +1,7 @@
 // This code is modified based on
 // https://github.com/euank/node-parse-numeric-range/blob/master/index.js
 
-import { arrayify, isString } from '@/utils/types'
+import { arrayify, isString } from '@/lib/types'
 
 /*
   LICENSE: https://github.com/euank/node-parse-numeric-range/blob/master/LICENSE

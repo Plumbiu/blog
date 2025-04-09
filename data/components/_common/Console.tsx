@@ -1,7 +1,7 @@
 import { memo, useMemo } from 'react'
-import { cn } from '@/utils/client'
+import { cn } from '@/lib/client'
 import type { LogInfo } from '@/hooks/useConsole'
-import { isString } from '@/utils/types'
+import { isString } from '@/lib/types'
 import styles from './Console.module.css'
 import { transfromLogValue } from '../utils'
 

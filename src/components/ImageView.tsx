@@ -4,7 +4,7 @@ import { type MouseEventHandler, useRef, type WheelEventHandler } from 'react'
 import useModalStore from '@/store/modal'
 import styles from './ImageView.module.css'
 import Modal from './Modal'
-import { cn } from '@/utils/client'
+import { cn } from '@/lib/client'
 
 interface Position {
   x: number

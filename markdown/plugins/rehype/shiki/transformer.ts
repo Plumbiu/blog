@@ -1,7 +1,7 @@
 import type { ElementContent, Element } from 'hast'
 import type { ShikiTransformer } from 'shiki'
 import { toString } from 'hast-util-to-string'
-import { isArray, isString } from '@/utils/types'
+import { isArray, isString } from '@/lib/types'
 import {
   calculateLinesToHighlight,
   DiffDeletedClassName,

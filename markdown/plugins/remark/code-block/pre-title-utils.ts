@@ -1,6 +1,6 @@
-import { buildHandlerFunction } from '@/plugins/utils'
+import { buildHandlerFunction } from '~/markdown/plugins/utils'
 import { ComponentKey } from '../../constant'
-import { generatePluginKey } from '@/plugins/optimize-utils'
+import { generatePluginKey } from '~/markdown/plugins/optimize-utils'
 
 export const PreTitleName = 'PreTitle'
 

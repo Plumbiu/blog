@@ -1,7 +1,7 @@
 import { Link } from 'next-view-transitions'
 import Card from './Card'
 import styles from './NotFound.module.css'
-import { cn } from '@/utils/client'
+import { cn } from '@/lib/client'
 
 function NotFound() {
   return (

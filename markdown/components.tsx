@@ -1,14 +1,14 @@
 import type { Components } from 'hast-util-to-jsx-runtime'
 import type { ImageProps } from 'next/image'
-import MarkdownImage from '@/app/posts/components/Image'
-import { handleComponentName } from '@/plugins/constant'
-import { optimizeCodeProps } from '@/plugins/remark/code-utils'
-import { isUnOptimized, resolveAssetPath } from '@/utils'
+import MarkdownImage from '@/app/posts/ui/Image'
+import { handleComponentName } from '~/markdown/plugins/constant'
+import { optimizeCodeProps } from '~/markdown/plugins/remark/code-utils'
+import { isUnOptimized, resolveAssetPath } from '@/lib'
 import CustomComponent from '~/data/components'
-import PreComponent from '../components/Pre'
-import { getAssetImagePath } from '@/utils/node/fs'
+import PreComponent from '../src/components/Pre'
+import { getAssetImagePath } from '@/lib/node/fs'
 import getBlurDataUrl from '~/optimize/blurhash'
-import { getBase64Url } from '@/utils/client'
+import { getBase64Url } from '@/lib/client'
 
 export const markdownComponents: Partial<Components> = {
   pre(props) {

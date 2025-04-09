@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '@/utils/client'
+import { cn } from '@/lib/client'
 import {
   memo,
   type ReactNode,
@@ -18,9 +18,9 @@ import {
   SearchIcon,
   SearchSlashIcon,
 } from './Icons'
-import { upperFirstChar } from '@/utils'
+import { upperFirstChar } from '@/lib'
 import { Link } from 'next-view-transitions'
-import { entries } from '@/utils/types'
+import { entries } from '@/lib/types'
 
 interface SearchData {
   date: string

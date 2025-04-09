@@ -13,9 +13,9 @@ import {
   useRef,
   useState,
 } from 'react'
-import { getGalleryPhoto } from '@/plugins/remark/gallery-utils'
+import { getGalleryPhoto } from '~/markdown/plugins/remark/gallery-utils'
 import { ArrowLeftIcon, ArrowRightIcon, CloseIcon } from '@/components/Icons'
-import { cn, getBase64Url } from '@/utils/client'
+import { cn, getBase64Url } from '@/lib/client'
 import { makeBodyScroll, avoidBodyScroll } from '@/store/utils'
 import styles from './index.module.css'
 import useIsMobileDevice from '@/hooks/useIsMobileDevice'
@@ -149,7 +149,7 @@ function ImageGallery(props: any) {
   const sildeNodes = useMemo(() => {
     return photos.map(({ ops: optimizeSrc }, i) => {
       // preload images
-      if (!max || i < max ) {
+      if (!max || i < max) {
         preloadImage(i)
       }
       return <img key={optimizeSrc} src={optimizeSrc} alt={optimizeSrc} />

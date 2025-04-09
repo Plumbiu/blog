@@ -1,6 +1,6 @@
 import React, { createElement } from 'react'
-import { isJsxFileLike } from '@/utils'
-import { keys } from '@/utils/types'
+import { isJsxFileLike } from '@/lib'
+import { keys } from '@/lib/types'
 
 type Scope = Record<string, any>
 

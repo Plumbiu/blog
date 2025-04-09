@@ -2,7 +2,7 @@
 
 import { Link } from 'next-view-transitions'
 import { lazy, Suspense, useEffect, useRef, useState } from 'react'
-import { cn } from '@/utils/client'
+import { cn } from '@/lib/client'
 import { BlogAuthor, GithubRepoUrl } from '~/data/site'
 import { GithubIcon, MoonIcon, RssIcon, SearchIcon, SunIcon } from './Icons'
 import styles from './Header.module.css'

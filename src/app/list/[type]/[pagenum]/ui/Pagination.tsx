@@ -1,9 +1,9 @@
 import { Link } from 'next-view-transitions'
 import Card from '@/components/Card'
 import { ArrowLeftIcon, ArrowRightIcon } from '@/components/Icons'
-import type { PostList } from '@/utils/node/markdown'
+import type { PostList } from '@/lib/node/markdown'
 import styles from './Pagination.module.css'
-import { cn } from '@/utils/client'
+import { cn } from '@/lib/client'
 
 interface ArtlistPaginationProps {
   type: string

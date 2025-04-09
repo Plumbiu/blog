@@ -1,5 +1,5 @@
 import fsp from 'node:fs/promises'
-import { getPostByPostType } from '@/utils/node/markdown'
+import { getPostByPostType } from '@/lib/node/markdown'
 import feed from './feed'
 import { writeFileWithGit } from './utils.js'
 import { minify } from 'terser'

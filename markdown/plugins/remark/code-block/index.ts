@@ -1,7 +1,7 @@
 // !!! if you add some custom component here, remember modify plugins/mark-pre.ts
 import { visit } from 'unist-util-visit'
 import { transform, type Options } from 'sucrase'
-import { isJsxFileLike } from '@/utils'
+import { isJsxFileLike } from '@/lib'
 import minifyCodeSync from '~/optimize/minify-code'
 import {
   handlePlaygroundHidePreviewTabsKey,
@@ -22,7 +22,7 @@ import {
 } from '../../constant'
 import { getFirstFileKey, makeProperties } from '../../utils'
 import { SwitcherName } from './switcher-utils'
-import { entries, keys } from '@/utils/types'
+import { entries, keys } from '@/lib/types'
 import { handlePreTitleValue, PreTitleName } from './pre-title-utils'
 
 const transfromOptions: Options = {

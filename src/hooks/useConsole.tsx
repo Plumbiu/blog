@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react'
-import { getType } from '@/utils/types'
+import { getType } from '@/lib/types'
 
 export interface LogInfo {
   date: number

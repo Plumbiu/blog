@@ -11,7 +11,7 @@ import { hCode, markPre } from './mark-pre-utils'
 import { isSwitcher } from '../remark/code-block/switcher-utils'
 import { isRuner } from '../remark/runner-utils'
 import { isPreTitle } from '../remark/code-block/pre-title-utils'
-import { keys } from '@/utils/types'
+import { keys } from '@/lib/types'
 import { getSuffix } from '../utils'
 
 function markCustomComponentPre(node: Element) {

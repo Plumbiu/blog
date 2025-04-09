@@ -1,8 +1,8 @@
 import { Link } from 'next-view-transitions'
 import type { ReactNode } from 'react'
 import { PostDir } from '@/constants'
-import { upperFirstChar } from '@/utils'
-import { cn } from '@/utils/client'
+import { upperFirstChar } from '@/lib'
+import { cn } from '@/lib/client'
 import { BlogIcon, LifeIcon, SummaryIcon, NoteIcon } from '@/components/Icons'
 import styles from './Action.module.css'
 

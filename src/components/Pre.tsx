@@ -2,9 +2,9 @@
 
 import { type ReactNode, useCallback, useState } from 'react'
 import { CopyCheckIcon, CopyErrorIcon, CopyIcon } from '@/components/Icons'
-import { renderReactNodeToString } from '@/utils/client'
+import { renderReactNodeToString } from '@/lib/client'
 import styles from './Pre.module.css'
-import { cn } from '@/utils/client'
+import { cn } from '@/lib/client'
 
 interface PreComponentProps {
   children: ReactNode

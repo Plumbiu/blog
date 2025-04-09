@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { isString } from '@/utils/types'
+import { isString } from '@/lib/types'
 import { BlogAuthor, BlogUrl } from '~/data/site'
 
 export function generateSeoMetaData(meta: Metadata['openGraph']): Metadata {

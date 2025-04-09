@@ -15,11 +15,11 @@ import {
   handlePlaygroundCustomPreivew,
   handlePlaygroundHidePreviewTabsKey,
   handlePlaygroundStyles,
-} from '@/plugins/remark/code-block/playground-utils'
+} from '~/markdown/plugins/remark/code-block/playground-utils'
 import ReactShadowRoot from '@/components/Shadow'
 import useConsole from '@/hooks/useConsole'
 import useObserver from '@/hooks/useObservser'
-import { cn } from '@/utils/client'
+import { cn } from '@/lib/client'
 import styles from './index.module.css'
 import tabStyles from '../_styles/tab.module.css'
 import { renderStaticPlayground, renerPlayground } from './compile'
@@ -27,7 +27,10 @@ import CodeWrapper from '../_common/CodeWrapper'
 import Console from '../_common/Console'
 import { componentMap } from '..'
 import Loading from '../_common/Loading'
-import { handleComponentSelectorKey, handleFileMap } from '@/plugins/constant'
+import {
+  handleComponentSelectorKey,
+  handleFileMap,
+} from '~/markdown/plugins/constant'
 import CodePreview from '../_common/CodePreview'
 
 const Playground = (props: any) => {

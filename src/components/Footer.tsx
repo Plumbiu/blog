@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { cn } from '@/utils/client'
+import { cn } from '@/lib/client'
 import { BlogAuthor } from '~/data/site'
 import styles from './Footer.module.css'
 

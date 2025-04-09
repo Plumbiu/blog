@@ -1,7 +1,7 @@
 import fsp from 'node:fs/promises'
 import { spawnSync } from 'node:child_process'
 import pc from 'picocolors'
-import { arrayify } from '@/utils/types'
+import { arrayify } from '@/lib/types'
 
 export function gitadd(path: string | string[]) {
   path = arrayify(path)

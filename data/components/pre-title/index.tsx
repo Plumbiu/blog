@@ -1,6 +1,6 @@
-import { handlePreTitleValue } from '@/plugins/remark/code-block/pre-title-utils'
+import { handlePreTitleValue } from '~/markdown/plugins/remark/code-block/pre-title-utils'
 import styles from '../_common/CodeWrapper.module.css'
-import PreComponent from '@/app/posts/components/Pre'
+import PreComponent from '@/components/Pre'
 
 function PreTitle(props: any) {
   const title = handlePreTitleValue(props)

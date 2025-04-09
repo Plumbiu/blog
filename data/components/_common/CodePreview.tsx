@@ -3,14 +3,14 @@
 import type { TabProps, CodePreviewProps } from '../types'
 import { memo, useMemo, useState } from 'react'
 import tabStyles from '../_styles/tab.module.css'
-import { cn } from '@/utils/client'
+import { cn } from '@/lib/client'
 import {
   handleComponentSelectorKey,
   handleFileMapItemKey,
   handleFileMap,
-} from '@/plugins/constant'
-import PreComponent from '@/app/posts/components/Pre'
-import { isArray, keys } from '@/utils/types'
+} from '~/markdown/plugins/constant'
+import PreComponent from '@/components/Pre'
+import { isArray, keys } from '@/lib/types'
 
 const Tab = memo((props: TabProps) => {
   const { name, onClick, hidden = false, isActive } = props

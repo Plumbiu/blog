@@ -1,18 +1,18 @@
 'use client'
 
 import { createElement, lazy } from 'react'
-import { handleComponentName } from '@/plugins/constant'
+import { handleComponentName } from '~/markdown/plugins/constant'
 import IntersectionObserverComponent from '@/components/IntersectionObserverComponent'
 import Playground from './playground'
 import CodeRunner from './code-runner'
 import Switcher from './switcher'
 import PreTitle from './pre-title'
-import { PlaygroundName } from '@/plugins/remark/code-block/playground-utils'
-import { RunnerName } from '@/plugins/remark/runner-utils'
-import { GalleryName } from '@/plugins/remark/gallery-utils'
-import { SwitcherName } from '@/plugins/remark/code-block/switcher-utils'
-import { PreTitleName } from '@/plugins/remark/code-block/pre-title-utils'
-import { IframeName } from '@/plugins/remark/iframe-utils'
+import { PlaygroundName } from '~/markdown/plugins/remark/code-block/playground-utils'
+import { RunnerName } from '~/markdown/plugins/remark/runner-utils'
+import { GalleryName } from '~/markdown/plugins/remark/gallery-utils'
+import { SwitcherName } from '~/markdown/plugins/remark/code-block/switcher-utils'
+import { PreTitleName } from '~/markdown/plugins/remark/code-block/pre-title-utils'
+import { IframeName } from '~/markdown/plugins/remark/iframe-utils'
 
 const ThreeFirstScene = lazy(() => import('./three/ThreeFirstScene'))
 const ThreePureFirstScene = lazy(() => import('./three/ThreePureFirstScene'))

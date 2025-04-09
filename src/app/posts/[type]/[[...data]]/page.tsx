@@ -1,16 +1,16 @@
 import type { Metadata } from 'next'
-import { getCategory, removeMdSuffix, upperFirstChar } from '@/utils'
+import { getCategory, removeMdSuffix, upperFirstChar } from '@/lib'
 import NotFound from '@/components/NotFound'
-import { getPostsPath, getPostByPostType } from '@/utils/node/markdown'
+import { getPostsPath, getPostByPostType } from '@/lib/node/markdown'
 import type { FrontmatterKey } from '@/constants'
 import { generateSeoMetaData, joinWebUrl } from '@/app/seo'
 import styles from './page.module.css'
-import Toc from '../../components/Toc'
-import Meta from '../../components/Meta'
+import Toc from '../../ui/Toc'
+import Meta from '../../ui/Meta'
 import '../../styles/md.css'
 import '../../styles/shiki.css'
-import transfromCode2Jsx from '../../utils/transfrom'
-import Comment from '../../components/Comment'
+import transfromCode2Jsx from '../../../../../markdown/transfrom'
+import Comment from '../../ui/Comment'
 
 export async function generateStaticParams() {
   const mds = await getPostsPath()

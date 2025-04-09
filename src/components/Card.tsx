@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { Link } from 'next-view-transitions'
-import { cn } from '@/utils/client'
+import { cn } from '@/lib/client'
 import styles from './Card.module.css'
 
 interface CardProps {

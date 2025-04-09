@@ -1,16 +1,16 @@
 import type { Metadata } from 'next'
-import { upperFirstChar } from '@/utils'
-import { getPostByPostType } from '@/utils/node/markdown'
+import { upperFirstChar } from '@/lib'
+import { getPostByPostType } from '@/lib/node/markdown'
 import { PostDir } from '@/constants'
 import NotFound from '@/app/not-found'
 import { generateSeoMetaData, joinWebUrl } from '@/app/seo'
 import { MAX_PAGE_SIZE } from '@/app/list/constants'
 import { BlogTitle } from '~/data/site'
-import AsideLeft from './components/AsideLeft'
+import AsideLeft from './ui/AsideLeft'
 import { formatPostByYear } from './utils'
-import ArtlistAction from './components/Action'
-import ArtList from './components/List'
-import ArtlistPagination from './components/Pagination'
+import ArtlistAction from './ui/Action'
+import ArtList from './ui/List'
+import ArtlistPagination from './ui/Pagination'
 
 interface Params {
   type: string

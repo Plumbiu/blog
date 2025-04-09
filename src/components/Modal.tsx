@@ -3,7 +3,7 @@
 import { forwardRef, type HTMLAttributes } from 'react'
 import type { JSX } from 'react/jsx-runtime'
 import styles from './Modal.module.css'
-import { cn } from '@/utils/client'
+import { cn } from '@/lib/client'
 
 interface ModalProps extends HTMLAttributes<HTMLDivElement> {
   children: JSX.Element | undefined
