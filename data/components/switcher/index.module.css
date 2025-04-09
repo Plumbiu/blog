@@ -2,4 +2,5 @@
   border-radius: var(--pre-radius) var(--pre-radius) 0 0;
   overflow: hidden;
   border-right: none;
+  border-bottom: none;
 }

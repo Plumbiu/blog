@@ -4,7 +4,7 @@ import { getPostByPostType } from '@/lib/node/markdown'
 import { PostDir } from '@/constants'
 import NotFound from '@/app/not-found'
 import { generateSeoMetaData, joinWebUrl } from '@/app/seo'
-import { MAX_PAGE_SIZE } from '@/app/list/constants'
+import { MAX_PAGE_SIZE } from '@/app/list/[...slug]/constants'
 import { BlogTitle } from '~/data/site'
 import AsideLeft from './ui/AsideLeft'
 import { formatPostByYear } from './utils'
@@ -13,19 +13,19 @@ import ArtList from './ui/List'
 import ArtlistPagination from './ui/Pagination'
 
 interface Params {
-  type: string
-  pagenum: string
+  // [type, pagenum]
+  slug: string[]
 }
 export async function generateStaticParams() {
-  const result: Params[] = []
-
+  const result: Params[] = PostDir.map((type) => ({
+    slug: [type],
+  }))
   await Promise.all(
     PostDir.map(async (type) => {
       const post = await getPostByPostType(type)
       for (let i = 1; i <= Math.ceil(post.length / MAX_PAGE_SIZE); i++) {
         result.push({
-          type,
-          pagenum: String(i),
+          slug: [type, String(i)],
         })
       }
     }),
@@ -39,9 +39,9 @@ interface ListProps {
 
 async function ArtlistAll(props: ListProps) {
   const params = await props.params
-  const type = params.type
+  let [type, pagenum = 1] = params.slug
+  pagenum = +pagenum
 
-  const pagenum = +params.pagenum
   const allLists = await getPostByPostType(type)
   const floatLists = formatPostByYear(allLists)
   const pageCount = Math.ceil(allLists.length / MAX_PAGE_SIZE)
@@ -71,7 +71,9 @@ async function ArtlistAll(props: ListProps) {
 export default ArtlistAll
 
 export async function generateMetadata(props: ListProps): Promise<Metadata> {
-  const { type, pagenum } = await props.params
+  const params = await props.params
+  const [type, pagenum = 1] = params.slug
+
   const title = `${upperFirstChar(type || 'blog')} | ${BlogTitle}`
   return {
     title,

@@ -66,14 +66,6 @@ const nextConfig: NextConfig = {
         destination: '/list/blog/1',
       },
       {
-        source: '/list',
-        destination: '/list/blog/1',
-      },
-      {
-        source: '/list/:id',
-        destination: '/list/:id/1',
-      },
-      {
         source: '/feed',
         destination: '/rss.xml',
       },

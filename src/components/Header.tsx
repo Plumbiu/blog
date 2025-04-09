@@ -33,7 +33,7 @@ function Header() {
       <header ref={ref} className={styles.wrap}>
         <div className={styles.header}>
           <div className={cn(styles.left, styles.hover)}>
-            <Link aria-label="Home page" href="/list/blog/1" className="fcc">
+            <Link aria-label="Home page" href="/" className="fcc">
               {BlogAuthor}
             </Link>
           </div>

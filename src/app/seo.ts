@@ -21,7 +21,7 @@ export function joinWebUrl(...args: (string | number)[]) {
       continue
     }
     url += arg
-    if (isString(arg) && !arg.startsWith('/')) {
+    if (isString(arg) && arg[0] !== '/') {
       url += '/'
     }
   }

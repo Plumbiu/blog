@@ -1,6 +1,6 @@
 import type { Components } from 'hast-util-to-jsx-runtime'
 import type { ImageProps } from 'next/image'
-import MarkdownImage from '@/app/posts/ui/Image'
+import MarkdownImage from '@/app/posts/[...slug]/ui/Image'
 import { handleComponentName } from '~/markdown/plugins/constant'
 import { optimizeCodeProps } from '~/markdown/plugins/remark/code-utils'
 import { isUnOptimized, resolveAssetPath } from '@/lib'
