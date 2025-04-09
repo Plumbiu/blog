@@ -20,9 +20,9 @@ export interface PhotoNode {
   maxNum: number | undefined
 }
 
-export const GalleryPhotoKey = generatePluginKey('data-gallery')
+export const GalleryPhotoKey = generatePluginKey()
 export const GalleryName = 'Gallery'
-export const GalleryPhotoConfigKey = generatePluginKey('data-gallery-config')
+export const GalleryPhotoConfigKey = generatePluginKey()
 
 export function getGalleryPhoto(props: any): {
   photos: Photo[]

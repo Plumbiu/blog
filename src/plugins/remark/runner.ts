@@ -1,6 +1,6 @@
 import { transform, type Options } from 'sucrase'
 import { visit } from 'unist-util-visit'
-import { minifyCodeSync } from '@/utils/node/optimize'
+import minifyCodeSync  from '~/optimize/minify-code'
 import {
   handleRunCode,
   isJavaScript,

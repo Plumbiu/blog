@@ -8,5 +8,5 @@ export function isPreTitle(props: any) {
   return props[ComponentKey] === PreTitleName
 }
 
-const PreTitleKey = generatePluginKey(`${ComponentKey}${PreTitleName}-title`)
+const PreTitleKey = generatePluginKey()
 export const handlePreTitleValue = buildHandlerFunction<string>(PreTitleKey)

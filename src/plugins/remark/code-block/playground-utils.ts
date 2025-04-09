@@ -6,19 +6,11 @@ export const PlaygroundPrefix = 'playground'
 export const PlaygroundHidePreviewTabsName = 'no-preview-tab'
 export const PlaygroundHideCodeTabsName = 'no-code-tab'
 
-const PlaygroundHidePreviewKey = generatePluginKey(
-  `${PlaygroundPrefix}-hide-preview`,
-)
-const PlaygroundHidePreviewTabsKey = generatePluginKey(
-  `${PlaygroundPrefix}-${PlaygroundHidePreviewTabsName}`,
-)
-const PlaygroundHideCodeTabsKey = generatePluginKey(
-  `${PlaygroundPrefix}-${PlaygroundHideCodeTabsName}`,
-)
-const PlaygroundCustomPreivewKey = generatePluginKey(
-  `${PlaygroundPrefix}-custom-preview`,
-)
-const PlaygroundStyles = generatePluginKey(`${PlaygroundPrefix}-css`)
+const PlaygroundHidePreviewKey = generatePluginKey()
+const PlaygroundHidePreviewTabsKey = generatePluginKey()
+const PlaygroundHideCodeTabsKey = generatePluginKey()
+const PlaygroundCustomPreivewKey = generatePluginKey()
+const PlaygroundStyles = generatePluginKey()
 
 export const handlePlaygroundHidePreviewKey = buildHandlerFunction<
   boolean | undefined

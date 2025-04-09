@@ -1,25 +1,6 @@
 import sharp from 'sharp'
-import { minify_sync } from 'terser'
 
-export function minifyCodeSync(code: string) {
-  code = code.replace('"use strict";', '')
-  const mini = minify_sync(code, {
-    compress: {
-      ecma: 2018,
-      ie8: false,
-      unsafe_math: true,
-      unsafe_methods: true,
-      unsafe_proto: true,
-    },
-    mangle: { toplevel: true },
-  }).code
-  if (!mini) {
-    return code
-  }
-  return mini
-}
-
-export async function getBlurDataUrl(filePath: string) {
+export default async function getBlurDataUrl(filePath: string) {
   try {
     const image = sharp(filePath)
     const metadata = await image.metadata()

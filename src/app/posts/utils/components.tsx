@@ -7,7 +7,7 @@ import { isUnOptimized, resolveAssetPath } from '@/utils'
 import CustomComponent from '~/data/components'
 import PreComponent from '../components/Pre'
 import { getAssetImagePath } from '@/utils/node/fs'
-import { getBlurDataUrl } from '@/utils/node/optimize'
+import getBlurDataUrl from '~/optimize/blurhash'
 import { getBase64Url } from '@/utils/client'
 
 export const markdownComponents: Partial<Components> = {

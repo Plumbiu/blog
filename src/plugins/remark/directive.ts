@@ -2,7 +2,7 @@ import type { LeafDirective, ContainerDirective } from 'mdast-util-directive'
 import { visit } from 'unist-util-visit'
 import { getImageProps } from 'next/image'
 import { isString } from '@/utils/types'
-import { getBlurDataUrl } from '@/utils/node/optimize'
+import getBlurDataUrl from '~/optimize/blurhash'
 import { isUnOptimized, resolveAssetPath } from '@/utils'
 import { getAssetImagePath } from '@/utils/node/fs'
 import {

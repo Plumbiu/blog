@@ -2,7 +2,7 @@
 import { visit } from 'unist-util-visit'
 import { transform, type Options } from 'sucrase'
 import { isJsxFileLike } from '@/utils'
-import { minifyCodeSync } from '@/utils/node/optimize'
+import minifyCodeSync from '~/optimize/minify-code'
 import {
   handlePlaygroundHidePreviewTabsKey,
   PlaygroundName,
