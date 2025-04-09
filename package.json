@@ -23,7 +23,7 @@
     "is-plain-obj": "^4.1.0",
     "js-yaml": "^4.1.0",
     "lil-gui": "^0.20.0",
-    "next": "15.2.4",
+    "next": "15.2.5",
     "next-view-transitions": "^0.3.4",
     "octokit": "^4.1.2",
     "react": "19.1.0",
@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@next/bundle-analyzer": "15.2.4",
+    "@next/bundle-analyzer": "15.2.5",
     "@nimpl/classnames-minifier": "^4.0.0",
     "@swc/html": "1.11.18",
     "@types/hast": "^3.0.4",

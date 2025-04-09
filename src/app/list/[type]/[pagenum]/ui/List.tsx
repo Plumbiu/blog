@@ -3,12 +3,7 @@ import type { PostList } from '@/lib/node/markdown'
 import { TimeWordInfo } from '@/components/PostInfo'
 import styles from './List.module.css'
 import { DESC_MAX_LEN } from '@/app/list/constants'
-
-const localeMap: Record<string, string> = {
-  zh: '中文',
-  en: 'English',
-  ja: '日本語',
-}
+import { localeMap } from '~/config/locale'
 
 function ArtList({ lists }: { lists: [string, PostList[]][] }) {
   return lists.map(([year, post]) => (
