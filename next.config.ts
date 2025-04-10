@@ -38,6 +38,7 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
+    unoptimized: IS_GITPAGE,
     minimumCacheTTL: 31536000,
     remotePatterns: [
       {

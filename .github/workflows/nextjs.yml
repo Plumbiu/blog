@@ -60,14 +60,13 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            .next/cache
-            ./images
-            ./posts
+            images
+            posts
           # Generate a new cache whenever packages or source files change.
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}-${{ hashFiles('**/posts/**.md') }}-${{ hashFiles('**/images/**') }}
+          key: ${{ runner.os }}-nextjs--${{ hashFiles('**/posts/**.md') }}-${{ hashFiles('**/images/**') }}
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
+            ${{ runner.os }}-nextjs
       - name: Remove api routes and sitemap.ts
         run: rm -rf ./src/app/api ./src/app/sitemap.ts
       - name: Install dependencies
