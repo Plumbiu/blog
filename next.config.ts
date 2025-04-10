@@ -61,10 +61,6 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: '/',
-        destination: '/list/blog/1',
-      },
-      {
         source: '/feed',
         destination: '/rss.xml',
       },
