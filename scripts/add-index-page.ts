@@ -16,4 +16,4 @@ export default function Page() {
   )
 }
 `
-writeFileSync('src/app/index.tsx', content, { encoding: 'utf-8' })
+writeFileSync('src/app/page.tsx', content, { encoding: 'utf-8' })
