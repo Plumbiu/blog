@@ -12,12 +12,7 @@ import {
 } from 'react'
 import styles from './SearchPanel.module.css'
 import Modal from './Modal'
-import {
-  CopyErrorIcon,
-  KeyboardEscIcon,
-  SearchIcon,
-  SearchSlashIcon,
-} from './Icons'
+import { CopyErrorIcon, SearchIcon, SearchSlashIcon } from './Icons'
 import { upperFirstChar } from '@/lib'
 import { Link } from 'next-view-transitions'
 import { entries } from '@/lib/types'
@@ -45,7 +40,7 @@ interface SearchPanelProps {
   data?: SearchData[]
 }
 
-const InitialEmptyContent = 'Type to search'
+const InitialEmptyContent = 'No results'
 
 function SearchPanel({ data }: SearchPanelProps) {
   const hidden = useSearchPanelStore('hidden')
@@ -59,15 +54,6 @@ function SearchPanel({ data }: SearchPanelProps) {
   const contentRef = useRef<HTMLDivElement>(null)
   const label = useId()
 
-  const handleKeyDown = useCallback(
-    (e: WindowEventMap['keydown']) => {
-      if (e.key === 'Escape') {
-        hidden()
-      }
-    },
-    [hidden],
-  )
-
   useEffect(() => {
     if (!listRef.current?.length) {
       fetch('/api/search', {
@@ -77,12 +63,6 @@ function SearchPanel({ data }: SearchPanelProps) {
         .then((data: SearchData[]) => {
           listRef.current = data
         })
-    }
-
-    window.addEventListener('keydown', handleKeyDown)
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown)
     }
   }, [])
 
@@ -197,9 +177,7 @@ function SearchPanel({ data }: SearchPanelProps) {
           ))}
         </div>
         <div className={styles.footer}>
-          <div>
-            <KeyboardEscIcon /> to close
-          </div>
+          <div>Type to search</div>
         </div>
       </div>
     </Modal>
