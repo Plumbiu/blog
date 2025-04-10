@@ -59,7 +59,7 @@ const LoginGithub = memo(({ pathname }: CommentProps) => {
       onClick={(e) => {
         e.preventDefault()
         sessionStorage.setItem('prev-pathname', `${BlogUrl}${pathname}`)
-        sessionStorage.setItem('pre-scrollY', window.scrollY.toString())
+        sessionStorage.setItem('prev-scrollY', window.scrollY.toString())
         location.href = `https://github.com/login/oauth/authorize?client_id=${GithubClientId}&redirect_uri=${BlogUrl}api/oauth/redirect`
       }}
     >
