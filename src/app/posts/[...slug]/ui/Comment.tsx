@@ -215,7 +215,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
         href={`${GithubRepoUrl}/issues/${issueNumber}`}
         rel="noreferrer"
       >
-        去 issue 页面添加评论 <ExternalLinkIcon />
+        去 issue 页面查看/添加评论 <ExternalLinkIcon />
       </a>
     ),
     [],
