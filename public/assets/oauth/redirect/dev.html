@@ -22,10 +22,7 @@
       user_avatar && localStorage.setItem('user-avatar', user_avatar)
       const prevUrl = sessionStorage.getItem('prev-pathname')
       const prevScrollY = sessionStorage.getItem('prev-scrollY')
-      location.href = prevUrl
-      setTimeout(() => {
-        window.scrollTo(0, +prevScrollY)
-      }, 0)
+      location.href = prevUrl + `?prev-scrollY=${prevScrollY}`
     </script>
   </body>
 </html>

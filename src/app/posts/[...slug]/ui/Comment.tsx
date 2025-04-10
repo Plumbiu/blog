@@ -48,6 +48,8 @@ const timeago = (createdAt: string): string => {
 
 const IS_GITPAGE = !!process.env.GITPAGE
 
+const PrevScrollYKey = 'prev-scrollY'
+
 const LoginGithub = memo(({ pathname }: CommentProps) => {
   if (IS_GITPAGE) {
     return null
@@ -59,7 +61,7 @@ const LoginGithub = memo(({ pathname }: CommentProps) => {
       onClick={(e) => {
         e.preventDefault()
         sessionStorage.setItem('prev-pathname', `${BlogUrl}${pathname}`)
-        sessionStorage.setItem('prev-scrollY', window.scrollY.toString())
+        sessionStorage.setItem(PrevScrollYKey, window.scrollY.toString())
         location.href = `https://github.com/login/oauth/authorize?client_id=${GithubClientId}&redirect_uri=${BlogUrl}api/oauth/redirect`
       }}
     >
@@ -252,6 +254,14 @@ const Comment = memo(({ pathname }: CommentProps) => {
     }
     if (textareaRef.current) {
       textareaRef.current.value = ''
+    }
+  }, [])
+
+  useEffect(() => {
+    const query = new URLSearchParams(location.search)
+    const prevScrollY = query.get(PrevScrollYKey)
+    if (prevScrollY) {
+      window.scrollTo(0, +prevScrollY)
     }
   }, [])
 
