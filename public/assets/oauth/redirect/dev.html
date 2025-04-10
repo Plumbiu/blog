@@ -24,7 +24,7 @@
       const prevScrollY = sessionStorage.getItem('prev-scrollY')
       location.href = prevUrl
       setTimeout(() => {
-        window.scrollY(+prevScrollY)
+        window.scrollTo(0, +prevScrollY)
       }, 0)
     </script>
   </body>
