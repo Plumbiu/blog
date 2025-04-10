@@ -45,6 +45,7 @@ const InitialEmptyContent = 'No results'
 function SearchPanel({ data }: SearchPanelProps) {
   const hidden = useSearchPanelStore('hidden')
   const searchPanelVisible = useSearchPanelStore('visible')
+  const [mounted, setMounted] = useState(false)
   const [lists, setLists] = useState<ListType>([])
   const listRef = useRef<SearchData[]>(data)
   const [activePath, setActivePath] = useState<string>()
@@ -54,6 +55,10 @@ function SearchPanel({ data }: SearchPanelProps) {
   const contentRef = useRef<HTMLDivElement>(null)
   const label = useId()
 
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+ 
   useEffect(() => {
     if (!listRef.current?.length) {
       fetch('/api/search', {
@@ -111,7 +116,7 @@ function SearchPanel({ data }: SearchPanelProps) {
     },
     [search],
   )
-  if (!searchPanelVisible) {
+  if (!searchPanelVisible || !mounted) {
     return null
   }
   return (
