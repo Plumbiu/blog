@@ -1,7 +1,11 @@
+import { writeFileSync } from 'node:fs'
+
+const content = `
 import ArtlistAll from './list/[...slug]/page'
 
 export const dynamic = 'force-static'
 
+// fix gitpage 404
 export default function Page() {
   return (
     <ArtlistAll
@@ -11,3 +15,5 @@ export default function Page() {
     />
   )
 }
+`
+writeFileSync('src/app/index.tsx', content, { encoding: 'utf-8' })

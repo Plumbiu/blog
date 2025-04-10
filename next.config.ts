@@ -28,6 +28,7 @@ const AtomChartsetHeader = [
 
 const nextConfig: NextConfig = {
   basePath: BasePath,
+  assetPrefix: BasePath,
   serverExternalPackages: ['three', '@react-three/fiber', 'lil-gui'],
   poweredByHeader: false,
   eslint: {
@@ -38,7 +39,6 @@ const nextConfig: NextConfig = {
   },
   images: {
     minimumCacheTTL: 31536000,
-    path: `${BasePath}/_next/image`,
     remotePatterns: [
       {
         protocol: 'https',
@@ -60,6 +60,10 @@ const nextConfig: NextConfig = {
   },
   async rewrites() {
     return [
+      {
+        source: '/',
+        destination: '/list/blog/1',
+      },
       {
         source: '/feed',
         destination: '/rss.xml',

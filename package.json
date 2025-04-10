@@ -7,7 +7,8 @@
     "generate": "esno ./scripts/index.ts",
     "dev": "next dev --turbo",
     "build": "next build --experimental-app-only",
-    "build:gitpage": "cross-env GITPAGE=true next build",
+    "gitpage:gen-index-page": "esno ./scripts/add-index-page.ts",
+    "gitpage:build": "cross-env GITPAGE=true next build",
     "issue:update": "cross-env UPDATE_ISSUE=true esno ./scripts/issues.ts",
     "start": "next start",
     "analyze": "cross-env ANALYZE=true next build"

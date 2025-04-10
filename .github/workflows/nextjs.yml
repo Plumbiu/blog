@@ -68,10 +68,12 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
       - name: Remove api routes and sitemap.ts
         run: rm -rf ./src/app/api ./src/app/sitemap.ts
+      - name: Write index page
+        run: pnpm gitpage:gen-index-page
       - name: Install dependencies
         run: pnpm install
       - name: Build with Next.js
-        run: pnpm build:gitpage
+        run: pnpm gitpage:build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
