@@ -1,7 +1,7 @@
 import type { Text, InlineCode } from 'mdast'
 import { isNumber, isString } from '@/lib/types'
 import { injectNodeValue } from './utils'
-import vars from '../data/variable'
+import vars from '~/data/variables'
 
 const BracketStart = '${'
 const BracketEnd = '}'

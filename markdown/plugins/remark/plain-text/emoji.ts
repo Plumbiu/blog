@@ -1,6 +1,6 @@
 import type { Text, InlineCode } from 'mdast'
 import { injectNodeValue } from './utils'
-import emojilist from '../data/emoji'
+import emojilist from '~/data/emoji'
 
 const EmojiStart = ':'
 const EmojiEnd = EmojiStart
