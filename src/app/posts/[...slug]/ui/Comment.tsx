@@ -45,11 +45,16 @@ const timeago = (createdAt: string): string => {
   return ans
 }
 
+const IS_GITPAGE = !!process.env.GITPAGE
+
 const LoginGithub = memo(({ pathname }: CommentProps) => {
+  if (IS_GITPAGE) {
+    return null
+  }
   return (
     <button
       type="button"
-      className="fcc"
+      className={'fcc'}
       onClick={(e) => {
         e.preventDefault()
         sessionStorage.setItem('prev-pathname', `${BlogUrl}${pathname}`)

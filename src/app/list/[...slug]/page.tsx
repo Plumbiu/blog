@@ -42,16 +42,16 @@ async function ArtlistAll(props: ListProps) {
   let [type, pagenum = 1] = params.slug
   pagenum = +pagenum
 
-  const allLists = await getPostByPostType(type)
-  const floatLists = formatPostByYear(allLists)
-  const pageCount = Math.ceil(allLists.length / MAX_PAGE_SIZE)
+  const listData = await getPostByPostType(type)
+  const pageCount = Math.ceil(listData.length / MAX_PAGE_SIZE)
 
   if (pagenum > pageCount) {
     return <NotFound />
   }
+  const floatLists = formatPostByYear(listData)
 
   const showLists = formatPostByYear(
-    allLists.slice((pagenum - 1) * MAX_PAGE_SIZE, pagenum * MAX_PAGE_SIZE),
+    listData.slice((pagenum - 1) * MAX_PAGE_SIZE, pagenum * MAX_PAGE_SIZE),
   )
   return (
     <div className="center">
@@ -61,7 +61,7 @@ async function ArtlistAll(props: ListProps) {
       <ArtlistPagination
         type={type}
         pagenum={pagenum}
-        lists={allLists}
+        lists={listData}
         pageCount={pageCount}
       />
     </div>

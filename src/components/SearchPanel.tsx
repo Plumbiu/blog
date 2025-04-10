@@ -21,6 +21,7 @@ import {
 import { upperFirstChar } from '@/lib'
 import { Link } from 'next-view-transitions'
 import { entries } from '@/lib/types'
+import useSearchPanelStore from '@/store/search-panel'
 
 interface SearchData {
   date: string
@@ -41,14 +42,16 @@ const EmptyContent = memo(({ search }: { search: string }) => {
 
 type ListType = [string, SearchData[]][]
 interface SearchPanelProps {
-  setSearchVisible: (visible: boolean) => void
+  data?: SearchData[]
 }
 
 const InitialEmptyContent = 'Type to search'
 
-function SearchPanel({ setSearchVisible }: SearchPanelProps) {
-  const listRef = useRef<SearchData[]>(null)
+function SearchPanel({ data }: SearchPanelProps) {
+  const hidden = useSearchPanelStore('hidden')
+  const searchPanelVisible = useSearchPanelStore('visible')
   const [lists, setLists] = useState<ListType>([])
+  const listRef = useRef<SearchData[]>(data)
   const [activePath, setActivePath] = useState<string>()
   const [emptyContent, setEmptyContent] =
     useState<ReactNode>(InitialEmptyContent)
@@ -56,26 +59,25 @@ function SearchPanel({ setSearchVisible }: SearchPanelProps) {
   const contentRef = useRef<HTMLDivElement>(null)
   const label = useId()
 
-  const hide = useCallback(() => {
-    setSearchVisible(false)
-  }, [setSearchVisible])
   const handleKeyDown = useCallback(
     (e: WindowEventMap['keydown']) => {
       if (e.key === 'Escape') {
-        hide()
+        hidden()
       }
     },
-    [hide],
+    [hidden],
   )
 
   useEffect(() => {
-    fetch('/api/search', {
-      cache: 'force-cache',
-    })
-      .then((res) => res.json())
-      .then((data: SearchData[]) => {
-        listRef.current = data
+    if (!listRef.current?.length) {
+      fetch('/api/search', {
+        cache: 'force-cache',
       })
+        .then((res) => res.json())
+        .then((data: SearchData[]) => {
+          listRef.current = data
+        })
+    }
 
     window.addEventListener('keydown', handleKeyDown)
 
@@ -86,7 +88,7 @@ function SearchPanel({ setSearchVisible }: SearchPanelProps) {
 
   useEffect(() => {
     if (search.length > 0 && listRef.current) {
-      const lists = listRef.current!.filter((list) =>
+      const lists = listRef.current.filter((list) =>
         list.title.toLowerCase().includes(search.toLowerCase()),
       )
       if (lists.length === 0) {
@@ -105,7 +107,7 @@ function SearchPanel({ setSearchVisible }: SearchPanelProps) {
       setLists([])
       setEmptyContent(InitialEmptyContent)
     }
-  }, [search, listRef])
+  }, [search, data])
 
   const handleHihglight = useCallback(
     (text: string) => {
@@ -129,6 +131,9 @@ function SearchPanel({ setSearchVisible }: SearchPanelProps) {
     },
     [search],
   )
+  if (!searchPanelVisible) {
+    return null
+  }
   return (
     <Modal
       onClick={(e) => {
@@ -136,7 +141,7 @@ function SearchPanel({ setSearchVisible }: SearchPanelProps) {
         e.stopPropagation()
         const target = e.target as HTMLElement
         if (!contentRef.current!.contains(target)) {
-          hide()
+          hidden()
         }
       }}
     >
@@ -176,7 +181,7 @@ function SearchPanel({ setSearchVisible }: SearchPanelProps) {
                 {list.map(({ path, title, date }) => (
                   <Link
                     key={path}
-                    onClick={() => setSearchVisible(false)}
+                    onClick={() => hidden()}
                     href={`/${path}`}
                     onMouseEnter={() => setActivePath(path)}
                     className={cn(styles.list, {

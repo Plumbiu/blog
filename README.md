@@ -67,4 +67,4 @@ desc: The article introduction, it can be a number, indicating that the introduc
 Uncomment (./.github/workflows/nextjs.yml)[./.github/workflows/nextjs.yml] and edit the `RepoName` in [data/site.ts](/data/site.ts) file and `BasePath` in [next.config.ts](/next.config.ts) file.
 
 > [!WARNING]
-> Github pages only support static resources, [rewrites](https://nextjs.org/docs/app/api-reference/config/next-config-js/rewrites) will not work, see [next.config.ts](/next.config.ts)
+> Github pages do not support api routes, so comments can't log in to Github.

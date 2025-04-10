@@ -64,7 +64,6 @@ export async function getPostByPostType(postType?: string) {
   await Promise.all(
     mds.map(async (mdPath) => {
       const tokens = mdPath.split('/')
-      const mdName = tokens[tokens.length - 1]
       const type = getCategory(mdPath)
       if (postType != null && type !== postType) {
         return

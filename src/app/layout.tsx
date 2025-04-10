@@ -13,6 +13,8 @@ import '../styles/preset.css'
 import Footer from '@/components/Footer'
 import { mono } from './fonts'
 import { generateSeoMetaData } from './seo'
+import { getPostByPostType } from '@/lib/node/markdown'
+import SearchPanel from '@/components/SearchPanel'
 
 export const metadata: Metadata = {
   title: BlogTitle,
@@ -25,11 +27,28 @@ export const metadata: Metadata = {
   }),
 }
 
-export default function RootLayout({
+const IS_GITPAGE = !!process.env.GITPAGE
+
+const getSearchPanelData = async () => {
+  if (!IS_GITPAGE) {
+    return []
+  }
+  const allLists = await getPostByPostType()
+  const searchPanelData = allLists.map((item) => ({
+    date: new Date(item.meta.date).toISOString().split('T')[0],
+    title: item.meta.title,
+    path: item.path,
+    type: item.type,
+  }))
+  return searchPanelData
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: ReactNode
 }>) {
+  const searchData = await getSearchPanelData()
   return (
     <html lang="zh" suppressHydrationWarning>
       <head>
@@ -56,6 +75,7 @@ export default function RootLayout({
         </ViewTransitions>
         <ImageView />
         <Analytics />
+        <SearchPanel data={searchData} />
       </body>
     </html>
   )

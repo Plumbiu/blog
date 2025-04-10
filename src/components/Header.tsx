@@ -1,15 +1,13 @@
 'use client'
 
 import { Link } from 'next-view-transitions'
-import { lazy, Suspense, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { cn } from '@/lib/client'
 import { BlogAuthor, GithubRepoUrl } from '~/data/site'
 import { GithubIcon, MoonIcon, RssIcon, SearchIcon, SunIcon } from './Icons'
 import styles from './Header.module.css'
 import { usePathname } from 'next/navigation'
-import ModalLoading from './ModalLoading'
-
-const SearchPanel = lazy(() => import('./SearchPanel'))
+import useSearchPanelStore from '@/store/search-panel'
 
 const rightData = [
   { href: '/rss.xml', children: <RssIcon />, target: '_blank' },
@@ -22,67 +20,60 @@ function Header() {
   const ref = useRef<HTMLHeadingElement>(null)
   const [theme, setTheme] = useState<string>()
   const pathanme = usePathname()
-  const [searchVisible, setSearchVisible] = useState(false)
+  const showSearchPanel = useSearchPanelStore('show')
 
   useEffect(() => {
     setTheme(window.getLocalTheme()!)
   }, [])
 
   return (
-    <>
-      <header ref={ref} className={styles.wrap}>
-        <div className={styles.header}>
-          <div className={cn(styles.left, styles.hover)}>
-            <Link aria-label="Home page" href="/" className="fcc">
-              {BlogAuthor}
-            </Link>
-          </div>
-          <div className={styles.right}>
-            {theme && (
-              <div
-                className={styles.hover}
-                onClick={() => {
-                  const nextTheme =
-                    theme === window.Dark ? window.Light : window.Dark
-                  setTheme(nextTheme)
-                  window.setTheme(nextTheme)
-                }}
-              >
-                {theme === window.Dark ? <SunIcon /> : <MoonIcon />}
-              </div>
-            )}
+    <header ref={ref} className={styles.wrap}>
+      <div className={styles.header}>
+        <div className={cn(styles.left, styles.hover)}>
+          <Link aria-label="Home page" href="/" className="fcc">
+            {BlogAuthor}
+          </Link>
+        </div>
+        <div className={styles.right}>
+          {theme && (
             <div
               className={styles.hover}
               onClick={() => {
-                setSearchVisible(true)
+                const nextTheme =
+                  theme === window.Dark ? window.Light : window.Dark
+                setTheme(nextTheme)
+                window.setTheme(nextTheme)
               }}
             >
-              <SearchIcon />
+              {theme === window.Dark ? <SunIcon /> : <MoonIcon />}
             </div>
-            {rightData.map((data) => (
-              <Link
-                key={data.href}
-                href={data.href}
-                target={data.target}
-                className={cn(styles.hover, {
-                  [styles.active]: pathanme === data.href,
-                  [styles.mobile]:
-                    data.href === '/rss.xml' || data.href === '/links',
-                })}
-                prefetch={data.href !== '/rss.xml'}
-              >
-                {data.children}
-              </Link>
-            ))}
+          )}
+          <div
+            className={styles.hover}
+            onClick={() => {
+              showSearchPanel()
+            }}
+          >
+            <SearchIcon />
           </div>
+          {rightData.map((data) => (
+            <Link
+              key={data.href}
+              href={data.href}
+              target={data.target}
+              className={cn(styles.hover, {
+                [styles.active]: pathanme === data.href,
+                [styles.mobile]:
+                  data.href === '/rss.xml' || data.href === '/links',
+              })}
+              prefetch={data.href !== '/rss.xml'}
+            >
+              {data.children}
+            </Link>
+          ))}
         </div>
-      </header>
-      <Suspense
-        fallback={<ModalLoading hide={() => setSearchVisible(false)} />}
-      >
-        {searchVisible && <SearchPanel setSearchVisible={setSearchVisible} />}
-      </Suspense>
-    </>
+      </div>
+    </header>
   )
 }
 
