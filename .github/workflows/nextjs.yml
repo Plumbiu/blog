@@ -10,11 +10,12 @@
 #     branches: ['main']
 #     paths:
 #       - '.github/**'
-#       - 'post/**'
+#       - 'posts/**'
 #       - 'public/**'
 #       - 'scripts/**'
+#       - 'markdown/**'
 #       - 'src/**'
-#       - 'next.config.js'
+#       - 'next.config.ts'
 #       - 'postcss.config.js'
 #       - 'package.json'
 #       - 'pnpm-lock.yaml'
