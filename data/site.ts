@@ -21,3 +21,6 @@ export const BasePath = IS_GITPAGE ? `/${GithubRepoName}` : ''
 
 // Google Search Console
 export const GSC = 'cLcOnIeQ4g4EzFOatuj_bf8zVqruuH4ZYgrnTSgVR_k'
+
+// Github app client id
+export const GithubClientId = 'Iv23liwjsrIfaRQuewBK'

@@ -9,6 +9,7 @@ import issueMap from '~/data/issues.json'
 import useObserver from '@/hooks/useObservser'
 import { isArray, isString } from '@/lib/types'
 import { ExternalLinkIcon, GithubIcon } from '@/components/Icons'
+import { GithubClientId } from '~/data/site'
 
 const reactionsMap: Record<string, string> = {
   '+1': '👍',
@@ -58,7 +59,7 @@ const LoginGithub = memo(({ pathname }: CommentProps) => {
       onClick={(e) => {
         e.preventDefault()
         sessionStorage.setItem('prev-pathname', `${BlogUrl}${pathname}`)
-        location.href = `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}&redirect_uri=${BlogUrl}api/oauth/redirect`
+        location.href = `https://github.com/login/oauth/authorize?client_id=${GithubClientId}&redirect_uri=${BlogUrl}api/oauth/redirect`
       }}
     >
       <GithubIcon fontSize={24} />
