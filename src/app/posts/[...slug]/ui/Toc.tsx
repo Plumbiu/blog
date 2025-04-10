@@ -43,8 +43,17 @@ function Toc() {
     }
     const top = (listDom.children?.[i] as any)?.offsetTop
     if (top) {
+      const scrollHeight = tocDom.scrollHeight
+      const viewHeight = tocDom.clientHeight
+      let data = top / 2
+      if (scrollHeight - top + 36 < viewHeight) {
+        data = scrollHeight
+      } else if (top - 32 < viewHeight) {
+        data = 0
+      }
+
       tocDom?.scrollTo({
-        top: top / 2 - 16,
+        top: data,
       })
     }
   }, [])
