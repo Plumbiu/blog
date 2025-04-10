@@ -6,11 +6,11 @@ import { avoidBodyScroll, makeBodyScroll } from './utils'
 const useSearchPanelStore = createStore({
   visible: false,
   show() {
-    makeBodyScroll(this.hidden)
+    avoidBodyScroll(this.hidden)
     this.$set({ visible: true })
   },
   hidden() {
-    avoidBodyScroll(this.hidden)
+    makeBodyScroll(this.hidden)
     this.$set({ visible: false })
   },
 })
