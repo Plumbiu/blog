@@ -51,11 +51,11 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
         # with:
-          # Automatically inject basePath in your Next.js configuration file and disable
-          # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
-          #
-          # You may remove this line if you want to manage the configuration yourself.
-          # static_site_generator: next
+        # Automatically inject basePath in your Next.js configuration file and disable
+        # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
+        #
+        # You may remove this line if you want to manage the configuration yourself.
+        # static_site_generator: next
       - name: Restore cache
         uses: actions/cache@v4
         with:
@@ -66,6 +66,8 @@ jobs:
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
+      - name: Remove api routes and sitemap.ts
+        run: rm -rf ./src/app/api ./src/app/sitemap.ts
       - name: Install dependencies
         run: pnpm install
       - name: Build with Next.js

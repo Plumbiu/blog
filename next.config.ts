@@ -46,7 +46,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  output: IS_GITPAGE ? 'export' : undefined,
   async headers() {
     return [
       {
@@ -89,6 +88,12 @@ const nextConfig: NextConfig = {
   },
 }
 
-module.exports = IsDev
+const config: NextConfig = IsDev
   ? nextConfig
   : withClassnamesMinifier(withBundleAnalyzer(nextConfig))
+
+if (IS_GITPAGE) {
+  config.output = 'export'
+}
+
+export default config

@@ -8,6 +8,8 @@ function lastModified(date: string | number): string {
   return new Date(date).toISOString().split('T')[0]
 }
 
+export const dynamic = 'force-static'
+
 async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = Date.now()
   const routes: MetadataRoute.Sitemap = [
