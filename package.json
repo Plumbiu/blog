@@ -14,12 +14,12 @@
     "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
-    "@mdx-js/mdx": "^3.1.0",
     "@octokit/auth-oauth-app": "^8.1.3",
     "@plumbiu/react-store": "^0.9.3",
     "@react-three/fiber": "9.1.2",
     "@shikijs/transformers": "3.2.1",
     "@vercel/analytics": "^1.5.0",
+    "hast-util-to-jsx-runtime": "^2.3.6",
     "hast-util-to-string": "^3.0.1",
     "htmlparser2": "^10.0.0",
     "is-plain-obj": "^4.1.0",
@@ -33,6 +33,8 @@
     "react-photo-album": "3.1.0",
     "remark-directive": "4.0.0",
     "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "11.1.2",
     "sharp": "0.34.1",
     "shiki": "3.2.1",
     "shiki-class-transformer": "^0.3.0",

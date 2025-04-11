@@ -26,7 +26,7 @@ export function makeProperties(node: CommonReamrkNode) {
 
 export function buildHandlerFunction<T>(key: string, fn?: Function) {
   return (props: any, value?: string | boolean | number): T => {
-    const v = props?.[key]
+    const v = props[key]
     if (value == null) {
       if (fn && v) {
         return fn(v)

@@ -40,7 +40,7 @@ export function buildCamera(x: number, y: number, z: number) {
 
 # Rotating cube
 
-```tsx Playground path="custom/three/ThreePureFirstScene' component="ThreePureFirstScene"
+```tsx Playground path='three/ThreePureFirstScene' component="ThreePureFirstScene"
 
 ```
 
@@ -63,7 +63,7 @@ function animate() {
 
 > 注意，如果使用之前的 `animate` 函数不断调用渲染器的 `render` 方法渲染的，是不需要为 `OrbitControls` 添加 `change` 事件的。
 
-```tsx Playground path="custom/three/ThreeControlPureFirstScene' component='ThreeControlPureFirstScene' {23-25}
+```tsx Playground path='three/ThreeControlPureFirstScene' component='ThreeControlPureFirstScene' {23-25}
 
 ```
 
@@ -71,25 +71,25 @@ function animate() {
 
 `MeshBasicMaterial` 不受光源影响，需要设置为 `MeshStandardMaterial`。
 
-```tsx Playground path="custom/three/ThreeLightPureFirstScene' component='ThreeLightPureFirstScene' {14,26-43}
+```tsx Playground path='three/ThreeLightPureFirstScene' component='ThreeLightPureFirstScene' {14,26-43}
 
 ```
 
 # Drawing lines
 
-```tsx Playground path="custom/three/ThreePureLine' component='ThreePureLine'
+```tsx Playground path='three/ThreePureLine' component='ThreePureLine'
 
 ```
 
 # Box with edge
 
-```tsx Playground path="custom/three/ThreeLearnPrimitivesBox' component='ThreeLearnPrimitivesBox'
+```tsx Playground path='three/ThreeLearnPrimitivesBox' component='ThreeLearnPrimitivesBox'
 
 ```
 
 # Render Text
 
-```tsx Playground path="custom/three/ThreePureText' component='ThreePureText'
+```tsx Playground path='three/ThreePureText' component='ThreePureText'
 
 ```
 
@@ -105,7 +105,7 @@ three.js 内置了 [`GLTFLoader`](https://threejs.org/docs/index.html#examples/z
 
 另外一些环境贴图加载器也是必须的，例如 [`RGBELoader`](https://threejs.org/docs/index.html#api/zh/loaders/DataTextureLoader) 可以加载高动态范围（HDR）环境贴图，通常用于创建更逼真的光照和反射效果，详见 [wiki](https://en.wikipedia.org/wiki/RGBE_image_format)。
 
-```tsx Playground path="custom/three/ThreePureModel' component='ThreePureModel'
+```tsx Playground path='three/ThreePureModel' component='ThreePureModel'
 
 ```
 
@@ -123,6 +123,6 @@ three.js 内置了 [`GLTFLoader`](https://threejs.org/docs/index.html#examples/z
 
 这里的重点在于**局部空间**，参考下面第 22、25 行代码，如果我们将 `sun` 放大五倍，作为子节点的 `earth` 也会放大五倍，同理 `moon` 也会放大五倍，为了避免缩放之间互相影响，我们使用了 [`Object3D`](https://threejs.org/docs/index.html?q=Object3D#api/zh/core/Object3D)将对象进行了**组合**，这样每个图元就不会互相影响了。
 
-```tsx Playground path="custom/three/ThreeSunEarthMoon' component='ThreeSunEarthMoon' line {22,25}
+```tsx Playground path='three/ThreeSunEarthMoon' component='ThreeSunEarthMoon' line {22,25}
 
 ```

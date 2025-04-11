@@ -1,6 +1,6 @@
 import type { LogInfo } from '@/hooks/useConsole'
 import { getType } from '@/lib/types'
-import { transfromLogValue } from '../../utils'
+import { transfromLogValue } from '../utils'
 
 addEventListener('message', (event: MessageEvent<string>) => {
   const result: LogInfo[] = []

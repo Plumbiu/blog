@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef, Suspense, createElement, memo } from 'react'
-import Loading from '~/data/components/generic/_common/Loading'
+import Loading from '~/data/components/_common/Loading'
 import useObserver from '../hooks/useObservser'
 
 interface IntersectionCustomComponentProps {

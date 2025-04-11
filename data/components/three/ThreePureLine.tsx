@@ -1,29 +1,34 @@
-'use client'
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/Addons.js'
 import { buildCamera, buildRenderer } from './utils'
 
-function ThreeControlPureFirstScene() {
+function PureLine() {
   const containerRef = useRef<HTMLDivElement>(null)
-
   useEffect(() => {
     const renderer = buildRenderer(containerRef)
+    const material = new THREE.LineBasicMaterial({ color: 0xff0000 })
+    const points: THREE.Vector3[] = []
+    points.push(
+      ...[
+        new THREE.Vector3(-5, 0, 0),
+        new THREE.Vector3(0, 5, 0),
+        new THREE.Vector3(5, 0, 0),
+      ],
+    )
+    const geometry = new THREE.BufferGeometry().setFromPoints(points)
+    const line = new THREE.Line(geometry, material)
+    const camera = buildCamera(10, 10, 10)
     const scene = new THREE.Scene()
-    const geometry = new THREE.BoxGeometry(4, 4, 4)
-    const material = new THREE.MeshBasicMaterial({ color: 0xff0000 })
-    const cube = new THREE.Mesh(geometry, material)
-    scene.add(cube)
+
+    const controls = new OrbitControls(camera, renderer.domElement)
+    controls.addEventListener('change', render)
+    controls.update()
+
+    scene.add(line)
     function render() {
       renderer.render(scene, camera)
     }
-    const camera = buildCamera(5, 5, 10)
-
-    const controls = new OrbitControls(camera, renderer.domElement)
-    controls.update()
-    controls.addEventListener('change', render)
-    const axis = new THREE.AxesHelper(5)
-    scene.add(axis)
     render()
 
     return () => {
@@ -34,4 +39,4 @@ function ThreeControlPureFirstScene() {
   return <div ref={containerRef} />
 }
 
-export default ThreeControlPureFirstScene
+export default PureLine

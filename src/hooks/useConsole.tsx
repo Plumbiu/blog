@@ -1,4 +1,3 @@
-'use client'
 import { useCallback, useState } from 'react'
 import { getType } from '@/lib/types'
 

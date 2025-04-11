@@ -77,7 +77,7 @@ export default Test2
 
 ### meta
 
-```js Playground path="custom/three/ThreeLearnPrimitivesBox" component="ThreeLearnPrimitivesBox"
+```js Playground path="three/ThreeLearnPrimitivesBox" component="ThreeLearnPrimitivesBox"
 
 ```
 
@@ -191,7 +191,7 @@ console.log('goodbye')
 
 ### Local
 
-```jsx path="generic/iframe/index"
+```jsx path="iframe/index"
 
 ```
 
@@ -314,7 +314,27 @@ threejs/wall.jpg
 
 # Injection and Table
 
+## Variable
 
+| Expression        | Text             | Code               | Blod                 | Link                           |
+| ----------------- | ---------------- | ------------------ | -------------------- | ------------------------------ |
+| $\{foo}           | ${foo}           | `${foo}`           | **${foo}**           | [${foo}](#injection)           |
+| $\{bar.test.a}    | ${bar.test.a}    | `${bar.test.a}`    | **${bar.test.a}**    | [${bar.test.a}](#injection)    |
+| $\{bar['test'].a} | ${bar['test'].a} | `${bar['test'].a}` | **${bar['test'].a}** | [${bar['test'].a}](#injection) |
+
+Object:
+
+| Expression      | Text           | Code             | Blod               |
+| --------------- | -------------- | ---------------- | ------------------ |
+| $\{bar.test}    | ${bar.test}    | `${bar.test}`    | **${bar.test}**    |
+| $\{bar['test']} | ${bar['test']} | `${bar['test']}` | **${bar['test']}** |
+
+## Emoji
+
+| Expression | Text    | Code      | Blod        |
+| ---------- | ------- | --------- | ----------- |
+| \:smile\:  | :smile: | `:smile:` | **:smile:** |
+| \:hugs\:   | :hugs:  | `:hugs:`  | **:hugs:**  |
 
 # Video
 

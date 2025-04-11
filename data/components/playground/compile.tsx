@@ -1,5 +1,3 @@
-'use client'
-
 import React, { createElement } from 'react'
 import { isJsxFileLike } from '@/lib'
 import { keys } from '@/lib/types'

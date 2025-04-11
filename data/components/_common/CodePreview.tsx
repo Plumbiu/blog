@@ -1,6 +1,6 @@
 'use client'
 
-import type { TabProps, CodePreviewProps } from '../../types'
+import type { TabProps, CodePreviewProps } from '../types'
 import { memo, useMemo, useState } from 'react'
 import tabStyles from '../_styles/tab.module.css'
 import { cn } from '@/lib/client'

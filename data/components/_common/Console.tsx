@@ -1,11 +1,9 @@
-'use client'
-
 import { memo, useMemo } from 'react'
 import { cn } from '@/lib/client'
 import type { LogInfo } from '@/hooks/useConsole'
 import { isString } from '@/lib/types'
 import styles from './Console.module.css'
-import { transfromLogValue } from '../../utils'
+import { transfromLogValue } from '../utils'
 
 export function padStartZero(str: number | string, num = 2) {
   if (!isString(str)) {
