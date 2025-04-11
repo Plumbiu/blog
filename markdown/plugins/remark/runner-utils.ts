@@ -1,5 +1,5 @@
 import { ComponentKey } from '../constant'
-import { generatePluginKey } from '../optimize-utils'
+import { generatePluginKey } from '../generate-key'
 import { buildHandlerFunction } from '../utils'
 
 export const RunCodeKey = generatePluginKey('run-code')

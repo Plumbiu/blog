@@ -99,15 +99,7 @@ export const remarkContainerDirectivePlugin: RemarkPlugin = () => {
         })
       }),
     )
-    visit(tree, 'textDirective', (node, _index, parent) => {
-      if (!parent) {
-        return
-      }
-      parent.type = 'root'
-      makeProperties(node)
-      node.data!.hName = 'div'
-      node.data!.hProperties![ComponentKey] = node.name
-    })
+
     visit(tree, 'leafDirective', (node, _index, parent) => {
       if (!parent) {
         return

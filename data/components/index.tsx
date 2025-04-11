@@ -88,6 +88,10 @@ export const componentMap: Record<string, any> = {
   ThreePureAmbientLight,
 }
 
+if (process.env.NODE_ENV === 'development') {
+  componentMap.PropsShow = lazy(() => import('./_test/PropsShow'))
+}
+
 const SyncComponentSet = new Set([Playground, CodeRunner, Switcher, PreTitle])
 
 function CustomComponent(props: any) {

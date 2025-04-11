@@ -14,6 +14,7 @@ import remarkCodeConfig from '~/markdown/plugins/remark/code'
 import { remarkPlainText } from '~/markdown/plugins/remark/plain-text/index'
 import { markdownComponents } from './components'
 import remarkCodeBlcok from '~/markdown/plugins/remark/code-block'
+import remarkHtmlParser from './plugins/remark/html-parse'
 
 // This code is refactored into TypeScript based on
 // https://github.com/remarkjs/react-markdown/blob/main/lib/index.js
@@ -55,6 +56,7 @@ async function transfromCode2Jsx(code: string) {
       remarkCodeBlcok,
       remarkRunner,
       [remarkPlainText, code],
+      remarkHtmlParser,
     ])
     .use(remarkRehype)
     .use([rehypeElementPlugin, rehypeShikiHighlight])

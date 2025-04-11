@@ -210,7 +210,7 @@ console.log(1)
 
 # Custom Component
 
-:ThreeSunEarthMoon
+<ThreeSunEarthMoon a="1" />
 
 # Tip
 

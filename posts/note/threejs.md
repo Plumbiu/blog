@@ -104,15 +104,15 @@ const material = new THREE.MeshPhongMaterial({
 - `MeshLamertMaterial`：只在顶点计算光照
 - `MeshPhongMaterial`：每个像素计算光照，还支持镜面高光
 
-:ThreeMaterialKinds
+<ThreeMaterialKinds />
 
 另外 `MeshPhongMaterial` 的 `shininess` 属性决定了镜面高光的光泽度，默认 30。
 
-:ThreeMaterialKindsShininess
+<ThreeMaterialKindsShininess />
 
 另外一种材质 `MeshToonMaterial`，它与 `MeshPhongMaterial`，但是它不是平滑地着色，而是使用一种渐变图（一个 X 乘 1 的纹理）来决定如何着色。
 
-:ThreeMaterialToonKind
+<ThreeMaterialToonKind />
 
 上面的材质是使用简单的数学来制作，看起来是 3D 的，但并不是现实世界存在的，下面 2 中是基于物理引擎（_Physically Based Rendering_，简称 PBR）的材质：
 
@@ -148,11 +148,11 @@ loader.load('/threejs/images/wall.jpg', (texture) => {
 
 例如：
 
-:ThreeTexture
+<ThreeTexture />
 
 另外，我们可以指定多种纹理，例如每个立方体面都有不同纹理：
 
-:ThreeTextureMulti
+<ThreeTextureMulti />
 
 **只需要定义 `materials` 数组即可**
 
@@ -203,7 +203,7 @@ const mesh = new Mesh(geometry, materials)
 
 学习光照之前，我们可以尝试一下 `lil-gui`，它是一个悬浮的可以控制 threejs 参数的面板，方便我们观察不同参数的 3D 效果，例如：
 
-:ThreeLilGuiFirst
+<ThreeLilGuiFirst />
 
 核心代码：
 

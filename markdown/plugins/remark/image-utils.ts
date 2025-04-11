@@ -1,4 +1,4 @@
-import { generatePluginKey } from '../optimize-utils'
+import { generatePluginKey } from '../generate-key'
 import { buildHandlerFunction } from '../utils'
 
 const ImageWidthKey = generatePluginKey('width')

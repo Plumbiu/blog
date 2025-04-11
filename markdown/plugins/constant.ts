@@ -3,7 +3,7 @@ import type { Plugin } from 'unified'
 import type { Root } from 'hast'
 import type { Root as RemarkRoot } from 'mdast'
 import { buildHandlerFunction } from './utils'
-import { generatePluginKey } from './optimize-utils'
+import { generatePluginKey } from './generate-key'
 
 export const ComponentKey = generatePluginKey('cmp-key')
 export const handleComponentName = buildHandlerFunction<string>(ComponentKey)
@@ -21,6 +21,11 @@ export const handleComponentMeta =
 
 export const ComponentLangKey = generatePluginKey('cmp-lang')
 export const handleLang = buildHandlerFunction<string>(ComponentLangKey)
+
+export const ComponentPropsKey = generatePluginKey('cmp-props')
+export const handleComponentProps = buildHandlerFunction<
+  Record<string, string>
+>(ComponentPropsKey, JSON.parse)
 
 export type FileMap = Record<
   string,

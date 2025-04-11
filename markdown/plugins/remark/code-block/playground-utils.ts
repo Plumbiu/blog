@@ -1,4 +1,4 @@
-import { generatePluginKey } from '~/markdown/plugins/optimize-utils'
+import { generatePluginKey } from '~/markdown/plugins/generate-key'
 import { ComponentKey, type FileMap, FileMapStartStr } from '../../constant'
 import { buildHandlerFunction, getFirstLine } from '../../utils'
 

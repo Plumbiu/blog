@@ -3,11 +3,12 @@ import {
   FileMapItemKey,
   ComponentLangKey,
   ComponentMetaKey,
-} from '../constant'
+  ComponentPropsKey,
+} from './constant'
 
 // Some prop only work in remark or rehype, it run on server side
 // delete it for optimize client side
-export function optimizeCodeProps(props: any) {
+export function optimizeProps(props: any) {
   if (!props) {
     return
   }
@@ -15,4 +16,5 @@ export function optimizeCodeProps(props: any) {
   delete props[ComponentLangKey]
   delete props[ComponentMetaKey]
   delete props[FileMapItemKey]
+  delete props[ComponentPropsKey]
 }

@@ -1,5 +1,5 @@
 import type { ContainerDirective } from 'mdast-util-directive'
-import { generatePluginKey } from '../optimize-utils'
+import { generatePluginKey } from '../generate-key'
 
 export interface Photo {
   // width

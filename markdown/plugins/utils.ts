@@ -28,7 +28,7 @@ export function buildHandlerFunction<T>(key: string, fn?: Function) {
   return (props: any, value?: string | boolean | number): T => {
     const v = props[key]
     if (value == null) {
-      if (fn) {
+      if (fn && v) {
         return fn(v)
       }
     } else {
