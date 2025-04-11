@@ -47,9 +47,6 @@ const ThreePureAmbientLight = lazy(
   () => import('./custom/three/ThreePureAmbientLight'),
 )
 
-const Gallery = lazy(() => import('./generic/gallery/index'))
-const Iframe = lazy(() => import('./generic/iframe/index'))
-
 export const customComponentMap: Record<string, any> = {
   // Three.js
   ThreeLearnPrimitivesBox,

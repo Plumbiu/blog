@@ -1,7 +1,6 @@
 'use client'
 
 import { handleComponentName } from '~/markdown/plugins/constant'
-import { customComponentMap } from './custom-components'
 import { createElement } from 'react'
 import IntersectionObserverComponent from '@/components/IntersectionObserverComponent'
 import { genericComponentsMap } from './generic-components'
@@ -19,8 +18,7 @@ const SyncComponentSet = new Set([
 
 function CustomComponent(props: any) {
   const componentName = handleComponentName(props)
-  const value =
-    customComponentMap[componentName] ?? genericComponentsMap[componentName]
+  const value = genericComponentsMap[componentName]
 
   if (value) {
     if (SyncComponentSet.has(componentName)) {
