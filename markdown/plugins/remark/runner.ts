@@ -1,11 +1,11 @@
 import { transform, type Options } from 'sucrase'
 import { visit } from 'unist-util-visit'
-import minifyCodeSync  from '~/optimize/minify-code'
+import minifyCodeSync from '~/optimize/minify-code'
 import {
   handleRunCode,
   isJavaScript,
   isTypeScript,
-  RunnerName,
+  CodeRunnerName,
 } from './runner-utils'
 import {
   handleComponentCode,
@@ -26,7 +26,7 @@ const remarkRunner: RemarkPlugin = () => {
       const props = node.data!.hProperties!
       let code = node.value.trim()
       const meta = node.meta
-      if (!meta?.includes(RunnerName)) {
+      if (!meta?.includes(CodeRunnerName)) {
         return
       }
       handleComponentCode(props, code)
@@ -47,7 +47,7 @@ const remarkRunner: RemarkPlugin = () => {
       // @ts-ignore
       node.type = 'root'
       node.data!.hName = 'div'
-      handleComponentName(props, RunnerName)
+      handleComponentName(props, CodeRunnerName)
       handleComponentMeta(props, meta)
       handleRunCode(props, minifyCodeSync(code))
     })

@@ -15,8 +15,8 @@ export function isJavaScript(lang: string) {
   return lang === 'js' || lang === 'javascript'
 }
 
-export const RunnerName = 'Run'
+export const CodeRunnerName = 'Run'
 
 export function isRuner(props: any) {
-  return props[ComponentKey] === RunnerName
+  return props[ComponentKey] === CodeRunnerName
 }

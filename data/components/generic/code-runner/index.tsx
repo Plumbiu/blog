@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useRef, useState } from 'react'
 import type { LogInfo } from '@/hooks/useConsole'
 import PreComponent from '@/components/Pre'

@@ -1,3 +1,4 @@
+'use client'
 import { type RefObject, useEffect, useRef, useState } from 'react'
 import { isFunction } from '@/lib/types'
 

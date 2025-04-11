@@ -25,13 +25,13 @@ import tabStyles from '../_styles/tab.module.css'
 import { renderStaticPlayground, renerPlayground } from './compile'
 import CodeWrapper from '../_common/CodeWrapper'
 import Console from '../_common/Console'
-import { componentMap } from '..'
 import Loading from '../_common/Loading'
 import {
   handleComponentSelectorKey,
   handleFileMap,
 } from '~/markdown/plugins/constant'
 import CodePreview from '../_common/CodePreview'
+import { customComponentMap } from '../../custom-components'
 
 const Playground = (props: any) => {
   const {
@@ -48,7 +48,7 @@ const Playground = (props: any) => {
     const isStatic = defaultSelector.endsWith('.html')
     const isPreviewTabsHidden = handlePlaygroundHidePreviewTabsKey(props)
     const customPreviewName = handlePlaygroundCustomPreivew(props)
-    const customPreviewNode = componentMap[customPreviewName]
+    const customPreviewNode = customComponentMap[customPreviewName]
     return {
       defaultSelector,
       css,
