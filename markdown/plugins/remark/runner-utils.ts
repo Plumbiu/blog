@@ -2,8 +2,8 @@ import { ComponentKey } from '../constant'
 import { generatePluginKey } from '../generate-key'
 import { buildHandlerFunction } from '../utils'
 
-export const RunCodeKey = generatePluginKey('run-code')
-export const handleRunCode = buildHandlerFunction(RunCodeKey)
+export const CodeRunnerCodeKey = generatePluginKey('run-code')
+export const handleCodeRunnerCodeKey = buildHandlerFunction(CodeRunnerCodeKey)
 
 export function isTypeScript(lang: string) {
   lang = lang.toLowerCase()
@@ -15,8 +15,8 @@ export function isJavaScript(lang: string) {
   return lang === 'js' || lang === 'javascript'
 }
 
-export const RunnerName = 'Run'
+export const CodeRunnerName = 'Run'
 
 export function isRuner(props: any) {
-  return props[ComponentKey] === RunnerName
+  return props[ComponentKey] === CodeRunnerName
 }

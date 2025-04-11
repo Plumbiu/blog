@@ -1,11 +1,9 @@
-import { transform, type Options } from 'sucrase'
 import { visit } from 'unist-util-visit'
-import minifyCodeSync  from '~/optimize/minify-code'
 import {
-  handleRunCode,
+  handleCodeRunnerCodeKey,
   isJavaScript,
   isTypeScript,
-  RunnerName,
+  CodeRunnerName,
 } from './runner-utils'
 import {
   handleComponentCode,
@@ -15,10 +13,8 @@ import {
   type RemarkPlugin,
 } from '../constant'
 import { makeProperties } from '../utils'
+import { sucraseParse } from '@/lib/node/jsx-parse'
 
-const transfromOptions: Options = {
-  transforms: ['flow'],
-}
 const remarkRunner: RemarkPlugin = () => {
   return (tree) => {
     visit(tree, 'code', (node) => {
@@ -26,7 +22,7 @@ const remarkRunner: RemarkPlugin = () => {
       const props = node.data!.hProperties!
       let code = node.value.trim()
       const meta = node.meta
-      if (!meta?.includes(RunnerName)) {
+      if (!meta?.includes(CodeRunnerName)) {
         return
       }
       handleComponentCode(props, code)
@@ -41,15 +37,17 @@ const remarkRunner: RemarkPlugin = () => {
         return
       }
       if (isTypeScript(lang)) {
-        code = transform(code, transfromOptions).code
+        code = sucraseParse(code, {
+          transforms: ['flow'],
+        })
       }
 
       // @ts-ignore
       node.type = 'root'
       node.data!.hName = 'div'
-      handleComponentName(props, RunnerName)
+      handleComponentName(props, CodeRunnerName)
       handleComponentMeta(props, meta)
-      handleRunCode(props, minifyCodeSync(code))
+      handleCodeRunnerCodeKey(props, code)
     })
   }
 }

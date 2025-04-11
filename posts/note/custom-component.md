@@ -32,7 +32,6 @@ export default App
 }
 /// Test.tsx
 import Test2 from './Test2'
-import './Test.css'
 
 interface Test1Props {
   text: string

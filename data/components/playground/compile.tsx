@@ -2,33 +2,34 @@ import React, { createElement } from 'react'
 import { isJsxFileLike } from '@/lib'
 import { keys } from '@/lib/types'
 
-type Scope = Record<string, any>
+interface Scope {
+  _log?: (value: string) => void
+  [key: string]: any
+}
 
 interface LogFn {
   log: (value: string) => void
 }
 
-const baseScope: Scope = {
+const baseScope = {
   react: React,
   React,
 }
 
-const baseScopeKeys = keys(baseScope)
-const baseScopeValues = baseScopeKeys.map((key) => baseScope[key])
-
-function evalCode(code: string, scope: Scope, logFn?: LogFn) {
+export function getReactComponentByEvalCode(
+  code: string,
+  scope: Scope = {},
+  useBaseScope = false,
+) {
   const _require = (k: keyof Scope) => {
     return scope[k]
   }
   const _exports: Record<string, any> = {}
-  const fn = new Function(
-    'exports',
-    'require',
-    'console',
-    ...baseScopeKeys,
-    code,
-  )
-  fn(_exports, _require, logFn ?? (() => {}), ...baseScopeValues)
+  const scopeKey = keys(useBaseScope ? baseScope : scope)
+  const scopeValue = scopeKey.map((key) => scope[key])
+  const fn = new Function('exports', 'require', 'console', ...scopeKey, code)
+
+  fn(_exports, _require, { log: scope._log ?? (() => {}) }, ...scopeValue)
   return _exports.default
 }
 
@@ -52,6 +53,7 @@ export function renerPlayground({
 }: PlaygroundPreviewProps) {
   const scope: Scope = {
     ...baseScope,
+    _log: logFn.log,
   }
   const main = files[defaultSelector]
   const jsKyes = keys(files).filter((key) => {
@@ -59,7 +61,7 @@ export function renerPlayground({
   })
   const loop = () => {
     for (const key of jsKyes) {
-      const value = evalCode(files[key], scope, logFn)
+      const value = getReactComponentByEvalCode(files[key], scope, true)
       const scopeKey = getJsxLikeBasename(key)
       if (scopeKey) {
         scope['./' + scopeKey] = value
@@ -77,7 +79,7 @@ export function renerPlayground({
   loop()
   loop()
 
-  return createElement(evalCode(main, scope, logFn))
+  return createElement(getReactComponentByEvalCode(main, scope, true))
 }
 export function renderStaticPlayground({
   files,

@@ -1,8 +1,6 @@
 // !!! if you add some custom component here, remember modify plugins/mark-pre.ts
 import { visit } from 'unist-util-visit'
-import { transform, type Options } from 'sucrase'
 import { isJsxFileLike } from '@/lib'
-import minifyCodeSync from '~/optimize/minify-code'
 import {
   handlePlaygroundHidePreviewTabsKey,
   PlaygroundName,
@@ -24,11 +22,7 @@ import { getFirstFileKey, makeProperties } from '../../utils'
 import { SwitcherName } from './switcher-utils'
 import { entries, keys } from '@/lib/types'
 import { handlePreTitleValue, PreTitleName } from './pre-title-utils'
-
-const transfromOptions: Options = {
-  transforms: ['jsx', 'typescript', 'imports'],
-  production: true,
-}
+import { sucraseParse } from '@/lib/node/jsx-parse'
 
 const SupportPlaygroundLang = new Set(['jsx', 'tsx', 'js', 'ts'])
 const SupportStaticPlaygroundLang = new Set(['html', 'css', 'js', 'txt'])
@@ -83,9 +77,7 @@ const remarkCodeBlcok: RemarkPlugin = () => {
         for (const key of fileKeys) {
           const { code } = files[key]
           if (isJsxFileLike(key)) {
-            files[key].code = minifyCodeSync(
-              transform(code, transfromOptions).code,
-            )
+            files[key].code = sucraseParse(code)
             if (code.includes('console.log(')) {
               hideTabs = false
             }

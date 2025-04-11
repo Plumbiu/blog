@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 import type { LogInfo } from '@/hooks/useConsole'
 import PreComponent from '@/components/Pre'
-import { handleRunCode } from '~/markdown/plugins/remark/runner-utils'
+import { handleCodeRunnerCodeKey } from '~/markdown/plugins/remark/runner-utils'
 import useObserver from '@/hooks/useObservser'
 import CodeWrapper from '../_common/CodeWrapper'
 import Console from '../_common/Console'
 import Loading from '../_common/Loading'
 
 function CodeRunner(props: any) {
-  const runCode = handleRunCode(props)
+  const runCode = handleCodeRunnerCodeKey(props)
   const [logs, setLogs] = useState<LogInfo[]>([])
   const workerRef = useRef<Worker>(null)
   const observerRef = useRef<HTMLDivElement>(null)
