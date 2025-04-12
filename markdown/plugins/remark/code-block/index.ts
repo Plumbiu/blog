@@ -1,6 +1,6 @@
 // !!! if you add some custom component here, remember modify plugins/mark-pre.ts
 import { visit } from 'unist-util-visit'
-import { isJsxFileLike } from '@/lib'
+import { isJsxFileLike } from '@/lib/shared'
 import {
   handlePlaygroundHidePreviewTabsKey,
   PlaygroundName,

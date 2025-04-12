@@ -1,60 +1,13 @@
 import fsp from 'node:fs/promises'
 import path from 'node:path'
-import yaml from 'js-yaml'
 import { glob } from 'fast-glob'
-import stripMarkdown from './strip'
-import { getCategory, removeMdSuffix } from '../../index'
-import { CWD } from '@/constants-node'
-
-export interface PostMeta {
-  title: string
-  date: number
-  desc?: string
-  subtitle: string
-  hidden?: boolean
-  tags?: string[]
-  wordLength: number
-}
+import { getCategory, removeMdSuffix } from '../../src/lib/shared'
+import { CWD } from '~/constants/node'
+import type { PostList } from '../types'
+import { parsePostMeta } from './meta-parse'
 
 export async function getPostsPath() {
   return glob('posts/**/*.md')
-}
-
-const DescNumRegx = /^\d+$/
-export const FrontmatterWrapStr = '---'
-export function parsePostMeta(code: string) {
-  const startIdx = code.indexOf(FrontmatterWrapStr)
-  if (startIdx !== 0) {
-    return {}
-  }
-  const endIndex = code.indexOf(FrontmatterWrapStr, 1)
-  const parseString = code.slice(FrontmatterWrapStr.length, endIndex)
-  const meta = yaml.load(parseString) as PostMeta
-  const desc = meta.desc
-  const content = code.slice(endIndex + 3)
-  const rawText = stripMarkdown(content).trim()
-  if (desc && DescNumRegx.test(desc)) {
-    const segments = rawText.split(/\r?\n/g).filter((s) => s.trim())
-    meta.desc = segments.length > 0 ? segments[+desc - 1] : ''
-  }
-  if (meta.date) {
-    meta.date = new Date(meta.date).valueOf()
-  }
-  meta.wordLength = rawText.replace(/\s+/g, '').length
-  return {
-    meta,
-    content,
-  }
-}
-
-export interface PostList {
-  meta: PostMeta
-  type: string
-  path: string
-  locale?: string
-  content: string
-  next?: PostList
-  prev?: PostList
 }
 
 export async function getPostByPostType(postType?: string) {

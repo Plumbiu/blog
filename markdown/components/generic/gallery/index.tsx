@@ -15,10 +15,11 @@ import {
 } from 'react'
 import { getGalleryPhoto } from '~/markdown/plugins/remark/gallery-utils'
 import { ArrowLeftIcon, ArrowRightIcon, CloseIcon } from '@/components/Icons'
-import { cn, getBase64Url } from '@/lib/client'
+import { cn } from '@/lib/client'
 import { makeBodyScroll, avoidBodyScroll } from '@/store/utils'
 import styles from './index.module.css'
 import useIsMobileDevice from '@/hooks/useIsMobileDevice'
+import { getBase64Url } from '@/lib/shared'
 
 const ThumbnailsHeight = 360
 

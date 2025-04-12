@@ -3,7 +3,7 @@ import { visit } from 'unist-util-visit'
 import { getImageProps } from 'next/image'
 import { isString } from '@/lib/types'
 import getBlurDataUrl from '~/optimize/blurhash'
-import { isUnOptimized, resolveAssetPath } from '@/lib'
+import { isUnOptimized, resolveAssetPath } from '@/lib/shared'
 import { getAssetImagePath } from '@/lib/node/fs'
 import {
   GalleryPhotoKey,

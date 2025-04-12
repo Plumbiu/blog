@@ -1,4 +1,3 @@
-import fsp from 'node:fs/promises'
 import path from 'node:path'
 import type { Code } from 'mdast'
 import { visit } from 'unist-util-visit'
@@ -6,15 +5,19 @@ import { tryReadFileSync } from '@/lib/node/fs'
 import { handlePlaygroundCustomPreivew } from './code-block/playground-utils'
 import { makeProperties } from '../utils'
 import type { RemarkPlugin } from '../constant'
-import { DataPath } from '@/constants-node'
+import { MarkdownPath } from '~/constants/node'
 
 const CodePathRegx = /path=(['"])([^'"]+)\1/
 const CodeComponentRegx = /component=(['"])([^'"]+)\1/
 
+interface RemoteNode {
+  node: Code
+  path: string
+}
+
 const remarkCodeConfig: RemarkPlugin = () => {
   return async (tree) => {
-    let nodeWithPath: Code | undefined
-    let nodePath: string | undefined
+    const remoteNodes: RemoteNode[] = []
     visit(tree, 'code', (node) => {
       makeProperties(node)
       const props = node.data!.hProperties!
@@ -28,32 +31,25 @@ const remarkCodeConfig: RemarkPlugin = () => {
         handlePlaygroundCustomPreivew(props, componentName)
       }
       if (componentPath) {
-        nodeWithPath = node
-        nodePath = componentPath
-        const content = tryReadFileSync(
-          path.join(DataPath, 'components', `${componentPath}.tsx`),
-        )
-        node.value = content.trim()
+        const isRemote = componentPath.startsWith('http')
+        if (isRemote) {
+          remoteNodes.push({ node, path: componentPath })
+        } else {
+          const content = tryReadFileSync(
+            path.join(MarkdownPath, 'components', `${componentPath}.tsx`),
+          )
+          node.value = content.trim()
+        }
       }
     })
-    if (nodeWithPath && nodePath) {
-      const isRemote = nodePath.startsWith('http')
-      let content = ''
-      if (isRemote) {
-        content = await fetch(nodePath).then((res) => res.text())
-        nodeWithPath.value = content.trim()
-      } else {
+    await Promise.all(
+      remoteNodes.map(async ({ node, path }) => {
         try {
-          content = await fsp.readFile(
-            path.join(DataPath, 'components', `${nodePath}.tsx`),
-            'utf-8',
-          )
+          const content = await fetch(path).then((res) => res.text())
+          node.value = content.trim()
         } catch (error) {}
-      }
-      if (content) {
-        nodeWithPath.value = content.trim()
-      }
-    }
+      }),
+    )
   }
 }
 

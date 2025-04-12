@@ -1,5 +1,5 @@
 import React, { createElement } from 'react'
-import { isJsxFileLike } from '@/lib'
+import { isJsxFileLike } from '@/lib/shared'
 import { keys } from '@/lib/types'
 
 interface Scope {

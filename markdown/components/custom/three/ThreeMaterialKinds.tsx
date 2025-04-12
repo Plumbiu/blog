@@ -1,7 +1,7 @@
 import { type CSSProperties, useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/Addons.js'
-import { upperFirstChar } from '@/lib'
+import { upperFirstChar } from '@/lib/shared'
 import { buildCamera, buildRenderer } from './utils'
 
 const flexStyles: CSSProperties = {

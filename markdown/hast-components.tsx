@@ -5,12 +5,12 @@ import {
   handleComponentName,
   handleComponentProps,
 } from '~/markdown/plugins/constant'
-import { isUnOptimized, resolveAssetPath } from '@/lib'
-import CustomComponent from '~/data/components'
+import { isUnOptimized, resolveAssetPath } from '@/lib/shared'
+import CustomComponent from '~/markdown/components/index'
 import PreComponent from '../src/components/Pre'
 import { getAssetImagePath } from '@/lib/node/fs'
 import getBlurDataUrl from '~/optimize/blurhash'
-import { getBase64Url } from '@/lib/client'
+import { getBase64Url } from '@/lib/shared'
 import { optimizeProps } from './plugins/props-optimize'
 
 export const markdownComponents: Partial<Components> = {

@@ -1,4 +1,4 @@
-import { getPostByPostType } from '@/lib/node/markdown'
+import { getPostByPostType } from '~/markdown/utils/fs'
 
 export async function GET() {
   const data = (await getPostByPostType()).map((item) => ({

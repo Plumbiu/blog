@@ -1,4 +1,4 @@
-import { getPostByPostType, PostList } from '@/lib/node/markdown'
+import { getPostByPostType, PostList } from '~/markdown/utils/fs'
 import fsp from 'node:fs/promises'
 import pc from 'picocolors'
 import issueMap from '~/data/issues.json'

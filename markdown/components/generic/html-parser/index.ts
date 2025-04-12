@@ -3,7 +3,7 @@
 import React from 'react'
 import { handleHTMLParserCodeKey } from '~/markdown/plugins/remark/html-parser-utils'
 import { getReactComponentByEvalCode } from '../playground/compile'
-import { customComponentMap } from '../custom-components'
+import { customComponentMap } from '~/markdown/components/custom/custom-components'
 
 const HtmlParser = React.memo((props: any) => {
   const component = React.useMemo(() => {

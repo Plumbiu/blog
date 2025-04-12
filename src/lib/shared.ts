@@ -1,4 +1,4 @@
-import { PostDir, type FrontmatterKey } from '@/constants'
+import { PostDir, type FrontmatterKey } from '~/constants/shared'
 import { BasePath } from '~/data/site'
 import { isString } from './types'
 
@@ -46,4 +46,6 @@ export function isUnOptimized(url: string) {
     : undefined
 }
 
-
+export function getBase64Url(base: string) {
+  return `data:image/webp;base64,${base}`
+}

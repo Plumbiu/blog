@@ -7,8 +7,8 @@ import { PlaygroundName } from '~/markdown/plugins/remark/code-block/playground-
 import { PreTitleName } from '~/markdown/plugins/remark/code-block/pre-title-utils'
 import { SwitcherName } from '~/markdown/plugins/remark/code-block/switcher-utils'
 import { CodeRunnerName } from '~/markdown/plugins/remark/runner-utils'
-import { customComponentMap } from './custom-components'
-import { genericComponentMap } from './generic-components'
+import { customComponentMap } from './custom/custom-components'
+import { genericComponentMap } from './generic/generic-components'
 
 const SyncComponentNameSet = new Set([
   PlaygroundName,

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
-import { getPostByPostType } from '@/lib/node/markdown'
-import { PostDir } from '@/constants'
+import { getPostByPostType } from '~/markdown/utils/fs'
+import { PostDir } from '~/constants/shared'
 import { MAX_PAGE_SIZE } from '@/app/list/[...slug]/constants'
 import { joinWebUrl } from './seo'
 

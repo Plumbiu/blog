@@ -76,7 +76,7 @@ export default Test2
 
 ### meta
 
-```js Playground path="three/ThreeLearnPrimitivesBox" component="ThreeLearnPrimitivesBox"
+```js Playground path="custom/three/ThreeLearnPrimitivesBox" component="ThreeLearnPrimitivesBox"
 
 ```
 
@@ -190,7 +190,7 @@ console.log('goodbye')
 
 ### Local
 
-```jsx path="iframe/index"
+```jsx path="generic/iframe/index"
 
 ```
 

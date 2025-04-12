@@ -13,7 +13,7 @@ import {
 import styles from './SearchPanel.module.css'
 import Modal from './Modal'
 import { CopyErrorIcon, SearchIcon, SearchSlashIcon } from './Icons'
-import { upperFirstChar } from '@/lib'
+import { upperFirstChar } from '@/lib/shared'
 import { Link } from 'next-view-transitions'
 import { entries } from '@/lib/types'
 import useSearchPanelStore from '@/store/search-panel'
@@ -58,7 +58,7 @@ function SearchPanel({ data }: SearchPanelProps) {
   useEffect(() => {
     setMounted(true)
   }, [])
- 
+
   useEffect(() => {
     if (!listRef.current?.length) {
       fetch('/api/search', {

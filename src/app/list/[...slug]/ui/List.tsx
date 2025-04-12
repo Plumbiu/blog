@@ -1,5 +1,5 @@
 import { Link } from 'next-view-transitions'
-import type { PostList } from '@/lib/node/markdown'
+import type { PostList } from '~/markdown/utils/fs'
 import { TimeWordInfo } from '@/components/PostInfo'
 import styles from './List.module.css'
 import { DESC_MAX_LEN } from '@/app/list/[...slug]/constants'

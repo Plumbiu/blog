@@ -1,4 +1,4 @@
-import type { PostList } from '@/lib/node/markdown'
+import type { PostList } from '~/markdown/utils/fs'
 import { entries } from '@/lib/types'
 
 type FloatType = Record<string, PostList[]>
