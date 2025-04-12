@@ -5,8 +5,11 @@ const transfromOptions: Options = {
   transforms: ['jsx', 'typescript', 'imports'],
   production: true,
 }
-export function sucraseParse(code: string, options = transfromOptions) {
-  const compiled = transform(code, options ?? transfromOptions).code
+export function sucraseParse(
+  code: string,
+  options: Options = transfromOptions,
+) {
+  const compiled = transform(code, options).code
   if (process.env.NODE_ENV === 'development') {
     return compiled
   }

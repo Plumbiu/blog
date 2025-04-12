@@ -1,8 +1,7 @@
 import { ComponentKey } from '../constant'
-import { generatePluginKey } from '../generate-key'
 import { buildHandlerFunction } from '../utils'
 
-export const CodeRunnerCodeKey = generatePluginKey('run-code')
+export const CodeRunnerCodeKey = 'run-code'
 export const handleCodeRunnerCodeKey = buildHandlerFunction(CodeRunnerCodeKey)
 
 export function isTypeScript(lang: string) {

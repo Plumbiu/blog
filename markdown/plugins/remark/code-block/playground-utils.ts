@@ -1,4 +1,3 @@
-import { generatePluginKey } from '~/markdown/plugins/generate-key'
 import { ComponentKey, type FileMap, FileMapStartStr } from '../../constant'
 import { buildHandlerFunction, getFirstLine } from '../../utils'
 
@@ -6,19 +5,11 @@ export const PlaygroundPrefix = 'playground'
 export const PlaygroundHidePreviewTabsName = 'no-preview-tab'
 export const PlaygroundHideCodeTabsName = 'no-code-tab'
 
-const PlaygroundHidePreviewKey = generatePluginKey(
-  `${PlaygroundPrefix}-hide-preview`,
-)
-const PlaygroundHidePreviewTabsKey = generatePluginKey(
-  `${PlaygroundPrefix}-${PlaygroundHidePreviewTabsName}`,
-)
-const PlaygroundHideCodeTabsKey = generatePluginKey(
-  `${PlaygroundPrefix}-${PlaygroundHideCodeTabsName}`,
-)
-const PlaygroundCustomPreivewKey = generatePluginKey(
-  `${PlaygroundPrefix}-custom-preview`,
-)
-const PlaygroundStyles = generatePluginKey(`${PlaygroundPrefix}-css`)
+const PlaygroundHidePreviewKey = `${PlaygroundPrefix}-hide-preview`
+const PlaygroundHidePreviewTabsKey = `${PlaygroundPrefix}-${PlaygroundHidePreviewTabsName}`
+const PlaygroundHideCodeTabsKey = `${PlaygroundPrefix}-${PlaygroundHideCodeTabsName}`
+const PlaygroundCustomPreivewKey = `${PlaygroundPrefix}-custom-preview`
+const PlaygroundStyles = `${PlaygroundPrefix}-css`
 
 export const handlePlaygroundHidePreviewKey = buildHandlerFunction<
   boolean | undefined
