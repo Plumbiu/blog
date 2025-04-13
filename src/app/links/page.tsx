@@ -37,7 +37,7 @@ async function Links() {
         {data.map(({ avatar, link, name, desc, base64 }) => (
           <div key={name} className={cn(styles.link)}>
             <Image
-              alt={name}
+              alt={name || link}
               placeholder="blur"
               blurDataURL={base64}
               src={`/links/${avatar}`}
@@ -54,7 +54,7 @@ async function Links() {
               >
                 {name}
               </Link>
-              <div className={styles.subtitle}>{desc}</div>
+              <div className={styles.subtitle}>{desc || "该用户没有留下描述"}</div>
             </div>
           </div>
         ))}
