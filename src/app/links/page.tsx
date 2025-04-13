@@ -5,7 +5,7 @@ import type { Metadata } from 'next'
 import { cn } from '@/lib/client'
 import info from '~/data/links.json'
 import getBlurDataUrl from '~/optimize/blurhash'
-import { BlogAuthor, GithubLinksUrl } from '~/data/site'
+import { BlogAuthor, GithubRepoUrl } from '~/data/site'
 import styles from './page.module.css'
 import { generateSeoMetaData, joinWebUrl } from '../seo'
 
@@ -54,19 +54,24 @@ async function Links() {
               >
                 {name}
               </Link>
-              <div className={styles.subtitle}>{desc || "该用户没有留下描述"}</div>
+              <div className={styles.subtitle}>
+                {desc || '该用户没有留下描述'}
+              </div>
             </div>
           </div>
         ))}
       </div>
-      <Link
-        aria-label="Read more about links config file"
-        href={GithubLinksUrl}
-        className="link"
-        target="_blank"
-      >
-        see `links.json`
-      </Link>
+      <div>
+        添加友链方式请查看&nbsp;
+        <Link
+          aria-label="Read more about links config file"
+          href={`${GithubRepoUrl}/blob/main/assets/links.md`}
+          className="link"
+          target="_blank"
+        >
+          markdown 说明文件
+        </Link>
+      </div>
     </div>
   )
 }
