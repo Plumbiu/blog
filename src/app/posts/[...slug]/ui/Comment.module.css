@@ -1,7 +1,10 @@
 .wrapper {
   position: relative;
   margin: 64px 0;
-
+  background-color: var(--bg-card);
+  padding: 24px;
+  border-radius: 12px;
+  
   &::before {
     content: "";
     position: absolute;
@@ -71,8 +74,8 @@
 .item {
   box-sizing: content-box;
   overflow: hidden;
-  border: 1px solid var(--divider);
   background-color: var(--bg-comment);
+  box-shadow: var(--shadow-box-light);
   border-radius: 6px;
   margin-bottom: 16px;
 

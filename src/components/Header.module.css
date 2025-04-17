@@ -1,23 +1,20 @@
-.wrap {
+.header {
   position: fixed;
-  top: 16px;
+  top: 0;
   left: 0;
   right: 0;
   z-index: 99;
-  width: 100%;
-  font-size: 18px;
-  backdrop-filter: blur(10px);
-  height: var(--header-h);
-  transition: height 300ms ease-in-out;
-}
-
-.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: calc(var(--post-w) + -2 * var(--extend-x));
-  height: 100%;
+  width: var(--main-w);
+  padding: 16px 24px;
+  border-radius: 0 0 16px 16px;
+  height: var(--header-h);
+  background-color: var(--bg-card);
   margin: 0 auto;
+  box-shadow: var(--shadow-box-light);
+  transition: height 300ms ease-in-out;
 
   & svg {
     font-size: 24px;

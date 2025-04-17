@@ -11,6 +11,9 @@ export const removeMdSuffix = (p: string) => {
 }
 
 export const upperFirstChar = (s: string) => {
+  if (s == null) {
+    return
+  }
   return s[0].toUpperCase() + s.slice(1)
 }
 

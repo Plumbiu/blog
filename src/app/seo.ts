@@ -17,7 +17,7 @@ export function generateSeoMetaData(meta: Metadata['openGraph']): Metadata {
 export function joinWebUrl(...args: (string | number)[]) {
   let url = BlogUrl
   for (const arg of args) {
-    if (arg === '') {
+    if (arg == null) {
       continue
     }
     url += arg

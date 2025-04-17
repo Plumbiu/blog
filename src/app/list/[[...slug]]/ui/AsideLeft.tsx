@@ -1,5 +1,5 @@
 import { Link } from 'next-view-transitions'
-import type { PostList } from '~/markdown/utils/fs'
+import type { PostList } from '~/markdown/types'
 import styles from './AsideLeft.module.css'
 
 interface ListFloatProps {

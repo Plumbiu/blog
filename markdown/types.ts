@@ -3,8 +3,11 @@ export interface PostMeta {
   date: number
   desc?: string
   subtitle: string
-  hidden?: boolean
   tags: string[]
+  image?: string
+  
+  // custom
+  hidden?: boolean
   wordLength: number
 }
 

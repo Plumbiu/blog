@@ -1,10 +1,11 @@
 :root {
   /* text */
   --text: #000;
-  --text-4: rgba(50, 50, 50, 0.4);
-  --text-3: rgba(50, 50, 50, 0.56);
-  --text-2: rgba(50, 50, 50, 0.82);
-  --text-1: rgb(50, 50, 50);
+  --text-4: rgba(30, 30, 30, 0.4);
+  --text-3: rgba(30, 30, 30, 0.56);
+  --text-2: rgba(30, 30, 30, 0.72);
+  --text-1: rgb(30, 30, 30);
+  --text-desc: rgba(30, 30, 30, 0.8)
   /* border */
   --divider: #e2e2e5;
   /* color */
@@ -20,7 +21,7 @@
   --c-purple-3: #8e5cd9;
   --c-purple-2: #7e4cc9;
   --c-purple-1: #6f42c1;
-  --c-indigo-soft: rgba(100, 108, 255, 0.14);
+  --c-indigo-soft: rgba(124, 131, 255, 0.14);
   --c-indigo-3: #3e63dd;
   --c-indigo-2: #5c73e7;
   --c-indigo-1: #a8b1ff;
@@ -28,7 +29,7 @@
   --c-green-3: #30a46c;
   --c-green-2: #299764;
   --c-green-1: #18794e;
-  --c-gray-soft: rgba(150, 150, 160, 0.14);
+  --c-gray-soft: rgba(177, 177, 192, 0.14);
   --c-gray-3: #ccc;
   --c-gray-2: #bababa;
   --c-gray-1: #a9a9a9;
@@ -44,7 +45,7 @@
   --bg-md-table-header: #efefef;
   --bg-md-table-th: #f6f6f6;
   --bg-header: #ffffff85;
-  --bg-body: #fff;
+  --bg-body: #E3E8EF;
   --bg-scrollbar: #c8c8c8;
   --bg-tag: #e9eef4ba;
   --bg-vertical-line: #bfbfbf;
@@ -53,6 +54,8 @@
   --bg-search-panel: #f6f6f7;
   --bg-search-panel-footer: #fff;
   --bg-search-panel-item: #fff;
+  --bg-card: #fff;
+  --bg-comment: #eef8f8;
   --shadow-search-panel-item: 0 1px 3px 0 #d4d9e1;
   /* console */
   --console-num: rgb(47, 121, 138);
@@ -61,13 +64,18 @@
   --console-bool: rgb(30, 117, 79);
   --console-symbol: rgb(89, 135, 58);
 }
+:root[data-theme="light"] {
+  --shadow-box-light: 0 0.1em 0.2em var(--c-gray-soft);
+}
 
 /* constant */
 :root {
-  --header-h: 72px;
-  --post-w: 760px;
-  --center-rest: calc((100% - var(--post-w)) / 2);
-  --pre-radius: 4px;
+  --header-h: 76px;
+  --main-w: 1180px;
+  --post-w: 900px;
+  --main-side-w: calc(var(--main-w) - var(--post-w));
+  --rest-w: calc((100% - var(--main-w)) / 2);
+  --pre-radius: 8px;
   --pre-padding: 14px;
   --extend-x: -76px;
   --text-xs: 0.75rem;
@@ -77,29 +85,29 @@
   --text-xl: 1.25rem;
   --text-2xl: 1.5rem;
   --text-3xl: 1.875rem;
+  --text-4xl: 2.125rem;
 }
 
-@media screen and (min-width: 1440px) {
+
+@media screen and (max-width: 1320px) {
   :root {
-    --post-w: 820px;
+    --post-w: 800px;
+    --main-w: 1024px;
   }
 }
 
-@media screen and (max-width: 1240px) {
+@media screen and (max-width: 1100px) {
   :root {
-    --post-w: 640px;
+    --post-w: 760px;
+    --main-w: 960px;
   }
 }
 
-@media screen and (max-width: 1024px) {
-  :root {
-    --post-w: 560px;
-  }
-}
 
 @media screen and (max-width: 960px) {
   :root {
     --extend-x: 0;
     --post-w: 100%;
+    --main-w: 100%;
   }
 }

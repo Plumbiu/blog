@@ -10,6 +10,7 @@ import Comment from './ui/Comment'
 import './styles/md.css'
 import './styles/shiki.css'
 import transfromCode2Jsx from '~/markdown/transfrom'
+import PostMeta from '@/components/PostMeta'
 
 export async function generateStaticParams() {
   const mds = await getPostsPath()
@@ -57,16 +58,12 @@ async function Post(props: PostProps) {
 
   return (
     <div className={styles.wrap}>
-      <div
-        className="center"
-        style={{
-          margin: 0,
-        }}
-      >
+      <main className={styles.main}>
         <Meta title={info.meta.title} />
+        <PostMeta {...info} />
         <div className="md">{node}</div>
-        <Comment pathname={`posts/${type}/${id}`} />
-      </div>
+      </main>
+      <Comment pathname={`posts/${type}/${id}`} />
       <Toc />
     </div>
   )

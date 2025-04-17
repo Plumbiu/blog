@@ -63,7 +63,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/',
-        destination: '/list/blog/1',
+        destination: '/list/',
       },
       {
         source: '/feed',

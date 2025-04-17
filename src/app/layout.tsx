@@ -11,10 +11,11 @@ import '../styles/variable.css'
 import '../styles/dark-variable.css'
 import '../styles/preset.css'
 import Footer from '@/components/Footer'
-import { mono } from './fonts'
+import { mono, robot } from './fonts'
 import { generateSeoMetaData } from './seo'
 import { getPostByPostType } from '~/markdown/utils/fs'
 import SearchPanel from '@/components/SearchPanel'
+import UserInfo from '@/components/UserInfo'
 
 export const metadata: Metadata = {
   title: BlogTitle,
@@ -60,7 +61,7 @@ export default async function RootLayout({
           type="image/x-icon"
         />
       </head>
-      <body className={mono.className}>
+      <body className={robot.className}>
         <script
           src={resolveAssetPath(
             `assets/theme/${
@@ -70,7 +71,17 @@ export default async function RootLayout({
         />
         <ViewTransitions>
           <Header />
-          <div className="main_children">{children}</div>
+          <div className="main_children">
+            <UserInfo />
+            <div
+              style={{
+                width: 'var(--post-w)',
+                flexShrink: 0,
+              }}
+            >
+              {children}
+            </div>
+          </div>
           <Footer />
         </ViewTransitions>
         <ImageView />

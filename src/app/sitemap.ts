@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { getPostByPostType } from '~/markdown/utils/fs'
 import { PostDir } from '~/constants/shared'
-import { MAX_PAGE_SIZE } from '@/app/list/[...slug]/constants'
+import { MAX_PAGE_SIZE } from './list/[[...slug]]/constants'
 import { joinWebUrl } from './seo'
 
 function lastModified(date: string | number): string {

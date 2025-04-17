@@ -11,6 +11,8 @@ interface ITocList {
   depth: number
 }
 
+const ShowHeight = 300
+
 const TocLink = memo(
   ({ id, depth, title, active }: ITocList & { active: boolean }) => (
     <Link
@@ -30,6 +32,7 @@ const TocLink = memo(
 function Toc() {
   const [lists, setLists] = useState<ITocList[]>([])
   const [activeIndex, setActiveIndex] = useState<number>()
+  const [visible, setVisible] = useState(false)
   const nodes = useRef<NodeListOf<Element>>(null)
   const tocRef = useRef<HTMLDivElement>(null)
   const listRef = useRef<HTMLDivElement>(null)
@@ -78,24 +81,31 @@ function Toc() {
   const handler = useCallback(
     throttle(() => {
       const viewHeight = 300
-      for (let i = 0; i < nodes.current!.length; i++) {
-        const node = nodes.current![i]
-        const rect = node.getBoundingClientRect()
-        if (rect.bottom >= 0 && rect.top < viewHeight) {
-          highlight(i)
-          break
+      const scrollY = window.scrollY
+      if (scrollY > ShowHeight) {
+        setVisible(true)
+        for (let i = 0; i < nodes.current!.length; i++) {
+          const node = nodes.current![i]
+          const rect = node.getBoundingClientRect()
+          if (rect.bottom >= 0 && rect.top < viewHeight) {
+            highlight(i)
+            break
+          }
+          const nextRect = nodes.current![i + 1]?.getBoundingClientRect()
+          if (rect.bottom < 0 && nextRect && nextRect.top > viewHeight) {
+            highlight(i)
+            break
+          }
         }
-        const nextRect = nodes.current![i + 1]?.getBoundingClientRect()
-        if (rect.bottom < 0 && nextRect && nextRect.top > viewHeight) {
-          highlight(i)
-          break
-        }
+      } else {
+        setVisible(false)
       }
     }, 100),
     [],
   )
 
   useEffect(() => {
+    setVisible(window.scrollY > ShowHeight)
     nodes.current = document.querySelectorAll('.md > h1,h2,h3')
     setLists(
       Array.from(nodes.current!).map((node) => ({
@@ -110,11 +120,14 @@ function Toc() {
   }, [])
 
   return (
-    <div ref={tocRef} className={styles.toc}>
-      {lists.length > 0 ? (
-        <div className={styles.title}>Table of Contents</div>
-      ) : null}
-      <div ref={listRef}>
+    <div
+      ref={tocRef}
+      className={styles.toc}
+      style={{
+        display: visible ? undefined : 'none',
+      }}
+    >
+      <div className={styles.list} ref={listRef}>
         {lists.map((list, i) => (
           <TocLink
             key={i}
@@ -125,7 +138,6 @@ function Toc() {
           />
         ))}
       </div>
-      <div className={styles.curtain} />
     </div>
   )
 }
