@@ -46,7 +46,7 @@
   --bg-header: #ffffff85;
   --bg-body: #fff;
   --bg-scrollbar: #c8c8c8;
-  --bg-tag: #e9e9e9;
+  --bg-tag: #e9eef4ba;
   --bg-vertical-line: #bfbfbf;
   --bg-modal: #00000073;
   --bg-comment: #fcfcfd;
@@ -70,6 +70,19 @@
   --pre-radius: 4px;
   --pre-padding: 14px;
   --extend-x: -76px;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+}
+
+@media screen and (min-width: 1440px) {
+  :root {
+    --post-w: 820px;
+  }
 }
 
 @media screen and (max-width: 1240px) {

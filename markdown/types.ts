@@ -4,7 +4,7 @@ export interface PostMeta {
   desc?: string
   subtitle: string
   hidden?: boolean
-  tags?: string[]
+  tags: string[]
   wordLength: number
 }
 
@@ -12,6 +12,7 @@ export interface PostList {
   meta: PostMeta
   type: string
   path: string
+  tags: string[]
   locale?: string
   content: string
   next?: PostList

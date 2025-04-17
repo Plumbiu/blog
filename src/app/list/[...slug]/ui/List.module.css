@@ -25,9 +25,22 @@
 .desc {
   margin: 8px 0;
   line-height: 1.4rem;
-  font-size: 14px;
+  font-size: 0.9rem;
   color: var(--text-2);
   word-break: break-all;
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-2);
+  font-size: 0.9rem;
+
+  & > svg {
+    font-size: var(--text-lg);
+    color: var(--c-indigo-1);
+  }
 }
 
 .year {

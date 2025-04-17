@@ -8,7 +8,7 @@ interface TechItemProps {
 
 function Tag({ icon, children }: TechItemProps) {
   return (
-    <div className={styles.card}>
+    <div className={styles.tag}>
       {icon}
       <div>{children}</div>
     </div>

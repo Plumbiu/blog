@@ -1,7 +1,7 @@
 import { Link } from 'next-view-transitions'
 import Card from '@/components/Card'
 import { ArrowLeftIcon, ArrowRightIcon } from '@/components/Icons'
-import type { PostList } from '~/markdown/utils/fs'
+import type { PostList } from '~/markdown/types'
 import styles from './Pagination.module.css'
 import { cn } from '@/lib/client'
 

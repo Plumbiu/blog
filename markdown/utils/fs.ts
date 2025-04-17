@@ -33,6 +33,7 @@ export async function getPostByPostType(postType?: string) {
         type,
         locale,
         content,
+        tags: meta.tags || [],
         path: removeMdSuffix(mdPath),
       }
       result.push(data)

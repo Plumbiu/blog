@@ -1,6 +1,6 @@
 import { cn } from '@/lib/client'
-import type { PostMeta } from '~/markdown/utils/fs'
 import styles from './PostInfo.module.css'
+import type { PostMeta } from '~/markdown/types'
 
 const monthArr = [
   'Jan',

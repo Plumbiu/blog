@@ -18,22 +18,23 @@ function Card({
   disabled = false,
   scroll,
   href,
+  className,
   ...rest
 }: CardProps) {
-  const className = cn(styles.card, {
+  const cls = cn(styles.card, className, {
     [styles.active]: active,
     [styles.disabled]: disabled,
     [styles.transition]: !disabled,
   })
   if (href) {
     return (
-      <Link href={href} scroll={scroll} className={className} {...rest}>
+      <Link href={href} scroll={scroll} className={cls} {...rest}>
         {children}
       </Link>
     )
   }
   return (
-    <div className={className} {...rest}>
+    <div className={cls} {...rest}>
       {children}
     </div>
   )
