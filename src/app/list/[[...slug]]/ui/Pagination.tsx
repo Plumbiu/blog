@@ -1,4 +1,4 @@
-import { Link } from 'next-view-transitions'
+import Link from 'next/link'
 import Card from '@/components/Card'
 import { ArrowLeftIcon, ArrowRightIcon } from '@/components/Icons'
 import type { PostList } from '~/markdown/types'

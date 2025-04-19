@@ -37,7 +37,7 @@
   background-color: var(--bg-search-panel-item);
 
   & svg {
-    font-size: 20px;
+    font-size: var(--text-2xl);
   }
 }
 
@@ -79,7 +79,7 @@
   box-shadow: var(--shadow-search-panel-item);
 
   & svg {
-    font-size: 20px;
+    font-size: var(--text-2xl);
     padding: 12px;
     border-radius: 50%;
     box-sizing: content-box;
@@ -87,8 +87,8 @@
 }
 
 .date {
-  font-size: 14px;
-  color: var(--text-2);
+  font-size: var(--text-sm);
+  color: var(--text-3);
 }
 
 .empty {
@@ -100,10 +100,6 @@
 .type {
   top: 80px;
   color: var(--text-3);
-}
-
-.title {
-  color: var(--text);
 }
 
 .list_active {
@@ -124,12 +120,8 @@
   padding: var(--distance);
   background-origin: padding-box;
   border-radius: 0 0 4px 4px;
-  font-size: 12px;
+  font-size: var(--text-sm);
   border-top: 1px solid var(--c-gray-3);
-
-  & svg {
-    font-size: 18px;
-  }
 
   &>div {
     display: flex;
@@ -146,6 +138,7 @@
 .empty_content {
   padding: 0 var(--distance);
   white-space: break-all;
+  font-size: var(--text-sm);
 
   &>svg {
     margin: 8px auto;

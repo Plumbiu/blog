@@ -1,5 +1,9 @@
+.wrap {
+  position: relative;
+}
+
 .wrap main {
   background-color: var(--bg-card);
   border-radius: 12px;
-  padding: 24px;
+  padding: 16px;
 }

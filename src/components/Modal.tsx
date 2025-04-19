@@ -17,7 +17,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
     return (
       <div>
         <div className={styles.mask} />
-        <div ref={ref} className={cn(className, styles.modal)} {...rest}>
+        <div ref={ref} className={cn(className, styles.modal, 'load_ani')} {...rest}>
           {children}
         </div>
       </div>

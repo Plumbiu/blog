@@ -10,6 +10,7 @@ import useObserver from '@/hooks/useObservser'
 import { isArray, isString } from '@/lib/types'
 import { ExternalLinkIcon, GithubIcon } from '@/components/Icons'
 import { GithubClientId } from '~/data/site'
+import Title from '@/components/Title'
 
 const reactionsMap: Record<string, string> = {
   '+1': '👍',
@@ -66,7 +67,7 @@ const LoginGithub = memo(({ pathname }: CommentProps) => {
       }}
     >
       <GithubIcon fontSize={24} />
-      使用 Github 登录评论
+      登录
     </button>
   )
 })
@@ -327,17 +328,20 @@ const Comment = memo(({ pathname }: CommentProps) => {
 
     return (
       <>
-        {!accessToken && status === 'loaded' && (
-          <div className={cn(styles.github_login, 'fcc')}>
-            <LoginGithub pathname={pathname} />
-          </div>
-        )}
         {status === 'loaded' && (
           <div className={styles.comment_info}>
-            <div className={styles.count}>{data.length}条评论</div>
+            <div className={styles.count}>
+              {data.length ? '没有评论' : `${data.length}条评论`}
+            </div>
             {issueAddNode}
+            {!accessToken && status === 'loaded' && (
+              <div className={cn(styles.github_login)}>
+                <LoginGithub pathname={pathname} />
+              </div>
+            )}
           </div>
         )}
+
         <CommentTextarea />
         <Lists />
       </>
@@ -346,6 +350,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
 
   return (
     <div ref={containerRef} className={styles.wrapper}>
+      <Title className={styles.comment_title}>评论区</Title>
       {node}
     </div>
   )

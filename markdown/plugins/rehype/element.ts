@@ -8,6 +8,7 @@ const rehypeElementPlugin: RehypePlugin = () => {
     visit(tree, 'element', (node) => {
       blankTargetPlugin(node)
       markCustomComponentPre(node)
+      animationPlugin(node)
     })
   }
 }
@@ -20,4 +21,10 @@ function blankTargetPlugin(node: Element) {
     node.properties.className = 'link'
     node.properties.rel = 'noreferrer'
   }
+}
+
+function animationPlugin(node: Element) {
+  const props = node.properties
+  const className = props.className || ''
+  node.properties.className = (className + ' load_ani').trim()
 }

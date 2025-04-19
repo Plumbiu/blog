@@ -6,7 +6,7 @@
   box-shadow: var(--shadow-box-light);
 }
 
-.wrap > div {
+.wrap_item {
   width: 100%;
   padding: 16px;
   border-radius: 8px;
@@ -18,7 +18,7 @@
   text-align: center;
 }
 
-.user > img {
+.user>img {
   width: 100%;
   height: auto;
   border-radius: 12px;
@@ -27,6 +27,7 @@
 .user_name {
   color: var(--text);
   font-weight: 600;
+  margin-top: 8px;
   font-size: var(--text-2xl);
 }
 
@@ -37,8 +38,10 @@
 }
 
 .user_link {
+  flex-shrink: 0;
   margin-top: 12px;
   gap: 12px;
+
   & svg {
     padding: 8px;
     width: 38px;
@@ -54,18 +57,24 @@
   }
 }
 
-.category {
+.sticky {
   position: sticky;
   top: 16px;
-  &_content > a {
+
+}
+
+.category {
+
+  &_content>a {
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 6px 12px;
     border-radius: 6px;
+
     &:hover {
-      background-color: var(--c-green-soft);
+      background-color: var(--c-indigo-soft);
     }
   }
 

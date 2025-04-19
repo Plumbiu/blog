@@ -1,4 +1,4 @@
-import { Link } from 'next-view-transitions'
+import Link from 'next/link'
 import Card from './Card'
 import styles from './NotFound.module.css'
 import { cn } from '@/lib/client'

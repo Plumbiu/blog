@@ -1,5 +1,9 @@
 import type { Metadata } from 'next'
-import { getCategory, removeMdSuffix, upperFirstChar } from '@/lib/shared'
+import {
+  getCategoryFromUrl,
+  removeMdSuffix,
+  upperFirstChar,
+} from '@/lib/shared'
 import NotFound from '@/components/NotFound'
 import { getPostsPath, getPostByPostType } from '~/markdown/utils/fs'
 import { generateSeoMetaData, joinWebUrl } from '@/app/seo'
@@ -11,6 +15,7 @@ import './styles/md.css'
 import './styles/shiki.css'
 import transfromCode2Jsx from '~/markdown/transfrom'
 import PostMeta from '@/components/PostMeta'
+import { cn } from '@/lib/client'
 
 export async function generateStaticParams() {
   const mds = await getPostsPath()
@@ -57,7 +62,7 @@ async function Post(props: PostProps) {
   const node = await transfromCode2Jsx(info.content)
 
   return (
-    <div className={styles.wrap}>
+    <div className={cn(styles.wrap)}>
       <main className={styles.main}>
         <Meta title={info.meta.title} />
         <PostMeta {...info} />
@@ -74,7 +79,7 @@ export async function generateMetadata(props: PostProps): Promise<Metadata> {
   const [type, ...data] = params.slug
   const id = data[data.length - 1]
   const info = await getPostContent(type, id)
-  const category = upperFirstChar(getCategory(id))
+  const category = upperFirstChar(getCategoryFromUrl(id))
   if (!info) {
     return {
       title: `${category} - ${id}`,

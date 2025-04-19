@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { upperFirstChar } from '@/lib/shared'
 import { getPostByPostType } from '~/markdown/utils/fs'
-import { PostDir } from '~/constants/shared'
+import { Categoires } from '~/constants/shared'
 import NotFound from '@/app/not-found'
 import { generateSeoMetaData, joinWebUrl } from '@/app/seo'
 import { MAX_PAGE_SIZE } from './constants'
@@ -15,7 +15,7 @@ interface Params {
   slug: string[] | undefined
 }
 export async function generateStaticParams() {
-  const result: Params[] = PostDir.map((type) => ({
+  const result: Params[] = Categoires.map((type) => ({
     slug: [type],
   }))
   result.push({
@@ -25,7 +25,7 @@ export async function generateStaticParams() {
   let total = 0
 
   await Promise.all(
-    PostDir.map(async (type) => {
+    Categoires.map(async (type) => {
       const posts = await getPostByPostType(type)
       total += posts.length
       for (let i = 1; i <= Math.ceil(posts.length / MAX_PAGE_SIZE); i++) {
@@ -49,7 +49,6 @@ interface ListProps {
 const NumRegx = /\d+/
 
 function getParams(slug: string[] | undefined) {
-  console.log(slug)
   if (!slug) {
     return { pagenum: 1 }
   }
@@ -83,17 +82,15 @@ async function ArtlistAll(props: ListProps) {
     listData.slice((pagenum - 1) * MAX_PAGE_SIZE, pagenum * MAX_PAGE_SIZE),
   )
   return (
-    <>
-      <div>
-        <ArtList lists={showLists} />
-        <ArtlistPagination
-          type={type}
-          pagenum={pagenum}
-          lists={listData}
-          pageCount={pageCount}
-        />
-      </div>
-    </>
+    <div className="load_ani">
+      <ArtList lists={showLists} />
+      <ArtlistPagination
+        type={type}
+        pagenum={pagenum}
+        lists={listData}
+        pageCount={pageCount}
+      />
+    </div>
   )
 }
 

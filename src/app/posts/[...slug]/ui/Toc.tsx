@@ -1,8 +1,8 @@
 'use client'
 
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { Link } from 'next-view-transitions'
-import { cn, throttle } from '@/lib/client'
+import Link from 'next/link'
+import { cn } from '@/lib/client'
 import styles from './Toc.module.css'
 
 interface ITocList {
@@ -11,13 +11,13 @@ interface ITocList {
   depth: number
 }
 
-const ShowHeight = 300
+const ShowHeight = 110
 
 const TocLink = memo(
   ({ id, depth, title, active }: ITocList & { active: boolean }) => (
     <Link
       style={{
-        paddingLeft: (depth - 1) * 12,
+        paddingLeft: depth * 16,
       }}
       className={cn(styles.item, {
         [styles.active]: active,
@@ -32,7 +32,6 @@ const TocLink = memo(
 function Toc() {
   const [lists, setLists] = useState<ITocList[]>([])
   const [activeIndex, setActiveIndex] = useState<number>()
-  const [visible, setVisible] = useState(false)
   const nodes = useRef<NodeListOf<Element>>(null)
   const tocRef = useRef<HTMLDivElement>(null)
   const listRef = useRef<HTMLDivElement>(null)
@@ -78,35 +77,36 @@ function Toc() {
     return indexSet
   }, [activeIndex])
 
-  const handler = useCallback(
-    throttle(() => {
-      const viewHeight = 300
-      const scrollY = window.scrollY
-      if (scrollY > ShowHeight) {
-        setVisible(true)
-        for (let i = 0; i < nodes.current!.length; i++) {
-          const node = nodes.current![i]
-          const rect = node.getBoundingClientRect()
-          if (rect.bottom >= 0 && rect.top < viewHeight) {
-            highlight(i)
-            break
-          }
-          const nextRect = nodes.current![i + 1]?.getBoundingClientRect()
-          if (rect.bottom < 0 && nextRect && nextRect.top > viewHeight) {
-            highlight(i)
-            break
-          }
+  const handler = () => {
+    const tocDom = tocRef.current
+    if (!tocDom) {
+      return
+    }
+    const viewHeight = 300
+    const scrollY = window.scrollY
+    if (scrollY > ShowHeight) {
+      tocDom.style.opacity = '1'
+      for (let i = 0; i < nodes.current!.length; i++) {
+        const node = nodes.current![i]
+        const rect = node.getBoundingClientRect()
+        if (rect.bottom >= 0 && rect.top < viewHeight) {
+          highlight(i)
+          break
         }
-      } else {
-        setVisible(false)
+        const nextRect = nodes.current![i + 1]?.getBoundingClientRect()
+        if (rect.bottom < 0 && nextRect && nextRect.top > viewHeight) {
+          highlight(i)
+          break
+        }
       }
-    }, 100),
-    [],
-  )
+    } else {
+      tocDom.style.opacity = '0'
+    }
+  }
 
   useEffect(() => {
-    setVisible(window.scrollY > ShowHeight)
     nodes.current = document.querySelectorAll('.md > h1,h2,h3')
+    handler()
     setLists(
       Array.from(nodes.current!).map((node) => ({
         title: node.textContent!,
@@ -120,13 +120,7 @@ function Toc() {
   }, [])
 
   return (
-    <div
-      ref={tocRef}
-      className={styles.toc}
-      style={{
-        display: visible ? undefined : 'none',
-      }}
-    >
+    <div ref={tocRef} className={styles.toc}>
       <div className={styles.list} ref={listRef}>
         {lists.map((list, i) => (
           <TocLink

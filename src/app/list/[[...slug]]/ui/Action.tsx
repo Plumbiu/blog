@@ -1,6 +1,6 @@
-import { Link } from 'next-view-transitions'
+import Link from 'next/link'
 import type { ReactNode } from 'react'
-import { PostDir } from '~/constants/shared'
+import { Categoires } from '~/constants/shared'
 import { upperFirstChar } from '@/lib/shared'
 import { cn } from '@/lib/client'
 import { BlogIcon, LifeIcon, SummaryIcon, NoteIcon } from '@/components/Icons'
@@ -16,7 +16,7 @@ export const listActionIconMap: Record<string, ReactNode> = {
 function ArtlistAction({ type }: { type: string }) {
   return (
     <div className={styles.action}>
-      {PostDir.map((p) => (
+      {Categoires.map((p) => (
         <Link
           className={cn(styles.item, {
             [styles.active]: type === p,

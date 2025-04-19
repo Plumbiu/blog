@@ -5,7 +5,7 @@ import styles from './Footer.module.css'
 
 function Footer() {
   return (
-    <div className={cn('center', styles.wrap)}>
+    <div className={cn('main_layout', styles.wrap)}>
       <div>
         <Link
           className="link"

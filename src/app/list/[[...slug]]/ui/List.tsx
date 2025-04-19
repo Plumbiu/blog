@@ -1,9 +1,10 @@
-import { Link } from 'next-view-transitions'
+import Link from 'next/link'
 import styles from './List.module.css'
 import { DESC_MAX_LEN } from '../constants'
 import { localeMap } from '~/config/locale'
 import type { PostList } from '~/markdown/types'
 import PostMeta from '@/components/PostMeta'
+import { cn } from '@/lib/client'
 
 function ArtList({ lists }: { lists: [string, PostList[]][] }) {
   return lists.map(([_year, post]) =>
@@ -11,7 +12,7 @@ function ArtList({ lists }: { lists: [string, PostList[]][] }) {
       const { meta, path, locale } = postProps
       const { title, desc } = meta
       return (
-        <div key={path} className={styles.list}>
+        <div key={path} className={cn('load_ani', styles.list)}>
           <Link href={'/' + path} className={styles.title}>
             {title}
             {!!locale && (

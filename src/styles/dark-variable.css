@@ -7,7 +7,7 @@ html[data-theme='dark'] {
   --text-1: rgba(200, 200, 200);
   --text-desc: rgba(200, 200, 200, 0.87);
   /* border */
-  --divider: #222;
+  --divider: #32363a;
   --s-border: 1px solid var(--divider);
   /* color */
   --c-yellow-soft: rgba(234, 179, 8, 0.16);
@@ -22,7 +22,7 @@ html[data-theme='dark'] {
   --c-purple-3: #8e5cd9;
   --c-purple-2: #a879e6;
   --c-purple-1: #c8abfa;
-  --c-indigo-soft: rgba(142, 147, 253, 0.16);
+  --c-indigo-soft: rgba(100, 108, 255, .16);
   --c-indigo-3: #3e63dd;
   --c-indigo-2: #5c73e7;
   --c-indigo-1: #8b94e6;
@@ -30,7 +30,7 @@ html[data-theme='dark'] {
   --c-green-3: #298459;
   --c-green-2: #30a46c;
   --c-green-1: #3dd68c;
-  --c-gray-soft: rgba(101, 117, 130, 0.16);
+  --c-gray-soft: rgba(101, 117, 133, .16);
   --c-gray-3: #333;
   --c-gray-2: #454545;
   --c-gray-1: #565656;
@@ -51,7 +51,6 @@ html[data-theme='dark'] {
   --bg-tag: #162024b2;
   --bg-vertical-line: #333a43;
   --bg-modal: #00000030;
-  --bg-comment: #090909;
   --bg-search-panel: #181819;
   --bg-search-panel-footer: #1c1c1c;
   --bg-search-panel-item: #2b2f32;

@@ -1,4 +1,4 @@
-import { PostDir, type FrontmatterKey } from '~/constants/shared'
+import { Categoires, type CategoiresType } from '~/constants/shared'
 import { BasePath } from '~/data/site'
 import { isString } from './types'
 
@@ -30,14 +30,14 @@ export function isJsxFileLike(p: string) {
   )
 }
 
-const frontmatterSet: Set<string> = new Set(PostDir)
-export function getCategory(urls: string | string[]) {
+const frontmatterSet: Set<string> = new Set(Categoires)
+export function getCategoryFromUrl(urls: string | string[]) {
   if (isString(urls)) {
     urls = urls.split('/')
   }
   for (const url of urls) {
     if (frontmatterSet.has(url)) {
-      return url as FrontmatterKey
+      return url as CategoiresType
     }
   }
   return 'blog'

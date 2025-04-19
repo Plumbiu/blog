@@ -1,7 +1,11 @@
 .wrap {
-  font-size: 18px;
+  font-size: var(--text-lg);
+  padding: 12px 24px 32px;
+  border-radius: 12px;
+  background-color: var(--bg-card);
+  box-shadow: var(--shadow-box-light);
 
-  & > div {
+  &>div {
     margin-bottom: 28px;
   }
 }
@@ -10,7 +14,7 @@
   font-size: 48px;
 }
 
-.tag > div {
+.tag>div {
   margin-right: 12px;
   font-size: 18px !important;
 }
@@ -25,7 +29,7 @@
   display: flex;
   gap: 24px;
 
-  & > a {
+  &>a {
     transition: color 150ms;
 
     &:hover {

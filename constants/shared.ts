@@ -1,2 +1,2 @@
-export const PostDir = ['blog', 'life', 'summary', 'note'] as const
-export type FrontmatterKey = (typeof PostDir)[number]
+export const Categoires = ['blog', 'life', 'summary', 'note'] as const
+export type CategoiresType = (typeof Categoires)[number]

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { Link } from 'next-view-transitions'
+import Link from 'next/link'
 import { cn } from '@/lib/client'
 import styles from './Card.module.css'
 

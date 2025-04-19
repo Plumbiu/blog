@@ -139,7 +139,7 @@
         "noTemplateCurlyInString": "error",
         "noUnknownPseudoClass": "error",
         "noUnknownPseudoElement": "error",
-        "noUnknownTypeSelector": "error",
+        "noUnknownTypeSelector": "off",
         "noUselessEscapeInRegex": "error",
         "noUselessStringRaw": "error",
         "noValueAtRule": "error",

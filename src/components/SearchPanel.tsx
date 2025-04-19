@@ -14,7 +14,7 @@ import styles from './SearchPanel.module.css'
 import Modal from './Modal'
 import { CopyErrorIcon, SearchIcon, SearchSlashIcon } from './Icons'
 import { upperFirstChar } from '@/lib/shared'
-import { Link } from 'next-view-transitions'
+import Link from 'next/link'
 import { entries } from '@/lib/types'
 import useSearchPanelStore from '@/store/search-panel'
 
@@ -82,6 +82,9 @@ function SearchPanel({ data }: SearchPanelProps) {
       const result: Record<string, SearchData[]> = {}
       for (const list of lists) {
         const type = upperFirstChar(list.type)
+        if (!type) {
+          continue
+        }
         if (!result[type]) {
           result[type] = []
         }

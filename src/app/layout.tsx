@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
-import { ViewTransitions } from 'next-view-transitions'
 import { Analytics } from '@vercel/analytics/react'
 import { BlogAuthor, BlogTitle, BlogUrl, BlogDesc, GSC } from '~/data/site'
 import { resolveAssetPath } from '@/lib/shared'
@@ -11,7 +10,7 @@ import '../styles/variable.css'
 import '../styles/dark-variable.css'
 import '../styles/preset.css'
 import Footer from '@/components/Footer'
-import { mono, robot } from './fonts'
+import { robot } from './fonts'
 import { generateSeoMetaData } from './seo'
 import { getPostByPostType } from '~/markdown/utils/fs'
 import SearchPanel from '@/components/SearchPanel'
@@ -69,21 +68,12 @@ export default async function RootLayout({
             }.js`,
           )}
         />
-        <ViewTransitions>
-          <Header />
-          <div className="main_children">
-            <UserInfo />
-            <div
-              style={{
-                width: 'var(--post-w)',
-                flexShrink: 0,
-              }}
-            >
-              {children}
-            </div>
-          </div>
-          <Footer />
-        </ViewTransitions>
+        <Header />
+        <div className="main_layout">
+          <UserInfo />
+          <div className="main_children">{children}</div>
+        </div>
+        <Footer />
         <ImageView />
         <Analytics />
         <SearchPanel data={searchData} />

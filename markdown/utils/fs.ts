@@ -1,13 +1,31 @@
 import fsp from 'node:fs/promises'
 import path from 'node:path'
 import { glob } from 'fast-glob'
-import { getCategory, removeMdSuffix } from '../../src/lib/shared'
-import { CWD } from '~/constants/node'
+import { getCategoryFromUrl, removeMdSuffix } from '../../src/lib/shared'
+import { CWD, PostPath } from '~/constants/node'
 import type { PostList } from '../types'
 import { parsePostMeta } from './meta-parse'
+import { Categoires, type CategoiresType } from '~/constants/shared'
 
-export async function getPostsPath() {
+export function getPostsPath() {
   return glob('posts/**/*.md')
+}
+
+interface Category {
+  type: CategoiresType
+  count: number
+}
+
+export function getCategories(): Promise<Category[]> {
+  return Promise.all(
+    Categoires.map(async (type) => {
+      const dirs = await fsp.readdir(path.join(PostPath, type))
+      return {
+        type,
+        count: dirs.length,
+      }
+    }),
+  )
 }
 
 export async function getPostByPostType(postType?: string) {
@@ -17,7 +35,7 @@ export async function getPostByPostType(postType?: string) {
   await Promise.all(
     mds.map(async (mdPath) => {
       const tokens = mdPath.split('/')
-      const type = getCategory(mdPath)
+      const type = getCategoryFromUrl(mdPath)
       if (postType != null && type !== postType) {
         return
       }

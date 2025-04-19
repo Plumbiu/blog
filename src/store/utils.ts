@@ -1,4 +1,5 @@
 function preventDefault(e: Event) {
+  e.stopImmediatePropagation()
   e.preventDefault()
 }
 

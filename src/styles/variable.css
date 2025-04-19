@@ -5,9 +5,9 @@
   --text-3: rgba(30, 30, 30, 0.56);
   --text-2: rgba(30, 30, 30, 0.72);
   --text-1: rgb(30, 30, 30);
-  --text-desc: rgba(30, 30, 30, 0.8)
+  --text-desc: rgba(30, 30, 30, 0.8);
   /* border */
-  --divider: #e2e2e5;
+  --divider: #d8e1e6;
   /* color */
   --c-yellow-soft: rgba(234, 179, 8, 0.14);
   --c-yellow-3: #9f6a00;
@@ -21,10 +21,10 @@
   --c-purple-3: #8e5cd9;
   --c-purple-2: #7e4cc9;
   --c-purple-1: #6f42c1;
-  --c-indigo-soft: rgba(124, 131, 255, 0.14);
-  --c-indigo-3: #3e63dd;
-  --c-indigo-2: #5c73e7;
-  --c-indigo-1: #a8b1ff;
+  --c-indigo-soft: rgba(100, 108, 255, 0.16);
+  --c-indigo-3: #5672cd;
+  --c-indigo-2: #3a5ccc;
+  --c-indigo-1: #3451b2;
   --c-green-soft: rgba(5, 185, 129, 0.14);
   --c-green-3: #30a46c;
   --c-green-2: #299764;
@@ -45,12 +45,11 @@
   --bg-md-table-header: #efefef;
   --bg-md-table-th: #f6f6f6;
   --bg-header: #ffffff85;
-  --bg-body: #E3E8EF;
+  --bg-body: #e3e8ef;
   --bg-scrollbar: #c8c8c8;
   --bg-tag: #e9eef4ba;
   --bg-vertical-line: #bfbfbf;
   --bg-modal: #00000073;
-  --bg-comment: #fcfcfd;
   --bg-search-panel: #f6f6f7;
   --bg-search-panel-footer: #fff;
   --bg-search-panel-item: #fff;
@@ -64,17 +63,17 @@
   --console-bool: rgb(30, 117, 79);
   --console-symbol: rgb(89, 135, 58);
 }
-:root[data-theme="light"] {
+:root[data-theme='light'] {
   --shadow-box-light: 0 0.1em 0.2em var(--c-gray-soft);
 }
 
 /* constant */
 :root {
-  --header-h: 76px;
-  --main-w: 1180px;
-  --post-w: 900px;
-  --main-side-w: calc(var(--main-w) - var(--post-w));
-  --rest-w: calc((100% - var(--main-w)) / 2);
+  --header-h: 82px;
+  --main-w: min(70vw, 1140px);
+  --post-w: calc(var(--main-w) - 240px);
+  --main-side-w: calc(var(--main-w) - var(--post-w) - 16px);
+  --rest-w: calc((100vw - var(--main-w)) / 2);
   --pre-radius: 8px;
   --pre-padding: 14px;
   --extend-x: -76px;
@@ -87,7 +86,6 @@
   --text-3xl: 1.875rem;
   --text-4xl: 2.125rem;
 }
-
 
 @media screen and (max-width: 1320px) {
   :root {
@@ -102,7 +100,6 @@
     --main-w: 960px;
   }
 }
-
 
 @media screen and (max-width: 960px) {
   :root {
