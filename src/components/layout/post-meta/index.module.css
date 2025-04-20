@@ -1,0 +1,22 @@
+@media screen and (max-width: 960px) {
+  .tags {
+    display: none;
+  }
+}
+
+.post_info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--text-sm);
+  color: var(--text-3);
+  font-weight: 500;
+
+  & svg {
+    background-color: var(--c-indigo-soft);
+    padding: 4px;
+    font-size: var(--text-3xl);
+    color: var(--c-indigo-1);
+    border-radius: 6px;
+  }
+}

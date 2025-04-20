@@ -4,17 +4,17 @@ import {
   removeMdSuffix,
   upperFirstChar,
 } from '@/lib/shared'
-import NotFound from '@/components/NotFound'
+import NotFound from '@/components/function/NotFound'
 import { getPostsPath, getPostByPostType } from '~/markdown/utils/fs'
 import { generateSeoMetaData, joinWebUrl } from '@/app/seo'
 import styles from './page.module.css'
-import Toc from './ui/Toc'
-import Meta from './ui/Meta'
-import Comment from './ui/Comment'
+import Toc from './components/Toc'
+import Meta from './components/Meta'
+import Comment from './components/Comment'
 import './styles/md.css'
 import './styles/shiki.css'
 import transfromCode2Jsx from '~/markdown/transfrom'
-import PostMeta from '@/components/PostMeta'
+import PostMeta from '@/components/layout/post-meta'
 import { cn } from '@/lib/client'
 
 export async function generateStaticParams() {
@@ -58,7 +58,6 @@ async function Post(props: PostProps) {
     return <NotFound />
   }
   const id = data[data.length - 1]
-
   const node = await transfromCode2Jsx(info.content)
 
   return (

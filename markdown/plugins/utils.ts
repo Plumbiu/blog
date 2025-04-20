@@ -11,8 +11,11 @@ export function addNodeClassName(node: CommonReamrkNode, className: string) {
   if (!props) {
     return
   }
-  const originClassName = props.class?.trim() ?? ''
-  props.class = `${originClassName} ${className}`.trim()
+  const originClassName = props.className?.trim() ?? props.class?.trim() ?? ''
+  const classNameSet = new Set(
+    `${originClassName} ${className}`.trim().split(' '),
+  )
+  props.class = [...classNameSet].join(' ')
 }
 
 export function makeProperties(node: CommonReamrkNode) {

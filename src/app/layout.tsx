@@ -3,18 +3,19 @@ import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
 import { BlogAuthor, BlogTitle, BlogUrl, BlogDesc, GSC } from '~/data/site'
 import { resolveAssetPath } from '@/lib/shared'
-import Header from '@/components/Header'
-import ImageView from '@/components/ImageView'
+import Header from '@/components/layout/Header'
+import ImageView from '@/components/layout/ImageView'
 import '../styles/globals.css'
 import '../styles/variable.css'
 import '../styles/dark-variable.css'
 import '../styles/preset.css'
-import Footer from '@/components/Footer'
+import Footer from '@/components/layout/Footer'
 import { robot } from './fonts'
 import { generateSeoMetaData } from './seo'
 import { getPostByPostType } from '~/markdown/utils/fs'
-import SearchPanel from '@/components/SearchPanel'
-import UserInfo from '@/components/UserInfo'
+import SearchPanel from '@/components/layout/SearchPanel'
+import SideBar from '@/components/layout/side-bar'
+import Banner from '@/components/layout/Banner'
 
 export const metadata: Metadata = {
   title: BlogTitle,
@@ -69,8 +70,16 @@ export default async function RootLayout({
           )}
         />
         <Header />
+        <Banner />
+        <script
+          src={resolveAssetPath(
+            `assets/banner/${
+              process.env.NODE_ENV === 'development' ? 'dev' : 'index'
+            }.js`,
+          )}
+        />
         <div className="main_layout">
-          <UserInfo />
+          <SideBar />
           <div className="main_children">{children}</div>
         </div>
         <Footer />

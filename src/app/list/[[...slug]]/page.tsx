@@ -7,8 +7,9 @@ import { generateSeoMetaData, joinWebUrl } from '@/app/seo'
 import { MAX_PAGE_SIZE } from './constants'
 import { BlogTitle } from '~/data/site'
 import { formatPostByYear } from './utils'
-import ArtList from './ui/List'
-import ArtlistPagination from './ui/Pagination'
+import ArtList from './components/List'
+import ArtlistPagination from './components/Pagination'
+import styles from './page.module.css'
 
 interface Params {
   // [type, pagenum]
@@ -83,7 +84,9 @@ async function ArtlistAll(props: ListProps) {
   )
   return (
     <div className="load_ani">
-      <ArtList lists={showLists} />
+      <div className={styles.list_wrap}>
+        <ArtList lists={showLists} />
+      </div>
       <ArtlistPagination
         type={type}
         pagenum={pagenum}

@@ -3,7 +3,7 @@ import { JetBrains_Mono, Roboto } from 'next/font/google'
 export const mono = JetBrains_Mono({
   subsets: ['latin'],
   display: 'swap',
-  weight: ['400'],
+  weight: ['400', '500'],
 })
 
 export const robot = Roboto({
@@ -19,5 +19,5 @@ export const robot = Roboto({
     'Segoe UI Symbol',
     'Noto Color Emoji',
   ],
-  weight: ['400', '500', '600'],
+  weight: ['400', '600'],
 })

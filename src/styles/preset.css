@@ -3,7 +3,7 @@
   justify-content: center;
   width: var(--main-w);
   margin: 0 auto;
-  margin-top: calc(var(--header-h) + 64px);
+  margin-top: var(--main-offset-top);
   transition: margin-top 0.7s cubic-bezier(0.4, 0, 0.2, 1);
   gap: 16px;
 }
@@ -19,9 +19,10 @@
 
 @media screen and (max-width: 960px) {
   .main_layout {
+    overflow: hidden;
+    flex-direction: column-reverse;
+    padding: 0 4px;
     width: 100%;
-    padding: 0 12px;
-    margin-top: calc(var(--header-h) + 64px);
   }
 }
 
@@ -81,8 +82,7 @@
 
 .load_ani {
   opacity: 0;
-  animation: 0.3s fade-in-up;
-  animation-fill-mode: forwards;
+  animation: 0.3s fade-in-up forwards;
 }
 
 @keyframes fade-in-up {

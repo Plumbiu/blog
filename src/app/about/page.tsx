@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { BiliBiliIcon, GithubIcon } from '@/components/Icons'
-import Tag from '@/components/Tag'
+import Tag from '@/components/ui/Tag'
 import { cn } from '@/lib/client'
 import { BilibiliId, BlogAuthor, GithubName } from '~/data/site'
 import styles from './page.module.css'
@@ -9,7 +9,7 @@ import { generateSeoMetaData, joinWebUrl } from '../seo'
 
 function About() {
   return (
-    <div className={cn(styles.wrap, 'center')}>
+    <div className={cn(styles.wrap, 'center', 'load_ani')}>
       <h1 className={styles.hi}> Hi, I'm {BlogAuthor} 👋</h1>
       <div className={styles.tag}>
         <Tag icon="#">Developer</Tag>

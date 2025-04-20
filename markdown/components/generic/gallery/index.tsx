@@ -216,6 +216,7 @@ function ImageGallery(props: any) {
               </MemoThumbinalItem>
             ))}
           </div>
+          <div className={styles.thumbnils_bg} />
           <ArrowLeftIcon
             onClick={() => handleThumbnailClick(currentIndex - 1)}
             className={cn(styles.arrow, styles.left_arrow)}

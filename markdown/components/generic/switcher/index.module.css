@@ -1,6 +1,6 @@
 .container {
   border-radius: var(--pre-radius) var(--pre-radius) 0 0;
   overflow: hidden;
-  border-right: none;
+  border-right: none !important;
   border-bottom: none;
 }

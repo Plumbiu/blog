@@ -1,19 +1,29 @@
 'use client'
 
-import { createStore } from '@plumbiu/react-store'
+import { create } from 'zustand'
 import type React from 'react'
 import { makeBodyScroll, avoidBodyScroll } from './utils'
 
-const useModalStore = createStore({
+interface UseModalStore {
+  children: React.ReactElement | null
+  hidden(): void
+  set(children: React.ReactElement): void
+}
+
+const useModalStore = create<UseModalStore>()((set) => ({
   children: null as React.ReactElement | null,
   hidden() {
-    makeBodyScroll(this.hidden)
-    this.$set({ children: null })
+    set((state) => {
+      makeBodyScroll(state.hidden)
+      return { children: null }
+    })
   },
-  set(children: React.ReactElement) {
-    avoidBodyScroll(this.hidden)
-    this.$set({ children })
+  set(children) {
+    set((state) => {
+      avoidBodyScroll(state.hidden)
+      return { children }
+    })
   },
-})
+}))
 
 export default useModalStore

@@ -1,9 +1,15 @@
 .md {
   color: var(--text-1);
   margin: 0;
-  margin-top: 24px;
+  margin-top: 16px;
   word-break: break-word;
   border-top: 1px dashed var(--divider);
+
+  li {
+    &::marker {
+      color: var(--c-indigo-1);
+    }
+  }
 
   &>p {
     line-height: 28px;
@@ -57,7 +63,8 @@
   /* Code */
   code {
     font-size: var(--text-sm);
-    padding: 3px 6px;
+    font-weight: 500;
+    padding: 2px 4px;
     border-radius: 4px;
     color: var(--c-indigo-1);
     background-color: var(--c-indigo-soft);
@@ -75,6 +82,7 @@
     padding: var(--pre-padding) 0 var(--pre-padding) var(--pre-padding);
 
     code {
+      font-weight: 400;
       display: block;
       width: fit-content;
       padding: 0;
@@ -86,7 +94,7 @@
   }
 
   /* blockquote */
-  blockquote {
+  blockquote[class^="load_ani"][class$="load_ani"] {
     position: relative;
     color: var(--text-2);
     font-size: 14px;
@@ -102,7 +110,7 @@
     }
   }
 
-  blockquote[class] {
+  blockquote {
     color: var(--text-1);
     border-radius: 2px;
     padding-right: 16px;
@@ -147,7 +155,7 @@
     position: relative;
     max-width: 100%;
     height: auto;
-    cursor: pointer;
+    cursor: zoom-in;
     object-fit: contain;
     border-radius: 12px;
     transition: border-radius 250ms;
@@ -248,5 +256,13 @@
     &::before {
       content: "$ ";
     }
+  }
+
+  .task-list-item {
+    list-style: none;
+  }
+
+  .contains-task-list {
+    padding-left: 16px;
   }
 }

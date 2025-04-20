@@ -19,10 +19,11 @@
   opacity: 0;
   animation: fade 0.15s forwards;
   position: fixed;
+  backdrop-filter: blur(8px);
   flex-direction: column;
   inset: 0;
   z-index: 999;
-  background-color: #000;
+  background-color: var(--bg-modal);
 
   & svg {
     transition: color 0.15s;
@@ -55,10 +56,23 @@
   width: 100%;
 }
 
+.thumbnils_bg {
+  position: fixed;
+  left: 32px;
+  right: 32px;
+  border-radius: 12px;
+  z-index: 18;
+  bottom: var(--thumb-bottom);
+  height: calc(var(--thumb-item-height) + 8px);
+  background-color: var(--bg-card);
+  box-shadow: var(--shadow-box-light);
+}
+
 .thumbnails {
   position: fixed;
   left: 0;
   right: 0;
+  z-index: 19;
   bottom: var(--thumb-bottom);
   display: flex;
   user-select: none;

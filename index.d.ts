@@ -1,4 +1,5 @@
 interface Window {
+  // theme
   getTheme(): string
   getLocalTheme(): string
   setHtmlTheme(theme: string): void
@@ -7,6 +8,8 @@ interface Window {
   ThemeKey: string
   Dark: string
   Light: string
+  // banner
+  setBannerHeight(): void
 }
 
 declare module '~/data/issues.json' {

@@ -1,18 +1,21 @@
 'use client'
 
-import { createStore } from '@plumbiu/react-store'
-import { avoidBodyScroll, makeBodyScroll } from './utils'
+import { create } from 'zustand'
 
-const useSearchPanelStore = createStore({
+interface UseSearchPanelStore {
+  visible: boolean
+  show(): void
+  hidden(): void
+}
+
+const useSearchPanelStore = create<UseSearchPanelStore>()((set) => ({
   visible: false,
   show() {
-    avoidBodyScroll(this.hidden)
-    this.$set({ visible: true })
+    set(() => ({ visible: true }))
   },
   hidden() {
-    makeBodyScroll(this.hidden)
-    this.$set({ visible: false })
+    set(() => ({ visible: false }))
   },
-})
+}))
 
 export default useSearchPanelStore

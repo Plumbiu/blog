@@ -7,7 +7,6 @@
 
 html {
   overflow-y: scroll;
-  --hue: 270;
 }
 
 body {
@@ -32,9 +31,11 @@ h4,
 h5,
 h6 {
   color: var(--text);
+
   & code {
     font-size: inherit !important;
   }
+
   & a {
     font-size: inherit !important;
   }
@@ -47,9 +48,11 @@ h1 {
 h2 {
   font-size: 22px;
 }
+
 h3 {
   font-size: 20px;
 }
+
 h4,
 h5,
 h6 {
@@ -80,7 +83,8 @@ ul {
   margin-top: 6px;
   padding-left: 28px;
   line-height: 28px;
-  & > li {
+
+  &>li {
     padding-left: 4px;
   }
 }
@@ -113,11 +117,12 @@ a[data-type='button'] {
   background-color: inherit;
   color: inherit;
   cursor: pointer;
-  padding: 6px 12px;
+  padding: 6px 8px;
   border: 1px solid var(--divider);
   border-radius: 8px;
   transition: background-color 0.15s;
-  font-size: 14px;
+  font-size: var(--text-sm);
+
   &:hover {
     background-color: var(--c-gray-soft);
   }
@@ -141,6 +146,7 @@ textarea {
   font-size: 14px;
   transition: border-color 0.15s;
   background-color: var(--bg-body);
+
   &:focus {
     border-color: var(--c-indigo-3);
   }

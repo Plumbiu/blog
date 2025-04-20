@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import type { LogInfo } from '@/hooks/useConsole'
-import PreComponent from '@/components/Pre'
+import PreComponent from '@/components/ui/Pre'
 import { handleCodeRunnerCodeKey } from '~/markdown/plugins/remark/runner-utils'
 import CodeWrapper from '../_common/CodeWrapper'
 import Console from '../_common/Console'
@@ -14,7 +14,6 @@ function CodeRunner(props: any) {
   const workerRef = useRef<Worker>(null)
 
   useEffect(() => {
-    console.log(import.meta.url)
     workerRef.current = new Worker(new URL('./worker.ts', import.meta.url))
     workerRef.current.postMessage(runCode)
     workerRef.current.onmessage = (event: MessageEvent<LogInfo[]>) => {

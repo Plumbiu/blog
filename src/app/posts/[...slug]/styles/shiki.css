@@ -1,176 +1,78 @@
 html[data-theme="dark"] {
   .s0 {
-    color: #758575dd;
+    color: #6a737d;
   }
   .s1 {
-    color: #666666;
-  }
-  .s2 {
-    color: #c99076;
-  }
-  .s3 {
-    color: #80a665;
-  }
-  .s4 {
-    color: #dbd7caee;
-  }
-  .s5 {
-    color: #4d9375;
-  }
-  .s6 {
-    color: #cb7676;
-  }
-  .s7 {
-    color: #c98a7d;
-  }
-  .s8 {
-    color: #c98a7d77;
-  }
-  .s9 {
-    color: #b8a96577;
-  }
-  .s10 {
-    color: #b8a965;
-  }
-  .s11 {
-    color: #bd976a;
-  }
-  .s12 {
-    color: #5da994;
-  }
-  .s13 {
-    color: #db889a;
-  }
-  .s14 {
-    color: #fdaeb7;
-  }
-  .s15 {
-    color: #24292e;
-  }
-  .s16 {
-    color: #c4704f;
-  }
-  .s17 {
-    color: #e6cc77;
-  }
-  .s18 {
-    color: #4c9a91;
-  }
-  .s19 {
-    color: #d4976c;
-  }
-  .s20 {
-    color: #5d99a9;
-  }
-  .s21 {
-    color: #85e89d;
-  }
-  .s22 {
-    color: #ffab70;
-  }
-  .s23 {
-    color: #2f363d;
-  }
-  .s24 {
-    color: #b392f0;
-  }
-  .s25 {
     color: #79b8ff;
   }
-  .s26 {
+  .s2 {
+    color: #b392f0;
+  }
+  .s3 {
+    color: #e1e4e8;
+  }
+  .s4 {
+    color: #85e89d;
+  }
+  .s5 {
+    color: #f97583;
+  }
+  .s6 {
+    color: #9ecbff;
+  }
+  .s7 {
+    color: #ffab70;
+  }
+  .s8 {
+    color: #fdaeb7;
+  }
+  .s9 {
+    color: #24292e;
+  }
+  .s10 {
+    color: #dbedff;
+  }
+  .s11 {
+    color: #2f363d;
+  }
+  .s12 {
     color: #d1d5da;
   }
-  .s27 {
-    color: #dedcd590;
-  }
-  .s28 {
-    color: #6872ab;
-  }
 }
+
 .s0 {
-  color: #a0ada0;
+  color: #6a737d;
 }
 .s1 {
-  color: #999999;
-}
-.s2 {
-  color: #a65e2b;
-}
-.s3 {
-  color: #59873a;
-}
-.s4 {
-  color: #393a34;
-}
-.s5 {
-  color: #1e754f;
-}
-.s6 {
-  color: #ab5959;
-}
-.s7 {
-  color: #b56959;
-}
-.s8 {
-  color: #b5695977;
-}
-.s9 {
-  color: #99841877;
-}
-.s10 {
-  color: #998418;
-}
-.s11 {
-  color: #b07d48;
-}
-.s12 {
-  color: #2e8f82;
-}
-.s13 {
-  color: #b05a78;
-}
-.s14 {
-  color: #b31d28;
-}
-.s15 {
-  color: #fafbfc;
-}
-.s16 {
-  color: #ab5e3f;
-}
-.s17 {
-  color: #bda437;
-}
-.s18 {
-  color: #2f798a;
-}
-.s19 {
-  color: #1c6b48;
-}
-.s20 {
-  color: #2e808f;
-}
-.s21 {
-  color: #22863a;
-}
-.s22 {
-  color: #e36209;
-}
-.s23 {
-  color: #f6f8fa;
-}
-.s24 {
-  color: #6f42c1;
-}
-.s25 {
   color: #005cc5;
 }
-.s26 {
+.s2 {
+  color: #6f42c1;
+}
+.s3 {
+  color: #24292e;
+}
+.s4 {
+  color: #22863a;
+}
+.s5 {
+  color: #d73a49;
+}
+.s6 {
+  color: #032f62;
+}
+.s7 {
+  color: #e36209;
+}
+.s8 {
+  color: #b31d28;
+}
+.s9 {
+  color: #fafbfc;
+}
+.s10 {
+  color: #f6f8fa;
+}
+.s11 {
   color: #586069;
-}
-.s27 {
-  color: #393a3490;
-}
-.s28 {
-  color: #5a6aa6;
 }

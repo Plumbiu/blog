@@ -1,0 +1,11 @@
+@media screen and (max-width: 960px) {
+  .list_wrap>div {
+    &:first-child {
+      border-radius: 12px 12px 0 0 !important;
+    }
+
+    &:last-child {
+      border-radius: 0 0 12px 12px !important;
+    }
+  }
+}

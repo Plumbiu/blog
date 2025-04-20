@@ -8,9 +8,9 @@ import {
   transformerNotationHighlight,
   transformerNotationDiff,
 } from '@shikijs/transformers'
-import shikiMap from 'shiki-class-transformer/themes/vitesse-light.json'
-import vitesseDark from 'shiki/themes/vitesse-dark.mjs'
-import vitesseLight from 'shiki/themes/vitesse-light.mjs'
+import shikiMap from 'shiki-class-transformer/themes/github-light.json'
+import vitesseDark from 'shiki/themes/github-dark.mjs'
+import vitesseLight from 'shiki/themes/github-light.mjs'
 import {
   customShikiTranformer,
   shikiHightlightWordFormatTransformer,
@@ -57,8 +57,8 @@ const shikiOptions = {
 }
 
 const themeOptions = {
-  light: 'vitesse-light',
-  dark: 'vitesse-dark',
+  light: 'github-light',
+  dark: 'github-dark',
 }
 // This code is modified based on
 // https://github.com/timlrx/rehype-prism-plus/blob/main/src/generator.js
