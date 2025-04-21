@@ -17,6 +17,13 @@
   flex-shrink: 0;
 }
 
+.main_content {
+  position: relative;
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  padding: 16px 36px;
+}
+
 @media screen and (max-width: 960px) {
   .main_layout {
     flex-direction: column-reverse;
@@ -103,12 +110,4 @@
     transform: translateY(0);
     opacity: 1
   }
-}
-
-.main_content {
-  position: relative;
-  z-index: 9;
-  background-color: var(--bg-card);
-  border-radius: 12px;
-  padding: 16px 36px;
 }
