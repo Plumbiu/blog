@@ -30,6 +30,10 @@
     padding: 0 4px;
     width: 100%;
   }
+
+  .main_content {
+    padding: 16px;
+  }
 }
 
 .link {
