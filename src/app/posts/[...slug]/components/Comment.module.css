@@ -1,8 +1,5 @@
-.wrapper {
+.wrap {
   margin: 64px 0;
-  background-color: var(--bg-card);
-  padding: 16px 36px;
-  border-radius: 12px;
 }
 
 .loading_wrap {

@@ -4,6 +4,7 @@ import styles from './Banner.module.css'
 import { useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/client'
+import Image from 'next/image'
 
 export default function Banner() {
   const pathname = usePathname()
@@ -19,9 +20,11 @@ export default function Banner() {
 
   return (
     <div suppressHydrationWarning>
-      <img
+      <Image
+        width={1920}
+        height={1080}
         suppressHydrationWarning
-        className={cn('banner', styles.banner)}
+        className={cn('blog_banner', styles.banner)}
         alt="banner"
         src="/banner/01.jpg"
       />

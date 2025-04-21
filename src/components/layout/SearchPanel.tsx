@@ -133,7 +133,11 @@ function SearchPanel({ data }: SearchPanelProps) {
         }
       }}
     >
-      <div ref={contentRef} className={styles.wrap} data-overlayscrollbars-initialize>
+      <div
+        ref={contentRef}
+        className={styles.wrap}
+        data-overlayscrollbars-initialize
+      >
         <div className={styles.header}>
           <form className={styles.form}>
             <label htmlFor={label} className={styles.label}>
@@ -185,7 +189,9 @@ function SearchPanel({ data }: SearchPanelProps) {
           ))}
         </div>
         <div className={styles.footer}>
-          <div>Type to search</div>
+          <div>
+            <span className="keyboard_tag">ESC</span> to close
+          </div>
         </div>
       </div>
     </Modal>

@@ -86,8 +86,23 @@
 }
 
 .title {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   font-size: var(--text-lg);
   color: var(--text);
   font-weight: 600;
+}
+
+.tag_content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  cursor: pointer;
+  background-color: var(--c-indigo-soft);
+  color: var(--c-purple-1);
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: var(--text-sm);
 }

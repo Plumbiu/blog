@@ -7,7 +7,9 @@ import { cn } from '@/lib/client'
 import Title from '../../ui/Title'
 import { upperFirstChar } from '@/lib/shared'
 import Search from './Search'
-import { getCategories } from '~/markdown/utils/fs'
+import { getArchive } from '~/markdown/utils/fs'
+
+const MaxTagLength = 9
 
 const rightData = [
   { href: '/rss.xml', children: <RssIcon />, target: '_blank' },
@@ -15,7 +17,7 @@ const rightData = [
 ]
 
 async function SideBar() {
-  const categories = await getCategories()
+  const { categories, tags } = await getArchive()
   return (
     <div className={cn('load_ani', styles.wrap)}>
       <div className={cn(styles.user, styles.wrap_item)}>
@@ -42,13 +44,23 @@ async function SideBar() {
       </div>
       <div className={styles.sticky}>
         <Search className={styles.wrap_item} />
-        <div className={cn(styles.category, styles.wrap_item)}>
+        <div className={styles.wrap_item}>
           <Title className={styles.title}>分类</Title>
           <div className={styles.category_content}>
             {categories.map(({ type, count }) => (
-              <Link href={`/list/${type}`} key={type}>
+              <Link href={`/category/${type}`} key={type}>
                 {upperFirstChar(type)}
                 <div className={styles.category_card}>{count}</div>
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div className={styles.wrap_item}>
+          <Title className={styles.title}>标签</Title>
+          <div className={styles.tag_content}>
+            {tags.slice(0, MaxTagLength).map((tag) => (
+              <Link className={styles.tag} href={`/tag/${tag}`} key={tag}>
+                {tag}
               </Link>
             ))}
           </div>

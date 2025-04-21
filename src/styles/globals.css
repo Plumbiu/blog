@@ -6,7 +6,12 @@
 }
 
 html {
-  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+html .os-scrollbar {
+  --os-padding-perpendicular: 4px;
+  --os-size: 14px;
 }
 
 body {

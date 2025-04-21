@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { BiliBiliIcon, GithubIcon } from '@/components/Icons'
-import Tag from '@/components/ui/Tag'
 import { cn } from '@/lib/client'
 import { BilibiliId, BlogAuthor, GithubName } from '~/data/site'
 import styles from './page.module.css'
@@ -9,11 +8,11 @@ import { generateSeoMetaData, joinWebUrl } from '../seo'
 
 function About() {
   return (
-    <div className={cn(styles.wrap, 'center', 'load_ani')}>
-      <h1 className={styles.hi}> Hi, I'm {BlogAuthor} 👋</h1>
+    <div className={cn(styles.wrap, 'main_content', 'center', 'load_ani')}>
+      <h1> Hi, I'm {BlogAuthor} 👋</h1>
       <div className={styles.tag}>
-        <Tag icon="#">Developer</Tag>
-        <Tag icon="#">Student</Tag>
+        <div>#Developer</div>
+        <div>#Student</div>
       </div>
       <div className={styles.desc}>
         I'm a college student from China, currently studying electronic
@@ -28,10 +27,10 @@ function About() {
       </ul>
       <div />
       <div className={styles.tag}>
-        <Tag icon="#">Web</Tag>
-        <Tag icon="#">Programming</Tag>
+        <div>#Web</div>
+        <div>#Programming</div>
       </div>
-      <div>
+      <div className={styles.desc}>
         If you are interested in this blog:{' '}
         <Link
           className="link"
@@ -49,7 +48,7 @@ function About() {
           <BiliBiliIcon />
         </Link>
       </div>
-      <div>Happy reading! 🍺</div>
+      <div className={styles.read}>Happy reading! 🍺</div>
     </div>
   )
 }

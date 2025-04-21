@@ -32,7 +32,7 @@ export default function Search({ className }: { className?: string }) {
         <SearchIcon />
         <span>搜索</span>
       </div>
-      <div className={styles.keyboard}>Ctrl+K</div>
+      <div className="keyboard_tag">Ctrl+K</div>
     </div>
   )
 }

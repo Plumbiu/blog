@@ -16,13 +16,6 @@
   }
 
   & svg {
-    font-size: var(--text-2xl);
+    font-size: var(--text-xl);
   }
-}
-
-.keyboard {
-  font-size: var(--text-xs);
-  padding: 4px;
-  background-color: var(--c-gray-soft);
-  border-radius: 4px;
 }

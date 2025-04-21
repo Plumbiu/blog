@@ -75,8 +75,8 @@
 :root {
   --header-h: 82px;
   --main-offset-top: -64px;
-  --main-w: min(80vw, 1140px);
-  --side-w: 240px;
+  --main-w: min(80vw, 1200px);
+  --side-w: 280px;
   --post-w: calc(var(--main-w) - var(--side-w) - 16px);
   --rest-w: calc((100vw - var(--main-w)) / 2);
   --pre-radius: 8px;

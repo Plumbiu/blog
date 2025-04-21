@@ -7,7 +7,7 @@
   position: relative;
   top: 86px;
   background-color: var(--bg-search-panel);
-  border-radius: 12px;
+  border-radius: 8px;
   width: var(--w);
   margin: 0 auto;
 }
@@ -118,7 +118,6 @@
   background-color: var(--bg-search-panel-footer);
   padding: var(--distance);
   background-origin: padding-box;
-  border-radius: 0 0 12px 12px;
   font-size: var(--text-sm);
   border-top: 1px solid var(--divider);
 

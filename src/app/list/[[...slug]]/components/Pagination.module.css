@@ -1,10 +1,6 @@
 .pagination {
-  gap: 12px;
+  gap: 16px;
   margin-top: 36px;
-
-  & svg {
-    font-size: 20px;
-  }
 }
 
 @media screen and (max-width: 960px) {
@@ -12,4 +8,34 @@
     font-size: 14px;
     gap: 6px;
   }
+}
+
+
+.item {
+  width: 42px;
+  height: 42px;
+  font-weight: 600;
+  color: var(--text-2);
+  text-align: center;
+  line-height: 36px;
+  border-radius: 12px;
+  background-color: var(--bg-card);
+  box-shadow: var(--shadow-box-light);
+  transition: background-color 120ms;
+
+}
+
+.item:not(.active):hover {
+  background-color: var(--c-indigo-soft);
+}
+
+.active {
+  background-color: var(--c-indigo-1);
+  color: #fff;
+}
+
+.disabled {
+  color: var(--c-gray-3);
+  cursor: not-allowed;
+  pointer-events: none;
 }

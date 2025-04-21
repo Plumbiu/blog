@@ -80,6 +80,15 @@
   margin: 0 2px;
 }
 
+.keyboard_tag {
+  font-size: var(--text-xs);
+  color: var(--text-3);
+  font-weight: 600;
+  padding: 4px;
+  background-color: var(--c-gray-soft);
+  border-radius: 4px;
+}
+
 .load_ani {
   opacity: 0;
   animation: 0.3s fade-in-up forwards;
@@ -95,4 +104,12 @@
     transform: translateY(0);
     opacity: 1
   }
+}
+
+.main_content {
+  position: relative;
+  z-index: 99;
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  padding: 16px 36px;
 }

@@ -5,9 +5,8 @@ import {
   upperFirstChar,
 } from '@/lib/shared'
 import NotFound from '@/components/function/NotFound'
-import { getPostsPath, getPostByPostType } from '~/markdown/utils/fs'
+import { getPostsPath, getPost } from '~/markdown/utils/fs'
 import { generateSeoMetaData, joinWebUrl } from '@/app/seo'
-import styles from './page.module.css'
 import Toc from './components/Toc'
 import Meta from './components/Meta'
 import Comment from './components/Comment'
@@ -15,7 +14,6 @@ import './styles/md.css'
 import './styles/shiki.css'
 import transfromCode2Jsx from '~/markdown/transfrom'
 import PostMeta from '@/components/layout/post-meta'
-import { cn } from '@/lib/client'
 
 export async function generateStaticParams() {
   const mds = await getPostsPath()
@@ -35,7 +33,7 @@ export async function generateStaticParams() {
 
 async function getPostContent(type: string, id: string) {
   try {
-    const posts = await getPostByPostType(type)
+    const posts = await getPost(type ? (post) => post.type === type : undefined)
     const post = posts.find((post) => post.path === `posts/${type}/${id}`)
     return post
   } catch (error) {}
@@ -61,9 +59,9 @@ async function Post(props: PostProps) {
   const node = await transfromCode2Jsx(info.content)
 
   return (
-    <div className={cn(styles.wrap)}>
-      <main className={styles.main}>
-        <div className={styles.meta}>
+    <div>
+      <main className="main_content">
+        <div>
           <Meta title={info.meta.title} />
           <PostMeta {...info} />
         </div>

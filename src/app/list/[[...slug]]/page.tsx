@@ -1,12 +1,11 @@
 import type { Metadata } from 'next'
 import { upperFirstChar } from '@/lib/shared'
-import { getPostByPostType } from '~/markdown/utils/fs'
+import { getPost } from '~/markdown/utils/fs'
 import { Categoires } from '~/constants/shared'
 import NotFound from '@/app/not-found'
 import { generateSeoMetaData, joinWebUrl } from '@/app/seo'
 import { MAX_PAGE_SIZE } from './constants'
 import { BlogTitle } from '~/data/site'
-import { formatPostByYear } from './utils'
 import ArtList from './components/List'
 import ArtlistPagination from './components/Pagination'
 import styles from './page.module.css'
@@ -28,7 +27,9 @@ export async function generateStaticParams() {
 
   await Promise.all(
     Categoires.map(async (type) => {
-      const posts = await getPostByPostType(type)
+      const posts = await getPost(
+        type ? (post) => post.type === type : undefined,
+      )
       total += posts.length
       for (let i = 1; i <= Math.ceil(posts.length / MAX_PAGE_SIZE); i++) {
         result.push({
@@ -73,21 +74,23 @@ function getParams(slug: string[] | undefined) {
 async function ArtlistAll(props: ListProps) {
   const params = await props?.params
   const { type, pagenum } = getParams(params.slug)
-  const listData = await getPostByPostType(type)
+  const listData = await getPost(
+    type ? (post) => post.type === type : undefined,
+  )
   const pageCount = Math.ceil(listData.length / MAX_PAGE_SIZE)
   if (pagenum > pageCount) {
     return <NotFound />
   }
-  const floatLists = formatPostByYear(listData)
 
-  const showLists = formatPostByYear(
-    listData.slice((pagenum - 1) * MAX_PAGE_SIZE, pagenum * MAX_PAGE_SIZE),
+  const showLists = listData.slice(
+    (pagenum - 1) * MAX_PAGE_SIZE,
+    pagenum * MAX_PAGE_SIZE,
   )
   return (
     <div className="load_ani">
       <div className={styles.list_wrap}>
         <ArtlistAction />
-        <ArtList lists={showLists} />
+        <ArtList posts={showLists} />
       </div>
       <ArtlistPagination
         type={type}

@@ -11,13 +11,16 @@ export function getPostsPath() {
   return glob('posts/**/*.md')
 }
 
-interface Category {
-  type: CategoiresType
-  count: number
+interface Archive {
+  categories: Array<{
+    type: CategoiresType
+    count: number
+  }>
+  tags: string[]
 }
 
-export function getCategories(): Promise<Category[]> {
-  return Promise.all(
+export async function getArchive(): Promise<Archive> {
+  const categories = await Promise.all(
     Categoires.map(async (type) => {
       const dirs = await fsp.readdir(path.join(PostPath, type))
       return {
@@ -26,9 +29,24 @@ export function getCategories(): Promise<Category[]> {
       }
     }),
   )
+
+  const posts = await getPost()
+  const tagSet = new Set<string>()
+  for (const post of posts) {
+    if (!post.meta.tags) {
+      continue
+    }
+    for (const tag of post.meta.tags) {
+      tagSet.add(tag)
+    }
+  }
+  return {
+    categories,
+    tags: [...tagSet],
+  }
 }
 
-export async function getPostByPostType(postType?: string) {
+export async function getPost(filter?: (post: PostList) => boolean) {
   const result: PostList[] = []
   const mds = await getPostsPath()
 
@@ -36,9 +54,7 @@ export async function getPostByPostType(postType?: string) {
     mds.map(async (mdPath) => {
       const tokens = mdPath.split('/')
       const type = getCategoryFromUrl(mdPath)
-      if (postType != null && type !== postType) {
-        return
-      }
+
       const file = await fsp.readFile(path.join(CWD, mdPath), 'utf-8')
       const { meta, content } = parsePostMeta(file)
       if (!(meta && content) || meta.hidden) {
@@ -54,7 +70,9 @@ export async function getPostByPostType(postType?: string) {
         tags: meta.tags || [],
         path: removeMdSuffix(mdPath),
       }
-      result.push(data)
+      if (!filter || filter(data)) {
+        result.push(data)
+      }
     }),
   )
   const data = result.sort((prev, next) => {

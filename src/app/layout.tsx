@@ -12,7 +12,7 @@ import '../styles/preset.css'
 import Footer from '@/components/layout/Footer'
 import { robot } from './fonts'
 import { generateSeoMetaData } from './seo'
-import { getPostByPostType } from '~/markdown/utils/fs'
+import { getPost } from '~/markdown/utils/fs'
 import SearchPanel from '@/components/layout/SearchPanel'
 import SideBar from '@/components/layout/side-bar'
 import Banner from '@/components/layout/Banner'
@@ -34,7 +34,7 @@ const getSearchPanelData = async () => {
   if (!IS_GITPAGE) {
     return []
   }
-  const allLists = await getPostByPostType()
+  const allLists = await getPost()
   const searchPanelData = allLists.map((item) => ({
     date: new Date(item.meta.date).toISOString().split('T')[0],
     title: item.meta.title,
@@ -68,18 +68,12 @@ export default async function RootLayout({
           sizes="32x32"
           type="image/x-icon"
         />
-        <link
-          href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.1/styles/overlayscrollbars.min.css"
-          rel="stylesheet"
-        />
-        <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.1/browser/overlayscrollbars.browser.es6.min.js" />
-        <script src={resolveAssetPath(`assets/banner/${ScriptBasename}.js`)} />
       </head>
       <body data-overlayscrollbars-initialize className={robot.className}>
         <script src={resolveAssetPath(`assets/theme/${ScriptBasename}.js`)} />
-        <script src={resolveAssetPath(`assets/scroll/${ScriptBasename}.js`)} />
         <Header />
         <Banner />
+        <script src={resolveAssetPath(`assets/banner/${ScriptBasename}.js`)} />
         <div className="main_layout">
           <SideBar />
           <div className="main_children">{children}</div>
@@ -88,6 +82,12 @@ export default async function RootLayout({
         <ImageView />
         <Analytics />
         <SearchPanel data={searchData} />
+        <link
+          href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.1/styles/overlayscrollbars.min.css"
+          rel="stylesheet"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.1/browser/overlayscrollbars.browser.es6.min.js" />
+        <script src={resolveAssetPath(`assets/scroll/${ScriptBasename}.js`)} />
       </body>
     </html>
   )

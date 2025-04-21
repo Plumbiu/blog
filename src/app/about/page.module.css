@@ -1,26 +1,24 @@
-.wrap {
-  font-size: var(--text-lg);
-  padding: 12px 24px 32px;
-  border-radius: 12px;
-  background-color: var(--bg-card);
-  box-shadow: var(--shadow-box-light);
-
-  &>div {
-    margin-bottom: 28px;
-  }
+.wrap>* {
+  margin: 16px 0;
 }
 
-.hi {
-  font-size: 48px;
+.tag {
+  display: flex;
 }
 
 .tag>div {
+  cursor: pointer;
   margin-right: 12px;
-  font-size: 18px !important;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  background-color: var(--c-indigo-soft);
+  color: var(--c-indigo-1);
+  padding: 6px 12px;
+  border-radius: 12px;
 }
 
 .desc {
-  font-size: 18px;
+  font-size: var(--text-lg);
   line-height: 1.65;
 }
 
@@ -28,6 +26,7 @@
   font-size: 28px;
   display: flex;
   gap: 24px;
+  color: var(--text-2);
 
   &>a {
     transition: color 150ms;
@@ -36,4 +35,10 @@
       color: var(--text);
     }
   }
+}
+
+.read {
+  font-weight: 600;
+  color: var(--text);
+  font-size: var(--text-xl);
 }

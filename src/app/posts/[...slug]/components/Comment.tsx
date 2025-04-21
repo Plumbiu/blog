@@ -349,7 +349,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
   }, [isIntersecting, data, status])
 
   return (
-    <div ref={containerRef} className={styles.wrapper}>
+    <div ref={containerRef} className={cn(styles.wrap, 'main_content')}>
       <Title className={styles.comment_title}>评论区</Title>
       {node}
     </div>
