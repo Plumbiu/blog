@@ -43,7 +43,12 @@ function Header() {
   function scrollHandler() {
     const y = window.scrollY
     const dom = ref.current!
-    const thresholdY = window.innerWidth < 960 ? 240 : 360
+    const pathname = location.pathname
+    const isList = pathname === '/' || pathname.startsWith('/list')
+    let thresholdY = window.innerWidth < 960 ? 190 : 360
+    if (!isList) {
+      thresholdY -= 120
+    }
     dom.style.transform =
       y < thresholdY
         ? 'translateY(0)'

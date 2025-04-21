@@ -4,7 +4,7 @@
 
 @media screen and (max-width: 960px) {
   .list_wrap>div {
-    &:first-child {
+    &:nth-child(2) {
       border-radius: 12px 12px 0 0 !important;
     }
 

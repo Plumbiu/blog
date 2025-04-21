@@ -19,7 +19,6 @@
 
 @media screen and (max-width: 960px) {
   .main_layout {
-    overflow: hidden;
     flex-direction: column-reverse;
     padding: 0 4px;
     width: 100%;
@@ -108,7 +107,7 @@
 
 .main_content {
   position: relative;
-  z-index: 99;
+  z-index: 9;
   background-color: var(--bg-card);
   border-radius: 12px;
   padding: 16px 36px;

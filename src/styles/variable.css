@@ -65,6 +65,7 @@
   --console-bool: rgb(30, 117, 79);
   --console-symbol: rgb(89, 135, 58);
 }
+
 :root[data-theme='light'] {
   --shadow-box-light: 0 0.1em 0.2em var(--c-gray-soft);
   --shadow-selector: 0 0 #0000, 0 0 #0000, 0 20px 25px -5px rgb(0 0 0 / 0.1),
