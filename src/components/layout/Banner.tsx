@@ -5,6 +5,10 @@ import { useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/client'
 import Image from 'next/image'
+import { getBase64Url } from '@/lib/shared'
+import blurhashMap from '~/data/banner.json'
+
+const BannerName = '01.jpg'
 
 export default function Banner() {
   const pathname = usePathname()
@@ -24,9 +28,11 @@ export default function Banner() {
         width={1920}
         height={1080}
         suppressHydrationWarning
+        placeholder="blur"
+        blurDataURL={getBase64Url(blurhashMap[BannerName])}
         className={cn('blog_banner', styles.banner)}
         alt="banner"
-        src="/banner/01.jpg"
+        src={`/banner/${BannerName}`}
       />
     </div>
   )

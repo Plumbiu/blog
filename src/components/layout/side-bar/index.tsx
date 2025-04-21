@@ -5,9 +5,10 @@ import styles from './index.module.css'
 import Link from 'next/link'
 import { cn } from '@/lib/client'
 import Title from '../../ui/Title'
-import { upperFirstChar } from '@/lib/shared'
+import { getBase64Url, upperFirstChar } from '@/lib/shared'
 import Search from './Search'
 import { getArchive } from '~/markdown/utils/fs'
+import blurhashMap from '~/data/banner.json'
 
 const MaxTagLength = 9
 
@@ -24,7 +25,9 @@ async function SideBar() {
         <Image
           width={200}
           height={200}
-          src="https://avatars.githubusercontent.com/u/99574369?v=4"
+          placeholder="blur"
+          blurDataURL={getBase64Url(blurhashMap.avatar)}
+          src="/avatar.jpg"
           alt="avatar"
         />
         <div className={styles.user_name}>Plumbiu</div>
