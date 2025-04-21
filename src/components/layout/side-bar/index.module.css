@@ -51,6 +51,7 @@
     border-radius: 8px;
     background-color: var(--c-indigo-soft);
     transition: 250ms;
+
     &:hover {
       color: var(--c-indigo-1);
     }
@@ -109,4 +110,9 @@
   padding: 6px 10px;
   border-radius: 8px;
   font-size: var(--text-sm);
+  transition: background-color 0.25s;
+
+  &:hover {
+    background-color: var(--c-purple-soft);
+  }
 }
