@@ -1,5 +1,7 @@
 # [Plumbiu's blog](https://blog.plumbiu.top/)
 
+Thanks to [fuwari](https://github.com/saicaca/fuwari)
+
 <details>
 
 <summary>Performance</summary>

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
-import { getPostByPostType } from '~/markdown/utils/fs'
-import { PostDir } from '~/constants/shared'
-import { MAX_PAGE_SIZE } from '@/app/list/[...slug]/constants'
+import { getPost } from '~/markdown/utils/fs'
+import { Categoires } from '~/constants/shared'
+import { MAX_PAGE_SIZE } from './list/[[...slug]]/constants'
 import { joinWebUrl } from './seo'
 
 function lastModified(date: string | number): string {
@@ -17,15 +17,15 @@ async function sitemap(): Promise<MetadataRoute.Sitemap> {
     'list',
     'links',
     'about',
-    ...PostDir.map((dir) => `list/${dir}`),
+    ...Categoires.map((dir) => `list/${dir}`),
   ].map((route) => ({
     url: joinWebUrl(route),
     lastModified: lastModified(now),
   }))
 
   await Promise.all(
-    PostDir.map(async (dir) => {
-      const post = await getPostByPostType(dir)
+    Categoires.map(async (dir) => {
+      const post = await getPost(dir ? (post) => post.type === dir : undefined)
       for (let i = 1; i <= Math.ceil(post.length / MAX_PAGE_SIZE); i++) {
         routes.push({
           url: joinWebUrl('list', dir, i),

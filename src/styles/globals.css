@@ -6,7 +6,12 @@
 }
 
 html {
-  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+html .os-scrollbar {
+  --os-padding-perpendicular: 4px;
+  --os-size: 14px;
 }
 
 body {
@@ -16,6 +21,7 @@ body {
   text-rendering: optimizeLegibility;
   scrollbar-color: var(--bg-scrollbar);
   -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -31,9 +37,11 @@ h4,
 h5,
 h6 {
   color: var(--text);
+
   & code {
     font-size: inherit !important;
   }
+
   & a {
     font-size: inherit !important;
   }
@@ -42,12 +50,15 @@ h6 {
 h1 {
   font-size: 28px;
 }
+
 h2 {
   font-size: 22px;
 }
+
 h3 {
   font-size: 20px;
 }
+
 h4,
 h5,
 h6 {
@@ -78,7 +89,8 @@ ul {
   margin-top: 6px;
   padding-left: 28px;
   line-height: 28px;
-  & > li {
+
+  &>li {
     padding-left: 4px;
   }
 }
@@ -104,28 +116,24 @@ svg {
   fill: currentColor;
 }
 
-.verticalLine {
-  height: 1em;
-  width: 1px;
-  background-color: var(--bg-vertical-line);
-}
 
 button,
-a[data-type="button"] {
+a[data-type='button'] {
   outline: none;
   background-color: inherit;
   color: inherit;
   cursor: pointer;
-  padding: 6px 12px;
+  padding: 6px 8px;
   border: 1px solid var(--divider);
   border-radius: 8px;
   transition: background-color 0.15s;
-  font-size: 14px;
+  font-size: var(--text-sm);
+
   &:hover {
     background-color: var(--c-gray-soft);
   }
 
-  &[data-disabled="true"] {
+  &[data-disabled='true'] {
     background-color: var(--c-gray-3);
     color: var(--text-4);
     pointer-events: none;
@@ -144,6 +152,7 @@ textarea {
   font-size: 14px;
   transition: border-color 0.15s;
   background-color: var(--bg-body);
+
   &:focus {
     border-color: var(--c-indigo-3);
   }

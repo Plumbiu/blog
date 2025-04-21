@@ -28,7 +28,7 @@ async function Links() {
     }),
   )
   return (
-    <div className={'center'}>
+    <div className={cn('load_ani', styles.wrap)}>
       <div>
         <h1>Links</h1>
         <div className={styles.subtitle}>朋友们</div>

@@ -1,0 +1,1 @@
+const dom=document.querySelector(".blog_banner"),viewW=window.innerWidth,isMobile=viewW<960;var BannerHeight=isMobile?220:320,BannerListPageHeight=isMobile?320:580;function setBannerHeight(){if(console.log(dom),dom){const e=location.pathname;"/"===e||e.startsWith("/list")?dom.style.height=`${BannerListPageHeight}px`:dom.style.height=`${BannerHeight}px`}}setBannerHeight();

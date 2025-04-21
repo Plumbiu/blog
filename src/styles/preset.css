@@ -1,29 +1,46 @@
-.main_children {
-  margin-top: calc(var(--header-h) + 42px);
+.main_layout {
+  display: flex;
+  justify-content: center;
+  width: var(--main-w);
+  margin: 0 auto;
+  margin-top: var(--main-offset-top);
+  transition: margin-top 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  gap: 16px;
 }
 
-.center {
+.main_layout:nth-child(1) {
+  flex-shrink: 0;
+}
+
+.main_children {
   width: var(--post-w);
-  margin: auto;
+  flex-shrink: 0;
 }
 
 @media screen and (max-width: 960px) {
-  .center {
+  .main_layout {
+    overflow: hidden;
+    flex-direction: column-reverse;
+    padding: 0 4px;
     width: 100%;
-    padding: 0 16px;
   }
 }
 
 .link {
-  color: var(--text);
-  border-bottom: 1px solid var(--c-gray-2);
+  color: var(--c-indigo-1);
+  border-bottom: 1px dashed var(--c-gray-2);
   transition: border-color 250ms;
   word-break: break-all;
+
   &:hover {
     border-color: var(--c-green-1);
   }
 
-  & > code {
+  &:has(>code) {
+    border-bottom-style: solid;
+  }
+
+  &>code {
     border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
   }
@@ -47,15 +64,52 @@
   }
 }
 
-.giscus {
-  width: var(--post-w);
-  max-width: 100%;
-  margin: 32px auto;
+.verticalLine {
+  height: 0.8rem;
+  width: 2px;
+  border-radius: 2px;
+  background-color: var(--bg-vertical-line);
 }
 
-@media screen and (max-width: 960px) {
-  .giscus {
-    width: 100%;
-    padding: 0 16px;
+.slashLine {
+  height: 0.8rem;
+  width: 2px;
+  border-radius: 2px;
+  background-color: var(--bg-vertical-line);
+  transform: rotate(20deg);
+  margin: 0 2px;
+}
+
+.keyboard_tag {
+  font-size: var(--text-xs);
+  color: var(--text-3);
+  font-weight: 600;
+  padding: 4px;
+  background-color: var(--c-gray-soft);
+  border-radius: 4px;
+}
+
+.load_ani {
+  opacity: 0;
+  animation: 0.3s fade-in-up forwards;
+}
+
+@keyframes fade-in-up {
+  0% {
+    transform: translateY(2rem);
+    opacity: 0
   }
+
+  to {
+    transform: translateY(0);
+    opacity: 1
+  }
+}
+
+.main_content {
+  position: relative;
+  z-index: 99;
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  padding: 16px 36px;
 }

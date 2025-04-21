@@ -1,7 +1,7 @@
-import { getPostByPostType } from '~/markdown/utils/fs'
+import { getPost } from '~/markdown/utils/fs'
 
 export async function GET() {
-  const data = (await getPostByPostType()).map((item) => ({
+  const data = (await getPost()).map((item) => ({
     date: new Date(item.meta.date).toISOString().split('T')[0],
     title: item.meta.title,
     path: item.path,

@@ -1,0 +1,41 @@
+.action {
+  position: absolute;
+  top: 6px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  pointer-events: none;
+  overflow: hidden;
+  color: var(--text-2);
+
+  & svg {
+    display: inline-block;
+    box-sizing: content-box;
+    z-index: 9;
+    border-radius: 8px;
+    font-size: 20px;
+    padding: 9px;
+    cursor: pointer;
+    background-color: var(--c-gray-soft);
+    border: 1px solid var(--divider);
+    transition: color 150ms;
+
+    &:hover {
+      color: var(--c-indigo-1);
+    }
+  }
+
+}
+
+.wrap {
+  position: relative;
+  width: 100%;
+
+  &:hover {
+    .action {
+      pointer-events: all;
+      opacity: 1;
+    }
+  }
+}

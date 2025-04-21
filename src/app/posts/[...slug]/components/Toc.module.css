@@ -1,0 +1,91 @@
+.toc {
+  --max-height: 60vh;
+  position: fixed;
+  right: 4px;
+  top: 145px;
+  height: 100%;
+  color: var(--text-2);
+  overflow-y: auto;
+  z-index: 9;
+  max-height: calc(var(--max-height) - 140px);
+  width: var(--rest-w);
+  scrollbar-width: none;
+  opacity: 0;
+  transition: opacity 350ms;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+.list {
+  display: inline-block;
+  max-width: 300px;
+  padding-left: 24px;
+  border-radius: 12px;
+
+}
+
+@media screen and (max-width: 1100px) {
+  .toc {
+    display: none;
+  }
+}
+
+.item {
+  position: relative;
+  display: block;
+  font-size: 14px;
+  padding-right: 12px;
+  height: 32px;
+  line-height: 32px;
+  transition: color 150ms;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.item::before {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--c-gray-soft);
+}
+
+.item:hover {
+  color: var(--text);
+}
+
+.active {
+  color: var(--text);
+  background-color: var(--c-indigo-soft);
+
+  &::before {
+    background-color: var(--c-indigo-1);
+  }
+}
+
+.title {
+  position: sticky;
+  top: 0;
+  left: 16px;
+  padding-bottom: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.curtain {
+  position: fixed;
+  pointer-events: none;
+  bottom: calc(100vh - var(--max-height) - 24px);
+  right: 0;
+  height: 80px;
+  width: var(--center-rest);
+  z-index: 8;
+  background: linear-gradient(transparent, var(--bg-body) 80%);
+  transition: all 0.3s;
+}

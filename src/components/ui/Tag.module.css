@@ -1,0 +1,15 @@
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: var(--text-1);
+  background-color: var(--c-indigo-soft);
+  padding: 4px 10px;
+  font-size: var(--text-xs);
+}
+
+.tag+.tag {
+  margin-left: 6px;
+}

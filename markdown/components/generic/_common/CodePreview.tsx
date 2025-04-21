@@ -9,7 +9,7 @@ import {
   handleFileMapItemKey,
   handleFileMap,
 } from '~/markdown/plugins/constant'
-import PreComponent from '@/components/Pre'
+import PreComponent from '@/components/ui/Pre'
 import { isArray, keys } from '@/lib/types'
 
 const Tab = memo((props: TabProps) => {

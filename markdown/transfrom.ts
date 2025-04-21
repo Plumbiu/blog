@@ -3,6 +3,8 @@ import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import remarkDirective from 'remark-directive'
 import remarkGfm from 'remark-gfm'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
 import { toJsxRuntime } from 'hast-util-to-jsx-runtime'
 import { Fragment, jsx, jsxs } from 'react/jsx-runtime'
 import rehypeShikiHighlight from '~/markdown/plugins/rehype/shiki/hightlight'
@@ -25,6 +27,7 @@ async function transfromCode2Jsx(code: string) {
     .use(remarkParse)
     .use([
       remarkGfm,
+      remarkMath,
       remarkDirective,
       remarkContainerDirectivePlugin,
       remarkSlug,
@@ -35,7 +38,7 @@ async function transfromCode2Jsx(code: string) {
       remarkHtmlParser,
     ])
     .use(remarkRehype)
-    .use([rehypeElementPlugin, rehypeShikiHighlight])
+    .use([rehypeKatex, rehypeElementPlugin, rehypeShikiHighlight])
   const mdastTree = processor.parse(code)
   const hastTree = await processor.run(mdastTree)
   const node = toJsxRuntime(hastTree, {

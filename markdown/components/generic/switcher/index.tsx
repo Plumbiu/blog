@@ -4,7 +4,7 @@ import CodePreview from '../_common/CodePreview'
 import styles from './index.module.css'
 
 const Switcher = (props: any) => {
-  return <CodePreview className={styles.container} {...props} />
+  return <CodePreview {...props} className={styles.container} />
 }
 
 export default Switcher

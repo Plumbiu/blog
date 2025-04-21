@@ -1,5 +1,5 @@
 import { Feed } from 'feed'
-import type { PostList } from '~/markdown/utils/fs'
+import type { PostList } from '~/markdown/types'
 import {
   BlogAuthor,
   BlogDesc,

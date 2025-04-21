@@ -1,20 +1,21 @@
 import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
-import { ViewTransitions } from 'next-view-transitions'
 import { Analytics } from '@vercel/analytics/react'
 import { BlogAuthor, BlogTitle, BlogUrl, BlogDesc, GSC } from '~/data/site'
 import { resolveAssetPath } from '@/lib/shared'
-import Header from '@/components/Header'
-import ImageView from '@/components/ImageView'
+import Header from '@/components/layout/Header'
+import ImageView from '@/components/layout/ImageView'
 import '../styles/globals.css'
 import '../styles/variable.css'
 import '../styles/dark-variable.css'
 import '../styles/preset.css'
-import Footer from '@/components/Footer'
-import { mono } from './fonts'
+import Footer from '@/components/layout/Footer'
+import { robot } from './fonts'
 import { generateSeoMetaData } from './seo'
-import { getPostByPostType } from '~/markdown/utils/fs'
-import SearchPanel from '@/components/SearchPanel'
+import { getPost } from '~/markdown/utils/fs'
+import SearchPanel from '@/components/layout/SearchPanel'
+import SideBar from '@/components/layout/side-bar'
+import Banner from '@/components/layout/Banner'
 
 export const metadata: Metadata = {
   title: BlogTitle,
@@ -33,7 +34,7 @@ const getSearchPanelData = async () => {
   if (!IS_GITPAGE) {
     return []
   }
-  const allLists = await getPostByPostType()
+  const allLists = await getPost()
   const searchPanelData = allLists.map((item) => ({
     date: new Date(item.meta.date).toISOString().split('T')[0],
     title: item.meta.title,
@@ -43,6 +44,9 @@ const getSearchPanelData = async () => {
   return searchPanelData
 }
 
+const IsDev = process.env.NODE_ENV === 'development'
+const ScriptBasename = IsDev ? 'dev' : 'index'
+
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -50,7 +54,12 @@ export default async function RootLayout({
 }>) {
   const searchData = await getSearchPanelData()
   return (
-    <html lang="zh" suppressHydrationWarning>
+    <html
+      lang="zh"
+      suppressHydrationWarning
+      data-overlayscrollbars-initialize
+      data-overlayscrollbars-viewport="scrollbarHidden overflowXHidden overflowYScroll"
+    >
       <head>
         <meta name="google-site-verification" content={GSC} />
         <link
@@ -60,22 +69,25 @@ export default async function RootLayout({
           type="image/x-icon"
         />
       </head>
-      <body className={mono.className}>
-        <script
-          src={resolveAssetPath(
-            `assets/theme/${
-              process.env.NODE_ENV === 'development' ? 'dev' : 'index'
-            }.js`,
-          )}
-        />
-        <ViewTransitions>
-          <Header />
+      <body data-overlayscrollbars-initialize className={robot.className}>
+        <script src={resolveAssetPath(`assets/theme/${ScriptBasename}.js`)} />
+        <Header />
+        <Banner />
+        <script src={resolveAssetPath(`assets/banner/${ScriptBasename}.js`)} />
+        <div className="main_layout">
+          <SideBar />
           <div className="main_children">{children}</div>
-          <Footer />
-        </ViewTransitions>
+        </div>
+        <Footer />
         <ImageView />
         <Analytics />
         <SearchPanel data={searchData} />
+        <link
+          href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.1/styles/overlayscrollbars.min.css"
+          rel="stylesheet"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.1/browser/overlayscrollbars.browser.es6.min.js" />
+        <script src={resolveAssetPath(`assets/scroll/${ScriptBasename}.js`)} />
       </body>
     </html>
   )

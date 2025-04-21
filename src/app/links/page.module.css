@@ -1,3 +1,10 @@
+.wrap {
+  padding: 12px 36px 32px;
+  border-radius: 12px;
+  background-color: var(--bg-card);
+  box-shadow: var(--shadow-box-light);
+}
+
 .content {
   margin: 36px 0;
 }

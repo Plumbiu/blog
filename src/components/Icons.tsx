@@ -144,15 +144,11 @@ export function RestartIcon(props: SVGProps<SVGSVGElement>) {
 
 export function ArrowRightIcon(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
+    <svg viewBox="0 0 24 24" {...props}>
+      {/* Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE */}
       <path
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.5"
-        d="M9 6s6 4.419 6 6s-6 6-6 6"
-        color="currentColor"
+        fill="currentColor"
+        d="m14.475 12l-7.35-7.35q-.375-.375-.363-.888t.388-.887t.888-.375t.887.375l7.675 7.7q.3.3.45.675t.15.75t-.15.75t-.45.675l-7.7 7.7q-.375.375-.875.363T7.15 21.1t-.375-.888t.375-.887z"
       />
     </svg>
   )
@@ -160,15 +156,11 @@ export function ArrowRightIcon(props: SVGProps<SVGSVGElement>) {
 
 export function ArrowLeftIcon(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
+    <svg viewBox="0 0 24 24" {...props}>
+      {/* Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE */}
       <path
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.5"
-        d="M15 6s-6 4.419-6 6s6 6 6 6"
-        color="currentColor"
+        fill="currentColor"
+        d="m9.55 12l7.35 7.35q.375.375.363.875t-.388.875t-.875.375t-.875-.375l-7.7-7.675q-.3-.3-.45-.675t-.15-.75t.15-.75t.45-.675l7.7-7.7q.375-.375.888-.363t.887.388t.375.875t-.375.875z"
       />
     </svg>
   )
@@ -299,6 +291,120 @@ export function ExternalLinkIcon(props: SVGProps<SVGSVGElement>) {
           />
         </path>
       </g>
+    </svg>
+  )
+}
+
+export function CalendarIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      {/* Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE */}
+      <path
+        fill="currentColor"
+        d="M5 22q-.825 0-1.412-.587T3 20V6q0-.825.588-1.412T5 4h1V3q0-.425.288-.712T7 2t.713.288T8 3v1h8V3q0-.425.288-.712T17 2t.713.288T18 3v1h1q.825 0 1.413.588T21 6v14q0 .825-.587 1.413T19 22zm0-2h14V10H5zM5 8h14V6H5zm0 0V6z"
+      />
+    </svg>
+  )
+}
+
+export function BookmarkIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" {...props}>
+      {/* Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE */}
+      <path
+        fill="currentColor"
+        d="M5 21V5q0-.825.588-1.412T7 3h10q.825 0 1.413.588T19 5v16l-7-3zm2-3.05l5-2.15l5 2.15V5H7zM7 5h10z"
+      />
+    </svg>
+  )
+}
+
+export function TagIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" {...props}>
+      {/* Icon from MingCute Icon by MingCute Design - https://github.com/Richard9394/MingCute/blob/main/LICENSE */}
+      <g fill="none" fillRule="evenodd">
+        <path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+        <path
+          fill="currentColor"
+          d="M10.124 3.008a1 1 0 0 1 .868 1.116L10.508 8h3.984l.516-4.124a1 1 0 1 1 1.984.248L16.508 8H20a1 1 0 1 1 0 2h-3.742l-.5 4H19.5a1 1 0 1 1 0 2h-3.992l-.516 4.124a1 1 0 1 1-1.984-.248L13.492 16H9.508l-.516 4.124a1 1 0 1 1-1.984-.248L7.492 16H4.5a1 1 0 1 1 0-2h3.242l.5-4H5a1 1 0 0 1 0-2h3.492l.516-4.124a1 1 0 0 1 1.116-.868M13.742 14l.5-4h-3.984l-.5 4z"
+        />
+      </g>
+    </svg>
+  )
+}
+
+export function HomeIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" {...props}>
+      {/* Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE */}
+      <path
+        fill="currentColor"
+        d="M6 19h3v-5q0-.425.288-.712T10 13h4q.425 0 .713.288T15 14v5h3v-9l-6-4.5L6 10zm-2 0v-9q0-.475.213-.9t.587-.7l6-4.5q.525-.4 1.2-.4t1.2.4l6 4.5q.375.275.588.7T20 10v9q0 .825-.588 1.413T18 21h-4q-.425 0-.712-.288T13 20v-5h-2v5q0 .425-.288.713T10 21H6q-.825 0-1.412-.587T4 19m8-6.75"
+      />
+    </svg>
+  )
+}
+
+export function MenuIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" {...props}>
+      {/* Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE */}
+      <path fill="currentColor" d="M3 18v-2h18v2zm0-5v-2h18v2zm0-5V6h18v2z" />
+    </svg>
+  )
+}
+
+export function LinkIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      {/* Icon from Material Design Icons by Pictogrammers - https://github.com/Templarian/MaterialDesign/blob/master/LICENSE */}
+      <path
+        fill="currentColor"
+        d="M10.59 13.41c.41.39.41 1.03 0 1.42c-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0a5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.98 2.98 0 0 0 0-4.24a2.98 2.98 0 0 0-4.24 0l-3.53 3.53a2.98 2.98 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0a5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.98 2.98 0 0 0 0 4.24a2.98 2.98 0 0 0 4.24 0l3.53-3.53a2.98 2.98 0 0 0 0-4.24a.973.973 0 0 1 0-1.42"
+      />
+    </svg>
+  )
+}
+
+export function MyselfIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      {/* Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE */}
+      <path
+        fill="currentColor"
+        d="M12 4q3.35 0 5.675 2.325T20 12t-2.325 5.675T12 20t-5.675-2.325T4 12t2.325-5.675T12 4m0 14q2.5 0 4.25-1.75T18 12t-1.75-4.25T12 6T7.75 7.75T6 12t1.75 4.25T12 18m-3.5-8q0 .425.288.713T9.5 11t.713-.288T10.5 10t-.288-.712T9.5 9t-.712.288T8.5 10m5 0q0 .425.288.713T14.5 11t.713-.288T15.5 10t-.288-.712T14.5 9t-.712.288T13.5 10M1 5V3q0-.825.588-1.412T3 1h2q.425 0 .713.288T6 2t-.288.713T5 3H3v2q0 .425-.288.713T2 6t-.712-.288T1 5m4 18H3q-.825 0-1.412-.587T1 21v-2q0-.425.288-.712T2 18t.713.288T3 19v2h2q.425 0 .713.288T6 22t-.288.713T5 23m16 0h-2q-.425 0-.712-.288T18 22t.288-.712T19 21h2v-2q0-.425.288-.712T22 18t.713.288T23 19v2q0 .825-.587 1.413T21 23m0-18V3h-2q-.425 0-.712-.288T18 2t.288-.712T19 1h2q.825 0 1.413.588T23 3v2q0 .425-.288.713T22 6t-.712-.288T21 5m-9 10.5q.95 0 1.763-.45t1.312-1.225q.15-.275-.012-.55T14.575 13h-5.15q-.325 0-.488.275t-.012.55q.5.775 1.313 1.225T12 15.5"
+      />
+    </svg>
+  )
+}
+
+export function FolderIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" {...props}>
+      {/* Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE */}
+      <path
+        fill="currentColor"
+        d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h5.175q.4 0 .763.15t.637.425L12 6h9q.425 0 .713.288T22 7t-.288.713T21 8h-9.825l-2-2H4v12l1.975-6.575q.2-.65.738-1.037T7.9 10h12.9q1.025 0 1.613.813t.312 1.762l-1.8 6q-.2.65-.737 1.038T19 20zm2.1-2H19l1.8-6H7.9zM4 11.45V6zM6.1 18l1.8-6z"
+      />
     </svg>
   )
 }

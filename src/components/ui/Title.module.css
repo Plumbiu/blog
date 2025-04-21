@@ -1,0 +1,21 @@
+.title {
+  position: relative;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.title::before {
+  content: '';
+  position: absolute;
+  left: -0.7em;
+  top: 0.45em;
+  bottom: 0.4em;
+  height: 50%;
+  width: 4px;
+  border-radius: 4px;
+  background-color: var(--c-indigo-3);
+  transition: top, bottom 250ms;
+}

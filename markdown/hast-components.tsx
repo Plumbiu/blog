@@ -1,13 +1,13 @@
 import type { Components } from 'hast-util-to-jsx-runtime'
 import type { ImageProps } from 'next/image'
-import MarkdownImage from '@/app/posts/[...slug]/ui/Image'
+import MarkdownImage from '@/app/posts/[...slug]/components/Image'
 import {
   handleComponentName,
   handleComponentProps,
 } from '~/markdown/plugins/constant'
 import { isUnOptimized, resolveAssetPath } from '@/lib/shared'
 import CustomComponent from '~/markdown/components/index'
-import PreComponent from '../src/components/Pre'
+import PreComponent from '../src/components/ui/Pre'
 import { getAssetImagePath } from '@/lib/node/fs'
 import getBlurDataUrl from '~/optimize/blurhash'
 import { getBase64Url } from '@/lib/shared'

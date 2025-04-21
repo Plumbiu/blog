@@ -1,15 +1,19 @@
 import type { Metadata } from 'next'
-import { getCategory, removeMdSuffix, upperFirstChar } from '@/lib/shared'
-import NotFound from '@/components/NotFound'
-import { getPostsPath, getPostByPostType } from '~/markdown/utils/fs'
+import {
+  getCategoryFromUrl,
+  removeMdSuffix,
+  upperFirstChar,
+} from '@/lib/shared'
+import NotFound from '@/components/function/NotFound'
+import { getPostsPath, getPost } from '~/markdown/utils/fs'
 import { generateSeoMetaData, joinWebUrl } from '@/app/seo'
-import styles from './page.module.css'
-import Toc from './ui/Toc'
-import Meta from './ui/Meta'
-import Comment from './ui/Comment'
+import Toc from './components/Toc'
+import Meta from './components/Meta'
+import Comment from './components/Comment'
 import './styles/md.css'
 import './styles/shiki.css'
 import transfromCode2Jsx from '~/markdown/transfrom'
+import PostMeta from '@/components/layout/post-meta'
 
 export async function generateStaticParams() {
   const mds = await getPostsPath()
@@ -29,7 +33,7 @@ export async function generateStaticParams() {
 
 async function getPostContent(type: string, id: string) {
   try {
-    const posts = await getPostByPostType(type)
+    const posts = await getPost(type ? (post) => post.type === type : undefined)
     const post = posts.find((post) => post.path === `posts/${type}/${id}`)
     return post
   } catch (error) {}
@@ -52,21 +56,18 @@ async function Post(props: PostProps) {
     return <NotFound />
   }
   const id = data[data.length - 1]
-
   const node = await transfromCode2Jsx(info.content)
 
   return (
-    <div className={styles.wrap}>
-      <div
-        className="center"
-        style={{
-          margin: 0,
-        }}
-      >
-        <Meta title={info.meta.title} />
+    <div>
+      <main className="main_content">
+        <div>
+          <Meta title={info.meta.title} />
+          <PostMeta {...info} />
+        </div>
         <div className="md">{node}</div>
-        <Comment pathname={`posts/${type}/${id}`} />
-      </div>
+      </main>
+      <Comment pathname={`posts/${type}/${id}`} />
       <Toc />
     </div>
   )
@@ -77,7 +78,7 @@ export async function generateMetadata(props: PostProps): Promise<Metadata> {
   const [type, ...data] = params.slug
   const id = data[data.length - 1]
   const info = await getPostContent(type, id)
-  const category = upperFirstChar(getCategory(id))
+  const category = upperFirstChar(getCategoryFromUrl(id))
   if (!info) {
     return {
       title: `${category} - ${id}`,

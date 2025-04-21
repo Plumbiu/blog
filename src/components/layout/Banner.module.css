@@ -1,0 +1,21 @@
+.banner {
+  opacity: 0;
+  animation: fade-in 0.7s forwards;
+  width: 100%;
+  height: 320px;
+  transition: height 0.7s;
+  object-fit: cover;
+  user-select: none;
+  pointer-events: none;
+  object-position: bottom center;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}

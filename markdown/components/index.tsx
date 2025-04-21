@@ -1,6 +1,6 @@
 'use client'
 
-import IntersectionObserverComponent from '@/components/IntersectionObserverComponent'
+import IntersectionObserverComponent from '@/components/function/IntersectionObserverComponent'
 import { createElement } from 'react'
 import { handleComponentName } from '~/markdown/plugins/constant'
 import { PlaygroundName } from '~/markdown/plugins/remark/code-block/playground-utils'

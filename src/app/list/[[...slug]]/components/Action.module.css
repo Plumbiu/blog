@@ -1,0 +1,43 @@
+.action {
+  position: relative;
+  display: flex;
+  height: 58px;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    height: 0;
+  }
+
+}
+
+.label {
+  color: #d6c7c7;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 20px;
+  transition: color 0.25s;
+  font-weight: 500;
+  font-size: var(--text-sm);
+  background-color: #0009;
+
+  &>svg {
+    font-size: var(--text-xl);
+  }
+
+  &:hover {
+    color: var(--c-indigo-1);
+    background-color: #000000b3;
+  }
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  & svg {
+    font-size: var(--text-xl);
+  }
+}

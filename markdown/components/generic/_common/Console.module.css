@@ -4,7 +4,6 @@
   overflow: auto;
   & > div {
     padding: 8px 10px;
-    border-bottom: 1px solid var(--divider);
     display: flex;
     gap: 12px;
     justify-content: space-between;
