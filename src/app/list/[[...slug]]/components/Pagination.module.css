@@ -1,5 +1,5 @@
 .pagination {
-  gap: 16px;
+  gap: 16px !important;
   margin-top: 36px;
 }
 
@@ -9,7 +9,6 @@
     gap: 6px;
   }
 }
-
 
 .item {
   width: 42px;
@@ -22,7 +21,6 @@
   background-color: var(--bg-card);
   box-shadow: var(--shadow-box-light);
   transition: background-color 120ms;
-
 }
 
 .item:not(.active):hover {
