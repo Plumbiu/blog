@@ -1,4 +1,4 @@
-import { getPost } from '~/markdown/utils/fs'
+import { getAllTags, getPost } from '~/markdown/utils/fs'
 import TimeLine from '../../components/Timeline'
 
 interface Params {
@@ -8,6 +8,13 @@ interface Params {
 
 interface CategoryProps {
   params: Promise<Params>
+}
+
+export async function generateStaticParams() {
+  const tags = await getAllTags()
+  return tags.map((tag) => ({
+    id: tag,
+  }))
 }
 
 async function TagPage(props: CategoryProps) {

@@ -1,5 +1,6 @@
 import { getPost } from '~/markdown/utils/fs'
 import TimeLine from '../../components/Timeline'
+import { Categoires } from '~/constants/shared'
 
 interface Params {
   // [category, pagenum]
@@ -10,12 +11,11 @@ interface CategoryProps {
   params: Promise<Params>
 }
 
-function formatYear(n: number) {
-  const date = new Date(n)
-
-  return `${String(date.getMonth() + 1).padStart(2, '0')}-${String(
-    date.getDate(),
-  ).padStart(2, '0')}`
+export async function generateStaticParams() {
+  const result: Params[] = Categoires.map((type) => ({
+    id: type,
+  }))
+  return result
 }
 
 async function CategoryPage(props: CategoryProps) {

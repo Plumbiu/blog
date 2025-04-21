@@ -19,6 +19,20 @@ interface Archive {
   tags: string[]
 }
 
+export async function getAllTags() {
+  const posts = await getPost()
+  const tagSet = new Set<string>()
+  for (const post of posts) {
+    if (!post.meta.tags) {
+      continue
+    }
+    for (const tag of post.meta.tags) {
+      tagSet.add(tag)
+    }
+  }
+  return [...tagSet]
+}
+
 export async function getArchive(): Promise<Archive> {
   const categories = await Promise.all(
     Categoires.map(async (type) => {
@@ -30,19 +44,10 @@ export async function getArchive(): Promise<Archive> {
     }),
   )
 
-  const posts = await getPost()
-  const tagSet = new Set<string>()
-  for (const post of posts) {
-    if (!post.meta.tags) {
-      continue
-    }
-    for (const tag of post.meta.tags) {
-      tagSet.add(tag)
-    }
-  }
+  const tags = await getAllTags()
   return {
     categories,
-    tags: [...tagSet],
+    tags,
   }
 }
 
