@@ -2,6 +2,7 @@ import type { PostList } from '~/markdown/types'
 import styles from './Timeline.module.css'
 import { cn } from '@/lib/client'
 import { formatPostByYear } from '../utils'
+import Link from 'next/link'
 
 interface TimelineProps {
   posts: PostList[]
@@ -31,7 +32,8 @@ async function TimeLine({ posts }: TimelineProps) {
             <div>
               {posts.map((post) => {
                 return (
-                  <div
+                  <Link
+                    href={'/' + post.path}
                     key={post.path}
                     className={cn(styles.post_item, styles.item)}
                   >
@@ -49,7 +51,7 @@ async function TimeLine({ posts }: TimelineProps) {
                         ))}
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 )
               })}
             </div>
