@@ -3,7 +3,7 @@ export interface PostMeta {
   date: number
   desc?: string
   subtitle: string
-  tags: string[]
+  tags?: string[]
   image?: string
   
   // custom

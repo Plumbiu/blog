@@ -19,7 +19,7 @@ export async function generateStaticParams() {
 
 async function TagPage(props: CategoryProps) {
   const { id } = await props.params
-  const posts = await getPost((post) => post.meta.tags?.includes(id))
+  const posts = await getPost((post) => !!post.meta.tags?.includes(id))
 
   return <TimeLine posts={posts} />
 }

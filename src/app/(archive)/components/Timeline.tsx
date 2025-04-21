@@ -44,7 +44,7 @@ async function TimeLine({ posts }: TimelineProps) {
                     <div className={styles.post_meta}>
                       <div className={styles.post_title}>{post.meta.title}</div>
                       <div className={styles.post_tags}>
-                        {post.meta.tags.map((tag) => (
+                        {post.meta.tags?.map((tag) => (
                           <span key={tag}>#{tag}</span>
                         ))}
                       </div>
