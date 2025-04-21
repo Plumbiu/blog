@@ -220,7 +220,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
         href={`${GithubRepoUrl}/issues/${issueNumber}`}
         rel="noreferrer"
       >
-        前往 issue 页面 <ExternalLinkIcon />
+        issue页 <ExternalLinkIcon />
       </a>
     ),
     [],

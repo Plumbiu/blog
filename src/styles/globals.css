@@ -16,6 +16,7 @@ body {
   text-rendering: optimizeLegibility;
   scrollbar-color: var(--bg-scrollbar);
   -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
 }
 
 a {

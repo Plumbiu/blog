@@ -2,28 +2,30 @@
   position: absolute;
   top: 6px;
   right: 12px;
-  opacity: 0;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   pointer-events: none;
   overflow: hidden;
   color: var(--text-2);
-  transition: opacity 300ms ease-out, color 150ms;
 
   & svg {
     display: inline-block;
     box-sizing: content-box;
-    background-color: var(--bg-md-pre);
-    border-radius: 6px;
+    z-index: 9;
+    border-radius: 8px;
     font-size: 20px;
     padding: 9px;
     cursor: pointer;
+    background-color: var(--c-gray-soft);
     border: 1px solid var(--divider);
+    transition: color 150ms;
+
+    &:hover {
+      color: var(--c-indigo-1);
+    }
   }
-  &:hover {
-    color: var(--text-1);
-  }
+
 }
 
 .wrap {

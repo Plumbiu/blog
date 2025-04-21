@@ -6,14 +6,14 @@
 
   to {
     opacity: 1;
-    transform: translate(-50%, 1.75rem);
+    transform: translate(-50%, 8px);
   }
 }
 
 @keyframes fade-out-down {
   0% {
     opacity: 1;
-    transform: translate(-50%, 1.75rem);
+    transform: translate(-50%, 8px);
   }
 
   to {
@@ -22,6 +22,11 @@
   }
 }
 
+.wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .close {
   animation: fade-out-down 0.2s forwards !important;

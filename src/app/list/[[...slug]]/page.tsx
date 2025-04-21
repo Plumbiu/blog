@@ -10,6 +10,7 @@ import { formatPostByYear } from './utils'
 import ArtList from './components/List'
 import ArtlistPagination from './components/Pagination'
 import styles from './page.module.css'
+import ArtlistAction from './components/Action'
 
 interface Params {
   // [type, pagenum]
@@ -85,6 +86,7 @@ async function ArtlistAll(props: ListProps) {
   return (
     <div className="load_ani">
       <div className={styles.list_wrap}>
+        <ArtlistAction />
         <ArtList lists={showLists} />
       </div>
       <ArtlistPagination

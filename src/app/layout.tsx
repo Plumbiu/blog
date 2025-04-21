@@ -44,6 +44,9 @@ const getSearchPanelData = async () => {
   return searchPanelData
 }
 
+const IsDev = process.env.NODE_ENV === 'development'
+const ScriptBasename = IsDev ? 'dev' : 'index'
+
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -51,7 +54,12 @@ export default async function RootLayout({
 }>) {
   const searchData = await getSearchPanelData()
   return (
-    <html lang="zh" suppressHydrationWarning>
+    <html
+      lang="zh"
+      suppressHydrationWarning
+      data-overlayscrollbars-initialize
+      data-overlayscrollbars-viewport="scrollbarHidden overflowXHidden overflowYScroll"
+    >
       <head>
         <meta name="google-site-verification" content={GSC} />
         <link
@@ -60,24 +68,18 @@ export default async function RootLayout({
           sizes="32x32"
           type="image/x-icon"
         />
-      </head>
-      <body className={robot.className}>
-        <script
-          src={resolveAssetPath(
-            `assets/theme/${
-              process.env.NODE_ENV === 'development' ? 'dev' : 'index'
-            }.js`,
-          )}
+        <link
+          href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.1/styles/overlayscrollbars.min.css"
+          rel="stylesheet"
         />
+        <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.1/browser/overlayscrollbars.browser.es6.min.js" />
+        <script src={resolveAssetPath(`assets/banner/${ScriptBasename}.js`)} />
+      </head>
+      <body data-overlayscrollbars-initialize className={robot.className}>
+        <script src={resolveAssetPath(`assets/theme/${ScriptBasename}.js`)} />
+        <script src={resolveAssetPath(`assets/scroll/${ScriptBasename}.js`)} />
         <Header />
         <Banner />
-        <script
-          src={resolveAssetPath(
-            `assets/banner/${
-              process.env.NODE_ENV === 'development' ? 'dev' : 'index'
-            }.js`,
-          )}
-        />
         <div className="main_layout">
           <SideBar />
           <div className="main_children">{children}</div>

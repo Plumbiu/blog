@@ -10,6 +10,8 @@ interface Window {
   Light: string
   // banner
   setBannerHeight(): void
+  BannerHeight: number
+  BannerListPageHeight: number
 }
 
 declare module '~/data/issues.json' {

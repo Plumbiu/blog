@@ -1,30 +1,3 @@
-.wrap {
-  position: relative;
-}
-
-.credit {
-  cursor: pointer;
-  position: absolute;
-  bottom: calc(var(--main-offset-top) * -1 + 32px);
-  right: calc(var(--rest-w) + 12px);
-  background-color: #0009;
-  color: #ffffffbf;
-  height: 36px;
-  padding: 0 12px;
-  font-size: var(--text-xs);
-  border-radius: 18px;
-
-  &:hover {
-    background-color: #000000b3;
-  }
-}
-
-@media screen and (max-width: 960px) {
-  .credit {
-    top: 0;
-  }
-}
-
 .banner {
   opacity: 0;
   animation: fade-in 0.7s forwards;

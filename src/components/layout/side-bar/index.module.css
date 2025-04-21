@@ -8,7 +8,7 @@
 
 .wrap_item {
   width: 100%;
-  padding: 16px;
+  padding: 16px 24px;
   border-radius: 12px;
   background-color: var(--bg-card);
   margin-bottom: 16px;
@@ -56,7 +56,6 @@
 .sticky {
   position: sticky;
   top: 16px;
-
 }
 
 .category {
@@ -67,6 +66,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 6px 8px;
+    margin: 0 -8px;
     border-radius: 6px;
 
     &:hover {
@@ -86,7 +86,7 @@
 }
 
 .title {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   font-size: var(--text-lg);
   color: var(--text);
   font-weight: 600;

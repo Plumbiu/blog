@@ -1,39 +1,43 @@
 .action {
   position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 58px;
   gap: 8px;
-  color: var(--text-3);
   overflow-x: auto;
   scrollbar-width: none;
-  font-size: var(--text-lg);
 
   &::-webkit-scrollbar {
     height: 0;
+  }
+
+}
+
+.label {
+  color: #d6c7c7;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 20px;
+  transition: color 0.25s;
+  font-weight: 500;
+  font-size: var(--text-sm);
+  background-color: #0009;
+
+  &>svg {
+    font-size: var(--text-xl);
+  }
+
+  &:hover {
+    color: var(--c-indigo-1);
+    background-color: #000000b3;
   }
 }
 
 .item {
   display: flex;
   align-items: center;
-  padding: 6px;
-  border-radius: 8px;
   gap: 8px;
-  transition: color 150ms;
-
-  &:hover {
-    color: var(--text-1);
-  }
-
-  &.active {
-    color: var(--text);
-    background-color: var(--c-gray-soft);
-  }
 
   & svg {
-    box-sizing: content-box;
-    padding: 4px;
-    border-radius: 50%;
+    font-size: var(--text-xl);
   }
 }

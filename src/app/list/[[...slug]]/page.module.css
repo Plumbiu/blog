@@ -1,3 +1,7 @@
+.list_wrap {
+  margin-top: -58px;
+}
+
 @media screen and (max-width: 960px) {
   .list_wrap>div {
     &:first-child {

@@ -5,5 +5,5 @@
 .wrap main {
   background-color: var(--bg-card);
   border-radius: 12px;
-  padding: 16px;
+  padding: 16px 36px;
 }

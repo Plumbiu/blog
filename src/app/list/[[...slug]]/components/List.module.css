@@ -41,7 +41,7 @@
   font-size: var(--text-2xl);
 
   &:hover::before {
-    height: 90%;
+    height: 85%;
   }
 }
 

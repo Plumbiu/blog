@@ -1,7 +1,7 @@
 .wrapper {
   margin: 64px 0;
   background-color: var(--bg-card);
-  padding: 16px;
+  padding: 16px 36px;
   border-radius: 12px;
 }
 
@@ -35,7 +35,7 @@
 .add_link {
   display: flex;
   align-items: center;
-  color: var(--c-indigo-3);
+  color: var(--c-indigo-1);
   text-underline-offset: 4px;
 
   &:hover {

@@ -11,7 +11,7 @@
     background-color: var(--bg-md-pre);
     padding: 10px 12px;
     cursor: pointer;
-    border-bottom: 1px solid var(--divider);
+    border-bottom: 1px solid var(--divider-pre);
     transition: color 150ms;
     &:last-child {
       width: 100%;

@@ -3,6 +3,7 @@
 import { type ReactNode, useEffect, useRef, useState } from 'react'
 import styles from './Selector.module.css'
 import { createPortal } from 'react-dom'
+import { cn } from '@/lib/client'
 
 interface SelectorValueItem {
   value: string
@@ -12,13 +13,18 @@ interface SelectorValueItem {
 interface SelectorProps {
   items: SelectorValueItem[]
   children: ReactNode
+  className?: string
+  offset?: {
+    y?: number
+    x?: number
+  }
 }
 
-function Selector({ items, children }: SelectorProps) {
+function Selector({ items, children, offset, className }: SelectorProps) {
   const warpRef = useRef<HTMLDivElement>(null)
   const panelRef = useRef<HTMLDivElement>(null)
   const [panelVisible, setPanelVisible] = useState(false)
-  const [offset, setOffset] = useState<{
+  const [position, setPosition] = useState<{
     x: number
     y: number
   } | null>(null)
@@ -54,7 +60,7 @@ function Selector({ items, children }: SelectorProps) {
     }
   }, [])
   return (
-    <div ref={warpRef} className={styles.wrap}>
+    <div ref={warpRef} className={cn(styles.wrap, className)}>
       <div
         onClick={(e) => {
           e.stopPropagation()
@@ -64,23 +70,23 @@ function Selector({ items, children }: SelectorProps) {
             return
           }
           const panelRect = wrapDom.getBoundingClientRect()
-          setOffset({
-            x: panelRect.left + panelRect.width / 2,
-            y: panelRect.bottom,
+          setPosition({
+            x: panelRect.left + panelRect.width / 2 + (offset?.x || 0),
+            y: panelRect.bottom + (offset?.y || 0),
           })
         }}
       >
         {children}
       </div>
       {panelVisible &&
-        offset &&
+        position &&
         createPortal(
           <div
             ref={panelRef}
             className={styles.panel}
             style={{
-              top: offset?.y,
-              left: offset?.x,
+              top: position?.y,
+              left: position?.x,
             }}
           >
             {items.map(({ value, label }) => (

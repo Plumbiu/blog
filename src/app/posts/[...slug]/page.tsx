@@ -63,8 +63,10 @@ async function Post(props: PostProps) {
   return (
     <div className={cn(styles.wrap)}>
       <main className={styles.main}>
-        <Meta title={info.meta.title} />
-        <PostMeta {...info} />
+        <div className={styles.meta}>
+          <Meta title={info.meta.title} />
+          <PostMeta {...info} />
+        </div>
         <div className="md">{node}</div>
       </main>
       <Comment pathname={`posts/${type}/${id}`} />

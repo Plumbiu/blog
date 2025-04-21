@@ -1,0 +1,1 @@
+const dom=document.querySelector(".banner"),viewW=window.innerWidth;var BannerHeight=viewW<960?220:320,BannerListPageHeight=viewW<960?320:580;function setBannerHeight(){if(dom){const e=location.pathname;"/"===e||e.startsWith("/list")?dom.style.height=`${BannerListPageHeight}px`:dom.style.height=`${BannerHeight}px`}}setBannerHeight();

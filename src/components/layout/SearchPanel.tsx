@@ -133,7 +133,7 @@ function SearchPanel({ data }: SearchPanelProps) {
         }
       }}
     >
-      <div ref={contentRef} className={styles.wrap}>
+      <div ref={contentRef} className={styles.wrap} data-overlayscrollbars-initialize>
         <div className={styles.header}>
           <form className={styles.form}>
             <label htmlFor={label} className={styles.label}>

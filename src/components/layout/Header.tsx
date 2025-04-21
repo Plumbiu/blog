@@ -82,6 +82,9 @@ function Header() {
           </div>
         )}
         <Selector
+          offset={{
+            y: 24,
+          }}
           items={rightData.map((data) => ({
             label: (
               <Link
