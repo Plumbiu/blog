@@ -1,5 +1,10 @@
+.tag_wrap {
+  height: 30px;
+}
+
+
 @media screen and (max-width: 960px) {
-  .tags {
+  .tag_wrap {
     display: none;
   }
 }
@@ -7,16 +12,53 @@
 .post_info {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   font-size: var(--text-sm);
   color: var(--text-3);
-  font-weight: 500;
+  font-weight: 600;
 
   & svg {
     background-color: var(--c-indigo-soft);
     padding: 4px;
+    height: 32px;
+    width: 32px;
     font-size: var(--text-3xl);
     color: var(--c-indigo-1);
     border-radius: 6px;
+  }
+}
+
+.tags {
+  height: 100%;
+  margin-left: -4px;
+}
+
+.link_card {
+  height: 32px;
+  padding: 0 8px;
+  border-radius: 8px;
+  font-weight: 600;
+  position: relative;
+  transition: color, background-color 0.15s;
+
+  &[data-category] {
+    margin-left: -4px;
+  }
+  
+  &:hover::before {
+    transform: scale(1);
+    background-color: var(--c-indigo-soft);
+    color: var(--c-indigo-1);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    transition: transform, background-color 0.15s cubic-bezier(0, 0, .2, 1);
+    inset: 0;
+    transform: scale(0.85);
+    border-radius: inherit;
+    z-index: -1;
+    margin: 0 2px;
   }
 }

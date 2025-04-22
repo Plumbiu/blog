@@ -2,6 +2,9 @@ import { cn } from '@/lib/client'
 import { CalendarIcon, BookmarkIcon, TagIcon } from '../../Icons'
 import styles from './index.module.css'
 import type { PostList } from '~/markdown/types'
+import Link from 'next/link'
+import { upperFirstChar } from '@/lib/shared'
+import { Fragment } from 'react'
 
 function formatTime(time: string | number) {
   const d = new Date(time)
@@ -22,25 +25,35 @@ export default function PostMeta({
   const { date } = meta
   return (
     <div className={cn('load_ani', styles.post_info)}>
-      <div className="fcc">
+      <div className={'fcc'}>
         <CalendarIcon />
-        {formatTime(date)}
+        <div>{formatTime(date)}</div>
       </div>
       {!!type && (
-        <div className="fcc">
+        <Link href={`category/${type}`} className={'fcc'}>
           <BookmarkIcon />
-          {type}
-        </div>
+          <div data-category className={cn('fcc', styles.link_card)}>
+            {upperFirstChar(type)}
+          </div>
+        </Link>
       )}
       {tags && !!tags.length && (
-        <div className={cn('fcc', styles.tags)}>
+        <div className={cn('fcc', styles.tag_wrap)}>
           <TagIcon />
-          {tags.map((tag, i) => (
-            <div className="fcc" key={tag}>
-              {tag}
-              {i === tags.length - 1 ? null : <span className="slashLine" />}
-            </div>
-          ))}
+          <div className={cn('fcc', styles.tags)}>
+            {tags.map((tag, i) => (
+              <Fragment key={tag}>
+                {i !== 0 && <div className="slashLine" />}
+                <Link
+                  className={cn(styles.link_card, 'fcc')}
+                  key={tag}
+                  href={`/tag/${tag}`}
+                >
+                  {tag}
+                </Link>
+              </Fragment>
+            ))}
+          </div>
         </div>
       )}
     </div>
