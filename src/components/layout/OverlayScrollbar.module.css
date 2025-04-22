@@ -1,0 +1,27 @@
+.scroll {
+  --scroll-padding-right: 4px;
+  position: fixed;
+  top: 4px;
+  bottom: 4px;
+  right: 4px;
+}
+
+.track {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 33%;
+  user-select: none;
+  min-height: 36px;
+  max-height: 80vh;
+  width: 6px;
+  text-align: right;
+  border-radius: 4px;
+  background-color: var(--bg-scrollbar);
+  transition: background-color, width 250ms;
+
+  &:hover {
+    background-color: var(--bg-scrollbar-hover);
+    width: 8px;
+  }
+}

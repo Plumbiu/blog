@@ -46,7 +46,8 @@
   --bg-md-table-th: #f6f6f6;
   --bg-header: #ffffff85;
   --bg-body: #e3e8ef;
-  --bg-scrollbar: #889294;
+  --bg-scrollbar: rgba(0, 0, 0, .33);
+  --bg-scrollbar-hover: rgba(0, 0, 0, .22);
   --bg-tag: #e9eef4ba;
   --bg-vertical-line: #bfbfbf;
   --bg-modal: #00000073;

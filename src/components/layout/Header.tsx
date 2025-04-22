@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { cn } from '@/lib/client'
 import { BlogAuthor } from '~/data/site'
-import 'overlayscrollbars/overlayscrollbars.css';
 import {
   HomeIcon,
   MenuIcon,
@@ -16,7 +15,6 @@ import {
 import styles from './Header.module.css'
 import Selector from '../ui/Selector'
 import { usePathname } from 'next/navigation'
-import { OverlayScrollbars } from 'overlayscrollbars'
 
 const rightData = [
   {
@@ -74,11 +72,6 @@ function Header() {
     setTheme(window.getLocalTheme()!)
     window.addEventListener('scroll', scrollHandler)
 
-    OverlayScrollbars(document.body, {
-      scrollbars: {
-        clickScroll: true,
-      },
-    })
 
     return () => {
       window.removeEventListener('scroll', scrollHandler)

@@ -9,11 +9,6 @@ html {
   scroll-behavior: smooth;
 }
 
-html .os-scrollbar {
-  --os-padding-perpendicular: 4px;
-  --os-size: 14px;
-}
-
 body {
   margin: 0;
   color: var(--text-1);
@@ -81,6 +76,13 @@ h6 {
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
+}
+
+:where(html, body) ::-webkit-scrollbar {
+  appearance: none;
+  width: 0;
+  display: none;
+  height: 0;
 }
 
 /* list */

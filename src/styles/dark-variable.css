@@ -47,7 +47,8 @@ html[data-theme='dark'] {
   --bg-md-table-th: #090910;
   --bg-header: #00000085;
   --bg-body: #081216;
-  --bg-scrollbar: #333;
+  --bg-scrollbar: rgba(255, 255, 255, .11);
+  --bg-scrollbar-hover: rgba(255, 255, 255, .22);
   --bg-tag: #162024b2;
   --bg-vertical-line: #333a43;
   --bg-modal: #00000030;
