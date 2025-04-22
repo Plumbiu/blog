@@ -27,7 +27,7 @@ export default function PostMeta({
     <div className={cn('load_ani', styles.post_info)}>
       <div className={'fcc'}>
         <CalendarIcon />
-        <div>{formatTime(date)}</div>
+        <div className={styles.date_text}>{formatTime(date)}</div>
       </div>
       {!!type && (
         <Link href={`category/${type}`} className={'fcc'}>

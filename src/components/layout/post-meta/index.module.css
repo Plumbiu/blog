@@ -28,6 +28,10 @@
   }
 }
 
+.date_text {
+  margin-left: 4px;
+}
+
 .tags {
   height: 100%;
   margin-left: -4px;
@@ -45,7 +49,7 @@
   &[data-category] {
     margin-left: -4px;
   }
-  
+
   &:hover::before {
     transform: scale(1);
     background-color: var(--c-indigo-soft);
