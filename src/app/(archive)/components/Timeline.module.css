@@ -75,6 +75,7 @@
 }
 
 .post_dot {
+  z-index: 9;
   height: 4px;
   width: 4px;
   border: none;
@@ -85,11 +86,10 @@
   &::before {
     content: '';
     position: absolute;
-    z-index: -1;
     top: -100%;
     left: calc(50% - 1px);
     bottom: -100%;
-    height: 200%;
+    height: 100%;
     border-left: 2px dashed var(--divider);
   }
 }
