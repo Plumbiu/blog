@@ -82,12 +82,6 @@ export default async function RootLayout({
         <ImageView />
         <Analytics />
         <SearchPanel data={searchData} />
-        <link
-          href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.1/styles/overlayscrollbars.min.css"
-          rel="stylesheet"
-        />
-        <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.1/browser/overlayscrollbars.browser.es6.min.js" />
-        <script src={resolveAssetPath(`assets/scroll/${ScriptBasename}.js`)} />
       </body>
     </html>
   )

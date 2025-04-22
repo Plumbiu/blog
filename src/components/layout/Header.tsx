@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { cn } from '@/lib/client'
 import { BlogAuthor } from '~/data/site'
+import 'overlayscrollbars/overlayscrollbars.css';
 import {
   HomeIcon,
   MenuIcon,
@@ -14,6 +15,8 @@ import {
 } from '../Icons'
 import styles from './Header.module.css'
 import Selector from '../ui/Selector'
+import { usePathname } from 'next/navigation'
+import { OverlayScrollbars } from 'overlayscrollbars'
 
 const rightData = [
   {
@@ -40,6 +43,17 @@ function Header() {
   const ref = useRef<HTMLHeadingElement>(null)
   const [theme, setTheme] = useState<string>()
 
+  const pathname = usePathname()
+  const isFirstRender = useRef(true)
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false
+      return
+    }
+    window.setBannerHeight()
+  }, [pathname])
+
   function scrollHandler() {
     const y = window.scrollY
     const dom = ref.current!
@@ -59,6 +73,13 @@ function Header() {
     scrollHandler()
     setTheme(window.getLocalTheme()!)
     window.addEventListener('scroll', scrollHandler)
+
+    OverlayScrollbars(document.body, {
+      scrollbars: {
+        clickScroll: true,
+      },
+    })
+
     return () => {
       window.removeEventListener('scroll', scrollHandler)
     }
