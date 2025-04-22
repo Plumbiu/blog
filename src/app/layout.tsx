@@ -8,6 +8,7 @@ import ImageView from '@/components/layout/ImageView'
 import '../styles/globals.css'
 import '../styles/variable.css'
 import '../styles/dark-variable.css'
+import '../styles/overlayscrollbar.css'
 import '../styles/preset.css'
 import Footer from '@/components/layout/Footer'
 import { robot } from './fonts'
@@ -16,7 +17,6 @@ import { getPost } from '~/markdown/utils/fs'
 import SearchPanel from '@/components/layout/SearchPanel'
 import SideBar from '@/components/layout/side-bar'
 import Banner from '@/components/layout/Banner'
-import OverlayScrollbar from '@/components/layout/OverlayScrollbar'
 
 export const metadata: Metadata = {
   title: BlogTitle,
@@ -55,7 +55,12 @@ export default async function RootLayout({
 }>) {
   const searchData = await getSearchPanelData()
   return (
-    <html lang="zh" suppressHydrationWarning>
+    <html
+      lang="zh"
+      suppressHydrationWarning
+      data-overlayscrollbars-initialize
+      data-overlayscrollbars-viewport="scrollbarHidden overflowXHidden overflowYScroll"
+    >
       <head>
         <meta name="google-site-verification" content={GSC} />
         <link
@@ -65,8 +70,9 @@ export default async function RootLayout({
           type="image/x-icon"
         />
       </head>
-      <body className={robot.className}>
+      <body data-overlayscrollbars-initialize className={robot.className}>
         <script src={resolveAssetPath(`assets/theme/${ScriptBasename}.js`)} />
+        <script src={resolveAssetPath(`assets/scroll/${ScriptBasename}.js`)} />
         <Header />
         <Banner />
         <script src={resolveAssetPath(`assets/banner/${ScriptBasename}.js`)} />
@@ -78,7 +84,6 @@ export default async function RootLayout({
         <ImageView />
         <Analytics />
         <SearchPanel data={searchData} />
-        <OverlayScrollbar />
       </body>
     </html>
   )

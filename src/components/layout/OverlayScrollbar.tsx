@@ -13,48 +13,60 @@ const Percent = 67
 
 function OverlayScrollbar() {
   const [mounted, setMounted] = useState(false)
-  const trackRef = useRef<HTMLDivElement>(null)
-  const mousePositionY = useRef<number>(null)
+  const handlerRef = useRef<HTMLDivElement>(null)
+  const offsetRef = useRef<number>(null)
+  const prePageYRef = useRef<number>(null)
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
   const updateScroll = useCallback(() => {
-    const dom = trackRef.current
-    if (!dom) {
+    const handlerDom = handlerRef.current
+    if (!handlerDom) {
       return
     }
 
     const htmlDom = document.documentElement
     const scrollHeight = htmlDom.scrollHeight
     const clientHeight = htmlDom.clientHeight
-    const screenHeight = htmlDom.scrollTop
-    const value = (screenHeight / (scrollHeight - clientHeight)) * Percent
-    dom.style.top = `${Math.max(0, value)}%`
+    const scrollTop = htmlDom.scrollTop
+    const trackHeight = handlerDom.clientHeight
+    const value =
+      (scrollTop / (scrollHeight - clientHeight)) *
+      (1 - trackHeight / clientHeight) *
+      100
+    handlerDom.style.top = `${Math.max(0, value)}%`
   }, [])
 
   const onMouseDown: MouseEventHandler<HTMLDivElement> = useCallback((e) => {
-    console.log('start')
-    mousePositionY.current = e.pageY
+    const handlerDom = handlerRef.current!
+    offsetRef.current =
+      e.screenY - handlerDom.offsetTop - handlerDom.clientHeight / 2
+    console.log(handlerDom.offsetTop - handlerDom.clientHeight / 2)
+    prePageYRef.current = e.clientY
+    handlerDom.classList.add(styles.handler_active)
     document.addEventListener('mousemove', onMouseMove)
   }, [])
 
-  const onMouseMove = useCallback(() => {
-    // TODO: scroll move
-    // if (!mousePositionY.current) {
-    //   return
-    // }
-    // const htmlDom = document.documentElement
-    // window.scrollTo({
-    //   top: htmlDom.scrollTop + (e.pageY - mousePositionY.current) / Percent,
-    // })
+  const onMouseMove = useCallback((e: MouseEvent) => {
+    if (offsetRef.current == null || prePageYRef.current == null) {
+      return
+    }
+    const htmlDom = document.documentElement
+    // FIXME: not correct
+    window.scrollTo({
+      top:
+        (e.pageY - offsetRef.current) *
+        (htmlDom.clientHeight / htmlDom.scrollHeight),
+    })
   }, [])
 
   const onMouseUp = useCallback(() => {
-    console.log('done')
-    mousePositionY.current = null
+    const handlerDom = handlerRef.current!
+    offsetRef.current = null
     document.removeEventListener('mousemove', onMouseMove)
+    handlerDom.classList.remove(styles.handler_active)
   }, [])
 
   useEffect(() => {
@@ -78,7 +90,11 @@ function OverlayScrollbar() {
 
   return (
     <div className={styles.scroll}>
-      <div onMouseDown={onMouseDown} ref={trackRef} className={styles.track} />
+      <div
+        onMouseDown={onMouseDown}
+        ref={handlerRef}
+        className={styles.handler}
+      />
     </div>
   )
 }

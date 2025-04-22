@@ -78,13 +78,6 @@ h6 {
   height: 6px;
 }
 
-:where(html, body) ::-webkit-scrollbar {
-  appearance: none;
-  width: 0;
-  display: none;
-  height: 0;
-}
-
 /* list */
 ol,
 ul {
