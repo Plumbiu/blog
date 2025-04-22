@@ -17,6 +17,7 @@ import { getPost } from '~/markdown/utils/fs'
 import SearchPanel from '@/components/layout/SearchPanel'
 import SideBar from '@/components/layout/side-bar'
 import Banner from '@/components/layout/Banner'
+import OverlayScrollbar from '@/components/layout/OverlayScrollbar'
 
 export const metadata: Metadata = {
   title: BlogTitle,
@@ -72,7 +73,7 @@ export default async function RootLayout({
       </head>
       <body data-overlayscrollbars-initialize className={robot.className}>
         <script src={resolveAssetPath(`assets/theme/${ScriptBasename}.js`)} />
-        <script src={resolveAssetPath(`assets/scroll/${ScriptBasename}.js`)} />
+        <OverlayScrollbar />
         <Header />
         <Banner />
         <script src={resolveAssetPath(`assets/banner/${ScriptBasename}.js`)} />

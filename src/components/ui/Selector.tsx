@@ -1,6 +1,6 @@
 'use client'
 
-import { type ReactNode, useEffect, useRef, useState } from 'react'
+import { type ReactNode, useEffect, useMemo, useRef, useState } from 'react'
 import styles from './Selector.module.css'
 import { createPortal } from 'react-dom'
 import { cn } from '@/lib/client'
@@ -40,6 +40,11 @@ function Selector({ items, children, offset, className }: SelectorProps) {
       setPanelVisible(false)
     }, 400)
   }
+
+  const node = useMemo(() => {
+    return items.map(({ value, label }) => <div key={value}>{label}</div>)
+  }, [items])
+
   useEffect(() => {
     function handleClick(e: MouseEvent) {
       const target = e.target as Element
@@ -89,9 +94,7 @@ function Selector({ items, children, offset, className }: SelectorProps) {
               left: position?.x,
             }}
           >
-            {items.map(({ value, label }) => (
-              <div key={value}>{label}</div>
-            ))}
+            {node}
           </div>,
           document.body,
         )}

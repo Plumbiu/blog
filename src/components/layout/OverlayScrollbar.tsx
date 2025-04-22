@@ -9,7 +9,7 @@ import {
 } from 'react'
 import styles from './OverlayScrollbar.module.css'
 
-const Percent = 67
+const Spacing = 6 * 2
 
 function OverlayScrollbar() {
   const [mounted, setMounted] = useState(false)
@@ -28,38 +28,53 @@ function OverlayScrollbar() {
     }
 
     const htmlDom = document.documentElement
+
+    const clientHeight = htmlDom.clientHeight - Spacing
     const scrollHeight = htmlDom.scrollHeight
-    const clientHeight = htmlDom.clientHeight
     const scrollTop = htmlDom.scrollTop
     const trackHeight = handlerDom.clientHeight
+
     const value =
-      (scrollTop / (scrollHeight - clientHeight)) *
+      (scrollTop / (scrollHeight - htmlDom.clientHeight)) *
       (1 - trackHeight / clientHeight) *
       100
+
     handlerDom.style.top = `${Math.max(0, value)}%`
   }, [])
 
   const onMouseDown: MouseEventHandler<HTMLDivElement> = useCallback((e) => {
     const handlerDom = handlerRef.current!
     offsetRef.current =
-      e.screenY - handlerDom.offsetTop - handlerDom.clientHeight / 2
-    console.log(handlerDom.offsetTop - handlerDom.clientHeight / 2)
+      e.clientY - handlerDom.offsetTop - handlerDom.clientHeight / 2
+    console.log(handlerDom.clientHeight / 2)
     prePageYRef.current = e.clientY
     handlerDom.classList.add(styles.handler_active)
     document.addEventListener('mousemove', onMouseMove)
   }, [])
 
   const onMouseMove = useCallback((e: MouseEvent) => {
-    if (offsetRef.current == null || prePageYRef.current == null) {
+    if (offsetRef.current === null) {
       return
     }
+
+    const handlerDom = handlerRef.current!
     const htmlDom = document.documentElement
-    // FIXME: not correct
-    window.scrollTo({
-      top:
-        (e.pageY - offsetRef.current) *
-        (htmlDom.clientHeight / htmlDom.scrollHeight),
-    })
+
+    const clientHeight = htmlDom.clientHeight - Spacing
+    const scrollHeight = htmlDom.scrollHeight
+    const trackHeight = handlerDom.clientHeight
+
+    const maxScrollTop = scrollHeight - htmlDom.clientHeight
+    const trackAvailable = clientHeight - trackHeight
+
+    if (maxScrollTop <= 0) {
+      return
+    }
+    const newCenterY = e.clientY - offsetRef.current - 6
+    let newTop = newCenterY - trackHeight / 2
+    newTop = Math.max(0, Math.min(newTop, trackAvailable))
+    const scrollTop = (newTop / trackAvailable) * maxScrollTop
+    htmlDom.scrollTop = scrollTop
   }, [])
 
   const onMouseUp = useCallback(() => {
