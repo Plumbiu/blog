@@ -1,6 +1,6 @@
 'use client'
 
-import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { memo, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { cn } from '@/lib/client'
 import styles from './Toc.module.css'
@@ -56,7 +56,6 @@ function Toc() {
         if (rect.bottom < 0 && nextRect && nextRect.top > viewHeight) {
           set.add(node.id)
         }
-        console.log(set)
         setHiLightIds(set)
       }
     } else {
