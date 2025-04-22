@@ -7,6 +7,11 @@
         <lastBuildDate>Sat, 13 Jul 2013 16:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <image>
+            <title>Plumbiuの博客</title>
+            <url>https://blog.plumbiu.top/avatar.jpg</url>
+            <link>https://blog.plumbiu.top/</link>
+        </image>
         <copyright>CC BY-NC-SA 4.0 2024 © Plumbiu</copyright>
         <item>
             <title><![CDATA[2024 年度总结]]></title>
@@ -90,7 +95,14 @@
             <link>https://blog.plumbiu.top/posts/note/custom-component/</link>
             <guid>posts/note/custom-component</guid>
             <pubDate>Thu, 03 Oct 2024 00:00:00 GMT</pubDate>
-            <description><![CDATA[一篇用于测试/查看博客上的一些自定义组件的文章]]></description>
+            <description><![CDATA[一篇用于测试/查看博客上的一些自定义组件的文章。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Custom component]]></title>
+            <link>https://blog.plumbiu.top/posts/note/en/custom-component/</link>
+            <guid>posts/note/en/custom-component</guid>
+            <pubDate>Thu, 03 Oct 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[Article for test and view the custom component.]]></description>
         </item>
         <item>
             <title><![CDATA[2023 年度总结]]></title>

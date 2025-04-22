@@ -4,6 +4,7 @@
     "home_page_url": "https://blog.plumbiu.top/",
     "feed_url": "https://blog.plumbiu.top/feed.json/",
     "description": "Note, life, summary and blog",
+    "icon": "https://blog.plumbiu.top/avatar.jpg",
     "author": {
         "name": "Plumbiu",
         "url": "https://blog.plumbiu.top/about/"
@@ -90,7 +91,14 @@
             "id": "posts/note/custom-component",
             "url": "https://blog.plumbiu.top/posts/note/custom-component/",
             "title": "自定义组件",
-            "summary": "一篇用于测试/查看博客上的一些自定义组件的文章",
+            "summary": "一篇用于测试/查看博客上的一些自定义组件的文章。",
+            "date_modified": "2024-10-03T00:00:00.000Z"
+        },
+        {
+            "id": "posts/note/en/custom-component",
+            "url": "https://blog.plumbiu.top/posts/note/en/custom-component/",
+            "title": "Custom component",
+            "summary": "Article for test and view the custom component.",
             "date_modified": "2024-10-03T00:00:00.000Z"
         },
         {

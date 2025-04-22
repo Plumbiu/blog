@@ -19,6 +19,7 @@ async function feed(posts: PostList[]) {
     link: BlogUrl,
     copyright: BlogCopyRight,
     updated: new Date(2013, 6, 14), // optional, default = today
+    image: `${BlogUrl}avatar.jpg`,
     feedLinks: {
       json: joinWebUrl('feed.json'),
       atom: joinWebUrl('feed.atom'),

@@ -12,6 +12,7 @@
     <link rel="alternate" href="https://blog.plumbiu.top/"/>
     <link rel="self" href="https://blog.plumbiu.top/feed.atom/"/>
     <subtitle>Note, life, summary and blog</subtitle>
+    <logo>https://blog.plumbiu.top/avatar.jpg</logo>
     <rights>CC BY-NC-SA 4.0 2024 © Plumbiu</rights>
     <entry>
         <title type="html"><![CDATA[2024 年度总结]]></title>
@@ -95,7 +96,14 @@
         <id>posts/note/custom-component</id>
         <link href="https://blog.plumbiu.top/posts/note/custom-component/"/>
         <updated>2024-10-03T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[一篇用于测试/查看博客上的一些自定义组件的文章]]></summary>
+        <summary type="html"><![CDATA[一篇用于测试/查看博客上的一些自定义组件的文章。]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Custom component]]></title>
+        <id>posts/note/en/custom-component</id>
+        <link href="https://blog.plumbiu.top/posts/note/en/custom-component/"/>
+        <updated>2024-10-03T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Article for test and view the custom component.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[2023 年度总结]]></title>
