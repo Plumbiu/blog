@@ -15,7 +15,6 @@ function OverlayScrollbar() {
   const [mounted, setMounted] = useState(false)
   const handlerRef = useRef<HTMLDivElement>(null)
   const offsetRef = useRef<number>(null)
-  const prePageYRef = useRef<number>(null)
 
   useEffect(() => {
     setMounted(true)
@@ -47,7 +46,6 @@ function OverlayScrollbar() {
     offsetRef.current =
       e.clientY - handlerDom.offsetTop - handlerDom.clientHeight / 2
     console.log(handlerDom.clientHeight / 2)
-    prePageYRef.current = e.clientY
     handlerDom.classList.add(styles.handler_active)
     document.addEventListener('mousemove', onMouseMove)
   }, [])

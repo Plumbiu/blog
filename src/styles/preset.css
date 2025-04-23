@@ -54,6 +54,14 @@
     border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
   }
+
+  &[data-footnote-ref="true"] {
+    border-color: transparent;
+
+    &:hover {
+      border-color: var(--c-green-1);
+    }
+  }
 }
 
 .fcc {
@@ -85,7 +93,7 @@
   height: 0.8rem;
   width: 2px;
   border-radius: 2px;
-  background-color: var(--bg-vertical-line);
+  background-color: var(--c-gray-3);
   transform: rotate(20deg);
   margin: 0 2px;
 }

@@ -9,10 +9,10 @@
   /* border */
   --divider: #d8e1e6;
   /* color */
-  --c-yellow-soft: rgba(234, 179, 8, 0.14);
-  --c-yellow-3: #9f6a00;
-  --c-yellow-2: #946300;
-  --c-yellow-1: #915930;
+  --c-yellow-soft: rgba(231, 231, 15, 0.14);
+  --c-yellow-3: #e0e015;
+  --c-yellow-2: #d6d61c;
+  --c-yellow-1: #bdbd26;
   --c-red-soft: rgba(244, 63, 94, 0.14);
   --c-red-3: #e0575b;
   --c-red-2: #d5393e;
@@ -38,9 +38,8 @@
   --bg-md-quote-warn: #fcf4dc;
   --bg-md-quote-info: #e9eaff;
   --bg-md-quote-danger: rgba(244, 63, 94, 0.14);
-  --bg-md-pre: #f5f9fa;
-  --bg-md-pre-bar: #e8ecf4;
-  --bg-md-highlight-line: rgba(220, 220, 225, 0.52);
+  --bg-md-pre: #f5f9f9;
+  --bg-md-pre-bar: #e8ecf1;
   --bg-md-code: #ddeef8;
   --bg-md-table-header: #efefef;
   --bg-md-table-th: #f6f6f6;
@@ -52,14 +51,9 @@
   --bg-tag: #e9eef4ba;
   --bg-vertical-line: #bfbfbf;
   --bg-modal: #00000073;
-  --bg-search-panel: #f6f6f7;
-  --bg-search-panel-footer: #fff;
-  --bg-search-panel-item: #fff;
   --bg-card: #fff;
   --bg-comment: #eef8f8;
   --bg-selector: var(--bg-card);
-  --shadow-search-panel-item: 0 1px 3px 0 #d4d9e1;
-
   /* console */
   --console-num: rgb(47, 121, 138);
   --console-string: rgb(181, 105, 89);
@@ -83,7 +77,7 @@
   --post-w: calc(var(--main-w) - var(--side-w) - 16px);
   --rest-w: calc((100vw - var(--main-w)) / 2);
   --pre-radius: 8px;
-  --pre-padding: 14px;
+  --pre-padding: 12px;
   --extend-x: -76px;
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;

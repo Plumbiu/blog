@@ -211,20 +211,18 @@ console.log(1)
 
 <ThreeSunEarthMoon a="1" />
 
-# Tip
+# Blockquote
 
-> Normal Tip
->
-> This is some description. This is some description.This is some description.
->
-> `console.log('info')`
-
-:::Note[This is Info]{.info}
-
+:::Note[This is Note]{.note}
 This is some description. This is some description. This is some description.
 
-`console.log('info')`
+`console.log('note')`
+:::
 
+:::Note[This is Tip]{.tip}
+This is some description. This is some description. This is some description.
+
+`console.log('tip')`
 :::
 
 :::Note[This is Warn]{.warn}
@@ -233,30 +231,16 @@ This is some description. This is some description. This is some description.
 `console.log('warn')`
 :::
 
-:::Note[This is Danger]{.danger}
+:::Note[This is Caution]{.caution}
 This is some description. This is some description. This is some description.
 
-`console.log('danger')`
+`console.log('caution')`
 :::
 
-:::Note{.info}
-
+:::Note[This is Important]{.important}
 This is some description. This is some description. This is some description.
 
-`console.log('info')`
-
-:::
-
-:::Note{.warn}
-This is some description. This is some description. This is some description.
-
-`console.log('warn')`
-:::
-
-:::Note{.danger}
-This is some description. This is some description. This is some description.
-
-`console.log('danger')`
+`console.log('important')`
 :::
 
 # Details
@@ -350,11 +334,6 @@ A note[^1]
 ## Strikethrough
 
 ~one~ or ~~two~~ tildes.
-
-## Table
-
-| a   | b   |   c |  d  |
-| --- | :-- | --: | :-: |
 
 ## Tasklist
 

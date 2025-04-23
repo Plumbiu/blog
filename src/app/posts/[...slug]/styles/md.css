@@ -66,7 +66,7 @@
     font-weight: 500;
     padding: 2px 4px;
     border-radius: 4px;
-    color: var(--c-indigo-1);
+    color: var(--c-purple-1);
     background-color: var(--c-indigo-soft);
   }
 
@@ -94,59 +94,93 @@
   }
 
   /* blockquote */
-  blockquote[class^="load_ani"][class$="load_ani"] {
+  blockquote {
     position: relative;
-    color: var(--text-2);
-    font-size: 14px;
-    padding: 10px 0;
-    padding-left: 16px;
-    margin-left: calc(var(--extend-x) / 10);
+    padding: 0 16px;
+    margin-left: 0;
     margin-right: 0;
-    border-left: 4px solid var(--bg-md-quote-before);
 
-    p {
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 4px;
+      border-radius: 6px;
+      background-color: var(--c-gray-1);
+    }
+
+    & p {
+      color: var(--text);
       line-height: 1.6;
       margin: 0;
     }
   }
 
-  blockquote {
-    color: var(--text-1);
-    border-radius: 2px;
-    padding-right: 16px;
-    border-left: none;
-    margin-left: 0;
-  }
-
   blockquote[data-title] p:first-child {
+    color: inherit;
     font-weight: 700;
     margin-bottom: 4px;
   }
 
-  .blockquote-info {
-    background-color: var(--bg-md-quote-info);
+  .blockquote-note {
+    color: var(--c-indigo-1);
 
-    code {
-      color: var(--c-purple-1);
-      background-color: var(--c-purple-soft);
+    &::before {
+      background-color: var(--c-indigo-1);
+    }
+
+    & code {
+      background-color: var(--c-indigo-soft);
+    }
+  }
+
+  .blockquote-tip {
+    color: var(--c-gray-1);
+
+    &::before {
+      background-color: var(--c-gray-1);
+    }
+
+    & code {
+      background-color: var(--c-gray-soft);
     }
   }
 
   .blockquote-warn {
-    background-color: var(--bg-md-quote-warn);
+    color: var(--c-yellow-1);
+
+    &::before {
+      background-color: var(--c-yellow-1);
+    }
 
     code {
-      color: var(--c-yellow-1);
       background-color: var(--c-yellow-soft);
     }
   }
 
-  .blockquote-danger {
-    background-color: var(--bg-md-quote-danger);
+  .blockquote-caution {
+    color: var(--c-red-1);
+
+    &::before {
+      background-color: var(--c-red-1);
+    }
 
     code {
-      color: var(--c-red-1);
       background-color: var(--c-red-soft);
+    }
+  }
+
+  .blockquote-important {
+    color: var(--c-purple-1);
+
+    &::before {
+      background-color: var(--c-purple-1);
+    }
+
+    code {
+      background-color: var(--c-purple-soft);
     }
   }
 
@@ -167,20 +201,19 @@
 
   /* Details */
   details {
-    font-size: 14px;
-    padding: 16px 16px 8px;
-    border-radius: 2px;
+    font-size: var(--text-sm);
+    border-radius: 8px;
     background-color: var(--c-gray-soft);
-    margin-bottom: 8px;
 
-    summary {
-      margin-bottom: 8px;
+    & summary {
+      padding: 12px 16px;
       font-weight: 600;
       cursor: pointer;
     }
 
-    p {
-      margin: 8px 0;
+    & p {
+      padding: 12px 16px;
+      margin: 0;
     }
   }
 
@@ -207,7 +240,7 @@
 
   .highlight-line,
   .highlight-word {
-    background-color: var(--bg-md-highlight-line);
+    background-color: var(--c-indigo-soft);
   }
 
   .highlight-word {

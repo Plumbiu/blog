@@ -6,10 +6,11 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scrollbar-width: 0;
 }
 
 body {
+  scrollbar-width: 0;
   margin: 0;
   color: var(--text-1);
   background-color: var(--bg-body);
@@ -33,11 +34,7 @@ h5,
 h6 {
   color: var(--text);
 
-  & code {
-    font-size: inherit !important;
-  }
-
-  & a {
+  & * {
     font-size: inherit !important;
   }
 }
@@ -76,6 +73,13 @@ h6 {
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
+}
+
+:where(html, body)::-webkit-scrollbar {
+  appearance: none;
+  width: 0;
+  height: 0;
+  scrollbar-width: 0;
 }
 
 /* list */
