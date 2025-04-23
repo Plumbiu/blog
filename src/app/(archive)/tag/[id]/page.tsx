@@ -21,7 +21,11 @@ async function TagPage(props: CategoryProps) {
   const { id } = await props.params
   const posts = await getPost((post) => !!post.meta.tags?.includes(id))
 
-  return <TimeLine posts={posts} />
+  return (
+    <div className="main_content">
+      <TimeLine posts={posts} />
+    </div>
+  )
 }
 
 export default TagPage

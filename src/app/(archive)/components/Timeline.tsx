@@ -20,7 +20,7 @@ async function TimeLine({ posts }: TimelineProps) {
   const postsWithYear = formatPostByYear(posts)
 
   return (
-    <div className={cn(styles.wrap, 'main_content')}>
+    <div className={styles.wrap}>
       {postsWithYear.map(([year, posts]) => {
         return (
           <section key={year}>

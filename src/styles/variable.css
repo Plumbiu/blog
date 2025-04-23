@@ -1,11 +1,11 @@
 :root {
   /* text */
   --text: #000;
-  --text-4: rgba(30, 30, 30, 0.4);
-  --text-3: rgba(30, 30, 30, 0.56);
-  --text-2: rgba(30, 30, 30, 0.72);
-  --text-1: rgb(30, 30, 30);
-  --text-desc: rgba(30, 30, 30, 0.8);
+  --text-4: rgba(35, 35, 35, 0.4);
+  --text-3: rgba(35, 35, 35, 0.56);
+  --text-2: rgba(35, 35, 35, 0.72);
+  --text-1: rgb(35, 35, 35);
+  --text-desc: rgba(35, 35, 35, 0.8);
   /* border */
   --divider: #d8e1e6;
   /* color */

@@ -22,7 +22,11 @@ async function CategoryPage(props: CategoryProps) {
   const { id } = await props.params
   const posts = await getPost((post) => post.type === id)
 
-  return <TimeLine posts={posts} />
+  return (
+    <div className="main_content">
+      <TimeLine posts={posts} />
+    </div>
+  )
 }
 
 export default CategoryPage

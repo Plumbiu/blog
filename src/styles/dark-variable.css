@@ -1,11 +1,11 @@
 html[data-theme='dark'] {
   /* text */
   --text: #fff;
-  --text-4: rgba(200, 200, 200, 0.4);
-  --text-3: rgba(200, 200, 200, 0.56);
-  --text-2: rgba(200, 200, 200, 0.72);
-  --text-1: rgba(200, 200, 200);
-  --text-desc: rgba(200, 200, 200, 0.87);
+  --text-4: rgba(220, 220, 220, 0.4);
+  --text-3: rgba(220, 220, 220, 0.56);
+  --text-2: rgba(220, 220, 220, 0.72);
+  --text-1: rgba(220, 220, 220);
+  --text-desc: rgba(220, 220, 220, 0.87);
   /* border */
   --divider: #32363a;
   --s-border: 1px solid var(--divider);
@@ -22,10 +22,10 @@ html[data-theme='dark'] {
   --c-purple-3: #8e5cd9;
   --c-purple-2: #a879e6;
   --c-purple-1: #c8abfa;
-  --c-indigo-soft: rgba(0, 113, 206, 0.16);
+  --c-indigo-soft: rgba(22, 137, 230, 0.16);
   --c-indigo-3: #013570;
   --c-indigo-2: #0059ce;
-  --c-indigo-1: #3371ce;
+  --c-indigo-1: #4b89e6;
   --c-green-soft: rgba(16, 185, 129, 0.16);
   --c-green-3: #298459;
   --c-green-2: #30a46c;
