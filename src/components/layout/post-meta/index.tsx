@@ -24,36 +24,34 @@ export default function PostMeta({
 }: Pick<PostList, 'meta' | 'type' | 'tags'>) {
   const { date } = meta
   return (
-    <div className={cn('load_ani', styles.post_info)}>
+    <div className={cn('load_ani', styles.wrap)}>
       <div className={'fcc'}>
         <CalendarIcon />
-        <div className={styles.date_text}>{formatTime(date)}</div>
+        <div className={cn('-ml-4', styles.card)}>{formatTime(date)}</div>
       </div>
       {!!type && (
         <Link href={`category/${type}`} className={'fcc'}>
           <BookmarkIcon />
-          <div data-category className={cn('fcc', styles.link_card)}>
+          <div className={cn('fcc', '-ml-4', styles.link_card, styles.card)}>
             {upperFirstChar(type)}
           </div>
         </Link>
       )}
       {tags && !!tags.length && (
-        <div className={cn('fcc', styles.tag_wrap)}>
+        <div className={cn('fcc', styles.tag)}>
           <TagIcon />
-          <div className={cn('fcc', styles.tags)}>
-            {tags.map((tag, i) => (
-              <Fragment key={tag}>
-                {i !== 0 && <div className="slashLine" />}
-                <Link
-                  className={cn(styles.link_card, 'fcc')}
-                  key={tag}
-                  href={`/tag/${tag}`}
-                >
-                  {tag}
-                </Link>
-              </Fragment>
-            ))}
-          </div>
+          {tags.map((tag, i) => (
+            <Fragment key={tag}>
+              {i !== 0 && <div className="slashLine" />}
+              <Link
+                className={cn('fcc', styles.link_card, styles.card)}
+                key={tag}
+                href={`/tag/${tag}`}
+              >
+                {tag}
+              </Link>
+            </Fragment>
+          ))}
         </div>
       )}
     </div>

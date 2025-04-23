@@ -1,18 +1,7 @@
-.tag_wrap {
-  height: 30px;
-}
-
-
-@media screen and (max-width: 960px) {
-  .tag_wrap {
-    display: none;
-  }
-}
-
-.post_info {
+.wrap {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   font-size: var(--text-sm);
   color: var(--text-3);
   font-weight: 600;
@@ -20,35 +9,38 @@
   & svg {
     background-color: var(--c-indigo-soft);
     padding: 4px;
-    height: 32px;
-    width: 32px;
+    height: 30px;
+    width: 30px;
     font-size: var(--text-3xl);
     color: var(--c-indigo-1);
     border-radius: 6px;
   }
+
+  > * {
+    height: 30px;
+  }
 }
 
-.date_text {
-  margin-left: 4px;
+.card {
+  padding: 0 8px;
 }
 
-.tags {
-  height: 100%;
-  margin-left: -4px;
+.tag {
   gap: 0;
 }
 
+@media screen and (max-width: 960px) {
+  .tag {
+    display: none;
+  }
+}
+
 .link_card {
-  height: 32px;
-  padding: 0 8px;
+  height: 100%;
   border-radius: 8px;
   font-weight: 600;
   position: relative;
   transition: color, background-color 0.15s;
-
-  &[data-category] {
-    margin-left: -4px;
-  }
 
   &:hover::before {
     transform: scale(1);
