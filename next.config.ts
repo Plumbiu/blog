@@ -27,6 +27,9 @@ const AtomChartsetHeader = [
 ]
 
 const nextConfig: NextConfig = {
+  experimental: {
+    cssChunking: false,
+  },
   basePath: BasePath,
   assetPrefix: BasePath,
   serverExternalPackages: ['three', '@react-three/fiber', 'lil-gui'],

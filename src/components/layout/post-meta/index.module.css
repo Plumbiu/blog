@@ -1,6 +1,7 @@
 .wrap {
   display: flex;
   align-items: center;
+  overflow: hidden;
   gap: 12px;
   font-size: var(--text-sm);
   color: var(--text-3);
@@ -16,12 +17,13 @@
     border-radius: 6px;
   }
 
-  > * {
+  >* {
     height: 30px;
   }
 }
 
 .card {
+  white-space: nowrap;
   padding: 0 8px;
 }
 
