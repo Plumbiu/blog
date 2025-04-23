@@ -10,6 +10,12 @@
   }
 }
 
+@media screen and (max-width: 960px) {
+  .wrap {
+    text-align: center;
+  }
+}
+
 .right {
   display: flex;
   gap: 16px;
