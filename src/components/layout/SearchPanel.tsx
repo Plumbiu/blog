@@ -1,56 +1,25 @@
 'use client'
 
 import { cn } from '@/lib/client'
-import {
-  memo,
-  type ReactNode,
-  useCallback,
-  useEffect,
-  useId,
-  useRef,
-  useState,
-} from 'react'
+import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import styles from './SearchPanel.module.css'
 import Modal from '../ui/Modal'
-import { CopyErrorIcon, SearchIcon, SearchSlashIcon } from '../Icons'
-import { upperFirstChar } from '@/lib/shared'
+import { CopyErrorIcon, SearchIcon } from '../Icons'
 import Link from 'next/link'
-import { entries } from '@/lib/types'
 import useSearchPanelStore from '@/store/search-panel'
+import type { PostList } from '~/markdown/types'
 
-interface SearchData {
-  date: string
-  title: string
-  path: string
-  type: string
-}
-
-const EmptyContent = memo(({ search }: { search: string }) => {
-  return (
-    <div className={styles.empty_content}>
-      <SearchSlashIcon />
-      No results found for "
-      <span className={styles.highlight_word}>{search}</span>"
-    </div>
-  )
-})
-
-type ListType = [string, SearchData[]][]
 interface SearchPanelProps {
-  data?: SearchData[]
+  data?: PostList[]
 }
-
-const InitialEmptyContent = 'No results'
 
 function SearchPanel({ data }: SearchPanelProps) {
   const hidden = useSearchPanelStore((s) => s.hidden)
   const searchPanelVisible = useSearchPanelStore((s) => s.visible)
   const [mounted, setMounted] = useState(false)
-  const [lists, setLists] = useState<ListType>([])
-  const listRef = useRef<SearchData[]>(data)
+  const [lists, setLists] = useState<PostList[]>([])
+  const listRef = useRef<PostList[]>(data)
   const [activePath, setActivePath] = useState<string>()
-  const [emptyContent, setEmptyContent] =
-    useState<ReactNode>(InitialEmptyContent)
   const [search, setSearch] = useState('')
   const contentRef = useRef<HTMLDivElement>(null)
   const label = useId()
@@ -65,7 +34,7 @@ function SearchPanel({ data }: SearchPanelProps) {
         cache: 'force-cache',
       })
         .then((res) => res.json())
-        .then((data: SearchData[]) => {
+        .then((data: PostList[]) => {
           listRef.current = data
         })
     }
@@ -73,27 +42,15 @@ function SearchPanel({ data }: SearchPanelProps) {
 
   useEffect(() => {
     if (search.length > 0 && listRef.current) {
-      const lists = listRef.current.filter((list) =>
-        list.title.toLowerCase().includes(search.toLowerCase()),
+      const lowerFormat = search.toLowerCase()
+      const lists = listRef.current.filter(
+        (list) =>
+          list.meta.title.toLowerCase().includes(lowerFormat) ||
+          list.meta.desc?.toLowerCase().includes(lowerFormat),
       )
-      if (lists.length === 0) {
-        setEmptyContent(<EmptyContent search={search} />)
-      }
-      const result: Record<string, SearchData[]> = {}
-      for (const list of lists) {
-        const type = upperFirstChar(list.type)
-        if (!type) {
-          continue
-        }
-        if (!result[type]) {
-          result[type] = []
-        }
-        result[type].push(list)
-      }
-      setLists(entries(result))
+      setLists(lists)
     } else {
       setLists([])
-      setEmptyContent(InitialEmptyContent)
     }
   }, [search, data])
 
@@ -133,11 +90,7 @@ function SearchPanel({ data }: SearchPanelProps) {
         }
       }}
     >
-      <div
-        ref={contentRef}
-        className={styles.wrap}
-        data-overlayscrollbars-initialize
-      >
+      <div ref={contentRef} className={styles.wrap}>
         <div className={styles.header}>
           <form className={styles.form}>
             <label htmlFor={label} className={styles.label}>
@@ -163,35 +116,29 @@ function SearchPanel({ data }: SearchPanelProps) {
           </form>
         </div>
         <div className={styles.list_wrapper}>
-          {lists.length === 0 && (
-            <div className={styles.empty}>{emptyContent}</div>
-          )}
-          {lists.map(([type, list]) => (
-            <section key={type}>
-              <div className={styles.list_type}>{type}</div>
-              <div>
-                {list.map(({ path, title, date }) => (
-                  <Link
-                    key={path}
-                    onClick={() => hidden()}
-                    href={`/${path}`}
-                    onMouseEnter={() => setActivePath(path)}
-                    className={cn(styles.list, {
-                      [styles.list_active]: activePath === path,
-                    })}
-                  >
-                    <div className={styles.date}>{date}</div>
-                    <div className={styles.title}>{handleHihglight(title)}</div>
-                  </Link>
-                ))}
-              </div>
-            </section>
-          ))}
-        </div>
-        <div className={styles.footer}>
-          <div>
-            <span className="keyboard_tag">ESC</span> to close
-          </div>
+          {lists.map((list) => {
+            const { path, meta, tags, type } = list
+            return (
+              <Link
+                key={path}
+                onClick={() => hidden()}
+                href={`/${path}`}
+                onMouseEnter={() => setActivePath(path)}
+                className={cn(styles.list, {
+                  [styles.list_active]: activePath === path,
+                })}
+              >
+                <div className={styles.title}>
+                  {handleHihglight(meta.title)}
+                </div>
+                {!!meta.desc && (
+                  <div className={styles.desc}>
+                    {handleHihglight(meta.desc)}
+                  </div>
+                )}
+              </Link>
+            )
+          })}
         </div>
       </div>
     </Modal>

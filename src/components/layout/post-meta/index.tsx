@@ -21,7 +21,11 @@ export default function PostMeta({
   meta,
   type,
   tags,
-}: Pick<PostList, 'meta' | 'type' | 'tags'>) {
+}: Pick<PostList, 'meta' | 'type' | 'tags'> & {
+  meta: {
+    date: number
+  }
+}) {
   const { date } = meta
   return (
     <div className={cn('load_ani', styles.wrap)}>

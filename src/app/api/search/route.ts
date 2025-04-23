@@ -1,11 +1,18 @@
 import { getPost } from '~/markdown/utils/fs'
 
+const MaxDesc = 80
+
 export async function GET() {
-  const data = (await getPost()).map((item) => ({
-    date: new Date(item.meta.date).toISOString().split('T')[0],
-    title: item.meta.title,
-    path: item.path,
-    type: item.type,
-  }))
-  return Response.json(data)
+  const data = await getPost()
+
+  for (const item of data) {
+    item.next = undefined
+    item.prev = undefined
+    const desc = item.meta.desc
+    if (desc) {
+      item.meta.desc =
+        desc.length > MaxDesc - 3 ? desc.slice(0, MaxDesc - 3) + '...' : desc
+    }
+  }
+  return Response.json(data || [])
 }

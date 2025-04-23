@@ -1,13 +1,14 @@
 .wrap {
   --w: 560px;
-  --distance: 16px;
+  --distance: 12px;
+  --radius: 12px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  top: 86px;
-  background-color: var(--bg-search-panel);
-  border-radius: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: var(--radius);
   width: var(--w);
   margin: 0 auto;
 }
@@ -21,7 +22,6 @@
 .header {
   position: sticky;
   top: 0;
-  margin: var(--distance);
   margin-bottom: 8px;
 }
 
@@ -31,10 +31,9 @@
   gap: 8px;
   height: 56px;
   padding: 12px;
-  border: 1px solid var(--c-indigo-1);
   border-radius: 8px;
   overflow: hidden;
-  background-color: var(--bg-search-panel-item);
+  background-color: var(--bg-card);
 
   & svg {
     font-size: var(--text-2xl);
@@ -47,35 +46,25 @@
   width: 100%;
   outline: none;
   border: none;
-  background-color: var(--bg-search-panel-item);
+  background-color: transparent;
 }
 
 .list_wrapper {
   position: relative;
   max-height: 50vh;
-  padding-bottom: var(--distance);
   overflow-y: scroll;
-}
-
-.list_type {
-  position: sticky;
-  top: 0;
-  background-color: var(--bg-search-panel);
-  margin-left: var(--distance);
-  margin-top: var(--distance);
-  padding-bottom: 10px;
-  color: var(--c-purple-1);
+  padding: 12px 0;
+  border-radius: var(--radius);
+  background-color: var(--bg-card);
 }
 
 .list {
   display: block;
   cursor: pointer;
-  background-color: var(--bg-search-panel-item);
   padding: 10px 12px;
-  margin: 0 var(--distance) 10px var(--distance);
-  border-radius: 4px;
-  border: 1px solid transparent;
-  box-shadow: var(--shadow-search-panel-item);
+  margin: 0 var(--distance);
+  transition: background-color 0.15s;
+  border-radius: var(--radius);
 
   & svg {
     font-size: var(--text-2xl);
@@ -85,15 +74,22 @@
   }
 }
 
-.date {
+.desc {
   font-size: var(--text-sm);
+  margin: 4px 0;
   color: var(--text-3);
 }
 
 .empty {
-  font-size: 16px;
+  color: var(--text-2);
   text-align: center;
   padding: 24px 0 12px 0;
+}
+
+.title {
+  transition: color 0.15s;
+  color: var(--text);
+  font-weight: 600;
 }
 
 .type {
@@ -102,7 +98,11 @@
 }
 
 .list_active {
-  border: 1px solid var(--c-indigo-1);
+  background-color: var(--c-indigo-soft);
+
+  & .title {
+    color: var(--c-indigo-1);
+  }
 }
 
 .btn {
@@ -111,20 +111,6 @@
 
   & {
     color: var(--c-indigo-1);
-  }
-}
-
-.footer {
-  background-color: var(--bg-search-panel-footer);
-  padding: var(--distance);
-  background-origin: padding-box;
-  font-size: var(--text-sm);
-  border-top: 1px solid var(--divider);
-
-  &>div {
-    display: flex;
-    align-items: center;
-    gap: 8px;
   }
 }
 

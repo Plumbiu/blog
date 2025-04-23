@@ -46,13 +46,14 @@
 
   & svg {
     padding: 8px;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border-radius: 8px;
-    background-color: var(--c-indigo-soft);
+    background-color: var(--c-gray-soft);
     transition: 250ms;
 
     &:hover {
+      background-color: var(--c-indigo-soft);
       color: var(--c-indigo-1);
     }
   }
