@@ -1,6 +1,14 @@
 'use client'
 
-import { type ReactNode, useEffect, useMemo, useRef, useState } from 'react'
+import {
+  type MouseEventHandler,
+  type ReactNode,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import styles from './Selector.module.css'
 import { createPortal } from 'react-dom'
 import { cn } from '@/lib/client'
@@ -45,44 +53,46 @@ function Selector({ items, children, offset, className }: SelectorProps) {
     return items.map(({ value, label }) => <div key={value}>{label}</div>)
   }, [items])
 
-  useEffect(() => {
-    function handleClick(e: MouseEvent) {
-      const target = e.target as Element
+  const handleGlobalClick = useCallback((e: MouseEvent) => {
+    const target = e.target as Element
+    const wrapDom = warpRef.current
+    const panelDom = panelRef.current
+    if (!wrapDom || !panelDom) {
+      return
+    }
+    if (!wrapDom.contains(target) && !panelDom.contains(target)) {
+      hide()
+    }
+  }, [])
+
+  const handleTriggerClick: MouseEventHandler<HTMLDivElement> = useCallback(
+    (e) => {
+      e.stopPropagation()
+      setPanelVisible(true)
       const wrapDom = warpRef.current
-      const panelDom = panelRef.current
-      if (!wrapDom || !panelDom) {
+      if (!wrapDom) {
         return
       }
-      if (!wrapDom.contains(target) && !panelDom.contains(target)) {
-        hide()
-      }
-    }
-    window.addEventListener('click', handleClick)
+      const panelRect = wrapDom.getBoundingClientRect()
+      setPosition({
+        x: panelRect.left + panelRect.width / 2 + (offset?.x || 0),
+        y: panelRect.bottom + (offset?.y || 0),
+      })
+    },
+    [],
+  )
+
+  useEffect(() => {
+    window.addEventListener('click', handleGlobalClick)
     window.addEventListener('scroll', hide)
     return () => {
-      window.removeEventListener('click', handleClick)
+      window.removeEventListener('click', handleGlobalClick)
       window.removeEventListener('scroll', hide)
     }
   }, [])
   return (
     <div ref={warpRef} className={cn(styles.wrap, className)}>
-      <div
-        onClick={(e) => {
-          e.stopPropagation()
-          setPanelVisible(true)
-          const wrapDom = warpRef.current
-          if (!wrapDom) {
-            return
-          }
-          const panelRect = wrapDom.getBoundingClientRect()
-          setPosition({
-            x: panelRect.left + panelRect.width / 2 + (offset?.x || 0),
-            y: panelRect.bottom + (offset?.y || 0),
-          })
-        }}
-      >
-        {children}
-      </div>
+      <div onClick={handleTriggerClick}>{children}</div>
       {panelVisible &&
         position &&
         createPortal(

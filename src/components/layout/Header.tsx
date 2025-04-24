@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { cn } from '@/lib/client'
 import { BlogAuthor } from '~/data/site'
 import {
@@ -15,6 +15,7 @@ import {
 import styles from './Header.module.css'
 import Selector from '../ui/Selector'
 import { usePathname } from 'next/navigation'
+import { throttle } from 'es-toolkit'
 
 const rightData = [
   {
@@ -40,7 +41,6 @@ const rightData = [
 function Header() {
   const ref = useRef<HTMLHeadingElement>(null)
   const [theme, setTheme] = useState<string>()
-
   const pathname = usePathname()
   const isFirstRender = useRef(true)
 
@@ -52,26 +52,28 @@ function Header() {
     window.setBannerHeight()
   }, [pathname])
 
-  function scrollHandler() {
-    const y = window.scrollY
-    const dom = ref.current!
-    const pathname = location.pathname
-    const isList = pathname === '/' || pathname.startsWith('/list')
-    let thresholdY = window.innerWidth < 960 ? 190 : 360
-    if (!isList) {
-      thresholdY -= 120
-    }
-    dom.style.transform =
-      y < thresholdY
-        ? 'translateY(0)'
-        : 'translateY(calc(-1 * var(--header-h)))'
-  }
+  const scrollHandler = useCallback(
+    throttle(() => {
+      const y = window.scrollY
+      const dom = ref.current!
+      const pathname = location.pathname
+      const isList = pathname === '/' || pathname.startsWith('/list')
+      let thresholdY = window.innerWidth < 960 ? 190 : 360
+      if (!isList) {
+        thresholdY -= 120
+      }
+      dom.style.transform =
+        y < thresholdY
+          ? 'translateY(0)'
+          : 'translateY(calc(-1 * var(--header-h)))'
+    }, 200),
+    [],
+  )
 
   useEffect(() => {
     scrollHandler()
     setTheme(window.getLocalTheme()!)
     window.addEventListener('scroll', scrollHandler)
-
 
     return () => {
       window.removeEventListener('scroll', scrollHandler)

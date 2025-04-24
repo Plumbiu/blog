@@ -1,7 +1,14 @@
 'use client'
 
 import { cn } from '@/lib/client'
-import { useCallback, useEffect, useId, useRef, useState } from 'react'
+import {
+  type ChangeEvent,
+  useCallback,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+} from 'react'
 import styles from './SearchPanel.module.css'
 import Modal from '../ui/Modal'
 import { CopyErrorIcon, SearchIcon } from '../Icons'
@@ -76,6 +83,10 @@ function SearchPanel({ data }: SearchPanelProps) {
     },
     [search],
   )
+
+  const handleInputChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value)
+  }, [])
   if (!searchPanelVisible || !mounted) {
     return null
   }
@@ -98,7 +109,7 @@ function SearchPanel({ data }: SearchPanelProps) {
             </label>
             <input
               value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={handleInputChange}
               id={label}
               className={styles.ipt}
               placeholder="Search posts"
@@ -117,7 +128,7 @@ function SearchPanel({ data }: SearchPanelProps) {
         </div>
         <div className={styles.list_wrapper}>
           {lists.map((list) => {
-            const { path, meta, tags, type } = list
+            const { path, meta } = list
             return (
               <Link
                 key={path}

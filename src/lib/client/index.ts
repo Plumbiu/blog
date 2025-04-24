@@ -26,19 +26,6 @@ export function cn(...args: ClassNameArg[]) {
   return classname
 }
 
-export function throttle<T extends (...args: any) => any>(fn: T, wait = 300) {
-  let start = Date.now()
-  return function (this: any, ...args: any[]) {
-    const now = Date.now()
-    if (now - start < wait) {
-      return
-    }
-    start = now
-
-    fn.apply(this, args)
-  }
-}
-
 export function renderReactNodeToString(node: ReactNode) {
   // 递归遍历 reactnode, 形成 textContent
   let textContent = ''

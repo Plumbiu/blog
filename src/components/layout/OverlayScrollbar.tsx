@@ -8,6 +8,7 @@ import {
   useState,
 } from 'react'
 import styles from './OverlayScrollbar.module.css'
+import { throttle } from 'es-toolkit'
 
 const Spacing = 6 * 2
 
@@ -87,12 +88,13 @@ function OverlayScrollbar() {
       return
     }
     updateScroll()
+    const resizeEventCallback = throttle(updateScroll, 200)
     window.addEventListener('scroll', updateScroll)
-    window.addEventListener('resize', updateScroll)
+    window.addEventListener('resize', resizeEventCallback)
     window.addEventListener('mouseup', onMouseUp)
     return () => {
       window.removeEventListener('scroll', updateScroll)
-      window.removeEventListener('resize', updateScroll)
+      window.removeEventListener('resize', resizeEventCallback)
       window.removeEventListener('mouseup', onMouseUp)
     }
   }, [mounted])

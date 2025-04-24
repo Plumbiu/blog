@@ -1,9 +1,10 @@
 'use client'
 
-import { memo, useEffect, useRef, useState } from 'react'
+import { memo, useCallback, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { cn } from '@/lib/client'
 import styles from './Toc.module.css'
+import { throttle } from 'es-toolkit'
 
 interface ITocList {
   title: string
@@ -36,32 +37,35 @@ function Toc() {
   const listRef = useRef<HTMLDivElement>(null)
   const [hightLightIds, setHiLightIds] = useState<Set<string>>(new Set())
 
-  const handler = () => {
-    const tocDom = tocRef.current
-    if (!tocDom) {
-      return
-    }
-    const viewHeight = window.innerHeight / 2
-    const scrollY = window.scrollY
-    if (scrollY > ShowHeight) {
-      const set = new Set<string>()
-      tocDom.style.opacity = '1'
-      for (let i = 0; i < nodes.current!.length; i++) {
-        const node = nodes.current![i]
-        const rect = node.getBoundingClientRect()
-        if (rect.bottom >= 0 && rect.top < viewHeight) {
-          set.add(node.id)
-        }
-        const nextRect = nodes.current![i + 1]?.getBoundingClientRect()
-        if (rect.bottom < 0 && nextRect && nextRect.top > viewHeight) {
-          set.add(node.id)
-        }
-        setHiLightIds(set)
+  const handler = useCallback(
+    throttle(() => {
+      const tocDom = tocRef.current
+      if (!tocDom) {
+        return
       }
-    } else {
-      tocDom.style.opacity = '0'
-    }
-  }
+      const viewHeight = window.innerHeight - 36
+      const scrollY = window.scrollY
+      if (scrollY > ShowHeight) {
+        const set = new Set<string>()
+        tocDom.style.opacity = '1'
+        for (let i = 0; i < nodes.current!.length; i++) {
+          const node = nodes.current![i]
+          const rect = node.getBoundingClientRect()
+          if (rect.bottom >= 0 && rect.top < viewHeight) {
+            set.add(node.id)
+          }
+          const nextRect = nodes.current![i + 1]?.getBoundingClientRect()
+          if (rect.bottom < 0 && nextRect && nextRect.top > viewHeight) {
+            set.add(node.id)
+          }
+          setHiLightIds(set)
+        }
+      } else {
+        tocDom.style.opacity = '0'
+      }
+    }, 150),
+    [],
+  )
 
   useEffect(() => {
     nodes.current = document.querySelectorAll('.md > h1,h2,h3')
