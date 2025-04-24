@@ -11,7 +11,7 @@ import {
   type Photo,
   type PhotoNode,
 } from './gallery-utils'
-import { addNodeClassName, makeProperties } from '../utils'
+import { makeProperties } from '../utils'
 import {
   ComponentKey,
   handleComponentName,
@@ -27,7 +27,6 @@ export const remarkContainerDirectivePlugin: RemarkPlugin = () => {
     const photoNodes: PhotoNode[] = []
     visit(tree, 'containerDirective', (node) => {
       makeProperties(node)
-      noteContainerDirective(node)
       detailContainerDirective(node)
       // Gallery
       if (node.name === GalleryName) {
@@ -124,20 +123,6 @@ function detailContainerDirective(node: ContainerDirective) {
       makeProperties(firstChild)
       firstChild.data!.hName = 'summary'
       node.children[0] = firstChild as any
-    }
-  }
-}
-
-function noteContainerDirective(node: ContainerDirective) {
-  if (node.name === 'Note') {
-    const data = node.data!
-    const props = data.hProperties!
-    data.hName = 'blockquote'
-    const className = node.attributes?.class
-    addNodeClassName(node, `blockquote-${className}`)
-    const firstChild = node.children[0]
-    if (firstChild.type === 'paragraph' && firstChild.data?.directiveLabel) {
-      props['data-title'] = true
     }
   }
 }

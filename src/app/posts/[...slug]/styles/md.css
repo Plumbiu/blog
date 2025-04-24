@@ -96,80 +96,103 @@
   /* blockquote */
   blockquote {
     position: relative;
-    padding: 4px 16px;
+    padding: 4px 20px;
     margin-left: 0;
     margin-right: 0;
 
     &::before {
       content: '';
-      color: var(--c-indigo-1);
+      color: var(--c-md-alert-note);
       position: absolute;
       top: 0;
       bottom: 0;
       left: 0;
       width: 4px;
       border-radius: 6px;
-      background-color: var(--c-indigo-1);
+      background-color: var(--c-md-alert-note);
     }
 
     & p {
-      color: var(--text-2);
+      color: var(--text-1-light);
       line-height: 1.6;
       margin: 0;
     }
   }
 
-  blockquote[data-title] p:first-child {
-    color: inherit;
-    font-weight: 700;
-    margin-bottom: 4px;
+  .blockquote-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: var(--text-base);
+    margin-bottom: 8px;
+
+    &[data-alert-type="note"] {
+      color: var(--c-md-alert-note);
+    }
+
+    &[data-alert-type="tip"] {
+      color: var(--c-md-alert-tip);
+    }
+
+    &[data-alert-type="warning"] {
+      color: var(--c-md-alert-warning);
+    }
+
+    &[data-alert-type="caution"] {
+      color: var(--c-md-alert-caution);
+    }
+
+    &[data-alert-type="important"] {
+      color: var(--c-md-alert-important);
+    }
   }
 
   .blockquote-tip {
-    color: var(--c-gray-1);
+    color: var(--c-md-alert-tip);
 
     &::before {
-      background-color: var(--c-gray-1);
+      background-color: var(--c-md-alert-tip);
     }
 
     & code {
-      background-color: var(--c-gray-soft);
+      color: var(--c-md-alert-tip);
     }
   }
 
-  .blockquote-warn {
-    color: var(--c-yellow-1);
+  .blockquote-warning {
+    color: var(--c-md-alert-warning);
 
     &::before {
-      background-color: var(--c-yellow-1);
+      background-color: var(--c-md-alert-warning);
     }
 
-    code {
-      background-color: var(--c-yellow-soft);
+    & code {
+      color: var(--c-md-alert-warning);
     }
   }
 
   .blockquote-caution {
-    color: var(--c-red-1);
+    color: var(--c-md-alert-caution);
 
     &::before {
-      background-color: var(--c-red-1);
+      background-color: var(--c-md-alert-caution);
     }
 
-    code {
-      background-color: var(--c-red-soft);
+    & code {
+      color: var(--c-md-alert-caution);
     }
   }
 
   .blockquote-important {
-    color: var(--c-purple-1);
+    color: var(--c-md-alert-important);
 
     &::before {
-      background-color: var(--c-purple-1);
+      background-color: var(--c-md-alert-important);
     }
 
-    code {
-      background-color: var(--c-purple-soft);
+    & code {
+      color: var(--c-md-alert-important);
     }
   }
 

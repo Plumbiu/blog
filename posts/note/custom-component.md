@@ -213,35 +213,20 @@ console.log(1)
 
 # Blockquote
 
-:::Note[This is Note]
-This is some description. This is some description. This is some description.
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
 
-`console.log('note')`
-:::
+> [!TIP]
+> Helpful advice for doing things better or more easily.
 
-:::Note[This is Tip]{.tip}
-This is some description. This is some description. This is some description.
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
 
-`console.log('tip')`
-:::
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
 
-:::Note[This is Warn]{.warn}
-This is some description. This is some description. This is some description.
-
-`console.log('warn')`
-:::
-
-:::Note[This is Caution]{.caution}
-This is some description. This is some description. This is some description.
-
-`console.log('caution')`
-:::
-
-:::Note[This is Important]{.important}
-This is some description. This is some description. This is some description.
-
-`console.log('important')`
-:::
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
 
 # Details
 

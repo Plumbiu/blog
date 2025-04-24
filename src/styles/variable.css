@@ -5,7 +5,8 @@
   --text-3: rgba(35, 35, 35, 0.56);
   --text-2: rgba(35, 35, 35, 0.72);
   --text-1: rgb(35, 35, 35);
-  --text-desc: rgba(35, 35, 35, 0.8);
+  --text-1-dim: rgba(35, 35, 35, 0.8);
+  --text-1-light: rgba(22, 22, 22);
   /* border */
   --divider: #d8e1e6;
   /* color */
@@ -33,6 +34,11 @@
   --c-gray-3: #ccc;
   --c-gray-2: #bababa;
   --c-gray-1: #a9a9a9;
+  --c-md-alert-note: #53A3F2;
+  --c-md-alert-tip: #00BAA2;
+  --c-md-alert-important: #B984DF;
+  --c-md-alert-warning: #DD8736;
+  --c-md-alert-caution: #DE3B3D;
   /* background */
   --bg-md-quote-before: #d5d5d5;
   --bg-md-quote-warn: #fcf4dc;

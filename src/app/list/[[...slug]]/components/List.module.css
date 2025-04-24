@@ -62,7 +62,7 @@
 .desc {
   margin: 4px 0;
   line-height: 1.65rem;
-  color: var(--text-desc);
+  color: var(--text-1-dim);
   word-break: break-all;
   font-size: var(--text-sm);
 }
