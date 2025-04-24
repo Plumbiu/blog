@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import type { ReactNode } from 'react'
-import { Categoires } from '~/constants/shared'
 import {
   BlogIcon,
   LifeIcon,
@@ -10,25 +9,24 @@ import {
 } from '@/components/Icons'
 import styles from './Action.module.css'
 import Selector from '@/components/ui/Selector'
-import { upperFirstChar } from '@/lib/shared'
 import { cn } from '@/lib/client'
 
-export const listActionIconMap: Record<string, ReactNode> = {
-  blog: <BlogIcon />,
-  life: <LifeIcon />,
-  summary: <SummaryIcon />,
-  note: <NoteIcon />,
-}
+export const listActionIconp: [string, string, ReactNode][] = [
+  ['博客', 'blog', <BlogIcon key="blog" />],
+  ['生活', 'life', <LifeIcon key="life" />],
+  ['总结', 'summary', <SummaryIcon key="summary" />],
+  ['笔记', 'note', <NoteIcon key="note" />],
+] as const
 
 function ArtlistAction() {
   return (
     <div className={styles.action}>
       <Selector
-        items={Categoires.map((p) => ({
+        items={listActionIconp.map(([label, p, icon]) => ({
           label: (
             <Link className={styles.item} key={p} href={`/list/${p}/1`}>
-              {listActionIconMap[p]}
-              {upperFirstChar(p)}
+              {icon}
+              {label}
             </Link>
           ),
           value: p,
