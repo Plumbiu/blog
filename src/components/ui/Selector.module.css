@@ -49,8 +49,11 @@
 
   &>div {
     border-radius: 8px;
-    padding: 12px;
     cursor: pointer;
+
+    & > * {
+      padding: 12px;
+    }
 
     &:hover {
       background-color: var(--c-indigo-soft);
