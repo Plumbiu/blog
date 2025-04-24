@@ -11,30 +11,38 @@ import styles from './Action.module.css'
 import Selector from '@/components/ui/Selector'
 import { cn } from '@/lib/client'
 
-export const listActionIconp: [string, string, ReactNode][] = [
-  ['博客', 'blog', <BlogIcon key="blog" />],
-  ['生活', 'life', <LifeIcon key="life" />],
-  ['总结', 'summary', <SummaryIcon key="summary" />],
-  ['笔记', 'note', <NoteIcon key="note" />],
-] as const
+const map: Record<string, string> = {
+  blog: '博客',
+  life: '生活',
+  summary: '总结',
+  note: '笔记',
+}
 
-function ArtlistAction() {
+export const listActionIconMap: Record<string, ReactNode> = {
+  '': <FolderIcon />,
+  blog: <BlogIcon />,
+  life: <LifeIcon />,
+  summary: <SummaryIcon />,
+  note: <NoteIcon />,
+}
+
+function ArtlistAction({ type }: { type: keyof typeof map | undefined }) {
   return (
     <div className={styles.action}>
       <Selector
-        items={listActionIconp.map(([label, p, icon]) => ({
+        items={Object.entries(listActionIconMap).map(([p, icon]) => ({
           label: (
-            <Link className={styles.item} key={p} href={`/list/${p}/1`}>
+            <Link className={styles.item} key={p} href={`/list/${p ? `${p}/` : ''}1`}>
               {icon}
-              {label}
+              {map[p] || '全部'}
             </Link>
           ),
-          value: p,
+          value: p || '全部',
         }))}
       >
         <div className={cn('fcc', styles.label)}>
-          <FolderIcon />
-          全部分类
+          {type ? listActionIconMap[type] : <FolderIcon />}
+          {type ? map[type] : '全部'}
         </div>
       </Selector>
     </div>

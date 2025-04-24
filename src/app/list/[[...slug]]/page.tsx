@@ -89,7 +89,7 @@ async function ArtlistAll(props: ListProps) {
   return (
     <div className="load_ani">
       <div className={styles.list_wrap}>
-        <ArtlistAction />
+        <ArtlistAction type={type} />
         <ArtList posts={showLists} />
       </div>
       <ArtlistPagination
