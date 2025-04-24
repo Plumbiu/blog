@@ -34,6 +34,7 @@
 }
 
 .hover {
+  padding: 8px 12px;
   transition: background-color 125ms ease-in-out;
   border-radius: 12px;
   cursor: pointer;
