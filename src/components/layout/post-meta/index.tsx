@@ -34,7 +34,7 @@ export default function PostMeta({
         <div className={cn('-ml-4', styles.card)}>{formatTime(date)}</div>
       </div>
       {!!type && (
-        <Link href={`category/${type}`} className={'fcc'}>
+        <Link href={`/category/${type}`} className={'fcc'}>
           <BookmarkIcon />
           <div className={cn('fcc', '-ml-4', styles.link_card, styles.card)}>
             {upperFirstChar(type)}
