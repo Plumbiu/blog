@@ -213,7 +213,7 @@ console.log(1)
 
 # Blockquote
 
-:::Note[This is Note]{.note}
+:::Note[This is Note]
 This is some description. This is some description. This is some description.
 
 `console.log('note')`

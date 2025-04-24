@@ -16,7 +16,7 @@
   "dependencies": {
     "@octokit/auth-oauth-app": "^8.1.4",
     "@react-three/fiber": "9.1.2",
-    "@shikijs/transformers": "3.2.2",
+    "@shikijs/transformers": "3.3.0",
     "@vercel/analytics": "^1.5.0",
     "es-toolkit": "^1.35.0",
     "hast-util-to-jsx-runtime": "^2.3.6",
@@ -40,7 +40,7 @@
     "shiki-class-transformer": "^0.3.0",
     "sucrase": "^3.35.0",
     "terser": "^5.39.0",
-    "three": "^0.175.0",
+    "three": "0.176.0",
     "unified": "^11.0.5",
     "unist-util-visit": "^5.0.0",
     "zustand": "^5.0.3"
@@ -49,7 +49,7 @@
     "@biomejs/biome": "1.9.4",
     "@next/bundle-analyzer": "15.3.1",
     "@nimpl/classnames-minifier": "^4.0.0",
-    "@swc/html": "1.11.21",
+    "@swc/html": "1.11.22",
     "@types/hast": "^3.0.4",
     "@types/js-yaml": "^4.0.9",
     "@types/mdast": "^4.0.4",
@@ -67,7 +67,7 @@
     "mdast-util-directive": "^3.1.0",
     "picocolors": "^1.1.1",
     "postcss-nested": "^7.0.2",
-    "simple-git-hooks": "^2.12.1",
+    "simple-git-hooks": "2.13.0",
     "typescript": "^5.8.3"
   },
   "pnpm": {

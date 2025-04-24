@@ -96,23 +96,24 @@
   /* blockquote */
   blockquote {
     position: relative;
-    padding: 0 16px;
+    padding: 4px 16px;
     margin-left: 0;
     margin-right: 0;
 
     &::before {
       content: '';
+      color: var(--c-indigo-1);
       position: absolute;
       top: 0;
       bottom: 0;
       left: 0;
       width: 4px;
       border-radius: 6px;
-      background-color: var(--c-gray-1);
+      background-color: var(--c-indigo-1);
     }
 
     & p {
-      color: var(--text);
+      color: var(--text-2);
       line-height: 1.6;
       margin: 0;
     }
@@ -122,18 +123,6 @@
     color: inherit;
     font-weight: 700;
     margin-bottom: 4px;
-  }
-
-  .blockquote-note {
-    color: var(--c-indigo-1);
-
-    &::before {
-      background-color: var(--c-indigo-1);
-    }
-
-    & code {
-      background-color: var(--c-indigo-soft);
-    }
   }
 
   .blockquote-tip {
