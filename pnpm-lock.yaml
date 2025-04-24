@@ -18,10 +18,10 @@ importers:
         version: 8.1.4
       '@react-three/fiber':
         specifier: 9.1.2
-        version: 9.1.2(@types/react@19.1.2)(immer@10.1.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(three@0.175.0)
+        version: 9.1.2(@types/react@19.1.2)(immer@10.1.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(three@0.176.0)
       '@shikijs/transformers':
-        specifier: 3.2.2
-        version: 3.2.2
+        specifier: 3.3.0
+        version: 3.3.0
       '@vercel/analytics':
         specifier: ^1.5.0
         version: 1.5.0(next@15.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
@@ -92,8 +92,8 @@ importers:
         specifier: ^5.39.0
         version: 5.39.0
       three:
-        specifier: ^0.175.0
-        version: 0.175.0
+        specifier: 0.176.0
+        version: 0.176.0
       unified:
         specifier: ^11.0.5
         version: 11.0.5
@@ -114,8 +114,8 @@ importers:
         specifier: ^4.0.0
         version: 4.0.0(css-loader@7.1.2)
       '@swc/html':
-        specifier: 1.11.21
-        version: 1.11.21
+        specifier: 1.11.22
+        version: 1.11.22
       '@types/hast':
         specifier: ^3.0.4
         version: 3.0.4
@@ -168,8 +168,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.2(postcss@8.5.3)
       simple-git-hooks:
-        specifier: ^2.12.1
-        version: 2.12.1
+        specifier: 2.13.0
+        version: 2.13.0
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
@@ -765,9 +765,6 @@ packages:
       react-native:
         optional: true
 
-  '@shikijs/core@3.2.2':
-    resolution: {integrity: sha512-yvlSKVMLjddAGBa2Yu+vUZxuu3sClOWW1AG+UtJkvejYuGM5BVL35s6Ijiwb75O9QdEx6IkMxinHZSi8ZyrBaA==}
-
   '@shikijs/core@3.3.0':
     resolution: {integrity: sha512-CovkFL2WVaHk6PCrwv6ctlmD4SS1qtIfN8yEyDXDYWh4ONvomdM9MaFw20qHuqJOcb8/xrkqoWQRJ//X10phOQ==}
 
@@ -783,11 +780,8 @@ packages:
   '@shikijs/themes@3.3.0':
     resolution: {integrity: sha512-tXeCvLXBnqq34B0YZUEaAD1lD4lmN6TOHAhnHacj4Owh7Ptb/rf5XCDeROZt2rEOk5yuka3OOW2zLqClV7/SOg==}
 
-  '@shikijs/transformers@3.2.2':
-    resolution: {integrity: sha512-DQvrPdygc6NNdbfeOZoO1+KiRnnjUQuuPLwsAbUuSKq4QFLD0Ik15FbHojmot5NbgCQRbVr8ufRg8U6X5rGWuQ==}
-
-  '@shikijs/types@3.2.2':
-    resolution: {integrity: sha512-a5TiHk7EH5Lso8sHcLHbVNNhWKP0Wi3yVnXnu73g86n3WoDgEra7n3KszyeCGuyoagspQ2fzvy4cpSc8pKhb0A==}
+  '@shikijs/transformers@3.3.0':
+    resolution: {integrity: sha512-PIknEyxfkT7i7at/78ynVmuZEv4+7IcS37f6abxMjQ0pVIPEya8n+KNl7XtfbhNL+U9ElR3UzfSzuD5l5Iu+nw==}
 
   '@shikijs/types@3.3.0':
     resolution: {integrity: sha512-KPCGnHG6k06QG/2pnYGbFtFvpVJmC3uIpXrAiPrawETifujPBv0Se2oUxm5qYgjCvGJS9InKvjytOdN+bGuX+Q==}
@@ -801,68 +795,68 @@ packages:
   '@swc/helpers@0.5.15':
     resolution: {integrity: sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g==}
 
-  '@swc/html-darwin-arm64@1.11.21':
-    resolution: {integrity: sha512-b4RwP927+h1rtIxpgXBoENsQ+xuVKvHyt2jxWnzfptARMcU11bGLpop5PzF2OEz4ikt1yXWyiEWEh9HOLLslNw==}
+  '@swc/html-darwin-arm64@1.11.22':
+    resolution: {integrity: sha512-nsrm0UplPVzMwFiOnNot1Z7TSZcCVR7bsGENlUXIynicLk+T51tow0z65XavXzLl//9xeymbSTo3XtoKkn33Hg==}
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [darwin]
 
-  '@swc/html-darwin-x64@1.11.21':
-    resolution: {integrity: sha512-NHHM0fZxQQgv5eFAnJdyLoqhMGVAjq9Q5faSGPAz5nAEVx1ki3KhFM5ZDt8kyDkTjQ50Mv19dJKDCSWdkGTGJg==}
+  '@swc/html-darwin-x64@1.11.22':
+    resolution: {integrity: sha512-66CSRChBIJDztMo2qvhfdy3wbx/oYauqXpCKCaZMbSQBcFbGRpqBVOgcvT1tJ8v0NfmVpR+Cv6ZC3L7fxqfFbw==}
     engines: {node: '>=10'}
     cpu: [x64]
     os: [darwin]
 
-  '@swc/html-linux-arm-gnueabihf@1.11.21':
-    resolution: {integrity: sha512-bbnB2ZjeGWzh9LHHTjg3mSg+L9XC6tB9OXgIcXlzqeWdfvJqq8mMLRd03Rj2LXHfcvHEAbz/ZNQFdvNvZ8HmQg==}
+  '@swc/html-linux-arm-gnueabihf@1.11.22':
+    resolution: {integrity: sha512-ORb4VGf6dzU5Z7C+9+ocgREyiwyAGcmKtfokFQSeP2xJrgZa4wCvrwg0Zp1xPLCJZ0BzMcr6jH5vBGse7qYrzw==}
     engines: {node: '>=10'}
     cpu: [arm]
     os: [linux]
 
-  '@swc/html-linux-arm64-gnu@1.11.21':
-    resolution: {integrity: sha512-Dpv/zP3bLi8Ffvz/97B2chlK2akS9fqN4YP/Jf9ahjB1IgbQtD9Abr5ByCt8Y+8GQXKdc05gsU9nApKNVoerTw==}
+  '@swc/html-linux-arm64-gnu@1.11.22':
+    resolution: {integrity: sha512-TfTQocbg6ZV5d0ROT5uSnN63C3e76fLZzru2rMpyoI7D9POeU3DWyI2PPTdgb/xgyi2jgXdqMmKu7G+n6kBkPA==}
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [linux]
 
-  '@swc/html-linux-arm64-musl@1.11.21':
-    resolution: {integrity: sha512-qnnBkScssiZrohrtLeyk3YRy7JA0AB2+5CrtyWk1IhyS+q8nyVMKQlEJE/1g2LBVAQZDTXR6h9udlEKnX5sL2A==}
+  '@swc/html-linux-arm64-musl@1.11.22':
+    resolution: {integrity: sha512-DF8GKZ6qCxQcwwBdtdY7pGpmpVxtQ7X0MeWQpQdynU9M+je7rmbprHddo/MD2OxiH44YnpdUwNYNlQSWNN6OjA==}
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [linux]
 
-  '@swc/html-linux-x64-gnu@1.11.21':
-    resolution: {integrity: sha512-+5LH2ChaWG/EA9/Jq6yflwizulo6pU7+5N4v5rYAOBIyGJPcyN/mQQlmOw2Kc4PWC1ASBNU/GWLoKGp+EuC04g==}
+  '@swc/html-linux-x64-gnu@1.11.22':
+    resolution: {integrity: sha512-W+MHCjHk6y2d6VB1lMjzGCpbDJtKZR+BLlAZoLOITZfhMC5PUmUBZb9PQJoQdFsfNZpuLwHgwykTwz//s/w6mQ==}
     engines: {node: '>=10'}
     cpu: [x64]
     os: [linux]
 
-  '@swc/html-linux-x64-musl@1.11.21':
-    resolution: {integrity: sha512-gMtXkPwh9kjnTsykbD+4K6LajZNmhCadXEPtJHMmx1iNxovSHmKdYkX1t8HYtysB6QD+uQdmA3wPh2LBVHoKoA==}
+  '@swc/html-linux-x64-musl@1.11.22':
+    resolution: {integrity: sha512-3xRSgqHea+gN0Jl5XBQHHY5I+B6uUoj586+kSzOR+dTgPVv8ovQaIIeKKaQhOYYovuyQZKUBWwJznR3C/dElrg==}
     engines: {node: '>=10'}
     cpu: [x64]
     os: [linux]
 
-  '@swc/html-win32-arm64-msvc@1.11.21':
-    resolution: {integrity: sha512-SiFBEhAPI/bSTEm6vJO9EawTLaCCiGsVR2PWM8x1fU4fZlf97JKOJr5W2lwCFSG0r2jO+HAr1IZB0SaF58ierg==}
+  '@swc/html-win32-arm64-msvc@1.11.22':
+    resolution: {integrity: sha512-LVzMMbJuTNtjF3QYpOOjyN8RXXEs2GbEMjAqv/9K7TyZ3PsHEUbJOFWV9lHtoAn6ZmtAKtFVxG842pAwOc2hjA==}
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [win32]
 
-  '@swc/html-win32-ia32-msvc@1.11.21':
-    resolution: {integrity: sha512-ke3z9lEp9JqFT906SkU1ap8aE8BYrCxGDULYqqYPjsD0cov/Je4H/qwXkTJ9VkD9RENljKwoisAXfCuBeIoxvQ==}
+  '@swc/html-win32-ia32-msvc@1.11.22':
+    resolution: {integrity: sha512-et6Vz9SNORmmKN1ZgfqYkuSHvvsE2GssPL/JHRIu52vcaHtAsJs6i8QAIPKSIxcm3kbaFTDSwYBeCnfOXxY0jQ==}
     engines: {node: '>=10'}
     cpu: [ia32]
     os: [win32]
 
-  '@swc/html-win32-x64-msvc@1.11.21':
-    resolution: {integrity: sha512-UBzKWLt2hQpYPnq5o5tPGwtNVE18jUdCt4Wm59e00JBZgP2IMRO3/BYzmvYmGfNbKzDUGWDeSWpe+MRt9gPPVA==}
+  '@swc/html-win32-x64-msvc@1.11.22':
+    resolution: {integrity: sha512-/jnmWB/nYAROBzj8s2aLGAWnuTG1WmPF2OkfXY9+2aSz/qAdtycujppObWCidYraDw3TadP0q6WoX8kuRdIpnA==}
     engines: {node: '>=10'}
     cpu: [x64]
     os: [win32]
 
-  '@swc/html@1.11.21':
-    resolution: {integrity: sha512-hW8Dk1jlLfngjMIz9uNVlEwPbMZd1GUYq0Lq19D8pAt6FYWwdB/pB93z1Kh/Z2RA9c+GXNYfuoq8UbEOgTMRMg==}
+  '@swc/html@1.11.22':
+    resolution: {integrity: sha512-BYyDVtw/C3zFo1IpDGgC4iw75EO9iKZLRjGIVPwf6vhIGEjkLfDV+WaRk6TNUbCRteOtBl1DUvZ9X1kHOBUmIA==}
     engines: {node: '>=14'}
 
   '@tweenjs/tween.js@23.1.3':
@@ -1853,8 +1847,8 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
-  simple-git-hooks@2.12.1:
-    resolution: {integrity: sha512-NB3V4XyCOrWTIhjh85DyEoVlM3adHWwqQXKYHmuegy/108bJPP6YxuPGm4ZKBq1+GVKRbKJuzNY//09cMJYp+A==}
+  simple-git-hooks@2.13.0:
+    resolution: {integrity: sha512-N+goiLxlkHJlyaYEglFypzVNMaNplPAk5syu0+OPp/Bk6dwVoXF6FfOw2vO0Dp+JHsBaI+w6cm8TnFl2Hw6tDA==}
     hasBin: true
 
   simple-swizzle@0.2.2:
@@ -1942,8 +1936,8 @@ packages:
   thenify@3.3.1:
     resolution: {integrity: sha512-RVZSIV5IG10Hk3enotrhvz0T9em6cyHBLkH/YAZuKqd8hRkKhSfCGIcP2KUY0EPxndzANBmNllzWPwak+bheSw==}
 
-  three@0.175.0:
-    resolution: {integrity: sha512-nNE3pnTHxXN/Phw768u0Grr7W4+rumGg/H6PgeseNJojkJtmeHJfZWi41Gp2mpXl1pg1pf1zjwR4McM1jTqkpg==}
+  three@0.176.0:
+    resolution: {integrity: sha512-PWRKYWQo23ojf9oZSlRGH8K09q7nRSWx6LY/HF/UUrMdYgN9i1e2OwJYHoQjwc6HF/4lvvYLC5YC1X8UJL2ZpA==}
 
   to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
@@ -2582,7 +2576,7 @@ snapshots:
 
   '@polka/url@1.0.0-next.28': {}
 
-  '@react-three/fiber@9.1.2(@types/react@19.1.2)(immer@10.1.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(three@0.175.0)':
+  '@react-three/fiber@9.1.2(@types/react@19.1.2)(immer@10.1.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(three@0.176.0)':
     dependencies:
       '@babel/runtime': 7.27.0
       '@types/react-reconciler': 0.28.9(@types/react@19.1.2)
@@ -2595,7 +2589,7 @@ snapshots:
       react-use-measure: 2.1.7(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       scheduler: 0.25.0
       suspend-react: 0.1.3(react@19.1.0)
-      three: 0.175.0
+      three: 0.176.0
       use-sync-external-store: 1.5.0(react@19.1.0)
       zustand: 5.0.3(@types/react@19.1.2)(immer@10.1.1)(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))
     optionalDependencies:
@@ -2603,13 +2597,6 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
       - immer
-
-  '@shikijs/core@3.2.2':
-    dependencies:
-      '@shikijs/types': 3.2.2
-      '@shikijs/vscode-textmate': 10.0.2
-      '@types/hast': 3.0.4
-      hast-util-to-html: 9.0.5
 
   '@shikijs/core@3.3.0':
     dependencies:
@@ -2637,15 +2624,10 @@ snapshots:
     dependencies:
       '@shikijs/types': 3.3.0
 
-  '@shikijs/transformers@3.2.2':
+  '@shikijs/transformers@3.3.0':
     dependencies:
-      '@shikijs/core': 3.2.2
-      '@shikijs/types': 3.2.2
-
-  '@shikijs/types@3.2.2':
-    dependencies:
-      '@shikijs/vscode-textmate': 10.0.2
-      '@types/hast': 3.0.4
+      '@shikijs/core': 3.3.0
+      '@shikijs/types': 3.3.0
 
   '@shikijs/types@3.3.0':
     dependencies:
@@ -2660,50 +2642,50 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@swc/html-darwin-arm64@1.11.21':
+  '@swc/html-darwin-arm64@1.11.22':
     optional: true
 
-  '@swc/html-darwin-x64@1.11.21':
+  '@swc/html-darwin-x64@1.11.22':
     optional: true
 
-  '@swc/html-linux-arm-gnueabihf@1.11.21':
+  '@swc/html-linux-arm-gnueabihf@1.11.22':
     optional: true
 
-  '@swc/html-linux-arm64-gnu@1.11.21':
+  '@swc/html-linux-arm64-gnu@1.11.22':
     optional: true
 
-  '@swc/html-linux-arm64-musl@1.11.21':
+  '@swc/html-linux-arm64-musl@1.11.22':
     optional: true
 
-  '@swc/html-linux-x64-gnu@1.11.21':
+  '@swc/html-linux-x64-gnu@1.11.22':
     optional: true
 
-  '@swc/html-linux-x64-musl@1.11.21':
+  '@swc/html-linux-x64-musl@1.11.22':
     optional: true
 
-  '@swc/html-win32-arm64-msvc@1.11.21':
+  '@swc/html-win32-arm64-msvc@1.11.22':
     optional: true
 
-  '@swc/html-win32-ia32-msvc@1.11.21':
+  '@swc/html-win32-ia32-msvc@1.11.22':
     optional: true
 
-  '@swc/html-win32-x64-msvc@1.11.21':
+  '@swc/html-win32-x64-msvc@1.11.22':
     optional: true
 
-  '@swc/html@1.11.21':
+  '@swc/html@1.11.22':
     dependencies:
       '@swc/counter': 0.1.3
     optionalDependencies:
-      '@swc/html-darwin-arm64': 1.11.21
-      '@swc/html-darwin-x64': 1.11.21
-      '@swc/html-linux-arm-gnueabihf': 1.11.21
-      '@swc/html-linux-arm64-gnu': 1.11.21
-      '@swc/html-linux-arm64-musl': 1.11.21
-      '@swc/html-linux-x64-gnu': 1.11.21
-      '@swc/html-linux-x64-musl': 1.11.21
-      '@swc/html-win32-arm64-msvc': 1.11.21
-      '@swc/html-win32-ia32-msvc': 1.11.21
-      '@swc/html-win32-x64-msvc': 1.11.21
+      '@swc/html-darwin-arm64': 1.11.22
+      '@swc/html-darwin-x64': 1.11.22
+      '@swc/html-linux-arm-gnueabihf': 1.11.22
+      '@swc/html-linux-arm64-gnu': 1.11.22
+      '@swc/html-linux-arm64-musl': 1.11.22
+      '@swc/html-linux-x64-gnu': 1.11.22
+      '@swc/html-linux-x64-musl': 1.11.22
+      '@swc/html-win32-arm64-msvc': 1.11.22
+      '@swc/html-win32-ia32-msvc': 1.11.22
+      '@swc/html-win32-x64-msvc': 1.11.22
 
   '@tweenjs/tween.js@23.1.3': {}
 
@@ -3974,7 +3956,7 @@ snapshots:
 
   signal-exit@4.1.0: {}
 
-  simple-git-hooks@2.12.1: {}
+  simple-git-hooks@2.13.0: {}
 
   simple-swizzle@0.2.2:
     dependencies:
@@ -4066,7 +4048,7 @@ snapshots:
     dependencies:
       any-promise: 1.3.0
 
-  three@0.175.0: {}
+  three@0.176.0: {}
 
   to-regex-range@5.0.1:
     dependencies:
