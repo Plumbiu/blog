@@ -23,7 +23,7 @@ const rightData = [
     children: (
       <div className={styles.label}>
         <LinkIcon />
-        <div>Links</div>
+        <div>友链</div>
       </div>
     ),
   },
@@ -32,7 +32,7 @@ const rightData = [
     children: (
       <div className={styles.label}>
         <MyselfIcon />
-        <div>About</div>
+        <div>关于我</div>
       </div>
     ),
   },
