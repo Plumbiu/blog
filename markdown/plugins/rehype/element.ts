@@ -61,12 +61,14 @@ const SvgElementPathMap: Record<string, string> = {
 function BlockquotePlugin(node: Element) {
   if (node.tagName === 'blockquote') {
     visit(node, 'text', (textNode, index, parent) => {
-      const value = textNode.value
-      const [raw, type] = BlockquoteRegx.exec(value.trim()) ?? []
+      const value = textNode.value.trim()
+      const tokens = value.split('\n')
+      const firstLine = tokens[0].trim()
+      const [raw, type] = BlockquoteRegx.exec(firstLine) ?? []
       if (raw && type && parent && index != null) {
         const lowerType = type.toLowerCase()
         addNodeClassName(node, `blockquote-${lowerType}`)
-        textNode.value = value.replace(raw, '')
+        textNode.value = value.replace(firstLine, '')
         parent.children.unshift({
           type: 'element',
           tagName: 'span',
@@ -95,7 +97,7 @@ function BlockquotePlugin(node: Element) {
             },
             {
               type: 'text',
-              value: type,
+              value: firstLine.replace(raw, '') || firstLine.replace(raw, type),
             },
           ],
         })

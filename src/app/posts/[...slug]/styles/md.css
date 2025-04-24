@@ -125,7 +125,7 @@
     gap: 8px;
     font-weight: 600;
     font-size: var(--text-base);
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 
     &[data-alert-type="note"] {
       color: var(--c-md-alert-note);

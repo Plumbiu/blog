@@ -213,6 +213,8 @@ console.log(1)
 
 # Blockquote
 
+## Simple
+
 > [!NOTE]
 > Useful information that users should know, even when skimming content.
 
@@ -227,6 +229,23 @@ console.log(1)
 
 > [!CAUTION]
 > Advises about risks or negative outcomes of certain actions.
+
+## Title with code
+
+> [!NOTE] MY CUSTOM TITLE
+> `Useful information` that users should know, even when skimming content.
+
+> [!TIP] MY CUSTOM TITLE
+> `Helpful advice` for doing things better or more easily.
+
+> [!IMPORTANT] MY CUSTOM TITLE
+> `Key information` users need to know to achieve their goal.
+
+> [!WARNING] MY CUSTOM TITLE
+> `Urgent info` that needs immediate user attention to avoid problems.
+
+> [!CAUTION] MY CUSTOM TITLE
+> `Advises` about risks or negative outcomes of certain actions.
 
 # Details
 
