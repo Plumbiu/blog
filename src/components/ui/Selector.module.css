@@ -52,6 +52,7 @@
     cursor: pointer;
 
     & > * {
+      display: block;
       padding: 12px;
     }
 
