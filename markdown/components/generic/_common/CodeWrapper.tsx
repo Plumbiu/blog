@@ -24,7 +24,9 @@ const CodeWrapper = memo(
             )}
           </div>
         )}
-        <div className={styles.container}>{children}</div>
+        <div data-bar={!!barText} className={styles.container}>
+          {children}
+        </div>
       </div>
     )
   },

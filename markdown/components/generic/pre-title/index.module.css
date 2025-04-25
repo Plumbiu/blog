@@ -1,0 +1,3 @@
+.radius pre {
+  border-radius: 0 0 var(--pre-radius) var(--pre-radius);
+}

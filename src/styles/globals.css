@@ -34,7 +34,7 @@ h5,
 h6 {
   color: var(--text);
 
-  & * {
+  & > * {
     font-size: inherit !important;
   }
 }

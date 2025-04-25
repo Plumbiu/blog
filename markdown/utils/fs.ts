@@ -62,7 +62,10 @@ export async function getPost(filter?: (post: PostList) => boolean) {
 
       const file = await fsp.readFile(path.join(CWD, mdPath), 'utf-8')
       const { meta, content } = parsePostMeta(file)
-      if (!(meta && content) || meta.hidden) {
+      if (
+        !(meta && content) ||
+        (meta.hidden && process.env.NODE_ENV === 'production')
+      ) {
         return
       }
       const isLocale = tokens.length === 4

@@ -29,7 +29,7 @@ function PreComponent({ children, className }: PreComponentProps) {
     }
   }, [])
   return (
-    <div className={cn(className, mono.className, styles.wrap)}>
+    <div className={cn(mono.className, styles.wrap, className)}>
       <div className={styles.action} onClick={copy}>
         {icon}
       </div>

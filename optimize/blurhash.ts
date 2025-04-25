@@ -22,13 +22,11 @@ export default async function getBlurDataUrl(filePath: string) {
     })
 
     const { data } = await output.toBuffer({ resolveWithObject: true })
-
     return {
       base64: data.toString('base64'),
       metadata,
     }
   } catch (error) {
-    console.log(error)
     return {}
   }
 }

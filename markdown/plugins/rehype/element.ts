@@ -61,7 +61,7 @@ const SvgElementPathMap: Record<string, string> = {
 function BlockquotePlugin(node: Element) {
   if (node.tagName === 'blockquote') {
     visit(node, 'text', (textNode, index, parent) => {
-      const value = textNode.value.trim()
+      const value = textNode.value
       const tokens = value.split('\n')
       const firstLine = tokens[0].trim()
       const [raw, type] = BlockquoteRegx.exec(firstLine) ?? []

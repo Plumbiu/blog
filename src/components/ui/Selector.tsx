@@ -74,8 +74,17 @@ function Selector({ items, children, offset, className }: SelectorProps) {
         return
       }
       const panelRect = wrapDom.getBoundingClientRect()
+      const panelLeft = panelRect.left
+      const panelRight = panelRect.right
+      const offsetX = offset?.x || 0
+      let x = panelRect.left + offsetX
+      if (panelRight >= window.innerWidth - 32) {
+        x = panelLeft - 16 + offsetX
+      } else if (panelLeft <= 32) {
+        x = panelLeft + 16 + offsetX
+      }
       setPosition({
-        x: panelRect.left + panelRect.width / 2 + (offset?.x || 0),
+        x: x + panelRect.width / 2,
         y: panelRect.bottom + (offset?.y || 0),
       })
     },
@@ -85,9 +94,11 @@ function Selector({ items, children, offset, className }: SelectorProps) {
   useEffect(() => {
     window.addEventListener('click', handleGlobalClick)
     window.addEventListener('scroll', hide)
+    window.addEventListener('resize', hide)
     return () => {
       window.removeEventListener('click', handleGlobalClick)
       window.removeEventListener('scroll', hide)
+      window.removeEventListener('resize', hide)
     }
   }, [])
   return (
