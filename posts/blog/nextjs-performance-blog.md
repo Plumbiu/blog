@@ -3,7 +3,6 @@ title: 博客系统中 Next.js 优化
 date: 2025-04-24 20:52:00
 tags: ['next.js']
 desc: 1
-hidden: true
 ---
 
 [Next.js](https://github.com/vercel/next.js) 是一个很优秀的全站框架，支持 SSR、CSR 和 SSG 等混合渲染，这篇博客就是 CSR 和 SSG 混合渲染的。
