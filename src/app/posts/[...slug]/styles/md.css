@@ -19,6 +19,10 @@
     overflow-x: hidden;
   }
 
+  h2 {
+    margin-top: 2em;
+  }
+
   /* table */
   table {
     display: block;

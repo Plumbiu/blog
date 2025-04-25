@@ -1,5 +1,5 @@
 .wrap {
-  --w: 560px;
+  --w: 520px;
   --distance: 12px;
   --radius: 12px;
   display: flex;
@@ -9,6 +9,7 @@
   top: 50%;
   transform: translateY(-50%);
   border-radius: var(--radius);
+  overflow: hidden;
   width: var(--w);
   margin: 0 auto;
 }
@@ -19,19 +20,12 @@
   }
 }
 
-.header {
-  position: sticky;
-  top: 0;
-  margin-bottom: 8px;
-}
-
 .form {
   display: flex;
   align-items: center;
   gap: 8px;
-  height: 56px;
   padding: 12px;
-  border-radius: 8px;
+  border-radius: var(--radius) var(--radius) 0 0;
   overflow: hidden;
   background-color: var(--bg-card);
 
@@ -50,11 +44,10 @@
 }
 
 .list_wrapper {
-  position: relative;
   max-height: 50vh;
   overflow-y: scroll;
   padding: 12px 0;
-  border-radius: var(--radius);
+  border-radius: 0 0 var(--radius) var(--radius);
   background-color: var(--bg-card);
 }
 
@@ -62,7 +55,7 @@
   display: block;
   cursor: pointer;
   padding: 10px 12px;
-  margin: 0 var(--distance);
+  margin: 0 4px;
   transition: background-color 0.15s;
   border-radius: var(--radius);
 
@@ -108,8 +101,9 @@
 .btn {
   padding: 8px;
   border: none;
+  transition: color, background-color 0.15s;
 
-  & {
+  &:hover {
     color: var(--c-indigo-1);
   }
 }
@@ -117,16 +111,4 @@
 .highlight_word {
   color: var(--c-indigo-1);
   word-break: break-all;
-}
-
-.empty_content {
-  padding: 0 var(--distance);
-  white-space: break-all;
-  font-size: var(--text-sm);
-
-  &>svg {
-    margin: 8px auto;
-    font-size: 48px;
-    color: var(--c-gray-1);
-  }
 }

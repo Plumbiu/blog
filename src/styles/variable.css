@@ -39,6 +39,7 @@
   --c-md-alert-important: #B984DF;
   --c-md-alert-warning: #DD8736;
   --c-md-alert-caution: #DE3B3D;
+  --c-btn-content: #3275B4;
   /* background */
   --bg-md-quote-before: #d5d5d5;
   --bg-md-quote-warn: #fcf4dc;
@@ -60,6 +61,7 @@
   --bg-card: #fff;
   --bg-comment: #eef8f8;
   --bg-selector: var(--bg-card);
+  --bg-user-link: #E2F0FF;
   /* console */
   --console-num: rgb(47, 121, 138);
   --console-string: rgb(181, 105, 89);
@@ -78,8 +80,8 @@
 :root {
   --header-h: 82px;
   --main-offset-top: -64px;
-  --main-w: min(80vw, 1200px);
-  --side-w: 280px;
+  --main-w: min(80vw, 1160px);
+  --side-w: 260px;
   --post-w: calc(var(--main-w) - var(--side-w) - 16px);
   --rest-w: calc((100vw - var(--main-w)) / 2);
   --pre-radius: 8px;

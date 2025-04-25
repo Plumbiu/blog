@@ -3,6 +3,7 @@
 import { cn } from '@/lib/client'
 import {
   type ChangeEvent,
+  memo,
   useCallback,
   useEffect,
   useId,
@@ -20,7 +21,7 @@ interface SearchPanelProps {
   data?: PostList[]
 }
 
-function SearchPanel({ data }: SearchPanelProps) {
+const SearchPanel = memo(({ data }: SearchPanelProps) => {
   const hidden = useSearchPanelStore((s) => s.hidden)
   const searchPanelVisible = useSearchPanelStore((s) => s.visible)
   const [mounted, setMounted] = useState(false)
@@ -102,58 +103,58 @@ function SearchPanel({ data }: SearchPanelProps) {
       }}
     >
       <div ref={contentRef} className={styles.wrap}>
-        <div className={styles.header}>
-          <form className={styles.form}>
-            <label htmlFor={label} className={styles.label}>
-              <SearchIcon />
-            </label>
-            <input
-              value={search}
-              onChange={handleInputChange}
-              id={label}
-              className={styles.ipt}
-              placeholder="Search posts"
-              autoComplete="off"
-            />
-            {search.length > 0 && (
-              <button
-                onClick={() => setSearch('')}
-                className={styles.btn}
-                type="reset"
-              >
-                <CopyErrorIcon />
-              </button>
-            )}
-          </form>
-        </div>
-        <div className={styles.list_wrapper}>
-          {lists.map((list) => {
-            const { path, meta } = list
-            return (
-              <Link
-                key={path}
-                onClick={() => hidden()}
-                href={`/${path}`}
-                onMouseEnter={() => setActivePath(path)}
-                className={cn(styles.list, {
-                  [styles.list_active]: activePath === path,
-                })}
-              >
-                <div className={styles.title}>
-                  {handleHihglight(meta.title)}
-                </div>
-                {!!meta.desc && (
-                  <div className={styles.desc}>
-                    {handleHihglight(meta.desc)}
+        <form className={styles.form}>
+          <label htmlFor={label}>
+            <SearchIcon />
+          </label>
+          <input
+            value={search}
+            onChange={handleInputChange}
+            id={label}
+            className={styles.ipt}
+            placeholder="Search posts"
+            autoComplete="off"
+          />
+          {search.length > 0 && (
+            <button
+              onClick={() => setSearch('')}
+              className={styles.btn}
+              type="reset"
+            >
+              <CopyErrorIcon />
+            </button>
+          )}
+        </form>
+        {!!lists.length && (
+          <div className={styles.list_wrapper}>
+            {lists.map((list) => {
+              const { path, meta } = list
+              return (
+                <Link
+                  key={path}
+                  onClick={() => hidden()}
+                  href={`/${path}`}
+                  onMouseEnter={() => setActivePath(path)}
+                  className={cn(styles.list, {
+                    [styles.list_active]: activePath === path,
+                  })}
+                >
+                  <div className={styles.title}>
+                    {handleHihglight(meta.title)}
                   </div>
-                )}
-              </Link>
-            )
-          })}
-        </div>
+                  {!!meta.desc && (
+                    <div className={styles.desc}>
+                      {handleHihglight(meta.desc)}
+                    </div>
+                  )}
+                </Link>
+              )
+            })}
+          </div>
+        )}
       </div>
     </Modal>
   )
-}
+})
 
 export default SearchPanel

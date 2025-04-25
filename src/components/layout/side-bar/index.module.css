@@ -46,15 +46,15 @@
 
   & svg {
     padding: 8px;
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     border-radius: 8px;
-    background-color: var(--c-gray-soft);
-    transition: 250ms;
+    background-color: var(--bg-user-link);
+    color: var(--c-btn-content);
+    transition: color 150ms;
 
     &:hover {
-      background-color: var(--c-indigo-soft);
-      color: var(--c-indigo-1);
+      background-color: var(--c-purple-soft);
     }
   }
 }

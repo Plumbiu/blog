@@ -40,6 +40,7 @@ html[data-theme='dark'] {
   --c-md-alert-important: #C994F0;
   --c-md-alert-warning: #EE9748;
   --c-md-alert-caution: #F14D4C;
+  --c-btn-content: #C9CDD1;
   /* background */
   --bg-md-quote-before: #222;
   --bg-md-quote-warn: #3d341b;
@@ -61,6 +62,7 @@ html[data-theme='dark'] {
   --bg-card: #191d24;
   --bg-comment: #16181f;
   --bg-selector: #121618;
+  --bg-user-link: #283747;
   /* console */
   --console-num: #4c9a91;
   --console-string: #c98a7d;
