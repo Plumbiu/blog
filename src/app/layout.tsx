@@ -49,12 +49,7 @@ export default async function RootLayout({
 }>) {
   const searchData = await getSearchPanelData()
   return (
-    <html
-      lang="zh"
-      suppressHydrationWarning
-      data-overlayscrollbars-initialize
-      data-overlayscrollbars-viewport="scrollbarHidden overflowXHidden overflowYScroll"
-    >
+    <html lang="zh" suppressHydrationWarning>
       <head>
         <meta name="google-site-verification" content={GSC} />
         <link
@@ -64,7 +59,7 @@ export default async function RootLayout({
           type="image/x-icon"
         />
       </head>
-      <body data-overlayscrollbars-initialize className={robot.className}>
+      <body className={robot.className}>
         <script src={resolveAssetPath(`assets/theme/${ScriptBasename}.js`)} />
         <OverlayScrollbar />
         <Header />

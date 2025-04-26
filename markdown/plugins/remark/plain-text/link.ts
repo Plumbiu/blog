@@ -1,11 +1,11 @@
 import type { Link, Text } from 'mdast'
 import { getRawValueFromPosition } from './utils'
-import keywordsMap, { type KeywordValue } from '~/markdown/config/keywords'
+import keywordsMap, { type KeywordValue } from '~/markdown/config/links'
 import { isString } from '@/lib/types'
 import type { RemarkParent } from '../types'
 
 const KeywordsKeys = Object.keys(keywordsMap)
-function replaceKeywords(
+function replaceWithLink(
   node: Text,
   code: string,
   index: number | undefined,
@@ -31,7 +31,6 @@ function replaceKeywords(
           valueData.push(node.value.slice(lastIndex, m.index))
           valueData.push({ ...data, value: data.value ?? key })
           lastIndex = m.index + key.length
-          // node.value = value
         }
       }
     }
@@ -46,7 +45,7 @@ function replaceKeywords(
         }
         return {
           type: 'link',
-          properties: item.properties,
+          properties: item.properties ?? {},
           url: item.url,
           children: [
             {
@@ -61,4 +60,4 @@ function replaceKeywords(
   }
 }
 
-export default replaceKeywords
+export default replaceWithLink

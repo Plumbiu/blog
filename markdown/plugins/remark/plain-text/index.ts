@@ -1,10 +1,10 @@
 import { visit } from 'unist-util-visit'
-import type { InlineCode, Text } from 'mdast'
+import type { Text } from 'mdast'
 import type { RemarkPlugin } from '../../constant'
 import { makeProperties } from '../../utils'
 import replaceWithEmoji from './emoji'
-import replaceVariable from './variable'
-import replaceKeywords from './keywords'
+import replaceWithVariable from './variable'
+import replaceWithLink from './link'
 import type { RemarkParent } from '../types'
 
 export const remarkTextReplacePlugin: RemarkPlugin<string> = (code: string) => {
@@ -14,9 +14,9 @@ export const remarkTextReplacePlugin: RemarkPlugin<string> = (code: string) => {
     parent: RemarkParent,
   ) {
     makeProperties(node)
-    replaceVariable(node, code)
+    replaceWithVariable(node, code)
     replaceWithEmoji(node, code)
-    replaceKeywords(node, code, index, parent)
+    replaceWithLink(node, code, index, parent)
   }
 
   return (tree) => {

@@ -71,7 +71,7 @@ import Image from 'next/image'
 />
 ```
 
-当然，你可以使用 `sharp` 获取图片大小和 `blur-hash` 值，这样图片未加载完成时，就不会显示空白了：
+当然，你可以使用 sharp 获取图片大小和 `blur-hash` 值，这样图片未加载完成时，就不会显示空白了：
 
 ```js
 import sharp from 'sharp'

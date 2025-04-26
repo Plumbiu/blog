@@ -8,7 +8,7 @@ import MagicString from 'magic-string'
 const LeftBracketRegx = /\[['"]/g
 const RightBracketRegx = /['"]\]/g
 const VariableRegx = /{{([^}]+)}}/g
-function replaceVariable(node: Text | InlineCode, code: string) {
+function replaceWithVariable(node: Text | InlineCode, code: string) {
   const rawValue = getRawValueFromPosition(code, node)
   if (rawValue) {
     let m: RegExpExecArray | null = null
@@ -39,4 +39,4 @@ function replaceVariable(node: Text | InlineCode, code: string) {
   }
 }
 
-export default replaceVariable
+export default replaceWithVariable

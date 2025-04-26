@@ -1,66 +1,54 @@
 ---
 title: 自定义组件
 date: 2024-10-03
-desc: 一篇用于测试/查看博客上的一些自定义组件的文章。
+desc: Markdown 拓展和自定义组件。
 ---
 
 [源码](https://github.com/Plumbiu/blog/blob/main/data/posts/note/custom-component.md?plain=1).
 
-# Code
+# 代码执行相关
 
-## Playground
+## React
 
-### tsx
+可运行 `tsx` 和 `jsx` 组件。基于 ShadowRoot，css 样式不会影响到全局。
 
 ```tsx Playground
 /// App.jsx
-import Test from './Test'
-import './App.css'
+import Random from './Random'
 
 function App() {
   return (
-    <div onClick={() => console.log('App')}>
-      <h1 className="app">App - {Math.random()}</h1>
-      <Test text="Test1" />
+    <div>
+      <div className="app">App</div>
+      <Random />
     </div>
   )
 }
 export default App
-/// Test.css line
-.app {
-  color: blue;
-}
-/// Test.tsx
-import Test2 from './Test2'
 
-interface Test1Props {
-  text: string
-}
+/// Random.tsx
+type TypeTest = string | number
 
-function Test({ text }: Test1Props) {
-  console.log('Test1')
-  return <div className="test">{text}<Test2 text="Test2" /></div>
+function Random({ text }: RandomProps) {
+  console.log('Random')
+  return <div className="random">{Math.random()}</div>
 }
-export default Test
-/// Test2.tsx
-import './Test.css'
+export default Random
 
-interface Test2Props {
-  text: string
-}
-
-function Test2({ text }: Test2Props) {
-  console.log('Test2')
-  return <div className="test">{text}</div>
-}
-export default Test2
 /// App.css line
-.test {
+.random {
   font-weight: 700;
+}
+/// Random.css line
+.app {
+  font-size: 24px;
+  color: blue;
 }
 ```
 
-### static
+## HTML
+
+暂时不支持 `Console` 打印面板。
 
 ```txt Playground
 <div class="test" onclick="console.log(111)">hello</div>
@@ -74,15 +62,17 @@ export default Test2
 }
 ```
 
-### meta
+## 配置
+
+用户配置的组件，不需要动态执行。
 
 ```js Playground path="custom/three/ThreeLearnPrimitivesBox" component="ThreeLearnPrimitivesBox"
 
 ```
 
-## Runner
+## 打印
 
-### simple
+### 基本例子
 
 ```ts Run
 function log(n: any) {
@@ -105,7 +95,9 @@ log(/foo/)
 log(new Date(Date.now()))
 ```
 
-### long time
+### 代码阻塞
+
+在 `Web Worker` 中运行，不会卡死主线程。
 
 ```js Run
 const start = Date.now()
@@ -114,7 +106,9 @@ while (Date.now() - start < 3000) {}
 console.log('end')
 ```
 
-## Switcher
+# 代码块
+
+## Tab 切换
 
 ```bash Switcher
 /// npm
@@ -125,60 +119,36 @@ yarn add @plumbiu/react-store
 pnpm add @plumbiu/react-store
 ```
 
-## Block
-
-### Diff
+## Diff
 
 ```diff-ts
 -console.log('hewwo')
 +console.log('hello')
 console.log('goodbye')
+console.log('wallo') // [!code --]
+console.log('callo') // [!code ++]
 ```
 
-Notation:
-
-```ts
-console.log('hewwo') // [!code --]
-console.log('hello') // [!code ++]
-console.log('goodbye')
-```
-
-### Highlight
-
-#### Line
+## 高亮
 
 ```ts {1,2}
 console.log('hewwo')
 console.log('hello')
 console.log('goodbye')
+console.log('wallo')
+console.log('callo') // [!code highlight]
 ```
 
-Notation:
-
-```ts
-console.log('hewwo') // [!code highlight]
-console.log('hello') // [!code highlight]
-console.log('goodbye')
-```
-
-#### Word
-
-```ts /.log('/
+```ts /log/
+// [!code word:console]
 console.log('hewwo')
 console.log('hello')
 console.log('goodbye')
+console.log('wallo')
+console.log('callo')
 ```
 
-Notation:
-
-```ts
-// [!code word:.log(']
-console.log('hewwo')
-console.log('hello')
-console.log('goodbye')
-```
-
-#### Show line
+## 显示行
 
 ```ts line
 console.log('hewwo')
@@ -186,34 +156,32 @@ console.log('hello')
 console.log('goodbye')
 ```
 
-## Path
+## path
 
-### Local
+本地：
 
 ```jsx path="generic/iframe/index"
 
 ```
 
-### Remote
+远程：
 
 ```js path="https://gist.githubusercontent.com/Plumbiu/7fc950397d9913b6f9558f7fc2c541ed/raw/4a3c95548679087f4ccd6ac032ed7aa1b1ca7e87/blog-remote-test.js"
 
 ```
 
-## Title
+## 自定义标题
 
 ```js title="test/console.js"
 console.log('hello')
 console.log(1)
 ```
 
-# Custom Component
+# 自定义组件
 
-<ThreeSunEarthMoon a="1" />
+<ThreeSunEarthMoon />
 
 # Blockquote
-
-## Simple
 
 > [!NOTE]
 > Useful information that users should know, even when skimming content.
@@ -230,7 +198,7 @@ console.log(1)
 > [!CAUTION]
 > Advises about risks or negative outcomes of certain actions.
 
-## Title with code
+**自定义标题：**
 
 > [!NOTE] MY CUSTOM TITLE
 > `Useful information` that users should know, even when skimming content.
@@ -247,16 +215,14 @@ console.log(1)
 > [!CAUTION] MY CUSTOM TITLE
 > `Advises` about risks or negative outcomes of certain actions.
 
-# Details
+# Details 组件
 
 :::Details[Detail 测试]
 Hello World
 `console.log('details')`
 :::
 
-# Image gallery
-
-## None config
+# 画廊
 
 :::Gallery
 2023-1.webp
@@ -277,7 +243,7 @@ threejs/flower-5.jpg
 threejs/wall.jpg
 :::
 
-## Max show
+**配置最多显示图片个数：**
 
 :::Gallery
 max-6
@@ -299,61 +265,52 @@ threejs/flower-5.jpg
 threejs/wall.jpg
 :::
 
-# Injection and Table
+# 替换插件
 
-## Variable
+## 文字
 
-| Expression        | Text             | Code               | Blod                 | Link                           |
-| ----------------- | ---------------- | ------------------ | -------------------- | ------------------------------ |
-| $\{foo}           | ${foo}           | `${foo}`           | **${foo}**           | [${foo}](#injection)           |
-| $\{bar.test.a}    | ${bar.test.a}    | `${bar.test.a}`    | **${bar.test.a}**    | [${bar.test.a}](#injection)    |
-| $\{bar['test'].a} | ${bar['test'].a} | `${bar['test'].a}` | **${bar['test'].a}** | [${bar['test'].a}](#injection) |
+文字 `{{foo}}` 替换为 {{foo}}
 
-Object:
+## emoji
 
-| Expression      | Text           | Code             | Blod               |
-| --------------- | -------------- | ---------------- | ------------------ |
-| $\{bar.test}    | ${bar.test}    | `${bar.test}`    | **${bar.test}**    |
-| $\{bar['test']} | ${bar['test']} | `${bar['test']}` | **${bar['test']}** |
+文字 `:smile:` 替换为 :smile:
 
-## Emoji
+## link
 
-| Expression | Text    | Code      | Blod        |
-| ---------- | ------- | --------- | ----------- |
-| \:smile\:  | :smile: | `:smile:` | **:smile:** |
-| \:hugs\:   | :hugs:  | `:hugs:`  | **:hugs:**  |
+文字 `Next.js` 转换为 Next.js
 
-## Keywords
+# GFM 插件
 
-| Expression | Text    | Code       | Blod         |
-| ---------- | ------- | ---------- | ------------ |
-| plumbiu    | plumbiu | `plumbiu`  | **plumbiu**  |
-| \next.js   | next.js | `\next.js` | **\Next.js** |
-
-# GFM
-
-## Autolink literals
+## 自动转换链接
 
 www.example.com, https://example.com, and contact@example.com.
 
-## Footnote
+## 脚注
 
 A note[^1]
 
 [^1]: Big note.
 
-## Strikethrough
+## 删除线
 
 ~one~ or ~~two~~ tildes.
 
-## Tasklist
+## 任务列表
 
 - [ ] to do
 - [x] done
 
-# Video
+## 表格
 
-## Bilibili
+## Table
+
+| a   | b   |   c |  d  |
+| --- | :-- | --: | :-: |
+| 1   | 2   |   3 |  4  |
+
+# 视频
+
+## B 站
 
 ::bilibili[【官方 MV】Never Gonna Give You Up - Rick Astley]{#BV1GJ411x7h7}
 

@@ -38,4 +38,7 @@
       opacity: 1;
     }
   }
+  & + .wrap {
+    margin-top: 16px;
+  }
 }
