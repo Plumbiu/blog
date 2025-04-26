@@ -1,7 +1,7 @@
 // Generated, don't edit
 // copyed from https://github.com/markdown-it/markdown-it-emoji/blob/master/lib/data/full.mjs
 // LICENSE file: https://github.com/markdown-it/markdown-it-emoji/blob/master/LICENSE
-const emojilist: Record<string, string> = {
+const emojiMap: Record<string, string> = {
   100: '💯',
   1234: '🔢',
   grinning: '😀',
@@ -1907,4 +1907,4 @@ const emojilist: Record<string, string> = {
   wales: '🏴󠁧󠁢󠁷󠁬󠁳󠁿',
 }
 
-export default emojilist
+export default emojiMap

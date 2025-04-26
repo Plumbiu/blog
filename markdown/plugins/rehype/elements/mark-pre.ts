@@ -1,18 +1,21 @@
 import type { Element } from 'hast'
-import { isPlayground, buildFiles } from '../remark/code-block/playground-utils'
+import {
+  isPlayground,
+  buildFiles,
+} from '../../remark/code-block/playground-utils'
 import {
   FileMapItemKey,
   handleComponentCode,
   handleComponentMeta,
   handleComponentSelectorKey,
   handleLang,
-} from '../constant'
+} from '../../constant'
 import { hCode, markPre } from './mark-pre-utils'
-import { isSwitcher } from '../remark/code-block/switcher-utils'
-import { isRuner } from '../remark/runner-utils'
-import { isPreTitle } from '../remark/code-block/pre-title-utils'
+import { isSwitcher } from '../../remark/code-block/switcher-utils'
+import { isRuner } from '../../remark/runner-utils'
+import { isPreTitle } from '../../remark/code-block/pre-title-utils'
 import { keys } from '@/lib/types'
-import { getSuffix } from '../utils'
+import { getSuffix } from '../../utils'
 
 function markCustomComponentPre(node: Element) {
   const props = node.properties

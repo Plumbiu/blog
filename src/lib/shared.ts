@@ -1,5 +1,5 @@
 import { Categoires, type CategoiresType } from '~/constants/shared'
-import { BasePath } from '~/data/site'
+import { BasePath } from '~/config/site'
 import { isString } from './types'
 
 const RemoveMdSuffixRegx = /\.md$/

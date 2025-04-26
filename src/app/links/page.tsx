@@ -5,7 +5,7 @@ import type { Metadata } from 'next'
 import { cn } from '@/lib/client'
 import info from '~/data/links.json'
 import getBlurDataUrl from '~/optimize/blurhash'
-import { BlogAuthor, GithubRepoUrl } from '~/data/site'
+import { BlogAuthor, GithubRepoUrl } from '~/config/site'
 import styles from './page.module.css'
 import { generateSeoMetaData, joinWebUrl } from '../seo'
 

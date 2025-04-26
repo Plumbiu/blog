@@ -1,31 +1,42 @@
 import type { Text, InlineCode } from 'mdast'
 import { isNumber, isString } from '@/lib/types'
-import { injectNodeValue } from './utils'
-import vars from '~/data/variables'
+import { getRawValueFromPosition } from './utils'
+import vars from '~/markdown/config/variables'
+import MagicString from 'magic-string'
 
-const BracketStart = '${'
-const BracketEnd = '}'
 // obj['a'].b['c'] => obj.a.b.c
 const LeftBracketRegx = /\[['"]/g
 const RightBracketRegx = /['"]\]/g
-function injectVariable(node: Text | InlineCode, code: string) {
-  injectNodeValue(code, node, BracketStart, BracketEnd, (value) => {
-    const str = value
-      .replace(RightBracketRegx, '')
-      .replace(LeftBracketRegx, '.')
-    const keys = str.split('.')
-    let data: Record<string, any> | string = vars
-    for (const key of keys) {
-      if (isString(data) || isNumber(data) || !data[key]) {
-        break
+const VariableRegx = /{{([^}]+)}}/g
+function replaceVariable(node: Text | InlineCode, code: string) {
+  const rawValue = getRawValueFromPosition(code, node)
+  if (rawValue) {
+    let m: RegExpExecArray | null = null
+    const ms = new MagicString(node.value)
+
+    while ((m = VariableRegx.exec(rawValue))) {
+      const [raw, match] = m
+      if (raw && match) {
+        const keys = match
+          .replace(RightBracketRegx, '')
+          .replace(LeftBracketRegx, '.')
+          .split('.')
+        let data: Record<string, any> | string = vars
+        for (const key of keys) {
+          if (isString(data) || isNumber(data) || data[key] == null) {
+            break
+          }
+          data = data[key]
+        }
+        if (!isString(data) && !isNumber(data)) {
+          data = JSON.stringify(data)
+        }
+        ms.update(m.index, m.index + raw.length, String(data))
       }
-      data = data[key]
     }
-    if (isString(data) || isNumber(data)) {
-      return data
-    }
-    return JSON.stringify(data)
-  })
+    node.value = ms.toString()
+    VariableRegx.lastIndex = 0
+  }
 }
 
-export default injectVariable
+export default replaceVariable

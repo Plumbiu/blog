@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
-import { BlogAuthor, BlogTitle, BlogUrl, BlogDesc, GSC } from '~/data/site'
+import { BlogAuthor, BlogTitle, BlogUrl, BlogDesc, GSC } from '~/config/site'
 import { resolveAssetPath } from '@/lib/shared'
 import Header from '@/components/layout/Header'
 import ImageView from '@/components/layout/ImageView'
@@ -12,11 +12,11 @@ import '../styles/preset.css'
 import Footer from '@/components/layout/Footer'
 import { robot } from './fonts'
 import { generateSeoMetaData } from './seo'
-import { getPost } from '~/markdown/utils/fs'
 import SearchPanel from '@/components/layout/SearchPanel'
 import SideBar from '@/components/layout/side-bar'
 import Banner from '@/components/layout/Banner'
 import OverlayScrollbar from '@/components/layout/OverlayScrollbar'
+import getSearchData from '@/lib/node/search-data'
 
 export const metadata: Metadata = {
   title: BlogTitle,
@@ -35,14 +35,8 @@ const getSearchPanelData = async () => {
   if (!IS_GITPAGE) {
     return []
   }
-  const allLists = await getPost()
-  const searchPanelData = allLists.map((item) => ({
-    date: new Date(item.meta.date).toISOString().split('T')[0],
-    title: item.meta.title,
-    path: item.path,
-    type: item.type,
-  }))
-  return searchPanelData
+
+  return getSearchData()
 }
 
 const IsDev = process.env.NODE_ENV === 'development'

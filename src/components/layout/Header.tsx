@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { cn } from '@/lib/client'
-import { BlogAuthor } from '~/data/site'
+import { BlogAuthor } from '~/config/site'
 import {
   HomeIcon,
   MenuIcon,

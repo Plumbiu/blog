@@ -7,15 +7,15 @@ import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import { toJsxRuntime } from 'hast-util-to-jsx-runtime'
 import { Fragment, jsx, jsxs } from 'react/jsx-runtime'
-import rehypeShikiHighlight from '~/markdown/plugins/rehype/shiki/hightlight'
-import rehypeElementPlugin from '~/markdown/plugins/rehype/element'
-import remarkSlug from '~/markdown/plugins/remark/slug'
-import { remarkContainerDirectivePlugin } from '~/markdown/plugins/remark/directive'
-import remarkRunner from '~/markdown/plugins/remark/runner'
-import remarkCodeConfig from '~/markdown/plugins/remark/code'
-import { remarkPlainText } from '~/markdown/plugins/remark/plain-text/index'
+import rehypeShikiHighlight from './plugins/rehype/shiki/hightlight'
+import rehypeElementPlugin from './plugins/rehype/elements'
+import remarkSlug from './plugins/remark/slug'
+import { remarkContainerDirectivePlugin } from './plugins/remark/directive'
+import remarkRunner from './plugins/remark/runner'
+import remarkCodeConfig from './plugins/remark/code'
+import { remarkTextReplacePlugin } from './plugins/remark/plain-text/index'
 import { markdownComponents } from './hast-components'
-import remarkCodeBlcok from '~/markdown/plugins/remark/code-block'
+import remarkCodeBlcok from './plugins/remark/code-block'
 import remarkHtmlParser from './plugins/remark/html-parse'
 
 // This code is refactored into TypeScript based on
@@ -34,7 +34,7 @@ async function transfromCode2Jsx(code: string) {
       remarkCodeConfig,
       remarkCodeBlcok,
       remarkRunner,
-      [remarkPlainText, code],
+      [remarkTextReplacePlugin, code],
       remarkHtmlParser,
     ])
     .use(remarkRehype)

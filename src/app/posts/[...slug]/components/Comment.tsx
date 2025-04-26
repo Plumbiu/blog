@@ -2,14 +2,19 @@
 
 import Image from 'next/image'
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { BlogUrl, GithubName, GithubRepoName, GithubRepoUrl } from '~/data/site'
+import {
+  BlogUrl,
+  GithubName,
+  GithubRepoName,
+  GithubRepoUrl,
+} from '~/config/site'
 import styles from './Comment.module.css'
 import { cn } from '@/lib/client'
 import issueMap from '~/data/issues.json'
 import useObserver from '@/hooks/useObservser'
 import { isArray, isString } from '@/lib/types'
 import { ExternalLinkIcon, GithubIcon } from '@/components/Icons'
-import { GithubClientId } from '~/data/site'
+import { GithubClientId } from '~/config/site'
 import Title from '@/components/ui/Title'
 
 const reactionsMap: Record<string, string> = {

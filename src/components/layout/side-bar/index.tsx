@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { GithubRepoUrl } from '~/data/site'
+import { GithubRepoUrl } from '~/config/site'
 import { RssIcon, GithubIcon } from '../../Icons'
 import styles from './index.module.css'
 import Link from 'next/link'

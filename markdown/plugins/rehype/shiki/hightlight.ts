@@ -21,7 +21,7 @@ import {
   HighLightLineClassName,
   DiffInsertedClassName,
   DiffDeletedClassName,
-} from '../highlight-utils'
+} from './highlight-utils'
 import { createJavaScriptRegexEngine } from 'shiki/engine/javascript'
 
 const shikiOptions = {

@@ -7,7 +7,7 @@ import {
   BlogUrl,
   BlogCopyRight,
   Email,
-} from '~/data/site'
+} from '~/config/site'
 import { joinWebUrl } from '@/app/seo'
 import { writeFileWithGit } from './utils'
 

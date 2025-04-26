@@ -57,6 +57,9 @@
       &:last-child {
         padding-right: 0;
       }
+      &:has(> a) {
+        cursor: pointer;
+      }
     }
 
     tr:last-child>td {

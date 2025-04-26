@@ -1,51 +1,6 @@
-import type { Element, Root } from 'hast'
-import { EXIT, visit } from 'unist-util-visit'
-import type { RehypePlugin } from '../constant'
-import markCustomComponentPre from './mark-pre'
-import { mono } from '@/app/fonts'
-import { addNodeClassName } from './utils'
-
-const rehypeElementPlugin: RehypePlugin = () => {
-  return (tree) => {
-    visit(tree, 'element', (node, _index, parent) => {
-      blankTargetPlugin(node)
-      markCustomComponentPre(node)
-      animationPlugin(node, parent)
-      codeFontPlugin(node)
-      BlockquotePlugin(node)
-    })
-  }
-}
-
-export default rehypeElementPlugin
-
-function blankTargetPlugin(node: Element) {
-  if (node.tagName === 'a') {
-    node.properties.target = '_blank'
-    node.properties.className = 'link'
-    node.properties.rel = 'noreferrer'
-  }
-}
-
-function animationPlugin(
-  node: Element,
-  parent: Root | Element | undefined | any,
-) {
-  if (
-    node.tagName === 'summary' ||
-    node.tagName === 'code' ||
-    parent?.tagName === 'details'
-  ) {
-    return
-  }
-  addNodeClassName(node, 'load_ani')
-}
-
-function codeFontPlugin(node: Element) {
-  if (node.tagName === 'code') {
-    addNodeClassName(node, mono.className)
-  }
-}
+import type { Element } from 'hast'
+import { addNodeClassName } from '../utils'
+import { visit, EXIT } from 'unist-util-visit'
 
 const BlockquoteRegx = /\[!(NOTE|WARNING|IMPORTANT|CAUTION|TIP)\]/
 const SvgElementPathMap: Record<string, string> = {
@@ -58,7 +13,7 @@ const SvgElementPathMap: Record<string, string> = {
   caution:
     'M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z',
 }
-function BlockquotePlugin(node: Element) {
+export default function BlockquotePlugin(node: Element) {
   if (node.tagName === 'blockquote') {
     visit(node, 'text', (textNode, index, parent) => {
       const value = textNode.value

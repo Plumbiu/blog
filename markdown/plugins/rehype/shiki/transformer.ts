@@ -8,7 +8,7 @@ import {
   DiffInsertedClassName,
   HighLightLineClassName,
   HighLightWordClassName,
-} from '../highlight-utils'
+} from './highlight-utils'
 
 interface TransformerOptions {
   meta: string

@@ -26,6 +26,10 @@ a {
   font-weight: 500;
 }
 
+strong > a {
+  font-weight: 700;
+}
+
 h1,
 h2,
 h3,

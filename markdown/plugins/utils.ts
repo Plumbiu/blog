@@ -1,24 +1,7 @@
 import { FileMapStartStr } from './constant'
+import type { ReamrkCommonNode } from './types'
 
-interface CommonReamrkNode {
-  data?: {
-    hProperties?: any
-  }
-}
-
-export function addNodeClassName(node: CommonReamrkNode, className: string) {
-  const props = node?.data?.hProperties
-  if (!props) {
-    return
-  }
-  const originClassName = props.className?.trim() ?? props.class?.trim() ?? ''
-  const classNameSet = new Set(
-    `${originClassName} ${className}`.trim().split(' '),
-  )
-  props.class = [...classNameSet].join(' ')
-}
-
-export function makeProperties(node: CommonReamrkNode) {
+export function makeProperties(node: ReamrkCommonNode) {
   if (!node.data) {
     node.data = {}
   }

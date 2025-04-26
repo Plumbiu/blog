@@ -323,6 +323,13 @@ Object:
 | \:smile\:  | :smile: | `:smile:` | **:smile:** |
 | \:hugs\:   | :hugs:  | `:hugs:`  | **:hugs:**  |
 
+## Keywords
+
+| Expression | Text    | Code       | Blod         |
+| ---------- | ------- | ---------- | ------------ |
+| plumbiu    | plumbiu | `plumbiu`  | **plumbiu**  |
+| \next.js   | next.js | `\next.js` | **\Next.js** |
+
 # GFM
 
 ## Autolink literals

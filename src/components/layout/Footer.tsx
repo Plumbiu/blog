@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { cn } from '@/lib/client'
-import { BlogAuthor } from '~/data/site'
+import { BlogAuthor } from '~/config/site'
 import styles from './Footer.module.css'
 
 function Footer() {

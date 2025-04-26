@@ -5,11 +5,11 @@ tags: ['next.js']
 desc: 1
 ---
 
-[Next.js](https://github.com/vercel/next.js) 是一个很优秀的全站框架，支持 SSR、CSR 和 SSG 等混合渲染，这篇博客就是 CSR 和 SSG 混合渲染的。
+Next.js 是一个很优秀的全站框架，支持 SSR、CSR 和 SSG 等混合渲染，这篇博客就是 CSR 和 SSG 混合渲染的。
 
 # SSG
 
-SSG 即静态站点生成，在我们运行 build 命令之后，[Next.js](https://github.com/vercel/next.js) 会将页面的所有内容通过预构建生成 HTML，这样用户访问网站内容只需要传输预先构建的 HTML 即可，而无需像 SSR 一样，使用服务器资源动态生成 HTML。
+SSG 即静态站点生成，在我们运行 build 命令之后，Next.js 会将页面的所有内容通过预构建生成 HTML，这样用户访问网站内容只需要传输预先构建的 HTML 即可，而无需像 SSR 一样，使用服务器资源动态生成 HTML。
 
 一篇博客的网站完全可以使用 SSG 预构建，因为博客内容在你写完之后**基本是一直不变**的，没必要每次都通过服务器渲染生成内容。
 
@@ -34,7 +34,7 @@ export async function generateStaticParams() {
 
 很多人都有一个想法（包括最初的我），直接在 `layout` 中写个 `"use client"`，那我就不用考虑服务端和浏览器环境了，这样性能和方便性不就一举两得了？
 
-有上面想法的人可能没清楚 SSR 相比 CSR 的性能优势在哪里，你可能要理解下面这个问题，当我最开始接触 [Next.js](https://github.com/vercel/next.js) 的时候，字节面试官问了我这个问题：
+有上面想法的人可能没清楚 SSR 相比 CSR 的性能优势在哪里，你可能要理解下面这个问题，当我最开始接触 Next.js 的时候，字节面试官问了我这个问题：
 
 - **SSR 为什么比 CSR 快？SSR 一定比比 CSR 快吗？**
 
@@ -61,7 +61,6 @@ export async function generateStaticParams() {
 ```jsx
 import Markdown from 'react-markdown'
 import Image from 'next/image'
-
 <Markdown
   components={{
     img(props) {
@@ -113,7 +112,6 @@ export default async function getBlurDataUrl(filePath: string) {
 ```jsx
 import { MarkdownAsync } from 'react-markdown'
 import Image from 'next/image'
-
 <MarkdownAsync
   components={{
     async img(props) {
@@ -144,7 +142,7 @@ import Image from 'next/image'
 
 ## 最小化类名
 
-[Next.js](https://github.com/vercel/next.js) 很奇怪，对于 `module css`，类名的样子大概是 `文件相对路径+Hash值+类名`，所以如果你的组件嵌套比较深的话，类名往往非常之长，你可以使用 [@nimpl/classnames-minifier](https://github.com/vordgi/nimpl-classnames-minifier#readme) 生成最小化类名。
+Next.js 很奇怪，对于 `module css`，类名的样子大概是 `文件相对路径+Hash值+类名`，所以如果你的组件嵌套比较深的话，类名往往非常之长，你可以使用 [@nimpl/classnames-minifier](https://github.com/vordgi/nimpl-classnames-minifier#readme) 生成最小化类名。
 
 > [!NOTE]
 > 使用 `@nimpl/classnames-minifier` 意味着不能使用 turbopack 打包，但是你可以通过 `process.env.NODE_ENV` 判断开发和生产环境，开发的时候使用 turbopack 即可。

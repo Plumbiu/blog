@@ -1,7 +1,7 @@
 import fsp from 'node:fs/promises'
 import pc from 'picocolors'
 import issueMap from '~/data/issues.json'
-import { GithubName, GithubRepoName } from '~/data/site'
+import { GithubName, GithubRepoName } from '~/config/site'
 import type { PostList } from '~/markdown/types'
 import { getPost } from '~/markdown/utils/fs'
 

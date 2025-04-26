@@ -46,7 +46,6 @@ function OverlayScrollbar() {
     const handlerDom = handlerRef.current!
     offsetRef.current =
       e.clientY - handlerDom.offsetTop - handlerDom.clientHeight / 2
-    console.log(handlerDom.clientHeight / 2)
     handlerDom.classList.add(styles.handler_active)
     document.addEventListener('mousemove', onMouseMove)
   }, [])
