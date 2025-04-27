@@ -3,8 +3,6 @@ import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import remarkDirective from 'remark-directive'
 import remarkGfm from 'remark-gfm'
-import remarkMath from 'remark-math'
-import rehypeKatex from 'rehype-katex'
 import { toJsxRuntime } from 'hast-util-to-jsx-runtime'
 import { Fragment, jsx, jsxs } from 'react/jsx-runtime'
 import rehypeShikiHighlight from './plugins/rehype/shiki/hightlight'
@@ -17,7 +15,7 @@ import { remarkTextReplacePlugin } from './plugins/remark/plain-text/index'
 import { markdownComponents } from './hast-components'
 import remarkCodeBlcok from './plugins/remark/code-block'
 import remarkHtmlParser from './plugins/remark/html-parse'
-import remarkTexLink from 'remark-text-link'
+import remarkTextLink from 'remark-text-link'
 import textLinkMap from './config/links'
 
 // This code is refactored into TypeScript based on
@@ -29,7 +27,6 @@ async function transfromCode2Jsx(code: string) {
     .use(remarkParse)
     .use([
       remarkGfm,
-      remarkMath,
       remarkDirective,
       remarkContainerDirectivePlugin,
       remarkSlug,
@@ -37,11 +34,11 @@ async function transfromCode2Jsx(code: string) {
       remarkCodeBlcok,
       remarkRunner,
       [remarkTextReplacePlugin, code],
-      [remarkTexLink, textLinkMap],
+      [remarkTextLink, textLinkMap],
       remarkHtmlParser,
     ])
     .use(remarkRehype)
-    .use([rehypeKatex, rehypeElementPlugin, rehypeShikiHighlight])
+    .use([rehypeElementPlugin, rehypeShikiHighlight])
   const mdastTree = processor.parse(code)
   const hastTree = await processor.run(mdastTree)
   const node = toJsxRuntime(hastTree, {
