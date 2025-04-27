@@ -256,8 +256,8 @@ console.log('+++') // [!code ++]
 ```
 
 ```js
-console.log('----') // [!code  --]
-console.log('+++') // [!code  ++]
+console.log('----') // [!code --]
+console.log('+++') // [!code ++]
 ```
 
 # 本地远程代码
