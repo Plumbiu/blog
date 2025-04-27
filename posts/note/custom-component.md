@@ -8,13 +8,13 @@ order: 1
 
 # Markdown 中使用 React 组件
 
-组件需要放置在 `markdown/components` 中，例如 `markdown/components/ExtensionTest.tsx` 内容为：
+组件需要放置在 [markdown/components](https://github.com/Plumbiu/blog/blob/main/markdown/components) 中，例如 [markdown/components/ExtensionTest.tsx](https://github.com/Plumbiu/blog/blob/main/markdown/components/ExtensionTest.tsx) 内容为：
 
 ```tsx path="ExtensionTest"
 
 ```
 
-再通过配置 `markdown/custom-components.tsx` 导入该组件：
+再通过配置 [markdown/custom-components.tsx](https://github.com/Plumbiu/blog/blob/main/markdown/components/custom-components.tsx) 导入该组件：
 
 ```tsx
 import { lazy } from 'react'
@@ -243,8 +243,8 @@ console.log('5')
 ```
 
 ```js
-console.log('----') // [!code  --]
-console.log('+++') // [!code  ++]
+console.log('----') // [!code --]
+console.log('+++') // [!code ++]
 ```
 ````
 
@@ -332,7 +332,7 @@ console.log('custom-title')
 
 # emoji
 
-配置文件 `markdown/config/emoji.ts`。
+配置文件 [markdown/config/emoji.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/emoji.ts)。
 
 输入：
 
@@ -346,7 +346,7 @@ console.log('custom-title')
 
 # 变量
 
-`{{}}` 语法将文字替换成全局变量，配置文件 `markdown/config/variables.ts`。
+`{{}}` 语法将文字替换成全局变量，配置文件 [markdown/config/variables.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/variables.ts)。
 
 输入：
 
@@ -360,7 +360,7 @@ console.log('custom-title')
 
 # 自动链接
 
-将文字通过配置转换为链接，配置文件 `markdown/config/links.ts`。
+将文字通过配置转换为链接，配置文件 [markdown/config/links.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/links.ts)。
 
 输入：
 
