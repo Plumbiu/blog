@@ -80,7 +80,7 @@ importers:
         specifier: 11.1.2
         version: 11.1.2
       remark-text-link:
-        specifier: ^0.0.5
+        specifier: 0.0.5
         version: 0.0.5
       sharp:
         specifier: 0.34.1
