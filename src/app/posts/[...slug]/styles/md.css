@@ -57,6 +57,7 @@
       &:last-child {
         padding-right: 0;
       }
+
       &:has(> a) {
         cursor: pointer;
       }
@@ -164,6 +165,7 @@
 
     & code {
       color: var(--c-md-alert-tip);
+      background-color: var(--c-gray-soft);
     }
   }
 
@@ -176,6 +178,7 @@
 
     & code {
       color: var(--c-md-alert-warning);
+      background-color: var(--c-yellow-soft);
     }
   }
 
@@ -188,6 +191,7 @@
 
     & code {
       color: var(--c-md-alert-caution);
+      background-color: var(--c-red-soft);  
     }
   }
 
@@ -200,6 +204,7 @@
 
     & code {
       color: var(--c-md-alert-important);
+      background-color: var(--c-purple-soft);
     }
   }
 
