@@ -1,11 +1,6 @@
-export type KeywordValue = {
-  properties?: Record<string, string>
-  value?: string
-  url: string
-  alt?: string
-}
+import type { TextLinkValueType } from 'remark-text-link'
 
-const keywordsMap: Record<string, KeywordValue> = {
+const textLinkMap: Record<string, TextLinkValueType> = {
   'Next.js': {
     url: 'https://github.com/vercel/next.js',
   },
@@ -20,4 +15,4 @@ const keywordsMap: Record<string, KeywordValue> = {
   },
 }
 
-export default keywordsMap
+export default textLinkMap

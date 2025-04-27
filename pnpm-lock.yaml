@@ -79,6 +79,9 @@ importers:
       remark-rehype:
         specifier: 11.1.2
         version: 11.1.2
+      remark-text-link:
+        specifier: ^0.0.5
+        version: 0.0.5
       sharp:
         specifier: 0.34.1
         version: 0.34.1
@@ -1806,6 +1809,9 @@ packages:
 
   remark-stringify@11.0.0:
     resolution: {integrity: sha512-1OSmLd3awB/t8qdoEOMazZkNsfVTeY4fTsgzcQFdXNq8ToTN4ZGwrMnlda4K6smTFKD+GRV6O48i6Z4iKgPPpw==}
+
+  remark-text-link@0.0.5:
+    resolution: {integrity: sha512-4UDJqjvuP3zoLsuJQSUAzutpxWnB790aqJdYwj7PH/NNKIpREuGy6CvmPqZHVLDiRf3wkKjuYUlMAUlpVb9EGA==}
 
   resolve-pkg-maps@1.0.0:
     resolution: {integrity: sha512-seS2Tj26TBVOC2NIc2rOe2y2ZO7efxITtLZcGSOnHHNOQ7CkiUBfw0Iw2ck6xkIhPwLhKNLS8BO+hEpngQlqzw==}
@@ -3899,6 +3905,10 @@ snapshots:
       '@types/mdast': 4.0.4
       mdast-util-to-markdown: 2.1.2
       unified: 11.0.5
+
+  remark-text-link@0.0.5:
+    dependencies:
+      unist-util-visit: 5.0.0
 
   resolve-pkg-maps@1.0.0: {}
 

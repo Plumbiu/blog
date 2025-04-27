@@ -17,6 +17,8 @@ import { remarkTextReplacePlugin } from './plugins/remark/plain-text/index'
 import { markdownComponents } from './hast-components'
 import remarkCodeBlcok from './plugins/remark/code-block'
 import remarkHtmlParser from './plugins/remark/html-parse'
+import remarkTexLink from 'remark-text-link'
+import textLinkMap from './config/links'
 
 // This code is refactored into TypeScript based on
 // https://github.com/remarkjs/react-markdown/blob/main/lib/index.js
@@ -35,6 +37,7 @@ async function transfromCode2Jsx(code: string) {
       remarkCodeBlcok,
       remarkRunner,
       [remarkTextReplacePlugin, code],
+      [remarkTexLink, textLinkMap],
       remarkHtmlParser,
     ])
     .use(remarkRehype)
