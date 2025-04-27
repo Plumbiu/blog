@@ -31,7 +31,7 @@ import {
   handleFileMap,
 } from '~/markdown/plugins/constant'
 import CodePreview from '../_common/CodePreview'
-import { customComponentMap } from '~/markdown/components/custom/custom-components'
+import { customComponentMap } from '~/markdown/components/custom-components'
 
 const Playground = (props: any) => {
   const {

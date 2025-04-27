@@ -23,7 +23,10 @@ export async function getAllTags() {
   const posts = await getPost()
   const tagSet = new Set<string>()
   for (const post of posts) {
-    if (!post.meta.tags) {
+    if (
+      !post.meta.tags ||
+      (process.env.NODE_ENV === 'production' && post.meta.hidden)
+    ) {
       continue
     }
     for (const tag of post.meta.tags) {
@@ -75,7 +78,6 @@ export async function getPost(filter?: (post: PostList) => boolean) {
         type,
         locale,
         content,
-        tags: meta.tags || [],
         path: removeMdSuffix(mdPath),
       }
       if (!filter || filter(data)) {
@@ -90,6 +92,27 @@ export async function getPost(filter?: (post: PostList) => boolean) {
     }
     return prev.meta.title.localeCompare(next.meta.title)
   })
+
+  data.sort((prev, curr) => {
+    const prevMeta = prev.meta
+    const currMeta = curr.meta
+    const prevOrder = prevMeta.order
+    const currOrder = currMeta.order
+    const hasOrderPrev = prevOrder !== undefined
+    const hasOrderCurr = currOrder !== undefined
+
+    if (hasOrderPrev && hasOrderCurr) {
+      // 两者都有 order，直接比较
+      return prevOrder - currOrder
+    }
+    if (!hasOrderPrev && !hasOrderCurr) {
+      // 两者都没有 order，保持原顺序
+      return 0
+    }
+    // 只有一方有 order，有 order 的排在前面
+    return hasOrderPrev ? -1 : 1
+  })
+
   for (let i = 0; i < data.length; i++) {
     data[i].prev = data[i - 1]
     data[i].next = data[i + 1]

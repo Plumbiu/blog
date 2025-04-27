@@ -1,45 +1,84 @@
 ---
-title: 自定义组件
-date: 2024-10-03
-desc: Markdown 拓展和自定义组件。
+title: Markdown Extensions.
+date: 2025-04-27
+order: 1
 ---
 
-[源码](https://github.com/Plumbiu/blog/blob/main/data/posts/note/custom-component.md?plain=1).
+本博客 Markdown 拓展基于 remark 和 rehype 生态构建。
 
-# 代码执行相关
+# Markdown 中使用 React 组件
 
-## React
+组件需要放置在 `markdown/components` 中，例如 `markdown/components/ExtensionTest.tsx` 内容为：
 
-可运行 `tsx` 和 `jsx` 组件。基于 ShadowRoot，css 样式不会影响到全局。
+```tsx path="ExtensionTest"
+
+```
+
+再通过配置 `markdown/custom-components.tsx` 导入该组件：
+
+```tsx
+import { lazy } from 'react'
+const ExtensionTest = lazy(() => import('./ExtensionTest'))
+export const customComponentMap: Record<string, any> = {
+  // ...
+  ExtensionTest,
+}
+```
+
+输入：
+
+```markdown
+<ExtensionTest />
+```
+
+输出：
+
+<ExtensionTest />
+
+# Playground
+
+用于展示代码和组件，包括打印栏等。不同 Tab 通过 `///` 表达式分隔，后续可以加上 meta 信息（例如 `line` 显示行数）。其中样式基于 ShadowRoot，不会影响到全局。
+
+> [!NOTE]
+>
+> `Playground` 为动态运行，有风险，请谨慎使用
+
+## React 组件
+
+支持 `tsx`。
+
+输入：
+
+````markdown
+```tsx Playground
+/// App.jsx
+import Random from './Random'
+
+function App() {
+  console.log('App')
+  return <div className="app">{Math.random()}</div>
+}
+export default App
+/// App.css line
+.app {
+  font-size: 24px;
+  color: blue;
+}
+```
+````
+
+输出：
 
 ```tsx Playground
 /// App.jsx
 import Random from './Random'
 
 function App() {
-  return (
-    <div>
-      <div className="app">App</div>
-      <Random />
-    </div>
-  )
+  return <div className="app">{Math.random()}</div>
 }
 export default App
 
-/// Random.tsx
-type TypeTest = string | number
-
-function Random({ text }: RandomProps) {
-  console.log('Random')
-  return <div className="random">{Math.random()}</div>
-}
-export default Random
-
 /// App.css line
-.random {
-  font-weight: 700;
-}
-/// Random.css line
 .app {
   font-size: 24px;
   color: blue;
@@ -48,56 +87,63 @@ export default Random
 
 ## HTML
 
-暂时不支持 `Console` 打印面板。
+HTML 暂不支持打印
+
+输入：
+
+````markdown
+```html Playground
+/// index.html
+<div class="test" onclick="console.log(111)">hello</div>
+/// color.css .test { color: red; font-weight: 600; }
+```
+````
+
+输出：
 
 ```txt Playground
 <div class="test" onclick="console.log(111)">hello</div>
 /// color.css
 .test {
   color: red;
-}
-/// font-weight.css
-.test {
   font-weight: 600;
 }
 ```
 
-## 配置
+## 用户配置
 
-用户配置的组件，不需要动态执行。
+例如之前的 `ExtensionTest` 组件，可以通过 meta 信息控制：
 
-```js Playground path="custom/three/ThreeLearnPrimitivesBox" component="ThreeLearnPrimitivesBox"
+输入：
+
+````markdown
+```tsx Playground path="ExtensionTest" component="ExtensionTest"
+
+```
+````
+
+输出：
+
+```tsx Playground path="ExtensionTest" component="ExtensionTest"
 
 ```
 
-## 打印
+# 打印
 
-### 基本例子
+在 `Web Worker` 中运行，主线程不会卡死。
 
-```ts Run
-function log(n: any) {
-  console.log(n)
-}
+输入：
 
-log(1)
-log('ch')
-log({ obj: 1 })
-log([1, 2, 3])
-log(function t() {})
-log(() => {
-  console.log(1)
-})
-log(Symbol('foo'))
-log(undefined)
-log(null)
-log(true)
-log(/foo/)
-log(new Date(Date.now()))
+````markdown
+```js Run
+const start = Date.now()
+console.log('start')
+while (Date.now() - start < 3000) {}
+console.log('end')
 ```
+````
 
-### 代码阻塞
-
-在 `Web Worker` 中运行，不会卡死主线程。
+输出：
 
 ```js Run
 const start = Date.now()
@@ -106,9 +152,158 @@ while (Date.now() - start < 3000) {}
 console.log('end')
 ```
 
-# 代码块
+# 代码行数显示
 
-## Tab 切换
+通过配置 meta 信息，展示代码行数。
+
+输入：
+
+````markdown
+```tsx line
+console.log('1')
+console.log('2')
+console.log('3')
+```
+````
+
+输出：
+
+```ts line
+console.log('1')
+console.log('2')
+console.log('3')
+```
+
+# 代码高亮
+
+代码高亮分为行高亮和单词高亮，通过 shiki 实现。
+
+这里 `!code` 之后只有一个空格，加了两个防止渲染。
+
+## 行高亮
+
+输入：
+
+````markdown
+```ts line {1,3-4}
+console.log('1')
+console.log('2')
+console.log('3')
+console.log('4')
+console.log('5') // [!code  highlight]
+```
+````
+
+输出：
+
+```ts line {1,3-4}
+console.log('1')
+console.log('2')
+console.log('3')
+console.log('4')
+console.log('5') // [!code highlight]
+```
+
+## 单词高亮
+
+输入：
+
+````markdown
+```ts /log/
+// [!code  word:console]
+console.log('1')
+console.log('2')
+console.log('3')
+console.log('4')
+console.log('5')
+```
+````
+
+输出：
+
+```ts /log/
+// [!code word:console]
+console.log('1')
+console.log('2')
+console.log('3')
+console.log('4')
+console.log('5')
+```
+
+# 代码块增删高亮
+
+这里 `!code` 之后也是只有一个空格，加了两个防止渲染。
+
+输入：
+
+````markdown
+```diff-js
+-console.log('----')
++console.log('+++')
+```
+
+```js
+console.log('----') // [!code  --]
+console.log('+++') // [!code  ++]
+```
+````
+
+输出：
+
+```diff-js
+-console.log('----')
++console.log('+++')
+```
+
+```js
+console.log('----') // [!code  --]
+console.log('+++') // [!code  ++]
+```
+
+# 本地远程代码
+
+用户本地文件和远程文件代码通过配置 meta 中的 `path` 属性
+
+输入：
+
+````markdown
+```jsx path="ExtensionTest"
+
+```
+
+```js path="https://gist.githubusercontent.com/Plumbiu/7fc950397d9913b6f9558f7fc2c541ed/raw/4a3c95548679087f4ccd6ac032ed7aa1b1ca7e87/blog-remote-test.js"
+
+```
+````
+
+输出：
+
+```jsx path="ExtensionTest"
+
+```
+
+```js path="https://gist.githubusercontent.com/Plumbiu/7fc950397d9913b6f9558f7fc2c541ed/raw/4a3c95548679087f4ccd6ac032ed7aa1b1ca7e87/blog-remote-test.js"
+
+```
+
+# 代码分组
+
+meta 添加 Switcher 字符，并通过 `///` 语法划分。
+
+输入：
+
+````markdown
+```bash Switcher
+/// npm
+npm install @plumbiu/react-store
+/// yarn
+yarn add @plumbiu/react-store
+/// pnpm
+pnpm add @plumbiu/react-store
+```
+````
+
+输出：
 
 ```bash Switcher
 /// npm
@@ -119,86 +314,86 @@ yarn add @plumbiu/react-store
 pnpm add @plumbiu/react-store
 ```
 
-## Diff
+# 自定义标题
 
-```diff-ts
--console.log('hewwo')
-+console.log('hello')
-console.log('goodbye')
-console.log('wallo') // [!code --]
-console.log('callo') // [!code ++]
+输入：
+
+````markdown
+```jsx title="src/custom-title.ts"
+console.log('custom-title')
+```
+````
+
+输出：
+
+```jsx title="src/custom-title.ts"
+console.log('custom-title')
 ```
 
-## 高亮
+# emoji
 
-```ts {1,2}
-console.log('hewwo')
-console.log('hello')
-console.log('goodbye')
-console.log('wallo')
-console.log('callo') // [!code highlight]
+配置文件 `markdown/config/emoji.ts`。
+
+输入：
+
+```markdown
+:smile:
 ```
 
-```ts /log/
-// [!code word:console]
-console.log('hewwo')
-console.log('hello')
-console.log('goodbye')
-console.log('wallo')
-console.log('callo')
+输出：
+
+:smile:
+
+# 变量
+
+`{{}}` 语法将文字替换成全局变量，配置文件 `markdown/config/variables.ts`。
+
+输入：
+
+```markdown
+{{bar['test'].a}}
 ```
 
-## 显示行
+输出：
 
-```ts line
-console.log('hewwo')
-console.log('hello')
-console.log('goodbye')
+{{bar['test'].a}}
+
+# 自动链接
+
+将文字通过配置转换为链接，配置文件 `markdown/config/links.ts`。
+
+输入：
+
+```markdown
+Next.js
 ```
 
-## path
+输出：
 
-本地：
-
-```jsx path="generic/iframe/index"
-
-```
-
-远程：
-
-```js path="https://gist.githubusercontent.com/Plumbiu/7fc950397d9913b6f9558f7fc2c541ed/raw/4a3c95548679087f4ccd6ac032ed7aa1b1ca7e87/blog-remote-test.js"
-
-```
-
-## 自定义标题
-
-```js title="test/console.js"
-console.log('hello')
-console.log(1)
-```
-
-# 自定义组件
-
-<ThreeSunEarthMoon />
+Next.js
 
 # Blockquote
 
-> [!NOTE]
-> Useful information that users should know, even when skimming content.
+输入：
 
-> [!TIP]
-> Helpful advice for doing things better or more easily.
+```markdown
+> [!NOTE] MY CUSTOM TITLE
+> `Useful information` that users should know, even when skimming content.
 
-> [!IMPORTANT]
-> Key information users need to know to achieve their goal.
+> [!TIP] MY CUSTOM TITLE
+> `Helpful advice` for doing things better or more easily.
 
-> [!WARNING]
-> Urgent info that needs immediate user attention to avoid problems.
+> [!IMPORTANT] MY CUSTOM TITLE
+> `Key information` users need to know to achieve their goal.
 
-> [!CAUTION]
-> Advises about risks or negative outcomes of certain actions.
+> [!WARNING] MY CUSTOM TITLE
+> `Urgent info` that needs immediate user attention to avoid problems.
 
-**自定义标题：**
+> [!CAUTION] MY CUSTOM TITLE
+> `Advises` about risks or negative outcomes of certain actions.
+```
+
+输出：
 
 > [!NOTE] MY CUSTOM TITLE
 > `Useful information` that users should know, even when skimming content.
@@ -215,7 +410,18 @@ console.log(1)
 > [!CAUTION] MY CUSTOM TITLE
 > `Advises` about risks or negative outcomes of certain actions.
 
-# Details 组件
+# Details
+
+输入：
+
+```markdown
+:::Details[Detail 测试]
+Hello World
+`console.log('details')`
+:::
+```
+
+输出：
 
 :::Details[Detail 测试]
 Hello World
@@ -224,7 +430,36 @@ Hello World
 
 # 画廊
 
+首行通过 `max-数字`，配置最大显示个数，也可以不写。
+
+输入：
+
+```markdown
 :::Gallery
+max-10
+2023-1.webp
+threejs/flower-2.jpg
+2023-2.webp
+2023-3.png
+threejs/flower-6.jpg
+shiki-className.webp
+threejs/flower-1.jpg
+shiki-inline-styles.webp
+toc-optimize.gif
+toc.gif
+threejs/flower-3.jpg
+view-frustum.png
+threejs/flower-4.jpg
+2022-1.png
+threejs/flower-5.jpg
+threejs/wall.jpg
+:::
+```
+
+输出
+
+:::Gallery
+max-10
 2023-1.webp
 threejs/flower-2.jpg
 2023-2.webp
@@ -243,77 +478,70 @@ threejs/flower-5.jpg
 threejs/wall.jpg
 :::
 
-**配置最多显示图片个数：**
+# Literal autolink
 
-:::Gallery
-max-6
-2023-1.webp
-threejs/flower-2.jpg
-2023-2.webp
-2023-3.png
-threejs/flower-6.jpg
-shiki-className.webp
-threejs/flower-1.jpg
-shiki-inline-styles.webp
-toc-optimize.gif
-toc.gif
-threejs/flower-3.jpg
-view-frustum.png
-threejs/flower-4.jpg
-2022-1.png
-threejs/flower-5.jpg
-threejs/wall.jpg
-:::
+输入：
 
-# 替换插件
+```markdown
+www.example.com, https://example.com, and contact@example.com.
+```
 
-## 文字
-
-文字 `{{foo}}` 替换为 {{foo}}
-
-## emoji
-
-文字 `:smile:` 替换为 :smile:
-
-## link
-
-文字 `Next.js` 转换为 Next.js
-
-# GFM 插件
-
-## 自动转换链接
+输出：
 
 www.example.com, https://example.com, and contact@example.com.
 
-## 脚注
+# footnote
+
+输入：
+
+```markdown
+A note[^1]
+
+[^1]: Big note.
+```
+
+输出：
 
 A note[^1]
 
 [^1]: Big note.
 
-## 删除线
+# 任务列表
 
-~one~ or ~~two~~ tildes.
+输入：
 
-## 任务列表
+```markdown
+- [ ] to do
+- [x] done
+```
+
+输出：
 
 - [ ] to do
 - [x] done
-
-## 表格
-
-## Table
-
-| a   | b   |   c |  d  |
-| --- | :-- | --: | :-: |
-| 1   | 2   |   3 |  4  |
 
 # 视频
 
 ## B 站
 
+输入：
+
+```markdown
+::bilibili[【官方 MV】Never Gonna Give You Up - Rick Astley]{#BV1GJ411x7h7}
+```
+
+输出：
+
 ::bilibili[【官方 MV】Never Gonna Give You Up - Rick Astley]{#BV1GJ411x7h7}
 
 ## Youtube
+
+输入：
+
+```markdown
+::youtube[Rick Astley - Never Gonna Give You Up (Official Music Video)]{#dQw4w9WgXcQ}
+```
+
+输出：
 
 ::youtube[Rick Astley - Never Gonna Give You Up (Official Music Video)]{#dQw4w9WgXcQ}

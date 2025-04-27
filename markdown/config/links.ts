@@ -13,6 +13,12 @@ const textLinkMap: Record<string, TextLinkValueType> = {
   ShadowRoot: {
     url: 'https://developer.mozilla.org/zh-CN/docs/Web/API/ShadowRoot',
   },
+  remark: {
+    url: 'https://github.com/remarkjs/remark',
+  },
+  rehype: {
+    url: 'https://github.com/rehypejs/rehype',
+  },
 }
 
 export default textLinkMap

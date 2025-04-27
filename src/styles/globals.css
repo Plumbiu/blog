@@ -26,7 +26,7 @@ a {
   font-weight: 500;
 }
 
-strong > a {
+strong>a {
   font-weight: 700;
 }
 
@@ -38,7 +38,7 @@ h5,
 h6 {
   color: var(--text);
 
-  & > * {
+  &>* {
     font-size: inherit !important;
   }
 }

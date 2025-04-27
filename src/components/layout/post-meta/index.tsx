@@ -20,12 +20,12 @@ function formatTime(time: string | number) {
 export default function PostMeta({
   meta,
   type,
-  tags,
-}: Pick<PostList, 'meta' | 'type' | 'tags'> & {
+}: Pick<PostList, 'meta' | 'type'> & {
   meta: {
     date: number
   }
 }) {
+  const tags = meta.tags
   const { date } = meta
   return (
     <div className={cn('load_ani', styles.wrap)}>
