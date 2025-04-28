@@ -243,8 +243,8 @@ console.log('5')
 ```
 
 ```js
-console.log('----') // [!code --]
-console.log('+++') // [!code ++]
+console.log('----') // [!code  --]
+console.log('+++') // [!code  ++]
 ```
 ````
 
