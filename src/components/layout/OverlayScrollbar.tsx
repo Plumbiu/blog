@@ -3,7 +3,6 @@
 import {
   memo,
   type MouseEventHandler,
-  useCallback,
   useEffect,
   useRef,
   useState,
@@ -24,7 +23,7 @@ const OverlayScrollbar = memo(() => {
     setMounted(true)
   }, [])
 
-  const updateScroll = useCallback(() => {
+  const updateScroll = () => {
     const handlerDom = handlerRef.current
     if (!handlerDom) {
       return
@@ -41,19 +40,19 @@ const OverlayScrollbar = memo(() => {
       (scrollTop / (scrollHeight - htmlDom.clientHeight)) *
       (1 - trackHeight / clientHeight) *
       100
-
     handlerDom.style.top = `${Math.max(0, value)}%`
-  }, [])
+  }
 
-  const onMouseDown: MouseEventHandler<HTMLDivElement> = useCallback((e) => {
+  const onMouseDown: MouseEventHandler<HTMLDivElement> = (e) => {
     const handlerDom = handlerRef.current!
+    // remove top, height transition as it will influence calculate
+    handlerDom.classList.remove(styles.page_transition)
     offsetRef.current =
       e.clientY - handlerDom.offsetTop - handlerDom.clientHeight / 2
-    handlerDom.classList.add(styles.handler_active)
     document.addEventListener('mousemove', onMouseMove)
-  }, [])
+  }
 
-  const onMouseMove = useCallback((e: MouseEvent) => {
+  const onMouseMove = (e: MouseEvent) => {
     if (offsetRef.current === null) {
       return
     }
@@ -76,18 +75,21 @@ const OverlayScrollbar = memo(() => {
     newTop = Math.max(0, Math.min(newTop, trackAvailable))
     const scrollTop = (newTop / trackAvailable) * maxScrollTop
     htmlDom.scrollTop = scrollTop
-  }, [])
+  }
 
-  const onMouseUp = useCallback(() => {
+  const onMouseUp = () => {
     const handlerDom = handlerRef.current!
+    // add top, height transition when mouse move ended
+    handlerDom.classList.add(styles.page_transition)
     offsetRef.current = null
     document.removeEventListener('mousemove', onMouseMove)
-    handlerDom.classList.remove(styles.handler_active)
-  }, [])
+  }
 
   function updateHandlerHeight() {
     const htmlDom = document.documentElement
     const handlerDom = handlerRef.current!
+    // add top, height transition when update scrollbar top
+    handlerDom.classList.add(styles.page_transition)
     handlerDom.style.height =
       (htmlDom.clientHeight * htmlDom.clientHeight) / htmlDom.scrollHeight +
       'px'

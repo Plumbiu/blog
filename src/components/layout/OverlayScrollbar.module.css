@@ -25,11 +25,16 @@
   text-align: right;
   border-radius: 4px;
   background-color: var(--bg-scrollbar);
-  transition-property: background-color, width, height;
+  transition-property: background-color, width;
   transition-duration: 0.15s;
+  transition-timing-function: ease-in-out;
 }
 
 .handler_active {
   width: 8px;
   background-color: var(--bg-scrollbar-active) !important;
+}
+
+.page_transition {
+  transition-property: background-color, width, height, top;
 }
