@@ -148,12 +148,26 @@ function ImageGallery(props: any) {
   const thumbinalsLength = allThumbnailsNode.length
 
   const sildeNodes = useMemo(() => {
-    return photos.map(({ ops: optimizeSrc }, i) => {
+    return photos.map(({ ops: optimizeSrc, b64, width, height }, i) => {
       // preload images
       if (!max || i < max) {
         preloadImage(i)
       }
-      return <img key={optimizeSrc} src={optimizeSrc} alt={optimizeSrc} />
+      return (
+        <NextImage
+          width={width}
+          height={height}
+          style={{
+            objectFit: 'contain',
+          }}
+          unoptimized
+          blurDataURL={getBase64Url(b64)}
+          placeholder="blur"
+          key={optimizeSrc}
+          src={optimizeSrc}
+          alt={optimizeSrc}
+        />
+      )
     })
   }, [])
 
