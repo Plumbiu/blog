@@ -5,7 +5,7 @@ import { makeProperties } from '../../utils'
 import replaceWithEmoji from './emoji'
 import replaceWithVariable from './variable'
 
-export const remarkTextReplacePlugin: RemarkPlugin<string> = (code: string) => {
+export const remarkPlainTextPlugin: RemarkPlugin<string> = (code: string) => {
   function handler(node: Text) {
     makeProperties(node)
     replaceWithVariable(node, code)

@@ -1,19 +1,18 @@
-import type { Text, InlineCode } from 'mdast'
+import type { Text } from 'mdast'
 
 // markdown file content like:
 // \:smile\:
 // remark node value will be :smile:
 // this function get raw value \:smile\:
-export function getRawValueFromPosition(code: string, node: Text | InlineCode) {
+export function getRawValueFromPosition(code: string, node: Text) {
   const position = node.position
-  if (!position || !position.start.offset || !position.end.offset) {
+  if (
+    position == null ||
+    position.start.offset == null ||
+    position.end.offset == null
+  ) {
     return
   }
-  const isInlineCode = node.type === 'inlineCode'
-  const offset = isInlineCode ? 1 : 0
-  const value = code.slice(
-    position.start.offset + offset,
-    position.end.offset - offset,
-  )
+  const value = code.slice(position.start.offset, position.end.offset)
   return value
 }

@@ -1,4 +1,4 @@
-import { unified } from 'unified'
+import { type PluggableList, unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import remarkDirective from 'remark-directive'
@@ -7,13 +7,12 @@ import { toJsxRuntime } from 'hast-util-to-jsx-runtime'
 import { Fragment, jsx, jsxs } from 'react/jsx-runtime'
 import rehypeShikiHighlight from './plugins/rehype/shiki/hightlight'
 import rehypeElementPlugin from './plugins/rehype/elements'
-import remarkSlug from './plugins/remark/slug'
+import remarkSlugPlugin from './plugins/remark/slug'
 import { remarkContainerDirectivePlugin } from './plugins/remark/directive'
 import remarkRunner from './plugins/remark/runner'
-import remarkCodeConfig from './plugins/remark/code'
-import { remarkTextReplacePlugin } from './plugins/remark/plain-text/index'
+import { remarkPlainTextPlugin } from './plugins/remark/plain-text/index'
 import { markdownComponents } from './hast-components'
-import remarkCodeBlcok from './plugins/remark/code-block'
+import remarkCodeBlcokPlugin from './plugins/remark/code-block'
 import remarkHtmlParser from './plugins/remark/html-parse'
 import remarkTextLink from 'remark-text-link'
 import textLinkMap from './config/links'
@@ -22,23 +21,18 @@ import textLinkMap from './config/links'
 // https://github.com/remarkjs/react-markdown/blob/main/lib/index.js
 // LICENSE file: https://github.com/remarkjs/react-markdown/blob/main/license
 
-async function transfromCode2Jsx(code: string) {
+export async function transformCodeWithOptions(
+  code: string,
+  options: { remark: PluggableList; rehype: PluggableList } = {
+    remark: [],
+    rehype: [],
+  },
+) {
   const processor = unified()
     .use(remarkParse)
-    .use([
-      remarkGfm,
-      remarkDirective,
-      remarkContainerDirectivePlugin,
-      remarkSlug,
-      remarkCodeConfig,
-      remarkCodeBlcok,
-      remarkRunner,
-      [remarkTextReplacePlugin, code],
-      [remarkTextLink, textLinkMap],
-      remarkHtmlParser,
-    ])
+    .use(options.remark)
     .use(remarkRehype)
-    .use([rehypeElementPlugin, rehypeShikiHighlight])
+    .use(options.rehype)
   const mdastTree = processor.parse(code)
   const hastTree = await processor.run(mdastTree)
   const node = toJsxRuntime(hastTree, {
@@ -49,6 +43,24 @@ async function transfromCode2Jsx(code: string) {
     jsxs,
     passKeys: true,
     passNode: true,
+  })
+  return node
+}
+
+async function transfromCode2Jsx(code: string) {
+  const node = await transformCodeWithOptions(code, {
+    remark: [
+      remarkGfm,
+      remarkDirective,
+      remarkContainerDirectivePlugin,
+      remarkSlugPlugin,
+      remarkCodeBlcokPlugin,
+      remarkRunner,
+      [remarkPlainTextPlugin, code],
+      [remarkTextLink, textLinkMap],
+      remarkHtmlParser,
+    ],
+    rehype: [rehypeElementPlugin, rehypeShikiHighlight],
   })
   return node
 }

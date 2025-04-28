@@ -1,7 +1,7 @@
 import type { Text, InlineCode } from 'mdast'
 import { isNumber, isString } from '@/lib/types'
 import { getRawValueFromPosition } from './utils'
-import vars from '~/markdown/config/variables'
+import variableMap from '~/markdown/config/variables'
 import MagicString from 'magic-string'
 
 // obj['a'].b['c'] => obj.a.b.c
@@ -21,7 +21,7 @@ function replaceWithVariable(node: Text | InlineCode, code: string) {
           .replace(RightBracketRegx, '')
           .replace(LeftBracketRegx, '.')
           .split('.')
-        let data: Record<string, any> | string = vars
+        let data: Record<string, any> | string = variableMap
         for (const key of keys) {
           if (isString(data) || isNumber(data) || data[key] == null) {
             break

@@ -1,6 +1,6 @@
 // markdown plugin
 // ${foo} -> Test
-const vars: Record<string, any> = {
+const variableMap: Record<string, any> = {
   foo: 'Test',
   bar: {
     test: {
@@ -9,4 +9,4 @@ const vars: Record<string, any> = {
   },
 }
 
-export default vars
+export default variableMap

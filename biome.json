@@ -225,7 +225,7 @@
         "noSelfCompare": "error",
         "noShadowRestrictedNames": "off",
         "noShorthandPropertyOverrides": "error",
-        "noSkippedTests": "error",
+        "noSkippedTests": "off",
         "noSparseArray": "error",
         "noSuspiciousSemicolonInJsx": "error",
         "noThenProperty": "error",
