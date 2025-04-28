@@ -1,6 +1,7 @@
 'use client'
 
 import {
+  memo,
   type MouseEventHandler,
   useCallback,
   useEffect,
@@ -9,13 +10,15 @@ import {
 } from 'react'
 import styles from './OverlayScrollbar.module.css'
 import { throttle } from 'es-toolkit'
+import { usePathname } from 'next/navigation'
 
 const Spacing = 6 * 2
 
-function OverlayScrollbar() {
+const OverlayScrollbar = memo(() => {
   const [mounted, setMounted] = useState(false)
   const handlerRef = useRef<HTMLDivElement>(null)
   const offsetRef = useRef<number>(null)
+  const pathname = usePathname()
 
   useEffect(() => {
     setMounted(true)
@@ -82,11 +85,18 @@ function OverlayScrollbar() {
     handlerDom.classList.remove(styles.handler_active)
   }, [])
 
+  function updateHandlerHeight() {
+    const htmlDom = document.documentElement
+    const handlerDom = handlerRef.current!
+    handlerDom.style.height =
+      (htmlDom.clientHeight * htmlDom.clientHeight) / htmlDom.scrollHeight +
+      'px'
+  }
+
   useEffect(() => {
     if (!mounted) {
       return
     }
-    updateScroll()
     const resizeEventCallback = throttle(updateScroll, 200)
     window.addEventListener('scroll', updateScroll)
     window.addEventListener('resize', resizeEventCallback)
@@ -97,6 +107,14 @@ function OverlayScrollbar() {
       window.removeEventListener('mouseup', onMouseUp)
     }
   }, [mounted])
+
+  useEffect(() => {
+    if (!mounted) {
+      return
+    }
+    updateHandlerHeight()
+    updateScroll()
+  }, [pathname, mounted])
 
   if (!mounted) {
     return null
@@ -111,6 +129,6 @@ function OverlayScrollbar() {
       />
     </div>
   )
-}
+})
 
 export default OverlayScrollbar

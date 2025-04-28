@@ -6,11 +6,11 @@
 }
 
 html {
-  scrollbar-width: 0;
+  scrollbar-width: none;
 }
 
 body {
-  scrollbar-width: 0;
+  scrollbar-width: none;
   margin: 0;
   color: var(--text-1);
   background-color: var(--bg-body);
@@ -83,7 +83,7 @@ h6 {
   appearance: none;
   width: 0;
   height: 0;
-  scrollbar-width: 0;
+  scrollbar-width: none;
 }
 
 /* list */

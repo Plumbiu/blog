@@ -17,7 +17,7 @@
   z-index: 9999;
   top: 0;
   right: 4px;
-  height: 33%;
+  height: 0;
   user-select: none;
   min-height: 36px;
   max-height: 80vh;
@@ -25,7 +25,8 @@
   text-align: right;
   border-radius: 4px;
   background-color: var(--bg-scrollbar);
-  transition: background-color, width 0.15s;
+  transition-property: background-color, width, height;
+  transition-duration: 0.15s;
 }
 
 .handler_active {
