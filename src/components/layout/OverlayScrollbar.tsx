@@ -47,6 +47,8 @@ const OverlayScrollbar = memo(() => {
     const handlerDom = handlerRef.current!
     // remove top, height transition as it will influence calculate
     handlerDom.classList.remove(styles.page_transition)
+    handlerDom.classList.add(styles.handler_active)
+
     offsetRef.current =
       e.clientY - handlerDom.offsetTop - handlerDom.clientHeight / 2
     document.addEventListener('mousemove', onMouseMove)
@@ -81,6 +83,7 @@ const OverlayScrollbar = memo(() => {
     const handlerDom = handlerRef.current!
     // add top, height transition when mouse move ended
     handlerDom.classList.add(styles.page_transition)
+    handlerDom.classList.remove(styles.handler_active)
     offsetRef.current = null
     document.removeEventListener('mousemove', onMouseMove)
   }

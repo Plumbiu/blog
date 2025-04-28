@@ -52,9 +52,9 @@
   --bg-md-table-th: #f6f6f6;
   --bg-header: #ffffff85;
   --bg-body: #e3e8ef;
-  --bg-scrollbar: rgba(0, 0, 0, .33);
-  --bg-scrollbar-hover: rgba(0, 0, 0, .44);
-  --bg-scrollbar-active: rgba(0, 0, 0, .55);
+  --bg-scrollbar: rgba(0, 0, 0, 0.4);
+  --bg-scrollbar-hover: rgba(0, 0, 0, .5);
+  --bg-scrollbar-active: rgba(0, 0, 0, .6);
   --bg-tag: #e9eef4ba;
   --bg-vertical-line: #bfbfbf;
   --bg-modal: #00000073;
