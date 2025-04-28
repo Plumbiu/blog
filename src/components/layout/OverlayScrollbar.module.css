@@ -28,7 +28,6 @@
   background-color: var(--bg-scrollbar);
   transition-property: background-color, width;
   transition-duration: 0.15s;
-  transition-timing-function: ease-in-out;
 }
 
 .handler_active {
