@@ -1,11 +1,18 @@
-import type { ReamrkCommonNode } from '../types'
+import { isArray, isString } from '@/lib/types'
+import type { RemarkNode } from './types'
 
-export function addNodeClassName(node: ReamrkCommonNode, className: string) {
+export function addRemarkNodeClassName(node: RemarkNode, className: string) {
   const props = node?.data?.hProperties
   if (!props) {
     return
   }
-  const originClassName = props.className?.trim() ?? props.class?.trim() ?? ''
+  let originClassName = props.className || props.class
+  if (isArray(originClassName)) {
+    originClassName = originClassName.join(' ')
+  }
+  if (!isString(originClassName)) {
+    return originClassName
+  }
   const classNameSet = new Set(
     `${originClassName} ${className}`.trim().split(' '),
   )

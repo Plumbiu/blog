@@ -1,5 +1,5 @@
 import type { Element } from 'hast'
-import { addNodeClassName } from '../utils'
+import { addRehypeNodeClassName } from '../utils'
 import { visit, EXIT } from 'unist-util-visit'
 
 const BlockquoteRegx = /\[!(NOTE|WARNING|IMPORTANT|CAUTION|TIP)\]/
@@ -22,7 +22,7 @@ export default function BlockquotePlugin(node: Element) {
       const [raw, type] = BlockquoteRegx.exec(firstLine) ?? []
       if (raw && type && parent && index != null) {
         const lowerType = type.toLowerCase()
-        addNodeClassName(node, `blockquote-${lowerType}`)
+        addRehypeNodeClassName(node, `blockquote-${lowerType}`)
         textNode.value = value.replace(firstLine, '')
         parent.children.unshift({
           type: 'element',

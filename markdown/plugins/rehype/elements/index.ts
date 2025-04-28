@@ -2,7 +2,7 @@ import type { Element, Root } from 'hast'
 import { visit } from 'unist-util-visit'
 import type { RehypePlugin } from '../../constant'
 import markCustomComponentPre from './mark-pre'
-import { addNodeClassName } from '../utils'
+import { addRehypeNodeClassName } from '../utils'
 import aElementPlugin from './a'
 import codeElementPlugin from './code'
 import BlockquotePlugin from './blockquote'
@@ -32,5 +32,5 @@ function animationPlugin(
   ) {
     return
   }
-  addNodeClassName(node, 'load_ani')
+  addRehypeNodeClassName(node, 'load_ani')
 }
