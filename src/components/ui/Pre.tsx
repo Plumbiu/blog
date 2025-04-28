@@ -1,6 +1,6 @@
 'use client'
 
-import { type ReactNode, useCallback, useState } from 'react'
+import { memo, type ReactNode, useCallback, useRef, useState } from 'react'
 import { CopyCheckIcon, CopyErrorIcon, CopyIcon } from '@/components/Icons'
 import { renderReactNodeToString } from '@/lib/client'
 import styles from './Pre.module.css'
@@ -12,13 +12,15 @@ interface PreComponentProps {
   className?: string
 }
 
-function PreComponent({ children, className }: PreComponentProps) {
+const PreComponent = memo(({ children, className }: PreComponentProps) => {
   const [icon, setIcon] = useState(<CopyIcon />)
-
+  const code = useRef<string>(null)
   const copy = useCallback(async () => {
     try {
-      const code = renderReactNodeToString(children)
-      await navigator.clipboard.writeText(code)
+      if (!code.current) {
+        code.current = renderReactNodeToString(children)
+      }
+      await navigator.clipboard.writeText(code.current)
       setIcon(<CopyCheckIcon />)
     } catch (error) {
       setIcon(<CopyErrorIcon />)
@@ -36,6 +38,6 @@ function PreComponent({ children, className }: PreComponentProps) {
       <pre>{children}</pre>
     </div>
   )
-}
+})
 
 export default PreComponent
