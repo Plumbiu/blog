@@ -31,6 +31,7 @@ export async function transformCodeWithOptions(
   const processor = unified()
     .use(remarkParse)
     .use(options.remark)
+
     .use(remarkRehype)
     .use(options.rehype)
   const mdastTree = processor.parse(code)
@@ -55,9 +56,15 @@ async function transfromCode2Jsx(code: string) {
       remarkContainerDirectivePlugin,
       remarkSlugPlugin,
       remarkCodeBlcokPlugin,
+      [
+        remarkTextLink,
+        textLinkMap,
+        {
+          renderText: false,
+        },
+      ],
       remarkRunner,
       [remarkPlainTextPlugin, code],
-      [remarkTextLink, textLinkMap],
       remarkHtmlParser,
     ],
     rehype: [rehypeElementPlugin, rehypeShikiHighlight],

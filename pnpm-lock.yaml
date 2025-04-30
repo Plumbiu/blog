@@ -77,8 +77,8 @@ importers:
         specifier: 11.1.2
         version: 11.1.2
       remark-text-link:
-        specifier: 0.0.6
-        version: 0.0.6
+        specifier: 0.1.0
+        version: 0.1.0
       sharp:
         specifier: 0.34.1
         version: 0.34.1
@@ -2226,8 +2226,8 @@ packages:
   remark-stringify@11.0.0:
     resolution: {integrity: sha512-1OSmLd3awB/t8qdoEOMazZkNsfVTeY4fTsgzcQFdXNq8ToTN4ZGwrMnlda4K6smTFKD+GRV6O48i6Z4iKgPPpw==}
 
-  remark-text-link@0.0.6:
-    resolution: {integrity: sha512-aKo3Vuumv5LXtOJleaw23pJPQeqSahtY+4W1QsTA1jg+vJyxrfGFo54fJjjqWbtAwIVphTAYDDIRw2Fb/xYoMg==}
+  remark-text-link@0.1.0:
+    resolution: {integrity: sha512-QmFe5DebVKEGoERSyV0ZwptUwbt5SKSojTwF4aEnBlC5TSy1uLUBsgS5xxYDu28jPDFW6mLHGzxLjMA+OgZyPQ==}
 
   resolve-pkg-maps@1.0.0:
     resolution: {integrity: sha512-seS2Tj26TBVOC2NIc2rOe2y2ZO7efxITtLZcGSOnHHNOQ7CkiUBfw0Iw2ck6xkIhPwLhKNLS8BO+hEpngQlqzw==}
@@ -4863,8 +4863,9 @@ snapshots:
       mdast-util-to-markdown: 2.1.2
       unified: 11.0.5
 
-  remark-text-link@0.0.6:
+  remark-text-link@0.1.0:
     dependencies:
+      mdast-util-to-string: 4.0.0
       unist-util-visit: 5.0.0
 
   resolve-pkg-maps@1.0.0: {}

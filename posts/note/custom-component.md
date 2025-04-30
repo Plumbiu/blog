@@ -2,9 +2,10 @@
 title: Markdown Extensions.
 date: 2025-04-27
 order: 1
+desc: 1
 ---
 
-本博客 Markdown 拓展基于 remark 和 rehype 生态构建。
+本博客 Markdown 拓展基于 [remark]() 和 [rehype]() 生态构建。
 
 # Markdown 中使用 React 组件
 
