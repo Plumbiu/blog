@@ -65,8 +65,8 @@ importers:
         specifier: 3.1.0
         version: 3.1.0(patch_hash=ocwe5z2mqhu7gxtukdnzxvurha)(@types/react@19.1.2)(react@19.1.0)
       remark-definition:
-        specifier: 1.0.1
-        version: 1.0.1
+        specifier: 1.0.2
+        version: 1.0.2
       remark-directive:
         specifier: 4.0.0
         version: 4.0.0
@@ -2211,8 +2211,8 @@ packages:
   regex@6.0.1:
     resolution: {integrity: sha512-uorlqlzAKjKQZ5P+kTJr3eeJGSVroLKoHmquUj4zHWuR+hEyNqlXsSKlYYF5F4NI6nl7tWCs0apKJ0lmfsXAPA==}
 
-  remark-definition@1.0.1:
-    resolution: {integrity: sha512-L16wLECjtTPoOHXyAiaWW3iwgJDMA32WzvwH3WVW9Weys5qC60DwbLKJB5XdgUgCKbpljuwfbn/5fqPGaQdYxg==}
+  remark-definition@1.0.2:
+    resolution: {integrity: sha512-kk3sW5/gTvRpbxQYdDWTgMoOBSP4qaMJs0noYaao8K3T8PxRQ/zma8xCz96RbRYeBQUz6NOc/z6+EnuD3/KRIA==}
 
   remark-directive@4.0.0:
     resolution: {integrity: sha512-7sxn4RfF1o3izevPV1DheyGDD6X4c9hrGpfdUpm7uC++dqrnJxIZVkk7CoKqcLm0VUMAuOol7Mno3m6g8cfMuA==}
@@ -4820,9 +4820,8 @@ snapshots:
     dependencies:
       regex-utilities: 2.3.0
 
-  remark-definition@1.0.1:
+  remark-definition@1.0.2:
     dependencies:
-      mdast-util-to-string: 4.0.0
       unist-util-visit: 5.0.0
 
   remark-directive@4.0.0:

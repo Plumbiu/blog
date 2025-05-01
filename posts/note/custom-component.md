@@ -334,93 +334,55 @@ console.log('custom-title')
 console.log('custom-title')
 ```
 
-# emoji
+# 文字转换
 
-配置文件 [markdown/config/emoji.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/emoji.ts)。
+## 全局配置
+
+- **emoji**：转换 emoji，全局配置文件 [markdown/config/emoji.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/emoji.ts)。
+- **变量**：通过定义变量显示文字，全局配置文件 [markdown/config/variables.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/variables.ts)。
+  - **definitions**：类似 `<!-- Definitions -->`，可将空链接或者对应语法转换为合法链接，全局配置文件 [markdown/config/links.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/links.ts)
 
 输入：
 
 ```markdown
 :smile:
+
+{{bar['test'].a}}
+
+[Next.js][]
 ```
 
 输出：
 
 :smile:
 
-或者在 `front-matter` 中配置：
+{{bar['test'].a}}
+
+[Next.js][]
+
+## front-matter
 
 输入：
 
 ```markdown
 ---
 emoji: { num: 🔢 }
+variable: { var_text: 'var_text' }
+definitions: { plumbiu: 'https://github.com/Plumbiu' }
 ---
 
 :num:
+
+{{var_text}}
+
+[plumbiu][]
 ```
 
 输出
 
 :num:
 
-# 变量
-
-`{{}}` 语法将文字替换成全局变量，配置文件 [markdown/config/variables.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/variables.ts)。
-
-输入：
-
-```markdown
-{{bar['test'].a}}
-```
-
-输出：
-
-{{bar['test'].a}}
-
-或者在 `front-matter` 中配置：
-
-输入：
-
-```markdown
----
-variable: { var_text: 'var_text' }
----
-
 {{var_text}}
-```
-
-输出：
-
-{{var_text}}
-
-# 自动链接
-
-将文字通过配置转换为链接，配置文件 [markdown/config/links.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/links.ts)。
-
-输入：
-
-```markdown
-[Next.js][]
-```
-
-输出：
-
-[Next.js][]
-
-或者在 `front-matter` 中配置：
-
-输入：
-
-```markdown
----
-definitions: { plumbiu: 'https://github.com/Plumbiu' }
----
-
-[plumbiu][]
-```
-
-输出：
 
 [plumbiu][]
 
