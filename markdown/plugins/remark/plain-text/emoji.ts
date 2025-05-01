@@ -6,11 +6,7 @@ function replaceWithEmoji(tree: Root, emojiMap: Record<string, string>) {
   findAndReplace(tree, [
     EmojiRegx,
     (_, $1) => {
-      const emoji = emojiMap[$1]
-      if (emoji) {
-        return emoji
-      }
-      return false
+      return emojiMap[$1]
     },
   ])
 }
