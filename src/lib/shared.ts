@@ -1,6 +1,7 @@
 import { Categoires, type CategoiresType } from '~/constants/shared'
 import { BasePath } from '~/config/site'
-import { isString } from './types'
+import { isArray, isString } from './types'
+import isPlainObject from 'is-plain-obj'
 
 const RemoveMdSuffixRegx = /\.md$/
 export const removeMdSuffix = (p: string) => {
@@ -51,4 +52,18 @@ export function isUnOptimized(url: string) {
 
 export function getBase64Url(base: string) {
   return `data:image/webp;base64,${base}`
+}
+
+export function isEmptyObject(object: unknown) {
+  if (object == null || typeof object !== 'object') {
+    return false
+  }
+  return Object.keys(object).length === 0
+}
+
+export function toLogValue(value: any) {
+  if (isPlainObject(value) || isArray(value)) {
+    return JSON.stringify(value)
+  }
+  return String(value)
 }

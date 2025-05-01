@@ -1,3 +1,5 @@
+import type { DefinitionValue } from 'remark-definition'
+
 export interface PostMeta {
   title: string
   date: number
@@ -9,6 +11,9 @@ export interface PostMeta {
   // custom
   hidden?: boolean
   wordLength: number
+  definitions?: Record<string, DefinitionValue>
+  variable?: Record<string, any>
+  emoji?: Record<string, string>
 }
 
 export interface PostList {

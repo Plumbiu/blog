@@ -6,25 +6,25 @@ import emojiMap from '~/markdown/config/emoji'
 import variableMap from '~/markdown/config/variables'
 
 describe('remark: plain-text', () => {
-  const transfrom = (markdown: string, code: string) => {
+  const transform = (markdown: string) => {
     return transformCodeWithOptions(markdown, {
-      remark: [[remarkPlainTextPlugin, code]],
+      remark: [[remarkPlainTextPlugin, {}]],
       rehype: [],
     })
   }
-  test('reamrk: emoji', async () => {
+  test('emoji', async () => {
     const smileEmoji = emojiMap.smile
-    const code = 'smile emoji :smile: end'
-    const node = await transfrom(code, code)
+    const markdown = 'smile emoji :smile: end'
+    const node = await transform(markdown)
     render(node)
     const dom = screen.getByRole('paragraph')
     expect(dom.textContent).toBe(`smile emoji ${smileEmoji} end`)
   })
 
-  test('remark: variable', async () => {
+  test('variable', async () => {
     const varText = JSON.stringify(variableMap.bar.test)
-    const code = "variable {{bar['test']}} end"
-    const node = await transfrom(code, code)
+    const markdown = "variable {{bar['test']}} end"
+    const node = await transform(markdown)
     render(node)
     const dom = screen.getByRole('paragraph')
     expect(dom.textContent).toBe(`variable ${varText} end`)

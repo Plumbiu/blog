@@ -1,26 +1,14 @@
-import type { Text } from 'mdast'
-import { getRawValueFromPosition } from './utils'
-import emojiMap from '~/markdown/config/emoji'
-import MagicString from 'magic-string'
+import type { Root } from 'mdast'
+import { findAndReplace } from 'mdast-util-find-and-replace'
 
 const EmojiRegx = /:([\w\d]+):/g
-function replaceWithEmoji(node: Text, code: string) {
-  const rawValue = getRawValueFromPosition(code, node)
-  if (rawValue) {
-    let m: RegExpExecArray | null = null
-    const ms = new MagicString(node.value)
-    while ((m = EmojiRegx.exec(rawValue))) {
-      const [raw, match] = m
-      if (raw && match) {
-        const emoji = emojiMap[match]
-        if (emoji) {
-          ms.update(m.index, m.index + raw.length, emoji)
-        }
-      }
-    }
-    node.value = ms.toString()
-  }
-  EmojiRegx.lastIndex = 0
+function replaceWithEmoji(tree: Root, emojiMap: Record<string, string>) {
+  findAndReplace(tree, [
+    EmojiRegx,
+    (_, $1) => {
+      return emojiMap[$1]
+    },
+  ])
 }
 
 export default replaceWithEmoji

@@ -2,9 +2,13 @@
 title: Markdown Extensions.
 date: 2025-04-27
 order: 1
+desc: 1
+emoji: { num: 🔢 }
+definitions: { plumbiu: 'https://github.com/Plumbiu' }
+variable: { var_text: 'var_text' }
 ---
 
-本博客 Markdown 拓展基于 remark 和 rehype 生态构建。
+本博客 Markdown 拓展基于 [remark]() 和 [rehype]() 生态构建。
 
 # Markdown 中使用 React 组件
 
@@ -330,47 +334,57 @@ console.log('custom-title')
 console.log('custom-title')
 ```
 
-# emoji
+# 文字转换
 
-配置文件 [markdown/config/emoji.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/emoji.ts)。
+## 全局配置
+
+- **emoji**：转换 emoji，全局配置文件 [markdown/config/emoji.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/emoji.ts)。
+- **变量**：通过定义变量显示文字，全局配置文件 [markdown/config/variables.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/variables.ts)。
+- **definitions**：类似 `<!-- Definitions -->`，可将空链接或者对应语法转换为合法链接，全局配置文件 [markdown/config/links.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/links.ts)
 
 输入：
 
 ```markdown
 :smile:
+
+{{bar['test'].a}}
+
+[Next.js][]
 ```
 
 输出：
 
 :smile:
 
-# 变量
+{{bar['test'].a}}
 
-`{{}}` 语法将文字替换成全局变量，配置文件 [markdown/config/variables.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/variables.ts)。
+[Next.js][]
+
+## front-matter
 
 输入：
 
 ```markdown
-{{bar['test'].a}}
+---
+emoji: { num: 🔢 }
+variable: { var_text: 'var_text' }
+definitions: { plumbiu: 'https://github.com/Plumbiu' }
+---
+
+:num:
+
+{{var_text}}
+
+[plumbiu][]
 ```
 
 输出：
 
-{{bar['test'].a}}
+:num:
 
-# 自动链接
+{{var_text}}
 
-将文字通过配置转换为链接，配置文件 [markdown/config/links.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/links.ts)。
-
-输入：
-
-```markdown
-Next.js
-```
-
-输出：
-
-Next.js
+[plumbiu][]
 
 # Blockquote
 
