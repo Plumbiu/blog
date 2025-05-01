@@ -1,19 +1,17 @@
-import type { Text, InlineCode } from 'mdast'
+import type { Text } from 'mdast'
 import { isNumber, isString } from '@/lib/types'
 import { getRawValueFromPosition } from './utils'
-import variableMap from '~/markdown/config/variables'
 import MagicString from 'magic-string'
 
 // obj['a'].b['c'] => obj.a.b.c
 const LeftBracketRegx = /\[['"]/g
 const RightBracketRegx = /['"]\]/g
 const VariableRegx = /{{([^}]+)}}/g
-function replaceWithVariable(node: Text | InlineCode, code: string) {
+function replaceWithVariable(node: Text, code: string, variableMap: Record<string, any>) {
   const rawValue = getRawValueFromPosition(code, node)
   if (rawValue) {
     let m: RegExpExecArray | null = null
     const ms = new MagicString(node.value)
-
     while ((m = VariableRegx.exec(rawValue))) {
       const [raw, match] = m
       if (raw && match) {

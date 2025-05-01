@@ -1,6 +1,6 @@
-import type { TextLinkValueType } from 'remark-text-link'
+import type { DefinitionValue } from 'remark-definition'
 
-const textLinkMap: Record<string, TextLinkValueType> = {
+const definitionMap: Record<string, DefinitionValue> = {
   'Next.js': {
     url: 'https://github.com/vercel/next.js',
   },
@@ -21,4 +21,4 @@ const textLinkMap: Record<string, TextLinkValueType> = {
   },
 }
 
-export default textLinkMap
+export default definitionMap

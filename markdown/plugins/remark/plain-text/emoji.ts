@@ -1,10 +1,9 @@
 import type { Text } from 'mdast'
 import { getRawValueFromPosition } from './utils'
-import emojiMap from '~/markdown/config/emoji'
 import MagicString from 'magic-string'
 
 const EmojiRegx = /:([\w\d]+):/g
-function replaceWithEmoji(node: Text, code: string) {
+function replaceWithEmoji(node: Text, code: string, emojiMap: Record<string, string>) {
   const rawValue = getRawValueFromPosition(code, node)
   if (rawValue) {
     let m: RegExpExecArray | null = null

@@ -56,7 +56,11 @@ async function Post(props: PostProps) {
     return <NotFound />
   }
   const id = data[data.length - 1]
-  const node = await transfromCode2Jsx(info.content)
+  const node = await transfromCode2Jsx(info.content, {
+    variable: info.meta.variable,
+    definitions: info.meta.definitions,
+    emoji: info.meta.emoji,
+  })
 
   return (
     <div>

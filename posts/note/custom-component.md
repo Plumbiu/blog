@@ -3,6 +3,9 @@ title: Markdown Extensions.
 date: 2025-04-27
 order: 1
 desc: 1
+emoji: { num: 🔢 }
+definitions: { plumbiu: 'https://github.com/Plumbiu' }
+variable: { var_text: 'var_text' }
 ---
 
 本博客 Markdown 拓展基于 [remark]() 和 [rehype]() 生态构建。
@@ -345,6 +348,22 @@ console.log('custom-title')
 
 :smile:
 
+或者在 `front-matter` 中配置：
+
+输入：
+
+```markdown
+---
+emoji: { num: 🔢 }
+---
+
+:num:
+```
+
+输出
+
+:num:
+
 # 变量
 
 `{{}}` 语法将文字替换成全局变量，配置文件 [markdown/config/variables.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/variables.ts)。
@@ -359,6 +378,22 @@ console.log('custom-title')
 
 {{bar['test'].a}}
 
+或者在 `front-matter` 中配置：
+
+输入：
+
+```markdown
+---
+variable: { var_text: 'var_text' }
+---
+
+{{var_text}}
+```
+
+输出：
+
+{{var_text}}
+
 # 自动链接
 
 将文字通过配置转换为链接，配置文件 [markdown/config/links.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/links.ts)。
@@ -366,12 +401,28 @@ console.log('custom-title')
 输入：
 
 ```markdown
-Next.js
+[Next.js][]
 ```
 
 输出：
 
-Next.js
+[Next.js][]
+
+或者在 `front-matter` 中配置：
+
+输入：
+
+```markdown
+---
+definitions: { plumbiu: 'https://github.com/Plumbiu' }
+---
+
+[plumbiu][]
+```
+
+输出：
+
+[plumbiu][]
 
 # Blockquote
 

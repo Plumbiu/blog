@@ -7,8 +7,8 @@ import { buildHandlerFunction } from './utils'
 export const ComponentKey = 'cmp-key'
 export const handleComponentName = buildHandlerFunction<string>(ComponentKey)
 
-export type RehypePlugin<T = undefined> = Plugin<[T], Root>
-export type RemarkPlugin<T = undefined> = Plugin<[T], RemarkRoot>
+export type RehypePlugin<T extends unknown[] = []> = Plugin<T, Root>
+export type RemarkPlugin<T extends unknown[] = []> = Plugin<T, RemarkRoot>
 
 export const ComponentCodeKey = 'cmp-code'
 export const handleComponentCode =
