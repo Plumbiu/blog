@@ -1,6 +1,8 @@
 import type { DefinitionValue } from 'remark-definition'
 
-const definitionMap: Record<string, DefinitionValue> = {
+export type DefinitionType = Record<string, DefinitionValue>
+
+const definitionMap: DefinitionType = {
   'Next.js': {
     url: 'https://github.com/vercel/next.js',
   },

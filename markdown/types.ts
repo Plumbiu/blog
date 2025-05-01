@@ -1,4 +1,6 @@
-import type { DefinitionValue } from 'remark-definition'
+import type { DefinitionType } from './config/definitions'
+import type { VariableType } from './config/variables'
+import type { EmojiType } from './config/emoji'
 
 export interface PostMeta {
   title: string
@@ -11,9 +13,9 @@ export interface PostMeta {
   // custom
   hidden?: boolean
   wordLength: number
-  definitions?: Record<string, DefinitionValue>
-  variable?: Record<string, any>
-  emoji?: Record<string, string>
+  definitions?: DefinitionType
+  variable?: VariableType
+  emoji?: EmojiType
 }
 
 export interface PostList {

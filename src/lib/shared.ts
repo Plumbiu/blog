@@ -1,6 +1,6 @@
 import { Categoires, type CategoiresType } from '~/constants/shared'
 import { BasePath } from '~/config/site'
-import { isArray, isString } from './types'
+import { isArray, isString, keys } from './types'
 import isPlainObject from 'is-plain-obj'
 
 const RemoveMdSuffixRegx = /\.md$/
@@ -58,7 +58,7 @@ export function isEmptyObject(object: unknown) {
   if (object == null || typeof object !== 'object') {
     return false
   }
-  return Object.keys(object).length === 0
+  return keys(object).length === 0
 }
 
 export function toLogValue(value: any) {

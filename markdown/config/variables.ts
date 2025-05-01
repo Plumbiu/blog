@@ -1,6 +1,6 @@
-// markdown plugin
-// ${foo} -> Test
-const variableMap: Record<string, any> = {
+export type VariableType = Record<string, any>
+
+const variableMap: VariableType = {
   foo: 'Test',
   bar: {
     test: {

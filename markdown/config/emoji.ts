@@ -1,7 +1,9 @@
+export type EmojiType = Record<string, string>
+
 // Generated, don't edit
 // copyed from https://github.com/markdown-it/markdown-it-emoji/blob/master/lib/data/full.mjs
 // LICENSE file: https://github.com/markdown-it/markdown-it-emoji/blob/master/LICENSE
-const emojiMap: Record<string, string> = {
+const emojiMap: EmojiType = {
   100: '💯',
   1234: '🔢',
   grinning: '😀',

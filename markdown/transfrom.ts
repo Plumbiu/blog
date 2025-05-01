@@ -17,10 +17,7 @@ import remarkHtmlParser from './plugins/remark/html-parse'
 import remarkDefinition from 'remark-definition'
 import definitionMap from './config/definitions'
 import type { PostMeta } from './types'
-
-// This code is refactored into TypeScript based on
-// https://github.com/remarkjs/react-markdown/blob/main/lib/index.js
-// LICENSE file: https://github.com/remarkjs/react-markdown/blob/main/license
+import { assign } from '@/lib/types'
 
 export async function transformCodeWithOptions(
   code: string,
@@ -32,7 +29,6 @@ export async function transformCodeWithOptions(
   const processor = unified()
     .use(remarkParse)
     .use(options.remark)
-
     .use(remarkRehype)
     .use(options.rehype)
   const mdastTree = processor.parse(code)
@@ -50,7 +46,9 @@ export async function transformCodeWithOptions(
 }
 
 type TransformOption = Pick<PostMeta, 'definitions' | 'emoji' | 'variable'>
-
+// This code is refactored into TypeScript based on
+// https://github.com/remarkjs/react-markdown/blob/main/lib/index.js
+// LICENSE file: https://github.com/remarkjs/react-markdown/blob/main/license
 async function transfromCode2Jsx(
   code: string,
   { definitions = {}, variable = {}, emoji = {} }: TransformOption,
@@ -62,7 +60,7 @@ async function transfromCode2Jsx(
       remarkContainerDirectivePlugin,
       remarkSlugPlugin,
       remarkCodeBlcokPlugin,
-      [remarkDefinition, Object.assign({}, definitionMap, definitions)],
+      [remarkDefinition, assign(definitionMap, definitions)],
       remarkRunner,
       [remarkPlainTextPlugin, { variable, emoji }],
       remarkHtmlParser,

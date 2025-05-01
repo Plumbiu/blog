@@ -30,3 +30,4 @@ export const arrayify = <T>(value: T | T[]): T[] =>
 export const keys = Object.keys
 export const values = Object.values
 export const entries = Object.entries
+export const assign = Object.assign
