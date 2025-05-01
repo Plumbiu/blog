@@ -41,7 +41,7 @@ export const markdownComponents: Partial<Components> = {
       return
     }
     const commonProps: ImageProps = {
-      src: resolveAssetPath(`images/${src}`),
+      src: resolveAssetPath(`images${src[0] === '/' ? src : `/${src}`}`),
       alt,
       unoptimized: isUnOptimized(src),
       blurDataURL: getBase64Url(base64),

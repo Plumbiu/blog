@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { getPost } from '~/markdown/utils/fs'
-import { Categoires } from '~/constants/shared'
+import { Categoires } from '~/data/constants/categories'
 import { MAX_PAGE_SIZE } from './list/[[...slug]]/constants'
 import { joinWebUrl } from './seo'
 

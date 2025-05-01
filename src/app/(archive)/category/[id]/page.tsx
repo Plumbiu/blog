@@ -1,6 +1,6 @@
 import { getPost } from '~/markdown/utils/fs'
 import TimeLine from '../../components/Timeline'
-import { Categoires } from '~/constants/shared'
+import { Categoires } from '~/data/constants/categories'
 
 interface Params {
   // [category, pagenum]

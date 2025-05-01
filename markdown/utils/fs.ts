@@ -2,10 +2,10 @@ import fsp from 'node:fs/promises'
 import path from 'node:path'
 import { glob } from 'fast-glob'
 import { getCategoryFromUrl, removeMdSuffix } from '../../src/lib/shared'
-import { CWD, PostPath } from '~/constants/node'
+import { CWD, PostPath } from '~/data/constants/node'
 import type { PostList } from '../types'
 import { parsePostMeta } from './meta-parse'
-import { Categoires, type CategoiresType } from '~/constants/shared'
+import { Categoires, type CategoiresType } from '~/data/constants/categories'
 
 export function getPostsPath() {
   return glob('posts/**/*.md')

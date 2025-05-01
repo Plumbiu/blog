@@ -27,7 +27,7 @@ import { entries, keys } from '@/lib/types'
 import { handlePreTitleValue, PreTitleName } from './pre-title-utils'
 import { sucraseParse } from '@/lib/node/jsx-parse'
 import { tryReadFileSync } from '@/lib/node/fs'
-import { MarkdownPath } from '~/constants/node'
+import { MarkdownPath } from '~/data/constants/node'
 import { markComponent } from '../utils'
 
 const SupportPlaygroundLang = new Set(['jsx', 'tsx', 'js', 'ts'])

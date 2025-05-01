@@ -1,4 +1,4 @@
-import { Categoires, type CategoiresType } from '~/constants/shared'
+import { Categoires, type CategoiresType } from '~/data/constants/categories'
 import { BasePath } from '~/config/site'
 import { isArray, isString, keys } from './types'
 import isPlainObject from 'is-plain-obj'

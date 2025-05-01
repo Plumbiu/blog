@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { upperFirstChar } from '@/lib/shared'
 import { getPost } from '~/markdown/utils/fs'
-import { Categoires } from '~/constants/shared'
+import { Categoires } from '~/data/constants/categories'
 import NotFound from '@/app/not-found'
 import { generateSeoMetaData, joinWebUrl } from '@/app/seo'
 import { MAX_PAGE_SIZE } from './constants'

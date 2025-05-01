@@ -8,7 +8,7 @@ export const FrontmatterWrapStr = '---'
 export function parsePostMeta(markdown: string) {
   const { content, data } = matter(markdown)
   if (isEmptyObject(data)) {
-    return
+    return {}
   }
   const meta = data as PostMeta
   const desc = meta.desc

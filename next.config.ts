@@ -3,9 +3,10 @@ import Analyzer from '@next/bundle-analyzer'
 import classnamesMinifier from '@nimpl/classnames-minifier'
 import type { NextConfig } from 'next'
 import getResvervedClassnames from './optimize/reserved-classmame'
+import { GithubRepoName } from './config/site'
 
 const IS_GITPAGE = !!process.env.GITPAGE
-const BasePath = IS_GITPAGE ? '/blog' : ''
+const BasePath = IS_GITPAGE ? `/${GithubRepoName}` : ''
 const IsDev = process.env.NODE_ENV === 'development'
 
 const withBundleAnalyzer = Analyzer({
