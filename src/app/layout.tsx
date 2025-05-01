@@ -16,7 +16,7 @@ import SearchPanel from '@/components/layout/SearchPanel'
 import SideBar from '@/components/layout/side-bar'
 import Banner from '@/components/layout/Banner'
 import OverlayScrollbar from '@/components/layout/OverlayScrollbar'
-import getSearchData from '@/lib/node/search-data'
+import getSearchApiData from '@/lib/node/search-data'
 
 export const metadata: Metadata = {
   title: BlogTitle,
@@ -36,7 +36,7 @@ const getSearchPanelData = async () => {
     return []
   }
 
-  return getSearchData()
+  return getSearchApiData()
 }
 
 const IsDev = process.env.NODE_ENV === 'development'

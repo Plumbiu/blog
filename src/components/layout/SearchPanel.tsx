@@ -17,16 +17,19 @@ import Link from 'next/link'
 import useSearchPanelStore from '@/store/search-panel'
 import type { PostList } from '~/markdown/types'
 
+export type SearchData = Pick<PostList, 'path' | 'type'> & {
+  meta: Pick<PostList['meta'], 'title' | 'desc'>
+}
 interface SearchPanelProps {
-  data?: PostList[]
+  data?: SearchData[]
 }
 
 const SearchPanel = memo(({ data }: SearchPanelProps) => {
   const hidden = useSearchPanelStore((s) => s.hidden)
   const searchPanelVisible = useSearchPanelStore((s) => s.visible)
   const [mounted, setMounted] = useState(false)
-  const [lists, setLists] = useState<PostList[]>([])
-  const listRef = useRef<PostList[]>(data)
+  const [lists, setLists] = useState<SearchData[]>([])
+  const listRef = useRef(data)
   const [activePath, setActivePath] = useState<string>()
   const [search, setSearch] = useState('')
   const contentRef = useRef<HTMLDivElement>(null)
