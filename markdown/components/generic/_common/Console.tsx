@@ -3,7 +3,7 @@ import { cn } from '@/lib/client'
 import type { LogInfo } from '@/hooks/useConsole'
 import { isString } from '@/lib/types'
 import styles from './Console.module.css'
-import { transfromLogValue } from '../utils'
+import { toLogValue } from '@/lib/shared'
 
 export function padStartZero(str: number | string, num = 2) {
   if (!isString(str)) {
@@ -46,7 +46,7 @@ const ConsoleItem = memo(
             [styles.symbol]: valueType === 'Symbol',
           })}
         >
-          {transfromLogValue(value)}
+          {toLogValue(value)}
         </div>
         <div className={styles.left}>
           {showType ? valueType : formatTime(date)}

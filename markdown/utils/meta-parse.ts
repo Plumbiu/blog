@@ -1,19 +1,17 @@
-import yaml from 'js-yaml'
+import matter from 'gray-matter'
 import type { PostMeta } from '../types'
 import stripMarkdown from '~/markdown/utils/strip'
+import { isEmptyObject } from '@/lib/shared'
 
 const DescNumRegx = /^\d+$/
 export const FrontmatterWrapStr = '---'
-export function parsePostMeta(code: string) {
-  const startIdx = code.indexOf(FrontmatterWrapStr)
-  if (startIdx !== 0) {
-    return {}
+export function parsePostMeta(markdown: string) {
+  const { content, data } = matter(markdown)
+  if (isEmptyObject(data)) {
+    return
   }
-  const endIndex = code.indexOf(FrontmatterWrapStr, 1)
-  const parseString = code.slice(FrontmatterWrapStr.length, endIndex)
-  const meta = yaml.load(parseString) as PostMeta
+  const meta = data as PostMeta
   const desc = meta.desc
-  const content = code.slice(endIndex + 3)
   const rawText = stripMarkdown(content).trim()
   if (desc && DescNumRegx.test(desc)) {
     const segments = rawText.split(/\r?\n/g).filter((s) => s.trim())

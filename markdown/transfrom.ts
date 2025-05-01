@@ -64,7 +64,7 @@ async function transfromCode2Jsx(
       remarkCodeBlcokPlugin,
       [remarkDefinition, Object.assign({}, definitionMap, definitions)],
       remarkRunner,
-      [remarkPlainTextPlugin, code, { variable, emoji }],
+      [remarkPlainTextPlugin, { variable, emoji }],
       remarkHtmlParser,
     ],
     rehype: [rehypeElementPlugin, rehypeShikiHighlight],
