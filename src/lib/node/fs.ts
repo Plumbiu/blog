@@ -7,6 +7,7 @@ export function tryReadFileSync(p: string) {
     content = fs.readFileSync(p, 'utf-8')
     return content
   } catch (error) {
+    console.log(error)
     return content
   }
 }

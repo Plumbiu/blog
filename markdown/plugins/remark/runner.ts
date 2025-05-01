@@ -8,12 +8,12 @@ import {
 import {
   handleComponentCode,
   handleComponentMeta,
-  handleComponentName,
   handleLang,
   type RemarkPlugin,
 } from '../constant'
 import { makeProperties } from '../utils'
 import { sucraseParse } from '@/lib/node/jsx-parse'
+import { markComponent } from './utils'
 
 const remarkRunner: RemarkPlugin = () => {
   return (tree) => {
@@ -42,10 +42,7 @@ const remarkRunner: RemarkPlugin = () => {
         })
       }
 
-      // @ts-ignore
-      node.type = 'root'
-      node.data!.hName = 'div'
-      handleComponentName(props, CodeRunnerName)
+      markComponent(node, CodeRunnerName)
       handleComponentMeta(props, meta)
       handleCodeRunnerCodeKey(props, code)
     })

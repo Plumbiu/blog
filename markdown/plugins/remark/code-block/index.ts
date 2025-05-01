@@ -28,6 +28,7 @@ import { handlePreTitleValue, PreTitleName } from './pre-title-utils'
 import { sucraseParse } from '@/lib/node/jsx-parse'
 import { tryReadFileSync } from '@/lib/node/fs'
 import { MarkdownPath } from '~/constants/node'
+import { markComponent } from '../utils'
 
 const SupportPlaygroundLang = new Set(['jsx', 'tsx', 'js', 'ts'])
 const SupportStaticPlaygroundLang = new Set(['html', 'css', 'js', 'txt'])
@@ -42,6 +43,8 @@ const remarkCodeBlcokPlugin: RemarkPlugin = () => {
   return async (tree) => {
     visit(tree, 'code', (node) => {
       makeProperties(node)
+      // meta: path and component
+      hanlePathComponentMeta(node, remoteNodes)
       const props = node.data!.hProperties!
       const code = node.value.trim()
       const meta = node.meta
@@ -56,9 +59,7 @@ const remarkCodeBlcokPlugin: RemarkPlugin = () => {
       const myBeAppFile = getFirstFileKey(code)
 
       const changeNodeType = () => {
-        // @ts-ignore
-        node.type = 'root'
-        node.data!.hName = 'div'
+        markComponent(node)
         handleComponentMeta(props, meta)
       }
       handleComponentCode(props, code)
@@ -125,8 +126,6 @@ const remarkCodeBlcokPlugin: RemarkPlugin = () => {
           changeNodeType()
         }
       }
-      // meta: path and component
-      hanlePathComponentMeta(node, remoteNodes)
     })
     await Promise.all(
       remoteNodes.map(async ({ node, path }) => {
