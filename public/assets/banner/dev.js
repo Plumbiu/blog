@@ -1,7 +1,7 @@
 const dom = document.querySelector('.blog_banner')
 const viewW = window.innerWidth
 const isMobile = viewW < 960
-var BannerHeight = isMobile ? 220 : 480
+var BannerHeight = isMobile ? 220 : 340
 var BannerListPageHeight = isMobile ? 320 : 580
 
 function setBannerHeight() {

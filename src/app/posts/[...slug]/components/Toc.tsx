@@ -12,7 +12,7 @@ interface ITocList {
   depth: number
 }
 
-const ShowHeight = 110
+const ShowHeight = 100
 
 const TocLink = memo(
   ({ id, depth, title, active }: ITocList & { active: boolean }) => (

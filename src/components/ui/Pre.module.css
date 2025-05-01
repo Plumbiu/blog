@@ -1,3 +1,13 @@
+@keyframes scale-in {
+  0% {
+    transform: scale(0.5);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
 .action {
   position: absolute;
   top: 6px;
@@ -14,6 +24,8 @@
   & svg {
     display: inline-block;
     box-sizing: content-box;
+    transform: scale(0.5);
+    animation: scale-in 0.15s forwards;
     z-index: 9;
     border-radius: 8px;
     font-size: 20px;
