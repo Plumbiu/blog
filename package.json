@@ -12,6 +12,7 @@
     "issue:update": "cross-env UPDATE_ISSUE=true esno ./scripts/issues.ts",
     "start": "next start",
     "analyze": "cross-env ANALYZE=true next build",
+    "coverage": "vitest run --coverage",
     "test": "vitest"
   },
   "dependencies": {
@@ -62,6 +63,7 @@
     "@types/three": "0.176.0",
     "@types/unist": "^3.0.3",
     "@vitejs/plugin-react": "^4.4.1",
+    "@vitest/coverage-v8": "3.1.2",
     "autoprefixer": "^10.4.21",
     "cross-env": "^7.0.3",
     "esno": "^4.8.0",
