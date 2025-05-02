@@ -66,8 +66,14 @@ h6 {
 }
 
 ::-webkit-scrollbar-thumb {
+  box-sizing: content-box;
   border-radius: 4px;
+  background-clip: padding-box;
   background-color: var(--bg-scrollbar);
+  transition: 0.15s;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 2px;
 }
 
 ::-webkit-scrollbar-corner {
@@ -75,8 +81,17 @@ h6 {
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border-width: 0;
+  background-color: var(--bg-scrollbar-hover);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--bg-scrollbar-active);
 }
 
 :where(html, body)::-webkit-scrollbar {

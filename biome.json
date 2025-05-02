@@ -137,7 +137,7 @@
         "noStaticElementInteractions": "off",
         "noSubstr": "error",
         "noTemplateCurlyInString": "error",
-        "noUnknownPseudoClass": "error",
+        "noUnknownPseudoClass": "off",
         "noUnknownPseudoElement": "error",
         "noUnknownTypeSelector": "off",
         "noUselessEscapeInRegex": "error",

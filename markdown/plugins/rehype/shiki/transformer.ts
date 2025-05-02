@@ -17,7 +17,7 @@ interface TransformerOptions {
   lang: string
 }
 
-const HightLightWordRegx = /\/(.+)\//
+const HightLightWordRegx = /\s\/(.+)\/\s?/
 export function customShikiTranformer({
   meta,
   lang,
@@ -29,6 +29,7 @@ export function customShikiTranformer({
   return {
     preprocess(code) {
       if (highlightWord) {
+        console.log(highlightWord)
         return `// [!code word:${highlightWord}]\n${code}`
       }
     },
