@@ -86,12 +86,15 @@ export function shikiHightlightWordFormatTransformer(): ShikiTransformer {
         (i) => i.type === 'element',
       ) as Element[]
       lines.forEach((line) => {
-        const firstNode = line.children.find(find)
-        const lastNode = line.children.findLast(find)
+        const firstNodeIndex = line.children.findIndex(find)
+        const lastNodeIndex = line.children.findLastIndex(find)
+        const firstNode = line.children[firstNodeIndex]
+        const lastNode = line.children[lastNodeIndex]
         if (
           firstNode?.type === 'element' &&
           lastNode?.type === 'element' &&
-          firstNode !== lastNode
+          firstNodeIndex !== lastNodeIndex &&
+          line.children.slice(firstNodeIndex, lastNodeIndex + 1).every(find)
         ) {
           this.addClassToHast(firstNode, `${HighLightWordClassName}-start`)
           this.addClassToHast(lastNode, `${HighLightWordClassName}-end`)
