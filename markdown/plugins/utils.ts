@@ -47,3 +47,4 @@ export function getSuffix(name: string) {
   }
   return name.slice(index + 1)
 }
+

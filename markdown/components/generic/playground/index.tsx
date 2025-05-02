@@ -27,7 +27,7 @@ import CodeWrapper from '../_common/CodeWrapper'
 import Console from '../_common/Console'
 import Loading from '../_common/Loading'
 import {
-  handleComponentSelectorKey,
+  handleComponentDefaultSelectorKey,
   handleFileMap,
 } from '~/markdown/plugins/constant'
 import CodePreview from '../_common/CodePreview'
@@ -42,7 +42,7 @@ const Playground = (props: any) => {
     isPreviewTabsHidden,
     customPreviewNode,
   } = useMemo(() => {
-    const defaultSelector = handleComponentSelectorKey(props)
+    const defaultSelector = handleComponentDefaultSelectorKey(props)
     const css = handlePlaygroundStyles(props) ?? ''
     const files = handleFileMap(props)
     const isStatic = defaultSelector.endsWith('.html')

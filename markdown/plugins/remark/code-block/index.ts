@@ -9,15 +9,13 @@ import {
   handlePlaygroundStyles,
   PlaygroundHidePreviewTabsName,
   PlaygroundHideCodeTabsName,
-  buildFiles,
   handlePlaygroundCustomPreivew,
-  getDefaultSelector,
 } from './playground-utils'
 import {
   handleComponentCode,
   handleComponentMeta,
   handleComponentName,
-  handleComponentSelectorKey,
+  handleComponentDefaultSelectorKey,
   handleFileMap,
   handleLang,
   type RemarkPlugin,
@@ -30,9 +28,13 @@ import { sucraseParse } from '@/lib/node/jsx-parse'
 import { tryReadFileSync } from '@/lib/node/fs'
 import { MarkdownPath } from '~/data/constants/node'
 import { markComponent } from '../utils'
+import {
+  buildFiles,
+  getFirstFileKey,
+  isDyncmicLangugage,
+  isStaticLangugage,
+} from './playground-node-utils'
 
-const SupportPlaygroundLang = new Set(['jsx', 'tsx', 'js', 'ts'])
-const SupportStaticPlaygroundLang = new Set(['html', 'css', 'js', 'txt'])
 const PreTitleRegx = /title=(['"])([^'"]+)\1/
 interface RemoteNode {
   node: Code
@@ -57,6 +59,7 @@ const remarkCodeBlcokPlugin: RemarkPlugin = () => {
       const isPlayground = meta.includes(PlaygroundName)
       const isSwitcher = meta.includes(SwitcherName)
       const isPreTitle = PreTitleRegx.test(meta)
+      const defaultSelector = getFirstFileKey(code, lang)
 
       const changeNodeType = () => {
         markComponent(node)
@@ -66,10 +69,6 @@ const remarkCodeBlcokPlugin: RemarkPlugin = () => {
       handleLang(props, lang)
 
       const setNodeProps = () => {
-        const defaultSelector = getDefaultSelector(code)
-        if (!defaultSelector) {
-          return
-        }
         const componentName = isPlayground
           ? PlaygroundName
           : isSwitcher
@@ -79,14 +78,14 @@ const remarkCodeBlcokPlugin: RemarkPlugin = () => {
           return
         }
         handleComponentName(props, componentName)
-        handleComponentSelectorKey(props, defaultSelector)
+        handleComponentDefaultSelectorKey(props, defaultSelector)
         handlePlaygroundHidePreviewTabsKey(
           props,
           meta.includes(PlaygroundHidePreviewTabsName),
         )
 
         let hideTabs = true
-        const files = buildFiles(code)
+        const files = buildFiles(code, defaultSelector)
         const fileKeys = keys(files)
         let styles = ''
         for (const key of fileKeys) {
@@ -115,12 +114,12 @@ const remarkCodeBlcokPlugin: RemarkPlugin = () => {
         changeNodeType()
       }
       if (isPlayground) {
-        if (SupportPlaygroundLang.has(lang)) {
+        if (isDyncmicLangugage(lang)) {
           setNodeProps()
-        } else if (SupportStaticPlaygroundLang.has(lang)) {
+        } else if (isStaticLangugage(lang)) {
           setNodeProps()
         }
-      } else if (isSwitcher) {
+      } else if (isSwitcher && defaultSelector) {
         setNodeProps()
       } else if (isPreTitle) {
         const title = PreTitleRegx.exec(meta)?.[2]

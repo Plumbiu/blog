@@ -5,7 +5,7 @@ import { memo, useMemo, useState } from 'react'
 import tabStyles from '../_styles/tab.module.css'
 import { cn } from '@/lib/client'
 import {
-  handleComponentSelectorKey,
+  handleComponentDefaultSelectorKey,
   handleFileMapItemKey,
   handleFileMap,
 } from '~/markdown/plugins/constant'
@@ -61,7 +61,7 @@ const CodeTabs = memo(
 const CodePreview = memo((props: any) => {
   const { defaultSelector, codeNodeMap, codeTabs } = useMemo(() => {
     const children = isArray(props.children) ? props.children : [props.children]
-    const defaultSelector = handleComponentSelectorKey(props)
+    const defaultSelector = handleComponentDefaultSelectorKey(props)
     const codeNodeMap = Object.fromEntries(
       children.map((node: any) => [handleFileMapItemKey(node.props), node]),
     )

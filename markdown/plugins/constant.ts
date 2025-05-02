@@ -41,7 +41,8 @@ export const handleFileMap = buildHandlerFunction<Record<string, string>>(
   FileMapKey,
   JSON.parse,
 )
-export const ComponentSelectorKey = `${ComponentFileMapPrefx}selector`
-export const handleComponentSelectorKey =
-  buildHandlerFunction<string>(ComponentSelectorKey)
+export const ComponentDefaultSelectorKey = `${ComponentFileMapPrefx}selector`
+export const handleComponentDefaultSelectorKey = buildHandlerFunction<string>(
+  ComponentDefaultSelectorKey,
+)
 export const FileMapStartStr = '///'

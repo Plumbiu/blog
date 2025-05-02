@@ -1,12 +1,10 @@
 import type { Element } from 'hast'
-import {
-  isPlayground,
-  buildFiles,
-} from '../../remark/code-block/playground-utils'
+import { isPlayground } from '../../remark/code-block/playground-utils'
 import {
   FileMapItemKey,
   handleComponentCode,
   handleComponentMeta,
+  handleComponentDefaultSelectorKey,
   handleLang,
 } from '../../constant'
 import { hCode, markPre } from './mark-pre-utils'
@@ -15,13 +13,15 @@ import { isRuner } from '../../remark/runner-utils'
 import { isPreTitle } from '../../remark/code-block/pre-title-utils'
 import { keys } from '@/lib/types'
 import { getSuffix } from '../../utils'
+import { buildFiles } from '../../remark/code-block/playground-node-utils'
 
 function markCustomComponentPre(node: Element) {
   const props = node.properties
   if (isPlayground(props) || isSwitcher(props)) {
     const code = handleComponentCode(props)
+    const selector = handleComponentDefaultSelectorKey(props)
     // TODO: already build files in remark-plugin
-    const files = buildFiles(code)
+    const files = buildFiles(code, selector)
     const meta = handleComponentMeta(props)
     const lang = handleLang(props)
     markPre(
