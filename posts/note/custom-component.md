@@ -99,13 +99,15 @@ HTML 暂不支持打印
 ```html Playground
 /// index.html
 <div class="test" onclick="console.log(111)">hello</div>
-/// color.css .test { color: red; font-weight: 600; }
+/// color.css
+.test { color: red; font-weight: 600; }
 ```
 ````
 
 输出：
 
 ```txt Playground
+/// index.html
 <div class="test" onclick="console.log(111)">hello</div>
 /// color.css
 .test {

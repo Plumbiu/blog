@@ -9,7 +9,7 @@ import rehypeShikiPlugin from './plugins/rehype/shiki/hightlight'
 import rehypeElementPlugin from './plugins/rehype/elements'
 import remarkSlugPlugin from './plugins/remark/slug'
 import { remarkContainerDirectivePlugin } from './plugins/remark/directive'
-import remarkRunner from './plugins/remark/runner'
+import remarkRunnerPlugin from './plugins/remark/runner'
 import { remarkPlainTextPlugin } from './plugins/remark/plain-text/index'
 import { markdownComponents } from './hast-components'
 import remarkCodeBlcokPlugin from './plugins/remark/code-block'
@@ -61,7 +61,7 @@ async function transfromCode2Jsx(
       remarkSlugPlugin,
       remarkCodeBlcokPlugin,
       [remarkDefinition, assign(definitionMap, definitions)],
-      remarkRunner,
+      remarkRunnerPlugin,
       [remarkPlainTextPlugin, { variable, emoji }],
       remarkHtmlParser,
     ],

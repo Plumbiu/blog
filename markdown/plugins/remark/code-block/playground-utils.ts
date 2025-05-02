@@ -36,10 +36,7 @@ export function isPlayground(props: any) {
 }
 
 const WhiteSpaceMultiRegx = /\s+/
-export const buildFiles = (code: string, selector?: string) => {
-  if (selector && !code?.startsWith(selector)) {
-    code = `${FileMapStartStr} ${selector}\n${code}`
-  }
+export const buildFiles = (code: string) => {
   const tokens = code.split(FileMapStartStr)
   const attrs: FileMap = {}
   for (let i = 0; i < tokens.length; i++) {
@@ -54,4 +51,12 @@ export const buildFiles = (code: string, selector?: string) => {
     }
   }
   return attrs
+}
+
+export function getDefaultSelector(code: string) {
+  const firstLine = getFirstLine(code)
+  const appKey = firstLine.startsWith(FileMapStartStr)
+    ? firstLine.replace(FileMapStartStr, '').trim()
+    : undefined
+  return appKey
 }

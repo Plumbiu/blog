@@ -15,7 +15,7 @@ import { makeProperties } from '../utils'
 import { sucraseParse } from '@/lib/node/jsx-parse'
 import { markComponent } from './utils'
 
-const remarkRunner: RemarkPlugin = () => {
+const remarkRunnerPlugin: RemarkPlugin = () => {
   return (tree) => {
     visit(tree, 'code', (node) => {
       makeProperties(node)
@@ -49,4 +49,4 @@ const remarkRunner: RemarkPlugin = () => {
   }
 }
 
-export default remarkRunner
+export default remarkRunnerPlugin

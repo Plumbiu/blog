@@ -7,7 +7,6 @@ import {
   FileMapItemKey,
   handleComponentCode,
   handleComponentMeta,
-  handleComponentSelectorKey,
   handleLang,
 } from '../../constant'
 import { hCode, markPre } from './mark-pre-utils'
@@ -21,9 +20,8 @@ function markCustomComponentPre(node: Element) {
   const props = node.properties
   if (isPlayground(props) || isSwitcher(props)) {
     const code = handleComponentCode(props)
-    const selector = handleComponentSelectorKey(props)
     // TODO: already build files in remark-plugin
-    const files = buildFiles(code, selector)
+    const files = buildFiles(code)
     const meta = handleComponentMeta(props)
     const lang = handleLang(props)
     markPre(

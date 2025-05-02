@@ -11,6 +11,7 @@ import {
   PlaygroundHideCodeTabsName,
   buildFiles,
   handlePlaygroundCustomPreivew,
+  getDefaultSelector,
 } from './playground-utils'
 import {
   handleComponentCode,
@@ -21,7 +22,7 @@ import {
   handleLang,
   type RemarkPlugin,
 } from '../../constant'
-import { getFirstFileKey, makeProperties } from '../../utils'
+import { makeProperties } from '../../utils'
 import { SwitcherName } from './switcher-utils'
 import { entries, keys } from '@/lib/types'
 import { handlePreTitleValue, PreTitleName } from './pre-title-utils'
@@ -56,7 +57,6 @@ const remarkCodeBlcokPlugin: RemarkPlugin = () => {
       const isPlayground = meta.includes(PlaygroundName)
       const isSwitcher = meta.includes(SwitcherName)
       const isPreTitle = PreTitleRegx.test(meta)
-      const myBeAppFile = getFirstFileKey(code)
 
       const changeNodeType = () => {
         markComponent(node)
@@ -65,7 +65,11 @@ const remarkCodeBlcokPlugin: RemarkPlugin = () => {
       handleComponentCode(props, code)
       handleLang(props, lang)
 
-      const setNodeProps = (selector: string) => {
+      const setNodeProps = () => {
+        const defaultSelector = getDefaultSelector(code)
+        if (!defaultSelector) {
+          return
+        }
         const componentName = isPlayground
           ? PlaygroundName
           : isSwitcher
@@ -75,14 +79,14 @@ const remarkCodeBlcokPlugin: RemarkPlugin = () => {
           return
         }
         handleComponentName(props, componentName)
-        handleComponentSelectorKey(props, selector)
+        handleComponentSelectorKey(props, defaultSelector)
         handlePlaygroundHidePreviewTabsKey(
           props,
           meta.includes(PlaygroundHidePreviewTabsName),
         )
 
         let hideTabs = true
-        const files = buildFiles(code, selector)
+        const files = buildFiles(code)
         const fileKeys = keys(files)
         let styles = ''
         for (const key of fileKeys) {
@@ -112,12 +116,12 @@ const remarkCodeBlcokPlugin: RemarkPlugin = () => {
       }
       if (isPlayground) {
         if (SupportPlaygroundLang.has(lang)) {
-          setNodeProps(myBeAppFile ?? `App.${lang}`)
+          setNodeProps()
         } else if (SupportStaticPlaygroundLang.has(lang)) {
-          setNodeProps(myBeAppFile ?? 'index.html')
+          setNodeProps()
         }
-      } else if (isSwitcher && myBeAppFile) {
-        setNodeProps(myBeAppFile)
+      } else if (isSwitcher) {
+        setNodeProps()
       } else if (isPreTitle) {
         const title = PreTitleRegx.exec(meta)?.[2]
         if (title) {

@@ -29,7 +29,6 @@ export function customShikiTranformer({
   return {
     preprocess(code) {
       if (highlightWord) {
-        console.log(highlightWord)
         return `// [!code word:${highlightWord}]\n${code}`
       }
     },

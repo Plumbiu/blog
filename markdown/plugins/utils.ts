@@ -1,4 +1,3 @@
-import { FileMapStartStr } from './constant'
 import type { ReamrkCommonNode } from './types'
 
 export function makeProperties(node: ReamrkCommonNode) {
@@ -47,12 +46,4 @@ export function getSuffix(name: string) {
     return ''
   }
   return name.slice(index + 1)
-}
-
-export function getFirstFileKey(code: string) {
-  const firstLine = getFirstLine(code)
-  const appKey = firstLine.startsWith(FileMapStartStr)
-    ? firstLine.replace(FileMapStartStr, '').trim()
-    : undefined
-  return appKey
 }
