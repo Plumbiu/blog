@@ -340,7 +340,7 @@ console.log('custom-title')
 
 - **emoji**：转换 emoji，全局配置文件 [markdown/config/emoji.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/emoji.ts)。
 - **变量**：通过定义变量显示文字，全局配置文件 [markdown/config/variables.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/variables.ts)。
-- **definitions**：类似 `<!-- Definitions -->`，可将空链接或者对应语法转换为合法链接，全局配置文件 [markdown/config/links.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/links.ts)
+- **definitions**：类似 `<!-- Definitions -->`，可将空链接或者对应语法转换为合法链接，全局配置文件 [markdown/config/definitions.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/definitions.ts)
 
 输入：
 
