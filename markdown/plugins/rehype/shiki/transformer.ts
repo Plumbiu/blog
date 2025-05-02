@@ -17,15 +17,15 @@ interface TransformerOptions {
   lang: string
 }
 
-const HightLightWordRegx = /\s\/(.+)\/\s?/
+const HightLightWordRegx = /\s\/([^/]+)\//
 export function customShikiTranformer({
   meta,
   lang,
 }: TransformerOptions): ShikiTransformer {
   const shouldHighlightLine = calculateLinesToHighlight(meta)
   const shouldAddNumber = meta.includes('line')
-  const highlightWord = HightLightWordRegx.exec(meta)?.[1]
-
+  // path="/posts/test.md" will match if the meta does not start with " "
+  const highlightWord = HightLightWordRegx.exec(' ' + meta)?.[1]
   return {
     preprocess(code) {
       if (highlightWord) {
