@@ -94,7 +94,7 @@ export function shikiHightlightWordFormatTransformer(): ShikiTransformer {
           firstNode?.type === 'element' &&
           lastNode?.type === 'element' &&
           firstNodeIndex !== lastNodeIndex &&
-          line.children.slice(firstNodeIndex, lastNodeIndex + 1).every(find)
+          line.children.slice(firstNodeIndex, lastNodeIndex).every(find)
         ) {
           this.addClassToHast(firstNode, `${HighLightWordClassName}-start`)
           this.addClassToHast(lastNode, `${HighLightWordClassName}-end`)
