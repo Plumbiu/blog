@@ -33,9 +33,6 @@ export function customShikiTranformer({
       }
     },
     line(node, line) {
-      if (highlightWord) {
-        console.log(toString(node))
-      }
       // meta line
       if (shouldAddNumber) {
         node.properties['data-line'] = line
