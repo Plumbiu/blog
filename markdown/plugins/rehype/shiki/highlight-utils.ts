@@ -1,9 +1,8 @@
+import { isString } from '@/lib/types'
+
 // This code is modified based on
 // https://github.com/euank/node-parse-numeric-range/blob/master/index.js
 //  LICENSE: https://github.com/euank/node-parse-numeric-range/blob/master/LICENSE
-
-import { isString } from "@/lib/types"
-
 const RangeNumRegx = /^-?\d+$/
 const LineRegx = /^(-?\d+)(-|\.\.\.?|\u2025|\u2026|\u22EF)(-?\d+)$/
 export function parsePart(s: string) {
@@ -57,6 +56,8 @@ export const getLanguage = (className: any) => {
 }
 
 export const HighLightWordClassName = 'highlight-word'
+export const HighLightWordStartClassName = `${HighLightWordClassName}-start`
+export const HighLightWordEndClassName = `${HighLightWordClassName}-end`
 export const HighLightLineClassName = 'highlight-line'
 export const DiffInsertedClassName = 'inserted'
 export const DiffDeletedClassName = 'deleted'

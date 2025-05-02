@@ -24,6 +24,11 @@ export const markdownComponents: Partial<Components> = {
     }
     return <PreComponent>{children}</PreComponent>
   },
+  code(props) {
+    const { node, ...rest } = props
+    optimizeProps(rest)
+    return <code {...rest}>{props.children}</code>
+  },
   async img(props) {
     const { src, alt } = props
     if (!src || !alt) {

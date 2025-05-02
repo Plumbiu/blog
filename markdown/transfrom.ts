@@ -5,7 +5,7 @@ import remarkDirective from 'remark-directive'
 import remarkGfm from 'remark-gfm'
 import { toJsxRuntime } from 'hast-util-to-jsx-runtime'
 import { Fragment, jsx, jsxs } from 'react/jsx-runtime'
-import rehypeShikiHighlight from './plugins/rehype/shiki/hightlight'
+import rehypeShikiPlugin from './plugins/rehype/shiki/hightlight'
 import rehypeElementPlugin from './plugins/rehype/elements'
 import remarkSlugPlugin from './plugins/remark/slug'
 import { remarkContainerDirectivePlugin } from './plugins/remark/directive'
@@ -65,7 +65,7 @@ async function transfromCode2Jsx(
       [remarkPlainTextPlugin, { variable, emoji }],
       remarkHtmlParser,
     ],
-    rehype: [rehypeElementPlugin, rehypeShikiHighlight],
+    rehype: [rehypeElementPlugin, rehypeShikiPlugin],
   })
   return node
 }

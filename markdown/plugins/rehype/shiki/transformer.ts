@@ -8,6 +8,8 @@ import {
   DiffInsertedClassName,
   HighLightLineClassName,
   HighLightWordClassName,
+  HighLightWordEndClassName,
+  HighLightWordStartClassName,
 } from './highlight-utils'
 
 interface TransformerOptions {
@@ -25,25 +27,14 @@ export function customShikiTranformer({
   const highlightWord = HightLightWordRegx.exec(meta)?.[1]
 
   return {
-    line(node, line) {
-      const str = toString(node)
-      // meta hightlight word
+    preprocess(code) {
       if (highlightWord) {
-        const hightlightWordIndex = str.indexOf(highlightWord)
-        if (highlightWord && hightlightWordIndex !== -1) {
-          let count = 0
-          for (const child of node.children) {
-            if (child.type !== 'element') {
-              continue
-            }
-            const childStr = toString(child)
-            const endIndex = hightlightWordIndex + highlightWord.length
-            if (count >= hightlightWordIndex && count < endIndex) {
-              this.addClassToHast(child, HighLightWordClassName)
-            }
-            count += childStr.length
-          }
-        }
+        return `// [!code word:${highlightWord}]\n${code}`
+      }
+    },
+    line(node, line) {
+      if (highlightWord) {
+        console.log(toString(node))
       }
       // meta line
       if (shouldAddNumber) {
@@ -55,7 +46,8 @@ export function customShikiTranformer({
       }
       // meta diff
       if (lang.startsWith('diff-')) {
-        const ch = str.substring(0, 1)
+        const str = toString(node)
+        const ch = str.slice(0, 1)
         if (ch !== '-' && ch !== '+') {
           return
         }
@@ -96,8 +88,8 @@ export function shikiHightlightWordFormatTransformer(): ShikiTransformer {
           firstNodeIndex !== lastNodeIndex &&
           line.children.slice(firstNodeIndex, lastNodeIndex).every(find)
         ) {
-          this.addClassToHast(firstNode, `${HighLightWordClassName}-start`)
-          this.addClassToHast(lastNode, `${HighLightWordClassName}-end`)
+          this.addClassToHast(firstNode, HighLightWordStartClassName)
+          this.addClassToHast(lastNode, HighLightWordEndClassName)
         }
       })
     },

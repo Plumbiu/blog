@@ -63,7 +63,7 @@ const themeOptions = {
 // This code is modified based on
 // https://github.com/timlrx/rehype-prism-plus/blob/main/src/generator.js
 // LICENSE: https://github.com/timlrx/rehype-prism-plus/blob/main/LICENSE
-const rehypeShikiHighlight = () => {
+const rehypeShikiPlugin = () => {
   return async (tree: Root) => {
     const shiki = await getSingletonHighlighterCore(shikiOptions)
     visit(tree, 'element', (node, _index, parent) => {
@@ -88,18 +88,9 @@ const rehypeShikiHighlight = () => {
             themes: themeOptions,
             lang: lang.replace('diff-', ''),
             transformers: [
-              shikiClassTransformer({
-                map: shikiMap,
-                deletedKeys: [
-                  '--shiki-dark',
-                  'text-decoration',
-                  '--shiki-dark-text-decoration',
-                ],
-              }),
-              customShikiTranformer({
-                meta,
-                lang,
-              }),
+              // transformerMetaWordHighlight({
+              //   className: HighLightWordClassName,
+              // }),
               transformerNotationWordHighlight({
                 matchAlgorithm: 'v3',
                 classActiveWord: HighLightWordClassName,
@@ -113,6 +104,18 @@ const rehypeShikiHighlight = () => {
                 classLineAdd: DiffInsertedClassName,
                 classLineRemove: DiffDeletedClassName,
               }),
+              shikiClassTransformer({
+                map: shikiMap,
+                deletedKeys: [
+                  '--shiki-dark',
+                  'text-decoration',
+                  '--shiki-dark-text-decoration',
+                ],
+              }),
+              customShikiTranformer({
+                meta,
+                lang,
+              }),
               shikiHightlightWordFormatTransformer(),
             ],
             // @ts-ignore
@@ -125,4 +128,4 @@ const rehypeShikiHighlight = () => {
   }
 }
 
-export default rehypeShikiHighlight
+export default rehypeShikiPlugin

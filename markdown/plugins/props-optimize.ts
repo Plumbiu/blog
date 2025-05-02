@@ -1,6 +1,5 @@
 import {
   ComponentCodeKey,
-  FileMapItemKey,
   ComponentLangKey,
   ComponentMetaKey,
   ComponentPropsKey,
@@ -15,6 +14,5 @@ export function optimizeProps(props: any) {
   delete props[ComponentCodeKey]
   delete props[ComponentLangKey]
   delete props[ComponentMetaKey]
-  delete props[FileMapItemKey]
   delete props[ComponentPropsKey]
 }
