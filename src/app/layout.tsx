@@ -29,16 +29,6 @@ export const metadata: Metadata = {
   }),
 }
 
-const IS_GITPAGE = !!process.env.GITPAGE
-
-const getSearchPanelData = async () => {
-  if (!IS_GITPAGE) {
-    return []
-  }
-
-  return getSearchApiData()
-}
-
 const IsDev = process.env.NODE_ENV === 'development'
 const ScriptBasename = IsDev ? 'dev' : 'index'
 
@@ -47,7 +37,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: ReactNode
 }>) {
-  const searchData = await getSearchPanelData()
+  const searchData = await getSearchApiData()
   return (
     <html lang="zh" suppressHydrationWarning>
       <head>

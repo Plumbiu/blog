@@ -17,6 +17,7 @@ export default async function getSearchApiData() {
       meta: {
         desc: item.meta.desc,
         title: item.meta.title,
+        tags: item.meta.tags,
       },
       path: item.path,
       type: item.type,

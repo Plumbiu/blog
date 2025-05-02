@@ -1,8 +1,11 @@
 .wrap {
+  position: relative;
   flex-direction: column;
+  padding: 24px 0;
   gap: 16px;
-  margin: auto;
-  height: calc(100vh - var(--header-h) - 86px);
+  margin: 0 auto;
+  background-color: var(--bg-card);
+  border-radius: 12px;
 
   &>h1 {
     margin: 0;
@@ -12,5 +15,17 @@
   &>div {
     font-weight: 600;
     font-size: 20px;
+  }
+}
+
+.tag {
+  display: block;
+  padding: 6px 12px;
+  font-size: var(--text-lg);
+  border-radius: 12px;
+  background-color: var(--c-indigo-soft);
+
+  &:hover {
+    background-color: var(--c-purple-soft);
   }
 }

@@ -4,7 +4,6 @@ import {
   removeMdSuffix,
   upperFirstChar,
 } from '@/lib/shared'
-import NotFound from '@/components/function/NotFound'
 import { getPostsPath, getPost } from '~/markdown/utils/fs'
 import { generateSeoMetaData, joinWebUrl } from '@/app/seo'
 import Toc from './components/Toc'
@@ -14,6 +13,7 @@ import './styles/md.css'
 import './styles/shiki.css'
 import transfromCode2Jsx from '~/markdown/transfrom'
 import PostMeta from '@/components/layout/post-meta'
+import NotFound from '@/components/function/NotFound'
 
 export async function generateStaticParams() {
   const mds = await getPostsPath()

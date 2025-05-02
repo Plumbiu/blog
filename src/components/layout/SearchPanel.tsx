@@ -15,21 +15,20 @@ import Modal from '../ui/Modal'
 import { CopyErrorIcon, SearchIcon } from '../Icons'
 import Link from 'next/link'
 import useSearchPanelStore from '@/store/search-panel'
-import type { PostList } from '~/markdown/types'
+import type { PostList, PostMeta } from '~/markdown/types'
 
 export type SearchData = Pick<PostList, 'path' | 'type'> & {
-  meta: Pick<PostList['meta'], 'title' | 'desc'>
+  meta: Pick<PostMeta, 'title' | 'desc' | 'tags'>
 }
 interface SearchPanelProps {
-  data?: SearchData[]
+  data: SearchData[]
 }
 
 const SearchPanel = memo(({ data }: SearchPanelProps) => {
   const hidden = useSearchPanelStore((s) => s.hidden)
   const searchPanelVisible = useSearchPanelStore((s) => s.visible)
   const [mounted, setMounted] = useState(false)
-  const [lists, setLists] = useState<SearchData[]>([])
-  const listRef = useRef(data)
+  const [lists, setLists] = useState<SearchData[]>(data)
   const [activePath, setActivePath] = useState<string>()
   const [search, setSearch] = useState('')
   const contentRef = useRef<HTMLDivElement>(null)
@@ -40,21 +39,9 @@ const SearchPanel = memo(({ data }: SearchPanelProps) => {
   }, [])
 
   useEffect(() => {
-    if (!listRef.current?.length) {
-      fetch('/api/search', {
-        cache: 'force-cache',
-      })
-        .then((res) => res.json())
-        .then((data: PostList[]) => {
-          listRef.current = data
-        })
-    }
-  }, [])
-
-  useEffect(() => {
-    if (search.length > 0 && listRef.current) {
+    if (search.length > 0) {
       const lowerFormat = search.toLowerCase()
-      const lists = listRef.current.filter(
+      const lists = data.filter(
         (list) =>
           list.meta.title.toLowerCase().includes(lowerFormat) ||
           list.meta.desc?.toLowerCase().includes(lowerFormat),
@@ -72,16 +59,16 @@ const SearchPanel = memo(({ data }: SearchPanelProps) => {
       if (!search || !lowerText.includes(lowerSearch)) {
         return text
       }
-      const index = lowerText.indexOf(search)
-      const before = lowerText.slice(0, index)
-      const after = lowerText.slice(index + search.length)
+      const index = lowerText.indexOf(lowerSearch)
+      const before = text.slice(0, index)
+      const after = text.slice(index + search.length)
       return (
         <>
-          {before}
+          <span>{before}</span>
           <span className={styles.highlight_word}>
             {text.slice(index, index + search.length)}
           </span>
-          {after}
+          <span>{after}</span>
         </>
       )
     },
@@ -144,6 +131,12 @@ const SearchPanel = memo(({ data }: SearchPanelProps) => {
                 >
                   <div className={styles.title}>
                     {handleHihglight(meta.title)}
+                    {!!meta.tags &&
+                      meta.tags.map((tag) => (
+                        <div className={styles.tag} key={tag}>
+                          {tag}
+                        </div>
+                      ))}
                   </div>
                   {!!meta.desc && (
                     <div className={styles.desc}>

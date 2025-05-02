@@ -78,7 +78,7 @@ async function ArtlistAll(props: ListProps) {
     type ? (post) => post.type === type : undefined,
   )
   const pageCount = Math.ceil(listData.length / MAX_PAGE_SIZE)
-  if (pagenum > pageCount) {
+  if (pagenum > pageCount || listData.length === 0) {
     return <NotFound />
   }
 
