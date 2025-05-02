@@ -55,7 +55,7 @@
   transform: translateY(-50%);
   width: 4px;
   border-radius: 4px;
-  background-color: var(--c-indigo-3);
+  background-color: var(--c-indigo-1);
   transition: height 250ms;
 }
 

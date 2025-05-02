@@ -20,7 +20,7 @@
   }
 
   h2 {
-    margin-top: 2em;
+    margin-top: 1.5em;
   }
 
   /* table */
@@ -191,7 +191,7 @@
 
     & code {
       color: var(--c-md-alert-caution);
-      background-color: var(--c-red-soft);  
+      background-color: var(--c-red-soft);
     }
   }
 
