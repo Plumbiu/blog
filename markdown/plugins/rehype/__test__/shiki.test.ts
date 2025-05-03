@@ -6,8 +6,6 @@ import {
   DiffInsertedClassName,
   HighLightLineClassName,
   HighLightWordClassName,
-  HighLightWordEndClassName,
-  HighLightWordStartClassName,
 } from '../shiki/highlight-utils'
 import rehypeShikiPlugin from '../shiki/hightlight'
 
@@ -39,27 +37,10 @@ console.log(222)
       logDoms.every((item) => item.classList.contains(HighLightWordClassName)),
     ).toBe(true)
   })
-  test('highlight: word start and end className', async () => {
-    const markdown = `
-\`\`\`js /.log/
-// [!code word:console]
-console.log(msg)
-\`\`\`
-`
-    const node = await transform(markdown)
-    const { container } = render(node)
-    const doms = container.querySelectorAll(
-      `span[class*="${HighLightWordClassName}"]`,
-    )
-    expect(doms[0].classList.contains(HighLightWordStartClassName)).toBe(true)
-    expect(
-      doms[doms.length - 1].classList.contains(HighLightWordEndClassName),
-    ).toBe(true)
-  })
 
   test('highlight: line', async () => {
     const markdown = `
-\`\`\`ts {1,3}
+\`\`\`ts {1,3} line
 console.log('1')
 console.log('2')
 console.log('3')
@@ -70,6 +51,9 @@ console.log('5')
     const node = await transform(markdown)
     const { container } = render(node)
     const codeElm = container.querySelectorAll('code > span')
+    for (let i = 0; i < codeElm.length; i++) {
+      expect(codeElm[i].getAttribute('data-line')).toBe(String(i + 1))
+    }
     expect(codeElm[0].classList.contains(HighLightLineClassName)).toBe(true)
     expect(codeElm[2].classList.contains(HighLightLineClassName)).toBe(true)
     expect(codeElm[3].classList.contains(HighLightLineClassName)).toBe(true)

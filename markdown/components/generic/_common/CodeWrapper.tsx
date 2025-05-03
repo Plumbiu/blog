@@ -18,7 +18,11 @@ const CodeWrapper = memo(
           <div className={styles.bar}>
             <div>{barText}</div>
             {forceUpdate && (
-              <div className={styles.rerun} onClick={forceUpdate}>
+              <div
+                data-testid="force-update-btn"
+                className={styles.rerun}
+                onClick={forceUpdate}
+              >
                 <RestartIcon />
               </div>
             )}

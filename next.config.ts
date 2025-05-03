@@ -31,6 +31,9 @@ const nextConfig: NextConfig = {
   experimental: {
     cssChunking: false,
   },
+  compiler: {
+    reactRemoveProperties: { properties: ['^data-testid'] },
+  },
   basePath: BasePath,
   assetPrefix: BasePath,
   serverExternalPackages: ['three', '@react-three/fiber', 'lil-gui'],

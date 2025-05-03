@@ -1,15 +1,10 @@
-import type { ElementContent, Element } from 'hast'
 import type { ShikiTransformer } from 'shiki'
 import { toString } from 'hast-util-to-string'
-import { isArray, isString } from '@/lib/types'
 import {
   calculateLinesToHighlight,
   DiffDeletedClassName,
   DiffInsertedClassName,
   HighLightLineClassName,
-  HighLightWordClassName,
-  HighLightWordEndClassName,
-  HighLightWordStartClassName,
 } from './highlight-utils'
 
 interface TransformerOptions {
@@ -38,7 +33,7 @@ export function customShikiTranformer({
         node.properties['data-line'] = line
       }
       // meta hightlight line
-      if (shouldHighlightLine(line - 1)) {
+      if (shouldHighlightLine(line)) {
         this.addClassToHast(node, HighLightLineClassName)
       }
       // meta diff
@@ -54,41 +49,6 @@ export function customShikiTranformer({
           ch === '-' ? DiffDeletedClassName : DiffInsertedClassName,
         )
       }
-    },
-  }
-}
-
-export function shikiHightlightWordFormatTransformer(): ShikiTransformer {
-  function find(node: ElementContent) {
-    if (node.type !== 'element') {
-      return false
-    }
-    const className = node.properties.class
-    if (!isString(className) && !isArray(className)) {
-      return false
-    }
-    return className.includes(HighLightWordClassName)
-  }
-  return {
-    code(node) {
-      const lines = node.children.filter(
-        (i) => i.type === 'element',
-      ) as Element[]
-      lines.forEach((line) => {
-        const firstNodeIndex = line.children.findIndex(find)
-        const lastNodeIndex = line.children.findLastIndex(find)
-        const firstNode = line.children[firstNodeIndex]
-        const lastNode = line.children[lastNodeIndex]
-        if (
-          firstNode?.type === 'element' &&
-          lastNode?.type === 'element' &&
-          firstNodeIndex !== lastNodeIndex &&
-          line.children.slice(firstNodeIndex, lastNodeIndex).every(find)
-        ) {
-          this.addClassToHast(firstNode, HighLightWordStartClassName)
-          this.addClassToHast(lastNode, HighLightWordEndClassName)
-        }
-      })
     },
   }
 }

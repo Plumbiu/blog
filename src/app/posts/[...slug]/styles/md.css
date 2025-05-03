@@ -269,26 +269,9 @@
 
   .highlight-word {
     box-sizing: content-box;
-    padding: 0 1px;
+    padding: 0 2px;
     border-radius: 4px;
     border: 1px solid var(--c-green-soft);
-
-    &+.highlight-word {
-      border-radius: 0;
-      padding: 0;
-      border-left: none;
-      border-right: none;
-    }
-
-    &.highlight-word-start {
-      border-right: none;
-      border-radius: 4px 0 0 4px;
-    }
-
-    &.highlight-word-end {
-      border-right: 1px solid var(--c-green-soft);
-      border-radius: 0 4px 4px 0;
-    }
   }
 
   .deleted {

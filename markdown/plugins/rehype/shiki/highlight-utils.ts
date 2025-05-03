@@ -4,9 +4,9 @@ import { isString } from '@/lib/types'
 // https://github.com/euank/node-parse-numeric-range/blob/master/index.js
 //  LICENSE: https://github.com/euank/node-parse-numeric-range/blob/master/LICENSE
 const RangeNumRegx = /^-?\d+$/
-const LineRegx = /^(-?\d+)(-|\.\.\.?|\u2025|\u2026|\u22EF)(-?\d+)$/
+const LineRegx = /^(-?\d+)(-|\.\.\.?)(-?\d+)$/
 export function parsePart(s: string) {
-  const res = new Set()
+  const res = new Set<number>()
   let m: RegExpMatchArray | null
   for (let str of s.split(',')) {
     str = str.trim()
@@ -32,18 +32,21 @@ export function parsePart(s: string) {
   return res
 }
 
-const NumRangeRegx = /{([\d,-]+)}/
+const NumRangeRegx = /{([\d,-.]+)}/
 export const calculateLinesToHighlight = (meta: string) => {
   const parsed = NumRangeRegx.exec(meta)
-  if (parsed === null) {
+  if (parsed == null) {
     return () => false
   }
   const strlineNumbers = parsed[1]
   const lineNumbers = parsePart(strlineNumbers)
-  return (index: number) => lineNumbers.has(index + 1)
+  return (index: number) => lineNumbers.has(index)
 }
 
-export const getLanguage = (className: any) => {
+export const getLanguage = (className?: any) => {
+  if (className == null) {
+    return 'txt'
+  }
   if (isString(className)) {
     className = className.split(' ')
   }
@@ -56,8 +59,6 @@ export const getLanguage = (className: any) => {
 }
 
 export const HighLightWordClassName = 'highlight-word'
-export const HighLightWordStartClassName = `${HighLightWordClassName}-start`
-export const HighLightWordEndClassName = `${HighLightWordClassName}-end`
 export const HighLightLineClassName = 'highlight-line'
 export const DiffInsertedClassName = 'inserted'
 export const DiffDeletedClassName = 'deleted'

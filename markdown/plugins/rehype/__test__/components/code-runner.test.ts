@@ -19,11 +19,17 @@ ${code}
   })
   render(node)
   const codeDom = screen.getByRole('code')
+  const testPrint = async () => {
+    await waitFor(() => {
+      const startDom = screen.getByText('start')
+      expect(startDom.nextSibling?.textContent).toBe('String')
+      const endDom = screen.getByText('111')
+      expect(endDom.nextSibling?.textContent).toBe('Number')
+    })
+  }
   expect(codeDom.textContent).toBe(code)
-  await waitFor(() => {
-    const startDom = screen.getByText('start')
-    expect(startDom.nextSibling?.textContent).toBe('String')
-    const endDom = screen.getByText('111')
-    expect(endDom.nextSibling?.textContent).toBe('Number')
-  })
+  await testPrint()
+  const button = screen.getByTestId('force-update-btn')
+  button.click()
+  await testPrint()
 })
