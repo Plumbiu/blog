@@ -10,11 +10,8 @@
 
 .action {
   position: absolute;
-  top: 6px;
+  top: 8px;
   right: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
   pointer-events: none;
   overflow: hidden;
   color: var(--text-2);
@@ -22,20 +19,20 @@
   opacity: 0;
 
   & svg {
-    display: inline-block;
     box-sizing: content-box;
     transform: scale(0.5);
     animation: scale-in 0.15s forwards;
     z-index: 9;
     border-radius: 8px;
-    font-size: 20px;
+    font-size: var(--text-lg);
     padding: 9px;
     cursor: pointer;
     background-color: var(--c-gray-soft);
     border: 1px solid var(--divider);
-    transition: color 150ms;
+    transition: 150ms;
 
     &:hover {
+      background-color: var(--c-indigo-soft);
       color: var(--c-indigo-1);
     }
   }

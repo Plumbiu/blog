@@ -5,7 +5,6 @@ import { CopyCheckIcon, CopyErrorIcon, CopyIcon } from '@/components/Icons'
 import { renderReactNodeToString } from '@/lib/client'
 import styles from './Pre.module.css'
 import { cn } from '@/lib/client'
-import { mono } from '@/app/fonts'
 
 interface PreComponentProps {
   children: ReactNode
@@ -31,7 +30,7 @@ const PreComponent = memo(({ children, className }: PreComponentProps) => {
     }
   }, [])
   return (
-    <div className={cn(mono.className, styles.wrap, className)}>
+    <div className={cn(styles.wrap, className)}>
       <div className={styles.action} onClick={copy}>
         {icon}
       </div>

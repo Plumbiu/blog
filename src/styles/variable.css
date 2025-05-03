@@ -85,7 +85,7 @@
   --post-w: calc(var(--main-w) - var(--side-w) - 16px);
   --rest-w: calc((100vw - var(--main-w)) / 2);
   --pre-radius: 8px;
-  --pre-padding: 12px;
+  --pre-padding: 16px;
   --extend-x: -76px;
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
