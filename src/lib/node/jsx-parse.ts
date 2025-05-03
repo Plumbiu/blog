@@ -9,7 +9,11 @@ export function sucraseParse(
   code: string,
   options: Options = transfromOptions,
 ) {
-  const compiled = transform(code, options).code
+  const compiled = transform(code, options).code.replace(
+    'Object.defineProperty(exports, "__esModule", {value: true});',
+    '',
+  )
+
   if (process.env.NODE_ENV === 'development') {
     return compiled
   }

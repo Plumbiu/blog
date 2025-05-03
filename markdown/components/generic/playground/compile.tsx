@@ -62,9 +62,11 @@ export function renerPlayground({
   const loop = () => {
     for (const key of jsKyes) {
       const value = getReactComponentByEvalCode(files[key], scope, true)
-      const scopeKey = getJsxLikeBasename(key)
-      if (scopeKey) {
-        scope['./' + scopeKey] = value
+      if (value) {
+        const scopeKey = getJsxLikeBasename(key)
+        if (scopeKey) {
+          scope['./' + scopeKey] = value
+        }
       }
     }
   }

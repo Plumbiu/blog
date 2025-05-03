@@ -79,9 +79,7 @@ function ImageGallery(props: any) {
       window.addEventListener('touchstart', drageStart)
       window.addEventListener('touchmove', dragMove)
       window.addEventListener('touchend', dragEnd)
-    }
-    return () => {
-      if (slideNode && isMobile) {
+      return () => {
         window.removeEventListener('touchstart', drageStart)
         window.removeEventListener('touchmove', dragMove)
         window.removeEventListener('touchend', dragEnd!)

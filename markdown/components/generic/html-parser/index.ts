@@ -13,9 +13,10 @@ const HtmlParser = React.memo((props: any) => {
       ...customComponentMap,
     })
   }, [])
-  if (!component) {
-    return null
-  }
+  // error if component not exist
+  // if (!component) {
+  //   return null
+  // }
   return React.createElement(component)
 })
 
