@@ -23,7 +23,10 @@ function CustomComponent(props: any) {
     customComponentMap[componentName] ?? genericComponentMap[componentName]
 
   if (value) {
-    if (SyncComponentNameSet.has(componentName)) {
+    if (
+      SyncComponentNameSet.has(componentName) ||
+      process.env.NODE_ENV === 'test'
+    ) {
       return createElement(value, props)
     }
 

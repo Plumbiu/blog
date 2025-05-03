@@ -28,12 +28,7 @@ import { sucraseParse } from '@/lib/node/jsx-parse'
 import { tryReadFileSync } from '@/lib/node/fs'
 import { MarkdownPath } from '~/data/constants/node'
 import { markComponent } from '../utils'
-import {
-  buildFiles,
-  getFirstFileKey,
-  isDyncmicLangugage,
-  isStaticLangugage,
-} from './playground-node-utils'
+import { buildFiles, getFirstFileKey } from './playground-node-utils'
 
 const PreTitleRegx = /title=(['"])([^'"]+)\1/
 interface RemoteNode {
@@ -113,13 +108,7 @@ const remarkCodeBlcokPlugin: RemarkPlugin = () => {
         handlePlaygroundStyles(props, styles)
         changeNodeType()
       }
-      if (isPlayground) {
-        if (isDyncmicLangugage(lang)) {
-          setNodeProps()
-        } else if (isStaticLangugage(lang)) {
-          setNodeProps()
-        }
-      } else if (isSwitcher && defaultSelector) {
+      if (isPlayground || (isSwitcher && defaultSelector)) {
         setNodeProps()
       } else if (isPreTitle) {
         const title = PreTitleRegx.exec(meta)?.[2]
