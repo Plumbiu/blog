@@ -110,6 +110,7 @@ const Playground = (props: any) => {
         {!(isStatic || isPreviewTabsHidden) && (
           <div className={tabStyles.tab}>
             <div
+              data-testid="preview-tab"
               className={cn({
                 [tabStyles.tab_active]: !isConsoleVisible,
               })}
@@ -118,6 +119,7 @@ const Playground = (props: any) => {
               Preview
             </div>
             <div
+              data-testid="console-tab"
               className={cn({
                 [tabStyles.tab_active]: isConsoleVisible,
               })}
@@ -132,6 +134,7 @@ const Playground = (props: any) => {
           className={cn(styles.preview, {
             [styles.hide]: isConsoleVisible,
           })}
+          data-testid="preview"
           ref={nodeRef}
         />
         <Console

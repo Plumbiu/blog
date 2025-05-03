@@ -1,6 +1,6 @@
 import { test, expect } from 'vitest'
 import { transformCodeWithOptions } from '~/markdown/transfrom'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import remarkHtmlParser from '~/markdown/plugins/remark/html-parse'
 
 test('components: pre-title', async () => {
@@ -10,8 +10,6 @@ test('components: pre-title', async () => {
     rehype: [],
   })
   render(node)
-  await waitFor(() => {
-    const dom = screen.getByRole('deletion')
-    expect(dom.textContent).toBe('ExtensionText')
-  })
+  const dom = await screen.findByRole('deletion')
+  expect(dom.textContent).toBe('ExtensionText')
 })

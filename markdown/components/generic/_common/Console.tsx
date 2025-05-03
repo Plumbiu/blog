@@ -65,7 +65,11 @@ const Console = memo(
     }, [showType, logs])
 
     return (
-      <div className={cn(styles.console, className)} {...rest}>
+      <div
+        data-dataid="console"
+        className={cn(styles.console, className)}
+        {...rest}
+      >
         {node}
       </div>
     )

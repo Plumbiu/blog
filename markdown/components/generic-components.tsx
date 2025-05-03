@@ -9,7 +9,7 @@ import { PlaygroundName } from '~/markdown/plugins/remark/code-block/playground-
 import { CodeRunnerName } from '~/markdown/plugins/remark/runner-utils'
 import { GalleryName } from '~/markdown/plugins/remark/gallery-utils'
 import { SwitcherName } from '~/markdown/plugins/remark/code-block/switcher-utils'
-import { PreTitleName } from '~/markdown/plugins/remark/code-block/pre-title-utils'
+import { PreTitleName } from '~/markdown/plugins/remark/code-block/title-utils'
 import { IframeName } from '~/markdown/plugins/remark/iframe-utils'
 import { HTMLParserName } from '~/markdown/plugins/remark/html-parser-utils'
 import HtmlParser from './generic/html-parser'

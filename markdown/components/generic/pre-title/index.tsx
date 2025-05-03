@@ -1,4 +1,4 @@
-import { handlePreTitleValue } from '~/markdown/plugins/remark/code-block/pre-title-utils'
+import { handlePreTitleValue } from '~/markdown/plugins/remark/code-block/title-utils'
 import codeWrapperStyles from '../_common/CodeWrapper.module.css'
 import styles from './index.module.css'
 import PreComponent from '@/components/ui/Pre'

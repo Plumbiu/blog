@@ -19,6 +19,7 @@ const Tab = memo((props: TabProps) => {
   }
   return (
     <div
+      data-testid="code-tab"
       key={name}
       onClick={onClick}
       className={cn({

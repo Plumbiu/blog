@@ -4,7 +4,7 @@ import IntersectionObserverComponent from '@/components/function/IntersectionObs
 import { createElement } from 'react'
 import { handleComponentName } from '~/markdown/plugins/constant'
 import { PlaygroundName } from '~/markdown/plugins/remark/code-block/playground-utils'
-import { PreTitleName } from '~/markdown/plugins/remark/code-block/pre-title-utils'
+import { PreTitleName } from '~/markdown/plugins/remark/code-block/title-utils'
 import { SwitcherName } from '~/markdown/plugins/remark/code-block/switcher-utils'
 import { CodeRunnerName } from '~/markdown/plugins/remark/runner-utils'
 import { customComponentMap } from './custom-components'

@@ -10,7 +10,7 @@ import {
 import { hCode, markPre } from './mark-pre-utils'
 import { isSwitcher } from '../../remark/code-block/switcher-utils'
 import { isRuner } from '../../remark/runner-utils'
-import { isPreTitle } from '../../remark/code-block/pre-title-utils'
+import { isPreTitle } from '../../remark/code-block/title-utils'
 import { keys } from '@/lib/types'
 import { getSuffix } from '../../utils'
 import { buildFiles } from '../../remark/code-block/playground-node-utils'

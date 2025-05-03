@@ -58,13 +58,16 @@ export const customComponentMap: Record<string, any> = {
 /// App.jsx
 import Random from './Random'
 
-function App() {
+export default function App() {
   console.log('App')
-  return <div className="app">{Math.random()}</div>
+  return <Random />
 }
-export default App
+/// Random.tsx
+export default function Random() {
+  return <div className="random">{Math.random()}</div>
+}
 /// App.css line
-.app {
+.random {
   font-size: 24px;
   color: blue;
 }
@@ -76,14 +79,16 @@ export default App
 ```tsx Playground
 /// App.jsx
 import Random from './Random'
-
-function App() {
-  return <div className="app">{Math.random()}</div>
+export default function App() {
+  console.log('App')
+  return <Random />
 }
-export default App
-
+/// Random.tsx
+export default function Random() {
+  return <div className="random">{Math.random()}</div>
+}
 /// App.css line
-.app {
+.random {
   font-size: 24px;
   color: blue;
 }
@@ -99,8 +104,7 @@ HTML 暂不支持打印
 ```html Playground
 /// index.html
 <div class="test" onclick="console.log(111)">hello</div>
-/// color.css
-.test { color: red; font-weight: 600; }
+/// color.css .test { color: red; font-weight: 600; }
 ```
 ````
 

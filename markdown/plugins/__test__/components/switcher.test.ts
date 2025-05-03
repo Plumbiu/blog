@@ -1,8 +1,8 @@
 import { test, expect } from 'vitest'
 import { transformCodeWithOptions } from '~/markdown/transfrom'
-import rehypeElementPlugin from '../../elements'
-import remarkCodeBlcokPlugin from '~/markdown/plugins/remark/code-block'
-import { render, screen, waitFor } from '@testing-library/react'
+import rehypeElementPlugin from '../../rehype/elements'
+import { fireEvent, render, screen } from '@testing-library/react'
+import remarkCodeComponentsPlugin from '../../remark/code-block/components'
 
 test('components: switcher', async () => {
   const tab1Code = "console.log('tab1')"
@@ -19,16 +19,14 @@ ${code}
 \`\`\`
 `
   const node = await transformCodeWithOptions(markdown, {
-    remark: [remarkCodeBlcokPlugin],
+    remark: [remarkCodeComponentsPlugin],
     rehype: [rehypeElementPlugin],
   })
   render(node)
   let codeDom = screen.getByRole('code')
   expect(codeDom.textContent).toBe(tab1Code)
   const tab2Button = screen.getByText('tab2')
-  tab2Button.click()
-  await waitFor(() => {
-    codeDom = screen.getByRole('code')
-    expect(codeDom.textContent).toBe(tab2Code)
-  })
+  fireEvent.click(tab2Button)
+  codeDom = await screen.findByRole('code')
+  expect(codeDom.textContent).toBe(tab2Code)
 })

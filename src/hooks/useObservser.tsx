@@ -7,7 +7,9 @@ export default function useObserver(
   ref: RefObject<HTMLElement | null>,
   callback?: () => undefined | VoidFn,
 ) {
-  const [isIntersecting, setIsIntersecting] = useState(false)
+  const [isIntersecting, setIsIntersecting] = useState(
+    process.env.NODE_ENV === 'test',
+  )
   const callbackRef = useRef<VoidFn>(null)
   useEffect(() => {
     const observerDom = ref.current
@@ -15,15 +17,24 @@ export default function useObserver(
     if (!observerDom) {
       return
     }
+    const excauteCallback = () => {
+      const fn = callback?.()
+      if (isFunction(fn)) {
+        callbackRef.current = fn
+      }
+    }
+    if (process.env.NODE_ENV === 'test') {
+      excauteCallback()
+      return () => {
+        callbackRef.current?.()
+      }
+    }
     const observer = new IntersectionObserver((entries, self) => {
       const isIntersecting = entries[0].isIntersecting
       if (isIntersecting) {
         setIsIntersecting(true)
         self.unobserve(observerDom)
-        const fn = callback?.()
-        if (isFunction(fn)) {
-          callbackRef.current = fn
-        }
+        excauteCallback()
       }
     })
     observer.observe(observerDom)

@@ -33,7 +33,7 @@ export function isDyncmicLangugage(lang: string) {
   return SupportPlaygroundLang.has(lang)
 }
 
-export function getFirstFileKey(code: string, lang: string) {
+export function getDefaultSelector(code: string, lang: string) {
   const firstLine = getFirstLine(code)
   if (firstLine.startsWith(FileMapStartStr)) {
     return firstLine.replace(FileMapStartStr, '').trim()
@@ -45,5 +45,5 @@ export function getFirstFileKey(code: string, lang: string) {
     return `App.${lang}`
   }
 
-  return `index.${lang}`
+  return 'index'
 }

@@ -12,12 +12,14 @@ import { remarkContainerDirectivePlugin } from './plugins/remark/directive'
 import remarkRunnerPlugin from './plugins/remark/runner'
 import { remarkPlainTextPlugin } from './plugins/remark/plain-text/index'
 import { markdownComponents } from './hast-components'
-import remarkCodeBlcokPlugin from './plugins/remark/code-block'
 import remarkHtmlParser from './plugins/remark/html-parse'
 import remarkDefinition from 'remark-definition'
 import definitionMap from './config/definitions'
 import type { PostMeta } from './types'
 import { assign } from '@/lib/types'
+import remarkCodeComponentsPlugin from './plugins/remark/code-block/components'
+import remarkCodeMetaPlugin from './plugins/remark/code-block/meta'
+import remarkCodeTitlePlugin from './plugins/remark/code-block/title'
 
 export async function transformCodeWithOptions(
   code: string,
@@ -59,7 +61,9 @@ async function transfromCode2Jsx(
       remarkDirective,
       remarkContainerDirectivePlugin,
       remarkSlugPlugin,
-      remarkCodeBlcokPlugin,
+      remarkCodeMetaPlugin,
+      remarkCodeTitlePlugin,
+      remarkCodeComponentsPlugin,
       [remarkDefinition, assign(definitionMap, definitions)],
       remarkRunnerPlugin,
       [remarkPlainTextPlugin, { variable, emoji }],
