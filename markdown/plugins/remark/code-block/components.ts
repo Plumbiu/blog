@@ -5,8 +5,6 @@ import {
   handlePlaygroundHidePreviewTabsKey,
   PlaygroundName,
   handlePlaygroundStyles,
-  PlaygroundHidePreviewTabsName,
-  PlaygroundHideCodeTabsName,
 } from './playground-utils'
 import {
   handleComponentCode,
@@ -43,26 +41,14 @@ const remarkCodeComponentsPlugin: RemarkPlugin = () => {
         return
       }
 
-      const componentName = isPlayground
-        ? PlaygroundName
-        : isSwitcher
-        ? SwitcherName
-        : undefined
-      if (!componentName) {
-        return
-      }
-
+      const componentName = isPlayground ? PlaygroundName : SwitcherName
+      markComponent(node, componentName)
+      // see rehype-mark-pre
       handleComponentCode(props, code)
       handleLang(props, lang)
       handleComponentMeta(props, meta)
-      markComponent(node, componentName)
       handleComponentDefaultSelectorKey(props, defaultSelector)
-      handlePlaygroundHidePreviewTabsKey(
-        props,
-        meta.includes(PlaygroundHidePreviewTabsName),
-      )
 
-      let hideTabs = true
       const files = buildFiles(code, defaultSelector)
       const fileKeys = keys(files)
       let styles = ''
@@ -70,18 +56,11 @@ const remarkCodeComponentsPlugin: RemarkPlugin = () => {
         const { code } = files[key]
         if (isJsxFileLike(key)) {
           files[key].code = sucraseParse(code)
-          if (code.includes('console.log(')) {
-            hideTabs = false
-          }
         } else if (key.endsWith('.css')) {
           styles += ` ${code}`
         }
       }
-      handlePlaygroundHidePreviewTabsKey(
-        props,
-        meta.includes(PlaygroundHideCodeTabsName),
-      )
-      handlePlaygroundHidePreviewTabsKey(props, hideTabs)
+      handlePlaygroundHidePreviewTabsKey(props, !code.includes('console.log('))
       handleFileMap(
         props,
         JSON.stringify(

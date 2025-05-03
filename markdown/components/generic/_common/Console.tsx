@@ -12,10 +12,7 @@ export function padStartZero(str: number | string, num = 2) {
   return str.padStart(num, '0')
 }
 
-function formatTime(date: number | null | undefined) {
-  if (date == null) {
-    return ''
-  }
+function formatTime(date: number) {
   const d = new Date(date)
   const hh = padStartZero(d.getHours())
   const mm = padStartZero(d.getMinutes())
