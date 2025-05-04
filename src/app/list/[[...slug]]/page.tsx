@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { upperFirstChar } from '@/lib/shared'
+import { upperFirst } from '@/lib/shared'
 import { getPost } from '~/markdown/utils/fs'
 import { Categoires } from '~/data/constants/categories'
 import NotFound from '@/app/not-found'
@@ -109,12 +109,12 @@ export async function generateMetadata(props: ListProps): Promise<Metadata> {
   let [type, pagenum = 1] = params?.slug ?? []
   pagenum = +pagenum
 
-  const title = `${upperFirstChar(type || 'blog')} | ${BlogTitle}`
+  const title = `${upperFirst(type || 'blog')} | ${BlogTitle}`
   return {
     title,
     ...generateSeoMetaData({
       title,
-      description: `${upperFirstChar(type)}文章 - 第${pagenum}页`,
+      description: `${upperFirst(type)}文章 - 第${pagenum}页`,
       url: joinWebUrl('list', type, pagenum),
     }),
   }

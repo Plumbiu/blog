@@ -1,9 +1,5 @@
 import type { Metadata } from 'next'
-import {
-  getCategoryFromUrl,
-  removeMdSuffix,
-  upperFirstChar,
-} from '@/lib/shared'
+import { getCategoryFromUrl, removeMdSuffix, upperFirst } from '@/lib/shared'
 import { getPostsPath, getPost } from '~/markdown/utils/fs'
 import { generateSeoMetaData, joinWebUrl } from '@/app/seo'
 import Toc from './components/Toc'
@@ -82,7 +78,7 @@ export async function generateMetadata(props: PostProps): Promise<Metadata> {
   const [type, ...data] = params.slug
   const id = data[data.length - 1]
   const info = await getPostContent(type, id)
-  const category = upperFirstChar(getCategoryFromUrl(id))
+  const category = upperFirst(getCategoryFromUrl(id))
   if (!info) {
     return {
       title: `${category} - ${id}`,

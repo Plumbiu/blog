@@ -5,7 +5,7 @@ import {
   handleComponentName,
   handleComponentProps,
 } from '~/markdown/plugins/constant'
-import { isUnOptimized, resolveAssetPath } from '@/lib/shared'
+import { isUnOptimized, resolveBasePath } from '@/lib/shared'
 import CustomComponent from '~/markdown/components/index'
 import PreComponent from '../src/components/ui/Pre'
 import { getAssetImagePath } from '@/lib/node/fs'
@@ -46,7 +46,7 @@ export const markdownComponents: Partial<Components> = {
       return
     }
     const commonProps: ImageProps = {
-      src: resolveAssetPath(`images${src[0] === '/' ? src : `/${src}`}`),
+      src: resolveBasePath(`images${src[0] === '/' ? src : `/${src}`}`),
       alt,
       unoptimized: isUnOptimized(src),
       blurDataURL: getBase64Url(base64),

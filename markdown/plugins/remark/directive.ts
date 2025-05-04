@@ -3,7 +3,7 @@ import { visit } from 'unist-util-visit'
 import { getImageProps } from 'next/image'
 import { isString } from '@/lib/types'
 import getBlurDataUrl from '~/optimize/blurhash'
-import { isUnOptimized, resolveAssetPath } from '@/lib/shared'
+import { isUnOptimized, resolveBasePath } from '@/lib/shared'
 import { getAssetImagePath } from '@/lib/node/fs'
 import {
   GalleryPhotoKey,
@@ -66,7 +66,7 @@ export const remarkContainerDirectivePlugin: RemarkPlugin = () => {
             if (!base64 || !width || !height) {
               return
             }
-            const src = resolveAssetPath(`images/${link}`)
+            const src = resolveBasePath(`images/${link}`)
             const data: Photo = {
               width: width,
               height: height,

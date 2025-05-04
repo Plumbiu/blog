@@ -34,8 +34,8 @@ export function getReactComponentByEvalCode(
 }
 
 function getJsxLikeBasename(p: string) {
-  const [basename, ext] = p.split('.')
-  if (ext === 'jsx' || ext === 'tsx' || ext === 'ts' || ext === 'js') {
+  if (isJsxFileLike(p)) {
+    const [basename] = p.split('.')
     return basename
   }
 }

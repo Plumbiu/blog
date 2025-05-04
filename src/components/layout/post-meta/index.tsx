@@ -3,7 +3,7 @@ import { CalendarIcon, BookmarkIcon, TagIcon } from '../../Icons'
 import styles from './index.module.css'
 import type { PostList } from '~/markdown/types'
 import Link from 'next/link'
-import { upperFirstChar } from '@/lib/shared'
+import { upperFirst } from '@/lib/shared'
 import { Fragment } from 'react'
 
 function formatTime(time: string | number) {
@@ -37,7 +37,7 @@ export default function PostMeta({
         <Link href={`/category/${type}`} className={'fcc'}>
           <BookmarkIcon />
           <div className={cn('fcc', '-ml-4', styles.link_card, styles.card)}>
-            {upperFirstChar(type)}
+            {upperFirst(type)}
           </div>
         </Link>
       )}

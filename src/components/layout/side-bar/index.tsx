@@ -5,7 +5,7 @@ import styles from './index.module.css'
 import Link from 'next/link'
 import { cn } from '@/lib/client'
 import Title from '../../ui/Title'
-import { getBase64Url, upperFirstChar } from '@/lib/shared'
+import { getBase64Url, upperFirst } from '@/lib/shared'
 import Search from './Search'
 import { getArchive } from '~/markdown/utils/fs'
 import blurhashMap from '~/data/banner.json'
@@ -52,7 +52,7 @@ async function SideBar() {
           <div className={styles.category_content}>
             {categories.map(({ type, count }) => (
               <Link href={`/category/${type}`} key={type}>
-                {upperFirstChar(type)}
+                {upperFirst(type)}
                 <div className={styles.category_card}>{count}</div>
               </Link>
             ))}

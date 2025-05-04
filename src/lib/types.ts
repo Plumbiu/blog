@@ -10,10 +10,6 @@ export function isFunction(x: unknown): x is Function {
   return typeof x === 'function'
 }
 
-export function isSymbol(x: unknown): x is Symbol {
-  return typeof x === 'symbol'
-}
-
 export function isObject<T extends Record<string, any>>(x: unknown): x is T {
   return x !== null && typeof x === 'object'
 }

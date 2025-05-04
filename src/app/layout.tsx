@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
 import { BlogAuthor, BlogTitle, BlogUrl, BlogDesc, GSC } from '~/config/site'
-import { resolveAssetPath } from '@/lib/shared'
+import { resolveBasePath } from '@/lib/shared'
 import Header from '@/components/layout/Header'
 import ImageView from '@/components/layout/ImageView'
 import '../styles/variable.css'
@@ -43,18 +43,18 @@ export default async function RootLayout({
       <head>
         <meta name="google-site-verification" content={GSC} />
         <link
-          href={resolveAssetPath('icons/icon.svg')}
+          href={resolveBasePath('icons/icon.svg')}
           rel="icon"
           sizes="32x32"
           type="image/x-icon"
         />
       </head>
       <body className={robot.className}>
-        <script src={resolveAssetPath(`assets/theme/${ScriptBasename}.js`)} />
+        <script src={resolveBasePath(`assets/theme/${ScriptBasename}.js`)} />
         <OverlayScrollbar />
         <Header />
         <Banner />
-        <script src={resolveAssetPath(`assets/banner/${ScriptBasename}.js`)} />
+        <script src={resolveBasePath(`assets/banner/${ScriptBasename}.js`)} />
         <div className="main_layout">
           <SideBar />
           <div className="main_children">{children}</div>
