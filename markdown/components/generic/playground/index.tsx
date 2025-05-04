@@ -22,7 +22,7 @@ import useObserver from '@/hooks/useObservser'
 import { cn } from '@/lib/client'
 import styles from './index.module.css'
 import tabStyles from '../_styles/tab.module.css'
-import { renderStaticPlayground, renerPlayground } from './compile'
+import { renderStaticPlayground, renderPlayground } from './compile'
 import CodeWrapper from '../_common/CodeWrapper'
 import Console from '../_common/Console'
 import Loading from '../_common/Loading'
@@ -43,7 +43,7 @@ const Playground = (props: any) => {
     customPreviewNode,
   } = useMemo(() => {
     const defaultSelector = handleComponentDefaultSelectorKey(props)
-    const css = handlePlaygroundStyles(props) ?? ''
+    const css = handlePlaygroundStyles(props)
     const files = handleFileMap(props)
     const isStatic = defaultSelector.endsWith('.html')
     const isPreviewTabsHidden = handlePlaygroundHidePreviewTabsKey(props)
@@ -83,7 +83,7 @@ const Playground = (props: any) => {
     } else {
       node = customPreviewNode
         ? createElement(customPreviewNode, props)
-        : renerPlayground(playgroundProps)
+        : renderPlayground(playgroundProps)()
     }
     node = <Suspense fallback={<Loading />}>{node}</Suspense>
     if (css) {
@@ -103,6 +103,7 @@ const Playground = (props: any) => {
   }, [])
 
   useObserver(nodeRef, renderNode)
+
   return (
     <CodeWrapper barText="Code Playground" forceUpdate={() => renderNode(true)}>
       <CodePreview {...props} />

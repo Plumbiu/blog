@@ -1,7 +1,6 @@
 'use client'
 
-import type { TabProps, CodePreviewProps } from '../types'
-import { memo, useMemo, useState } from 'react'
+import { memo, type ReactNode, useMemo, useState } from 'react'
 import tabStyles from '../_styles/tab.module.css'
 import { cn } from '@/lib/client'
 import {
@@ -13,10 +12,7 @@ import PreComponent from '@/components/ui/Pre'
 import { isArray, keys } from '@/lib/types'
 
 const Tab = memo((props: TabProps) => {
-  const { name, onClick, hidden = false, isActive } = props
-  if (hidden) {
-    return null
-  }
+  const { name, onClick, isActive } = props
   return (
     <div
       data-testid="code-tab"
@@ -31,11 +27,26 @@ const Tab = memo((props: TabProps) => {
   )
 })
 
+interface TabItem {
+  name: string
+  onClick?: () => void
+}
+interface TabProps extends TabItem {
+  isActive: boolean
+}
+
+interface CodePreviewProps {
+  defaultSelector: string
+  nodeMap: Record<string, ReactNode>
+  tabs: TabItem[]
+  className?: string
+}
+
 const CodeTabs = memo(
-  ({ defaultSelector, nodeMap, tabs, hide, className }: CodePreviewProps) => {
+  ({ defaultSelector, nodeMap, tabs, className }: CodePreviewProps) => {
     const [selector, setSelector] = useState(defaultSelector)
     const node = nodeMap[selector]
-    const showTab = !hide && tabs.length > 1
+    const showTab = tabs.length > 1
     return (
       <div className={className}>
         {showTab && (
@@ -46,7 +57,6 @@ const CodeTabs = memo(
                 {...tabProps}
                 isActive={tabProps.name === selector}
                 onClick={() => {
-                  tabProps.onClick?.()
                   setSelector(tabProps.name)
                 }}
               />
@@ -82,7 +92,6 @@ const CodePreview = memo((props: any) => {
       tabs={codeTabs}
       nodeMap={codeNodeMap}
       defaultSelector={defaultSelector}
-      hide={false}
     />
   )
 })

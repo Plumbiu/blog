@@ -10,6 +10,8 @@ html {
 }
 
 body {
+  --scroll-size: 8px;
+  --scroll-border-width: 2px;
   scrollbar-width: none;
   margin: 0;
   color: var(--text-1);
@@ -73,7 +75,7 @@ h6 {
   transition: 0.15s;
   border-style: solid;
   border-color: transparent;
-  border-width: 2px;
+  border-width: var(--scroll-border-width);
 }
 
 ::-webkit-scrollbar-corner {
@@ -81,8 +83,8 @@ h6 {
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: var(--scroll-size);
+  height: var(--scroll-size);
 }
 
 ::-webkit-scrollbar-thumb:hover {

@@ -1,4 +1,4 @@
-import React, { createElement } from 'react'
+import React from 'react'
 import { isJsxFileLike } from '@/lib/shared'
 import { keys } from '@/lib/types'
 
@@ -46,7 +46,7 @@ interface PlaygroundPreviewProps {
   logFn: LogFn
 }
 
-export function renerPlayground({
+export function renderPlayground({
   files,
   defaultSelector,
   logFn,
@@ -81,7 +81,7 @@ export function renerPlayground({
   loop()
   loop()
 
-  return createElement(getReactComponentByEvalCode(main, scope, true))
+  return getReactComponentByEvalCode(main, scope, true)
 }
 export function renderStaticPlayground({
   files,

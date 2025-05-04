@@ -32,6 +32,7 @@ const ConsoleItem = memo(
     return (
       <div>
         <div
+          data-testid="console-data"
           className={cn(styles.right, {
             [styles.num]: valueType === 'Number',
             [styles.string]: valueType === 'String',
@@ -62,11 +63,7 @@ const Console = memo(
     }, [showType, logs])
 
     return (
-      <div
-        data-dataid="console"
-        className={cn(styles.console, className)}
-        {...rest}
-      >
+      <div className={cn(styles.console, className)} {...rest}>
         {node}
       </div>
     )

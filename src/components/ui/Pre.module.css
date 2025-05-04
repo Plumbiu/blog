@@ -47,11 +47,9 @@
   position: relative;
   width: 100%;
 
-  &:hover {
-    .action {
-      pointer-events: all;
-      opacity: 1;
-    }
+  &:hover .action {
+    pointer-events: all;
+    opacity: 1;
   }
 
   &+.wrap {

@@ -3,9 +3,8 @@
   left: 99999px;
 }
 
-.preview {
+.node_preview {
   padding: 8px;
-  height: 100%;
   max-height: 70vh;
   overflow: auto;
 }

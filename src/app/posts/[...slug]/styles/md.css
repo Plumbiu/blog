@@ -84,6 +84,7 @@
     overflow: auto;
     tab-size: 2;
     line-height: 1.6;
+    height: 100%;
     max-height: 60vh;
     border-radius: var(--pre-radius);
     background-color: var(--bg-md-pre);
@@ -91,11 +92,7 @@
 
     code {
       font-weight: 400;
-      display: block;
-      width: fit-content;
       padding: 0;
-      min-width: 100%;
-      box-sizing: content-box;
       color: inherit;
       background-color: transparent;
     }

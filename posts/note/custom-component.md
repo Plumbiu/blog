@@ -64,7 +64,7 @@ export default function App() {
 }
 /// Random.tsx
 export default function Random() {
-  return <div className="random">{Math.random()}</div>
+  return <div onClick={() => console.log('random')} className="random">{Math.random()}</div>
 }
 /// App.css line
 .random {
@@ -81,11 +81,11 @@ export default function Random() {
 import Random from './Random'
 export default function App() {
   console.log('App')
-  return <Random />
+  return <Random onClick={() => console.log('random')} />
 }
 /// Random.tsx
-export default function Random() {
-  return <div className="random">{Math.random()}</div>
+export default function Random(props: any) {
+  return <div {...props} className="random">{Math.random()}</div>
 }
 /// App.css line
 .random {
@@ -103,7 +103,7 @@ HTML 暂不支持打印
 ````markdown
 ```html Playground
 /// index.html
-<div class="test" onclick="console.log(111)">hello</div>
+<div class="test">hello</div>
 /// color.css .test { color: red; font-weight: 600; }
 ```
 ````
