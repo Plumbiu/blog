@@ -35,7 +35,7 @@ export function getIconFromFileName(filename: string) {
 
 const TreeRegx = /^(\s*)-\s(.*)$/
 
-export function parseContent(content: string, id: string) {
+export function parseContent(content: string, id: string, openAll: boolean) {
   const data = fileTreeDataRawMap[id]
   if (data == null) {
     return
@@ -44,8 +44,8 @@ export function parseContent(content: string, id: string) {
     label: '',
     level: -1,
     path: '',
+    collapse: false,
     children: [],
-    icon: '',
   }
   const stack: TreeNode[] = [root]
   const lines = content.trim().split('\n')
@@ -55,16 +55,19 @@ export function parseContent(content: string, id: string) {
     if (space == null || label == null) {
       continue
     }
+    const firstCh = label[0]
     const level = Math.floor(space.length / 2)
     while (stack.length > 0 && stack[stack.length - 1].level >= level) {
       stack.pop()
     }
     const parent = stack[stack.length - 1]
-
-    const path = `${parent.path}/${label}`
+    const path = `${parent.path}/${
+      firstCh === '+' || firstCh === '-' ? label.slice(1) : label
+    }`
     const node: TreeNode = {
       label,
       level,
+      collapse: firstCh === '+' ? false : firstCh === '-' ? true : !openAll,
       children: [],
       path,
     }
@@ -74,11 +77,20 @@ export function parseContent(content: string, id: string) {
   }
 
   const treeMap: TreeMap = {}
+  const defaultSelectors: string[] = []
+  const fileIconMap: Record<string, string> = {}
   function traverse(nodes: TreeNode[]) {
     for (const node of nodes) {
       const key = node.path
+      const firstCh = node.label[0]
+      if (firstCh === '+' || firstCh === '-') {
+        node.label = node.label.slice(1)
+      }
       if (node.children.length === 0) {
-        node.icon = getIconFromFileName(node.label)
+        if (firstCh === '+') {
+          defaultSelectors.push(node.path)
+        }
+        fileIconMap[key] = getIconFromFileName(node.label)
         treeMap[key] = fileTreeDataFormatMap[`/${id}${key}`]
       } else {
         traverse(node.children)
@@ -88,5 +100,5 @@ export function parseContent(content: string, id: string) {
   const tree = root.children
   traverse(tree)
 
-  return { tree, treeMap }
+  return { tree, treeMap, fileIconMap, defaultSelectors }
 }

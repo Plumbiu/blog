@@ -4,7 +4,7 @@ import {
   ComponentMetaKey,
   ComponentPropsKey,
 } from './constant'
-import { fileTreeMapKey } from './remark/code/fill-tree/file-tree-utils'
+import { fileTreeMapKey } from './remark/code/file-tree/file-tree-utils'
 
 // Some prop only work in remark or rehype, it run on server side
 // delete it for optimize client side

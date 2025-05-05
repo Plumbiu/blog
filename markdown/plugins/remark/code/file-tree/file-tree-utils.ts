@@ -5,7 +5,7 @@ export interface TreeNode {
   label: string
   level: number
   path: string
-  icon?: string
+  collapse: boolean
   children: TreeNode[]
 }
 
@@ -13,18 +13,29 @@ export const FileTreeName = 'file-tree'
 
 export type TreeMap = Record<string, string>
 
-export const fileTreeDataKey = 'file-tree-data'
+export const fileTreeDataKey = `${FileTreeName}-data`
 export const handleFileTree = buildHandlerFunction<TreeNode[]>(
   fileTreeDataKey,
   JSON.parse,
 )
-export const fileTreeMapKey = 'file-tree-map'
+export const fileTreeMapKey = `${FileTreeName}-map`
 export const handleFileTreeMap = buildHandlerFunction<TreeMap>(
   fileTreeMapKey,
   JSON.parse,
 )
-export const FileTreeMapItemKey = 'file-tree-map-key'
+export const FileTreeMapItemKey = `${FileTreeName}-map-key`
 export const handleFileFileTreeMapItemKey =
   buildHandlerFunction<string>(FileTreeMapItemKey)
 
 export const isFileTree = (props: any) => props[ComponentKey] === FileTreeName
+
+export const FileTreeDefaultSelector = `${FileTreeName}-default-seletor`
+export const handleFileTreeDefaultSelector = buildHandlerFunction<string[]>(
+  FileTreeDefaultSelector,
+  JSON.parse,
+)
+
+export const FileTreeFileIconMapKey = `${FileTreeName}-file-icon-map`
+export const handleFileTreeFileIconMapKey = buildHandlerFunction<
+  Record<string, string>
+>(FileTreeFileIconMapKey, JSON.parse)

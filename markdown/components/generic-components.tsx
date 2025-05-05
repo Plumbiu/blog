@@ -13,7 +13,7 @@ import { PreTitleName } from '~/markdown/plugins/remark/code/title-utils'
 import { IframeName } from '~/markdown/plugins/remark/directive/iframe-utils'
 import { HTMLParserName } from '~/markdown/plugins/remark/html-parser-utils'
 import HtmlParser from './generic/html-parser'
-import { FileTreeName } from '../plugins/remark/code/fill-tree/file-tree-utils'
+import { FileTreeName } from '../plugins/remark/code/file-tree/file-tree-utils'
 import FileTree from './generic/file-tree'
 
 const Gallery = lazy(() => import('./generic/gallery/index'))

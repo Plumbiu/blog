@@ -5,7 +5,7 @@ import {
   LifeIcon,
   SummaryIcon,
   NoteIcon,
-  FolderIcon,
+  FolderOpenIcon,
 } from '@/components/Icons'
 import styles from './Action.module.css'
 import Selector from '@/components/ui/Selector'
@@ -19,7 +19,7 @@ const map: Record<string, string> = {
 }
 
 export const listActionIconMap: Record<string, ReactNode> = {
-  '': <FolderIcon />,
+  '': <FolderOpenIcon />,
   blog: <BlogIcon />,
   life: <LifeIcon />,
   summary: <SummaryIcon />,
@@ -32,7 +32,11 @@ function ArtlistAction({ type }: { type: keyof typeof map | undefined }) {
       <Selector
         items={Object.entries(listActionIconMap).map(([p, icon]) => ({
           label: (
-            <Link className={styles.item} key={p} href={`/list/${p ? `${p}/` : ''}1`}>
+            <Link
+              className={styles.item}
+              key={p}
+              href={`/list/${p ? `${p}/` : ''}1`}
+            >
               {icon}
               {map[p] || '全部'}
             </Link>
@@ -41,7 +45,7 @@ function ArtlistAction({ type }: { type: keyof typeof map | undefined }) {
         }))}
       >
         <div className={cn('fcc', styles.label)}>
-          {type ? listActionIconMap[type] : <FolderIcon />}
+          {type ? listActionIconMap[type] : <FolderOpenIcon />}
           {type ? map[type] : '全部'}
         </div>
       </Selector>

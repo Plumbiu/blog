@@ -7,24 +7,27 @@ import {
   handleFileTree,
   handleFileFileTreeMapItemKey,
   type TreeNode,
-} from '~/markdown/plugins/remark/code/fill-tree/file-tree-utils'
+  handleFileTreeDefaultSelector,
+  handleFileTreeFileIconMapKey,
+} from '~/markdown/plugins/remark/code/file-tree/file-tree-utils'
 import styles from './index.module.css'
 import tabStyles from '../_styles/tab.module.css'
 import codeWrapStyles from '../_common/CodeWrapper.module.css'
-import { CloseIcon, EmptyIcon, FolderIcon } from '@/components/Icons'
+import {
+  CloseIcon,
+  CoffeeIcon,
+  FolderOpenIcon,
+  FolderIcon,
+} from '@/components/Icons'
 import { cn } from '@/lib/client'
 
-type SelectorArr = Array<{
-  value: string
-  icon: string
-}>
-
-interface TreeTabs {
+interface TreeTabsProps {
   tree: TreeNode[]
   setLabel: (value: string) => void
   label: string
-  setsetSelectorArr: (value: SelectorArr) => void
-  selectorArr: SelectorArr
+  setsetSelectorArr: (value: string[]) => void
+  selectorArr: string[]
+  fileIconMap: Record<string, string>
 }
 
 function getBaseDirname(filePath: string) {
@@ -35,17 +38,17 @@ function getBaseDirname(filePath: string) {
   return { basename, dirname }
 }
 
-function formatHeaderTabName(selector: string, selectorArray: SelectorArr) {
+function formatHeaderTabName(selector: string, selectorArray: string[]) {
   const { basename, dirname } = getBaseDirname(selector)
   const baseNames = selectorArray
-    .filter((s) => s.value !== selector)
-    .map((s) => getBaseDirname(s.value).basename)
+    .filter((s) => s !== selector)
+    .map((s) => getBaseDirname(s).basename)
   if (baseNames.includes(basename)) {
     return (
       <div>
         <span>{basename}</span>
         <span className={styles.dirname}>
-          ...\
+          ..\
           {dirname}
         </span>
       </div>
@@ -60,32 +63,31 @@ const HeaderTab = memo(
     label: selector,
     selectorArr,
     setsetSelectorArr,
-  }: Omit<TreeTabs, 'tree'>) => {
+    fileIconMap,
+  }: Omit<TreeTabsProps, 'tree'>) => {
     return (
       !!selectorArr.length && (
         <div className={cn(tabStyles.tab, styles.header_tab)}>
-          {selectorArr.map(({ value, icon }) => (
+          {selectorArr.map((s) => (
             <div
-              key={value}
+              key={s}
               className={cn(styles.header_tab_item, {
-                [tabStyles.tab_active]: value === selector,
+                [tabStyles.tab_active]: s === selector,
               })}
-              onClick={() => setSelector(value)}
+              onClick={() => setSelector(s)}
             >
               <img
                 data-no-view
                 alt="icon"
                 width="16"
                 height="16"
-                src={`/vscode-icons/${icon}.svg`}
+                src={`/vscode-icons/${fileIconMap[s]}.svg`}
               />
-              <div>{formatHeaderTabName(value, selectorArr)}</div>
+              <div>{formatHeaderTabName(s, selectorArr)}</div>
               <div
                 onClick={(e) => {
                   e.stopPropagation()
-                  setsetSelectorArr(
-                    selectorArr.filter((item) => item.value !== value),
-                  )
+                  setsetSelectorArr(selectorArr.filter((item) => item !== s))
                 }}
               >
                 <CloseIcon />
@@ -99,101 +101,100 @@ const HeaderTab = memo(
   },
 )
 
-const TreeTabs = memo(
+const TreeTabItem = memo(
   ({
-    tree,
-    setLabel: setSelector,
-    label: selector,
-    selectorArr,
+    node,
+    fileIconMap,
     setsetSelectorArr,
-  }: TreeTabs) => {
-    const [collapse, setCollapse] = useState(false)
+    setLabel,
+    selectorArr,
+    label,
+  }: Omit<TreeTabsProps, 'tree'> & {
+    node: TreeNode
+  }) => {
+    const [collapse, setCollapse] = useState(node.collapse)
 
+    const isDir = node.children.length > 0
+    const pl = (node.level + 1) * 24
     return (
-      <div>
-        {tree.map((node) => {
-          const isDir = node.children.length > 0
-          const pl = (node.level + 1) * 24
-          return (
-            <div
-              data-pl={pl}
-              className={styles.item}
-              onClick={(e) => {
-                e.stopPropagation()
-                if (isDir) {
-                  setCollapse(!collapse)
-                } else {
-                  setSelector(node.path)
+      <div
+        data-pl={pl}
+        className={styles.item}
+        onClick={(e) => {
+          e.stopPropagation()
+          if (isDir) {
+            setCollapse(!collapse)
+          } else {
+            setLabel(node.path)
 
-                  if (
-                    !node.icon ||
-                    selectorArr.map((s) => s.value).includes(node.path)
-                  ) {
-                    return
-                  }
-                  setsetSelectorArr([
-                    ...selectorArr,
-                    { value: node.path, icon: node.icon },
-                  ])
-                }
-              }}
-              key={node.path}
-            >
-              <div
-                className={styles.slash}
-                style={{
-                  left: pl + 8,
-                }}
-              />
-              <div
-                className={cn(styles.label, {
-                  [styles.active_label]: selector === node.path,
-                })}
-                style={{
-                  paddingLeft: pl,
-                }}
-              >
-                {isDir ? (
-                  <FolderIcon
-                    className={cn({
-                      [styles.active_dir]: !collapse,
-                    })}
-                  />
-                ) : (
-                  <img
-                    data-no-view
-                    alt="icon"
-                    width="16"
-                    height="16"
-                    src={`/vscode-icons/${node.icon}.svg`}
-                  />
-                )}
-                {node.label}
-              </div>
-              {!collapse && (
-                <TreeTabs
-                  selectorArr={selectorArr}
-                  setsetSelectorArr={setsetSelectorArr}
-                  label={selector}
-                  tree={node.children}
-                  setLabel={setSelector}
-                />
-              )}
-            </div>
-          )
-        })}
+            if (selectorArr.includes(node.path)) {
+              return
+            }
+            setsetSelectorArr([...selectorArr, node.path])
+          }
+        }}
+        key={node.path}
+      >
+        <div
+          className={styles.slash}
+          style={{
+            left: pl + 8,
+          }}
+        />
+        <div
+          className={cn(styles.label, {
+            [styles.active_label]: label === node.path,
+          })}
+          style={{
+            paddingLeft: pl,
+          }}
+        >
+          {isDir ? (
+            collapse ? (
+              <FolderIcon />
+            ) : (
+              <FolderOpenIcon className={styles.active_dir} />
+            )
+          ) : (
+            <img
+              data-no-view
+              alt="icon"
+              width="16"
+              height="16"
+              src={`/vscode-icons/${fileIconMap[node.path]}.svg`}
+            />
+          )}
+          {node.label}
+        </div>
+        {!collapse && (
+          <TreeTabs
+            selectorArr={selectorArr}
+            setsetSelectorArr={setsetSelectorArr}
+            label={label}
+            tree={node.children}
+            setLabel={setLabel}
+            fileIconMap={fileIconMap}
+          />
+        )}
       </div>
     )
   },
 )
 
-const Empty = memo(() => <EmptyIcon className={cn('fcc', styles.empty)} />)
+const TreeTabs = memo(({ tree, ...restProps }: TreeTabsProps) => {
+  return (
+    <div>
+      {tree.map((node) => (
+        <TreeTabItem key={node.path} node={node} {...restProps} />
+      ))}
+    </div>
+  )
+})
+
+const Empty = memo(() => <CoffeeIcon className={cn('fcc', styles.empty)} />)
 
 const FileTree = memo((props: any) => {
-  const [label, setLabel] = useState('')
-  const [selectorArr, setsetSelectorArr] = useState<SelectorArr>([])
-
-  const { tree, previewMap } = useMemo(() => {
+  const { tree, previewMap, defaultSelector, fileIconMap } = useMemo(() => {
     const children = arrayify(props.children)
     const previewMap = Object.fromEntries(
       children.map((child) => [
@@ -201,10 +202,17 @@ const FileTree = memo((props: any) => {
         child,
       ]),
     )
+    const defaultSelector = (handleFileTreeDefaultSelector(props) || []).map(
+      (s) => (s[0] === '/' ? s : `/${s}`),
+    )
+    console.log(defaultSelector)
+    const fileIconMap = handleFileTreeFileIconMapKey(props) || {}
     const tree = handleFileTree(props)
-    console.log(children)
-    return { tree, previewMap }
+    return { tree, previewMap, defaultSelector, fileIconMap }
   }, [])
+
+  const [selectorArr, setsetSelectorArr] = useState<string[]>(defaultSelector)
+  const [label, setLabel] = useState(defaultSelector[0] || '')
 
   useEffect(() => {
     if (selectorArr.length === 0) {
@@ -223,6 +231,7 @@ const FileTree = memo((props: any) => {
             label={label}
             setLabel={setLabel}
             tree={tree}
+            fileIconMap={fileIconMap}
           />
         </div>
         <div
@@ -235,6 +244,7 @@ const FileTree = memo((props: any) => {
             setsetSelectorArr={setsetSelectorArr}
             label={label}
             setLabel={setLabel}
+            fileIconMap={fileIconMap}
           />
 
           {previewMap[label] ? (

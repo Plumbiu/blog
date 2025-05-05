@@ -20,7 +20,7 @@ import { assign } from '@/lib/types'
 import remarkCodeComponentsPlugin from './plugins/remark/code/components'
 import remarkCodeMetaPlugin from './plugins/remark/code/meta'
 import remarkCodeTitlePlugin from './plugins/remark/code/title'
-import remarkFileTreePlugin from './plugins/remark/code/fill-tree/file-tree'
+import remarkFileTreePlugin from './plugins/remark/code/file-tree/file-tree'
 
 export async function transformCodeWithOptions(
   code: string,

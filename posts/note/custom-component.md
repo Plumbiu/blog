@@ -43,31 +43,38 @@ export const customComponentMap: Record<string, any> = {
 
 通过 `id` 配置，以下例子配置可看： [markdown/config/file-tree.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/file-tree.ts) 。
 
+文件夹默认处于全关闭状态，通过在 meta 中加入 open 字符设置为全打开。
+
+规则：
+
+- `+` 字符：文件夹表示默认打开，文件默认选中。
+- `-` 字符：文件表示默认关闭，对文件没有影响
+
 输入：
 
 ````markdown
-```FileTree id="demo"
-- markdown
-  - plugins
+```FileTree id="demo" open
+- +markdown
+  - -plugins
     - remark.ts
     - rehype.ts
   - utils.ts
-- utils.ts
-- package.json
+- +utils.ts
+- +package.json
 - .gitignore
 ```
 ````
 
 输出：
 
-```FileTree id="demo"
-- markdown
-  - plugins
+```FileTree id="demo" open
+- +markdown
+  - -plugins
     - remark.ts
     - rehype.ts
   - utils.ts
-- utils.ts
-- package.json
+- +utils.ts
+- +package.json
 - .gitignore
 ```
 

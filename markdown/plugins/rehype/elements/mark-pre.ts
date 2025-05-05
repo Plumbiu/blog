@@ -18,7 +18,7 @@ import {
   FileTreeMapItemKey,
   handleFileTreeMap,
   isFileTree,
-} from '../../remark/code/fill-tree/file-tree-utils'
+} from '../../remark/code/file-tree/file-tree-utils'
 
 function markCustomComponentPre(node: Element) {
   const props = node.properties
