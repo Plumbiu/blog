@@ -206,7 +206,7 @@
   }
 
   /* Image */
-  img {
+  img:not([data-no-view]) {
     position: relative;
     max-width: 100%;
     height: auto;

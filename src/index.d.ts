@@ -18,3 +18,13 @@ declare module '~/data/issues.json' {
   const value: Record<string, number>
   export default value
 }
+
+declare module '!!raw-loader!*' {
+  const value: string
+  export default value
+}
+
+declare module 'raw-loader!*' {
+  const value: string
+  export default value
+}

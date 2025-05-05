@@ -39,6 +39,38 @@ export const customComponentMap: Record<string, any> = {
 
 <ExtensionTest />
 
+# 文件树
+
+通过 `id` 配置，以下例子配置可看： [markdown/config/file-tree.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/file-tree.ts) 。
+
+输入：
+
+````markdown
+```FileTree id="demo"
+- markdown
+  - plugins
+    - remark.ts
+    - rehype.ts
+  - utils.ts
+- utils.ts
+- package.json
+- .gitignore
+```
+````
+
+输出：
+
+```FileTree id="demo"
+- markdown
+  - plugins
+    - remark.ts
+    - rehype.ts
+  - utils.ts
+- utils.ts
+- package.json
+- .gitignore
+```
+
 # Playground
 
 用于展示代码和组件，包括打印栏等。不同 Tab 通过 `///` 表达式分隔，后续可以加上 meta 信息（例如 `line` 显示行数）。其中样式基于 ShadowRoot，不会影响到全局。

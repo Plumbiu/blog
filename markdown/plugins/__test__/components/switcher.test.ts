@@ -2,7 +2,7 @@ import { test, expect } from 'vitest'
 import { transformCodeWithOptions } from '~/markdown/transfrom'
 import rehypeElementPlugin from '../../rehype/elements'
 import { fireEvent, render, screen } from '@testing-library/react'
-import remarkCodeComponentsPlugin from '../../remark/code-block/components'
+import remarkCodeComponentsPlugin from '../../remark/code/components'
 
 test('components: switcher', async () => {
   const tab1Code = "console.log('tab1')"

@@ -35,7 +35,7 @@ export type FileMap = Record<
 >
 const ComponentFileMapPrefx = 'cmp-file-'
 export const FileMapItemKey = `${ComponentFileMapPrefx}key`
-export const handleFileMapItemKey = buildHandlerFunction(FileMapItemKey)
+export const handleFileMapItemKey = buildHandlerFunction<string>(FileMapItemKey)
 export const FileMapKey = `${ComponentFileMapPrefx}map`
 export const handleFileMap = buildHandlerFunction<Record<string, string>>(
   FileMapKey,
