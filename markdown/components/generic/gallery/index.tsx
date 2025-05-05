@@ -13,7 +13,7 @@ import {
   useRef,
   useState,
 } from 'react'
-import { getGalleryPhoto } from '~/markdown/plugins/remark/gallery-utils'
+import { getGalleryPhoto } from '~/markdown/plugins/remark/directive/gallery-utils'
 import { ArrowLeftIcon, ArrowRightIcon, CloseIcon } from '@/components/Icons'
 import { cn } from '@/lib/client'
 import { makeBodyScroll, avoidBodyScroll } from '@/store/utils'

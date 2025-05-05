@@ -8,18 +8,19 @@ import { Fragment, jsx, jsxs } from 'react/jsx-runtime'
 import rehypeShikiPlugin from './plugins/rehype/shiki/hightlight'
 import rehypeElementPlugin from './plugins/rehype/elements'
 import remarkSlugPlugin from './plugins/remark/slug'
-import { remarkContainerDirectivePlugin } from './plugins/remark/directive'
+import { remarkContainerDirectivePlugin } from './plugins/remark/directive/index'
 import remarkRunnerPlugin from './plugins/remark/runner'
-import { remarkPlainTextPlugin } from './plugins/remark/plain-text/index'
+import { remarkPlainTextPlugin } from './plugins/remark/text/index'
 import { markdownComponents } from './hast-components'
 import remarkHtmlParser from './plugins/remark/html-parse'
 import remarkDefinition from 'remark-definition'
 import definitionMap from './config/definitions'
 import type { PostMeta } from './types'
 import { assign } from '@/lib/types'
-import remarkCodeComponentsPlugin from './plugins/remark/code-block/components'
-import remarkCodeMetaPlugin from './plugins/remark/code-block/meta'
-import remarkCodeTitlePlugin from './plugins/remark/code-block/title'
+import remarkCodeComponentsPlugin from './plugins/remark/code/components'
+import remarkCodeMetaPlugin from './plugins/remark/code/meta'
+import remarkCodeTitlePlugin from './plugins/remark/code/title'
+import remarkFileTreePlugin from './plugins/remark/code/fill-tree/file-tree'
 
 export async function transformCodeWithOptions(
   code: string,
@@ -63,6 +64,7 @@ async function transfromCode2Jsx(
       remarkSlugPlugin,
       remarkCodeMetaPlugin,
       remarkCodeTitlePlugin,
+      remarkFileTreePlugin,
       remarkCodeComponentsPlugin,
       [remarkDefinition, assign(definitionMap, definitions)],
       remarkRunnerPlugin,

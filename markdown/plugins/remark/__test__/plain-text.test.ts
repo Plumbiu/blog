@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { transformCodeWithOptions } from '~/markdown/transfrom'
-import { remarkPlainTextPlugin } from '../plain-text'
+import { remarkPlainTextPlugin } from '../text'
 import emojiMap from '~/markdown/config/emoji'
 import variableMap from '~/markdown/config/variables'
 

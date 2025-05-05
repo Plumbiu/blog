@@ -2,7 +2,7 @@ import { test, expect } from 'vitest'
 import { transformCodeWithOptions } from '~/markdown/transfrom'
 import rehypeElementPlugin from '../../rehype/elements'
 import { render, screen } from '@testing-library/react'
-import remarkCodeTitlePlugin from '~/markdown/plugins/remark/code-block/title'
+import remarkCodeTitlePlugin from '~/markdown/plugins/remark/code/title'
 
 test('components: pre-title', async () => {
   const code = `

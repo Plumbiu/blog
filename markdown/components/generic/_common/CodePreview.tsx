@@ -9,7 +9,7 @@ import {
   handleFileMap,
 } from '~/markdown/plugins/constant'
 import PreComponent from '@/components/ui/Pre'
-import { isArray, keys } from '@/lib/types'
+import { arrayify, keys } from '@/lib/types'
 
 const Tab = memo((props: TabProps) => {
   const { name, onClick, isActive } = props
@@ -71,7 +71,7 @@ const CodeTabs = memo(
 )
 const CodePreview = memo((props: any) => {
   const { defaultSelector, codeNodeMap, codeTabs } = useMemo(() => {
-    const children = isArray(props.children) ? props.children : [props.children]
+    const children = arrayify(props.children)
     const defaultSelector = handleComponentDefaultSelectorKey(props)
     const codeNodeMap = Object.fromEntries(
       children.map((node: any) => [handleFileMapItemKey(node.props), node]),

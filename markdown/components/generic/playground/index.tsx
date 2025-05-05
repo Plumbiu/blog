@@ -15,7 +15,7 @@ import {
   handlePlaygroundCustomPreivew,
   handlePlaygroundHidePreviewTabsKey,
   handlePlaygroundStyles,
-} from '~/markdown/plugins/remark/code-block/playground-utils'
+} from '~/markdown/plugins/remark/code/playground-utils'
 import ReactShadowRoot from '@/components/function/Shadow'
 import useConsole from '@/hooks/useConsole'
 import useObserver from '@/hooks/useObservser'

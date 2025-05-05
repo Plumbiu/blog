@@ -3,9 +3,9 @@ import { render, screen } from '@testing-library/react'
 import { transformCodeWithOptions } from '~/markdown/transfrom'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
-import remarkCodeMetaPlugin from '../../code-block/meta'
+import remarkCodeMetaPlugin from '../../code/meta'
 import rehypeElementPlugin from '~/markdown/plugins/rehype/elements'
-import remarkCodeComponentsPlugin from '../../code-block/components'
+import remarkCodeComponentsPlugin from '../../code/components'
 
 describe('remark: code-block-meta', async () => {
   const transform = (markdown: string) => {

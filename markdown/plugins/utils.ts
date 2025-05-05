@@ -24,15 +24,7 @@ export function buildHandlerFunction<T>(key: string, fn?: Function) {
 }
 
 export function getFirstLine(s: string) {
-  let str = ''
-  for (let i = 0; i < s.length; i++) {
-    const ch = s[i]
-    if (ch === '\r' || ch === '\n') {
-      return str
-    }
-    str += ch
-  }
-  return str
+  return s.split(/\r?\n/g)[0]
 }
 
 export const getBaseName = (p: string) => {
@@ -47,4 +39,3 @@ export function getSuffix(name: string) {
   }
   return name.slice(index + 1)
 }
-

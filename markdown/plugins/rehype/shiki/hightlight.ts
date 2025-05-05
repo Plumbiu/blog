@@ -79,53 +79,55 @@ const rehypeShikiPlugin = () => {
       const lang = getLanguage(props.className)
       // Syntax highlight
       let shikiRoot = node
-      const rootElm = shiki.codeToHast(code, {
-        themes: themeOptions,
-        lang: lang.replace('diff-', ''),
-        transformers: [
-          // transformerMetaWordHighlight({
-          //   className: HighLightWordClassName,
-          // }),
-          transformerNotationWordHighlight({
-            matchAlgorithm: 'v3',
-            classActiveWord: HighLightWordClassName,
-          }),
-          transformerNotationHighlight({
-            matchAlgorithm: 'v3',
-            classActiveLine: HighLightLineClassName,
-          }),
-          transformerNotationDiff({
-            matchAlgorithm: 'v3',
-            classLineAdd: DiffInsertedClassName,
-            classLineRemove: DiffDeletedClassName,
-          }),
-          shikiClassTransformer({
-            map: shikiMap,
-            deletedKeys: [
-              '--shiki-dark',
-              'text-decoration',
-              '--shiki-dark-text-decoration',
-            ],
-          }),
-          customShikiTranformer({
-            meta,
-            lang,
-          }),
-        ],
-      })
-      const preElm = rootElm.children[0]
-      if (preElm && preElm.type === 'element' && preElm.tagName === 'pre') {
-        const codeElm = preElm.children[0]
-        if (
-          codeElm &&
-          codeElm.type === 'element' &&
-          codeElm.tagName === 'code'
-        ) {
-          shikiRoot = codeElm
+      try {
+        const rootElm = shiki.codeToHast(code, {
+          themes: themeOptions,
+          lang: lang.replace('diff-', ''),
+          transformers: [
+            // transformerMetaWordHighlight({
+            //   className: HighLightWordClassName,
+            // }),
+            transformerNotationWordHighlight({
+              matchAlgorithm: 'v3',
+              classActiveWord: HighLightWordClassName,
+            }),
+            transformerNotationHighlight({
+              matchAlgorithm: 'v3',
+              classActiveLine: HighLightLineClassName,
+            }),
+            transformerNotationDiff({
+              matchAlgorithm: 'v3',
+              classLineAdd: DiffInsertedClassName,
+              classLineRemove: DiffDeletedClassName,
+            }),
+            shikiClassTransformer({
+              map: shikiMap,
+              deletedKeys: [
+                '--shiki-dark',
+                'text-decoration',
+                '--shiki-dark-text-decoration',
+              ],
+            }),
+            customShikiTranformer({
+              meta,
+              lang,
+            }),
+          ],
+        })
+        const preElm = rootElm.children[0]
+        if (preElm && preElm.type === 'element' && preElm.tagName === 'pre') {
+          const codeElm = preElm.children[0]
+          if (
+            codeElm &&
+            codeElm.type === 'element' &&
+            codeElm.tagName === 'code'
+          ) {
+            shikiRoot = codeElm
+          }
         }
-      }
-
+      } catch (error) {}
       node.children = shikiRoot.children
+
       return 'skip'
     })
   }
