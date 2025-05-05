@@ -62,11 +62,12 @@ function markCustomComponentPre(node: Element) {
     markPre(
       node,
       keys(treeMap).map((key) => {
-        const data = treeMap[key]
+        const code = treeMap[key]
+        const childLang = getSuffix(key).toLowerCase()
         return hCode({
-          code: data.content,
+          code,
           props: {
-            className: `language-${data.lang}`,
+            className: `language-${childLang}`,
             [FileTreeMapItemKey]: key,
           },
           meta,

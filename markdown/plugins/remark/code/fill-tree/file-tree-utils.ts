@@ -4,7 +4,6 @@ import { ComponentKey } from '../../../constant'
 export interface TreeNode {
   label: string
   level: number
-  lang?: string
   path: string
   icon?: string
   children: TreeNode[]
@@ -12,20 +11,14 @@ export interface TreeNode {
 
 export const FileTreeName = 'file-tree'
 
-export type TreeMap = Record<
-  string,
-  {
-    lang: string
-    content: string
-  }
->
+export type TreeMap = Record<string, string>
 
-const fileTreeDataKey = 'file-tree-data'
+export const fileTreeDataKey = 'file-tree-data'
 export const handleFileTree = buildHandlerFunction<TreeNode[]>(
   fileTreeDataKey,
   JSON.parse,
 )
-const fileTreeMapKey = 'file-tree-map'
+export const fileTreeMapKey = 'file-tree-map'
 export const handleFileTreeMap = buildHandlerFunction<TreeMap>(
   fileTreeMapKey,
   JSON.parse,

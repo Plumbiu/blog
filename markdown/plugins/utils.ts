@@ -35,7 +35,7 @@ export const getBaseName = (p: string) => {
 export function getSuffix(name: string) {
   const index = name.lastIndexOf('.')
   if (index === -1) {
-    return ''
+    return 'txt'
   }
   return name.slice(index + 1)
 }

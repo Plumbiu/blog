@@ -43,7 +43,6 @@ export function parseContent(content: string, id: string) {
   const root: TreeNode = {
     label: '',
     level: -1,
-    lang: '',
     path: '',
     children: [],
     icon: '',
@@ -78,15 +77,9 @@ export function parseContent(content: string, id: string) {
   function traverse(nodes: TreeNode[]) {
     for (const node of nodes) {
       const key = node.path
-      const tokens = key.split('.')
-      const lang =
-        (tokens.length === 1 ? undefined : tokens[tokens.length - 1]) || 'txt'
       if (node.children.length === 0) {
         node.icon = getIconFromFileName(node.label)
-        treeMap[key] = {
-          lang,
-          content: fileTreeDataFormatMap[`/${id}${key}`],
-        }
+        treeMap[key] = fileTreeDataFormatMap[`/${id}${key}`]
       } else {
         traverse(node.children)
       }
