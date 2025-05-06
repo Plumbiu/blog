@@ -2,7 +2,7 @@
 
 import PreComponent from '@/components/ui/Pre'
 import { arrayify } from '@/lib/types'
-import { memo, useEffect, useMemo, useState } from 'react'
+import { memo, useLayoutEffect, useMemo, useState } from 'react'
 import {
   handleFileTree,
   handleFileFileTreeMapItemKey,
@@ -57,6 +57,16 @@ function formatHeaderTabName(selector: string, selectorArray: string[]) {
   return <div>{basename}</div>
 }
 
+const FileExtensionIcon = memo(({ icon }: { icon: string }) => (
+  <img
+    data-no-view
+    alt="icon"
+    width="16"
+    height="16"
+    src={`/vscode-icons/${icon}.svg`}
+  />
+))
+
 const HeaderTab = memo(
   ({
     setLabel: setSelector,
@@ -76,13 +86,7 @@ const HeaderTab = memo(
               })}
               onClick={() => setSelector(s)}
             >
-              <img
-                data-no-view
-                alt="icon"
-                width="16"
-                height="16"
-                src={`/vscode-icons/${fileIconMap[s]}.svg`}
-              />
+              <FileExtensionIcon icon={fileIconMap[s]} />
               <div>{formatHeaderTabName(s, selectorArr)}</div>
               <div
                 onClick={(e) => {
@@ -153,13 +157,7 @@ const TreeTabItem = memo(
               <FolderOpenIcon className={styles.active_dir} />
             )
           ) : (
-            <img
-              data-no-view
-              alt="icon"
-              width="16"
-              height="16"
-              src={`/vscode-icons/${fileIconMap[node.path]}.svg`}
-            />
+            <FileExtensionIcon icon={fileIconMap[node.path]} />
           )}
           <div className={styles.label}>{node.label}</div>
         </div>
@@ -179,13 +177,9 @@ const TreeTabItem = memo(
 )
 
 const TreeTabs = memo(({ tree, ...restProps }: TreeTabsProps) => {
-  return (
-    <div>
-      {tree.map((node) => (
-        <TreeTabItem key={node.path} node={node} {...restProps} />
-      ))}
-    </div>
-  )
+  return tree.map((node) => (
+    <TreeTabItem key={node.path} node={node} {...restProps} />
+  ))
 })
 
 const Empty = memo(() => <CoffeeIcon className={cn('fcc', styles.empty)} />)
@@ -210,7 +204,7 @@ const FileTree = memo((props: any) => {
   const [selectorArr, setsetSelectorArr] = useState<string[]>(defaultSelector)
   const [label, setLabel] = useState(defaultSelector[0] || '')
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (selectorArr.length === 0) {
       setLabel('')
     } else {
