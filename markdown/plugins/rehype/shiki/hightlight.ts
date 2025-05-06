@@ -106,6 +106,8 @@ const rehypeShikiPlugin = () => {
                 '--shiki-dark',
                 'text-decoration',
                 '--shiki-dark-text-decoration',
+                'font-weight',
+                '--shiki-dark-font-weight',
               ],
             }),
             customShikiTranformer({
