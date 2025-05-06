@@ -37,10 +37,19 @@ function Toc() {
   const listRef = useRef<HTMLDivElement>(null)
   const [hightLightIds, setHiLightIds] = useState<Set<string>>(new Set())
 
+  function tocScroll(i: number) {
+    const top = (listRef.current?.children[i] as HTMLLinkElement)?.offsetTop
+    if (top) {
+      const tocHeight = tocRef.current?.clientHeight ?? 0
+      tocRef.current?.scrollTo({ top: top - tocHeight / 2 })
+    }
+  }
+
   const handler = useCallback(
     throttle(() => {
       const tocDom = tocRef.current
-      if (!tocDom) {
+      const listDom = listRef.current
+      if (!tocDom || !listDom) {
         return
       }
       const viewHeight = window.innerHeight - 36
@@ -52,10 +61,12 @@ function Toc() {
           const node = nodes.current![i]
           const rect = node.getBoundingClientRect()
           if (rect.bottom >= 0 && rect.top < viewHeight) {
+            tocScroll(i)
             set.add(node.id)
           }
           const nextRect = nodes.current![i + 1]?.getBoundingClientRect()
           if (rect.bottom < 0 && nextRect && nextRect.top > viewHeight) {
+            tocScroll(i)
             set.add(node.id)
           }
           setHiLightIds(set)
