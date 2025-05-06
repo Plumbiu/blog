@@ -113,12 +113,10 @@ const TreeTabItem = memo(
     node: TreeNode
   }) => {
     const [collapse, setCollapse] = useState(node.collapse)
-
     const isDir = node.children.length > 0
-    const pl = (node.level + 1) * 24
+    const pl = (node.level + 1) * 18
     return (
       <div
-        data-pl={pl}
         className={styles.item}
         onClick={(e) => {
           e.stopPropagation()
@@ -126,7 +124,6 @@ const TreeTabItem = memo(
             setCollapse(!collapse)
           } else {
             setLabel(node.path)
-
             if (selectorArr.includes(node.path)) {
               return
             }
@@ -142,7 +139,7 @@ const TreeTabItem = memo(
           }}
         />
         <div
-          className={cn(styles.label, {
+          className={cn(styles.label_wrap, {
             [styles.active_label]: label === node.path,
           })}
           style={{
@@ -164,7 +161,7 @@ const TreeTabItem = memo(
               src={`/vscode-icons/${fileIconMap[node.path]}.svg`}
             />
           )}
-          {node.label}
+          <div className={styles.label}>{node.label}</div>
         </div>
         {!collapse && (
           <TreeTabs
@@ -205,7 +202,6 @@ const FileTree = memo((props: any) => {
     const defaultSelector = (handleFileTreeDefaultSelector(props) || []).map(
       (s) => (s[0] === '/' ? s : `/${s}`),
     )
-    console.log(defaultSelector)
     const fileIconMap = handleFileTreeFileIconMapKey(props) || {}
     const tree = handleFileTree(props)
     return { tree, previewMap, defaultSelector, fileIconMap }
@@ -217,6 +213,11 @@ const FileTree = memo((props: any) => {
   useEffect(() => {
     if (selectorArr.length === 0) {
       setLabel('')
+    } else {
+      if (selectorArr.includes(label)) {
+        return
+      }
+      setLabel(selectorArr[0])
     }
   }, [selectorArr])
 

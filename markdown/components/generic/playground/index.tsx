@@ -132,7 +132,7 @@ const Playground = (props: any) => {
           </div>
         )}
         <div
-          className={cn(styles.preview, {
+          className={cn(styles.node_preview, {
             [styles.hide]: isConsoleVisible,
           })}
           data-testid="preview"

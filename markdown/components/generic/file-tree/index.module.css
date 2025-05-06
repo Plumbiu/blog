@@ -21,8 +21,8 @@
 
 .tabs {
   padding: 8px 0;
-  width: 30%;
-  border-right: 1px solid var(--c-gray-soft);
+  width: max(30%, 120px);
+  border-right: 1px solid var(--bg-body);
   flex-grow: 0;
   flex-shrink: 0;
 }
@@ -48,17 +48,13 @@
   bottom: 0;
   left: attr(data-pl);
   width: 1px;
-  background-color: var(--c-gray-2);
+  background-color: var(--c-gray-3);
 }
 
-.label {
+.label_wrap {
   display: flex;
   align-items: center;
   gap: 4px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 100%;
-  white-space: nowrap;
   font-size: var(--text-sm);
   cursor: pointer;
   height: var(--item-h);
@@ -72,6 +68,7 @@
   }
 
   &>svg {
+    flex-shrink: 0;
     color: var(--text-2);
     font-size: var(--text-lg);
   }
@@ -79,6 +76,13 @@
   & .active_dir {
     color: var(--c-yellow-1);
   }
+}
+
+.label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  white-space: nowrap;
 }
 
 .active_label {
