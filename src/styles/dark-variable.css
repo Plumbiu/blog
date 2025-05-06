@@ -46,7 +46,7 @@ html[data-theme='dark'] {
   --bg-md-quote-warn: #3d341b;
   --bg-md-quote-info: #272843;
   --bg-md-quote-danger: rgba(244, 63, 94, 0.16);
-  --bg-md-pre: #191919;
+  --bg-md-pre: #1b1b1b;
   --bg-md-pre-bar: #151515;
   --bg-md-code: #272e35;
   --bg-md-table-header: #161618;
@@ -63,6 +63,7 @@ html[data-theme='dark'] {
   --bg-comment: #16181f;
   --bg-selector: #121618;
   --bg-user-link: #283747;
+  --bg-file-tree-tabs: #171718;
   /* console */
   --console-num: #4c9a91;
   --console-string: #c98a7d;

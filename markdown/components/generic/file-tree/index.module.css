@@ -2,12 +2,10 @@
   --item-h: 32px;
   border-radius: var(--pre-radius);
   overflow: hidden;
-  margin: 12px 0;
 }
 
 .container {
   display: flex;
-  background-color: var(--bg-md-pre);
 
   &>pre {
     flex-grow: 1;
@@ -23,13 +21,24 @@
   padding: 8px 0;
   width: max(30%, 120px);
   border-right: 1px solid var(--bg-body);
+  background-color: var(--bg-file-tree-tabs);
   flex-grow: 0;
   flex-shrink: 0;
 }
 
 .preview {
-  flex: 1;
-  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 0;
+
+  &>div:nth-child(2) {
+    flex: 1;
+  }
+
+  & pre {
+    border-radius: 0;
+  }
 }
 
 .item {
@@ -98,6 +107,7 @@
   color: var(--text-2);
 
   & svg {
+    color: var(--c-gray-3);
     font-size: var(--text-base);
     transition: color 0.15s;
 

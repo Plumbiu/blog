@@ -45,7 +45,7 @@
   --bg-md-quote-warn: #fcf4dc;
   --bg-md-quote-info: #e9eaff;
   --bg-md-quote-danger: rgba(244, 63, 94, 0.14);
-  --bg-md-pre: #f5f9f9;
+  --bg-md-pre: #f8fafa;
   --bg-md-pre-bar: #e8ecf1;
   --bg-md-code: #ddeef8;
   --bg-md-table-header: #efefef;
@@ -62,6 +62,7 @@
   --bg-comment: #eef8f8;
   --bg-selector: var(--bg-card);
   --bg-user-link: #E2F0FF;
+  --bg-file-tree-tabs: #f2f2f8;
   /* console */
   --console-num: rgb(47, 121, 138);
   --console-string: rgb(181, 105, 89);
