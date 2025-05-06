@@ -4,17 +4,14 @@
   overflow: hidden;
 }
 
-.container {
-  display: flex;
-
-  &>pre {
-    flex-grow: 1;
-  }
-}
-
 .empty {
   font-size: 120px;
   color: var(--text-4);
+}
+
+.container {
+  display: flex;
+  align-items: stretch;
 }
 
 .tabs {
@@ -22,15 +19,17 @@
   width: max(30%, 120px);
   border-right: 1px solid var(--bg-body);
   background-color: var(--bg-file-tree-tabs);
-  flex-grow: 0;
   flex-shrink: 0;
 }
 
 .preview {
+  flex-basis: 0%;
+  overflow: auto;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   flex-shrink: 0;
+  background-color: var(--bg-md-pre);
 
   &>div:nth-child(2) {
     flex: 1;

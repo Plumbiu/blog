@@ -241,7 +241,6 @@ const FileTree = memo((props: any) => {
             setLabel={setLabel}
             fileIconMap={fileIconMap}
           />
-
           {previewMap[label] ? (
             <PreComponent>{previewMap[label]}</PreComponent>
           ) : (
