@@ -43,7 +43,7 @@ export default async function RootLayout({
       <head>
         <meta name="google-site-verification" content={GSC} />
         <link
-          href={resolveBasePath('icons/icon.svg')}
+          href={resolveBasePath('icon.svg')}
           rel="icon"
           sizes="32x32"
           type="image/x-icon"
