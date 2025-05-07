@@ -92,7 +92,7 @@ export async function parseContent(
           const firstCh = label[0]
           const node: TreeNode = {
             label,
-            level: i,
+            level: i - 1,
             collapse:
               firstCh === '+' ? false : firstCh === '-' ? true : !openAll,
             children: r[label].result,
