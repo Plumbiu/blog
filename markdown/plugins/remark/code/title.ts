@@ -2,17 +2,17 @@
 import { visit } from 'unist-util-visit'
 import {
   handleComponentCode,
+  handleComponentCodeTitle,
   handleComponentMeta,
   handleComponentName,
   handleLang,
   type RemarkPlugin,
 } from '../../constant'
 import { makeProperties } from '../../utils'
-import { handlePreTitleValue, PreTitleName } from './title-utils'
+import { PreTitleName } from './title-utils'
 import { markComponent } from '../utils'
 
 const PreTitleRegx = /title=(['"])([^'"]+)\1/
-
 const remarkCodeTitlePlugin: RemarkPlugin = () => {
   return async (tree) => {
     visit(tree, 'code', (node) => {
@@ -27,6 +27,7 @@ const remarkCodeTitlePlugin: RemarkPlugin = () => {
         return
       }
       const isPreTitle = PreTitleRegx.test(meta)
+
       if (!isPreTitle) {
         return
       }
@@ -35,9 +36,12 @@ const remarkCodeTitlePlugin: RemarkPlugin = () => {
       handleLang(props, lang)
 
       const title = PreTitleRegx.exec(meta)?.[2]
+      const componentName = handleComponentName(props)
       if (title) {
+        handleComponentCodeTitle(props, title)
+      }
+      if (!componentName) {
         handleComponentName(props, PreTitleName)
-        handlePreTitleValue(props, title)
         markComponent(node)
         handleComponentMeta(props, meta)
       }

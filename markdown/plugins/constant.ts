@@ -46,3 +46,7 @@ export const handleComponentDefaultSelectorKey = buildHandlerFunction<string>(
   ComponentDefaultSelectorKey,
 )
 export const FileMapStartStr = '///'
+
+export const ComponentCodeTitle = 'cmp-code-title'
+export const handleComponentCodeTitle =
+  buildHandlerFunction<string>(ComponentCodeTitle)

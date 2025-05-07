@@ -19,6 +19,10 @@
     overflow-x: hidden;
   }
 
+  & > div{
+    margin: 16px 0;
+  }
+
   h2 {
     margin-top: 1.5em;
   }

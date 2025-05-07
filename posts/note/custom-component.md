@@ -39,9 +39,9 @@ export const customComponentMap: Record<string, any> = {
 
 <ExtensionTest />
 
-# 文件树
+# 树
 
-通过 `id` 配置，以下例子配置可看： [markdown/config/file-tree.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/file-tree.ts) 。
+## 文件树
 
 文件夹默认处于全关闭状态，通过在 meta 中加入 open 字符设置为全打开。
 
@@ -53,7 +53,7 @@ export const customComponentMap: Record<string, any> = {
 输入：
 
 ````markdown
-```FileTree id="demo" open
+```Tree" open
 - +markdown
   - -plugins
     - remark.ts
@@ -65,9 +65,7 @@ export const customComponentMap: Record<string, any> = {
 ```
 ````
 
-输出：
-
-```FileTree id="demo" open
+```Tree open
 - +markdown
   - -plugins
     - remark.ts
@@ -76,6 +74,48 @@ export const customComponentMap: Record<string, any> = {
 - +utils.ts
 - +package.json
 - .gitignore
+```
+
+## 代码树
+
+可通过 `id` 配置，配置文件： [markdown/config/file-tree.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/file-tree.ts) 。
+
+也可以配置 `dir`，指定项目中的文件夹。
+
+输入：
+
+````markdown
+```Tree id="demo" title="Demo App" open
+- +markdown
+  - -plugins
+    - remark.ts
+    - rehype.ts
+  - utils.ts
+- +utils.ts
+- +package.json
+- .gitignore
+```
+
+```Tree dir="markdown"
+
+```
+````
+
+输出：
+
+```Tree id="demo" title="Demo App" open
+- +markdown
+  - -plugins
+    - remark.ts
+    - rehype.ts
+  - utils.ts
+- +utils.ts
+- +package.json
+- .gitignore
+```
+
+```Tree dir="markdown"
+
 ```
 
 # Playground

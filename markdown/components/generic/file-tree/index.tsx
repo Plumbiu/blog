@@ -2,13 +2,14 @@
 
 import PreComponent from '@/components/ui/Pre'
 import { arrayify } from '@/lib/types'
-import { memo, useLayoutEffect, useMemo, useState } from 'react'
+import { memo, Suspense, useLayoutEffect, useMemo, useState } from 'react'
 import {
   handleFileTree,
   handleFileFileTreeMapItemKey,
   type TreeNode,
   handleFileTreeDefaultSelector,
   handleFileTreeFileIconMapKey,
+  handleFileTreeHasPreviewKey,
 } from '~/markdown/plugins/remark/code/file-tree/file-tree-utils'
 import styles from './index.module.css'
 import tabStyles from '../_styles/tab.module.css'
@@ -20,11 +21,13 @@ import {
   FolderIcon,
 } from '@/components/Icons'
 import { cn } from '@/lib/client'
+import { handleComponentCodeTitle } from '~/markdown/plugins/constant'
+import Loading from '../_common/Loading'
 
 interface TreeTabsProps {
   tree: TreeNode[]
-  setLabel: (value: string) => void
-  label: string
+  setPath: (value: string) => void
+  path: string
   setsetSelectorArr: (value: string[]) => void
   selectorArr: string[]
   fileIconMap: Record<string, string>
@@ -69,8 +72,8 @@ const FileExtensionIcon = memo(({ icon }: { icon: string }) => (
 
 const HeaderTab = memo(
   ({
-    setLabel: setSelector,
-    label: selector,
+    setPath,
+    path,
     selectorArr,
     setsetSelectorArr,
     fileIconMap,
@@ -82,9 +85,9 @@ const HeaderTab = memo(
             <div
               key={s}
               className={cn(styles.header_tab_item, {
-                [tabStyles.tab_active]: s === selector,
+                [tabStyles.tab_active]: s === path,
               })}
-              onClick={() => setSelector(s)}
+              onClick={() => setPath(s)}
             >
               <FileExtensionIcon icon={fileIconMap[s]} />
               <div>{formatHeaderTabName(s, selectorArr)}</div>
@@ -110,15 +113,15 @@ const TreeTabItem = memo(
     node,
     fileIconMap,
     setsetSelectorArr,
-    setLabel,
+    setPath,
     selectorArr,
-    label,
+    path,
   }: Omit<TreeTabsProps, 'tree'> & {
     node: TreeNode
   }) => {
     const [collapse, setCollapse] = useState(node.collapse)
     const isDir = node.children.length > 0
-    const pl = (node.level + 1) * 18
+    const pl = (node.level + 1) * 16
     return (
       <div
         className={styles.item}
@@ -127,7 +130,7 @@ const TreeTabItem = memo(
           if (isDir) {
             setCollapse(!collapse)
           } else {
-            setLabel(node.path)
+            setPath(node.path)
             if (selectorArr.includes(node.path)) {
               return
             }
@@ -144,7 +147,7 @@ const TreeTabItem = memo(
         />
         <div
           className={cn(styles.label_wrap, {
-            [styles.active_label]: label === node.path,
+            [styles.active_label]: path === node.path,
           })}
           style={{
             paddingLeft: pl,
@@ -165,9 +168,9 @@ const TreeTabItem = memo(
           <TreeTabs
             selectorArr={selectorArr}
             setsetSelectorArr={setsetSelectorArr}
-            label={label}
+            path={path}
             tree={node.children}
-            setLabel={setLabel}
+            setPath={setPath}
             fileIconMap={fileIconMap}
           />
         )}
@@ -185,68 +188,88 @@ const TreeTabs = memo(({ tree, ...restProps }: TreeTabsProps) => {
 const Empty = memo(() => <CoffeeIcon className={cn('fcc', styles.empty)} />)
 
 const FileTree = memo((props: any) => {
-  const { tree, previewMap, defaultSelector, fileIconMap } = useMemo(() => {
-    const children = arrayify(props.children)
-    const previewMap = Object.fromEntries(
-      children.map((child) => [
-        handleFileFileTreeMapItemKey(child.props),
-        child,
-      ]),
-    )
-    const defaultSelector = (handleFileTreeDefaultSelector(props) || []).map(
-      (s) => (s[0] === '/' ? s : `/${s}`),
-    )
-    const fileIconMap = handleFileTreeFileIconMapKey(props) || {}
-    const tree = handleFileTree(props)
-    return { tree, previewMap, defaultSelector, fileIconMap }
-  }, [])
+  const { tree, previewMap, defaultSelector, fileIconMap, hasPreview, title } =
+    useMemo(() => {
+      const children = arrayify(props.children || [])
+      const previewMap = Object.fromEntries(
+        children.map((child) => [
+          handleFileFileTreeMapItemKey(child?.props || {}),
+          child,
+        ]),
+      )
+      const defaultSelector = (handleFileTreeDefaultSelector(props) || []).map(
+        (s) => (s[0] === '/' ? s : `/${s}`),
+      )
+      const fileIconMap = handleFileTreeFileIconMapKey(props) || {}
+      const hasPreview = handleFileTreeHasPreviewKey(props)
+      const tree = handleFileTree(props)
+      const title = handleComponentCodeTitle(props)
+      return {
+        tree,
+        previewMap,
+        defaultSelector,
+        fileIconMap,
+        hasPreview,
+        title,
+      }
+    }, [])
 
   const [selectorArr, setsetSelectorArr] = useState<string[]>(defaultSelector)
-  const [label, setLabel] = useState(defaultSelector[0] || '')
+  const [path, setPath] = useState(defaultSelector[0] || '')
 
   useLayoutEffect(() => {
     if (selectorArr.length === 0) {
-      setLabel('')
+      setPath('')
     } else {
-      if (selectorArr.includes(label)) {
+      if (selectorArr.includes(path)) {
         return
       }
-      setLabel(selectorArr[0])
+      setPath(selectorArr[0])
     }
   }, [selectorArr])
 
   return (
     <div className={styles.wrap}>
-      <div className={codeWrapStyles.bar}>FileTree</div>
-      <div className={styles.container}>
+      {hasPreview && (
+        <div className={codeWrapStyles.bar}>{title ?? 'FileTree'}</div>
+      )}
+      <div
+        className={cn(styles.container, {
+          [styles.no_preview]: !hasPreview,
+        })}
+      >
         <div className={styles.tabs}>
           <TreeTabs
             selectorArr={selectorArr}
             setsetSelectorArr={setsetSelectorArr}
-            label={label}
-            setLabel={setLabel}
+            path={path}
+            setPath={setPath}
             tree={tree}
             fileIconMap={fileIconMap}
           />
         </div>
-        <div
-          className={cn(styles.preview, {
-            fcc: !previewMap[label],
-          })}
-        >
-          <HeaderTab
-            selectorArr={selectorArr}
-            setsetSelectorArr={setsetSelectorArr}
-            label={label}
-            setLabel={setLabel}
-            fileIconMap={fileIconMap}
-          />
-          {previewMap[label] ? (
-            <PreComponent>{previewMap[label]}</PreComponent>
-          ) : (
-            <Empty />
-          )}
-        </div>
+        {hasPreview && (
+          <Suspense fallback={<Loading />}>
+            <div
+              className={cn(styles.preview, {
+                fcc: !previewMap[path],
+              })}
+            >
+              <HeaderTab
+                selectorArr={selectorArr}
+                setsetSelectorArr={setsetSelectorArr}
+                path={path}
+                setPath={setPath}
+                fileIconMap={fileIconMap}
+              />
+              {previewMap[path] ? (
+                <PreComponent>{previewMap[path]}</PreComponent>
+              ) : (
+                <Empty />
+              )}
+            </div>
+          </Suspense>
+        )}
       </div>
     </div>
   )

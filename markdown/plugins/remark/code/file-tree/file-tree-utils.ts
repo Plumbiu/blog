@@ -39,3 +39,13 @@ export const FileTreeFileIconMapKey = `${FileTreeName}-file-icon-map`
 export const handleFileTreeFileIconMapKey = buildHandlerFunction<
   Record<string, string>
 >(FileTreeFileIconMapKey, JSON.parse)
+
+export const FileTreeHasPreviewKey = `${FileTreeName}-preview`
+export const handleFileTreeHasPreviewKey = buildHandlerFunction<boolean>(
+  FileTreeHasPreviewKey,
+)
+
+export const FileTreeDirName = `${FileTreeName}-dirname`
+export const handleFileTreeDirName = buildHandlerFunction<boolean>(
+  FileTreeDirName,
+)

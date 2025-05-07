@@ -1,12 +1,22 @@
 .wrap {
   --item-h: 32px;
+  --max-h: 80vh;
   border-radius: var(--pre-radius);
   overflow: hidden;
+  max-height: var(--max-h);
 }
 
 .empty {
   font-size: 120px;
   color: var(--text-4);
+}
+
+.no_preview {
+
+  & .tabs {
+    border-right: none;
+    width: 100%;
+  }
 }
 
 .container {
@@ -19,7 +29,24 @@
   width: max(30%, 120px);
   border-right: 1px solid var(--bg-body);
   background-color: var(--bg-file-tree-tabs);
+  max-height: var(--max-h);
+  overflow: auto;
   flex-shrink: 0;
+}
+
+@media screen and (max-width: 960px) {
+  .container {
+    display: block;
+
+    &>div {
+      width: 100%;
+    }
+  }
+
+  .tabs {
+    border-right: none;
+    border-bottom: 1px solid var(--bg-body);
+  }
 }
 
 .preview {
@@ -37,6 +64,7 @@
 
   & pre {
     border-radius: 0;
+    max-height: var(--max-h);
   }
 }
 

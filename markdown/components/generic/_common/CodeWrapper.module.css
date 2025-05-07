@@ -27,7 +27,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 8px 12px;
-  font-size: 14px;
+  font-size: var(--text-sm);
   background-color: var(--bg-md-pre-bar);
   font-weight: 600;
 }
