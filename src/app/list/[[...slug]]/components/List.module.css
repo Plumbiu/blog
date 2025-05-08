@@ -33,6 +33,9 @@
 
 .title {
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-weight: 700;
   line-height: 1;
   color: var(--text);
@@ -75,7 +78,7 @@
 
 .locale {
   font-size: var(--text-base);
-  padding: 2px 6px;
+  padding: 6px;
   font-weight: 400;
   border-radius: 4px;
   background-color: #a1a1aa26;
