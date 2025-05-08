@@ -20,7 +20,7 @@
 }
 
 .appdir {
-  margin: 4px 8px;
+  margin: 10px 8px 4px 12px;
   font-size: var(--text-xs);
   color: var(--text-4);
   border-radius: 8px;
@@ -44,7 +44,7 @@
 }
 
 .tabs {
-  padding: 8px 0;
+  padding-bottom: 8px;
   width: max(30%, 120px);
   border-right: 1px solid var(--bg-body);
   background-color: var(--bg-file-tree-tabs);
