@@ -7,10 +7,14 @@ var BannerListPageHeight = isMobile ? 320 : 580
 function setBannerHeight() {
   if (dom) {
     const pathname = location.pathname
-    if (pathname === '/' || pathname.startsWith('/list')) {
-      dom.style.height = `${BannerListPageHeight}px`
-    } else {
+    if (
+      pathname.startsWith('/posts') ||
+      pathname.startsWith('/links') ||
+      pathname.startsWith('/about')
+    ) {
       dom.style.height = `${BannerHeight}px`
+    } else {
+      dom.style.height = `${BannerListPageHeight}px`
     }
   }
 }
