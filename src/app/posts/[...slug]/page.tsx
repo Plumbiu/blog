@@ -56,6 +56,7 @@ async function Post(props: PostProps) {
     variable: info.meta.variable,
     definitions: info.meta.definitions,
     emoji: info.meta.emoji,
+    abbr: info.meta.abbr,
   })
 
   return (

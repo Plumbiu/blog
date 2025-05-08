@@ -131,3 +131,36 @@
 .ml-4 {
   margin-left: 4px;
 }
+
+.plumbiu_abbr {
+  position: relative;
+  transition: color, background-color 0.15s;
+  border-bottom: 1px dashed var(--c-green-3);
+  cursor: help;
+
+  &::after {
+    content: attr(data-title);
+    font-size: var(--text-sm);
+    position: absolute;
+    cursor: auto;
+    line-height: 1;
+    opacity: 0;
+    bottom: 0;
+    left: 50%;
+    border: 1px solid var(--divider);
+    width: max-content;
+    transform: translate(-50%, 100%) scale(0.85);
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: 0.1s;
+    z-index: 99;
+    box-shadow: var(--shadow-box-light);
+  }
+}
+
+.plumbiu_abbr:hover::after {
+  opacity: 1;
+  background-color: var(--bg-card);
+  transform: translate(-50%, 100%) scale(1);
+  color: var(--c-indigo-1);
+}

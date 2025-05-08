@@ -22,6 +22,7 @@
     "@vercel/analytics": "^1.5.0",
     "es-toolkit": "1.37.2",
     "gray-matter": "^4.0.3",
+    "hast-util-find-and-replace": "^5.0.1",
     "hast-util-to-jsx-runtime": "^2.3.6",
     "hast-util-to-string": "^3.0.1",
     "is-plain-obj": "^4.1.0",

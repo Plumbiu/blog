@@ -21,6 +21,7 @@ import remarkCodeComponentsPlugin from './plugins/remark/code/components'
 import remarkCodeMetaPlugin from './plugins/remark/code/meta'
 import remarkCodeTitlePlugin from './plugins/remark/code/title'
 import remarkFileTreePlugin from './plugins/remark/code/file-tree/file-tree'
+import rehypeAbbrPlugin from './plugins/rehype/abbr'
 
 export async function transformCodeWithOptions(
   code: string,
@@ -48,13 +49,16 @@ export async function transformCodeWithOptions(
   return node
 }
 
-type TransformOption = Pick<PostMeta, 'definitions' | 'emoji' | 'variable'>
+type TransformOption = Pick<
+  PostMeta,
+  'definitions' | 'emoji' | 'variable' | 'abbr'
+>
 // This code is refactored into TypeScript based on
 // https://github.com/remarkjs/react-markdown/blob/main/lib/index.js
 // LICENSE file: https://github.com/remarkjs/react-markdown/blob/main/license
 async function transfromCode2Jsx(
   code: string,
-  { definitions = {}, variable = {}, emoji = {} }: TransformOption,
+  { definitions = {}, variable = {}, emoji = {}, abbr = {} }: TransformOption,
 ) {
   const node = await transformCodeWithOptions(code, {
     remark: [
@@ -71,7 +75,7 @@ async function transfromCode2Jsx(
       remarkHtmlParser,
       remarkCodeTitlePlugin,
     ],
-    rehype: [rehypeElementPlugin, rehypeShikiPlugin],
+    rehype: [[rehypeAbbrPlugin, abbr], rehypeElementPlugin, rehypeShikiPlugin],
   })
   return node
 }

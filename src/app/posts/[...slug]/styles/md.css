@@ -15,11 +15,8 @@
     line-height: 28px;
   }
 
-  &>* {
+  &>div {
     overflow-x: hidden;
-  }
-
-  & > div{
     margin: 16px 0;
   }
 

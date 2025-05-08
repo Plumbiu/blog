@@ -1,6 +1,7 @@
 import type { DefinitionType } from './config/definitions'
 import type { VariableType } from './config/variables'
 import type { EmojiType } from './config/emoji'
+import type { AbbrType } from './config/abbr'
 
 export interface PostMeta {
   title: string
@@ -16,6 +17,7 @@ export interface PostMeta {
   definitions?: DefinitionType
   variable?: VariableType
   emoji?: EmojiType
+  abbr?: AbbrType
 }
 
 export interface PostList {

@@ -6,6 +6,7 @@ desc: 1
 emoji: { num: 🔢 }
 definitions: { plumbiu: 'https://github.com/Plumbiu' }
 variable: { var_text: 'var_text' }
+abbr: { www: 'what when why' }
 ---
 
 本博客 Markdown 拓展基于 [remark]() 和 [rehype]() 生态构建。
@@ -419,7 +420,7 @@ console.log('custom-title')
 console.log('custom-title')
 ```
 
-# 文字转换
+# 表情、变量、链接转换、缩写词
 
 ## 全局配置
 
@@ -430,20 +431,24 @@ console.log('custom-title')
 输入：
 
 ```markdown
-:smile:
+表情：:smile:
 
-{{bar['test'].a}}
+变量：{{bar['test'].a}}
 
-[Next.js][]
+连接转换：[Next.js][]
+
+缩写词：\*[HTML][]
 ```
 
 输出：
 
-:smile:
+表情：:smile:
 
-{{bar['test'].a}}
+变量：{{bar['test'].a}}
 
-[Next.js][]
+连接转换：[Next.js][]
+
+缩写词：\*[HTML][]
 
 ## front-matter
 
@@ -454,22 +459,27 @@ console.log('custom-title')
 emoji: { num: 🔢 }
 variable: { var_text: 'var_text' }
 definitions: { plumbiu: 'https://github.com/Plumbiu' }
+abbr: { www: 'what when why' }
 ---
 
-:num:
+表情：:num:
 
-{{var_text}}
+变量：{{var_text}}
 
-[plumbiu][]
+连接转换：[plumbiu][]
+
+缩写词：\*[www][]
 ```
 
 输出：
 
-:num:
+表情：:num:
 
-{{var_text}}
+变量：{{var_text}}
 
-[plumbiu][]
+连接转换：[plumbiu][]
+
+缩写词：\*[www][]
 
 # Blockquote
 
