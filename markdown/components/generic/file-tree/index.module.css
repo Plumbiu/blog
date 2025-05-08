@@ -41,12 +41,12 @@
 .container {
   display: flex;
   align-items: stretch;
+  background-color: var(--bg-md-pre);
 }
 
 .tabs {
   padding-bottom: 8px;
   width: max(30%, 120px);
-  border-right: 1px solid var(--bg-body);
   background-color: var(--bg-file-tree-tabs);
   max-height: var(--max-h);
   overflow-y: auto;

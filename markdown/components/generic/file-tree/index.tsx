@@ -2,7 +2,15 @@
 
 import PreComponent from '@/components/ui/Pre'
 import { arrayify } from '@/lib/types'
-import { memo, Suspense, useLayoutEffect, useMemo, useState } from 'react'
+import {
+  memo,
+  Suspense,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import {
   handleFileTree,
   handleFileFileTreeMapItemKey,
@@ -24,6 +32,7 @@ import {
 import { cn } from '@/lib/client'
 import { handleComponentCodeTitle } from '~/markdown/plugins/constant'
 import Loading from '../_common/Loading'
+import useDivider from '@/hooks/useDivider'
 
 interface TreeTabsProps {
   tree: TreeNode[]
@@ -236,6 +245,8 @@ const FileTree = memo((props: any) => {
 
   const [selectorArr, setSelectorArr] = useState<string[]>(defaultSelector)
   const [path, setPath] = useState(defaultSelector[0] || '')
+  const preViewRef = useRef<HTMLDivElement>(null)
+  const { node: dividerNode, init } = useDivider()
 
   useLayoutEffect(() => {
     if (selectorArr.length === 0) {
@@ -248,6 +259,10 @@ const FileTree = memo((props: any) => {
     }
   }, [selectorArr])
 
+  useEffect(() => {
+    init(preViewRef.current)
+  }, [])
+
   return (
     <div className={styles.wrap}>
       <div className={codeWrapStyles.bar}>{title ?? 'FileTree'}</div>
@@ -256,7 +271,7 @@ const FileTree = memo((props: any) => {
           [styles.no_preview]: !hasPreview,
         })}
       >
-        <div className={styles.tabs}>
+        <div className={styles.tabs} ref={preViewRef}>
           {!!dirname && (
             <div className={styles.appdir}>{formatAppDir(dirname)}</div>
           )}
@@ -271,6 +286,7 @@ const FileTree = memo((props: any) => {
         </div>
         {hasPreview && (
           <Suspense fallback={<Loading />}>
+            {dividerNode}
             <div
               className={cn(styles.preview, {
                 fcc: !previewMap[path],
