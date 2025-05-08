@@ -260,7 +260,7 @@ const FileTree = memo((props: any) => {
   }, [selectorArr])
 
   useEffect(() => {
-    init(preViewRef.current)
+    return init(preViewRef.current)
   }, [])
 
   return (

@@ -55,17 +55,13 @@
 }
 
 @media screen and (max-width: 960px) {
+
   .container {
     display: block;
 
     &>div {
       width: 100%;
     }
-  }
-
-  .tabs {
-    border-right: none;
-    border-bottom: 1px solid var(--bg-body);
   }
 }
 
