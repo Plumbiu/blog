@@ -3,7 +3,7 @@
   --max-h: 80vh;
   border-radius: var(--pre-radius);
   overflow: hidden;
-  max-height: var(--max-h);
+  max-height: calc(var(--item-h) + var(--max-h));
 }
 
 .empty {
@@ -19,6 +19,25 @@
   }
 }
 
+.appdir {
+  margin: 4px 8px;
+  font-size: var(--text-xs);
+  color: var(--text-4);
+  border-radius: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.collapse_all {
+  border-radius: 4px;
+  font-size: var(--text-xl);
+
+  &:hover {
+    background-color: var(--c-gray-soft);
+  }
+}
+
 .container {
   display: flex;
   align-items: stretch;
@@ -30,7 +49,8 @@
   border-right: 1px solid var(--bg-body);
   background-color: var(--bg-file-tree-tabs);
   max-height: var(--max-h);
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   flex-shrink: 0;
 }
 
@@ -63,8 +83,8 @@
   }
 
   & pre {
-    border-radius: 0;
-    max-height: var(--max-h);
+    border-radius: 0 !important;
+    max-height: var(--max-h) !important;
   }
 }
 
@@ -110,9 +130,8 @@
 }
 
 .label {
-  overflow: hidden;
   text-overflow: ellipsis;
-  width: 100%;
+  overflow: hidden;
   white-space: nowrap;
 }
 

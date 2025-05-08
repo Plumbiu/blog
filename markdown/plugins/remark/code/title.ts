@@ -32,14 +32,14 @@ const remarkCodeTitlePlugin: RemarkPlugin = () => {
         return
       }
 
-      handleComponentCode(props, code)
-      handleLang(props, lang)
-
       const title = PreTitleRegx.exec(meta)?.[2]
       const componentName = handleComponentName(props)
       if (title) {
         handleComponentCodeTitle(props, title)
       }
+      handleComponentCode(props, code)
+      handleLang(props, lang)
+
       if (!componentName) {
         handleComponentName(props, PreTitleName)
         markComponent(node)

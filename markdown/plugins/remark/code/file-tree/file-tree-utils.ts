@@ -46,6 +46,5 @@ export const handleFileTreeHasPreviewKey = buildHandlerFunction<boolean>(
 )
 
 export const FileTreeDirName = `${FileTreeName}-dirname`
-export const handleFileTreeDirName = buildHandlerFunction<boolean>(
-  FileTreeDirName,
-)
+export const handleFileTreeDirName =
+  buildHandlerFunction<string>(FileTreeDirName)

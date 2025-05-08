@@ -163,7 +163,8 @@ export async function parseContent(
 function childSort(prev: TreeNode, next: TreeNode) {
   const nextChildrenLen = next.children.length
   const prevChildrenLen = prev.children.length
-  if (nextChildrenLen > 0 && prevChildrenLen > 0) {
+
+  if (prevChildrenLen > 0 && nextChildrenLen > 0) {
     return prev.label.localeCompare(next.label)
   }
   if (prevChildrenLen === 0 || nextChildrenLen === 0) {

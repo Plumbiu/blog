@@ -10,6 +10,7 @@ import {
   handleFileTreeDefaultSelector,
   handleFileTreeFileIconMapKey,
   handleFileTreeHasPreviewKey,
+  handleFileTreeDirName,
 } from '~/markdown/plugins/remark/code/file-tree/file-tree-utils'
 import styles from './index.module.css'
 import tabStyles from '../_styles/tab.module.css'
@@ -28,7 +29,7 @@ interface TreeTabsProps {
   tree: TreeNode[]
   setPath: (value: string) => void
   path: string
-  setsetSelectorArr: (value: string[]) => void
+  setSelectorArr: (value: string[]) => void
   selectorArr: string[]
   fileIconMap: Record<string, string>
 }
@@ -39,6 +40,16 @@ function getBaseDirname(filePath: string) {
   const basename = segments[segments.length - 1]
   const dirname = segments[segments.length - 2]
   return { basename, dirname }
+}
+
+function formatAppDir(name: string) {
+  if (name.startsWith('./')) {
+    return name
+  }
+  if (name[0] === '/') {
+    return '.' + name
+  }
+  return './' + name
 }
 
 function formatHeaderTabName(selector: string, selectorArray: string[]) {
@@ -75,7 +86,7 @@ const HeaderTab = memo(
     setPath,
     path,
     selectorArr,
-    setsetSelectorArr,
+    setSelectorArr,
     fileIconMap,
   }: Omit<TreeTabsProps, 'tree'>) => {
     return (
@@ -94,7 +105,7 @@ const HeaderTab = memo(
               <div
                 onClick={(e) => {
                   e.stopPropagation()
-                  setsetSelectorArr(selectorArr.filter((item) => item !== s))
+                  setSelectorArr(selectorArr.filter((item) => item !== s))
                 }}
               >
                 <CloseIcon />
@@ -112,7 +123,7 @@ const TreeTabItem = memo(
   ({
     node,
     fileIconMap,
-    setsetSelectorArr,
+    setSelectorArr,
     setPath,
     selectorArr,
     path,
@@ -134,7 +145,7 @@ const TreeTabItem = memo(
             if (selectorArr.includes(node.path)) {
               return
             }
-            setsetSelectorArr([...selectorArr, node.path])
+            setSelectorArr([...selectorArr, node.path])
           }
         }}
         key={node.path}
@@ -167,7 +178,7 @@ const TreeTabItem = memo(
         {!collapse && (
           <TreeTabs
             selectorArr={selectorArr}
-            setsetSelectorArr={setsetSelectorArr}
+            setSelectorArr={setSelectorArr}
             path={path}
             tree={node.children}
             setPath={setPath}
@@ -188,33 +199,42 @@ const TreeTabs = memo(({ tree, ...restProps }: TreeTabsProps) => {
 const Empty = memo(() => <CoffeeIcon className={cn('fcc', styles.empty)} />)
 
 const FileTree = memo((props: any) => {
-  const { tree, previewMap, defaultSelector, fileIconMap, hasPreview, title } =
-    useMemo(() => {
-      const children = arrayify(props.children || [])
-      const previewMap = Object.fromEntries(
-        children.map((child) => [
-          handleFileFileTreeMapItemKey(child?.props || {}),
-          child,
-        ]),
-      )
-      const defaultSelector = (handleFileTreeDefaultSelector(props) || []).map(
-        (s) => (s[0] === '/' ? s : `/${s}`),
-      )
-      const fileIconMap = handleFileTreeFileIconMapKey(props) || {}
-      const hasPreview = handleFileTreeHasPreviewKey(props)
-      const tree = handleFileTree(props)
-      const title = handleComponentCodeTitle(props)
-      return {
-        tree,
-        previewMap,
-        defaultSelector,
-        fileIconMap,
-        hasPreview,
-        title,
-      }
-    }, [])
+  const {
+    tree,
+    previewMap,
+    defaultSelector,
+    fileIconMap,
+    hasPreview,
+    title,
+    dirname,
+  } = useMemo(() => {
+    const children = arrayify(props.children || [])
+    const previewMap = Object.fromEntries(
+      children.map((child) => [
+        handleFileFileTreeMapItemKey(child?.props || {}),
+        child,
+      ]),
+    )
+    const defaultSelector = (handleFileTreeDefaultSelector(props) || []).map(
+      (s) => (s[0] === '/' ? s : `/${s}`),
+    )
+    const fileIconMap = handleFileTreeFileIconMapKey(props) || {}
+    const hasPreview = handleFileTreeHasPreviewKey(props)
+    const tree = handleFileTree(props)
+    const title = handleComponentCodeTitle(props)
+    const dirname = handleFileTreeDirName(props)
+    return {
+      tree,
+      previewMap,
+      defaultSelector,
+      fileIconMap,
+      hasPreview,
+      title,
+      dirname,
+    }
+  }, [])
 
-  const [selectorArr, setsetSelectorArr] = useState<string[]>(defaultSelector)
+  const [selectorArr, setSelectorArr] = useState<string[]>(defaultSelector)
   const [path, setPath] = useState(defaultSelector[0] || '')
 
   useLayoutEffect(() => {
@@ -230,18 +250,19 @@ const FileTree = memo((props: any) => {
 
   return (
     <div className={styles.wrap}>
-      {hasPreview && (
-        <div className={codeWrapStyles.bar}>{title ?? 'FileTree'}</div>
-      )}
+      <div className={codeWrapStyles.bar}>{title ?? 'FileTree'}</div>
       <div
         className={cn(styles.container, {
           [styles.no_preview]: !hasPreview,
         })}
       >
         <div className={styles.tabs}>
+          {!!dirname && (
+            <div className={styles.appdir}>{formatAppDir(dirname)}</div>
+          )}
           <TreeTabs
             selectorArr={selectorArr}
-            setsetSelectorArr={setsetSelectorArr}
+            setSelectorArr={setSelectorArr}
             path={path}
             setPath={setPath}
             tree={tree}
@@ -257,7 +278,7 @@ const FileTree = memo((props: any) => {
             >
               <HeaderTab
                 selectorArr={selectorArr}
-                setsetSelectorArr={setsetSelectorArr}
+                setSelectorArr={setSelectorArr}
                 path={path}
                 setPath={setPath}
                 fileIconMap={fileIconMap}

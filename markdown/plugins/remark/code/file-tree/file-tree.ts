@@ -16,6 +16,7 @@ import { isString } from '@/lib/types'
 
 const IdRegx = /id=(['"])([^'"]+)\1/
 const DirRegx = /dir=(['"])([^'"]+)\1/
+const TitleRegx = /title=(['"])([^'"]+)\1/
 const remarkFileTreePlugin: RemarkPlugin = () => {
   return async (tree) => {
     const nodes: Code[] = []
@@ -36,19 +37,21 @@ const remarkFileTreePlugin: RemarkPlugin = () => {
         if (!parsed) {
           return
         }
-        if (!id && !dir) {
-          console.log(parsed)
-        }
-        if (dir) {
-          handleFileTreeDirName(dir)
-        }
+
         const { tree, treeMap, fileIconMap, defaultSelectors } = parsed
         const data = node.data!
         const props = data.hProperties!
+        if (dir) {
+          handleFileTreeDirName(props, dir)
+        }
         handleFileTree(props, JSON.stringify(tree))
         handleFileTreeMap(props, JSON.stringify(treeMap))
         handleFileTreeFileIconMapKey(props, JSON.stringify(fileIconMap))
         handleFileTreeDefaultSelector(props, JSON.stringify(defaultSelectors))
+        const title = TitleRegx.exec(meta)?.[2]
+        if (title) {
+          handleComponentCodeTitle(props, title)
+        }
         const hasPreview = !!(id || dir)
         handleFileTreeHasPreviewKey(props, hasPreview)
         isString(props.title) && handleComponentCodeTitle(props, props.title)
