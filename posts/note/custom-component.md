@@ -96,7 +96,7 @@ export const customComponentMap: Record<string, any> = {
 - .gitignore
 ```
 
-```Tree dir="markdown"
+```Tree dir="markdown/plugins"
 
 ```
 ````
@@ -114,7 +114,7 @@ export const customComponentMap: Record<string, any> = {
 - .gitignore
 ```
 
-```Tree dir="markdown"
+```Tree dir="markdown/plugins"
 
 ```
 

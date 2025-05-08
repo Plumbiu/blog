@@ -83,6 +83,8 @@ export async function parseContent(
         }
       }),
     )
+    const prefixDir = formatTreeMapKey(dir)
+    const levelOffset = prefixDir.split('/').length - 1
     const tmp: Record<string, any> = { result: tree }
     for (const paths of keys(treeMap)) {
       const segments = paths.slice(1).split('/')
@@ -92,7 +94,7 @@ export async function parseContent(
           const firstCh = label[0]
           const node: TreeNode = {
             label,
-            level: i - 1,
+            level: i - levelOffset,
             collapse:
               firstCh === '+' ? false : firstCh === '-' ? true : !openAll,
             children: r[label].result,
@@ -104,7 +106,15 @@ export async function parseContent(
         return r[label]
       }, tmp)
     }
-    tree = tree[0].children
+    let currTree = tree
+    while (currTree && currTree.length === 1) {
+      const firstChildren = currTree[0]
+      currTree = firstChildren.children
+      if (firstChildren.path === prefixDir) {
+        break
+      }
+    }
+    tree = currTree
   } else {
     for (const line of lines) {
       const [_, space, label] = line.match(TreeRegx) ?? []
