@@ -10,6 +10,7 @@ desc: 1
 先看一下效果：
 
 ```jsx Playground
+//@tab App.jsx
 import Test from './Test'
 
 function App() {
