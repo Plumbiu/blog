@@ -23,7 +23,7 @@ export function cn(...args: ClassNameArg[]) {
     }
   }
 
-  return classname
+  return classname || undefined
 }
 
 export function renderReactNodeToString(node: ReactNode) {
