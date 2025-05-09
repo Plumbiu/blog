@@ -290,6 +290,7 @@ const FileTree = memo((props: any) => {
             <div
               className={cn(styles.preview, {
                 fcc: !previewMap[path],
+                [styles.preview_empty]: !selectorArr.length
               })}
             >
               <HeaderTab
