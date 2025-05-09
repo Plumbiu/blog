@@ -48,6 +48,7 @@
   flex-basis: 0%;
   overflow: auto;
   display: flex;
+  justify-content: flex-start;
   flex-direction: column;
   flex-grow: 1;
   flex-shrink: 0;
