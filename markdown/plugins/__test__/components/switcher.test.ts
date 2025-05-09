@@ -8,9 +8,9 @@ test('components: switcher', async () => {
   const tab1Code = "console.log('tab1')"
   const tab2Code = "console.log('tab2')"
   const code = `
-/// tab1
+//@tab tab1
 ${tab1Code}
-/// tab2
+//@tab tab2
 ${tab2Code}
 `.trim()
   const markdown = `

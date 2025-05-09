@@ -21,7 +21,7 @@ function App() {
   )
 }
 export default App
-/// Test.jsx
+//@tab Test.jsx
 function Test() {
   console.log('This is Test')
   return <div>This is Test</div>
@@ -33,7 +33,7 @@ export default Test
 
 ````markdown
 ```jsx Playground
-/// App.jsx
+//@tab App.jsx
 import Test from './Test'
 
 function App() {
@@ -45,7 +45,7 @@ function App() {
   )
 }
 export default App
-/// Test.jsx
+//@tab Test.jsx
 function Test() {
   console.log('This is Test')
   return <div>This is Test</div>
@@ -224,7 +224,7 @@ function evalCode(code) {
 
 本文实现的 Playground 其实并不难，但是你能看到，这里实现的的只能解析一段代码，也就是说，最开始演示的那种具有文件栏以及 Console 面板的 Playground 本文并未实现，但其实思路还是挺简单的：
 
-- 将多个文件解析代码，并添加到 `scope` 作用域中（在 Markdown 语法中，我是使用 `///` 作为分割每个文件）
+- 将多个文件解析代码，并添加到 `scope` 作用域中（在 Markdown 语法中，我是使用 `//@tab` 作为分割每个文件）
 - Console 面板实现关键在于如何修改文本代码中的 `console.log`，这个可以在 `new Function` 中传入 `console` 参数，进而修改，提供一个简单的代码：
 
 ```jsx {21-24} showLineNumbers

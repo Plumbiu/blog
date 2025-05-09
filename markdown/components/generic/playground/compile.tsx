@@ -72,9 +72,9 @@ export function renderPlayground({
   }
   // loop twice for the order
   /**
-   * /// A.js
+   * //@tab A.js
    * export default function A() { return '123' }
-   * /// App.js
+   * //@tab App.js
    * import A from './A'
    * // ...
    */

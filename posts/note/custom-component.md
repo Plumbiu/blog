@@ -121,7 +121,7 @@ export const customComponentMap: Record<string, any> = {
 
 # Playground
 
-用于展示代码和组件，包括打印栏等。不同 Tab 通过 `///` 表达式分隔，后续可以加上 meta 信息（例如 `line` 显示行数）。其中样式基于 ShadowRoot，不会影响到全局。
+用于展示代码和组件，包括打印栏等。不同 Tab 通过 `//@tab` 表达式分隔，后续可以加上 meta 信息（例如 `line` 显示行数）。其中样式基于 ShadowRoot，不会影响到全局。
 
 > [!NOTE]
 >
@@ -135,18 +135,18 @@ export const customComponentMap: Record<string, any> = {
 
 ````markdown
 ```tsx Playground
-/// App.jsx
+//@tab App.jsx
 import Random from './Random'
 
 export default function App() {
   console.log('App')
   return <Random />
 }
-/// Random.tsx
+//@tab Random.tsx
 export default function Random() {
   return <div onClick={() => console.log('random')} className="random">{Math.random()}</div>
 }
-/// App.css line
+//@tab App.css line
 .random {
   font-size: 24px;
   color: blue;
@@ -157,17 +157,17 @@ export default function Random() {
 输出：
 
 ```tsx Playground
-/// App.jsx
+//@tab App.jsx
 import Random from './Random'
 export default function App() {
   console.log('App')
   return <Random onClick={() => console.log('random')} />
 }
-/// Random.tsx
+//@tab Random.tsx
 export default function Random(props: any) {
   return <div {...props} className="random">{Math.random()}</div>
 }
-/// App.css line
+//@tab App.css line
 .random {
   font-size: 24px;
   color: blue;
@@ -182,18 +182,18 @@ HTML 暂不支持打印
 
 ````markdown
 ```html Playground
-/// index.html
+//@tab index.html
 <div class="test">hello</div>
-/// color.css .test { color: red; font-weight: 600; }
+//@tab color.css .test { color: red; font-weight: 600; }
 ```
 ````
 
 输出：
 
 ```txt Playground
-/// index.html
+//@tab index.html
 <div class="test" onclick="console.log(111)">hello</div>
-/// color.css
+//@tab color.css
 .test {
   color: red;
   font-weight: 600;
@@ -378,17 +378,17 @@ console.log('+++') // [!code ++]
 
 # 代码分组
 
-meta 添加 Switcher 字符，并通过 `///` 语法划分。
+meta 添加 Switcher 字符，并通过 `//@tab` 语法划分。
 
 输入：
 
 ````markdown
 ```bash Switcher
-/// npm
+//@tab npm
 npm install @plumbiu/react-store
-/// yarn
+//@tab yarn
 yarn add @plumbiu/react-store
-/// pnpm
+//@tab pnpm
 pnpm add @plumbiu/react-store
 ```
 ````
@@ -396,11 +396,11 @@ pnpm add @plumbiu/react-store
 输出：
 
 ```bash Switcher
-/// npm
+//@tab npm
 npm install @plumbiu/react-store
-/// yarn
+//@tab yarn
 yarn add @plumbiu/react-store
-/// pnpm
+//@tab pnpm
 pnpm add @plumbiu/react-store
 ```
 

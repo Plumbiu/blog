@@ -45,7 +45,7 @@ export const ComponentDefaultSelectorKey = `${ComponentFileMapPrefx}selector`
 export const handleComponentDefaultSelectorKey = buildHandlerFunction<string>(
   ComponentDefaultSelectorKey,
 )
-export const FileMapStartStr = '///'
+export const FileMapStartStr = '//@tab'
 
 export const ComponentCodeTitle = 'cmp-code-title'
 export const handleComponentCodeTitle =

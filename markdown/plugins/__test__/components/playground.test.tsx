@@ -31,11 +31,11 @@ h1 {
 }
 `.trim()
 const code = `
-/// App.jsx
+//@tab App.jsx
 ${AppCode}
-/// Child.tsx
+//@tab Child.tsx
 ${childCode}
-/// App.css
+//@tab App.css
 ${cssCode}
 `.trim()
 const markdown = `
@@ -114,9 +114,9 @@ h1 {
 `.trim()
 const htmlMarkdown = `
 \`\`\`html Playground
-/// index.html
+//@tab index.html
 ${htmlCode}
-/// index.css
+//@tab index.css
 ${htmlCssCode}
 \`\`\``
 
