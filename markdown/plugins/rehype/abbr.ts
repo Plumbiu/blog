@@ -2,6 +2,7 @@ import { findAndReplace } from 'hast-util-find-and-replace'
 import type { RehypePlugin } from '../constant'
 import type { AbbrType } from '~/markdown/config/abbr'
 import abbrMap from '~/markdown/config/abbr'
+import { h } from 'hastscript'
 
 const AbbrRegx = /\*\[([^\]]+)\]\[\]/g
 const rehypeAbbrPlugin: RehypePlugin<[AbbrType]> = (customAbbr) => {
@@ -10,25 +11,17 @@ const rehypeAbbrPlugin: RehypePlugin<[AbbrType]> = (customAbbr) => {
       AbbrRegx,
       (_, $1) => {
         const data = abbrMap[$1] ?? customAbbr[$1]
-        console.log(data, customAbbr)
         if (data == null) {
           return false
         }
-        return {
-          type: 'element',
-          tagName: 'span',
-          data: {},
-          properties: {
+        return h(
+          'span',
+          {
             className: 'plumbiu_abbr',
             'data-title': data,
           },
-          children: [
-            {
-              type: 'text',
-              value: $1,
-            },
-          ],
-        }
+          $1,
+        )
       },
     ])
   }

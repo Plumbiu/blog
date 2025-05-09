@@ -1,6 +1,7 @@
 import type { Element } from 'hast'
 import { addRehypeNodeClassName } from '../utils'
 import { visit, EXIT } from 'unist-util-visit'
+import { h, s } from 'hastscript'
 
 const BlockquoteRegx = /\[!(NOTE|WARNING|IMPORTANT|CAUTION|TIP)\]/
 export const BlockquoteSvgElementPathMap: Record<string, string> = {
@@ -24,40 +25,27 @@ export default function BlockquotePlugin(node: Element) {
         const lowerType = type.toLowerCase()
         addRehypeNodeClassName(node, `blockquote-${lowerType}`)
         textNode.value = value.replace(firstLine, '')
-        parent.children.unshift({
-          type: 'element',
-          tagName: 'span',
-          properties: {
-            className: 'blockquote-title',
-            'data-alert-type': lowerType,
-          },
-          children: [
-            {
-              type: 'element',
-              tagName: 'svg',
-              properties: {
-                viewBox: '0 0 16 16',
-                'aria-hidden': true,
-              },
-              children: [
-                {
-                  type: 'element',
-                  tagName: 'path',
-                  properties: {
-                    d: BlockquoteSvgElementPathMap[lowerType],
-                  },
-                  children: [],
-                },
-              ],
-            },
-            {
-              type: 'text',
-              value: (
-                firstLine.replace(raw, '') || firstLine.replace(raw, type)
-              ).trim(),
-            },
-          ],
+
+        const pathNode = s('path', {
+          d: BlockquoteSvgElementPathMap[lowerType],
         })
+        const svgNode = s(
+          'svg',
+          {
+            viewBox: '0 0 16 16',
+            'aria-hidden': true,
+          },
+          pathNode,
+        )
+        const titleProps = {
+          className: 'blockquote-title',
+          'data-alert-type': lowerType,
+        }
+        const textValue = (
+          firstLine.replace(raw, '') || firstLine.replace(raw, type)
+        ).trim()
+        parent.children.unshift(h('span', titleProps, [svgNode, textValue]))
+
         return EXIT
       }
     })

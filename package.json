@@ -25,6 +25,7 @@
     "hast-util-find-and-replace": "^5.0.1",
     "hast-util-to-jsx-runtime": "^2.3.6",
     "hast-util-to-string": "^3.0.1",
+    "hastscript": "^9.0.1",
     "is-plain-obj": "^4.1.0",
     "lil-gui": "^0.20.0",
     "mdast-util-find-and-replace": "^3.0.2",

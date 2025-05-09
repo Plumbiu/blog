@@ -40,6 +40,7 @@
   color: var(--c-indigo-1);
   border-bottom: 1px dashed var(--c-gray-2);
   transition: border-color 250ms;
+  padding-bottom: 2px;
   word-break: break-all;
 
   &:hover {
@@ -136,16 +137,15 @@
   position: relative;
   z-index: 99;
   color: var(--c-indigo-1);
-  font-style: italic;
-  border-top: 1px dashed var(--c-gray-2);
-  border-bottom: 4px dashed transparent;
-  cursor: pointer;
+  border-bottom: 1px dashed var(--c-gray-2);
+  padding-bottom: 4px;
+  cursor: help;
 
   &::after {
     content: attr(data-title);
     position: absolute;
     font-size: var(--text-sm);
-    bottom: -4px;
+    bottom: 0;
     left: 50%;
     transform: translate(-50%, 100%) scale(0.85);
     transition: 0.1s;
