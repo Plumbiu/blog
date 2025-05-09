@@ -7,7 +7,7 @@
 }
 
 .empty {
-  font-size: 120px;
+  font-size: 82px;
   color: var(--text-4);
 }
 
@@ -52,7 +52,6 @@
   flex-grow: 1;
   flex-shrink: 0;
   background-color: var(--bg-md-pre);
-  transform: translateX(-12px);
 
   &>div:nth-child(2) {
     flex: 1;
@@ -71,10 +70,6 @@
     &>div {
       width: 100%;
     }
-  }
-
-  .preview {
-    transform: translateY(-12px);
   }
 }
 

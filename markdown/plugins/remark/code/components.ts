@@ -18,8 +18,8 @@ import { makeProperties } from '../../utils'
 import { SwitcherName } from './switcher-utils'
 import { entries, keys } from '@/lib/types'
 import { sucraseParse } from '@/lib/node/jsx-parse'
-import { markComponent } from '../utils'
-import { buildFiles, getDefaultSelector } from './playground-node-utils'
+import { buildFiles, markComponent } from '../utils'
+import { getDefaultSelector } from './playground-node-utils'
 
 const remarkCodeComponentsPlugin: RemarkPlugin = () => {
   return async (tree) => {

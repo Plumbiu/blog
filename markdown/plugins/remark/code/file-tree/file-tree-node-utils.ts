@@ -1,10 +1,11 @@
 import fileTreeDataRawMap from '~/markdown/config/file-tree'
 import type { TreeNode, TreeMap } from './file-tree-utils'
 import { ExtensionIconMap, FileNameIconMap } from './file-tree-icon'
-import { isString } from '@/lib/types'
+import { isString, keys } from '@/lib/types'
 import { readdirSync } from 'node:fs'
 import { readFile } from 'node:fs/promises'
-import { keys } from 'es-toolkit/compat'
+import { buildFiles } from '../../utils'
+import { CodeTabSplitString } from '~/markdown/plugins/constant'
 
 const DefaultFile = 'default_file'
 
@@ -46,45 +47,26 @@ function formatTreeMapKey(s: string) {
   return '/' + s
 }
 
-const TreeRegx = /^(\s*)-\s(.*)$/
+function formatTreeMap(treeMap: TreeMap) {
+  const map: TreeMap = {}
+  const treeMapKeys = keys(treeMap)
+  for (const key of treeMapKeys) {
+    map[formatTreeMapKey(key)] = treeMap[key]
+  }
+  return map
+}
 
+const TreeLabelRegx = /^(\s*)-\s(.*)$/
 export async function parseContent(
   content: string,
   openAll: boolean,
+  parentMeta: string | undefined,
   dir: string | undefined,
   id: string | undefined,
 ) {
-  const root: TreeNode = {
-    label: '',
-    level: -1,
-    path: '',
-    collapse: false,
-    children: [],
-  }
-  const stack: TreeNode[] = [root]
-  const lines = content.trim().split('\n')
-
-  const treeMap: TreeMap = {}
-  const defaultSelectors: string[] = []
-  const fileIconMap: Record<string, string> = {}
-  let tree: TreeNode[] = []
-  if (dir) {
-    const files = readdirSync(dir, {
-      recursive: true,
-      encoding: 'utf-8',
-      withFileTypes: true,
-    })
-    await Promise.all(
-      files.map(async (p) => {
-        const filePath = `${p.parentPath}/${p.name}`.replaceAll('\\', '/')
-        if (p.isFile()) {
-          const content = await readFile(filePath, 'utf-8')
-          treeMap[formatTreeMapKey(filePath)] = content
-        }
-      }),
-    )
-    const prefixDir = formatTreeMapKey(dir)
-    const levelOffset = prefixDir.split('/').length - 1
+  function treeMapToTree(treeMap: TreeMap) {
+    const prefixDir = dir ? formatTreeMapKey(dir) : null
+    const levelOffset = prefixDir ? prefixDir.split('/').length - 1 : 0
     const tmp: Record<string, any> = { result: tree }
     for (const paths of keys(treeMap)) {
       const segments = paths.slice(1).split('/')
@@ -114,10 +96,48 @@ export async function parseContent(
         break
       }
     }
-    tree = currTree
+    return currTree
+  }
+
+  const root: TreeNode = {
+    label: '',
+    level: -1,
+    path: '',
+    collapse: false,
+    children: [],
+  }
+  const stack: TreeNode[] = [root]
+  const treeMap: TreeMap = {}
+  const defaultSelectors: string[] = []
+  const fileIconMap: Record<string, string> = {}
+  let tree: TreeNode[] = []
+  const isCustomContent = content.startsWith(CodeTabSplitString)
+  if (dir && !isCustomContent) {
+    const files = readdirSync(dir, {
+      recursive: true,
+      encoding: 'utf-8',
+      withFileTypes: true,
+    })
+    await Promise.all(
+      files.map(async (p) => {
+        const filePath = `${p.parentPath}/${p.name}`.replaceAll('\\', '/')
+        if (p.isFile()) {
+          const content = await readFile(filePath, 'utf-8')
+          treeMap[formatTreeMapKey(filePath)] = {
+            code: content,
+            meta: parentMeta,
+          }
+        }
+      }),
+    )
+    tree = treeMapToTree(treeMap)
+  } else if (isCustomContent) {
+    const files = buildFiles(content)
+    tree = treeMapToTree(formatTreeMap(files))
   } else {
+    const lines = content.trim().split('\n')
     for (const line of lines) {
-      const [_, space, label] = line.match(TreeRegx) ?? []
+      const [_, space, label] = line.match(TreeLabelRegx) ?? []
       if (space == null || label == null) {
         continue
       }
@@ -141,7 +161,6 @@ export async function parseContent(
       parent.children.push(node)
       stack.push(node)
     }
-
     tree = root.children
   }
   function traverse(nodes: TreeNode[]) {
@@ -157,7 +176,9 @@ export async function parseContent(
         }
         fileIconMap[key] = getIconFromFileName(node.label)
         if (id && !dir) {
-          treeMap[key] = fileTreeDataFormatMap[formatTreeMapKey(id + key)]
+          treeMap[key] = {
+            code: fileTreeDataFormatMap[formatTreeMapKey(id + key)],
+          }
         }
       } else {
         node.children.sort(childSort)

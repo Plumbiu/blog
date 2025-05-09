@@ -13,7 +13,7 @@ import { isRuner } from '../../remark/runner-utils'
 import { isPreTitle } from '../../remark/code/title-utils'
 import { keys } from '@/lib/types'
 import { getSuffix } from '../../utils'
-import { buildFiles } from '../../remark/code/playground-node-utils'
+import { buildFiles } from '../../remark/utils'
 import {
   FileTreeMapItemKey,
   handleFileTreeMap,
@@ -25,7 +25,7 @@ function markCustomComponentPre(node: Element) {
   // remarkXXX make the type of node as 'root'
   // so data.meta and node.value is not available
   const code = handleComponentCode(props)
-  const meta = handleComponentMeta(props)
+  const parentMeta = handleComponentMeta(props)
   const lang = handleLang(props)
   if (isPlayground(props) || isSwitcher(props)) {
     const selector = handleComponentDefaultSelectorKey(props)
@@ -38,7 +38,7 @@ function markCustomComponentPre(node: Element) {
         const item = files[key]
         const childLang = getSuffix(key).toLowerCase()
         return hCode({
-          meta: `${meta} ${item.meta}`,
+          meta: `${parentMeta} ${item.meta}`,
           props: {
             className: `language-${childLang || lang}`,
             [FileMapItemKey]: key,
@@ -54,7 +54,7 @@ function markCustomComponentPre(node: Element) {
         props: {
           className: `language-${lang}`,
         },
-        meta,
+        meta: parentMeta,
       }),
     ])
   } else if (isFileTree(props)) {
@@ -62,7 +62,7 @@ function markCustomComponentPre(node: Element) {
     markPre(
       node,
       keys(treeMap).map((key) => {
-        const code = treeMap[key]
+        const { code, meta } = treeMap[key]
         const childLang = getSuffix(key).toLowerCase()
         return hCode({
           code,
@@ -70,7 +70,7 @@ function markCustomComponentPre(node: Element) {
             className: `language-${childLang}`,
             [FileTreeMapItemKey]: key,
           },
-          meta,
+          meta: meta || parentMeta,
         })
       }),
     )

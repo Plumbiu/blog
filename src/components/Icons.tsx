@@ -412,10 +412,10 @@ export function FolderOpenIcon(props: SVGProps<SVGSVGElement>) {
 export function CoffeeIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" {...props}>
-      {/* Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE */}
+      {/* Icon from Material Symbols Light by Google - https://github.com/google/material-design-icons/blob/master/LICENSE */}
       <path
         fill="currentColor"
-        d="M11 18q-2.925 0-4.962-2.037T4 11V5q0-.825.588-1.412T6 3h12.5q1.45 0 2.475 1.025T22 6.5t-1.025 2.475T18.5 10H18v1q0 2.925-2.037 4.963T11 18M6 8h10V5H6zm5 8q2.075 0 3.538-1.463T16 11v-1H6v1q0 2.075 1.463 3.538T11 16m7-8h.5q.625 0 1.063-.437T20 6.5t-.437-1.062T18.5 5H18zM5 21q-.425 0-.712-.288T4 20t.288-.712T5 19h14q.425 0 .713.288T20 20t-.288.713T19 21zm6-11"
+        d="M11.25 17.23q-2.579 0-4.414-1.729Q5 13.771 5 11.231V5q0-.402.299-.701T6 4h12.25q1.14 0 1.945.766Q21 5.53 21 6.654q0 1.179-.794 2.012T18.25 9.5h-.942v1.73q0 2.508-1.769 4.254q-1.768 1.747-4.289 1.747M6 8.5h10.308V5H6zm5.25 7.73q2.114 0 3.585-1.452q1.473-1.453 1.473-3.547V9.5H6v1.73q0 2.114 1.549 3.558t3.701 1.443M17.308 8.5h.942q.74 0 1.245-.538T20 6.654q0-.702-.524-1.178T18.25 5h-.942zM5.5 20q-.213 0-.356-.144T5 19.499t.144-.356T5.5 19h13q.213 0 .356.144t.144.357t-.144.356T18.5 20zm5.654-10.5"
       />
     </svg>
   )

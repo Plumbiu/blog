@@ -11,7 +11,13 @@ export interface TreeNode {
 
 export const FileTreeName = 'file-tree'
 
-export type TreeMap = Record<string, string>
+export type TreeMap = Record<
+  string,
+  {
+    code: string
+    meta?: string
+  }
+>
 
 export const fileTreeDataKey = `${FileTreeName}-data`
 export const handleFileTree = buildHandlerFunction<TreeNode[]>(

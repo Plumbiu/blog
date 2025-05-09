@@ -54,7 +54,7 @@ export const customComponentMap: Record<string, any> = {
 输入：
 
 ````markdown
-```Tree" open
+```Tree open
 - +markdown
   - -plugins
     - remark.ts
@@ -79,9 +79,11 @@ export const customComponentMap: Record<string, any> = {
 
 ## 代码树
 
-可通过 `id` 配置，配置文件： [markdown/config/file-tree.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/file-tree.ts) 。
+三种方式配置
 
-也可以配置 `dir`，指定项目中的文件夹。
+1. `id` 配置：配置文件 [markdown/config/file-tree.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/file-tree.ts) 。
+2. `dir` 配置：指定项目中的文件夹。
+3. `//@tab` 分隔符配置：手写代码
 
 输入：
 
@@ -100,6 +102,17 @@ export const customComponentMap: Record<string, any> = {
 ```Tree dir="markdown/plugins"
 
 ```
+
+```Tree
+//@tab index.ts
+export * from './src/utils'
+//@tab +src/utils.ts
+export const isString = (x: unkown): x is string {
+  return typeof x === 'string'
+}
+//@tab types.ts
+export type TestString = string
+```
 ````
 
 输出：
@@ -117,6 +130,17 @@ export const customComponentMap: Record<string, any> = {
 
 ```Tree dir="markdown/plugins"
 
+```
+
+```Tree
+//@tab index.ts
+export * from './src/utils'
+//@tab +src/utils.ts
+export const isString = (x: unkown): x is string {
+  return typeof x === 'string'
+}
+//@tab types.ts
+export type TestString = string
 ```
 
 # Playground
