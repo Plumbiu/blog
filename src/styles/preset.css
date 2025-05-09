@@ -137,14 +137,22 @@
   position: relative;
   z-index: 99;
   border-bottom: 1px dashed var(--c-gray-2);
-  padding-bottom: 4px;
   cursor: help;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: -8px;
+  }
 
   &::after {
     content: attr(data-title);
     position: absolute;
     font-size: var(--text-sm);
-    bottom: 0;
+    bottom: -6px;
     left: 50%;
     transform: translate(-50%, 100%) scale(0.85);
     transition: 0.1s;

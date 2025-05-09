@@ -8,7 +8,7 @@ function replaceWithVariable(tree: Root, variableMap: Record<string, any>) {
   findAndReplace(tree, [
     VariableRegx,
     (_, $1) => {
-      const data = get(variableMap, $1)
+      const data = get(variableMap, $1.trim())
       return toLogValue(data)
     },
   ])
