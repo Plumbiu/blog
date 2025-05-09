@@ -136,7 +136,6 @@
 .plumbiu_abbr {
   position: relative;
   z-index: 99;
-  color: var(--c-indigo-1);
   border-bottom: 1px dashed var(--c-gray-2);
   padding-bottom: 4px;
   cursor: help;
@@ -154,7 +153,6 @@
     line-height: 1;
     opacity: 0;
     border: 1px solid var(--divider);
-    color: var(--text-1);
     background-color: var(--bg-body);
     width: max-content;
     padding: 6px 10px;
