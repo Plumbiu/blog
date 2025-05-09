@@ -107,7 +107,7 @@ export async function parseContent(
     children: [],
   }
   const stack: TreeNode[] = [root]
-  const treeMap: TreeMap = {}
+  let treeMap: TreeMap = {}
   const defaultSelectors: string[] = []
   const fileIconMap: Record<string, string> = {}
   let tree: TreeNode[] = []
@@ -132,8 +132,8 @@ export async function parseContent(
     )
     tree = treeMapToTree(treeMap)
   } else if (isCustomContent) {
-    const files = buildFiles(content)
-    tree = treeMapToTree(formatTreeMap(files))
+    treeMap = formatTreeMap(buildFiles(content))
+    tree = treeMapToTree(treeMap)
   } else {
     const lines = content.trim().split('\n')
     for (const line of lines) {
@@ -178,6 +178,7 @@ export async function parseContent(
         if (id && !dir) {
           treeMap[key] = {
             code: fileTreeDataFormatMap[formatTreeMapKey(id + key)],
+            meta: treeMap[key]?.meta,
           }
         }
       } else {
