@@ -30,13 +30,15 @@
     cursor: ns-resize;
     width: auto;
     height: 1px;
+
+    &::before {
+      left: 0;
+      right: 0;
+      bottom: -6px;
+      top: -6px;
+    }
   }
-  &::before {
-    left: 0;
-    right: 0;
-    bottom: -6px;
-    top: -6px;
-  }
+
   .active {
     cursor: ns-resize;
   }
