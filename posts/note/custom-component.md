@@ -106,7 +106,7 @@ export const customComponentMap: Record<string, any> = {
 ```Tree
 //@tab index.ts
 export * from './src/utils'
-//@tab +src/utils.ts line
+//@tab +src/+utils.ts line
 export const isString = (x: unkown): x is string {
   return typeof x === 'string'
 }
@@ -135,7 +135,7 @@ export type TestString = string
 ```Tree
 //@tab index.ts
 export * from './src/utils'
-//@tab +src/utils.ts line
+//@tab +src/+utils.ts line
 export const isString = (x: unkown): x is string {
   return typeof x === 'string'
 }

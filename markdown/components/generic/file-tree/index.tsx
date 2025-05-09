@@ -62,10 +62,13 @@ function formatAppDir(name: string) {
 }
 
 function formatHeaderTabName(selector: string, selectorArray: string[]) {
-  const { basename, dirname } = getBaseDirname(selector)
+  let { basename, dirname } = getBaseDirname(selector)
   const baseNames = selectorArray
     .filter((s) => s !== selector)
     .map((s) => getBaseDirname(s).basename)
+  if (basename[0] === '+' || basename[0] === '-') {
+    basename = basename.slice(1)
+  }
   if (baseNames.includes(basename)) {
     return (
       <div>
