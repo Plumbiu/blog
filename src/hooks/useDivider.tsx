@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import styles from './useDivider.module.css'
 import { throttle } from 'es-toolkit'
+import { isMobileDevice } from './useIsMobileDevice'
 
 function useDivider() {
   const dividerRef = useRef<HTMLDivElement>(null)
@@ -18,26 +19,45 @@ function useDivider() {
       if (!dividerDom) {
         return
       }
-      const isMobileFn = () => isMobileRef.current
+      const isMobileByUserAgent = isMobileDevice()
+      const isMobileByWidthFn = () => isMobileRef.current
 
-      const onMouseDown = (e: MouseEvent) => {
+      const onMouseDown = (e: MouseEvent | TouchEvent) => {
         e.preventDefault()
-        const isMobile = isMobileFn()
-        document.body.style.cursor = isMobile ? 'ns-resize' : 'ew-resize'
-        initValue.current = isMobile ? e.clientY : e.clientX
+        const isMobileByWidth = isMobileByWidthFn()
+        document.body.style.cursor = isMobileByWidth ? 'ns-resize' : 'ew-resize'
+        if (e instanceof MouseEvent) {
+          initValue.current = isMobileByWidth ? e.clientY : e.clientX
+        } else {
+          initValue.current = isMobileByWidth
+            ? e.touches[0].clientY
+            : e.touches[0].clientX
+        }
         dividerDom.classList.add(styles.active)
-        document.addEventListener('mousemove', onMouseMove)
+        if (isMobileByUserAgent) {
+          document.addEventListener('touchmove', onMouseMove)
+        } else {
+          document.addEventListener('mousemove', onMouseMove)
+        }
       }
-      const onMouseMove = (e: MouseEvent) => {
+      const onMouseMove = (e: MouseEvent | TouchEvent) => {
+        e.preventDefault()
         if (initValue.current == null) {
           return
         }
-        const isMobile = isMobileFn()
-        const clientOffset = isMobile ? e.clientY : e.clientX
+        const isMobileByWidth = isMobileByWidthFn()
+        let clientOffset: number | null = null
+        if (e instanceof TouchEvent) {
+          clientOffset = isMobileByWidth
+            ? e.touches[0].clientY
+            : e.touches[0].clientX
+        } else {
+          clientOffset = isMobileByWidth ? e.clientY : e.clientX
+        }
         const offset = clientOffset - initValue.current
         const style = getComputedStyle(previewDom)
 
-        const changeKey = isMobile ? 'height' : 'width'
+        const changeKey = isMobileByWidth ? 'height' : 'width'
         previewDom.style[changeKey] =
           Number.parseFloat(style[changeKey]) + offset + 'px'
         initValue.current = clientOffset
@@ -46,7 +66,11 @@ function useDivider() {
         initValue.current = null
         document.body.style.cursor = 'auto'
         dividerDom.classList.remove(styles.active)
-        document.removeEventListener('mousemove', onMouseMove)
+        if (isMobileByUserAgent) {
+          document.removeEventListener('touchmove', onMouseMove)
+        } else {
+          document.removeEventListener('mousemove', onMouseMove)
+        }
       }
       const onSizeChange = throttle(() => {
         if (window.innerWidth <= 960) {
@@ -58,11 +82,20 @@ function useDivider() {
         }
       }, 200)
 
-      dividerDom.addEventListener('mousedown', onMouseDown)
+      if (isMobileByUserAgent) {
+        dividerDom.addEventListener('touchstart', onMouseDown)
+      } else {
+        dividerDom.addEventListener('mousedown', onMouseDown)
+      }
       document.addEventListener('mouseup', onMouseUp)
       window.addEventListener('resize', onSizeChange)
 
       return () => {
+        if (isMobileByUserAgent) {
+          dividerDom.removeEventListener('touchstart', onMouseDown)
+        } else {
+          dividerDom.removeEventListener('mousedown', onMouseDown)
+        }
         dividerDom.removeEventListener('mousedown', onMouseDown)
         document.removeEventListener('mouseup', onMouseUp)
         document.removeEventListener('mousemove', onMouseMove)
