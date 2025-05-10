@@ -41,3 +41,6 @@ export const handleFileTreeHasPreviewKey = buildHandlerFunction<boolean>(
 export const FileTreeDirName = `${FileTreeName}-dirname`
 export const handleFileTreeDirName =
   buildHandlerFunction<string>(FileTreeDirName)
+
+export const isLabelStartswithConfigCh = (s: string) =>
+  s && (s[0] === '+' || s[0] === '-')

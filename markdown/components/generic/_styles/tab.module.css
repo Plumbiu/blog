@@ -9,7 +9,7 @@
 
   &>div {
     background-color: var(--bg-md-pre);
-    padding: 10px 12px;
+    padding: 8px 10px;
     cursor: pointer;
     border-bottom: 1px solid var(--divider);
     transition: color 150ms;

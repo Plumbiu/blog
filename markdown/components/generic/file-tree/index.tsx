@@ -19,6 +19,7 @@ import {
   handleFileTreeHasPreviewKey,
   handleFileTreeDirName,
   DefaultFile,
+  isLabelStartswithConfigCh,
 } from '~/markdown/plugins/remark/code/file-tree/file-tree-utils'
 import styles from './index.module.css'
 import tabStyles from '../_styles/tab.module.css'
@@ -48,8 +49,15 @@ interface TreeTabsProps {
 function getBaseDirname(filePath: string) {
   // markdown/test/foo.ts
   const segments = filePath.split('/')
-  const basename = segments[segments.length - 1]
-  const dirname = segments[segments.length - 2]
+  let basename = segments[segments.length - 1]
+  let dirname = segments[segments.length - 2]
+  if (isLabelStartswithConfigCh(basename)) {
+    basename = basename.slice(1)
+  }
+
+  if (isLabelStartswithConfigCh(dirname)) {
+    dirname = dirname.slice(1)
+  }
   return { basename, dirname }
 }
 
@@ -64,13 +72,10 @@ function formatAppDir(name: string) {
 }
 
 function formatHeaderTabName(selector: string, selectorArray: string[]) {
-  let { basename, dirname } = getBaseDirname(selector)
+  const { basename, dirname } = getBaseDirname(selector)
   const baseNames = selectorArray
     .filter((s) => s !== selector)
     .map((s) => getBaseDirname(s).basename)
-  if (basename[0] === '+' || basename[0] === '-') {
-    basename = basename.slice(1)
-  }
   if (baseNames.includes(basename)) {
     return (
       <div>

@@ -1,5 +1,4 @@
 import { readdir, readFile } from 'node:fs/promises'
-import path from 'node:path'
 import type { TreeNode, TreeMap, ParseContentOptions } from '../types'
 import { buildFiles } from '~/markdown/plugins/remark/utils'
 import { CodeTabSplitString } from '~/markdown/plugins/constant'
@@ -7,6 +6,7 @@ import { formatFileTreeDataMap, formatPath, formatTreeMap } from './format'
 import { getSuffix } from '~/markdown/plugins/utils'
 import fileTreeDataRawMap from '~/markdown/config/file-tree'
 import { getIconFromFileName, treeMapToTree, treeSort } from './support'
+import { isLabelStartswithConfigCh } from '../file-tree-utils'
 
 const fileTreeDataFormatMap: Record<string, string> = {}
 
@@ -68,7 +68,7 @@ export async function parseContent(
       }
       const parent = stack[stack.length - 1]
       const p = formatPath(
-        `${path.dirname(parent.path)}/${
+        `${parent.path}/${
           firstCh === '+' || firstCh === '-' ? label.slice(1) : label
         }`,
       )
@@ -89,7 +89,7 @@ export async function parseContent(
     for (const node of nodes) {
       const key = node.path
       const firstCh = node.label[0]
-      if (firstCh === '+' || firstCh === '-') {
+      if (isLabelStartswithConfigCh(node.label)) {
         node.label = node.label.slice(1)
       }
       if (node.children.length === 0) {
