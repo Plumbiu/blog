@@ -84,17 +84,20 @@ function useDivider() {
 
       if (isMobileByUserAgent) {
         dividerDom.addEventListener('touchstart', onMouseDown)
+        document.addEventListener('touchend', onMouseUp)
       } else {
         dividerDom.addEventListener('mousedown', onMouseDown)
+        document.addEventListener('mouseup', onMouseUp)
       }
-      document.addEventListener('mouseup', onMouseUp)
       window.addEventListener('resize', onSizeChange)
 
       return () => {
         if (isMobileByUserAgent) {
           dividerDom.removeEventListener('touchstart', onMouseDown)
+          document.removeEventListener('touchend', onMouseUp)
         } else {
           dividerDom.removeEventListener('mousedown', onMouseDown)
+          document.removeEventListener('mouseup', onMouseUp)
         }
         dividerDom.removeEventListener('mousedown', onMouseDown)
         document.removeEventListener('mouseup', onMouseUp)
