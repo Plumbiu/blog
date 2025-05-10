@@ -3,9 +3,13 @@ import type { TreeNode, TreeMap, ParseContentOptions } from '../types'
 import { buildFiles } from '~/markdown/plugins/remark/utils'
 import { CodeTabSplitString } from '~/markdown/plugins/constant'
 import { formatFileTreeDataMap, formatPath, formatTreeMap } from './format'
-import { getSuffix } from '~/markdown/plugins/utils'
 import fileTreeDataRawMap from '~/markdown/config/file-tree'
-import { getIconFromFileName, treeMapToTree, treeSort } from './support'
+import {
+  getIconExt,
+  getIconFromFileName,
+  treeMapToTree,
+  treeSort,
+} from './support'
 import { isLabelStartswithConfigCh } from '../file-tree-utils'
 import { join } from 'pathe'
 
@@ -69,9 +73,9 @@ export async function parseContent(
       }
       const parent = stack[stack.length - 1]
       const p = formatPath(
-        parent.path + '/' + isLabelStartswithConfigCh(label)
-          ? label.slice(1)
-          : label,
+        parent.path +
+          '/' +
+          (isLabelStartswithConfigCh(label) ? label.slice(1) : label),
       )
       const node: TreeNode = {
         label,
@@ -97,7 +101,7 @@ export async function parseContent(
         if (firstCh === '+') {
           defaultSelectors.push(key)
         }
-        fileIconMap[getSuffix(key)] = getIconFromFileName(node.label)
+        fileIconMap[getIconExt(key)] = getIconFromFileName(node.label)
         if (id && !dir) {
           treeMap[key] = {
             code: fileTreeDataFormatMap[formatPath(`${id}/${key}`)],

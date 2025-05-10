@@ -3,6 +3,7 @@ import type { TreeMap, TreeNode, ParseContentOptions } from '../types'
 import { formatPath } from './format'
 import { ExtensionIconMap, FileNameIconMap } from './icon'
 import { DefaultFile } from '../file-tree-utils'
+import { getSuffix } from '~/markdown/plugins/utils'
 
 export function treeMapToTree(
   treeMap: TreeMap,
@@ -66,4 +67,15 @@ export function treeSort(prev: TreeNode, next: TreeNode) {
     return nextChildrenLen - prevChildrenLen
   }
   return 0
+}
+
+export function getIconExt(s: string) {
+  if (FileNameIconMap[s]) {
+    return s
+  }
+  const suffix = getSuffix(s)
+  if (suffix === 'txt') {
+    return '__unkown'
+  }
+  return suffix
 }

@@ -35,7 +35,7 @@ import { handleComponentCodeTitle } from '~/markdown/plugins/constant'
 import Loading from '../_common/Loading'
 import useDivider from '@/hooks/useDivider'
 import type { TreeNode } from '~/markdown/plugins/remark/code/file-tree/types'
-import { getSuffix } from '~/markdown/plugins/utils'
+import { getBaseName, getSuffix } from '~/markdown/plugins/utils'
 
 interface TreeTabsProps {
   tree: TreeNode[]
@@ -97,17 +97,20 @@ const FileExtensionIcon = memo(({ icon }: { icon: string }) => {
       alt="icon"
       width="16"
       height="16"
-      src={`/vscode-icons/${icon}.svg`}
+      src={`/vscode-icons/${icon || DefaultFile}.svg`}
     />
   )
 })
 
-function getIconKey(s: string) {
-  const iconKey = getSuffix(s.trim())
-  if (iconKey === 'txt') {
-    return DefaultFile
+function getIconKey(s: string, fileIconMap: Record<string, string>) {
+  s = s.trim()
+  const basename = getBaseName(s)
+  if (fileIconMap[basename]) {
+    return fileIconMap[basename]
   }
-  return iconKey
+  const suffix = getSuffix(s)
+  const icon = fileIconMap[suffix]
+  return icon || DefaultFile
 }
 
 const HeaderTab = memo(
@@ -129,7 +132,7 @@ const HeaderTab = memo(
               })}
               onClick={() => setPath(s)}
             >
-              <FileExtensionIcon icon={fileIconMap[getIconKey(s)]} />
+              <FileExtensionIcon icon={getIconKey(s, fileIconMap)} />
               <div>{formatHeaderTabName(s, selectorArr)}</div>
               <div
                 onClick={(e) => {
@@ -200,7 +203,7 @@ const TreeTabItem = memo(
               <FolderOpenIcon className={styles.active_dir} />
             )
           ) : (
-            <FileExtensionIcon icon={fileIconMap[getIconKey(node.path)]} />
+            <FileExtensionIcon icon={getIconKey(node.path, fileIconMap)} />
           )}
           <div className={styles.label}>{node.label}</div>
         </div>
