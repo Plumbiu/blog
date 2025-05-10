@@ -14,11 +14,11 @@ import {
 import {
   handleFileTree,
   handleFileFileTreeMapItemKey,
-  type TreeNode,
   handleFileTreeDefaultSelector,
   handleFileTreeFileIconMapKey,
   handleFileTreeHasPreviewKey,
   handleFileTreeDirName,
+  DefaultFile,
 } from '~/markdown/plugins/remark/code/file-tree/file-tree-utils'
 import styles from './index.module.css'
 import tabStyles from '../_styles/tab.module.css'
@@ -33,6 +33,8 @@ import { cn } from '@/lib/client'
 import { handleComponentCodeTitle } from '~/markdown/plugins/constant'
 import Loading from '../_common/Loading'
 import useDivider from '@/hooks/useDivider'
+import type { TreeNode } from '~/markdown/plugins/remark/code/file-tree/types'
+import { getSuffix } from '~/markdown/plugins/utils'
 
 interface TreeTabsProps {
   tree: TreeNode[]
@@ -44,8 +46,8 @@ interface TreeTabsProps {
 }
 
 function getBaseDirname(filePath: string) {
-  // /markdown/test/foo.ts
-  const segments = filePath.slice(1).split('/')
+  // markdown/test/foo.ts
+  const segments = filePath.split('/')
   const basename = segments[segments.length - 1]
   const dirname = segments[segments.length - 2]
   return { basename, dirname }
@@ -83,15 +85,25 @@ function formatHeaderTabName(selector: string, selectorArray: string[]) {
   return <div>{basename}</div>
 }
 
-const FileExtensionIcon = memo(({ icon }: { icon: string }) => (
-  <img
-    data-no-view
-    alt="icon"
-    width="16"
-    height="16"
-    src={`/vscode-icons/${icon}.svg`}
-  />
-))
+const FileExtensionIcon = memo(({ icon }: { icon: string }) => {
+  return (
+    <img
+      data-no-view
+      alt="icon"
+      width="16"
+      height="16"
+      src={`/vscode-icons/${icon}.svg`}
+    />
+  )
+})
+
+function getIconKey(s: string) {
+  const iconKey = getSuffix(s.trim())
+  if (iconKey === 'txt') {
+    return DefaultFile
+  }
+  return iconKey
+}
 
 const HeaderTab = memo(
   ({
@@ -112,7 +124,7 @@ const HeaderTab = memo(
               })}
               onClick={() => setPath(s)}
             >
-              <FileExtensionIcon icon={fileIconMap[s]} />
+              <FileExtensionIcon icon={fileIconMap[getIconKey(s)]} />
               <div>{formatHeaderTabName(s, selectorArr)}</div>
               <div
                 onClick={(e) => {
@@ -183,7 +195,7 @@ const TreeTabItem = memo(
               <FolderOpenIcon className={styles.active_dir} />
             )
           ) : (
-            <FileExtensionIcon icon={fileIconMap[node.path]} />
+            <FileExtensionIcon icon={fileIconMap[getIconKey(node.path)]} />
           )}
           <div className={styles.label}>{node.label}</div>
         </div>
@@ -227,9 +239,7 @@ const FileTree = memo((props: any) => {
         child,
       ]),
     )
-    const defaultSelector = (handleFileTreeDefaultSelector(props) || []).map(
-      (s) => (s[0] === '/' ? s : `/${s}`),
-    )
+    const defaultSelector = handleFileTreeDefaultSelector(props) || []
     const fileIconMap = handleFileTreeFileIconMapKey(props) || {}
     const hasPreview = handleFileTreeHasPreviewKey(props)
     const tree = handleFileTree(props)
@@ -293,7 +303,7 @@ const FileTree = memo((props: any) => {
             <div
               className={cn(styles.preview, {
                 fcc: !previewMap[path],
-                [styles.preview_empty]: !selectorArr.length
+                [styles.preview_empty]: !selectorArr.length,
               })}
             >
               <HeaderTab

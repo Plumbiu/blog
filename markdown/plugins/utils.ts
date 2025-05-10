@@ -32,7 +32,10 @@ export const getBaseName = (p: string) => {
   return p.slice(idx + 1)
 }
 
-export function getSuffix(name: string) {
+export function getSuffix(name: string | null) {
+  if (name == null) {
+    return 'txt'
+  }
   const index = name.lastIndexOf('.')
   if (index === -1) {
     return 'txt'

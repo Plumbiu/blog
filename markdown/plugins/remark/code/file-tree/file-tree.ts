@@ -15,7 +15,7 @@ import {
   type RemarkPlugin,
 } from '../../../constant'
 import { visit } from 'unist-util-visit'
-import { parseContent } from './file-tree-node-utils'
+import { parseContent } from './node-utils/parse'
 import { isString } from '@/lib/types'
 
 const IdRegx = /id=(['"])([^'"]+)\1/
@@ -36,7 +36,12 @@ const remarkFileTreePlugin: RemarkPlugin = () => {
         const id = IdRegx.exec(meta)?.[2]
         const openAll = meta.includes('open')
         const dir = DirRegx.exec(meta)?.[2]
-        const parsed = await parseContent(code, openAll, meta, dir, id)
+        const parsed = await parseContent(code, {
+          openAll,
+          parentMeta: meta,
+          dir,
+          id,
+        })
         if (!parsed) {
           return
         }

@@ -1,23 +1,10 @@
 import { buildHandlerFunction } from '../../../utils'
 import { ComponentKey } from '../../../constant'
+import type { TreeNode, TreeMap } from './types'
 
-export interface TreeNode {
-  label: string
-  level: number
-  path: string
-  collapse: boolean
-  children: TreeNode[]
-}
+export const DefaultFile = 'default_file'
 
 export const FileTreeName = 'file-tree'
-
-export type TreeMap = Record<
-  string,
-  {
-    code: string
-    meta?: string
-  }
->
 
 export const fileTreeDataKey = `${FileTreeName}-data`
 export const handleFileTree = buildHandlerFunction<TreeNode[]>(
