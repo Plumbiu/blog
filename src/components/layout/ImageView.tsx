@@ -1,6 +1,11 @@
 'use client'
 
-import { type MouseEventHandler, useRef, type WheelEventHandler } from 'react'
+import {
+  type MouseEvent as ReactMouseEvent,
+  type TouchEvent as ReactTouchEvent,
+  useRef,
+  type WheelEventHandler,
+} from 'react'
 import useModalStore from '@/store/modal'
 import styles from './ImageView.module.css'
 import Modal from '../ui/Modal'
@@ -24,6 +29,12 @@ function getImgViewInfo(node: HTMLElement, scale: number) {
   const wLarge = w >= viewW
   const hLarge = h >= viewH
   return { all: wLarge && hLarge, one: wLarge || hLarge, wLarge, hLarge }
+}
+
+type ElementEventType = ReactMouseEvent<Element> | ReactTouchEvent<Element>
+
+function isTouchEventFn(e: ElementEventType): e is ReactTouchEvent<Element> {
+  return 'touches' in e
 }
 
 function preventComplexEvent(e: any) {
@@ -100,24 +111,32 @@ function ImageView() {
     addAnimation()
   }
 
-  const onMouseDown: MouseEventHandler<HTMLDivElement> = (e) => {
-    preventComplexEvent(e)
+  const onMouseDown = (e: ElementEventType) => {
+    e.stopPropagation()
+    e.preventDefault()
     if (!isImage(e.target as HTMLElement)) {
       return
     }
+    const isTouchEvent = isTouchEventFn(e)
+    const clientX = isTouchEvent ? e.touches[0].clientX : e.clientX
+    const clientY = isTouchEvent ? e.touches[0].clientY : e.clientY
     mousePosition.current = {
-      x: e.clientX - translate.current.x,
-      y: e.clientY - translate.current.y,
+      x: clientX - translate.current.x,
+      y: clientY - translate.current.y,
     }
   }
 
-  const onMouseMove: MouseEventHandler<HTMLDivElement> = (e) => {
-    preventComplexEvent(e)
+  const onMouseMove = (e: ElementEventType) => {
+    e.stopPropagation()
     const target = e.target as HTMLElement
     if (!mousePosition.current || !isImage(target)) {
       return
     }
-    const { clientX, clientY } = e
+    const isTouchEvent = isTouchEventFn(e)
+    if (!isTouchEvent) {
+    }
+    const clientX = isTouchEvent ? e.touches[0].clientX : e.clientX
+    const clientY = isTouchEvent ? e.touches[0].clientY : e.clientY
     const { x, y } = mousePosition.current
     translate.current = {
       x: clientX - x,
@@ -126,15 +145,17 @@ function ImageView() {
     updateDOM()
   }
 
-  const onMouseUp: MouseEventHandler<HTMLDivElement> = (e) => {
-    preventComplexEvent(e)
+  const onMouseUp = (e: ElementEventType) => {
+    e.stopPropagation()
     const target = e.target as HTMLElement
     if (!isImage(target) || !mousePosition.current) {
       return
     }
     const imageViewInfo = getImgViewInfo(target, scale.current)
     if (imageViewInfo.one) {
-      const { clientX, clientY } = e
+      const isTouchEvent = isTouchEventFn(e)
+      const clientX = isTouchEvent ? e.touches[0].clientX : e.clientX
+      const clientY = isTouchEvent ? e.touches[0].clientY : e.clientY
       const { x, y } = mousePosition.current
       const clientWidth = target.clientWidth
       const clientHeight = target.clientHeight
@@ -189,8 +210,11 @@ function ImageView() {
       }}
       className={cn('fcc', styles.anim)}
       onWheel={onWheel}
+      onTouchStart={onMouseDown}
       onMouseDown={onMouseDown}
+      onTouchMove={onMouseMove}
       onMouseMove={onMouseMove}
+      onTouchEnd={onMouseUp}
       onMouseUp={onMouseUp}
     >
       {children}
