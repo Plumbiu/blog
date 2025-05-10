@@ -1,14 +1,9 @@
+import { normalizeString } from 'pathe'
 import type { TreeMap } from '../types'
 import { isString, keys } from '@/lib/types'
 
 export function formatPath(s: string) {
-  if (s[0] === '/') {
-    return s.slice(1)
-  }
-  if (s[0] === '.' && s[1] === '/') {
-    return s.slice(2)
-  }
-  return s
+  return normalizeString(s, false)
 }
 
 export function formatTreeMap(treeMap: TreeMap) {
@@ -28,11 +23,12 @@ export function formatFileTreeDataMap(
   const keys = Object.keys(obj)
   for (const key of keys) {
     const data = obj[key]
+    const nextPath = `${path}/${key}`
     if (typeof data === 'object') {
-      formatFileTreeDataMap(result, data, `${path}/${key}`)
+      formatFileTreeDataMap(result, data, nextPath)
     } else if (isString(data)) {
       // /markdown/foo.ts -> markdown/foo.ts
-      result[`${path}/${key}`.slice(1)] = data
+      result[formatPath(nextPath)] = data
     }
   }
 }

@@ -7,6 +7,7 @@ import { getSuffix } from '~/markdown/plugins/utils'
 import fileTreeDataRawMap from '~/markdown/config/file-tree'
 import { getIconFromFileName, treeMapToTree, treeSort } from './support'
 import { isLabelStartswithConfigCh } from '../file-tree-utils'
+import { join } from 'pathe'
 
 const fileTreeDataFormatMap: Record<string, string> = {}
 
@@ -40,7 +41,7 @@ export async function parseContent(
     })
     await Promise.all(
       files.map(async (p) => {
-        const filePath = `${p.parentPath}/${p.name}`.replaceAll('\\', '/')
+        const filePath = join(p.parentPath, p.name)
         if (p.isFile()) {
           const content = await readFile(filePath, 'utf-8')
           treeMap[formatPath(filePath)] = {
@@ -68,9 +69,9 @@ export async function parseContent(
       }
       const parent = stack[stack.length - 1]
       const p = formatPath(
-        `${parent.path}/${
-          firstCh === '+' || firstCh === '-' ? label.slice(1) : label
-        }`,
+        parent.path + '/' + isLabelStartswithConfigCh(label)
+          ? label.slice(1)
+          : label,
       )
       const node: TreeNode = {
         label,
