@@ -1,10 +1,10 @@
 html[data-theme='dark'] {
   /* text */
   --text: #fff;
-  --text-4: rgba(220, 220, 220, 0.4);
-  --text-3: rgba(220, 220, 220, 0.56);
-  --text-2: rgba(220, 220, 220, 0.72);
-  --text-1: rgba(220, 220, 220);
+  --text-4: rgba(220, 220, 225, 0.4);
+  --text-3: rgba(220, 220, 225, 0.56);
+  --text-2: rgba(220, 220, 225, 0.72);
+  --text-1: rgba(220, 220, 225);
   --text-1-dim: rgba(220, 220, 220, 0.87);
   --text-1-light: rgba(235, 235, 235);
   /* border */
@@ -51,6 +51,7 @@ html[data-theme='dark'] {
   --bg-md-code: #272e35;
   --bg-md-table-header: #161618;
   --bg-md-table-th: #090910;
+  --bg-md-collapse: rgba(7, 88, 155, 0.16);
   --bg-header: #00000085;
   --bg-body: #081216;
   --bg-scrollbar: rgba(255, 255, 255, .33);

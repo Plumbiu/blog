@@ -36,7 +36,7 @@ function CustomComponent(props: any) {
       </IntersectionObserverComponent>
     )
   }
-  return props.children
+  return <div {...props} />
 }
 
 export default CustomComponent

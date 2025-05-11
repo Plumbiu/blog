@@ -344,7 +344,7 @@ console.log('4')
 console.log('5')
 ```
 
-# 代码块增删高亮
+## 增删高亮
 
 这里 `!code` 之后也是只有一个空格，加了两个防止渲染。
 
@@ -372,6 +372,40 @@ console.log('+++') // [!code  ++]
 ```js
 console.log('----') // [!code --]
 console.log('+++') // [!code ++]
+```
+
+# 代码折叠
+
+输入：
+
+````markdown
+```js line collapse="1-3,6-7,10"
+console.log('1')
+console.log('2')
+console.log('3')
+console.log('4')
+console.log('5')
+console.log('6')
+console.log('7')
+console.log('8')
+console.log('9')
+console.log('10')
+```
+````
+
+输出：
+
+```js line collapse="1-3,6-7,10"
+console.log('1')
+console.log('2')
+console.log('3')
+console.log('4')
+console.log('5')
+console.log('6')
+console.log('7')
+console.log('8')
+console.log('9')
+console.log('10')
 ```
 
 # 本地远程代码
