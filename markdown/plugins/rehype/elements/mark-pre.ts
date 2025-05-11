@@ -36,7 +36,7 @@ function markCustomComponentPre(node: Element) {
       node,
       keys(files).map((key) => {
         const item = files[key]
-        const childLang = getSuffix(key).toLowerCase()
+        const childLang = getSuffix(key, '').toLowerCase()
         return hCode({
           meta: `${parentMeta} ${item.meta}`,
           props: {

@@ -32,13 +32,13 @@ export const getBaseName = (p: string) => {
   return p.slice(idx + 1)
 }
 
-export function getSuffix(name: string | null) {
+export function getSuffix(name: string | null, defaultValue = 'txt') {
   if (name == null) {
-    return 'txt'
+    return defaultValue
   }
   const index = name.lastIndexOf('.')
   if (index === -1) {
-    return 'txt'
+    return defaultValue
   }
   return name.slice(index + 1)
 }

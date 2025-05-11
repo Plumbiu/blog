@@ -4,7 +4,7 @@ import type { AbbrType } from '~/markdown/config/abbr'
 import abbrMap from '~/markdown/config/abbr'
 import { h } from 'hastscript'
 
-const AbbrRegx = /\*\[([^\]]+)\]\[\]/g
+const AbbrRegx = /\|\[([^\]]+)\]\|/g
 const rehypeAbbrPlugin: RehypePlugin<[AbbrType]> = (customAbbr) => {
   return (tree) => {
     findAndReplace(tree, [

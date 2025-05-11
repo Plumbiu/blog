@@ -495,7 +495,7 @@ console.log('custom-title')
 
 连接转换：[Next.js][]
 
-缩写词：\*[HTML][]
+缩写词（`\|`应为`|`，这里会自动转换）：\|[HTML]\|
 ```
 
 输出：
@@ -506,7 +506,7 @@ console.log('custom-title')
 
 连接转换：[Next.js][]
 
-缩写词：\*[HTML][]
+缩写词（`\|`应为`|`，这里会自动转换）：|[HTML]|
 
 ## front-matter
 
@@ -526,7 +526,7 @@ abbr: { www: 'what when why' }
 
 连接转换：[plumbiu][]
 
-缩写词：\*[www][]
+缩写词（`\|`应为`|`，这里会自动转换）：\|[www]\|
 ```
 
 输出：
@@ -537,7 +537,7 @@ abbr: { www: 'what when why' }
 
 连接转换：[plumbiu][]
 
-缩写词：\*[www][]
+缩写词（`\|`应为`|`，这里会自动转换）：|[www]|
 
 # Blockquote
 
