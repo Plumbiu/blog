@@ -13,6 +13,7 @@ import {
   handleFileMap,
   handleLang,
   type RemarkPlugin,
+  handleIconMap,
 } from '../../constant'
 import { makeProperties } from '../../utils'
 import { SwitcherName } from './switcher-utils'
@@ -20,6 +21,7 @@ import { entries, keys } from '@/lib/types'
 import { sucraseParse } from '@/lib/node/jsx-parse'
 import { buildFiles, markComponent } from '../utils'
 import { getDefaultSelector } from './playground-node-utils'
+import { getIconFromFileName } from '~/markdown/utils/vscode-icon'
 
 const remarkCodeComponentsPlugin: RemarkPlugin = () => {
   return async (tree) => {
@@ -52,14 +54,18 @@ const remarkCodeComponentsPlugin: RemarkPlugin = () => {
       const files = buildFiles(code, defaultSelector)
       const fileKeys = keys(files)
       let styles = ''
+      const iconmap: Record<string, string> = {}
       for (const key of fileKeys) {
         const { code } = files[key]
+        const icon = getIconFromFileName(key)
+        iconmap[key] = icon
         if (isJsxFileLike(key)) {
           files[key].code = sucraseParse(code)
         } else if (key.endsWith('.css')) {
           styles += ` ${code}`
         }
       }
+      handleIconMap(props, JSON.stringify(iconmap))
       handlePlaygroundHidePreviewTabsKey(props, !code.includes('console.log('))
       handleFileMap(
         props,

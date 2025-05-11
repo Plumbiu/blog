@@ -5,12 +5,14 @@ import {
   handleComponentCodeTitle,
   handleComponentMeta,
   handleComponentName,
+  handleIconMap,
   handleLang,
   type RemarkPlugin,
 } from '../../constant'
 import { makeProperties } from '../../utils'
 import { PreTitleName } from './title-utils'
 import { markComponent } from '../utils'
+import { getIconFromFileName } from '~/markdown/utils/vscode-icon'
 
 const PreTitleRegx = /title=(['"])([^'"]+)\1/
 const remarkCodeTitlePlugin: RemarkPlugin = () => {
@@ -36,6 +38,10 @@ const remarkCodeTitlePlugin: RemarkPlugin = () => {
       const componentName = handleComponentName(props)
       if (title) {
         handleComponentCodeTitle(props, title)
+        const iconMap: Record<string, string> = {}
+        const icon = getIconFromFileName(title)
+        iconMap[title] = icon
+        handleIconMap(props, JSON.stringify(iconMap))
       }
       handleComponentCode(props, code)
       handleLang(props, lang)

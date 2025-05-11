@@ -4,7 +4,6 @@ import {
   handleFileTree,
   handleFileTreeDefaultSelector,
   handleFileTreeDirName,
-  handleFileTreeFileIconMapKey,
   handleFileTreeHasPreviewKey,
   handleFileTreeMap,
 } from './file-tree-utils'
@@ -12,6 +11,7 @@ import { markComponent } from '../../utils'
 import {
   CodeTabSplitString,
   handleComponentCodeTitle,
+  handleIconMap,
   type RemarkPlugin,
 } from '../../../constant'
 import { visit } from 'unist-util-visit'
@@ -46,7 +46,7 @@ const remarkFileTreePlugin: RemarkPlugin = () => {
           return
         }
 
-        const { tree, treeMap, fileIconMap, defaultSelectors } = parsed
+        const { tree, treeMap, iconMap, defaultSelectors } = parsed
         const data = node.data!
         const props = data.hProperties!
         if (dir) {
@@ -54,7 +54,7 @@ const remarkFileTreePlugin: RemarkPlugin = () => {
         }
         handleFileTree(props, JSON.stringify(tree))
         handleFileTreeMap(props, JSON.stringify(treeMap))
-        handleFileTreeFileIconMapKey(props, JSON.stringify(fileIconMap))
+        handleIconMap(props, JSON.stringify(iconMap))
         handleFileTreeDefaultSelector(props, JSON.stringify(defaultSelectors))
         const title = TitleRegx.exec(meta)?.[2]
         if (title) {

@@ -50,3 +50,9 @@ export const CodeTabSplitString = '//@tab'
 export const ComponentCodeTitle = 'cmp-code-title'
 export const handleComponentCodeTitle =
   buildHandlerFunction<string>(ComponentCodeTitle)
+
+export const IconMapKey = 'cmp-icon-map'
+export const handleIconMap = buildHandlerFunction<Record<string, string>>(
+  IconMapKey,
+  JSON.parse,
+)

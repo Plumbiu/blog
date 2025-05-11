@@ -7,21 +7,25 @@ import {
   handleComponentDefaultSelectorKey,
   handleFileMapItemKey,
   handleFileMap,
+  handleIconMap,
 } from '~/markdown/plugins/constant'
 import PreComponent from '@/components/ui/Pre'
 import { arrayify, keys } from '@/lib/types'
+import { DefaultFile } from '~/markdown/plugins/remark/code/file-tree/file-tree-utils'
+import ImageIcon from './ImageIcon'
 
 const Tab = memo((props: TabProps) => {
-  const { name, onClick, isActive } = props
+  const { name, onClick, isActive, icon } = props
   return (
     <div
       data-testid="code-tab"
       key={name}
       onClick={onClick}
-      className={cn({
+      className={cn('fcc', {
         [tabStyles.tab_active]: isActive,
       })}
     >
+      <ImageIcon icon={icon || DefaultFile} />
       {name}
     </div>
   )
@@ -33,17 +37,19 @@ interface TabItem {
 }
 interface TabProps extends TabItem {
   isActive: boolean
+  icon: string
 }
 
-interface CodePreviewProps {
+interface CodeTabsProps {
   defaultSelector: string
   nodeMap: Record<string, ReactNode>
   tabs: TabItem[]
   className?: string
+  iconmap: Record<string, string>
 }
 
 const CodeTabs = memo(
-  ({ defaultSelector, nodeMap, tabs, className }: CodePreviewProps) => {
+  ({ defaultSelector, nodeMap, tabs, className, iconmap }: CodeTabsProps) => {
     const [selector, setSelector] = useState(defaultSelector)
     const node = nodeMap[selector]
     const showTab = tabs.length > 1
@@ -55,6 +61,7 @@ const CodeTabs = memo(
               <Tab
                 key={tabProps.name}
                 {...tabProps}
+                icon={iconmap[tabProps.name]}
                 isActive={tabProps.name === selector}
                 onClick={() => {
                   setSelector(tabProps.name)
@@ -70,7 +77,7 @@ const CodeTabs = memo(
   },
 )
 const CodePreview = memo((props: any) => {
-  const { defaultSelector, codeNodeMap, codeTabs } = useMemo(() => {
+  const { defaultSelector, codeNodeMap, codeTabs, iconmap } = useMemo(() => {
     const children = arrayify(props.children)
     const defaultSelector = handleComponentDefaultSelectorKey(props)
     const codeNodeMap = Object.fromEntries(
@@ -78,11 +85,12 @@ const CodePreview = memo((props: any) => {
     )
     const files = handleFileMap(props)
     const codeTabs = keys(files).map((name) => ({ name }))
-
+    const iconmap = handleIconMap(props)
     return {
       defaultSelector,
       codeNodeMap,
       codeTabs,
+      iconmap,
     }
   }, [props])
 
@@ -92,6 +100,7 @@ const CodePreview = memo((props: any) => {
       tabs={codeTabs}
       nodeMap={codeNodeMap}
       defaultSelector={defaultSelector}
+      iconmap={iconmap}
     />
   )
 })

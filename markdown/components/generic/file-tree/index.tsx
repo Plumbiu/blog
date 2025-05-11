@@ -15,7 +15,6 @@ import {
   handleFileTree,
   handleFileFileTreeMapItemKey,
   handleFileTreeDefaultSelector,
-  handleFileTreeFileIconMapKey,
   handleFileTreeHasPreviewKey,
   handleFileTreeDirName,
   DefaultFile,
@@ -31,11 +30,15 @@ import {
   FolderIcon,
 } from '@/components/Icons'
 import { cn } from '@/lib/client'
-import { handleComponentCodeTitle } from '~/markdown/plugins/constant'
+import {
+  handleComponentCodeTitle,
+  handleIconMap,
+} from '~/markdown/plugins/constant'
 import Loading from '../_common/Loading'
 import useDivider from '@/hooks/useDivider'
 import type { TreeNode } from '~/markdown/plugins/remark/code/file-tree/types'
 import { getBaseName, getSuffix } from '~/markdown/plugins/utils'
+import ImageIcon from '../_common/ImageIcon'
 
 interface TreeTabsProps {
   tree: TreeNode[]
@@ -90,18 +93,6 @@ function formatHeaderTabName(selector: string, selectorArray: string[]) {
   return <div>{basename}</div>
 }
 
-const FileExtensionIcon = memo(({ icon }: { icon: string }) => {
-  return (
-    <img
-      data-no-view
-      alt="icon"
-      width="16"
-      height="16"
-      src={`/vscode-icons/${icon || DefaultFile}.svg`}
-    />
-  )
-})
-
 function getIconKey(s: string, fileIconMap: Record<string, string>) {
   s = s.trim()
   const basename = getBaseName(s)
@@ -132,7 +123,7 @@ const HeaderTab = memo(
               })}
               onClick={() => setPath(s)}
             >
-              <FileExtensionIcon icon={getIconKey(s, fileIconMap)} />
+              <ImageIcon icon={getIconKey(s, fileIconMap)} />
               <div>{formatHeaderTabName(s, selectorArr)}</div>
               <div
                 onClick={(e) => {
@@ -203,7 +194,7 @@ const TreeTabItem = memo(
               <FolderOpenIcon className={styles.active_dir} />
             )
           ) : (
-            <FileExtensionIcon icon={getIconKey(node.path, fileIconMap)} />
+            <ImageIcon icon={getIconKey(node.path, fileIconMap)} />
           )}
           <div className={styles.label}>{node.label}</div>
         </div>
@@ -248,7 +239,7 @@ const FileTree = memo((props: any) => {
       ]),
     )
     const defaultSelector = handleFileTreeDefaultSelector(props) || []
-    const fileIconMap = handleFileTreeFileIconMapKey(props) || {}
+    const fileIconMap = handleIconMap(props) || {}
     const hasPreview = handleFileTreeHasPreviewKey(props)
     const tree = handleFileTree(props)
     const title = handleComponentCodeTitle(props)

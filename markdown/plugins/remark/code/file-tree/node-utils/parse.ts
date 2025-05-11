@@ -4,14 +4,10 @@ import { buildFiles } from '~/markdown/plugins/remark/utils'
 import { CodeTabSplitString } from '~/markdown/plugins/constant'
 import { formatFileTreeDataMap, formatPath, formatTreeMap } from './format'
 import fileTreeDataRawMap from '~/markdown/config/file-tree'
-import {
-  getIconExt,
-  getIconFromFileName,
-  treeMapToTree,
-  treeSort,
-} from './support'
+import { treeMapToTree, treeSort } from './support'
 import { isLabelStartswithConfigCh } from '../file-tree-utils'
 import { join } from 'pathe'
+import { getIconExt, getIconFromFileName } from '~/markdown/utils/vscode-icon'
 
 const fileTreeDataFormatMap: Record<string, string> = {}
 
@@ -34,7 +30,7 @@ export async function parseContent(
   const stack: TreeNode[] = [root]
   let treeMap: TreeMap = {}
   const defaultSelectors: string[] = []
-  const fileIconMap: Record<string, string> = {}
+  const iconMap: Record<string, string> = {}
   let tree: TreeNode[] = []
   const isCustomContent = content.startsWith(CodeTabSplitString)
   if (dir && !isCustomContent) {
@@ -101,7 +97,7 @@ export async function parseContent(
         if (firstCh === '+') {
           defaultSelectors.push(key)
         }
-        fileIconMap[getIconExt(key)] = getIconFromFileName(node.label)
+        iconMap[getIconExt(key)] = getIconFromFileName(node.label)
         if (id && !dir) {
           treeMap[key] = {
             code: fileTreeDataFormatMap[formatPath(`${id}/${key}`)],
@@ -116,5 +112,5 @@ export async function parseContent(
   }
   traverse(tree)
   tree.sort(treeSort)
-  return { tree, treeMap, fileIconMap, defaultSelectors }
+  return { tree, treeMap, iconMap, defaultSelectors }
 }
