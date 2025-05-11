@@ -79,12 +79,13 @@
   transition: transform 0.25s;
 
   & img {
+    position: relative;
+    z-index: -1;
     filter: brightness(0.6);
     transition: 0.25s;
     height: var(--thumb-item-height);
     width: var(--thumb-item-width);
     object-fit: cover;
-    z-index: -1;
   }
 }
 
