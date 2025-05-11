@@ -13,7 +13,7 @@
   --text-color: #aaa;
   --thumb-bottom: 24px;
   --thumb-item-height: 60px;
-  --thumb-item-width: 80px;
+  --thumb-item-width: 60px;
   --thumb-item-translate: 16px;
   --thumb-item-max-height: calc(var(--thumb-item-height) + var(--thumb-item-translate) + var(--thumb-bottom));
   opacity: 0;
@@ -84,11 +84,12 @@
     height: var(--thumb-item-height);
     width: var(--thumb-item-width);
     object-fit: cover;
+    z-index: -1;
   }
 }
 
 .active>img {
-  z-index: 20;
+  z-index: 20 !important;
   filter: brightness(1) !important;
   transform: scale(1.2);
 }

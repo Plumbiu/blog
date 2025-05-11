@@ -121,6 +121,7 @@ function ImageGallery(props: any) {
       return (
         <NextImage
           key={i}
+          data-no-view
           className={styles.w_full}
           width={(ThumbnailsHeight * width) / height}
           height={ThumbnailsHeight}
@@ -153,6 +154,7 @@ function ImageGallery(props: any) {
       }
       return (
         <NextImage
+          data-no-view
           width={width}
           height={height}
           style={{
