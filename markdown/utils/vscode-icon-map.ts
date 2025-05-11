@@ -1079,7 +1079,8 @@ export const FileNameIconMap: { [key: string]: string } = {
   podfile: 'ruby',
   capfile: 'ruby',
 }
-
+// https://github.com/pengzhanbo/vuepress-theme-plume/blob/main/plugins/plugin-md-power/src/node/fileIcons/definitions.ts#L13
+// LICENSE: https://github.com/pengzhanbo/vuepress-theme-plume/blob/main/LICENSE
 export const NamedIconMap: Record<string, string> = {
   // package manager
   pnpm: 'light_pnpm',
