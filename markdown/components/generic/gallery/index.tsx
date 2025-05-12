@@ -2,7 +2,6 @@
 // LICENSE: https://github.com/igordanchenko/react-photo-album/blob/main/LICENSE
 'use client'
 
-import NextImage from 'next/image'
 import {
   type JSX,
   memo,
@@ -16,12 +15,12 @@ import { getGalleryPhoto } from '~/markdown/plugins/remark/directive/gallery-uti
 import { ArrowLeftIcon, ArrowRightIcon, CloseIcon } from '@/components/Icons'
 import { cn } from '@/lib/client'
 import styles from './index.module.css'
-import { getBase64Url } from '@/lib/shared'
 import {
   useBodyScrollEvent,
   useColumnPhoto,
   useMobileDiviceEvent,
 } from './hooks'
+import { MemoNextImage } from './components'
 
 const ThumbnailsHeight = 360
 
@@ -50,10 +49,10 @@ function ImageGallery(props: any) {
     setSlideNode(null)
   }
 
-  function getActiveNode() {
-    const { ops: optimizeSrc, b64, width, height } = photos[currentIndex]
+  function getActiveNode(index: number) {
+    const { ops: optimizeSrc, b64, width, height } = photos[index]
     return (
-      <NextImage
+      <MemoNextImage
         data-no-view
         width={width}
         height={height}
@@ -61,8 +60,7 @@ function ImageGallery(props: any) {
           objectFit: 'contain',
         }}
         unoptimized
-        blurDataURL={getBase64Url(b64)}
-        placeholder="blur"
+        b64={b64}
         key={optimizeSrc}
         src={optimizeSrc}
         alt={optimizeSrc}
@@ -78,7 +76,7 @@ function ImageGallery(props: any) {
       index = 0
     }
     setCurrentIndex(index)
-    setSlideNode(getActiveNode())
+    setSlideNode(getActiveNode(index))
   }
 
   useEffect(() => {
@@ -95,7 +93,7 @@ function ImageGallery(props: any) {
 
   const [slideNodes, columnNodes] = useMemo(() => {
     const slideNodes = photos.map(({ src, b64, ops, width, height }, index) => (
-      <NextImage
+      <MemoNextImage
         key={src}
         data-no-view
         unoptimized
@@ -106,15 +104,14 @@ function ImageGallery(props: any) {
         height={ThumbnailsHeight}
         src={ops}
         alt={src}
-        placeholder="blur"
-        blurDataURL={getBase64Url(b64)}
+        b64={b64}
       />
     ))
     const columnNodes = columnPhotos.map((items, i) => {
       return (
         <div key={i}>
           {items.map(({ photo, height, width, index }) => (
-            <NextImage
+            <MemoNextImage
               key={photo.src}
               unoptimized={photo.src.endsWith('.gif')}
               onClick={() => {
@@ -124,8 +121,7 @@ function ImageGallery(props: any) {
               height={height}
               src={photo.src}
               alt={photo.src}
-              placeholder="blur"
-              blurDataURL={getBase64Url(photo.b64)}
+              b64={photo.b64}
             />
           ))}
         </div>

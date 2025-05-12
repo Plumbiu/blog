@@ -106,15 +106,17 @@ export function useColumnPhoto({ photos, ref, max }: useColumnPhotoProps) {
       return
     }
     const width = ref.current.clientWidth
+    const column = window.innerWidth <= 960 ? 3 : 4
     const data = computeColumnsLayout(
       max ? photos.slice(0, max) : photos,
       4,
       0,
       width,
-      4,
+      column,
     )
     setColumnData(data || [])
   }
+
   useEffect(() => {
     if (!ref.current) {
       return
