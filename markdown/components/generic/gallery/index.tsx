@@ -1,13 +1,12 @@
+// This component based on: https://github.com/igordanchenko/react-photo-album
+// LICENSE: https://github.com/igordanchenko/react-photo-album/blob/main/LICENSE
 'use client'
 
-import { ColumnsPhotoAlbum } from 'react-photo-album'
 import NextImage from 'next/image'
-import 'react-photo-album/columns.css'
 import {
   type JSX,
   memo,
   type ReactNode,
-  useCallback,
   useEffect,
   useMemo,
   useRef,
@@ -16,87 +15,71 @@ import {
 import { getGalleryPhoto } from '~/markdown/plugins/remark/directive/gallery-utils'
 import { ArrowLeftIcon, ArrowRightIcon, CloseIcon } from '@/components/Icons'
 import { cn } from '@/lib/client'
-import { makeBodyScroll, avoidBodyScroll } from '@/store/utils'
 import styles from './index.module.css'
-import useIsMobileDevice from '@/hooks/useIsMobileDevice'
 import { getBase64Url } from '@/lib/shared'
+import {
+  useBodyScrollEvent,
+  useColumnPhoto,
+  useMobileDiviceEvent,
+} from './hooks'
 
 const ThumbnailsHeight = 360
 
-type DragEvent = TouchEvent | MouseEvent
-
 function ImageGallery(props: any) {
   const { photos = [], max } = getGalleryPhoto(props)
-  const memoImageIndexSet = useRef<Set<number>>(new Set())
+  const galleryRef = useRef<HTMLDivElement>(null)
   const [slideNode, setSlideNode] = useState<ReactNode>(null)
+  const columnPhotos = useColumnPhoto({
+    photos,
+    ref: galleryRef,
+    max,
+  })
   const thumbnailsRef = useRef<HTMLDivElement>(null)
-  const isMobile = useIsMobileDevice()
   const [currentIndex, setCurrentIndex] = useState(0)
   const [thumbnailTranslateX, setThumbnailTranslateX] = useState(0)
-  const isMouseDown = useRef(false)
-  const touchXRef = useRef({
-    prev: 0,
-    curr: 0,
+  useMobileDiviceEvent({
+    handleThumbnailClick,
+    currentIndex,
+  })
+  useBodyScrollEvent({
+    hidden,
+    slideNode,
   })
 
-  const hidden = useCallback(() => {
+  function hidden() {
     setSlideNode(null)
-  }, [])
+  }
 
-  const drageStart = useCallback((e: DragEvent) => {
-    isMouseDown.current = true
-    if ('touches' in e) {
-      touchXRef.current.prev = e.touches[0].clientX
-    } else if ('pageX' in e) {
-      touchXRef.current.prev = e.pageX
-    }
-  }, [])
+  function getActiveNode() {
+    const { ops: optimizeSrc, b64, width, height } = photos[currentIndex]
+    return (
+      <NextImage
+        data-no-view
+        width={width}
+        height={height}
+        style={{
+          objectFit: 'contain',
+        }}
+        unoptimized
+        blurDataURL={getBase64Url(b64)}
+        placeholder="blur"
+        key={optimizeSrc}
+        src={optimizeSrc}
+        alt={optimizeSrc}
+      />
+    )
+  }
 
-  const dragMove = useCallback((e: DragEvent) => {
-    if ('touches' in e) {
-      touchXRef.current.curr = e.touches[0].clientX
-    } else if ('pageX' in e && isMouseDown.current) {
-      touchXRef.current.curr = e.pageX
+  function handleThumbnailClick(index: number) {
+    const len = photos.length
+    if (index < 0) {
+      index = len - 1
+    } else if (index >= len) {
+      index = 0
     }
-  }, [])
-
-  const dragEnd = useCallback(() => {
-    const start = touchXRef.current.prev
-    const end = touchXRef.current.curr
-    if (end - start > 50) {
-      handleThumbnailClick(currentIndex - 1)
-    } else if (end - start < -50) {
-      handleThumbnailClick(currentIndex + 1)
-    }
-    isMouseDown.current = false
-  }, [currentIndex])
-
-  useEffect(() => {
-    if (!slideNode) {
-      return
-    }
-    if (isMobile) {
-      window.addEventListener('touchstart', drageStart)
-      window.addEventListener('touchmove', dragMove)
-      window.addEventListener('touchend', dragEnd)
-      return () => {
-        window.removeEventListener('touchstart', drageStart)
-        window.removeEventListener('touchmove', dragMove)
-        window.removeEventListener('touchend', dragEnd!)
-      }
-    }
-  }, [slideNode])
-
-  useEffect(() => {
-    if (slideNode) {
-      avoidBodyScroll(hidden)
-    } else {
-      makeBodyScroll(hidden)
-    }
-    return () => {
-      makeBodyScroll(hidden)
-    }
-  }, [slideNode])
+    setCurrentIndex(index)
+    setSlideNode(getActiveNode())
+  }
 
   useEffect(() => {
     if (!slideNode) {
@@ -110,100 +93,50 @@ function ImageGallery(props: any) {
     }
   }, [slideNode, currentIndex])
 
-  const allThumbnailsNode = useMemo(() => {
-    return photos.map(({ src, width, height, b64: base64 }, i) => {
-      const commonProps = {
-        alt: src,
-        src,
-        placeholder: 'blur',
-        blurDataURL: getBase64Url(base64),
-      } as const
-      return (
-        <NextImage
-          key={i}
-          data-no-view
-          className={styles.w_full}
-          width={(ThumbnailsHeight * width) / height}
-          height={ThumbnailsHeight}
-          unoptimized={src.endsWith('.gif')}
-          onClick={() => {
-            handleThumbnailClick(i)
-          }}
-          {...commonProps}
-        />
-      )
-    })
-  }, [])
-
-  function preloadImage(i: number) {
-    if (memoImageIndexSet.current.has(i)) {
-      return
-    }
-    const image = new Image()
-    image.src = photos[i].ops
-    memoImageIndexSet.current.add(i)
-  }
-
-  const thumbinalsLength = allThumbnailsNode.length
-
-  const sildeNodes = useMemo(() => {
-    return photos.map(({ ops: optimizeSrc, b64, width, height }, i) => {
-      // preload images
-      if (!max || i < max) {
-        preloadImage(i)
-      }
-      return (
-        <NextImage
-          data-no-view
-          width={width}
-          height={height}
-          style={{
-            objectFit: 'contain',
-          }}
-          unoptimized
-          blurDataURL={getBase64Url(b64)}
-          placeholder="blur"
-          key={optimizeSrc}
-          src={optimizeSrc}
-          alt={optimizeSrc}
-        />
-      )
-    })
-  }, [])
-
-  function handleThumbnailClick(index: number) {
-    if (index < 0) {
-      index = thumbinalsLength - 1
-    } else if (index >= thumbinalsLength) {
-      index = 0
-    }
-    const start = index - 5
-    const end = index + 5
-    for (
-      let i = start < 0 ? 0 : start;
-      i < (end > photos.length ? photos.length : end);
-      i++
-    ) {
-      preloadImage(i)
-    }
-    setCurrentIndex(index)
-    setSlideNode(sildeNodes[index])
-  }
-
-  return (
-    <div className={styles.gallery}>
-      <ColumnsPhotoAlbum
-        spacing={4}
-        photos={max ? photos.slice(0, max) : photos}
-        onClick={({ index }) => {
+  const [slideNodes, columnNodes] = useMemo(() => {
+    const slideNodes = photos.map(({ src, b64, ops, width, height }, index) => (
+      <NextImage
+        key={src}
+        data-no-view
+        unoptimized
+        onClick={() => {
           handleThumbnailClick(index)
         }}
-        render={{
-          image(_props, context) {
-            return allThumbnailsNode[context.index]
-          },
-        }}
+        width={(ThumbnailsHeight * width) / height}
+        height={ThumbnailsHeight}
+        src={ops}
+        alt={src}
+        placeholder="blur"
+        blurDataURL={getBase64Url(b64)}
       />
+    ))
+    const columnNodes = columnPhotos.map((items, i) => {
+      return (
+        <div key={i}>
+          {items.map(({ photo, height, width, index }) => (
+            <NextImage
+              key={photo.src}
+              unoptimized={photo.src.endsWith('.gif')}
+              onClick={() => {
+                handleThumbnailClick(index)
+              }}
+              width={width}
+              height={height}
+              src={photo.src}
+              alt={photo.src}
+              placeholder="blur"
+              blurDataURL={getBase64Url(photo.b64)}
+            />
+          ))}
+        </div>
+      )
+    })
+    return [slideNodes, columnNodes]
+  }, [columnPhotos])
+
+  return (
+    <div ref={galleryRef} className={styles.gallery}>
+      <div className={styles.imgs}>{columnNodes}</div>
       {max ? (
         <div className={styles.seemore}>
           剩余隐藏{photos.length - max}张图片....
@@ -224,7 +157,7 @@ function ImageGallery(props: any) {
             }}
             ref={thumbnailsRef}
           >
-            {allThumbnailsNode.map((node, i) => (
+            {slideNodes.map((node, i) => (
               <MemoThumbinalItem key={i} active={i === currentIndex}>
                 {node}
               </MemoThumbinalItem>

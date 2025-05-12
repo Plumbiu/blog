@@ -4,6 +4,19 @@
   border-radius: 0 !important;
 }
 
+.imgs {
+  display: flex;
+  gap: 4px;
+
+  &>div {
+    flex-shrink: 0;
+    flex-grow: 0;
+    row-gap: 4px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 @keyframes fade {
   to {
     opacity: 1;

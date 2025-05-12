@@ -4,11 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-patchedDependencies:
-  react-photo-album:
-    hash: ocwe5z2mqhu7gxtukdnzxvurha
-    path: patches/react-photo-album.patch
-
 importers:
 
   .:
@@ -70,9 +65,6 @@ importers:
       react-dom:
         specifier: 19.1.0
         version: 19.1.0(react@19.1.0)
-      react-photo-album:
-        specifier: 3.1.0
-        version: 3.1.0(patch_hash=ocwe5z2mqhu7gxtukdnzxvurha)(@types/react@19.1.3)(react@19.1.0)
       remark-definition:
         specifier: 1.0.2
         version: 1.0.2
@@ -2252,16 +2244,6 @@ packages:
 
   react-is@17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
-
-  react-photo-album@3.1.0:
-    resolution: {integrity: sha512-9PiWzwvckfefJRHY5E6kcNKoWNjyyFKhQ6Pl5nS1Z29QeP9h8zDOAoVQKWcv/AhZjRoduw1dybu9RNMj0+uPzQ==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      '@types/react': ^18 || ^19
-      react: ^18 || ^19
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
 
   react-reconciler@0.31.0:
     resolution: {integrity: sha512-7Ob7Z+URmesIsIVRjnLoDGwBEG/tVitidU0nMsqX/eeJaLY89RISO/10ERe0MqmzuKUUB1rmY+h1itMbUHg9BQ==}
@@ -4989,12 +4971,6 @@ snapshots:
       scheduler: 0.26.0
 
   react-is@17.0.2: {}
-
-  react-photo-album@3.1.0(patch_hash=ocwe5z2mqhu7gxtukdnzxvurha)(@types/react@19.1.3)(react@19.1.0):
-    dependencies:
-      react: 19.1.0
-    optionalDependencies:
-      '@types/react': 19.1.3
 
   react-reconciler@0.31.0(react@19.1.0):
     dependencies:
