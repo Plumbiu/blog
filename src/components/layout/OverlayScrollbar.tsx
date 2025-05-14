@@ -1,27 +1,18 @@
 'use client'
 
-import {
-  memo,
-  type MouseEventHandler,
-  useEffect,
-  useRef,
-  useState,
-} from 'react'
+import { memo, type MouseEventHandler, useEffect, useRef } from 'react'
 import styles from './OverlayScrollbar.module.css'
 import { throttle } from 'es-toolkit'
 import { usePathname } from 'next/navigation'
+import useMounted from '../function/useMounted'
 
 const Spacing = 6 * 2
 
 const OverlayScrollbar = memo(() => {
-  const [mounted, setMounted] = useState(false)
+  const mounted = useMounted()
   const handlerRef = useRef<HTMLDivElement>(null)
   const offsetRef = useRef<number>(null)
   const pathname = usePathname()
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
 
   const updateScroll = () => {
     const handlerDom = handlerRef.current

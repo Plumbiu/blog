@@ -43,12 +43,13 @@ function ArtlistAction({ type }: { type: keyof typeof map | undefined }) {
           ),
           value: p || '全部',
         }))}
-      >
-        <div className={cn('fcc', styles.label)}>
-          {type ? listActionIconMap[type] : <FolderOpenIcon />}
-          {type ? map[type] : '全部'}
-        </div>
-      </Selector>
+        label={
+          <div className={cn('fcc', styles.label)}>
+            {type ? listActionIconMap[type] : <FolderOpenIcon />}
+            {type ? map[type] : '全部'}
+          </div>
+        }
+      />
     </div>
   )
 }

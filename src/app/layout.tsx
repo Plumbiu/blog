@@ -28,10 +28,6 @@ export const metadata: Metadata = {
     siteName: `${BlogAuthor}'s blog`,
   }),
 }
-
-const IsDev = process.env.NODE_ENV === 'development'
-const ScriptBasename = IsDev ? 'dev' : 'index'
-
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -50,11 +46,11 @@ export default async function RootLayout({
         />
       </head>
       <body className={robot.className}>
-        <script src={resolveBasePath(`assets/theme/${ScriptBasename}.js`)} />
+        <script src={resolveBasePath('assets/theme.js')} />
         <OverlayScrollbar />
         <Header />
         <Banner />
-        <script src={resolveBasePath(`assets/banner/${ScriptBasename}.js`)} />
+        <script src={resolveBasePath('assets/banner.js')} />
         <div className="main_layout">
           <SideBar />
           <div className="main_children">{children}</div>

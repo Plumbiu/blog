@@ -16,6 +16,7 @@ import { CopyErrorIcon, SearchIcon } from '../Icons'
 import Link from 'next/link'
 import useSearchPanelStore from '@/store/search-panel'
 import type { PostList, PostMeta } from '~/markdown/types'
+import useMounted from '../function/useMounted'
 
 export type SearchData = Pick<PostList, 'path' | 'type'> & {
   meta: Pick<PostMeta, 'title' | 'desc' | 'tags'>
@@ -27,16 +28,12 @@ interface SearchPanelProps {
 const SearchPanel = memo(({ data }: SearchPanelProps) => {
   const hidden = useSearchPanelStore((s) => s.hidden)
   const searchPanelVisible = useSearchPanelStore((s) => s.visible)
-  const [mounted, setMounted] = useState(false)
+  const mounted = useMounted()
   const [lists, setLists] = useState<SearchData[]>(data)
   const [activePath, setActivePath] = useState<string>()
   const [search, setSearch] = useState('')
   const contentRef = useRef<HTMLDivElement>(null)
   const label = useId()
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
 
   useEffect(() => {
     if (search.length > 0) {
@@ -78,9 +75,11 @@ const SearchPanel = memo(({ data }: SearchPanelProps) => {
   const handleInputChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value)
   }, [])
+
   if (!searchPanelVisible || !mounted) {
     return null
   }
+
   return (
     <Modal
       onClick={(e) => {

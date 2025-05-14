@@ -6,19 +6,6 @@
 
   to {
     opacity: 1;
-    transform: translate(-50%, 8px);
-  }
-}
-
-@keyframes fade-out-down {
-  0% {
-    opacity: 1;
-    transform: translate(-50%, 8px);
-  }
-
-  to {
-    opacity: 0;
-    transform: translate(-50%, 0rem);
   }
 }
 
@@ -28,16 +15,14 @@
   justify-content: center;
 }
 
-.close {
-  animation: fade-out-down 0.2s forwards !important;
-}
 
 .panel {
   position: fixed;
   display: flex;
   z-index: 999;
+  transform: translate(-50%, 8px);
   flex-direction: column;
-  animation: fade-in-up 0.2s forwards;
+  transition: opacity 0.15s;
   box-shadow: var(--shadow-selector);
   padding: 12px 8px;
   gap: 4px;
@@ -68,5 +53,6 @@
 }
 
 .hide {
-  display: none;
+  opacity: 0 !important;
+  pointer-events: none;
 }

@@ -13,6 +13,7 @@ import {
 import styles from './Dropdown.module.css'
 import { createPortal } from 'react-dom'
 import { cn } from '@/lib/client'
+import useMounted from './useMounted'
 
 type TriggerMode = 'click' | 'hover'
 
@@ -44,30 +45,11 @@ const Dropdown = memo(
     const warpRef = useRef<HTMLDivElement>(null)
     const panelRef = useRef<HTMLDivElement>(null)
     const [panelVisible, setPanelVisible] = useState(false)
-    const hideTimerRef = useRef<NodeJS.Timeout>(null)
-    const [position, setPosition] = useState<{
-      x: number
-      y: number
-    } | null>(null)
+    const mounted = useMounted()
+    const isFirst = useRef(true)
 
     function hide() {
-      const panelDom = panelRef.current
-      if (!panelDom) {
-        return
-      }
-      if (hideTimerRef.current) {
-        panelDom.classList.remove(styles.close)
-        clearTimeout(hideTimerRef.current)
-      }
-      if (panelVisible === false) {
-        return
-      }
-
-      panelDom.classList.add(styles.close)
-      hideTimerRef.current = setTimeout(() => {
-        panelDom.classList.remove(styles.close)
-        setPanelVisible(false)
-      }, 200)
+      setPanelVisible(false)
     }
 
     const handleGlobalClick = useCallback((e: MouseEvent) => {
@@ -82,31 +64,39 @@ const Dropdown = memo(
       }
     }, [])
 
-    const handleTriggerClick: MouseEventHandler<HTMLDivElement> = useCallback(
-      (e) => {
-        e.stopPropagation()
-        setPanelVisible(true)
-        const wrapDom = warpRef.current
-        if (!wrapDom) {
-          return
-        }
-        const panelRect = wrapDom.getBoundingClientRect()
-        const panelLeft = panelRect.left
-        const panelRight = panelRect.right
-        const offsetX = offset?.x || 0
-        let x = panelRect.left + offsetX
-        if (panelRight >= window.innerWidth - 32) {
-          x = panelLeft - 16 + offsetX
-        } else if (panelLeft <= 32) {
-          x = panelLeft + 16 + offsetX
-        }
-        setPosition({
-          x: x + panelRect.width / 2,
-          y: panelRect.bottom + (offset?.y || 0),
-        })
-      },
-      [],
-    )
+    const calculate = () => {
+      const wrapDom = warpRef.current
+      const panelDom = panelRef.current
+      if (!wrapDom || !panelDom) {
+        return
+      }
+      const wrapRect = wrapDom.getBoundingClientRect()
+      const panelRect = panelDom.getBoundingClientRect()
+      const wraplLeft = wrapRect.left
+      const offsetX = offset?.x || 0
+      const panelWidth = panelRect.width
+      const panelRight = panelRect.right
+      const panelLeft = panelRect.left
+      let x = wrapRect.left + offsetX
+      if (panelRight >= window.innerWidth - 32) {
+        x = wraplLeft - panelWidth / 2 + offsetX + 32
+      } else if (panelLeft <= 32) {
+        x = wraplLeft + panelWidth / 2 + offsetX - 32
+      }
+      panelDom.style.left = x + wrapRect.width / 2 + 'px'
+      panelDom.style.top = wrapRect.bottom + (offset?.y || 0) + 'px'
+    }
+
+    const show: MouseEventHandler<HTMLDivElement> = useCallback((e) => {
+      e.stopPropagation()
+      calculate()
+      if (isFirst.current) {
+        isFirst.current = false
+        // calculate twice for first render to get the right panelLeft
+        calculate()
+      }
+      setPanelVisible(true)
+    }, [])
 
     useEffect(() => {
       if (mode === 'hover') {
@@ -126,29 +116,24 @@ const Dropdown = memo(
     const triggerProps: HTMLAttributes<HTMLDivElement> = {}
 
     if (mode === 'click') {
-      triggerProps.onClick = handleTriggerClick
+      triggerProps.onClick = show
     } else if (mode === 'hover') {
-      triggerProps.onMouseEnter = handleTriggerClick
+      triggerProps.onMouseEnter = show
       triggerProps.onMouseLeave = hide
     }
 
     return (
-      <Tag
-        ref={warpRef}
-        className={cn(styles.wrap, className)}
-        {...triggerProps}
-      >
-        <Tag className={cn(labelClassName)}>{label}</Tag>
-        {panelVisible &&
-          position &&
+      <Tag ref={warpRef} className={cn(styles.wrap, className)}>
+        <Tag {...triggerProps} className={cn(labelClassName)}>
+          {label}
+        </Tag>
+        {mounted &&
           createPortal(
             <div
-              className={cn(styles.panel, panelClassName)}
+              className={cn(styles.panel, panelClassName, {
+                [styles.hide]: !panelVisible,
+              })}
               ref={panelRef}
-              style={{
-                top: position.y,
-                left: position.x,
-              }}
             >
               {children}
             </div>,
