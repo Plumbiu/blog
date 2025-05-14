@@ -118,11 +118,12 @@ function Header() {
             ),
             value: data.href,
           }))}
-        >
-          <div className={styles.hover}>
-            <MenuIcon />
-          </div>
-        </Selector>
+          label={
+            <div className={styles.hover}>
+              <MenuIcon />
+            </div>
+          }
+        />
       </div>
     </header>
   )

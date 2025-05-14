@@ -135,6 +135,7 @@
 
 .plumbiu_abbr {
   position: relative;
+  display: inline;
   z-index: 99;
   border-bottom: 1px dashed var(--c-gray-2);
   cursor: help;
