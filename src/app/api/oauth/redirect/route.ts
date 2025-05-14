@@ -5,7 +5,7 @@ import { getTokenResponse } from '../utils'
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url)
   const code = searchParams.get('code')
-  let redirectUrl = '/assets/oauth/redirect.js'
+  let redirectUrl = '/assets/oauth/redirect.html'
   try {
     const tokenResponse = await getTokenResponse(code)
     const accessToken = tokenResponse.access_token
