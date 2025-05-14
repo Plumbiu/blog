@@ -15,6 +15,7 @@ import { HTMLParserName } from '~/markdown/plugins/remark/html-parser-utils'
 import HtmlParser from './generic/html-parser'
 import { FileTreeName } from '../plugins/remark/code/file-tree/file-tree-utils'
 import FileTree from './generic/file-tree'
+import Tooltip from './generic/tooltip'
 
 const Gallery = lazy(() => import('./generic/gallery/index'))
 const Iframe = lazy(() => import('./generic/iframe/index'))
@@ -28,4 +29,5 @@ export const genericComponentMap: Record<string, any> = {
   [PreTitleName]: PreTitle,
   [HTMLParserName]: HtmlParser,
   [FileTreeName]: FileTree,
+  Tooltip,
 }

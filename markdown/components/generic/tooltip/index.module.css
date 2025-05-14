@@ -1,0 +1,9 @@
+.title {
+  font-size: var(--text-sm);
+  cursor: help;
+  border-bottom: 1px solid var(--divider);
+}
+
+.panel {
+  padding: 6px 12px !important;
+}

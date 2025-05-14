@@ -10,11 +10,12 @@ import { CodeRunnerName } from '~/markdown/plugins/remark/runner-utils'
 import { customComponentMap } from './custom-components'
 import { genericComponentMap } from './generic-components'
 
-const SyncComponentNameSet = new Set([
+const SyncComponentNameSet = new Set<String>([
   PlaygroundName,
   CodeRunnerName,
   SwitcherName,
   PreTitleName,
+  'Tooltip',
 ])
 
 function CustomComponent(props: any) {
@@ -29,7 +30,6 @@ function CustomComponent(props: any) {
     ) {
       return createElement(value, props)
     }
-
     return (
       <IntersectionObserverComponent props={props}>
         {value}

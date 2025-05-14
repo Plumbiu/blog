@@ -1,6 +1,7 @@
 'use client'
 
 import {
+  type HTMLAttributes,
   memo,
   type MouseEventHandler,
   type ReactNode,
@@ -13,10 +14,15 @@ import styles from './Dropdown.module.css'
 import { createPortal } from 'react-dom'
 import { cn } from '@/lib/client'
 
+type TriggerMode = 'click' | 'hover'
+
 export interface DropdownProps {
   children: ReactNode
+  mode?: TriggerMode
   label: ReactNode
   className?: string
+  panelClassName?: string
+  tagName?: 'div' | 'span'
   offset?: {
     y?: number
     x?: number
@@ -24,7 +30,7 @@ export interface DropdownProps {
 }
 
 const Dropdown = memo(
-  ({ children, offset, className, label }: DropdownProps) => {
+  ({ children, offset, className, label, tagName = 'div', panelClassName, mode = 'click' }: DropdownProps) => {
     const warpRef = useRef<HTMLDivElement>(null)
     const panelRef = useRef<HTMLDivElement>(null)
     const [panelVisible, setPanelVisible] = useState(false)
@@ -84,6 +90,9 @@ const Dropdown = memo(
     )
 
     useEffect(() => {
+      if (mode === 'hover') {
+        return
+      }
       window.addEventListener('click', handleGlobalClick)
       window.addEventListener('scroll', hide)
       window.addEventListener('resize', hide)
@@ -93,14 +102,28 @@ const Dropdown = memo(
         window.removeEventListener('resize', hide)
       }
     }, [])
+
+    const Tag = tagName
+    const triggerProps: HTMLAttributes<HTMLDivElement> = {
+
+    }
+
+    if (mode === 'click') {
+      triggerProps.onClick = handleTriggerClick
+    } else if (mode === 'hover') {
+      triggerProps.onMouseOver = handleTriggerClick
+      triggerProps.onMouseLeave = hide
+    }
+
+
     return (
-      <div ref={warpRef} className={cn(styles.wrap, className)}>
-        <div onClick={handleTriggerClick}>{label}</div>
+      <Tag ref={warpRef} className={cn(styles.wrap, className)}>
+        <Tag {...triggerProps}>{label}</Tag>
         {panelVisible &&
           position &&
           createPortal(
             <div
-              className={styles.panel}
+              className={cn(styles.panel, panelClassName)}
               ref={panelRef}
               style={{
                 top: position.y,
@@ -111,7 +134,7 @@ const Dropdown = memo(
             </div>,
             document.body,
           )}
-      </div>
+      </Tag>
     )
   },
 )

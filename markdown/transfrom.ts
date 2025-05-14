@@ -21,9 +21,9 @@ import remarkCodeComponentsPlugin from './plugins/remark/code/components'
 import remarkCodeMetaPlugin from './plugins/remark/code/meta'
 import remarkCodeTitlePlugin from './plugins/remark/code/title'
 import remarkFileTreePlugin from './plugins/remark/code/file-tree/file-tree'
-import rehypeAbbrPlugin from './plugins/rehype/abbr'
 import rehypeCodeCollapsePlugin from './plugins/rehype/code-collapse'
 import rehypeCodeFormatPlugin from './plugins/rehype/shiki-children-format'
+import remarkAbbrPlugin from './plugins/remark/abbr'
 
 export async function transformCodeWithOptions(
   code: string,
@@ -74,11 +74,11 @@ async function transfromCode2Jsx(
       [remarkDefinition, assign(definitionMap, definitions)],
       remarkRunnerPlugin,
       [remarkPlainTextPlugin, { variable, emoji }],
+      [remarkAbbrPlugin, abbr],
       remarkHtmlParser,
       remarkCodeTitlePlugin,
     ],
     rehype: [
-      [rehypeAbbrPlugin, abbr],
       rehypeElementPlugin,
       rehypeShikiPlugin,
       rehypeCodeFormatPlugin,
