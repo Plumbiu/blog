@@ -22,6 +22,7 @@ export interface DropdownProps {
   label: ReactNode
   className?: string
   panelClassName?: string
+  labelClassName?: string
   tagName?: 'div' | 'span'
   offset?: {
     y?: number
@@ -30,10 +31,20 @@ export interface DropdownProps {
 }
 
 const Dropdown = memo(
-  ({ children, offset, className, label, tagName = 'div', panelClassName, mode = 'click' }: DropdownProps) => {
+  ({
+    children,
+    offset,
+    className,
+    label,
+    tagName = 'div',
+    panelClassName,
+    labelClassName,
+    mode = 'click',
+  }: DropdownProps) => {
     const warpRef = useRef<HTMLDivElement>(null)
     const panelRef = useRef<HTMLDivElement>(null)
     const [panelVisible, setPanelVisible] = useState(false)
+    const hideTimerRef = useRef<NodeJS.Timeout>(null)
     const [position, setPosition] = useState<{
       x: number
       y: number
@@ -44,11 +55,19 @@ const Dropdown = memo(
       if (!panelDom) {
         return
       }
+      if (hideTimerRef.current) {
+        panelDom.classList.remove(styles.close)
+        clearTimeout(hideTimerRef.current)
+      }
+      if (panelVisible === false) {
+        return
+      }
+
       panelDom.classList.add(styles.close)
-      setTimeout(() => {
+      hideTimerRef.current = setTimeout(() => {
         panelDom.classList.remove(styles.close)
         setPanelVisible(false)
-      }, 400)
+      }, 200)
     }
 
     const handleGlobalClick = useCallback((e: MouseEvent) => {
@@ -104,21 +123,22 @@ const Dropdown = memo(
     }, [])
 
     const Tag = tagName
-    const triggerProps: HTMLAttributes<HTMLDivElement> = {
-
-    }
+    const triggerProps: HTMLAttributes<HTMLDivElement> = {}
 
     if (mode === 'click') {
       triggerProps.onClick = handleTriggerClick
     } else if (mode === 'hover') {
-      triggerProps.onMouseOver = handleTriggerClick
+      triggerProps.onMouseEnter = handleTriggerClick
       triggerProps.onMouseLeave = hide
     }
 
-
     return (
-      <Tag ref={warpRef} className={cn(styles.wrap, className)}>
-        <Tag {...triggerProps}>{label}</Tag>
+      <Tag
+        ref={warpRef}
+        className={cn(styles.wrap, className)}
+        {...triggerProps}
+      >
+        <Tag className={cn(labelClassName)}>{label}</Tag>
         {panelVisible &&
           position &&
           createPortal(

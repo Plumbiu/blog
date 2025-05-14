@@ -37,9 +37,7 @@
   display: flex;
   z-index: 999;
   flex-direction: column;
-  opacity: 1;
   animation: fade-in-up 0.2s forwards;
-  transition: opacity 0.4s;
   box-shadow: var(--shadow-selector);
   padding: 12px 8px;
   gap: 4px;
@@ -51,7 +49,7 @@
     border-radius: 8px;
     cursor: pointer;
 
-    & > * {
+    &>* {
       display: flex;
       padding: 12px;
     }
@@ -70,5 +68,5 @@
 }
 
 .hide {
-  display: none;    
+  display: none;
 }

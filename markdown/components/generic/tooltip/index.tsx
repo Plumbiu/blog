@@ -9,6 +9,7 @@ const Tooltip = (props: any) => {
       tagName="span"
       label={label}
       panelClassName={styles.panel}
+      labelClassName={styles.label}
       mode="hover"
       offset={{
         y: -4,
