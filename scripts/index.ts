@@ -2,7 +2,6 @@ import { getPost } from '~/markdown/utils/fs'
 import feed from './feed'
 import { spawnSync } from 'node:child_process'
 import { createIssues } from './issues'
-import optimizeDevCode from './optimize'
 
 export type FileMap = Record<string, string>
 
@@ -15,7 +14,6 @@ async function run() {
     await feed(posts)
     await createIssues(posts)
   }
-  await optimizeDevCode()
 }
 
 run()
