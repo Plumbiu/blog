@@ -15,7 +15,6 @@ import useObserver from '@/hooks/useObservser'
 import { isArray, isString } from '@/lib/types'
 import { ExternalLinkIcon, GithubIcon } from '@/components/Icons'
 import { GithubClientId } from '~/config/site'
-import Title from '@/components/ui/Title'
 
 const reactionsMap: Record<string, string> = {
   '+1': '👍',
@@ -73,7 +72,7 @@ const LoginGithub = memo(({ pathname }: CommentProps) => {
         location.href = `https://github.com/login/oauth/authorize?client_id=${GithubClientId}&redirect_uri=${BlogUrl}api/oauth/redirect`
       }}
     >
-      <GithubIcon fontSize={24} />
+      <GithubIcon fontSize={20} />
       登录
     </button>
   )
@@ -281,7 +280,12 @@ const Comment = memo(({ pathname }: CommentProps) => {
         <div className={styles.item}>
           <div className={styles.top}>
             {userAvatar && (
-              <Image src={userAvatar} width={AvatarSize} height={AvatarSize} alt={userAvatar} />
+              <Image
+                src={userAvatar}
+                width={AvatarSize}
+                height={AvatarSize}
+                alt={userAvatar}
+              />
             )}
             {userLogin && <div className={styles.login}>{userLogin}</div>}
           </div>
@@ -325,7 +329,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
       return (
         <div className="md">
           <LoginGithub pathname={pathname} />
-          <blockquote className="blockquote-danger">
+          <blockquote className="blockquote-caution">
             <p>{errorMessage}</p>
             <p className={styles.error_link}>{issueAddNode}</p>
           </blockquote>
@@ -335,20 +339,6 @@ const Comment = memo(({ pathname }: CommentProps) => {
 
     return (
       <>
-        {status === 'loaded' && (
-          <div className={styles.comment_info}>
-            <div className={styles.count}>
-              {data.length ? '没有评论' : `${data.length}条评论`}
-            </div>
-            {issueAddNode}
-            {!accessToken && status === 'loaded' && (
-              <div className={cn(styles.github_login)}>
-                <LoginGithub pathname={pathname} />
-              </div>
-            )}
-          </div>
-        )}
-
         <CommentTextarea />
         <Lists />
       </>
@@ -357,7 +347,26 @@ const Comment = memo(({ pathname }: CommentProps) => {
 
   return (
     <div ref={containerRef} className={cn(styles.wrap, 'main_content')}>
-      <Title className={styles.comment_title}>评论区</Title>
+      <div className={styles.comment_wrap}>
+        <div className={styles.comment_title}>评论区</div>
+        {!!data.length && (
+          <>
+            <div className={styles.line} />
+            <div className={styles.count}>{`${data.length}条评论`}</div>
+          </>
+        )}
+        {status === 'loaded' && (
+          <>
+            <div className={styles.line} />
+            <div className={styles.comment_info}>{issueAddNode}</div>
+          </>
+        )}
+      </div>
+      {!accessToken && status === 'loaded' && (
+        <div className={styles.github_login}>
+          <LoginGithub pathname={pathname} />
+        </div>
+      )}
       {node}
     </div>
   )

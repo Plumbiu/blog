@@ -1,5 +1,7 @@
 .wrap {
   margin: 64px 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .loading_wrap {
@@ -10,8 +12,16 @@
   margin: 32px auto;
 }
 
-.comment_title {
+.comment_wrap {
+  display: flex;
+  align-items: center;
   font-size: var(--text-xl);
+  transform: translateX(-16px);
+}
+
+.comment_title {
+  font-weight: 700;
+  color: var(--text);
 }
 
 .loading {
@@ -23,6 +33,7 @@
 }
 
 .comment_info {
+  font-size: var(--text-sm);
   display: flex;
   align-items: center;
   margin: 16px 0;
@@ -45,8 +56,17 @@
 }
 
 .count {
-  color: var(--text);
+  color: var(--text-2);
+  font-size: var(--text-sm);
   font-weight: 700;
+}
+
+.line {
+  height: 4px;
+  width: 16px;
+  margin: 0 12px;
+  background-color: var(--c-indigo-1);
+  border-radius: 8px;
 }
 
 .top {
@@ -96,6 +116,11 @@
     padding: 4px 12px;
     margin: 0;
   }
+}
+
+.github_login>button {
+  margin-bottom: 12px;
+  padding: 6px 12px;
 }
 
 .login {
