@@ -495,6 +495,10 @@ npm install @plumbiu/react-store
 yarn add @plumbiu/react-store
 //@tab pnpm
 pnpm add @plumbiu/react-store
+//@tab bun
+bun add @plumbiu/react-store
+//@tab deno
+deno add @plumbiu/react-store
 ```
 ````
 
@@ -507,6 +511,10 @@ npm install @plumbiu/react-store
 yarn add @plumbiu/react-store
 //@tab pnpm
 pnpm add @plumbiu/react-store
+//@tab bun
+bun add @plumbiu/react-store
+//@tab deno
+deno add @plumbiu/react-store
 ```
 
 # 自定义标题
