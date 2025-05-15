@@ -15,7 +15,7 @@
     line-height: 28px;
   }
 
-  &>* {
+  &>*:not(:has(> div[ data-no-overflow-hidden])) {
     overflow-x: hidden;
   }
 

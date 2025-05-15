@@ -131,7 +131,7 @@ function ImageGallery(props: any) {
   }, [columnPhotos])
 
   return (
-    <div ref={galleryRef} className={styles.gallery}>
+    <div data-no-overflow-hidden ref={galleryRef} className={styles.gallery}>
       <div className={styles.imgs}>{columnNodes}</div>
       {max ? (
         <div className={styles.seemore}>

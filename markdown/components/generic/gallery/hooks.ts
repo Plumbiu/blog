@@ -106,10 +106,10 @@ export function useColumnPhoto({ photos, ref, max }: useColumnPhotoProps) {
       return
     }
     const width = ref.current.clientWidth
-    const column = window.innerWidth <= 960 ? 3 : 4
+    const column = window.innerWidth <= 960 ? 2 : 3
     const data = computeColumnsLayout(
       max ? photos.slice(0, max) : photos,
-      4,
+      16,
       0,
       width,
       column,

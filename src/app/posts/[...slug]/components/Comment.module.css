@@ -120,7 +120,7 @@
   color: var(--text) !important;
 
   & a {
-    color: var(--c-indigo-3);
+    color: var(--c-indigo-1);
     text-decoration: none;
 
     &:hover {

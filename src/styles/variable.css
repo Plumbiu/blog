@@ -70,6 +70,10 @@
   --console-none: rgb(171, 89, 89);
   --console-bool: rgb(30, 117, 79);
   --console-symbol: rgb(89, 135, 58);
+  /* shadow */
+  --shadow-1: 0 1px 2px rgb(0 0 0 / .04), 0 1px 2px rgb(0 0 0 / .06);
+  --shadow-2: 0 3px 12px rgb(0 0 0 / .07), 0 1px 4px rgb(0 0 0 / .07);
+  --shadow-3: 0 12px 32px rgb(0 0 0 / .1), 0 2px 6px rgb(0 0 0 / .08);
 }
 
 :root[data-theme='light'] {

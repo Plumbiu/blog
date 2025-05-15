@@ -6,14 +6,26 @@
 
 .imgs {
   display: flex;
-  gap: 4px;
+  --gap: 16px;
+  gap: var(--gap);
 
   &>div {
     flex-shrink: 0;
     flex-grow: 0;
-    row-gap: 4px;
+    row-gap: var(--gap);
     display: flex;
     flex-direction: column;
+  }
+
+  & img {
+    border-radius: 4px !important;
+    box-shadow: var(--shadow-1);
+    transition: box-shadow, transform 0.15s !important;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-2);
+    }
   }
 }
 
