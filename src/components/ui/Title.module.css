@@ -1,21 +1,27 @@
 .title {
+  line-height: 1;
   position: relative;
   display: flex;
   gap: 4px;
   align-items: center;
   font-weight: 700;
   color: var(--text);
+
+  &:hover::before {
+    height: 100%;
+  }
 }
 
 .title::before {
   content: '';
   position: absolute;
   left: -0.7em;
-  top: 0.45em;
-  bottom: 0.4em;
-  height: 50%;
+  top: 50%;
+  bottom: 0;
+  height: 70%;
+  transform: translateY(-50%);
   width: 4px;
   border-radius: 4px;
   background-color: var(--c-indigo-1);
-  transition: top, bottom 250ms;
+  transition: height 250ms;
 }

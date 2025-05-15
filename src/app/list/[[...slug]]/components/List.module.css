@@ -32,33 +32,8 @@
 
 
 .title {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  line-height: 1;
-  color: var(--text);
   font-size: var(--text-2xl);
   margin: 4px 0;
-
-  &:hover::before {
-    height: 100%;
-  }
-}
-
-.title::before {
-  content: '';
-  position: absolute;
-  left: -16px;
-  top: 50%;
-  bottom: 0;
-  transform: translateY(-50%);
-  height: 70%;
-  width: 4px;
-  border-radius: 4px;
-  background-color: var(--c-indigo-1);
-  transition: height 250ms;
 }
 
 .desc {

@@ -27,7 +27,7 @@
 @media screen and (max-width: 960px) {
   .main_layout {
     flex-direction: column-reverse;
-    padding: 0 4px;
+    padding: 0 8px;
     width: 100%;
   }
 
@@ -40,7 +40,7 @@
   color: var(--c-indigo-1);
   border-bottom: 1px dashed var(--c-gray-2);
   transition: border-color 250ms;
-  padding-bottom: 2px;
+  padding-bottom: 1px;
   word-break: break-all;
 
   &:hover {
