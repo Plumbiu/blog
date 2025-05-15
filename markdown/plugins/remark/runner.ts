@@ -41,8 +41,6 @@ const remarkRunnerPlugin: RemarkPlugin = () => {
           transforms: ['flow', 'imports'],
         })
       }
-      console.log(code)
-
       markComponent(node, CodeRunnerName)
       handleComponentMeta(props, meta)
       handleCodeRunnerCodeKey(props, code)
