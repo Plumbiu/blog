@@ -1,14 +1,7 @@
 import type { LogInfo } from '@/hooks/useConsole'
 import { toLogValue } from '@/lib/shared'
 import { getType } from '@/lib/types'
-
-async function getImportMap() {
-  const rxjs = await import('rxjs')
-  const importMap: Record<string, any> = {
-    rxjs,
-  }
-  return importMap
-}
+import getModuleMap from './module-map'
 
 addEventListener('message', async (event: MessageEvent<string>) => {
   const result: Omit<LogInfo, 'date'>[] = []
@@ -22,7 +15,7 @@ addEventListener('message', async (event: MessageEvent<string>) => {
   const code = event.data
   if (code.includes('require(')) {
     scopes.push('require')
-    const imports = await getImportMap()
+    const imports = await getModuleMap(code)
     scopeParams.push((key: string) => imports[key])
   }
   const fn = new Function(...scopes, event.data)

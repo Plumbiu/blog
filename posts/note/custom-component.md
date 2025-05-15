@@ -270,7 +270,7 @@ console.log('end')
 
 ## import
 
-在文件 [markdown/custom-components.tsx](https://github.com/Plumbiu/blog/blob/main/markdown/components/generic/code-runner/worker.tsx) 的 `getImportMap` 函数中导入对应的库。
+蹈入其他库需要额外配置文件，具体为 [markdown/components/generic/code-runner/module-map](https://github.com/Plumbiu/blog/blob/main/markdown/components/generic/code-runner/moudle-map.ts) 中的 `moudles` 变量。
 
 输入：
 
