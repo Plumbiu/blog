@@ -3,7 +3,6 @@ import { toLogValue } from '@/lib/shared'
 import { getType } from '@/lib/types'
 
 async function getImportMap() {
-  // biome-ignore lint/correctness/noUndeclaredDependencies: <explanation>
   const rxjs = await import('rxjs')
   const importMap: Record<string, any> = {
     rxjs,
