@@ -270,7 +270,10 @@ console.log('end')
 
 ## import
 
-蹈入其他库需要额外配置文件，具体为 [markdown/components/generic/code-runner/module-map](https://github.com/Plumbiu/blog/blob/main/markdown/components/generic/code-runner/moudle-map.ts) 中的 `moudles` 变量。
+蹈入其他库需要额外配置文件，具体为 [markdown/components/generic/code-runner/module-map](https://github.com/Plumbiu/blog/blob/main/markdown/components/generic/code-runner/moudle-map.ts) 中的 `getModuleMap` 函数。
+
+> [!NOTE]
+> 由于构建工具无法实现 `dynamic import`，所以这里需要自己手动判断条件引入，可参考上述文件注释。
 
 输入：
 

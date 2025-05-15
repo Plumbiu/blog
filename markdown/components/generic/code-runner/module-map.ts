@@ -1,18 +1,15 @@
-// add package name there
-const modules = ['rxjs']
-
 async function getModuleMap(code: string) {
-  const moduleArr: ([string, any] | undefined)[] = await Promise.all(
-    modules.map(async (m) => {
-      if (code.includes(`require('${m}')`)) {
-        const module = await import(m)
-        return [m, module]
-      }
-    }),
-  )
-  const moduleMap = Object.fromEntries(
-    moduleArr.filter(Boolean).map((module) => module!),
-  )
+  const moduleMap: Record<string, any> = {}
+
+  // add module like this:
+  if (hasMoudle('rxjs')) {
+    const rxjs = await import('rxjs')
+    moduleMap.rxjs = rxjs
+  }
+
+  function hasMoudle(module: string) {
+    return code.includes(`require('${module}')`)
+  }
 
   return moduleMap
 }
