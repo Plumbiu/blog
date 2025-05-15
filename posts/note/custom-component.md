@@ -246,6 +246,8 @@ HTML 暂不支持打印
 
 在 `Web Worker` 中运行，主线程不会卡死。
 
+## 基本
+
 输入：
 
 ````markdown
@@ -264,6 +266,48 @@ const start = Date.now()
 console.log('start')
 while (Date.now() - start < 3000) {}
 console.log('end')
+```
+
+## import
+
+在文件 [markdown/custom-components.tsx](https://github.com/Plumbiu/blog/blob/main/markdown/components/generic/code-runner/worker.tsx) 的 `getImportMap` 函数中导入对应的库。
+
+输入：
+
+````markdown
+```ts Run
+import { Subject } from 'rxjs'
+
+const subject = new Subject<number>()
+
+subject.subscribe({
+  next: (v) => console.log(`observerA: ${v}`),
+})
+subject.subscribe({
+  next: (v) => console.log(`observerB: ${v}`),
+})
+
+subject.next(1)
+subject.next(2)
+```
+````
+
+输出：
+
+```ts Run
+import { Subject } from 'rxjs'
+
+const subject = new Subject<number>()
+
+subject.subscribe({
+  next: (v) => console.log(`observerA: ${v}`),
+})
+subject.subscribe({
+  next: (v) => console.log(`observerB: ${v}`),
+})
+
+subject.next(1)
+subject.next(2)
 ```
 
 # 代码行数显示

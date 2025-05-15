@@ -38,9 +38,10 @@ const remarkRunnerPlugin: RemarkPlugin = () => {
       }
       if (isTypeScript(lang)) {
         code = sucraseParse(code, {
-          transforms: ['flow'],
+          transforms: ['flow', 'imports'],
         })
       }
+      console.log(code)
 
       markComponent(node, CodeRunnerName)
       handleComponentMeta(props, meta)

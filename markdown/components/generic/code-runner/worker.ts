@@ -2,15 +2,32 @@ import type { LogInfo } from '@/hooks/useConsole'
 import { toLogValue } from '@/lib/shared'
 import { getType } from '@/lib/types'
 
-addEventListener('message', (event: MessageEvent<string>) => {
+async function getImportMap() {
+  // biome-ignore lint/correctness/noUndeclaredDependencies: <explanation>
+  const rxjs = await import('rxjs')
+  const importMap: Record<string, any> = {
+    rxjs,
+  }
+  return importMap
+}
+
+addEventListener('message', async (event: MessageEvent<string>) => {
   const result: Omit<LogInfo, 'date'>[] = []
   const logFn = (value: any) => {
     const valueType = getType(value)
     const info = { value: toLogValue(value), valueType }
     result.push(info)
   }
-  const fn = new Function('console', event.data)
-  fn({ log: logFn })
+  const scopes: string[] = ['console']
+  const scopeParams: any[] = [{ log: logFn }]
+  const code = event.data
+  if (code.includes('require(')) {
+    scopes.push('require')
+    const imports = await getImportMap()
+    scopeParams.push((key: string) => imports[key])
+  }
+  const fn = new Function(...scopes, event.data)
+  fn(...scopeParams)
 
   postMessage(result)
 })
