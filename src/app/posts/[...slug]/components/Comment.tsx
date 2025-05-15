@@ -28,6 +28,8 @@ const reactionsMap: Record<string, string> = {
   eyes: '👀',
 }
 
+const AvatarSize = 30
+
 interface CommentProps {
   pathname: string
 }
@@ -110,8 +112,8 @@ const ListItem = memo(({ list, active }: ListItemProps) => {
       <div className={styles.top}>
         <Image
           src={list.user.avatar_url}
-          width={28}
-          height={28}
+          width={AvatarSize}
+          height={AvatarSize}
           alt={list.user.avatar_url}
         />
         <div className={styles.login}>{list.user.login}</div>
@@ -279,7 +281,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
         <div className={styles.item}>
           <div className={styles.top}>
             {userAvatar && (
-              <Image src={userAvatar} width={28} height={28} alt={userAvatar} />
+              <Image src={userAvatar} width={AvatarSize} height={AvatarSize} alt={userAvatar} />
             )}
             {userLogin && <div className={styles.login}>{userLogin}</div>}
           </div>

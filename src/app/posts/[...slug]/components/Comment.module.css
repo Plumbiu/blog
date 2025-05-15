@@ -53,8 +53,9 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 14px;
-  padding: 12px 12px 0 12px;
+  font-size: var(--text-xs);
+  padding: 12px 16px;
+  line-height: 1;
 
   &>img {
     border-radius: 50%;
@@ -65,15 +66,14 @@
   box-sizing: content-box;
   overflow: hidden;
   background-color: var(--bg-comment);
-  box-shadow: var(--shadow-box-light);
-  border-radius: 6px;
-  margin-bottom: 16px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  border: 1px solid var(--c-gray-soft);
 
   &>textarea {
     color: var(--text-1);
     border-radius: 0;
     border-color: transparent;
-    margin-top: 12px;
     border-bottom: 1px solid var(--divider);
     border-top: 1px solid var(--divider);
 
@@ -90,25 +90,28 @@
 .submit {
   display: flex;
   align-items: center;
-  margin: 0 12px 6px 6px;
+  margin: 4px 12px 10px 12px;
 
   &>button {
+    padding: 4px 12px;
     margin: 0;
   }
 }
 
 .login {
+  font-weight: 700;
   color: var(--text);
 }
 
 .date {
-  font-size: 12px;
+  font-size: var(--text-xs);
+  color: var(--text-3);
 }
 
 .owner {
   border: 1px solid var(--divider);
   background-color: var(--c-indigo-soft);
-  font-size: 12px;
+  font-size: var(--text-sm);
   padding: 1px 7px;
   border-radius: 12px;
 }
@@ -118,6 +121,8 @@
   font-size: 14px;
   padding: 0 12px;
   color: var(--text) !important;
+  border-top: none;
+  margin-top: 0 !important;
 
   & a {
     color: var(--c-indigo-1);

@@ -146,11 +146,12 @@ a[data-type='button'] {
   padding: 6px 8px;
   border: 1px solid var(--divider);
   border-radius: 8px;
-  transition: background-color 0.15s;
+  transition: background-color, color 0.2s;
   font-size: var(--text-sm);
 
   &:hover {
-    background-color: var(--c-gray-soft);
+    color: var(--c-indigo-1);
+    background-color: var(--c-indigo-soft);
   }
 
   &[data-disabled='true'] {
@@ -168,10 +169,10 @@ textarea {
   outline: none;
   border: 1px solid var(--divider);
   border-radius: 6px;
-  padding: 8px;
+  padding: 16px;
   font-size: 14px;
   transition: border-color 0.15s;
-  background-color: var(--bg-body);
+  background-color: var(--bg-comment);
 
   &:focus {
     border-color: var(--c-indigo-3);
