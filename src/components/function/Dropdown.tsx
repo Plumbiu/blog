@@ -46,9 +46,14 @@ const Dropdown = memo(
     const panelRef = useRef<HTMLDivElement>(null)
     const [panelVisible, setPanelVisible] = useState(false)
     const mounted = useMounted()
-    const isFirst = useRef(true)
+    const wrapRectRef = useRef<DOMRect>(null)
+    const panelRectRef = useRef<DOMRect>(null)
 
     function hide() {
+      if (mode === 'hover') {
+        wrapRectRef.current = null
+        panelRectRef.current = null
+      }
       setPanelVisible(false)
     }
 
@@ -64,49 +69,42 @@ const Dropdown = memo(
       }
     }, [])
 
-    const calculate = () => {
+    const show: MouseEventHandler<HTMLDivElement> = useCallback((e) => {
+      e.stopPropagation()
       const wrapDom = warpRef.current
       const panelDom = panelRef.current
       if (!wrapDom || !panelDom) {
         return
       }
-      const wrapRect = wrapDom.getBoundingClientRect()
-      const panelRect = panelDom.getBoundingClientRect()
-      const wraplLeft = wrapRect.left
-      const offsetX = offset?.x || 0
+      if (!wrapRectRef.current) {
+        wrapRectRef.current = wrapDom.getBoundingClientRect()
+      }
+      if (!panelRectRef.current) {
+        panelRectRef.current = panelDom.getBoundingClientRect()
+      }
+      const wrapRect = wrapRectRef.current
+      const panelRect = panelRectRef.current
       const panelWidth = panelRect.width
-      const panelRight = panelRect.right
-      const panelLeft = panelRect.left
-      let x = wrapRect.left + offsetX
-      if (panelRight >= window.innerWidth - 32) {
-        x = wraplLeft - panelWidth / 2 + offsetX + 32
-      } else if (panelLeft <= 32) {
-        x = wraplLeft + panelWidth / 2 + offsetX - 32
-      }
-      panelDom.style.left = x + wrapRect.width / 2 + 'px'
-      panelDom.style.top = wrapRect.bottom + (offset?.y || 0) + 'px'
-    }
+      const viewW = window.innerWidth
 
-    const show: MouseEventHandler<HTMLDivElement> = useCallback((e) => {
-      e.stopPropagation()
-      calculate()
-      if (isFirst.current) {
-        isFirst.current = false
-        // calculate twice for first render to get the right panelLeft
-        calculate()
+      let x = wrapRect.left + wrapRect.width / 2 - panelWidth / 2
+      if (x <= 0) {
+        x = 12
+      } else if (x >= viewW - panelWidth) {
+        x = viewW - panelWidth - 12
       }
+      panelDom.style.left = x + 'px'
+      panelDom.style.top = wrapRect.bottom + (offset?.y || 0) + 'px'
       setPanelVisible(true)
     }, [])
 
     useEffect(() => {
-      if (mode === 'hover') {
-        return
-      }
-      window.addEventListener('click', handleGlobalClick)
+      mode === 'click' && window.addEventListener('click', handleGlobalClick)
       window.addEventListener('scroll', hide)
       window.addEventListener('resize', hide)
       return () => {
-        window.removeEventListener('click', handleGlobalClick)
+        mode === 'click' &&
+          window.removeEventListener('click', handleGlobalClick)
         window.removeEventListener('scroll', hide)
         window.removeEventListener('resize', hide)
       }

@@ -1,14 +1,3 @@
-@keyframes fade-in-up {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, 0rem);
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
 .wrap {
   display: inline-flex;
   align-items: center;
@@ -20,9 +9,9 @@
   position: fixed;
   display: flex;
   z-index: 999;
-  transform: translate(-50%, 8px);
+  transform: translateY(8px);
   flex-direction: column;
-  transition: opacity 0.15s;
+  transition: opacity 0.2s;
   box-shadow: var(--shadow-selector);
   padding: 12px 8px;
   gap: 4px;
