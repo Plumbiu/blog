@@ -3,6 +3,7 @@
 import PreComponent from '@/components/ui/Pre'
 import { arrayify } from '@/lib/types'
 import {
+  Fragment,
   memo,
   Suspense,
   useEffect,
@@ -72,6 +73,21 @@ function formatAppDir(name: string) {
     return '.' + name
   }
   return './' + name
+}
+
+// src/utils ->
+function formatLabel(label: string) {
+  const tokens = label.split('/')
+  return (
+    <div className={styles.label}>
+      {tokens.map((token, i) => (
+        <Fragment key={i}>
+          {i === 0 ? null : <span className={styles.split}>\</span>}
+          <span>{token}</span>
+        </Fragment>
+      ))}
+    </div>
+  )
 }
 
 function formatHeaderTabName(selector: string, selectorArray: string[]) {
@@ -196,7 +212,7 @@ const TreeTabItem = memo(
           ) : (
             <ImageIcon icon={getIconKey(node.path, fileIconMap)} />
           )}
-          <div className={styles.label}>{node.label}</div>
+          {formatLabel(node.label)}
         </div>
         {!collapse && (
           <TreeTabs

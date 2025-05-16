@@ -11,6 +11,11 @@
   color: var(--text-4);
 }
 
+.split {
+  color: var(--text-4);
+  padding: 0 2px;
+}
+
 .no_preview {
 
   & .tabs {

@@ -105,6 +105,16 @@ export async function parseContent(
           }
         }
       } else {
+        const initLevel = node.level
+        while (
+          node.children.length === 1 &&
+          node.children[0].children.length > 0
+        ) {
+          node.label = node.label + '/' + node.children[0].label
+          node.children = node.children[0].children
+          node.level = initLevel
+          node.children.forEach(item => item.level = initLevel + 1)
+        }
         node.children.sort(treeSort)
         traverse(node.children)
       }
