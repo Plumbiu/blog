@@ -35,7 +35,7 @@
     "pathe": "^2.0.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "remark-definition": "1.0.2",
+    "remark-definition": "2.0.2",
     "remark-directive": "4.0.0",
     "remark-gfm": "^4.0.1",
     "remark-parse": "^11.0.0",

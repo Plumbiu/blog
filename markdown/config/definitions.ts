@@ -21,6 +21,14 @@ const definitionMap: DefinitionType = {
   rehype: {
     url: 'https://github.com/rehypejs/rehype',
   },
+  javascript: {
+    url: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript',
+    label: 'JavaScript',
+  },
+  wiki: {
+    url: 'https://zh.wikipedia.org/wiki/',
+    label: '维基百科',
+  },
 }
 
 export default definitionMap

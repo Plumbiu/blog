@@ -71,7 +71,13 @@ async function transfromCode2Jsx(
       remarkCodeMetaPlugin,
       remarkFileTreePlugin,
       remarkCodeComponentsPlugin,
-      [remarkDefinition, assign(definitionMap, definitions)],
+      [
+        remarkDefinition,
+        assign(definitionMap, definitions),
+        {
+          caseInsensitive: false,
+        },
+      ],
       remarkRunnerPlugin,
       [remarkPlainTextPlugin, { variable, emoji }],
       [remarkAbbrPlugin, abbr],
