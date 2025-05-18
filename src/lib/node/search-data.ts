@@ -1,6 +1,6 @@
 import type { SearchData } from '@/components/layout/SearchPanel'
 import { getPost } from '~/markdown/utils/fs'
-import stripMarkdown from '~/markdown/utils/strip'
+import stripMarkdown from '~/markdown/utils/strip-markdown'
 
 const MaxDesc = 80
 

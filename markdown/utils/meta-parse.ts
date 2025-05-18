@@ -1,10 +1,10 @@
 import matter from 'gray-matter'
 import type { PostMeta } from '../types'
-import stripMarkdown from '~/markdown/utils/strip'
 import { isEmptyObject } from '@/lib/shared'
+import stripMarkdown from './strip-markdown'
 
 const DescNumRegx = /^\d+$/
-export const FrontmatterWrapStr = '---'
+
 export function parsePostMeta(markdown: string) {
   const { content, data } = matter(markdown)
   if (isEmptyObject(data)) {
