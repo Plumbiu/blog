@@ -60,7 +60,7 @@ export async function handleGalleryNodes(photoNodes: PhotoNode[]) {
             const { props } = getImageProps({
               ...data,
               unoptimized,
-              quality: 70,
+              quality: 100,
             })
             data.ops = props.src
           }
