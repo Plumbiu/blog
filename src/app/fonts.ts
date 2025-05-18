@@ -4,6 +4,7 @@ export const mono = JetBrains_Mono({
   subsets: ['latin'],
   display: 'swap',
   weight: ['400', '500'],
+  fallback: ['system-ui']
 })
 
 export const robot = Roboto({

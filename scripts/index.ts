@@ -1,18 +1,18 @@
 import { getPost } from '~/markdown/utils/fs'
 import feed from './feed'
-import { spawnSync } from 'node:child_process'
 import { createIssues } from './issues'
-
-export type FileMap = Record<string, string>
-
-const PostRegx = /\s*[AD]\s*"?data\/posts\/(blog|life|note|summary)\/.*/
+import { getPostStatus } from './utils'
 
 async function run() {
-  const status = spawnSync('git', ['status', '-s']).stdout.toString()
-  if (PostRegx.test(status)) {
+  const status = getPostStatus()
+  if (status.a || status.d || status.m) {
     const posts = await getPost()
-    await feed(posts)
-    await createIssues(posts)
+    if (status.a || status.d) {
+      await createIssues(posts)
+    }
+    if (status.m) {
+      await feed(posts)
+    }
   }
 }
 

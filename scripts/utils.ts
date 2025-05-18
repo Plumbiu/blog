@@ -15,3 +15,32 @@ export const writeFileWithGit = async (path: string, data: string) => {
   await fsp.writeFile(path, data)
   gitadd(path)
 }
+
+const PostPathRegx = /posts\/(blog|life|note|summary)\/.*/
+
+export function getPostStatus() {
+  const msg = spawnSync('git', ['status', '-s']).stdout.toString()
+  const status = msg.split('\n')
+  const postStatus = {
+    m: false,
+    a: false,
+    d: false,
+  }
+  for (const item of status) {
+    const line = item.trim()
+    const [s, ...p] = line.split(' ')
+    const trimP = p.join('').trim()
+    if (trimP.endsWith('.md') && PostPathRegx.test(trimP)) {
+      if (!postStatus.m) {
+        postStatus.m = s.includes('M')
+      }
+      if (!postStatus.a) {
+        postStatus.a = s.includes('A')
+      }
+      if (!postStatus.d) {
+        postStatus.d = s.includes('D')
+      }
+    }
+  }
+  return postStatus
+}

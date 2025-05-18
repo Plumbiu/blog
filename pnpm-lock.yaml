@@ -13,19 +13,18 @@ catalogs:
       specifier: 15.3.1
       version: 15.3.1
   react:
-    react:
-      specifier: 19.1.0
-      version: 19.1.0
-    react-dom:
-      specifier: 19.1.0
-      version: 19.1.0
-  react-type:
     '@types/react':
       specifier: 19.1.4
       version: 19.1.4
     '@types/react-dom':
       specifier: 19.1.5
       version: 19.1.5
+    react:
+      specifier: 19.1.0
+      version: 19.1.0
+    react-dom:
+      specifier: 19.1.0
+      version: 19.1.0
   shiki:
     '@shikijs/transformers':
       specifier: 3.4.2
@@ -33,6 +32,23 @@ catalogs:
     shiki:
       specifier: 3.4.2
       version: 3.4.2
+  test:
+    '@vitest/coverage-v8':
+      specifier: 3.1.3
+      version: 3.1.3
+    '@vitest/web-worker':
+      specifier: 3.1.3
+      version: 3.1.3
+    vitest:
+      specifier: 3.1.3
+      version: 3.1.3
+  three:
+    '@types/three':
+      specifier: 0.176.0
+      version: 0.176.0
+    three:
+      specifier: 0.176.0
+      version: 0.176.0
 
 importers:
 
@@ -48,8 +64,8 @@ importers:
         specifier: ^1.5.0
         version: 1.5.0(next@15.3.1(@babel/core@7.26.10)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       es-toolkit:
-        specifier: 1.37.2
-        version: 1.37.2
+        specifier: 1.38.0
+        version: 1.38.0
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
@@ -123,7 +139,7 @@ importers:
         specifier: 5.39.2
         version: 5.39.2
       three:
-        specifier: 0.176.0
+        specifier: catalog:three
         version: 0.176.0
       unified:
         specifier: ^11.0.5
@@ -160,13 +176,13 @@ importers:
         specifier: ^20
         version: 20.17.28
       '@types/react':
-        specifier: catalog:react-type
+        specifier: catalog:react
         version: 19.1.4
       '@types/react-dom':
-        specifier: catalog:react-type
+        specifier: catalog:react
         version: 19.1.5(@types/react@19.1.4)
       '@types/three':
-        specifier: 0.176.0
+        specifier: catalog:three
         version: 0.176.0
       '@types/unist':
         specifier: ^3.0.3
@@ -175,10 +191,10 @@ importers:
         specifier: ^4.4.1
         version: 4.4.1(vite@6.3.3(@types/node@20.17.28)(lightningcss@1.30.1)(terser@5.39.2)(tsx@4.19.3))
       '@vitest/coverage-v8':
-        specifier: 3.1.3
+        specifier: catalog:test
         version: 3.1.3(vitest@3.1.3(@types/debug@4.1.12)(@types/node@20.17.28)(jsdom@26.1.0)(lightningcss@1.30.1)(terser@5.39.2)(tsx@4.19.3))
       '@vitest/web-worker':
-        specifier: 3.1.3
+        specifier: catalog:test
         version: 3.1.3(vitest@3.1.3(@types/debug@4.1.12)(@types/node@20.17.28)(jsdom@26.1.0)(lightningcss@1.30.1)(terser@5.39.2)(tsx@4.19.3))
       autoprefixer:
         specifier: ^10.4.21
@@ -217,7 +233,7 @@ importers:
         specifier: ^5.1.4
         version: 5.1.4(typescript@5.8.3)(vite@6.3.3(@types/node@20.17.28)(lightningcss@1.30.1)(terser@5.39.2)(tsx@4.19.3))
       vitest:
-        specifier: 3.1.3
+        specifier: catalog:test
         version: 3.1.3(@types/debug@4.1.12)(@types/node@20.17.28)(jsdom@26.1.0)(lightningcss@1.30.1)(terser@5.39.2)(tsx@4.19.3)
 
 packages:
@@ -1442,8 +1458,8 @@ packages:
   es-module-lexer@1.7.0:
     resolution: {integrity: sha512-jEQoCwk8hyb2AZziIOLhDqpm5+2ww5uIE6lkO/6jcOCusfk6LhMHpXXfBLXTZ7Ydyt0j4VoUQv6uGNYbdW+kBA==}
 
-  es-toolkit@1.37.2:
-    resolution: {integrity: sha512-ADDfk+pPFF0ofMpRAIc6on01p8heiuwuuJsYLzTP4UOjxVK9QsE2+0D1Q4J/zX2XBo6ac+27H5++YBIwmGAX/g==}
+  es-toolkit@1.38.0:
+    resolution: {integrity: sha512-OT3AxczYYd3W50bCj4V0hKoOAfqIy9tof0leNQYekEDxVKir3RTVTJOLij7VAe6fsCNsGhC0JqIkURpMXTCSEA==}
 
   esbuild@0.25.1:
     resolution: {integrity: sha512-BGO5LtrGC7vxnqucAe/rmvKdJllfGaYWdyABvyMoXQlfYMb2bbRuReWR5tEGE//4LcNJj9XrkovTqNYRFZHAMQ==}
@@ -3733,7 +3749,7 @@ snapshots:
 
   es-module-lexer@1.7.0: {}
 
-  es-toolkit@1.37.2: {}
+  es-toolkit@1.38.0: {}
 
   esbuild@0.25.1:
     optionalDependencies:
