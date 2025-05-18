@@ -1,4 +1,4 @@
-import { glob } from 'fast-glob'
+import { glob } from 'tinyglobby'
 import { writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import getBlurDataUrl from '~/optimize/blurhash'

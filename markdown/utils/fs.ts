@@ -1,6 +1,6 @@
 import fsp from 'node:fs/promises'
 import path from 'node:path'
-import { glob } from 'fast-glob'
+import { glob } from 'tinyglobby'
 import { getCategoryFromUrl, removeMdSuffix } from '../../src/lib/shared'
 import { CWD, PostPath } from '~/data/constants/node'
 import type { PostList } from '../types'

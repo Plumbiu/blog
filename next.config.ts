@@ -2,7 +2,6 @@ import process from 'node:process'
 import Analyzer from '@next/bundle-analyzer'
 import classnamesMinifier from '@nimpl/classnames-minifier'
 import type { NextConfig } from 'next'
-import getResvervedClassnames from './optimize/reserved-classmame'
 import { GithubRepoName } from './config/site'
 
 const IS_GITPAGE = !!process.env.GITPAGE
@@ -15,8 +14,7 @@ const withBundleAnalyzer = Analyzer({
 
 const isMinifierEnabled = !IsDev && !process.env.ANALYZE
 const withClassnamesMinifier = classnamesMinifier({
-  prefix: '',
-  reservedNames: isMinifierEnabled ? getResvervedClassnames() : [],
+  prefix: '_',
   disabled: !isMinifierEnabled,
 })
 

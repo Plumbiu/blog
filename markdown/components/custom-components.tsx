@@ -2,7 +2,6 @@
 
 import { lazy } from 'react'
 
-const ThreeFirstScene = lazy(() => import('./custom/three/ThreeFirstScene'))
 const ThreePureFirstScene = lazy(
   () => import('./custom/three/ThreePureFirstScene'),
 )
@@ -52,7 +51,6 @@ const ExtensionTest = lazy(() => import('./ExtensionTest'))
 
 export const customComponentMap: Record<string, any> = {
   ThreeLearnPrimitivesBox,
-  ThreeFirstScene,
   ThreePureFirstScene,
   ThreeControlPureFirstScene,
   ThreeLightPureFirstScene,

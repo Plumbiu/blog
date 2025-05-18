@@ -1,6 +1,6 @@
 import type { RefObject } from 'react'
-import { GUI } from 'lil-gui'
 import * as THREE from 'three'
+import { GUI } from 'three/examples/jsm/libs/lil-gui.module.min'
 
 interface RendererProps {
   width?: number

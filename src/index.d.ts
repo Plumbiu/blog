@@ -28,3 +28,9 @@ declare module 'raw-loader!*' {
   const value: string
   export default value
 }
+
+declare module 'three/examples/jsm/libs/lil-gui.module.min' {
+  const value: string
+  export const GUI: any
+  export default value
+}
