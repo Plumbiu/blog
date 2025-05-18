@@ -31,8 +31,7 @@ export default function stripMarkdown(md: string) {
   const gfm = true
   const useImgAltText = false
   const abbr = false
-  const replaceLinksWithURL = true
-  const htmlTagsToSkip: string[] = []
+  const replaceLinksWithURL = false
 
   // Remove horizontal rules (stripListHeaders conflict with this rule, which is why it has been moved to the top)
   output = output.replace(HorizontalRule, '')
