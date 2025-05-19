@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.plumbiu.top/</id>
     <title>Plumbiuの博客</title>
-    <updated>2013-07-13T16:00:00.000Z</updated>
+    <updated>2025-05-19T09:14:58.288Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Plumbiu</name>
@@ -14,6 +14,27 @@
     <subtitle>Note, life, summary and blog</subtitle>
     <logo>https://blog.plumbiu.top/avatar.jpg</logo>
     <rights>CC BY-NC-SA 4.0 2024 © Plumbiu</rights>
+    <entry>
+        <title type="html"><![CDATA[Markdown Extensions.]]></title>
+        <id>posts/note/custom-component</id>
+        <link href="https://blog.plumbiu.top/posts/note/custom-component/"/>
+        <updated>2025-04-27T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[本博客 Markdown 拓展基于 remark 和 rehype 生态构建。]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[纯函数、非纯函数和函数副作用]]></title>
+        <id>posts/note/pure-sideffect-fn</id>
+        <link href="https://blog.plumbiu.top/posts/note/pure-sideffect-fn/"/>
+        <updated>2025-05-19T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[JavaScript 是一个函数优先的语言，因此对函数类别理解非常重要。]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[博客系统中 Next.js 优化]]></title>
+        <id>posts/blog/nextjs-performance-blog</id>
+        <link href="https://blog.plumbiu.top/posts/blog/nextjs-performance-blog/"/>
+        <updated>2025-04-24T20:52:00.000Z</updated>
+        <summary type="html"><![CDATA[Next.js 是一个很优秀的全站框架，支持 SSR、CSR 和 SSG 等混合渲染，这篇博客就是 CSR 和 SSG 混合渲染的。]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2024 年度总结]]></title>
         <id>posts/summary/2024</id>
@@ -90,13 +111,6 @@
         <link href="https://blog.plumbiu.top/posts/blog/how-I-build-blog/"/>
         <updated>2024-10-10T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[在国庆假期期间，因为闲来无事，重拾起了构建博客的这一想法，事实上，自己在此之前已经有过两版博客了，第一版是根据 hexo 构建的，但毕竟只是一个模板，并没有自己的东西，第二版 是自己从头开始搭建的，但是当时对 Next.js 并不熟悉，有些实现还是不够优雅的，于是便有了这一版。]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[自定义组件]]></title>
-        <id>posts/note/custom-component</id>
-        <link href="https://blog.plumbiu.top/posts/note/custom-component/"/>
-        <updated>2024-10-03T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[一篇用于测试/查看博客上的一些自定义组件的文章。]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Custom component]]></title>

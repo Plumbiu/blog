@@ -172,20 +172,23 @@
 
     &::before {
       content: '';
-      color: var(--c-md-alert-note);
       position: absolute;
       top: 0;
       bottom: 0;
       left: 0;
       width: 4px;
       border-radius: 6px;
-      background-color: var(--c-md-alert-note);
+      background-color: var(--c-gray-3);
     }
 
     & p {
-      color: var(--text-1-light);
+      color: var(--text-2);
       line-height: 1.6;
       margin: 0;
+    }
+
+    &[class*="blockquote-"] p {
+      color: var(--text-1-light);
     }
   }
 
