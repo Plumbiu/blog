@@ -38,9 +38,7 @@ function CodeRunner(props: any) {
       }}
     >
       <div className={wrapperStyles.container}>
-        <PreComponent className="codeblock_split" ref={ref}>
-          {props.children}
-        </PreComponent>
+        <PreComponent ref={ref}>{props.children}</PreComponent>
         {node}
         {logs.length > 0 ? <Console showType logs={logs} /> : <Loading />}
       </div>

@@ -10,8 +10,7 @@ html {
 }
 
 body {
-  --scroll-size: 8px;
-  --scroll-border-width: 2px;
+  --scroll-size: 6px;
   scrollbar-width: none;
   margin: 0;
   color: var(--text-1);
@@ -68,14 +67,8 @@ h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-  box-sizing: content-box;
   border-radius: 4px;
-  background-clip: padding-box;
   background-color: var(--bg-scrollbar);
-  transition: 0.15s;
-  border-style: solid;
-  border-color: transparent;
-  border-width: var(--scroll-border-width);
 }
 
 ::-webkit-scrollbar-corner {
@@ -88,7 +81,6 @@ h6 {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  border-width: 0;
   background-color: var(--bg-scrollbar-hover);
 }
 
@@ -146,11 +138,10 @@ a[data-type='button'] {
   padding: 6px 8px;
   border: 1px solid var(--divider);
   border-radius: 8px;
-  transition: background-color, color 0.2s;
+  transition: background-color 0.15s ease-in-out;
   font-size: var(--text-sm);
 
   &:hover {
-    color: var(--c-indigo-1);
     background-color: var(--c-indigo-soft);
   }
 

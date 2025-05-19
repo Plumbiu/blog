@@ -1,7 +1,6 @@
 .wrap {
   margin: 64px 0;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding: 24px !important;
 }
 
 .loading_wrap {
@@ -15,8 +14,9 @@
 .comment_wrap {
   display: flex;
   align-items: center;
+  gap: 16px;
   font-size: var(--text-xl);
-  transform: translateX(-16px);
+  margin-bottom: 16px;
 }
 
 .comment_title {
@@ -59,14 +59,6 @@
   color: var(--text-2);
   font-size: var(--text-sm);
   font-weight: 700;
-}
-
-.line {
-  height: 4px;
-  width: 16px;
-  margin: 0 12px;
-  background-color: var(--c-indigo-1);
-  border-radius: 8px;
 }
 
 .top {
@@ -163,7 +155,7 @@
   }
 }
 
-.reactions {
+/* .reactions {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -187,7 +179,7 @@
       background-color: var(--c-purple-soft);
     }
   }
-}
+} */
 
 .error_link {
   display: flex;

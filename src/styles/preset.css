@@ -72,17 +72,6 @@
   gap: 4px;
 }
 
-.codeblock_split {
-  border-right: 1px solid var(--divider);
-}
-
-@media screen and (max-width: 640px) {
-  .codeblock_split {
-    border-right: none;
-    border-bottom: 1px solid var(--divider);
-  }
-}
-
 .verticalLine {
   height: 0.8rem;
   width: 2px;
@@ -97,15 +86,6 @@
   background-color: var(--c-gray-3);
   transform: rotate(20deg);
   margin: 0 2px;
-}
-
-.keyboard_tag {
-  font-size: var(--text-xs);
-  color: var(--text-3);
-  font-weight: 600;
-  padding: 4px;
-  background-color: var(--c-gray-soft);
-  border-radius: 4px;
 }
 
 .load_ani {

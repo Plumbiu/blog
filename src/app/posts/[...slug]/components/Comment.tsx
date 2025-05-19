@@ -15,6 +15,7 @@ import useObserver from '@/hooks/useObservser'
 import { isArray, isString } from '@/lib/types'
 import { ExternalLinkIcon, GithubIcon } from '@/components/Icons'
 import { GithubClientId } from '~/config/site'
+import Title from '@/components/ui/Title'
 
 const reactionsMap: Record<string, string> = {
   '+1': '👍',
@@ -218,6 +219,7 @@ const Comment = memo(({ pathname }: CommentProps) => {
       setErrorMessage(error)
     }
   }, [])
+
   const issueAddNode = useMemo(
     () => (
       <a
@@ -346,20 +348,11 @@ const Comment = memo(({ pathname }: CommentProps) => {
   }, [isIntersecting, data, status])
 
   return (
-    <div ref={containerRef} className={cn(styles.wrap, 'main_content')}>
+    <div ref={containerRef} className={cn('main_content', styles.wrap)}>
       <div className={styles.comment_wrap}>
-        <div className={styles.comment_title}>评论区</div>
+        <Title className={styles.comment_title}>评论区</Title>
         {!!data.length && (
-          <>
-            <div className={styles.line} />
-            <div className={styles.count}>{`${data.length}条评论`}</div>
-          </>
-        )}
-        {status === 'loaded' && (
-          <>
-            <div className={styles.line} />
-            <div className={styles.comment_info}>{issueAddNode}</div>
-          </>
+          <div className={styles.count}>{`${data.length}条评论`}</div>
         )}
       </div>
       {!accessToken && status === 'loaded' && (
