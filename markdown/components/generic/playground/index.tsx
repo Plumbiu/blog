@@ -58,6 +58,7 @@ const Playground = (props: any) => {
       customPreviewNode,
     }
   }, [props])
+  const previewRef = useRef<HTMLDivElement>(null)
 
   const { logFn, logs, setLogs } = useConsole()
   const nodeRef = useRef<HTMLDivElement>(null)

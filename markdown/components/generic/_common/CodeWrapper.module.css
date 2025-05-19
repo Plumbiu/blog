@@ -7,7 +7,12 @@
   display: flex;
   background-color: var(--bg-md-pre);
 
-  &>div {
+  &>div:first-child {
+    width: 50%;
+  }
+
+  &>div:last-child {
+    flex: 1 0;
     width: 50%;
   }
 }

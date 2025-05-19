@@ -1,17 +1,25 @@
 'use client'
 
-import { memo, type ReactNode, useCallback, useRef, useState } from 'react'
+import {
+  memo,
+  type ReactNode,
+  type RefObject,
+  useCallback,
+  useRef,
+  useState,
+} from 'react'
 import { CopyCheckIcon, CopyErrorIcon, CopyIcon } from '@/components/Icons'
 import { renderReactNodeToString } from '@/lib/client'
 import styles from './Pre.module.css'
 import { cn } from '@/lib/client'
 
 interface PreComponentProps {
+  ref?: RefObject<HTMLDivElement | null>
   children: ReactNode
   className?: string
 }
 
-const PreComponent = memo(({ children, className }: PreComponentProps) => {
+const PreComponent = memo(({ children, className, ref }: PreComponentProps) => {
   const [icon, setIcon] = useState(<CopyIcon />)
   const code = useRef<string>(null)
   const copy = useCallback(async () => {
@@ -30,7 +38,7 @@ const PreComponent = memo(({ children, className }: PreComponentProps) => {
     }
   }, [])
   return (
-    <div className={cn(styles.wrap, className)}>
+    <div ref={ref} className={cn(styles.wrap, className)}>
       <div className={styles.action} onClick={copy}>
         {icon}
       </div>

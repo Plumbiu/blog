@@ -7,13 +7,19 @@ import { handleCodeRunnerCodeKey } from '~/markdown/plugins/remark/runner-utils'
 import CodeWrapper from '../_common/CodeWrapper'
 import Console from '../_common/Console'
 import Loading from '../_common/Loading'
+import wrapperStyles from '../_common/CodeWrapper.module.css'
+import useDivider from '@/hooks/useDivider'
 
 function CodeRunner(props: any) {
   const runCode = handleCodeRunnerCodeKey(props)
   const [logs, setLogs] = useState<LogInfo[]>([])
   const workerRef = useRef<Worker>(null)
+  const ref = useRef<HTMLDivElement>(null)
+  const { node, init } = useDivider()
 
   useEffect(() => {
+    init(ref.current)
+
     workerRef.current = new Worker(new URL('./worker.ts', import.meta.url))
     workerRef.current.postMessage(runCode)
     workerRef.current.onmessage = (event: MessageEvent<LogInfo[]>) => {
@@ -31,8 +37,13 @@ function CodeRunner(props: any) {
         workerRef.current?.postMessage(runCode)
       }}
     >
-      <PreComponent className="codeblock_split">{props.children}</PreComponent>
-      {logs.length > 0 ? <Console showType logs={logs} /> : <Loading />}
+      <div className={wrapperStyles.container}>
+        <PreComponent className="codeblock_split" ref={ref}>
+          {props.children}
+        </PreComponent>
+        {node}
+        {logs.length > 0 ? <Console showType logs={logs} /> : <Loading />}
+      </div>
     </CodeWrapper>
   )
 }

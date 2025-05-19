@@ -1,6 +1,14 @@
 'use client'
 
-import { memo, type ReactNode, useMemo, useState } from 'react'
+import {
+  memo,
+  type ReactNode,
+  type RefObject,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import tabStyles from '../_styles/tab.module.css'
 import { cn } from '@/lib/client'
 import {
@@ -13,6 +21,7 @@ import PreComponent from '@/components/ui/Pre'
 import { arrayify, keys } from '@/lib/types'
 import { DefaultFile } from '~/markdown/plugins/remark/code/file-tree/file-tree-utils'
 import ImageIcon from './ImageIcon'
+import useDivider from '@/hooks/useDivider'
 
 const Tab = memo((props: TabProps) => {
   const { name, onClick, isActive, icon } = props
@@ -41,6 +50,7 @@ interface TabProps extends TabItem {
 }
 
 interface CodeTabsProps {
+  ref?: RefObject<HTMLDivElement>
   defaultSelector: string
   nodeMap: Record<string, ReactNode>
   tabs: TabItem[]
@@ -53,26 +63,36 @@ const CodeTabs = memo(
     const [selector, setSelector] = useState(defaultSelector)
     const node = nodeMap[selector]
     const showTab = tabs.length > 1
+    const ref = useRef<HTMLDivElement>(null)
+    const { node: dividerNode, init } = useDivider()
+
+    useEffect(() => {
+      init(ref.current)
+    }, [])
+
     return (
-      <div className={className}>
-        {showTab && (
-          <div className={tabStyles.tab}>
-            {tabs.map((tabProps) => (
-              <Tab
-                key={tabProps.name}
-                {...tabProps}
-                icon={iconmap[tabProps.name]}
-                isActive={tabProps.name === selector}
-                onClick={() => {
-                  setSelector(tabProps.name)
-                }}
-              />
-            ))}
-            <div />
-          </div>
-        )}
-        <PreComponent>{node}</PreComponent>
-      </div>
+      <>
+        <div className={className} ref={ref}>
+          {showTab && (
+            <div className={tabStyles.tab}>
+              {tabs.map((tabProps) => (
+                <Tab
+                  key={tabProps.name}
+                  {...tabProps}
+                  icon={iconmap[tabProps.name]}
+                  isActive={tabProps.name === selector}
+                  onClick={() => {
+                    setSelector(tabProps.name)
+                  }}
+                />
+              ))}
+              <div />
+            </div>
+          )}
+          <PreComponent>{node}</PreComponent>
+        </div>
+        {dividerNode}
+      </>
     )
   },
 )
@@ -96,7 +116,8 @@ const CodePreview = memo((props: any) => {
 
   return (
     <CodeTabs
-      className={cn('codeblock_split', props.className)}
+      ref={props.ref}
+      className={props.className}
       tabs={codeTabs}
       nodeMap={codeNodeMap}
       defaultSelector={defaultSelector}

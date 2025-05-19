@@ -1,7 +1,7 @@
 .divider {
   position: relative;
   cursor: ew-resize;
-  background-color: var(--bg-body);
+  background-color: var(--c-gray-soft);
   width: 1px;
   user-select: none;
 

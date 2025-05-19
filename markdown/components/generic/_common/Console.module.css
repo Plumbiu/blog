@@ -2,7 +2,9 @@
   font-size: 13px;
   max-height: 70vh;
   overflow: auto;
-  & > div {
+  white-space: nowrap;
+
+  &>div {
     padding: 8px 10px;
     display: flex;
     gap: 12px;
@@ -12,12 +14,11 @@
 }
 
 .right {
-  white-space: pre-wrap;
+  color: var(--text-3);
 }
 
 .left {
-  color: var(--text-3);
-  white-space: nowrap;
+  flex-grow: 1;
 }
 
 .num {

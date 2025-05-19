@@ -33,7 +33,7 @@ const ConsoleItem = memo(
       <div>
         <div
           data-testid="console-data"
-          className={cn(styles.right, {
+          className={cn(styles.left, {
             [styles.num]: valueType === 'Number',
             [styles.string]: valueType === 'String',
             [styles.none]:
@@ -46,7 +46,7 @@ const ConsoleItem = memo(
         >
           {toLogValue(value)}
         </div>
-        <div className={styles.left}>
+        <div className={styles.right}>
           {showType ? valueType : formatTime(date)}
         </div>
       </div>
