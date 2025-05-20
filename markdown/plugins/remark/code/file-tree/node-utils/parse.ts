@@ -1,91 +1,43 @@
-import { readdir, readFile } from 'node:fs/promises'
 import type { TreeNode, TreeMap, ParseContentOptions } from '../types'
 import { buildFiles } from '~/markdown/plugins/remark/utils'
 import { CodeTabSplitString } from '~/markdown/plugins/constant'
 import { formatFileTreeDataMap, formatPath, formatTreeMap } from './format'
 import fileTreeDataRawMap from '~/markdown/config/file-tree'
-import { treeMapToTree, treeSort } from './support'
+import {
+  buildTreeByContent,
+  buildTreeMapByFs,
+  shortenDirPath,
+  treeMapToTree,
+  treeSort,
+} from './support'
 import { isLabelStartswithConfigCh } from '../file-tree-utils'
-import { join } from 'pathe'
 import { getIconExt, getIconFromFileName } from '~/markdown/utils/vscode-icon'
 
 const fileTreeDataFormatMap: Record<string, string> = {}
 
 formatFileTreeDataMap(fileTreeDataFormatMap, fileTreeDataRawMap)
 
-const TreeLabelRegx = /^(\s*)-\s(.*)$/
 export async function parseContent(
   content: string,
   options: ParseContentOptions,
 ) {
-  const { openAll, parentMeta, dir, id } = options
-
-  const root: TreeNode = {
-    label: '',
-    level: -1,
-    path: '',
-    collapse: false,
-    children: [],
-  }
-  const stack: TreeNode[] = [root]
+  const { dir, id } = options
   let treeMap: TreeMap = {}
   const defaultSelectors: string[] = []
   const iconMap: Record<string, string> = {}
   let tree: TreeNode[] = []
   const isCustomContent = content.startsWith(CodeTabSplitString)
+
   if (dir && !isCustomContent) {
-    const files = await readdir(dir, {
-      recursive: true,
-      encoding: 'utf-8',
-      withFileTypes: true,
-    })
-    await Promise.all(
-      files.map(async (p) => {
-        const filePath = join(p.parentPath, p.name)
-        if (p.isFile()) {
-          const content = await readFile(filePath, 'utf-8')
-          treeMap[formatPath(filePath)] = {
-            code: content,
-            meta: parentMeta,
-          }
-        }
-      }),
-    )
-    tree = treeMapToTree(treeMap, tree, options)
+    treeMap = await buildTreeMapByFs(options)
+    tree = treeMapToTree(treeMap, options)
   } else if (isCustomContent) {
     treeMap = formatTreeMap(buildFiles(content))
-    tree = treeMapToTree(treeMap, tree, options)
+    tree = treeMapToTree(treeMap, options)
   } else {
-    const lines = content.trim().split('\n')
-    for (const line of lines) {
-      const [_, space, label] = line.match(TreeLabelRegx) ?? []
-      if (space == null || label == null) {
-        continue
-      }
-      const firstCh = label[0]
-      const level = Math.floor(space.length / 2)
-      while (stack.length > 0 && stack[stack.length - 1].level >= level) {
-        stack.pop()
-      }
-      const parent = stack[stack.length - 1]
-      const p = formatPath(
-        parent.path +
-          '/' +
-          (isLabelStartswithConfigCh(label) ? label.slice(1) : label),
-      )
-      const node: TreeNode = {
-        label,
-        level,
-        collapse: firstCh === '+' ? false : firstCh === '-' ? true : !openAll,
-        children: [],
-        path: p,
-      }
-
-      parent.children.push(node)
-      stack.push(node)
-    }
-    tree = root.children
+    tree = buildTreeByContent(content, options)
   }
+
   function traverse(nodes: TreeNode[]) {
     for (const node of nodes) {
       const key = node.path
@@ -98,6 +50,7 @@ export async function parseContent(
           defaultSelectors.push(key)
         }
         iconMap[getIconExt(key)] = getIconFromFileName(node.label)
+        // set treeMap by id ```FileTree id="xxx" ```
         if (id && !dir) {
           treeMap[key] = {
             code: fileTreeDataFormatMap[formatPath(`${id}/${key}`)],
@@ -105,16 +58,7 @@ export async function parseContent(
           }
         }
       } else {
-        const initLevel = node.level
-        while (
-          node.children.length === 1 &&
-          node.children[0].children.length > 0
-        ) {
-          node.label = node.label + '/' + node.children[0].label
-          node.children = node.children[0].children
-          node.level = initLevel
-          node.children.forEach(item => item.level = initLevel + 1)
-        }
+        shortenDirPath(node)
         node.children.sort(treeSort)
         traverse(node.children)
       }
