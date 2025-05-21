@@ -10,12 +10,14 @@ interface UseDividerProps {
   rightMinWidth?: number;
 }
 
+const MobileWidth = 640
+
 function useDivider(options?: UseDividerProps) {
   const dividerRef = useRef<HTMLDivElement>(null);
   const initValue = useRef<number | null>(null);
   const isMobileRef = useRef<Boolean>(null);
   useEffect(() => {
-    isMobileRef.current = window.innerWidth <= 960;
+    isMobileRef.current = window.innerWidth <= MobileWidth;
   }, []);
   return {
     init(previewDom: HTMLElement | null) {
@@ -89,7 +91,7 @@ function useDivider(options?: UseDividerProps) {
         }
       };
       const onSizeChange = throttle(() => {
-        if (window.innerWidth <= 960) {
+        if (window.innerWidth <= MobileWidth) {
           isMobileRef.current = true;
           previewDom.style.width = 'auto';
         } else {
