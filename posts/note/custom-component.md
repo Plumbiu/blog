@@ -6,7 +6,7 @@ desc: 1
 emoji: { num: 🔢 }
 definitions: { plumbiu: 'https://github.com/Plumbiu' }
 variable: { var_text: 'var_text' }
-abbr: { WWW: 'what when why' }
+abbr: { WWW: 'What When Why' }
 ---
 
 本博客 Markdown 拓展基于 [remark]() 和 [rehype]() 生态构建。
