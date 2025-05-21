@@ -9,9 +9,11 @@ import Console from '../_common/Console'
 import Loading from '../_common/Loading'
 import wrapperStyles from '../_common/CodeWrapper.module.css'
 import useDivider from '@/hooks/useDivider'
+import { handleComponentCodeTitle } from '~/markdown/plugins/constant'
 
 function CodeRunner(props: any) {
   const runCode = handleCodeRunnerCodeKey(props)
+  const title = handleComponentCodeTitle(props)
   const [logs, setLogs] = useState<LogInfo[]>([])
   const workerRef = useRef<Worker>(null)
   const ref = useRef<HTMLDivElement>(null)
@@ -31,7 +33,7 @@ function CodeRunner(props: any) {
   }, [])
   return (
     <CodeWrapper
-      barText="Code Runner"
+      barText={title || 'Code Runner'}
       forceUpdate={() => {
         setLogs([])
         workerRef.current?.postMessage(runCode)

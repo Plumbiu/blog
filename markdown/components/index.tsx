@@ -4,17 +4,19 @@ import IntersectionObserverComponent from '@/components/function/IntersectionObs
 import { createElement } from 'react'
 import { handleComponentName } from '~/markdown/plugins/constant'
 import { PlaygroundName } from '~/markdown/plugins/remark/code/playground-utils'
-import { PreTitleName } from '~/markdown/plugins/remark/code/title-utils'
+import { TitleCodeName } from '~/markdown/plugins/remark/code/title-utils'
 import { SwitcherName } from '~/markdown/plugins/remark/code/switcher-utils'
 import { LoggerName } from '~/markdown/plugins/remark/logger-utils'
 import { customComponentMap } from './custom-components'
 import { genericComponentMap } from './generic-components'
+import { FileTreeName } from '../plugins/remark/code/file-tree/file-tree-utils'
 
 const SyncComponentNameSet = new Set<String>([
   PlaygroundName,
   LoggerName,
   SwitcherName,
-  PreTitleName,
+  TitleCodeName,
+  FileTreeName,
   'Tooltip',
 ])
 

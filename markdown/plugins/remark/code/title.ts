@@ -10,46 +10,54 @@ import {
   type RemarkPlugin,
 } from '../../constant'
 import { makeProperties } from '../../utils'
-import { PreTitleName } from './title-utils'
+import { TitleCodeName } from './title-utils'
 import { markComponent } from '../utils'
 import { getIconFromFileName } from '~/markdown/utils/vscode-icon'
 
-const PreTitleRegx = /title=(['"])([^'"]+)\1/
+const TitleRegx = /title=(['"])([^'"]+)\1/
 const remarkCodeTitlePlugin: RemarkPlugin = () => {
   return async (tree) => {
-    visit(tree, 'code', (node) => {
-      makeProperties(node)
-      // meta: path and component
-      const props = node.data!.hProperties!
-      const code = node.value.trim()
-      const meta = node.meta
-      const lang = node.lang?.toLowerCase()
+    visit(tree, (node) => {
+      if (node.type === 'code') {
+        makeProperties(node)
+        // meta: path and component
+        const props = node.data!.hProperties!
+        const code = node.value.trim()
+        const meta = node.meta || handleComponentMeta(props)
+        const lang = node.lang?.toLowerCase()
 
-      if (!(meta && lang)) {
-        return
-      }
-      const isPreTitle = PreTitleRegx.test(meta)
+        if (!(meta && lang)) {
+          return
+        }
+        const title = TitleRegx.exec(meta)?.[2]
+        if (!title) {
+          return
+        }
+        const componentName = handleComponentName(props)
+        if (title) {
+          handleComponentCodeTitle(props, title)
+          const iconMap: Record<string, string> = {}
+          const icon = getIconFromFileName(title)
+          iconMap[title] = icon
+          handleIconMap(props, JSON.stringify(iconMap))
+        }
+        handleComponentCode(props, code)
+        handleLang(props, lang)
 
-      if (!isPreTitle) {
-        return
-      }
-
-      const title = PreTitleRegx.exec(meta)?.[2]
-      const componentName = handleComponentName(props)
-      if (title) {
+        if (!componentName) {
+          handleComponentName(props, TitleCodeName)
+          markComponent(node)
+          handleComponentMeta(props, meta)
+        }
+      } else if (node.type === 'root') {
+        makeProperties(node)
+        const props = node.data!.hProperties!
+        const meta = handleComponentMeta(props)
+        const title = TitleRegx.exec(meta)?.[2]
+        if (!title) {
+          return
+        }
         handleComponentCodeTitle(props, title)
-        const iconMap: Record<string, string> = {}
-        const icon = getIconFromFileName(title)
-        iconMap[title] = icon
-        handleIconMap(props, JSON.stringify(iconMap))
-      }
-      handleComponentCode(props, code)
-      handleLang(props, lang)
-
-      if (!componentName) {
-        handleComponentName(props, PreTitleName)
-        markComponent(node)
-        handleComponentMeta(props, meta)
       }
     })
   }

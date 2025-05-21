@@ -4,12 +4,12 @@ import { lazy } from 'react'
 import Playground from './generic/playground'
 import CodeRunner from './generic/logger'
 import Switcher from './generic/switcher'
-import PreTitle from './generic/pre-title'
+import Title from './generic/title-code'
 import { PlaygroundName } from '~/markdown/plugins/remark/code/playground-utils'
 import { LoggerName } from '~/markdown/plugins/remark/logger-utils'
 import { GalleryName } from '~/markdown/plugins/remark/directive/gallery-utils'
 import { SwitcherName } from '~/markdown/plugins/remark/code/switcher-utils'
-import { PreTitleName } from '~/markdown/plugins/remark/code/title-utils'
+import { TitleCodeName } from '~/markdown/plugins/remark/code/title-utils'
 import { IframeName } from '~/markdown/plugins/remark/directive/iframe-utils'
 import { HTMLParserName } from '~/markdown/plugins/remark/html-parser-utils'
 import HtmlParser from './generic/html-parser'
@@ -26,7 +26,7 @@ export const genericComponentMap: Record<string, any> = {
   [GalleryName]: Gallery,
   [IframeName]: Iframe,
   [SwitcherName]: Switcher,
-  [PreTitleName]: PreTitle,
+  [TitleCodeName]: Title,
   [HTMLParserName]: HtmlParser,
   [FileTreeName]: FileTree,
   Tooltip,

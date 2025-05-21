@@ -340,7 +340,8 @@
       "enabled": true,
       "quoteStyle": "single",
       "jsxQuoteStyle": "double",
-      "trailingCommas": "all"
+      "trailingCommas": "all",
+      "semicolons": "asNeeded"
     }
   },
   "json": {

@@ -1,7 +1,7 @@
 import { ComponentKey } from '../../constant'
 
-export const PreTitleName = 'PreTitle'
+export const TitleCodeName = 'PreTitle'
 
-export function isPreTitle(props: any) {
-  return props[ComponentKey] === PreTitleName
+export function isTitleCode(props: any) {
+  return props[ComponentKey] === TitleCodeName
 }

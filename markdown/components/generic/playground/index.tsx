@@ -27,6 +27,7 @@ import CodeWrapper from '../_common/CodeWrapper'
 import Console from '../_common/Console'
 import Loading from '../_common/Loading'
 import {
+  handleComponentCodeTitle,
   handleComponentDefaultSelectorKey,
   handleFileMap,
 } from '~/markdown/plugins/constant'
@@ -41,6 +42,7 @@ const Playground = (props: any) => {
     isStatic,
     isPreviewTabsHidden,
     customPreviewNode,
+    title,
   } = useMemo(() => {
     const defaultSelector = handleComponentDefaultSelectorKey(props)
     const css = handlePlaygroundStyles(props)
@@ -49,6 +51,7 @@ const Playground = (props: any) => {
     const isPreviewTabsHidden = handlePlaygroundHidePreviewTabsKey(props)
     const customPreviewName = handlePlaygroundCustomPreivew(props)
     const customPreviewNode = customComponentMap[customPreviewName]
+    const title = handleComponentCodeTitle(props)
     return {
       defaultSelector,
       css,
@@ -56,9 +59,9 @@ const Playground = (props: any) => {
       isStatic,
       isPreviewTabsHidden,
       customPreviewNode,
+      title,
     }
   }, [props])
-  const previewRef = useRef<HTMLDivElement>(null)
 
   const { logFn, logs, setLogs } = useConsole()
   const nodeRef = useRef<HTMLDivElement>(null)
@@ -106,7 +109,10 @@ const Playground = (props: any) => {
   useObserver(nodeRef, renderNode)
 
   return (
-    <CodeWrapper barText="Code Playground" forceUpdate={() => renderNode(true)}>
+    <CodeWrapper
+      barText={title || 'Code Playground'}
+      forceUpdate={() => renderNode(true)}
+    >
       <CodePreview {...props} />
       <div>
         {!(isStatic || isPreviewTabsHidden) && (

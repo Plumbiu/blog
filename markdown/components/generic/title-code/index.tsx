@@ -7,7 +7,7 @@ import styles from './index.module.css'
 import PreComponent from '@/components/ui/Pre'
 import ImageIcon from '../_common/ImageIcon'
 
-function PreTitle(props: any) {
+function TitleCode(props: any) {
   const title = handleComponentCodeTitle(props)
   const iconMap = handleIconMap(props)
   return (
@@ -23,4 +23,4 @@ function PreTitle(props: any) {
   )
 }
 
-export default PreTitle
+export default TitleCode

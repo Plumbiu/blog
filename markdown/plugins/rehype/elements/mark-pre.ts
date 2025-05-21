@@ -10,7 +10,7 @@ import {
 import { hCode, markPre } from './mark-pre-utils'
 import { isSwitcher } from '../../remark/code/switcher-utils'
 import { isLogger } from '../../remark/logger-utils'
-import { isPreTitle } from '../../remark/code/title-utils'
+import { isTitleCode } from '../../remark/code/title-utils'
 import { keys } from '@/lib/types'
 import { getSuffix } from '../../utils'
 import { buildFiles } from '../../remark/utils'
@@ -47,7 +47,7 @@ function markCustomComponentPre(node: Element) {
         })
       }),
     )
-  } else if (isPreTitle(props) || isLogger(props)) {
+  } else if (isTitleCode(props) || isLogger(props)) {
     markPre(node, [
       hCode({
         code,
