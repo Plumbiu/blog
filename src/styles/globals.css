@@ -100,10 +100,13 @@ ol,
 ul {
   margin-top: 6px;
   padding-left: 28px;
-  line-height: 28px;
 
   &>li {
     padding-left: 4px;
+
+    & + li {
+      margin-top: 6px;
+    }
   }
 }
 

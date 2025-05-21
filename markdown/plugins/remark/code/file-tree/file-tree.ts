@@ -25,7 +25,7 @@ const remarkFileTreePlugin: RemarkPlugin = () => {
   return async (tree) => {
     const nodes: Code[] = []
     visit(tree, 'code', (node) => {
-      if (node.lang === 'Tree') {
+      if (node.lang === 'Tree' || node.meta?.includes('Tree')) {
         nodes.push(node)
       }
     })

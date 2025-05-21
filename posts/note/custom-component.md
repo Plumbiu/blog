@@ -6,7 +6,7 @@ desc: 1
 emoji: { num: 🔢 }
 definitions: { plumbiu: 'https://github.com/Plumbiu' }
 variable: { var_text: 'var_text' }
-abbr: { www: 'what when why' }
+abbr: { WWW: 'what when why' }
 ---
 
 本博客 Markdown 拓展基于 [remark]() 和 [rehype]() 生态构建。
@@ -103,7 +103,7 @@ export const customComponentMap: Record<string, any> = {
 
 ```
 
-```Tree
+```ts Tree
 //@tab index.ts
 export * from './src/utils'
 //@tab +src/+utils.ts line
@@ -132,7 +132,7 @@ export type TestString = string
 
 ```
 
-```Tree
+```ts Tree
 //@tab index.ts
 export * from './src/utils'
 //@tab +src/+utils.ts line
@@ -555,24 +555,26 @@ console.log('custom-title')
 输入：
 
 ```markdown
-表情：:smile:
+- 表情：:smile:
+- 变量：{{bar['test'].a}}
+- 连接转换：[Next.js][]
+- 缩写词：
+  - 全局配置：HTML
+  - 文章内部配置：Plumbiu
 
-变量：{{bar['test'].a}}
-
-连接转换：[Next.js][]
-
-缩写词（`\|`应为`|`，这里会自动转换）：\|[HTML]\|
+*[Plumbiu]: A front-end developer
 ```
 
 输出：
 
-表情：:smile:
+- 表情：:smile:
+- 变量：{{bar['test'].a}}
+- 连接转换：[Next.js][]
+- 缩写词：
+  - 全局配置：HTML
+  - 文章内部配置：Plumbiu
 
-变量：{{bar['test'].a}}
-
-连接转换：[Next.js][]
-
-缩写词（`\|`应为`|`，这里会自动转换）：|[HTML]|
+*[Plumbiu]: A front-end developer
 
 ## front-matter
 
@@ -583,27 +585,21 @@ console.log('custom-title')
 emoji: { num: 🔢 }
 variable: { var_text: 'var_text' }
 definitions: { plumbiu: 'https://github.com/Plumbiu' }
-abbr: { www: 'what when why' }
+abbr: { WWW: 'What When Why' }
 ---
 
-表情：:num:
-
-变量：{{var_text}}
-
-连接转换：[plumbiu][]
-
-缩写词（`\|`应为`|`，这里会自动转换）：\|[www]\|
+- 表情：:num:
+- 变量：{{var_text}}
+- 连接转换：[plumbiu][]
+- 缩写词：WWW
 ```
 
 输出：
 
-表情：:num:
-
-变量：{{var_text}}
-
-连接转换：[plumbiu][]
-
-缩写词（`\|`应为`|`，这里会自动转换）：|[www]|
+- 表情：:num:
+- 变量：{{var_text}}
+- 连接转换：[plumbiu][]
+- 缩写词：WWW
 
 # Blockquote
 

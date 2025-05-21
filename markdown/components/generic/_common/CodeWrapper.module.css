@@ -23,13 +23,7 @@
     display: block;
 
     &>div {
-      width: 100%;
-      &:first-child {
-        width: 100%;
-      }
-      &:last-child {
-        width: 100%;
-      }
+      width: 100% !important;
     }
   }
 }

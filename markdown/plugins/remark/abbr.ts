@@ -2,14 +2,30 @@ import { findAndReplace } from 'mdast-util-find-and-replace'
 import type { RemarkPlugin } from '../constant'
 import type { AbbrType } from '~/markdown/config/abbr'
 import abbrMap from '~/markdown/config/abbr'
+import { visit } from 'unist-util-visit'
 
-const AbbrRegx = /\|\[([^\]]+)\]\|/g
+const AbbrRegx = /\*\[([^\]]+)\]:\s(.*)/g
 const remarkAbbrPlugin: RemarkPlugin<[AbbrType]> = (customAbbr) => {
   return (tree) => {
+    const map = { ...abbrMap, ...customAbbr }
+    visit(tree, 'text', (node, index, parent) => {
+      if (index == null || parent == null) {
+        return
+      }
+      const [_, label, title] = AbbrRegx.exec(node.value) ?? []
+      if (label && title) {
+        map[label] = title
+        parent.children.splice(index, 1)
+        if (parent.children.length === 0) {
+          parent.type = 'root'
+        }
+      }
+    })
+    console.log(map)
     findAndReplace(tree, [
-      AbbrRegx,
-      (_, $1) => {
-        const data = abbrMap[$1] ?? customAbbr[$1]
+      new RegExp(Object.keys(map).join('|'), 'g'),
+      (label) => {
+        const data = map[label]
         if (data == null) {
           return false
         }
@@ -18,11 +34,11 @@ const remarkAbbrPlugin: RemarkPlugin<[AbbrType]> = (customAbbr) => {
           value: '<Tooltip  />',
           data: {
             hProperties: {
-              label: $1,
+              label: label,
               title: data,
-              __root: true
-            }
-          }
+              __root: true,
+            },
+          },
         }
       },
     ])
