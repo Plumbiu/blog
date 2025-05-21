@@ -21,7 +21,6 @@ const remarkAbbrPlugin: RemarkPlugin<[AbbrType]> = (customAbbr) => {
         }
       }
     })
-    console.log(map)
     findAndReplace(tree, [
       new RegExp(Object.keys(map).join('|'), 'g'),
       (label) => {
