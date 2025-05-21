@@ -100,7 +100,7 @@ function toBinary(x, options = {}) {
 
 一段简单的示例：
 
-```js Run
+```js Log
 // 创建“缓冲”
 const buffer = new ArrayBuffer(16)
 // 打印字节长度
@@ -131,7 +131,7 @@ ArrayBuffer | 00 00 00 00 | 02 00 00 00 | 04 00 00 00 | 06 00 00 00 |
 
 缓冲不总是代表数字，可以使用文本缓冲读取 UTF-8 文本：
 
-```js Run
+```js Log
 const buffer = new ArrayBuffer(8)
 const uint8View = new Uint8Array(buffer)
 // 手动写入数据，模拟一下读文件操作
@@ -142,7 +142,7 @@ console.log(text) // 你好
 
 读取 UTF-16 文本可以使用 [`String.fromCharCode()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode) 方法：
 
-```js Run
+```js Log
 const buffer = new ArrayBuffer(8)
 const uint16View = new Uint16Array(buffer)
 // 手动写入数据，模拟一下读文件操作

@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import remarkRunnerPlugin from '~/markdown/plugins/remark/runner'
+import remarkRunnerPlugin from '~/markdown/plugins/remark/logger'
 import { transformCodeWithOptions } from '~/markdown/transfrom'
 import rehypeElementPlugin from '../../rehype/elements'
 import { fireEvent, render, screen } from '@testing-library/react'

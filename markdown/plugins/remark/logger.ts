@@ -3,8 +3,8 @@ import {
   handleCodeRunnerCodeKey,
   isJavaScript,
   isTypeScript,
-  CodeRunnerName,
-} from './runner-utils'
+  LoggerName,
+} from './logger-utils'
 import {
   handleComponentCode,
   handleComponentMeta,
@@ -12,8 +12,8 @@ import {
   type RemarkPlugin,
 } from '../constant'
 import { makeProperties } from '../utils'
-import { sucraseParse } from '@/lib/node/jsx-parse'
 import { markComponent } from './utils'
+import { parseTsx } from '~/markdown/utils/tsx-parser'
 
 const remarkRunnerPlugin: RemarkPlugin = () => {
   return (tree) => {
@@ -22,7 +22,7 @@ const remarkRunnerPlugin: RemarkPlugin = () => {
       const props = node.data!.hProperties!
       let code = node.value.trim()
       const meta = node.meta
-      if (!meta?.includes(CodeRunnerName)) {
+      if (!meta?.includes(LoggerName)) {
         return
       }
       handleComponentCode(props, code)
@@ -37,11 +37,11 @@ const remarkRunnerPlugin: RemarkPlugin = () => {
         return
       }
       if (isTypeScript(lang)) {
-        code = sucraseParse(code, {
+        code = parseTsx(code, {
           transforms: ['flow', 'imports'],
         })
       }
-      markComponent(node, CodeRunnerName)
+      markComponent(node, LoggerName)
       handleComponentMeta(props, meta)
       handleCodeRunnerCodeKey(props, code)
     })

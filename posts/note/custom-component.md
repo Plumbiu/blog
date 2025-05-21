@@ -251,7 +251,7 @@ HTML 暂不支持打印
 输入：
 
 ````markdown
-```js Run
+```js Log
 const start = Date.now()
 console.log('start')
 while (Date.now() - start < 3000) {}
@@ -261,7 +261,7 @@ console.log('end')
 
 输出：
 
-```js Run
+```js Log
 const start = Date.now()
 console.log('start')
 while (Date.now() - start < 3000) {}
@@ -270,7 +270,7 @@ console.log('end')
 
 ## import
 
-导入其他库需要额外配置文件，具体为 [markdown/components/generic/code-runner/module-map](https://github.com/Plumbiu/blog/blob/main/markdown/components/generic/code-runner/module-map.ts) 中的 `getModuleMap` 函数。
+导入其他库需要额外配置文件，具体为 [markdown/config/logger-module-map.ts](https://github.com/Plumbiu/blog/blob/main/markdown/config/logger-module-map.ts) 中的 `getCodeRunnerModuleMap` 函数。
 
 > [!NOTE]
 > 由于构建工具无法实现 `dynamic import`，所以这里需要自己手动判断条件引入，可参考上述文件注释导入其他模块。
@@ -278,7 +278,7 @@ console.log('end')
 输入：
 
 ````markdown
-```ts Run
+```ts Log
 import { Subject } from 'rxjs'
 
 const subject = new Subject<number>()
@@ -297,7 +297,7 @@ subject.next(2)
 
 输出：
 
-```ts Run
+```ts Log
 import { Subject } from 'rxjs'
 
 const subject = new Subject<number>()

@@ -29,6 +29,10 @@ const definitionMap: DefinitionType = {
     url: 'https://zh.wikipedia.org/wiki/',
     label: '维基百科',
   },
+  rxjs: {
+    url: 'https://github.com/ReactiveX/rxjs',
+    label: 'RxJS',
+  },
 }
 
 export default definitionMap

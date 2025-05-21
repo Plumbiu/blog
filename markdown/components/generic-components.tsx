@@ -2,11 +2,11 @@
 
 import { lazy } from 'react'
 import Playground from './generic/playground'
-import CodeRunner from './generic/code-runner'
+import CodeRunner from './generic/logger'
 import Switcher from './generic/switcher'
 import PreTitle from './generic/pre-title'
 import { PlaygroundName } from '~/markdown/plugins/remark/code/playground-utils'
-import { CodeRunnerName } from '~/markdown/plugins/remark/runner-utils'
+import { LoggerName } from '~/markdown/plugins/remark/logger-utils'
 import { GalleryName } from '~/markdown/plugins/remark/directive/gallery-utils'
 import { SwitcherName } from '~/markdown/plugins/remark/code/switcher-utils'
 import { PreTitleName } from '~/markdown/plugins/remark/code/title-utils'
@@ -22,7 +22,7 @@ const Iframe = lazy(() => import('./generic/iframe/index'))
 
 export const genericComponentMap: Record<string, any> = {
   [PlaygroundName]: Playground,
-  [CodeRunnerName]: CodeRunner,
+  [LoggerName]: CodeRunner,
   [GalleryName]: Gallery,
   [IframeName]: Iframe,
   [SwitcherName]: Switcher,

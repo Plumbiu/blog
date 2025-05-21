@@ -2,8 +2,8 @@ import { visit } from 'unist-util-visit'
 import type { RemarkPlugin } from '../constant'
 import { makeProperties } from '../utils'
 import { handleHTMLParserCodeKey, HTMLParserName } from './html-parser-utils'
-import { sucraseParse } from '@/lib/node/jsx-parse'
 import { markComponent } from './utils'
+import { parseTsx } from '~/markdown/utils/tsx-parser'
 
 const remarkHtmlParser: RemarkPlugin = () => {
   return (tree) => {
@@ -19,7 +19,7 @@ const remarkHtmlParser: RemarkPlugin = () => {
         parent.type = 'root'
         markComponent(node, 'Tooltip')
       } else {
-        const code = sucraseParse(componentBody)
+        const code = parseTsx(componentBody)
         markComponent(node, HTMLParserName)
         handleHTMLParserCodeKey(props, code)
       }

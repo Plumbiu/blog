@@ -5,7 +5,7 @@ const transfromOptions: Options = {
   transforms: ['jsx', 'typescript', 'imports'],
   production: true,
 }
-export function sucraseParse(
+export function parseTsx(
   code: string,
   options: Options = transfromOptions,
 ) {

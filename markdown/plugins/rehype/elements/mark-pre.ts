@@ -9,7 +9,7 @@ import {
 } from '../../constant'
 import { hCode, markPre } from './mark-pre-utils'
 import { isSwitcher } from '../../remark/code/switcher-utils'
-import { isRuner } from '../../remark/runner-utils'
+import { isLogger } from '../../remark/logger-utils'
 import { isPreTitle } from '../../remark/code/title-utils'
 import { keys } from '@/lib/types'
 import { getSuffix } from '../../utils'
@@ -47,7 +47,7 @@ function markCustomComponentPre(node: Element) {
         })
       }),
     )
-  } else if (isPreTitle(props) || isRuner(props)) {
+  } else if (isPreTitle(props) || isLogger(props)) {
     markPre(node, [
       hCode({
         code,

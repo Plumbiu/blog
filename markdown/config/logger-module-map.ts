@@ -1,6 +1,7 @@
-async function getModuleMap(code: string) {
+async function getCodeRunnerModuleMap(code: string) {
   const moduleMap: Record<string, any> = {}
 
+  // add if block like:
   if (hasModule('rxjs')) {
     const rxjs = await import('rxjs')
     moduleMap.rxjs = rxjs
@@ -16,4 +17,4 @@ async function getModuleMap(code: string) {
   return moduleMap
 }
 
-export default getModuleMap
+export default getCodeRunnerModuleMap

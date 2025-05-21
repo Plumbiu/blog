@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import type { LogInfo } from '@/hooks/useConsole'
 import PreComponent from '@/components/ui/Pre'
-import { handleCodeRunnerCodeKey } from '~/markdown/plugins/remark/runner-utils'
+import { handleCodeRunnerCodeKey } from '~/markdown/plugins/remark/logger-utils'
 import CodeWrapper from '../_common/CodeWrapper'
 import Console from '../_common/Console'
 import Loading from '../_common/Loading'
