@@ -9,7 +9,6 @@
 
   &>div:first-child {
     width: 50%;
-    flex-basis: 0;
   }
 
   &>div:last-child {
