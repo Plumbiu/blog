@@ -1,112 +1,125 @@
-import { useEffect, useRef } from 'react'
-import styles from './useDivider.module.css'
-import { throttle } from 'es-toolkit'
-import { isMobileDevice } from './useIsMobileDevice'
+import { useEffect, useRef } from 'react';
+import styles from './useDivider.module.css';
+import { throttle } from 'es-toolkit';
+import { isMobileDevice } from './useIsMobileDevice';
 
-function useDivider() {
-  const dividerRef = useRef<HTMLDivElement>(null)
-  const initValue = useRef<number | null>(null)
-  const isMobileRef = useRef<Boolean>(null)
+interface UseDividerProps {
+  // left side min width
+  leftMinWidth?: number;
+  // right side min width
+  rightMinWidth?: number;
+}
+
+function useDivider(options?: UseDividerProps) {
+  const dividerRef = useRef<HTMLDivElement>(null);
+  const initValue = useRef<number | null>(null);
+  const isMobileRef = useRef<Boolean>(null);
   useEffect(() => {
-    isMobileRef.current = window.innerWidth <= 960
-  }, [])
+    isMobileRef.current = window.innerWidth <= 960;
+  }, []);
   return {
     init(previewDom: HTMLElement | null) {
-      if (!previewDom) {
-        return
+      if (!previewDom || !previewDom.parentElement) {
+        return;
       }
-      const dividerDom = dividerRef.current
+      let { leftMinWidth = 60, rightMinWidth = 60 } = options || {};
+      rightMinWidth = previewDom.parentElement.clientWidth - rightMinWidth;
+
+      const dividerDom = dividerRef.current;
       if (!dividerDom) {
-        return
+        return;
       }
-      const isMobileByUserAgent = isMobileDevice()
-      const isMobileByWidthFn = () => isMobileRef.current
+      const isMobileByUserAgent = isMobileDevice();
+      const isMobileByWidthFn = () => isMobileRef.current;
 
       const onMouseDown = (e: MouseEvent | TouchEvent) => {
-        e.preventDefault()
-        const isMobileByWidth = isMobileByWidthFn()
-        document.body.style.cursor = isMobileByWidth ? 'ns-resize' : 'ew-resize'
+        e.preventDefault();
+        const isMobileByWidth = isMobileByWidthFn();
+        document.body.style.cursor = isMobileByWidth
+          ? 'ns-resize'
+          : 'ew-resize';
         if (e instanceof MouseEvent) {
-          initValue.current = isMobileByWidth ? e.clientY : e.clientX
+          initValue.current = isMobileByWidth ? e.clientY : e.clientX;
         } else {
           initValue.current = isMobileByWidth
             ? e.touches[0].clientY
-            : e.touches[0].clientX
+            : e.touches[0].clientX;
         }
-        dividerDom.classList.add(styles.active)
+        dividerDom.classList.add(styles.active);
         if (isMobileByUserAgent) {
-          document.addEventListener('touchmove', onMouseMove)
+          document.addEventListener('touchmove', onMouseMove);
         } else {
-          document.addEventListener('mousemove', onMouseMove)
+          document.addEventListener('mousemove', onMouseMove);
         }
-      }
+      };
       const onMouseMove = (e: MouseEvent | TouchEvent) => {
-        e.preventDefault()
+        e.preventDefault();
         if (initValue.current == null) {
-          return
+          return;
         }
-        const isMobileByWidth = isMobileByWidthFn()
-        let clientOffset: number | null = null
+        const isMobileByWidth = isMobileByWidthFn();
+        let clientOffset: number | null = null;
         if (e instanceof TouchEvent) {
           clientOffset = isMobileByWidth
             ? e.touches[0].clientY
-            : e.touches[0].clientX
+            : e.touches[0].clientX;
         } else {
-          clientOffset = isMobileByWidth ? e.clientY : e.clientX
+          clientOffset = isMobileByWidth ? e.clientY : e.clientX;
         }
-        const offset = clientOffset - initValue.current
-        const style = getComputedStyle(previewDom)
+        const offset = clientOffset - initValue.current;
+        const style = getComputedStyle(previewDom);
 
-        const changeKey = isMobileByWidth ? 'height' : 'width'
-        previewDom.style[changeKey] =
-          Number.parseFloat(style[changeKey]) + offset + 'px'
-        initValue.current = clientOffset
-      }
-      const onMouseUp = () => {
-        initValue.current = null
-        document.body.style.cursor = 'auto'
-        dividerDom.classList.remove(styles.active)
-        if (isMobileByUserAgent) {
-          document.removeEventListener('touchmove', onMouseMove)
-        } else {
-          document.removeEventListener('mousemove', onMouseMove)
+        const changeKey = isMobileByWidth ? 'height' : 'width';
+        const initWidth = Number.parseFloat(style[changeKey]);
+        const changeValue = initWidth + offset;
+        if (changeValue <= leftMinWidth || changeValue > rightMinWidth) {
+          return;
         }
-      }
+        previewDom.style[changeKey] = changeValue + 'px';
+        initValue.current = clientOffset;
+      };
+      const onMouseUp = () => {
+        initValue.current = null;
+        document.body.style.cursor = 'auto';
+        dividerDom.classList.remove(styles.active);
+        if (isMobileByUserAgent) {
+          document.removeEventListener('touchmove', onMouseMove);
+        } else {
+          document.removeEventListener('mousemove', onMouseMove);
+        }
+      };
       const onSizeChange = throttle(() => {
         if (window.innerWidth <= 960) {
-          isMobileRef.current = true
-          previewDom.style.width = 'auto'
+          isMobileRef.current = true;
+          previewDom.style.width = 'auto';
         } else {
-          isMobileRef.current = false
-          previewDom.style.height = 'auto'
+          isMobileRef.current = false;
+          previewDom.style.height = 'auto';
         }
-      }, 200)
+      }, 200);
 
       if (isMobileByUserAgent) {
-        dividerDom.addEventListener('touchstart', onMouseDown)
-        document.addEventListener('touchend', onMouseUp)
+        dividerDom.addEventListener('touchstart', onMouseDown);
+        document.addEventListener('touchend', onMouseUp);
       } else {
-        dividerDom.addEventListener('mousedown', onMouseDown)
-        document.addEventListener('mouseup', onMouseUp)
+        dividerDom.addEventListener('mousedown', onMouseDown);
+        document.addEventListener('mouseup', onMouseUp);
       }
-      window.addEventListener('resize', onSizeChange)
+      window.addEventListener('resize', onSizeChange);
 
       return () => {
         if (isMobileByUserAgent) {
-          dividerDom.removeEventListener('touchstart', onMouseDown)
-          document.removeEventListener('touchend', onMouseUp)
+          dividerDom.removeEventListener('touchstart', onMouseDown);
+          document.removeEventListener('touchend', onMouseUp);
         } else {
-          dividerDom.removeEventListener('mousedown', onMouseDown)
-          document.removeEventListener('mouseup', onMouseUp)
+          dividerDom.removeEventListener('mousedown', onMouseDown);
+          document.removeEventListener('mouseup', onMouseUp);
         }
-        dividerDom.removeEventListener('mousedown', onMouseDown)
-        document.removeEventListener('mouseup', onMouseUp)
-        document.removeEventListener('mousemove', onMouseMove)
-        window.removeEventListener('resize', onSizeChange)
-      }
+        window.removeEventListener('resize', onSizeChange);
+      };
     },
     node: <div ref={dividerRef} className={styles.divider} />,
-  }
+  };
 }
 
-export default useDivider
+export default useDivider;

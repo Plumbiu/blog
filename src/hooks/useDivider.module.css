@@ -4,6 +4,8 @@
   background-color: var(--c-gray-soft);
   width: 1px;
   user-select: none;
+  flex-grow: 0;
+  flex-shrink: 0;
 
   &::before {
     content: '';

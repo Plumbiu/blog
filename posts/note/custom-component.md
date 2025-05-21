@@ -168,8 +168,19 @@ export default function App() {
 }
 //@tab Random.tsx
 export default function Random() {
-  return <div onClick={() => console.log('random')} className="random">{Math.random()}</div>
+  return (
+    <div
+      onClick={(e) => {
+        e.stopPropagation()
+        console.log('random')
+      }}
+      className="random"
+    >
+      {Math.random()}
+    </div>
+  )
 }
+
 //@tab App.css line
 .random {
   font-size: 24px;
