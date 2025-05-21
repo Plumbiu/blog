@@ -189,12 +189,18 @@
       line-height: 24px;
     }
 
-    > :not(.blockquote-title):last-child {
+    &> :not(.blockquote-title):last-child {
       margin-bottom: 0;
     }
 
-    &[class*="blockquote-"] p {
-      color: var(--text-1-light);
+    &> :first-child {
+      margin-top: 0;
+    }
+
+    &[class*="blockquote-"] {
+      & p {
+        color: var(--text-1-light);
+      }
     }
   }
 
@@ -204,7 +210,7 @@
     gap: 8px;
     font-weight: 600;
     font-size: var(--text-base);
-    margin-bottom: 4px;
+    margin-bottom: 12px;
 
     &[data-alert-type="note"] {
       color: var(--c-md-alert-note);
@@ -328,7 +334,7 @@
       margin: 12px 0;
     }
 
-    & >:not(summary):last-child {
+    &>:not(summary):last-child {
       margin-bottom: 0;
     }
   }
