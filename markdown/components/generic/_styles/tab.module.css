@@ -8,6 +8,7 @@
   white-space: nowrap;
 
   &>div {
+    user-select: none;
     background-color: var(--bg-md-pre);
     padding: 10px 12px;
     cursor: pointer;
