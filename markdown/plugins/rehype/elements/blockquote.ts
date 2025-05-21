@@ -1,6 +1,5 @@
 import type { Element } from 'hast'
 import { addRehypeNodeClassName } from '../utils'
-import { visit, EXIT } from 'unist-util-visit'
 import { h, s } from 'hastscript'
 
 const BlockquoteRegx = /\[!(NOTE|WARNING|IMPORTANT|CAUTION|TIP)\]/
@@ -16,16 +15,18 @@ export const BlockquoteSvgElementPathMap: Record<string, string> = {
 }
 export default function BlockquotePlugin(node: Element) {
   if (node.tagName === 'blockquote') {
-    visit(node, 'text', (textNode, index, parent) => {
-      const value = textNode.value
-      const tokens = value.split('\n')
-      const firstLine = tokens[0].trim()
+    const element = node.children.find(child => child.type === 'element')
+    if (!element) {
+      return
+    }
+    const firstChild = element.children[0]
+    if (firstChild.type === 'text') {
+      const firstLine = firstChild.value.trim()
       const [raw, type] = BlockquoteRegx.exec(firstLine) ?? []
-      if (raw && type && parent && index != null) {
+      if (raw && type) {
         const lowerType = type.toLowerCase()
         addRehypeNodeClassName(node, `blockquote-${lowerType}`)
-        textNode.value = value.replace(firstLine, '')
-
+        firstChild.value = ''
         const pathNode = s('path', {
           d: BlockquoteSvgElementPathMap[lowerType],
         })
@@ -44,10 +45,8 @@ export default function BlockquotePlugin(node: Element) {
         const textValue = (
           firstLine.replace(raw, '') || firstLine.replace(raw, type)
         ).trim()
-        parent.children.unshift(h('span', titleProps, [svgNode, textValue]))
-
-        return EXIT
+        node.children.unshift(h('span', titleProps, [svgNode, textValue]))
       }
-    })
+    }
   }
 }

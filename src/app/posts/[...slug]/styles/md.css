@@ -185,8 +185,12 @@
 
     & p {
       color: var(--text-2);
-      line-height: 1.6;
-      margin: 0;
+      margin-top: 12px;
+      line-height: 24px;
+    }
+
+    > :not(.blockquote-title):last-child {
+      margin-bottom: 0;
     }
 
     &[class*="blockquote-"] p {
@@ -308,16 +312,24 @@
     font-size: var(--text-sm);
     border-radius: 8px;
     background-color: var(--c-gray-soft);
-    line-height: 2.25;
-    padding: 8px 16px;
+    padding: 16px;
 
     & summary {
       font-weight: 600;
       cursor: pointer;
+
+      &+p {
+        margin-top: 12px;
+      }
     }
 
-    &>p {
-      margin: 0;
+    & p {
+      line-height: 24px;
+      margin: 12px 0;
+    }
+
+    & >:not(summary):last-child {
+      margin-bottom: 0;
     }
   }
 
