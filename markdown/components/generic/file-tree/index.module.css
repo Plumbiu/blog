@@ -86,7 +86,7 @@
 .tabs {
   user-select: none;
   padding-bottom: 8px;
-  width: max(30%, 120px);
+  width: max(20%, 120px);
   background-color: var(--bg-file-tree-tabs);
   max-height: var(--max-h);
   overflow-y: auto;

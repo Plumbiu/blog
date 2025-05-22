@@ -5,7 +5,6 @@ import { arrayify } from '@/lib/types'
 import {
   Fragment,
   memo,
-  Suspense,
   useEffect,
   useLayoutEffect,
   useMemo,
@@ -35,7 +34,6 @@ import {
   handleComponentCodeTitle,
   handleIconMap,
 } from '~/markdown/plugins/constant'
-import Loading from '../_common/Loading'
 import useDivider from '@/hooks/useDivider'
 import type { TreeNode } from '~/markdown/plugins/remark/code/file-tree/types'
 import { getBaseName, getSuffix } from '~/markdown/plugins/utils'
@@ -313,7 +311,7 @@ const FileTree = memo((props: any) => {
           />
         </div>
         {hasPreview && (
-          <Suspense fallback={<Loading />}>
+          <>
             {dividerNode}
             <div
               className={cn(styles.preview, {
@@ -334,7 +332,7 @@ const FileTree = memo((props: any) => {
                 <Empty />
               )}
             </div>
-          </Suspense>
+          </>
         )}
       </div>
     </div>
