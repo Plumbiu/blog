@@ -56,10 +56,11 @@ interface CodeTabsProps {
   tabs: TabItem[]
   className?: string
   iconmap: Record<string, string>
+  showDivider?: boolean
 }
 
 const CodeTabs = memo(
-  ({ defaultSelector, nodeMap, tabs, className, iconmap }: CodeTabsProps) => {
+  ({ defaultSelector, nodeMap, tabs, className, iconmap, showDivider = true }: CodeTabsProps) => {
     const [selector, setSelector] = useState(defaultSelector)
     const node = nodeMap[selector]
     const showTab = tabs.length > 1
@@ -67,7 +68,7 @@ const CodeTabs = memo(
     const { node: dividerNode, init } = useDivider()
 
     useEffect(() => {
-      init(ref.current)
+      showDivider && init(ref.current)
     }, [])
 
     return (
@@ -91,7 +92,7 @@ const CodeTabs = memo(
           )}
           <PreComponent>{node}</PreComponent>
         </div>
-        {dividerNode}
+        {!!showDivider && dividerNode}
       </>
     )
   },
@@ -122,6 +123,7 @@ const CodePreview = memo((props: any) => {
       nodeMap={codeNodeMap}
       defaultSelector={defaultSelector}
       iconmap={iconmap}
+      showDivider={props.showDivider}
     />
   )
 })
