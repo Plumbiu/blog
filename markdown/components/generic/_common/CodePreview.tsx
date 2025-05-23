@@ -60,7 +60,14 @@ interface CodeTabsProps {
 }
 
 const CodeTabs = memo(
-  ({ defaultSelector, nodeMap, tabs, className, iconmap, showDivider = true }: CodeTabsProps) => {
+  ({
+    defaultSelector,
+    nodeMap,
+    tabs,
+    className,
+    iconmap,
+    showDivider = true,
+  }: CodeTabsProps) => {
     const [selector, setSelector] = useState(defaultSelector)
     const node = nodeMap[selector]
     const showTab = tabs.length > 1

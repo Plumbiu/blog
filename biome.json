@@ -216,7 +216,7 @@
         "noLabelVar": "error",
         "noMisleadingCharacterClass": "error",
         "noMisleadingInstantiator": "error",
-        "noMisplacedAssertion": "error",
+        "noMisplacedAssertion": "off",
         "noMisrefactoredShorthandAssign": "error",
         "noPrototypeBuiltins": "error",
         "noReactSpecificProps": "off",

@@ -17,6 +17,7 @@ import {
 import { visit } from 'unist-util-visit'
 import { parseContent } from './node-utils/parse'
 import { isString } from '@/lib/types'
+import { makeProperties } from '~/markdown/plugins/utils'
 
 const IdRegx = /id=(['"])([^'"]+)\1/
 const DirRegx = /dir=(['"])([^'"]+)\1/
@@ -26,6 +27,7 @@ const remarkFileTreePlugin: RemarkPlugin = () => {
     const nodes: Code[] = []
     visit(tree, 'code', (node) => {
       if (node.lang === 'Tree' || node.meta?.includes('Tree')) {
+        makeProperties(node)
         nodes.push(node)
       }
     })

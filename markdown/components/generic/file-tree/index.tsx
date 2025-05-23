@@ -77,7 +77,7 @@ function formatAppDir(name: string) {
 function formatLabel(label: string) {
   const tokens = label.split('/')
   return (
-    <div className={styles.label}>
+    <div data-testid="file-tree-label" className={styles.label}>
       {tokens.map((token, i) => (
         <Fragment key={i}>
           {i === 0 ? null : <span className={styles.split}>\</span>}
@@ -131,6 +131,7 @@ const HeaderTab = memo(
         <div className={cn(tabStyles.tab, styles.header_tab)}>
           {selectorArr.map((s) => (
             <div
+              data-testid="code-tab"
               key={s}
               className={cn(styles.header_tab_item, {
                 [tabStyles.tab_active]: s === path,
@@ -140,6 +141,7 @@ const HeaderTab = memo(
               <ImageIcon icon={getIconKey(s, fileIconMap)} />
               <div>{formatHeaderTabName(s, selectorArr)}</div>
               <div
+                data-testid="code-tab-close"
                 onClick={(e) => {
                   e.stopPropagation()
                   setSelectorArr(selectorArr.filter((item) => item !== s))

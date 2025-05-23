@@ -9,7 +9,7 @@ test('components: code-runner', async () => {
 console.log('start')
 console.log(111)`.trim()
   const markdown = `
-\`\`\`ts Run
+\`\`\`ts Log
 ${code}
 \`\`\`
 `
