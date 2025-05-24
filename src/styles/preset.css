@@ -37,7 +37,8 @@
 }
 
 .link {
-  display: inline-block;
+  display: inline;
+  padding-bottom: 1px;
   color: var(--c-indigo-1);
   border-bottom: 1px dashed var(--c-gray-2);
   transition: border-color 250ms;

@@ -34,7 +34,7 @@ const nextConfig: NextConfig = {
   },
   basePath: BasePath,
   assetPrefix: BasePath,
-  serverExternalPackages: ['three', '@react-three/fiber', 'lil-gui'],
+  serverExternalPackages: ['three'],
   poweredByHeader: false,
   eslint: {
     ignoreDuringBuilds: true,
