@@ -54,7 +54,7 @@ const SearchPanel = memo(({ data }: SearchPanelProps) => {
       const lowerText = text.toLowerCase()
       const lowerSearch = search.toLowerCase()
       if (!search || !lowerText.includes(lowerSearch)) {
-        return text
+        return <span>{text}</span>
       }
       const index = lowerText.indexOf(lowerSearch)
       const before = text.slice(0, index)
@@ -130,12 +130,14 @@ const SearchPanel = memo(({ data }: SearchPanelProps) => {
                 >
                   <div className={styles.title}>
                     {handleHihglight(meta.title)}
-                    {!!meta.tags &&
-                      meta.tags.map((tag) => (
-                        <div className={styles.tag} key={tag}>
-                          {tag}
-                        </div>
-                      ))}
+                    <div className={cn('ml-4', 'fcc')}>
+                      {!!meta.tags &&
+                        meta.tags.map((tag) => (
+                          <div className={styles.tag} key={tag}>
+                            {tag}
+                          </div>
+                        ))}
+                    </div>
                   </div>
                   {!!meta.desc && (
                     <div className={styles.desc}>
