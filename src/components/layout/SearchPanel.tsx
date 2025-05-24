@@ -16,7 +16,7 @@ import { CopyErrorIcon, SearchIcon } from '../Icons'
 import Link from 'next/link'
 import useSearchPanelStore from '@/store/search-panel'
 import type { PostList, PostMeta } from '~/markdown/types'
-import useMounted from '../function/useMounted'
+import useMounted from '../../hooks/useMounted'
 
 export type SearchData = Pick<PostList, 'path' | 'type'> & {
   meta: Pick<PostMeta, 'title' | 'desc' | 'tags'>

@@ -4,7 +4,7 @@ import { memo, type MouseEventHandler, useEffect, useRef } from 'react'
 import styles from './OverlayScrollbar.module.css'
 import { throttle } from 'es-toolkit'
 import { usePathname } from 'next/navigation'
-import useMounted from '../function/useMounted'
+import useMounted from '../../hooks/useMounted'
 
 const Spacing = 6 * 2
 

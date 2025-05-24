@@ -1,4 +1,4 @@
-import useIsMobileDevice from '@/hooks/useIsMobileDevice'
+import useIsMobileDeviceWithMemo from '@/hooks/useIsMobileDevice'
 import { avoidBodyScroll, makeBodyScroll } from '@/store/utils'
 import {
   type ReactNode,
@@ -23,7 +23,7 @@ export function useMobileDiviceEvent({
   handleThumbnailClick,
   currentIndex,
 }: UseMobileDiviceEventProps) {
-  const isMobile = useIsMobileDevice()
+  const isMobile = useIsMobileDeviceWithMemo()
   const isMouseDown = useRef(false)
   const touchXRef = useRef({
     prev: 0,

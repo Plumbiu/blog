@@ -13,7 +13,7 @@ import {
 import styles from './Dropdown.module.css'
 import { createPortal } from 'react-dom'
 import { cn } from '@/lib/client'
-import useMounted from './useMounted'
+import useMounted from '../../hooks/useMounted'
 
 type TriggerMode = 'click' | 'hover'
 
