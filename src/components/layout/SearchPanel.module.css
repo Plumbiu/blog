@@ -1,16 +1,15 @@
 .wrap {
+  --h: 64px;
   --w: 520px;
   --distance: 12px;
   --radius: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   position: relative;
   top: 50%;
   transform: translateY(-50%);
   border-radius: var(--radius);
   overflow: hidden;
   width: var(--w);
+  background-color: var(--bg-card);
   margin: 0 auto;
 }
 
@@ -24,10 +23,8 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 12px;
-  border-radius: var(--radius) var(--radius) 0 0;
-  overflow: hidden;
-  background-color: var(--bg-card);
+  height: var(--h);
+  padding: 0 12px;
 
   & svg {
     font-size: var(--text-2xl);
@@ -37,6 +34,7 @@
 .ipt {
   appearance: none;
   color: var(--text-1);
+  height: auto;
   width: 100%;
   outline: none;
   border: none;
@@ -47,14 +45,12 @@
   max-height: 50vh;
   overflow-y: scroll;
   padding: 12px 0;
-  border-radius: 0 0 var(--radius) var(--radius);
-  background-color: var(--bg-card);
 }
 
 .list {
   display: block;
   cursor: pointer;
-  padding: 10px 12px;
+  padding: 8px 12px;
   margin: 0 8px;
   transition: background-color 0.15s;
   border-radius: var(--radius);
@@ -93,7 +89,7 @@
   font-size: var(--text-sm);
   background-color: var(--c-indigo-soft);
   color: var(--c-indigo-1);
-  padding: 2px 4px;
+  padding: 2px 6px;
   border-radius: 4px;
 }
 

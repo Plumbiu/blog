@@ -44,13 +44,12 @@ export default async function RootLayout({
           sizes="32x32"
           type="image/x-icon"
         />
+        <script src={resolveBasePath('assets/theme.js')} />
       </head>
       <body className={robot.className}>
-        <script src={resolveBasePath('assets/theme.js')} />
         <OverlayScrollbar />
         <Header />
         <Banner />
-        <script src={resolveBasePath('assets/banner.js')} />
         <div className="main_layout">
           <SideBar />
           <div className="main_children">{children}</div>
