@@ -9,7 +9,6 @@
   position: fixed;
   display: flex;
   z-index: 999;
-  transform: translateY(8px);
   flex-direction: column;
   transition: opacity 0.2s;
   box-shadow: var(--shadow-selector);

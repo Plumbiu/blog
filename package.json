@@ -47,7 +47,7 @@
     "three": "catalog:three",
     "unified": "^11.0.5",
     "unist-util-visit": "^5.0.0",
-    "zustand": "5.0.4"
+    "zustand": "5.0.5"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
@@ -62,7 +62,7 @@
     "@types/react-dom": "catalog:react",
     "@types/three": "catalog:three",
     "@types/unist": "^3.0.3",
-    "@vitejs/plugin-react": "^4.4.1",
+    "@vitejs/plugin-react": "4.5.0",
     "@vitest/coverage-v8": "catalog:test",
     "@vitest/web-worker": "catalog:test",
     "autoprefixer": "^10.4.21",

@@ -85,7 +85,9 @@ const Dropdown = memo(
       const wrapRect = wrapRectRef.current
       const panelRect = panelRectRef.current
       const panelWidth = panelRect.width
+      const panelHeight = panelRect.height
       const viewW = window.innerWidth
+      const viewH = window.innerHeight
 
       let x = wrapRect.left + wrapRect.width / 2 - panelWidth / 2
       if (x <= 0) {
@@ -93,8 +95,14 @@ const Dropdown = memo(
       } else if (x >= viewW - panelWidth) {
         x = viewW - panelWidth - 12
       }
-      panelDom.style.left = x + 'px'
-      panelDom.style.top = wrapRect.bottom + (offset?.y || 0) + 'px'
+      let transformY = 8
+      let y = wrapRect.bottom
+      if (y >= viewH - panelHeight - transformY) {
+        y = wrapRect.top - panelHeight
+        transformY = 0
+      }
+      panelDom.style.left = x + (offset?.x ?? 0) + 'px'
+      panelDom.style.top = y + (offset?.y || 0) + transformY + 'px'
       setPanelVisible(true)
     }, [])
 
