@@ -1,12 +1,13 @@
 'use client'
 
-import { forwardRef, type HTMLAttributes } from 'react'
+import { forwardRef } from 'react'
 import type { JSX } from 'react/jsx-runtime'
 import styles from './Modal.module.css'
 import { cn } from '@/lib/client'
 
-interface ModalProps extends HTMLAttributes<HTMLDivElement> {
+interface ModalProps {
   children: JSX.Element | undefined
+  [key: string]: any
 }
 
 const Modal = forwardRef<HTMLDivElement, ModalProps>(

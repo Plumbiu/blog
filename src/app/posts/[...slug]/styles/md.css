@@ -19,7 +19,7 @@
     overflow-x: hidden;
   }
 
-  &>div + div {
+  &>div+div {
     margin-top: 16px;
   }
 
@@ -108,11 +108,13 @@
 
 
         & .code-extend-text {
+          user-select: none;
           visibility: hidden;
         }
       }
 
       &>summary {
+        user-select: none;
         background-color: var(--bg-md-collapse);
         padding: 10px 0;
         margin-left: -16px;
