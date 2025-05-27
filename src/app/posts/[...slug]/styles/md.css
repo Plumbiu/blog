@@ -74,11 +74,9 @@
 
   /* Code */
   code {
-    display: inline-block;
-    line-height: 1;
     font-size: var(--text-sm);
     font-weight: 500;
-    padding: 4px 6px;
+    padding: 3px 6px;
     border-radius: 4px;
     color: var(--c-indigo-1);
     background-color: var(--c-indigo-soft);

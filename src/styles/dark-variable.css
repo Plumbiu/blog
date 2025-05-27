@@ -27,6 +27,7 @@ html[data-theme='dark'] {
   --c-indigo-3: #013570;
   --c-indigo-2: #0059ce;
   --c-indigo-1: #4b89e6;
+  --c-indigo-1-darker: #4b89e6c7;
   --c-green-soft: rgba(16, 185, 129, 0.16);
   --c-green-3: #298459;
   --c-green-2: #30a46c;

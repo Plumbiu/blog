@@ -20,6 +20,8 @@ const sum = (...args: number[]) => args.reduce((prev, curr) => prev + curr, 0)
 
 # 非纯函数
 
+[`wiki`](f)
+
 如果一个函数从外界“**隐式**”获取数据，那么这个函数就不是纯函数，例如 `compare` 函数依赖了外部变量：
 
 ```ts
