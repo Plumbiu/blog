@@ -1,5 +1,5 @@
 import { findAndReplace } from 'mdast-util-find-and-replace'
-import type { RemarkPlugin } from '../constant'
+import { HTMLTextComponentKey, type RemarkPlugin } from '../constant'
 import type { AbbrType } from '~/markdown/config/abbr'
 import abbrMap from '~/markdown/config/abbr'
 import { visit } from 'unist-util-visit'
@@ -35,7 +35,7 @@ const remarkAbbrPlugin: RemarkPlugin<[AbbrType]> = (customAbbr) => {
             hProperties: {
               label: label,
               title: data,
-              __root: true,
+              [HTMLTextComponentKey]: 'Tooltip',
             },
           },
         }

@@ -56,3 +56,5 @@ export const handleIconMap = buildHandlerFunction<Record<string, string>>(
   IconMapKey,
   JSON.parse,
 )
+// use for markdown html parser(raw text)
+export const HTMLTextComponentKey = '__cmp'

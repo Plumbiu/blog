@@ -1,9 +1,10 @@
 import { visit } from 'unist-util-visit'
-import type { RemarkPlugin } from '../constant'
+import { HTMLTextComponentKey, type RemarkPlugin } from '../constant'
 import { makeProperties } from '../utils'
 import { handleHTMLParserCodeKey, HTMLParserName } from './html-parser-utils'
 import { markComponent } from './utils'
 import { parseTsx } from '~/markdown/utils/tsx-parser'
+import { isString } from '@/lib/types'
 
 const remarkHtmlParser: RemarkPlugin = () => {
   return (tree) => {
@@ -14,10 +15,10 @@ const remarkHtmlParser: RemarkPlugin = () => {
         return ${value}
       }`
       const props = node.data!.hProperties!
-      if (props.__root && parent) {
+      if (isString(props[HTMLTextComponentKey]) && parent) {
         // @ts-ignore
         parent.type = 'root'
-        markComponent(node, 'Tooltip')
+        markComponent(node, props[HTMLTextComponentKey])
       } else {
         const code = parseTsx(componentBody)
         markComponent(node, HTMLParserName)
