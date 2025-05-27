@@ -10,20 +10,19 @@ import {
   useRef,
   useState,
 } from 'react'
-import styles from './Dropdown.module.css'
+import styles from './Tooltip.module.css'
 import { createPortal } from 'react-dom'
 import { cn } from '@/lib/client'
 import useMounted from '../../hooks/useMounted'
 
 type TriggerMode = 'click' | 'hover'
 
-export interface DropdownProps {
+export interface TooltipProps {
   children: ReactNode
   mode?: TriggerMode
   label: ReactNode
   className?: string
   panelClassName?: string
-  labelClassName?: string
   tagName?: 'div' | 'span'
   offset?: {
     y?: number
@@ -31,7 +30,7 @@ export interface DropdownProps {
   }
 }
 
-const Dropdown = memo(
+const Tooltip = memo(
   ({
     children,
     offset,
@@ -39,9 +38,8 @@ const Dropdown = memo(
     label,
     tagName = 'div',
     panelClassName,
-    labelClassName,
     mode = 'click',
-  }: DropdownProps) => {
+  }: TooltipProps) => {
     const warpRef = useRef<HTMLDivElement>(null)
     const panelRef = useRef<HTMLDivElement>(null)
     const [panelVisible, setPanelVisible] = useState(false)
@@ -118,21 +116,22 @@ const Dropdown = memo(
       }
     }, [])
 
-    const Tag = tagName
+    const TagName = tagName
     const triggerProps: HTMLAttributes<HTMLDivElement> = {}
 
     if (mode === 'click') {
       triggerProps.onClick = show
     } else if (mode === 'hover') {
       triggerProps.onMouseEnter = show
-      triggerProps.onMouseLeave = hide
+      triggerProps.onMouseLeave = (e) => {
+        console.log(e.target, e.clientX, e.clientY)
+        hide()
+      }
     }
 
     return (
-      <Tag ref={warpRef} className={cn(styles.wrap, className)}>
-        <Tag {...triggerProps} className={cn(labelClassName)}>
-          {label}
-        </Tag>
+      <TagName ref={warpRef} {...triggerProps} className={cn(className)}>
+        {label}
         {mounted &&
           createPortal(
             <div
@@ -145,9 +144,9 @@ const Dropdown = memo(
             </div>,
             document.body,
           )}
-      </Tag>
+      </TagName>
     )
   },
 )
 
-export default Dropdown
+export default Tooltip

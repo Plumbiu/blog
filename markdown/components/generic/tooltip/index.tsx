@@ -1,22 +1,22 @@
-import Dropdown from '@/components/function/Dropdown'
+import TooltipComponent from '@/components/function/Tooltip'
 import styles from './index.module.css'
 
 const Tooltip = (props: any) => {
   const label = props.label
   const title = props.title
   return (
-    <Dropdown
+    <TooltipComponent
       tagName="span"
       label={label}
       panelClassName={styles.panel}
-      labelClassName={styles.label}
+      className={styles.label}
       mode="hover"
       offset={{
         y: -4,
       }}
     >
       <span className={styles.title}>{title}</span>
-    </Dropdown>
+    </TooltipComponent>
   )
 }
 

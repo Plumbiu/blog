@@ -1,14 +1,14 @@
 'use client'
 
 import { type ReactNode, useMemo } from 'react'
-import Dropdown, { type DropdownProps } from '../function/Dropdown'
+import Tooltip, { type TooltipProps } from '../function/Tooltip'
 
 interface SelectorValueItem {
   value: string
   label: ReactNode
 }
 
-interface SelectorProps extends Omit<DropdownProps, 'children'> {
+interface SelectorProps extends Omit<TooltipProps, 'children'> {
   items: SelectorValueItem[]
 }
 
@@ -18,9 +18,9 @@ function Selector({ items, label, offset, className }: SelectorProps) {
   }, [items])
 
   return (
-    <Dropdown label={label} offset={offset} className={className}>
+    <Tooltip label={label} offset={offset} className={className}>
       {node}
-    </Dropdown>
+    </Tooltip>
   )
 }
 

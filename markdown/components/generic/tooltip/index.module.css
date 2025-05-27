@@ -3,10 +3,11 @@
 }
 
 .panel {
-  padding: 6px 12px !important;
+  padding: 4px 12px !important;
 }
 
 .label {
   cursor: help;
-  border-bottom: 1px dashed var(--divider);
+  text-decoration: underline dotted var(--text-4);
+  text-underline-offset: 4px;
 }
