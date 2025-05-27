@@ -9,8 +9,6 @@ variable: { var_text: 'var_text' }
 abbr: { WWW: 'What When Why' }
 ---
 
-WWW fdasfasd
-
 本博客 Markdown 拓展基于 [remark]() 和 [rehype]() 生态构建。
 
 # Markdown 中使用 React 组件
