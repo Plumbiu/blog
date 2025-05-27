@@ -21,26 +21,34 @@ const remarkAbbrPlugin: RemarkPlugin<[AbbrType]> = (customAbbr) => {
         }
       }
     })
-    findAndReplace(tree, [
-      new RegExp(Object.keys(map).join('|'), 'g'),
-      (label) => {
-        const data = map[label]
-        if (data == null) {
-          return false
-        }
-        return {
-          type: 'html',
-          value: '<Tooltip  />',
-          data: {
-            hProperties: {
-              label: label,
-              title: data,
-              [HTMLTextComponentKey]: 'Tooltip',
+    findAndReplace(
+      tree,
+      [
+        new RegExp(Object.keys(map).join('|'), 'g'),
+        (label) => {
+          const data = map[label]
+          if (data == null) {
+            return false
+          }
+          return {
+            type: 'html',
+            value: '<Tooltip  />',
+            data: {
+              hProperties: {
+                label: label,
+                title: data,
+                [HTMLTextComponentKey]: 'Tooltip',
+              },
             },
-          },
-        }
+          }
+        },
+      ],
+      {
+        ignore(node) {
+          return node.type === 'heading' || node.type === 'link'
+        },
       },
-    ])
+    )
   }
 }
 export default remarkAbbrPlugin

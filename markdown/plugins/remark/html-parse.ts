@@ -16,8 +16,6 @@ const remarkHtmlParser: RemarkPlugin = () => {
       }`
       const props = node.data!.hProperties!
       if (isString(props[HTMLTextComponentKey]) && parent) {
-        // @ts-ignore
-        parent.type = 'root'
         markComponent(node, props[HTMLTextComponentKey])
       } else {
         const code = parseTsx(componentBody)

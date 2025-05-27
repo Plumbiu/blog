@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.plumbiu.top/</id>
     <title>Plumbiuの博客</title>
-    <updated>2025-05-27T05:52:10.801Z</updated>
+    <updated>2025-05-27T09:49:30.867Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Plumbiu</name>
@@ -19,7 +19,7 @@
         <id>posts/note/custom-component</id>
         <link href="https://blog.plumbiu.top/posts/note/custom-component/"/>
         <updated>2025-04-27T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[本博客 Markdown 拓展基于 remark 和 rehype 生态构建。]]></summary>
+        <summary type="html"><![CDATA[WWW fdasfasd]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[纯函数、非纯函数和函数副作用]]></title>
