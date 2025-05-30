@@ -123,10 +123,7 @@ const Tooltip = memo(
       triggerProps.onClick = show
     } else if (mode === 'hover') {
       triggerProps.onMouseEnter = show
-      triggerProps.onMouseLeave = (e) => {
-        console.log(e.target, e.clientX, e.clientY)
-        hide()
-      }
+      triggerProps.onMouseLeave = hide
     }
 
     return (
